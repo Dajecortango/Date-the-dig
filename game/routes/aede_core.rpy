@@ -31,8 +31,8 @@ default flag_segreto_svelo = False
 default flag_accetta_lavoro = False
 default flag_giuramento = False
 
-## Stub — sostituito dal prologo vero in aede_atto1.rpy (Task 4).
+## Stub — sostituito da cap4 vero in aede_atto2.rpy (Task 5).
 
-label prologo:
-    "([player_name] arriva a Rocca Tempesta. Prologo in costruzione.)"
+label cap4:
+    "(Capitolo 4 in costruzione.)"
     return
