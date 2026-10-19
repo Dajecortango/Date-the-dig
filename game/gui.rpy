@@ -26,7 +26,7 @@ define config.check_conflicting_properties = True
 
 ## An accent color used throughout the interface to label and highlight
 ## text.
-define gui.accent_color = "#00b8c3"
+define gui.accent_color = "#d4af37"
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = "#888888"
@@ -47,11 +47,11 @@ define gui.insensitive_color = "#55555580"
 
 ## Colors used for the portions of bars that are not filled in. These are
 ## not used directly, but are used when re-generating bar image files.
-define gui.muted_color = "#004e49"
-define gui.hover_muted_color = "#006e75"
+define gui.muted_color = "#4e3d00"
+define gui.hover_muted_color = "#756100"
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = "#ffffff"
+define gui.text_color = "#f0e6d2"
 define gui.interface_text_color = "#ffffff"
 
 
@@ -88,8 +88,8 @@ define gui.title_text_size = gui.scale(50)
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.png"
-define gui.game_menu_background = "gui/game_menu.png"
+define gui.main_menu_background = "#0d0d0d"
+define gui.game_menu_background = "#0d0d0d"
 
 
 ## Dialogue ####################################################################
