@@ -31,8 +31,8 @@ default flag_segreto_svelo = False
 default flag_accetta_lavoro = False
 default flag_giuramento = False
 
-## Stub — sostituito da cap4 vero in aede_atto2.rpy (Task 5).
+## Stub — sostituito dal climax vero in aede_finali.rpy (Task 6).
 
-label cap4:
-    "(Capitolo 4 in costruzione.)"
+label climax:
+    "(Climax in costruzione.)"
     return
