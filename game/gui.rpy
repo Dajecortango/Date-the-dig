@@ -26,33 +26,33 @@ define config.check_conflicting_properties = True
 
 ## An accent color used throughout the interface to label and highlight
 ## text.
-define gui.accent_color = "#ff5c8d"
+define gui.accent_color = "#d4af37"
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = "#b48a9a"
+define gui.idle_color = "#a89468"
 
 ## The small color is used for small text, which needs to be
 ## brighter/darker to achieve the same effect.
-define gui.idle_small_color = "#c9a8b4"
+define gui.idle_small_color = "#8f7f5c"
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = "#ff8fb0"
+define gui.hover_color = "#f0c75e"
 
 ## The color used for a text button when it is selected but not focused.
 ## A button is selected if it is the current screen or preference value.
-define gui.selected_color = "#bb3b56"
+define gui.selected_color = "#f5e3b8"
 
 ## The color used for a text button when it cannot be selected.
-define gui.insensitive_color = "#c9a8b480"
+define gui.insensitive_color = "#6b5f4a80"
 
 ## Colors used for the portions of bars that are not filled in. These are
 ## not used directly, but are used when re-generating bar image files.
-define gui.muted_color = "#f7c9d8"
-define gui.hover_muted_color = "#ffb0c8"
+define gui.muted_color = "#4a1010"
+define gui.hover_muted_color = "#7a1f1f"
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = "#4a3b44"
-define gui.interface_text_color = "#4a3b44"
+define gui.text_color = "#f0e6d2"
+define gui.interface_text_color = "#f0e6d2"
 
 
 ## Fonts and Font Sizes ########################################################
@@ -212,8 +212,8 @@ define gui.choice_button_borders = Borders(gui.scale(100), gui.scale(5), gui.sca
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = "#7a4f5e"
-define gui.choice_button_text_hover_color = "#bb3b56"
+define gui.choice_button_text_idle_color = "#d9c9a8"
+define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = "#444444"
 
 
