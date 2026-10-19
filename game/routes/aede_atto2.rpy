@@ -91,7 +91,7 @@ label cap4:
 
             "L'ha detto così piano che potrei averlo sognato."
 
-    jump cap5
+    jump interludio3
 
 ################################################################################
 ## CAPITOLO 5 — La Fiaccolata della Calà

@@ -99,7 +99,7 @@ label prologo:
 
     "Dovrei avere paura. Ce l'ho. Ma sotto la paura c'è altro: quella piega all'angolo della bocca non me la tolgo dalla testa."
 
-    jump cap1
+    jump interludio1
 
 ################################################################################
 ## CAPITOLO 1 — L'incarico
@@ -302,7 +302,7 @@ label cap2:
 
             "Me lo riferisce con la faccia di chi dice: sei un idiota, fratellino."
 
-    jump cap3
+    jump interludio2
 
 ################################################################################
 ## CAPITOLO 3 — L'intrigo dei Rami
