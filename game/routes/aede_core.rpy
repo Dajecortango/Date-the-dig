@@ -30,9 +30,3 @@ default aede_affinity = 0
 default flag_segreto_svelo = False
 default flag_accetta_lavoro = False
 default flag_giuramento = False
-
-## Stub — sostituito dal climax vero in aede_finali.rpy (Task 6).
-
-label climax:
-    "(Climax in costruzione.)"
-    return
