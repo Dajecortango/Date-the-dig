@@ -20,6 +20,11 @@ label climax:
 
     glauco "E tu, in una stagione, hai fatto ciò che vent'anni di disciplina avevano impedito: la lama ha cominciato a chiedersi perché taglia."
 
+    if flag_aede_rivelato:
+        glauco "E non solo. Sul ballatoio della tua tenuta, mia figlia ha pronunciato il nome che il giuramento le ha sepolto in gola. L'ho sentito io, Figlio di Briseide. Sai cosa comanda la legge della Famiglia per chi rivela la vita di prima — e per chi ascolta."
+
+        glauco "Quella parola, stanotte, pesa sulla bilancia insieme a te. Ricordalo, quando vedrai la lama."
+
     show glauco minaccioso
 
     glauco "Una lama che si fa domande è una lama rotta. E le lame rotte, nel mio Ceppo, si rifondono."
@@ -59,9 +64,9 @@ label climax:
     # Routing finali — ordine vincolante: good -> bad_glauco -> bad_aede -> neutral.
     if aede_affinity >= 12 and flag_giuramento and flag_accetta_lavoro:
         jump good_end
-    elif not flag_segreto_svelo and aede_affinity < 6:
+    elif not flag_segreto_svelo and aede_affinity < 3:
         jump bad_end_glauco
-    elif aede_affinity < 6:
+    elif aede_affinity < 3:
         jump bad_end_aede
     else:
         jump neutral_end
@@ -145,6 +150,9 @@ label neutral_end:
     scene bg nero with fade
 
     "Mi sveglio su un carro di lane, fuori dalle mura, con un bernoccolo epico e una lettera cucita nel mantello."
+
+    if flag_aede_rivelato:
+        "{i}«Mio padre sa del ballatoio. Del nome. È il vero motivo per cui non puoi più restare a Zefiro: finché respiri lontano, il mio giuramento rotto resta una parola nella neve. Se torni, diventa una prova.{/i}"
 
     "{i}«Per mio padre sei morto congelato nel fosso, e il fosso non si controlla. È il migliore dei miei lavori: il primo bersaglio sbagliato di proposito.{/i}"
 

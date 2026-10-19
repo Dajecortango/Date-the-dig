@@ -254,6 +254,7 @@ label cap6:
 
         "Ascoltarla fino in fondo":
             $ flag_giuramento = False
+            $ flag_aede_rivelato = True
             $ aede_affinity += 1
 
             "Non la fermo. Mi racconta: un villaggio dei Collifreddi, un clan in faida, una bambina veloce di mano che rubava per mangiare. Un nome che non scriverò mai, da nessuna parte."

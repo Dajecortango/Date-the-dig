@@ -30,3 +30,4 @@ default aede_affinity = 0
 default flag_segreto_svelo = False
 default flag_accetta_lavoro = False
 default flag_giuramento = False
+default flag_aede_rivelato = False

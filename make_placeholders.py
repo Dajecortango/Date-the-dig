@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "game", "images")
 
-SPRITE_SIZE = (700, 1400)
+SPRITE_SIZE = (600, 1050)
 BG_SIZE = (1920, 1080)
 
 SPRITES = {

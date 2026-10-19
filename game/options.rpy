@@ -43,6 +43,11 @@ define config.save_directory = "DateTheDig-1760000000"
 ## Build #######################################################################
 
 init python:
+    build.classify('tools/**', None)
+    build.classify('docs/**', None)
+    build.classify('tests/**', None)
+    build.classify('*.ps1', None)
+    build.classify('*.py', None)
     build.classify('**~', None)
     build.classify('**.bak', None)
     build.classify('**/.**', None)

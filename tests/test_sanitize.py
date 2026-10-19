@@ -31,7 +31,20 @@ CASI = [
 ]
 
 
+def check_wiring():
+    """script.rpy deve davvero passare l'input per sanitize_name."""
+    script = os.path.join(HERE, "..", "game", "script.rpy")
+    with open(script, encoding="utf-8") as f:
+        src = f.read()
+    i_input = src.find("renpy.input")
+    i_san = src.find("player_name = sanitize_name(player_name)")
+    assert i_input != -1 and i_san != -1 and i_san > i_input, \
+        "sanitize_name non collegata all'input in script.rpy"
+    print("PASS: sanitize_name collegata in script.rpy")
+
+
 def main():
+    check_wiring()
     fn = load_sanitize()
     failures = 0
     for raw, atteso in CASI:

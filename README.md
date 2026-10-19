@@ -17,7 +17,7 @@ Visual novel (dating sim) in italiano ambientata nel mondo di Yr, nel Nord della
 
 Le immagini vivono in `game/images/`. Per sostituire un placeholder basta sovrascrivere il PNG con lo stesso identico nome file.
 
-**Sprite personaggi** — PNG con sfondo trasparente, 700×1400 px, personaggio a figura intera centrato:
+**Sprite personaggi** — PNG con sfondo trasparente, 600×1050 px (il gioco gira a 1920×1080; sprite ancorati in basso, quindi altezza massima 1080 px o la testa esce dallo schermo), personaggio centrato, inquadratura dalle ginocchia in su:
 
 | File | Contenuto |
 |---|---|

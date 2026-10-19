@@ -38,7 +38,8 @@ SCENARI = [
     ("run sdolcinata (cap6 ascoltarla blocca il good)", 9, True, True, False, "neutral_end"),
     ("run ostile, segreto tradito", -11, False, False, False, "bad_end_glauco"),
     ("run fredda, segreto mantenuto", -4, True, False, True, "bad_end_aede"),
-    ("affinita' alta ma lavoro rifiutato", 13, True, False, True, "neutral_end"),
+    ("affinita' max con lavoro rifiutato (8 = massimo reale)", 8, True, False, True, "neutral_end"),
+    ("run mai ostile, affinita' bassa ma non negativa", 4, True, True, False, "neutral_end"),
 ]
 
 
