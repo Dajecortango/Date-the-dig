@@ -10,17 +10,19 @@ Prompt base stile (da premettere a ogni prompt):
 Descrizione fissa di Aede da riusare identica in ogni sua espressione:
 `young woman, long wavy flame-red hair, grey-green eyes, black dress with red brocade overvest, gold buttons and chains, blue gem necklace`
 
-| File | Prompt (aggiungi dopo la descrizione fissa) |
-|---|---|
-| `aede neutra.png` | `guarded neutral expression, arms crossed, knees-up view, transparent background` |
-| `aede irritata.png` | `annoyed scowl, narrowed eyes, tsundere pout, transparent background` |
-| `aede sorpresa.png` | `wide eyes, parted lips, caught off guard, transparent background` |
-| `aede imbarazzata.png` | `blushing, looking away, flustered, hand near face, transparent background` |
-| `aede sorriso.png` | `rare genuine soft smile, warm eyes, transparent background` |
-| `aede furia.png` | `cold fury, drawn dagger in hand, predatory stance, transparent background` |
-| `glauco neutro.png` | `stern older man, grey hair, immaculate dark noble coat with golden lion brooch, unreadable polite expression, transparent background` |
-| `glauco minaccioso.png` | `same stern older man, grey hair, dark noble coat, golden lion brooch, icy menacing stare, slight forward lean, transparent background` |
-| `briseide neutra.png` | `warm matronly woman, 60s, braided grey-auburn hair, gold-trimmed earth-tone robes, kind but shrewd eyes, transparent background` |
+| File | Espressione nel dettaglio | Prompt (aggiungi dopo la descrizione fissa) |
+|---|---|---|
+| `aede neutra.png` | Faccia di guardia, default: viso rilassato ma occhi vigili, sopracciglia dritte, bocca chiusa neutra, mento alto, sguardo che valuta. | `guarded neutral expression, straight brows, closed mouth, chin slightly raised, appraising gaze, arms crossed, knees-up view, transparent background` |
+| `aede irritata.png` | Tsundere: sopracciglia aggrottate, occhi a fessura, broncio marcato, guance gonfie di stizza, testa appena ruotata via. | `annoyed scowl, furrowed brows, narrowed eyes, pronounced tsundere pout, puffed cheeks, head turned slightly away, transparent background` |
+| `aede sorpresa.png` | Occhi spalancati con iridi piccole, sopracciglia alzate, labbra socchiuse, spalle irrigidite di colpo. | `wide eyes with small irises, raised brows, parted lips, stiffened shoulders, caught off guard, transparent background` |
+| `aede imbarazzata.png` | Rossore su guance E orecchie, sguardo deviato in basso a lato, sopracciglia in finta rabbia, mano nei capelli o sulla collana, bocca piccola contratta. | `deep blush on cheeks and ears, looking down and away, flustered angry-but-not-angry brows, hand touching her hair or necklace, small tense mouth, transparent background` |
+| `aede sorriso.png` | Il sorriso raro: morbido, asimmetrico, appena accennato, occhi caldi piegati, niente denti. Deve sembrare rubato. | `rare soft asymmetric smile, barely there, warm crinkled eyes, no teeth, candid stolen expression, transparent background` |
+| `aede furia.png` | Furia fredda: viso di pietra, occhi fissi da predatore, sopracciglia basse, bocca serrata dritta, pugnale sguainato tenuto basso, peso sull'avampiede. | `cold stone-faced fury, unblinking predator stare, low brows, tight straight mouth, drawn dagger held low, forward-leaning stance, transparent background` |
+| `glauco neutro.png` | Cortesia glaciale: postura perfetta, mani dietro la schiena, mezzo sorriso di forma che non arriva agli occhi, sguardo che pesa. | `stern older man, grey hair, immaculate dark noble coat with golden lion brooch, perfect posture, hands behind back, polite half-smile not reaching the cold weighing eyes, transparent background` |
+| `glauco minaccioso.png` | Quasi identico al neutro, ma: testa inclinata avanti di pochi gradi, occhi fissi senza battito, sorriso sparito, ombre più dure. La minaccia è nella differenza minima. | `same stern older man, grey hair, dark noble coat, golden lion brooch, head tilted slightly forward, unblinking icy stare, no smile, harder shadows on face, quiet menace, transparent background` |
+| `briseide neutra.png` | Calore materno + astuzia: sorriso morbido, occhi furbi che sanno già tutto, tazza o mestolo in mano, postura comoda. | `warm matronly woman, 60s, braided grey-auburn hair, gold-trimmed earth-tone robes, soft smile, shrewd knowing eyes, holding a cup, relaxed posture, transparent background` |
+
+Dove compaiono: `neutra` ovunque (default); `irritata` provocazioni/schermaglie; `sorpresa` Svelo, Athlion, ballatoio; `imbarazzata` Calà e ballatoio; `sorriso` fine Athlion, vicolo, good end; `furia` Svelo, magazzino, bad end; `glauco neutro` consegna/cena/good end; `glauco minaccioso` avvertimento, climax, bad end.
 
 Consiglio coerenza: genera prima `aede neutra`, poi usa img2img / reference sulla stessa per le altre 5 espressioni (stessa posa, cambia solo il volto).
 
