@@ -1,0 +1,9 @@
+tools/
+game/saves/
+game/cache/
+*.rpyc
+*.bak
+.superpowers/
+log.txt
+traceback.txt
+errors.txt
