@@ -114,7 +114,7 @@ define gui.dialogue_text_line_spacing = 3
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
 define gui.name_xpos = gui.scale(150)
-define gui.name_ypos = gui.scale(0)
+define gui.name_ypos = gui.scale(-12)
 
 ## The horizontal alignment of the character's name. This can be 0.0 for
 ## left-aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -127,7 +127,7 @@ define gui.namebox_height = None
 
 ## The borders of the box containing the character's name, in left, top,
 ## right, bottom order.
-define gui.namebox_borders = Borders(5, 5, 5, 5)
+define gui.namebox_borders = Borders(34, 9, 34, 7)
 
 ## If True, the background of the namebox will be tiled, if False, the background
 ## of the namebox will be scaled.
@@ -158,7 +158,7 @@ define gui.button_width = None
 define gui.button_height = None
 
 ## The borders on each side of the button, in left, top, right, bottom order.
-define gui.button_borders = Borders(gui.scale(4), gui.scale(4), gui.scale(4), gui.scale(4))
+define gui.button_borders = Borders(gui.scale(14), gui.scale(6), gui.scale(14), gui.scale(6))
 
 ## If True, the background image will be tiled. If False, the background image
 ## will be linearly scaled.
@@ -187,17 +187,24 @@ define gui.button_text_xalign = 0.0
 ##
 ## These customizations are used by the default interface:
 
-define gui.radio_button_borders = Borders(gui.scale(18), gui.scale(4), gui.scale(4), gui.scale(4))
+define gui.radio_button_borders = Borders(gui.scale(52), gui.scale(6), gui.scale(16), gui.scale(6))
+define gui.radio_button_height = gui.scale(46)
 
-define gui.check_button_borders = Borders(gui.scale(18), gui.scale(4), gui.scale(4), gui.scale(4))
+define gui.check_button_borders = Borders(gui.scale(52), gui.scale(6), gui.scale(16), gui.scale(6))
+define gui.check_button_height = gui.scale(46)
 
 define gui.confirm_button_text_xalign = 0.5
 
-define gui.page_button_borders = Borders(gui.scale(10), gui.scale(4), gui.scale(10), gui.scale(4))
+## Nastri dei pulsanti Si/No e della navigazione (code a rondine ai lati).
+define gui.confirm_button_borders = Borders(gui.scale(44), gui.scale(10), gui.scale(44), gui.scale(8))
+define gui.confirm_button_width = gui.scale(220)
+define gui.navigation_button_borders = Borders(gui.scale(30), gui.scale(8), gui.scale(30), gui.scale(4))
 
-define gui.quick_button_borders = Borders(gui.scale(10), gui.scale(4), gui.scale(10), gui.scale(0))
+define gui.page_button_borders = Borders(gui.scale(14), gui.scale(5), gui.scale(14), gui.scale(5))
+
+define gui.quick_button_borders = Borders(gui.scale(16), gui.scale(5), gui.scale(16), gui.scale(3))
 define gui.quick_button_text_size = gui.scale(14)
-define gui.quick_button_text_idle_color = gui.idle_small_color
+define gui.quick_button_text_idle_color = gui.idle_color
 define gui.quick_button_text_selected_color = gui.accent_color
 
 ## You can also add your own customizations, by adding properly-named variables.
@@ -214,7 +221,7 @@ define gui.quick_button_text_selected_color = gui.accent_color
 define gui.choice_button_width = gui.scale(1185)
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
-define gui.choice_button_borders = Borders(gui.scale(100), gui.scale(5), gui.scale(100), gui.scale(5))
+define gui.choice_button_borders = Borders(gui.scale(100), gui.scale(16), gui.scale(100), gui.scale(16))
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
@@ -231,7 +238,7 @@ define gui.choice_button_text_insensitive_color = "#444444"
 
 ## The save slot button.
 define gui.slot_button_width = gui.scale(276)
-define gui.slot_button_height = gui.scale(206)
+define gui.slot_button_height = gui.scale(234)
 define gui.slot_button_borders = Borders(gui.scale(10), gui.scale(10), gui.scale(10), gui.scale(10))
 define gui.slot_button_text_size = gui.scale(14)
 define gui.slot_button_text_xalign = 0.5
@@ -267,7 +274,7 @@ define gui.notify_ypos = gui.scale(45)
 define gui.choice_spacing = gui.scale(22)
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = gui.scale(12)
+define gui.navigation_spacing = gui.scale(8)
 
 ## Voci del menu principale/di gioco più grandi.
 define gui.navigation_button_text_size = gui.scale(30)
@@ -297,13 +304,13 @@ define gui.main_menu_text_xalign = 1.0
 define gui.frame_borders = Borders(gui.scale(4), gui.scale(4), gui.scale(4), gui.scale(4))
 
 ## The frame that is used as part of the confirm screen.
-define gui.confirm_frame_borders = Borders(gui.scale(40), gui.scale(40), gui.scale(40), gui.scale(40))
+define gui.confirm_frame_borders = Borders(gui.scale(60), gui.scale(60), gui.scale(60), gui.scale(60))
 
 ## The frame that is used as part of the skip screen.
-define gui.skip_frame_borders = Borders(gui.scale(16), gui.scale(5), gui.scale(50), gui.scale(5))
+define gui.skip_frame_borders = Borders(gui.scale(26), gui.scale(14), gui.scale(50), gui.scale(14))
 
 ## The frame that is used as part of the notify screen.
-define gui.notify_frame_borders = Borders(gui.scale(16), gui.scale(5), gui.scale(40), gui.scale(5))
+define gui.notify_frame_borders = Borders(gui.scale(26), gui.scale(14), gui.scale(40), gui.scale(14))
 
 ## Should frame backgrounds be tiled?
 define gui.frame_tile = False
@@ -319,8 +326,8 @@ define gui.frame_tile = False
 ## The height of horizontal bars, scrollbars, and sliders. The width of
 ## vertical bars, scrollbars, and sliders.
 define gui.bar_size = gui.scale(25)
-define gui.scrollbar_size = gui.scale(12)
-define gui.slider_size = gui.scale(25)
+define gui.scrollbar_size = gui.scale(18)
+define gui.slider_size = gui.scale(36)
 
 ## True if bar images should be tiled. False if they should be linearly scaled.
 define gui.bar_tile = False
@@ -329,13 +336,13 @@ define gui.slider_tile = False
 
 ## Horizontal borders.
 define gui.bar_borders = Borders(gui.scale(4), gui.scale(4), gui.scale(4), gui.scale(4))
-define gui.scrollbar_borders = Borders(gui.scale(4), gui.scale(4), gui.scale(4), gui.scale(4))
-define gui.slider_borders = Borders(gui.scale(4), gui.scale(4), gui.scale(4), gui.scale(4))
+define gui.scrollbar_borders = Borders(gui.scale(9), gui.scale(9), gui.scale(9), gui.scale(9))
+define gui.slider_borders = Borders(gui.scale(18), gui.scale(0), gui.scale(18), gui.scale(0))
 
 ## Vertical borders.
 define gui.vbar_borders = Borders(gui.scale(4), gui.scale(4), gui.scale(4), gui.scale(4))
-define gui.vscrollbar_borders = Borders(gui.scale(4), gui.scale(4), gui.scale(4), gui.scale(4))
-define gui.vslider_borders = Borders(gui.scale(4), gui.scale(4), gui.scale(4), gui.scale(4))
+define gui.vscrollbar_borders = Borders(gui.scale(9), gui.scale(9), gui.scale(9), gui.scale(9))
+define gui.vslider_borders = Borders(gui.scale(0), gui.scale(18), gui.scale(0), gui.scale(18))
 
 ## What to do with unscrollable scrollbars in the game menu. "hide" hides them, while
 ## None shows them.

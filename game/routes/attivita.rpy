@@ -1,7 +1,7 @@
 # Attività quotidiane del semestre — scene territorio una-tantum (pool).
 # Regola: ±1 affinità a scena, mai ripetibili coi punti (anti-grind).
 
-define icaro = Character("Icaro", color="#7fa06a")
+define icaro = Character("Icaro", color="#7fa06a", image="icaro")
 
 init python:
     ATTIVITA["mattina"].extend([

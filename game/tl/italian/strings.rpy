@@ -52,6 +52,12 @@ translate italian strings:
     old "Quit"
     new "Lascia la Rocca"
 
+    old "Yes"
+    new "Sì"
+
+    old "No"
+    new "No"
+
     old "Return"
     new "Torna sui tuoi passi"
 

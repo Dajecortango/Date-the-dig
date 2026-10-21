@@ -26,6 +26,9 @@ label prologo:
 
     "Un errore."
 
+    if ngp_attivo():
+        "Uno che ho la strana sensazione di aver già fatto. Il corridoio, le lanterne basse, perfino l'arazzo: tutto al suo posto, come una pagina già letta."
+
     show aede furia with vpunch
 
     "Una mano mi aggancia la spalla, il mondo ruota, la schiena sbatte contro l'arazzo. Freddo sotto il mento: una lama."
@@ -98,6 +101,9 @@ label prologo:
     "Sparisce tra le maschere come se il corridoio l'avesse inghiottita."
 
     "Dovrei avere paura. Ce l'ho. Ma sotto la paura c'è altro: quella piega all'angolo della bocca non me la tolgo dalla testa."
+
+    # Nuova partita+: da qui in poi il prologo si puo' saltare.
+    $ persistent.prologo_visto = True
 
     return
 

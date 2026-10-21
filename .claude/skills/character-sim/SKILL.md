@@ -7,6 +7,7 @@ description: Use when adding or changing calendar events, invitations, affinity 
 
 ## Architettura (file)
 - Motore puro: `game/calendario_logic.py` (testato in `tests/test_calendario.py`)
+- Logica pura delle route: `game/routing_logic.py` (`rl`: soglie del cuore e dei good end, routing di tutti i finali, coppia poly, passi falsi di Druso; testato in `tests/test_routing.py`) e `game/relazioni_logic.py` (`rlz`: scadenza inviti di Ofelia, doni, eventi casuali). I .rpy chiamano queste funzioni (`jump expression cal_finale`): soglie e condizioni si cambiano SOLO lì.
 - Loop + registry: `game/calendario.rpy` (`EVENTI`, `ATTIVITA`, screen `pianificazione`)
 - Eventi per route: `game/routes/*_eventi.rpy`, `*_route.rpy`; snodi comuni: `snodi.rpy`
 - Profili personaggi: `docs/profili/*.md`; spec: `docs/superpowers/specs/2026-10-20-malandrini-calendario-design.md`
@@ -32,7 +33,7 @@ description: Use when adding or changing calendar events, invitations, affinity 
 - Scene territorio: ±1, una-tantum. Eventi: +1/+2.
 - Massimo teorico = somma dei massimi `+=` per label (il test `check_economia_punti` in tests/test_calendario.py la calcola con `_max_punti`).
 - OGNI soglia nuova va verificata contro quel massimo, e il test aggiornato. Aggiungere +2 a una route cambia la distanza dal good end: ribilancia le soglie nello stesso edit, non "da controllare poi".
-- Soglie attuali scelta del cuore (snodi.rpy): aede 8, caino 10, druso 9F/11M, icaro 7F/6M, ofelia 8. Good end: aede>=12(+flag), caino>=12(+2 cond), druso>=13+coraggio, icaro>=10+coperto, ofelia>=11 + mancati<=1. I numeri veri sono nei file e in `check_economia_punti`: in dubbio, fidati del test.
+- Soglie attuali scelta del cuore (`rl.cuore_soglie`): aede 8, caino 10, druso 9F/11M, icaro 7F/6M, ofelia 8. Good end (alzati di 1 per il dono preferito, `game/economia.rpy`): aede>=13(+flag), caino>=13(+2 cond), druso>=16+coraggio, icaro>=13+coperto, ofelia>=12 + mancati<=1 (tutte in `rl.GOOD` e nelle `rl.finale_*`). I doni hanno un label per personaggio (`dono_<char>`, un `+= 1` ciascuno) così `_max_punti` li conta. I numeri veri sono nei file e in `check_economia_punti`: in dubbio, fidati del test.
 
 ## Lucchetti e congelamento
 - Ogni route ha UN lucchetto meccanicamente diverso (Aede: prova a metà; Caino: trappola d'ingresso; Druso: passi falsi se uomo; Icaro: smascherarlo/gelosia; Ofelia: inviti a scadenza, `"scade": True`, hook `cal_inviti_ignorati_hooks`). Un personaggio nuovo richiede un lucchetto nuovo, non un clone.

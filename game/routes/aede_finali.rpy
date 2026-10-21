@@ -52,13 +52,13 @@ label climax:
     menu:
         "La neve cade. Lei aspetta. Tutto quello che siamo stati si decide adesso."
 
-        "Parlarle, un'ultima volta":
+        "Parlarle, un'ultima volta" (peso=True):
             pc "Qualunque cosa accada adesso, Aede: rifarei ogni gradino della Calà."
 
-        "Restare in silenzio e guardarla negli occhi":
+        "Restare in silenzio e guardarla negli occhi" (peso=True):
             "Non dico niente. Le parole, con lei, sono sempre state la moneta sbagliata. La guardo e basta, come al fondo della scala."
 
-        "Tendere la mano, aperta":
+        "Tendere la mano, aperta" (peso=True):
             "Tendo la mano. Aperta, vuota, ferma nella neve. La stessa che le ho offerto sulla Calà."
 
     if route_seconda == "aede":
@@ -66,15 +66,11 @@ label climax:
         ofelia "Non guardarmi così, sorella. Anch'io so camminare nella neve senza lasciare impronte. Me l'hai insegnato tu."
         jump ofelia_poly_aede_routing
 
-    # Routing finali — ordine vincolante: good -> bad_glauco -> bad_aede -> neutral.
-    if aede_affinity >= 12 and flag_giuramento and flag_accetta_lavoro:
-        jump good_end
-    elif not flag_segreto_svelo and aede_affinity < 3:
-        jump bad_end_glauco
-    elif aede_affinity < 3:
-        jump bad_end_aede
-    else:
-        jump neutral_end
+    # Routing finali (rl.finale_aede) — ordine vincolante:
+    # good_end -> bad_end_glauco -> bad_end_aede -> neutral_end.
+    $ cal_finale = rl.finale_aede(aede_affinity, flag_giuramento,
+                                  flag_accetta_lavoro, flag_segreto_svelo)
+    jump expression cal_finale
 
 ################################################################################
 ## GOOD END — La terza via
@@ -136,6 +132,8 @@ label good_end:
 
     scene bg nero with fade
 
+    $ sblocca_finale("good_end")
+    with lampo_oro
     centered "{cps=20}{size=+10}TEMPESTA D'AMORE{/size}\n\nAede ha scelto il suo bersaglio.\nPer sempre.{/cps}"
 
     return
@@ -177,6 +175,7 @@ label neutral_end:
 
     scene bg nero with fade
 
+    $ sblocca_finale("neutral_end")
     centered "{cps=20}{size=+10}FINE{/size}\n\nNon tutti i debiti si saldano col sangue.\nAlcuni si saldano con l'assenza.{/cps}"
 
     return
@@ -207,6 +206,7 @@ label bad_end_aede:
 
     "Chissà se qualcuno, laggiù, racconterà la mia: la storia di chi amò la lama, e la lama saldò il conto."
 
+    $ sblocca_finale("bad_end_aede")
     centered "{cps=20}{size=+10}FINE{/size}\n\nIl Nord non perdona.\nLei meno di tutti.{/cps}"
 
     return
@@ -241,6 +241,7 @@ label bad_end_glauco:
 
     "E a Drakengrad, nella sala del Leone, c'è un posto anche per le storie finite male. Il Nord le preferisce: insegnano meglio."
 
+    $ sblocca_finale("bad_end_glauco")
     centered "{cps=20}{size=+10}FINE{/size}\n\n«Chi minaccia me, parla con lui.\nE nessuno parla con lui due volte.»{/cps}"
 
     return

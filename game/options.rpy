@@ -20,8 +20,7 @@ define config.has_voice = False
 
 define config.enter_transition = dissolve
 define config.exit_transition = dissolve
-define config.after_load_transition = None
-define config.end_game_transition = None
+## after_load / end_game / intra: in regia.rpy (usano lo stacco a tema).
 
 ## Varie #######################################################################
 

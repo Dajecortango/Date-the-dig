@@ -32,7 +32,7 @@ init python:
 
 ## Personaggi #################################################################
 
-define aede = Character("Aede", color="#c0392b")
+define aede = Character("Aede", color="#c0392b", image="aede")
 define glauco = Character("Glauco Severo", color="#6b6b6b")
 define briseide = Character("Briseide Ippodamia", color="#b8860b")
 define pc = Character("[player_name]", color="#f0e6d2")

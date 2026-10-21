@@ -60,20 +60,27 @@ style vscrollbar:
     base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
     thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
 
+## Slider: binario d'oro inciso, smalto rosso a sinistra del cursore
+## (una losanga di rubino), scanalatura vuota a destra.
 style slider:
     ysize gui.slider_size
-    base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
+    left_bar Frame("gui/slider/horizontal_[prefix_]pieno.png", gui.slider_borders, tile=gui.slider_tile)
+    right_bar Frame("gui/slider/horizontal_[prefix_]vuoto.png", gui.slider_borders, tile=gui.slider_tile)
     thumb "gui/slider/horizontal_[prefix_]thumb.png"
+    thumb_offset 18
 
 style vslider:
     xsize gui.slider_size
-    base_bar Frame("gui/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
+    top_bar Frame("gui/slider/vertical_[prefix_]vuoto.png", gui.vslider_borders, tile=gui.slider_tile)
+    bottom_bar Frame("gui/slider/vertical_[prefix_]pieno.png", gui.vslider_borders, tile=gui.slider_tile)
     thumb "gui/slider/vertical_[prefix_]thumb.png"
+    thumb_offset 18
 
 
+## Cornice miniata: gli ornamenti d'angolo stanno nei 60 px di bordo.
 style frame:
     padding gui.frame_borders.padding
-    background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
+    background Frame("gui/frame.png", 60, 60, tile=gui.frame_tile)
 
 
 
@@ -111,6 +118,7 @@ init python:
         "Icaro": "#7fa06a", "Glauco Severo": "#6b6b6b",
         "Briseide Ippodamia": "#b8860b", "Vanna": "#8fbc8f",
         "Corrado": "#87a7c7", "Ofelia": "#7d3c98",
+        "Lenora": "#a8a8c0", "Pandora": "#c98fa0",
     }
 
     def char_color(who):
@@ -139,7 +147,9 @@ screen say(who, what):
     ## If there's a side image, display it above the text. Do not display
     ## on the phone variant - there's no room.
     if not renpy.variant("small"):
-        add SideImage() xalign 0.0 yalign 1.0
+        # Ritratto di chi parla (image side <char>, feedback.rpy): sul bordo
+        # destro del box, a cavallo della cornice; la namebox resta libera.
+        add SideImage() xpos 1880 xanchor 1.0 ypos (1080 - gui.textbox_height + 52) yanchor 1.0
 
 
 ## Make the namebox available for styling through the Character object.
@@ -177,6 +187,7 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    outlines [(2, "#140a08", 0, 0)]
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
@@ -235,11 +246,46 @@ screen choice(items):
 
     vbox:
         for i in items:
-            # Scelta gia' presa in una run precedente: oro spento.
-            if getattr(i, "chosen", False):
-                textbutton i.caption action i.action text_color "#9c8a5e"
-            else:
-                textbutton i.caption action i.action
+            # peso=True (argomento di menu): scelta che pesa, diamante rosso.
+            $ peso = i.kwargs.get("peso", False)
+            button:
+                action i.action
+                at (scelta_hover_fermo if mm_movimento_ridotto() else scelta_hover)
+                hbox:
+                    xalign 0.5
+                    spacing 16
+                    if peso:
+                        text "◆" style "choice_peso" yalign 0.5
+                    # Scelta gia' presa (in questa o in una partita
+                    # precedente): fogliolina d'oro e testo d'oro spento.
+                    # Dice solo "gia' percorsa", mai dove porta.
+                    if getattr(i, "chosen", False):
+                        add "gui/scelta_vista.png" yalign 0.5 alpha 0.7
+                        text i.caption style "choice_button_text" idle_color "#b3a173" hover_color "#f5e3b8" yalign 0.5
+                        null width 24
+                    else:
+                        text i.caption style "choice_button_text" yalign 0.5
+                    if peso:
+                        text "◆" style "choice_peso" yalign 0.5
+
+
+# Hover delle scelte: allargamento lieve (lo sfondo hover ha il bordo oro).
+transform scelta_hover_fermo:
+    xalign 0.5
+
+transform scelta_hover:
+    xalign 0.5
+    transform_anchor True
+    on idle:
+        ease 0.12 zoom 1.0
+    on hover:
+        ease 0.12 zoom 1.04
+
+style choice_peso is default:
+    font gui.text_font
+    size 20
+    color "#c0392b"
+    outlines [(1, "#d4af37", 0, 0)]
 
 
 style choice_vbox is vbox
@@ -265,27 +311,98 @@ style choice_button_text is default:
 ## The quick menu is displayed in-game to provide easy access to the
 ## out-of-game menus.
 
+## Sigilli di ceralacca (make_gui.py: sigilli_quick) appuntati sul bordo
+## superiore del box, a destra dello stemma; nel pianificatore scendono
+## nell'angolo in basso a destra, sotto il pannello. Tooltip in italiano
+## sopra il sigillo sotto il mouse.
+
+init python:
+    # (immagine in gui/quick/, tooltip)
+    QUICK_SIGILLI = [
+        ("indietro", _("Indietro")),
+        ("memorie", _("Memorie")),
+        ("salta", _("Salta")),
+        ("auto", _("Avanzamento automatico")),
+        ("salva", _("Salva")),
+        ("qsalva", _("Salvataggio rapido")),
+        ("qcarica", _("Caricamento rapido")),
+        ("costumanze", _("Costumanze")),
+    ]
+    QUICK_LATO = 60
+    QUICK_SPAZIO = 10
+
+    def quick_azione(chiave):
+        return {
+            "indietro": Rollback(),
+            "memorie": ShowMenu("history"),
+            "salta": Skip(),
+            "auto": Preference("auto-forward", "toggle"),
+            "salva": ShowMenu("save"),
+            "qsalva": QuickSave(),
+            "qcarica": QuickLoad(),
+            "costumanze": ShowMenu("preferences"),
+        }[chiave]
+
+    def quick_posizione():
+        """(x, y) dell'angolo in alto a sinistra della fila, o None se il
+        menu rapido va nascosto. Nascosto solo sul cartello di data (dura un
+        attimo e prosegue da solo) e sull'input del nome (salvare o tornare
+        indietro a meta' digitazione non ha senso, e la fila coprirebbe il
+        campo). Ovunque altro (dialoghi, scelte, transizioni, centered, nvl)
+        resta alla posizione del dialogo, cosi' non salta tra una battuta e
+        una pausa; nel pianificatore scende in basso."""
+        if renpy.get_screen("cartello_data") or renpy.get_screen("input"):
+            return None
+        if renpy.get_screen("pianificazione"):
+            return (1530 - quick_larghezza() // 2, 996)
+        return (1130, 1080 - gui.textbox_height + 14 - QUICK_LATO // 2)
+
+    def quick_larghezza():
+        n = len(QUICK_SIGILLI)
+        return n * QUICK_LATO + (n - 1) * QUICK_SPAZIO
+
 screen quick_menu():
 
     ## Ensure this appears on top of other screens.
     zorder 100
 
-    if quick_menu:
+    $ qpos = quick_posizione() if quick_menu else None
+
+    if qpos is not None:
 
         hbox:
             style_prefix "quick"
+            pos qpos
+            spacing QUICK_SPAZIO
 
-            xalign 0.5
-            yalign 1.0
+            for chiave, suggerimento in QUICK_SIGILLI:
+                imagebutton:
+                    auto "gui/quick/" + chiave + "_%s.png"
+                    action quick_azione(chiave)
+                    alternate (Skip(fast=True, confirm=True) if chiave == "salta" else None)
+                    tooltip suggerimento
+                    at (quick_fermo if mm_movimento_ridotto() else quick_hover)
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+        $ qtt = GetTooltip("quick_menu")
+        $ qtesti = [s for _c, s in QUICK_SIGILLI]
+        if qtt in qtesti:
+            $ qidx = qtesti.index(qtt)
+            frame:
+                style "quick_tooltip"
+                xpos qpos[0] + qidx * (QUICK_LATO + QUICK_SPAZIO) + QUICK_LATO // 2
+                ypos qpos[1] - 6
+                text qtt style "quick_tooltip_text"
+
+
+## Hover dei sigilli: si sollevano appena.
+transform quick_fermo:
+    yoffset 0
+
+transform quick_hover:
+    on idle, selected_idle, insensitive:
+        ease 0.12 yoffset 0
+    on hover, selected_hover:
+        ease 0.12 yoffset -4
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -295,6 +412,19 @@ init python:
 
 default quick_menu = True
 
+style quick_tooltip is empty
+style quick_tooltip:
+    xanchor 0.5
+    yanchor 1.0
+    background Frame("gui/frame_piccolo.png", 26, 26)
+    padding (24, 10, 24, 10)
+
+style quick_tooltip_text is gui_text
+style quick_tooltip_text:
+    size 21
+    color "#f5e3b8"
+    outlines [(2, "#140a08", 0, 0)]
+
 style quick_button is default
 style quick_button_text is button_text
 
@@ -303,6 +433,7 @@ style quick_button:
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
+    outlines [(2, "#140a08", 0, 0)]
 
 
 ################################################################################
@@ -320,8 +451,9 @@ screen navigation():
         style_prefix "navigation"
 
         # Centrata: nel pannello del menu principale (x 60-560) o nella
-        # colonna del menu di gioco (larga 280).
-        xpos (310 if main_menu else 140)
+        # colonna del menu di gioco (larga 360 + margine: il nastro di
+        # "Riprendi la Cronaca" ci sta).
+        xpos (310 if main_menu else 200)
         xanchor 0.5
         yalign 0.5
 
@@ -329,17 +461,28 @@ screen navigation():
 
         if main_menu:
 
+            ## Continua: carica il salvataggio più recente (pagine, auto, quick).
+            $ ultimo_slot = renpy.newest_slot(r"\d+-\d+|auto-|quick-")
+            if ultimo_slot is not None:
+                textbutton _("Continua") action FileLoad(ultimo_slot, slot=True, confirm=False)
+
             textbutton _("Start") action Start()
 
         else:
 
             textbutton _("Diario") action ShowMenu("diario")
 
+            textbutton _("Cronache") action ShowMenu("cronache")
+
             textbutton _("History") action ShowMenu("history")
 
             textbutton _("Save") action ShowMenu("save")
 
         textbutton _("Load") action ShowMenu("load")
+
+        if main_menu:
+
+            textbutton _("Finali") action ShowMenu("galleria_finali")
 
         textbutton _("Preferences") action ShowMenu("preferences")
 
@@ -376,6 +519,7 @@ style navigation_button_text:
     xalign 0.5
     text_align 0.5
     properties gui.text_properties("navigation_button")
+    outlines [(2, "#140a08", 0, 0)]
 
 
 ## Main Menu screen ############################################################
@@ -385,8 +529,13 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 ## Pattern del menu che scorre piano sotto il pannello fisso.
+## Tre copie affiancate (Tile riempirebbe solo i 1920 px offerti, lasciando
+## nero a destra quando scorre).
 image mm_pattern_anim:
-    Tile("gui/mm_pattern.png", size=(3460, 1080))
+    Composite((3460, 1080),
+        (0, 0), "gui/mm_pattern.png",
+        (1540, 0), "gui/mm_pattern.png",
+        (3080, 0), "gui/mm_pattern.png")
     subpixel True
     xoffset -1540
     linear 60.0 xoffset 0
@@ -397,12 +546,17 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add "mm_pattern_anim"
+    add mm_sfondo_pattern()
+    if not mm_movimento_ridotto():
+        add "mm_neve"
     add "gui/mm_front.png"
 
     ## This empty frame darkens the main menu.
     frame:
         style "main_menu_frame"
+
+    ## Cast cliccabile e vivo (game/menu_cast.rpy).
+    use menu_cast
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
@@ -416,8 +570,10 @@ screen main_menu():
             text "[config.name!t]":
                 style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
+        ## Versione in fondo al pannello, lontana dal primo pulsante.
+        text "[config.version]":
+            style "main_menu_version"
+            xpos 310 xanchor 0.5 ypos 968 yanchor 1.0
 
 
 style main_menu_frame is empty
@@ -471,23 +627,27 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     style_prefix "game_menu"
 
+    ## Dal menu principale: il pannello di sinistra resta (navigazione,
+    ## titolo sulla pergamena, ritorno in fondo) e il contenuto va in un
+    ## riquadro a destra, senza sovrapporsi. In gioco: layout classico.
     if main_menu:
-        add "mm_pattern_anim"
+        add mm_sfondo_pattern()
         add "gui/mm_front.png"
     else:
         add gui.game_menu_background
 
     frame:
-        style "game_menu_outer_frame"
+        style ("game_menu_outer_frame_mm" if main_menu else "game_menu_outer_frame")
 
         hbox:
 
             ## Reserve space for the navigation section.
-            frame:
-                style "game_menu_navigation_frame"
+            if not main_menu:
+                frame:
+                    style "game_menu_navigation_frame"
 
             frame:
-                style "game_menu_content_frame"
+                style ("game_menu_content_frame_mm" if main_menu else "game_menu_content_frame")
 
                 if scroll == "viewport":
 
@@ -529,11 +689,14 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     use navigation
 
     textbutton _("Return"):
-        style "return_button"
+        style ("return_button_mm" if main_menu else "return_button")
 
         action Return()
 
-    label title
+    if main_menu:
+        label title style "game_menu_label_mm" text_style "game_menu_label_mm_text"
+    else:
+        label title
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
@@ -559,13 +722,23 @@ style game_menu_outer_frame:
     background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
-    xsize gui.scale(280)
+    xsize gui.scale(360)
     yfill True
 
 style game_menu_content_frame:
     left_margin gui.scale(40)
-    right_margin gui.scale(20)
+    right_margin gui.scale(40)
     top_margin gui.scale(10)
+    xfill True
+    yfill True
+    background Frame("gui/frame.png", 60, 60)
+    padding (44, 34, 34, 34)
+
+## Dal menu principale la cornice e' gia' quella esterna (outer_frame_mm).
+style game_menu_content_frame_mm is game_menu_content_frame
+style game_menu_content_frame_mm:
+    background None
+    padding (0, 0, 0, 0)
 
 style game_menu_viewport:
     xsize gui.scale(920)
@@ -584,11 +757,48 @@ style game_menu_label_text:
     size gui.title_text_size
     color gui.accent_color
     yalign 0.5
+    outlines [(3, "#140a08", 0, 0)]
 
 style return_button:
-    xpos gui.navigation_xpos
+    xpos 200
+    xanchor 0.5
     yalign 1.0
     yoffset gui.scale(-30)
+
+## Varianti per i menu aperti dal menu principale. Il pannello di
+## mm_front.png occupa x 60-560, y 80-1000; la pergamena x 85-535, y 105-290.
+style game_menu_outer_frame_mm is empty
+style game_menu_outer_frame_mm:
+    xpos 600
+    ypos 80
+    xsize 1280
+    ysize 920
+    background Frame("gui/frame.png", 60, 60)
+    padding (20, 40, 30, 30)
+
+style game_menu_label_mm is gui_label
+style game_menu_label_mm:
+    xpos 310
+    xanchor 0.5
+    ypos 197
+    yanchor 0.5
+    xmaximum 410
+
+style game_menu_label_mm_text is gui_label_text
+style game_menu_label_mm_text:
+    size 42
+    color "#3f2d1a"
+    textalign 0.5
+    xalign 0.5
+    layout "subtitle"
+
+style return_button_mm is return_button
+style return_button_mm_text is return_button_text
+style return_button_mm:
+    xpos 310
+    xanchor 0.5
+    yalign 1.0
+    yoffset -100
 
 
 ## About screen ################################################################
@@ -695,7 +905,14 @@ screen file_slots(title):
 
                         has vbox
 
-                        add FileScreenshot(slot) xalign 0.5
+                        fixed:
+                            xysize (config.thumbnail_width, config.thumbnail_height)
+                            xalign 0.5
+                            add FileScreenshot(slot)
+                            ## Ritratto della route attiva al momento del salvataggio.
+                            $ slot_route = FileJson(slot, "route")
+                            if slot_route:
+                                add Transform(cal_portrait(slot_route), zoom=0.36) align (1.0, 1.0) offset (6, 6)
 
                         text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
                             style "slot_time_text"
@@ -775,6 +992,15 @@ style slot_button:
 style slot_button_text:
     properties gui.text_properties("slot_button")
 
+## Cornice dello slot: placca dorata, gemme negli angoli (bordi 28 px).
+style slot_button:
+    background Frame("gui/button/slot_[prefix_]background.png", 28, 28)
+
+## Il nome del salvataggio (Luna e giorno, da cal_loop) in oro.
+style slot_name_text:
+    color "#e0b75a"
+    size 17
+
 
 ## Preferences screen ##########################################################
 ##
@@ -809,8 +1035,12 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
-                ## Additional vboxes of type "radio_pref" or "check_pref" can be added here, to
-                ## add additional creator-defined preferences.
+                vbox:
+                    style_prefix "radio"
+                    xsize 340
+                    label _("Animazioni")
+                    textbutton _("Sì") action SetField(persistent, "menu_animato", True)
+                    textbutton _("No") action SetField(persistent, "menu_animato", False)
 
             null height (4 * gui.pref_spacing)
 
@@ -827,6 +1057,10 @@ screen preferences():
                     label _("Auto-Forward Time")
 
                     bar value Preference("auto-forward time")
+
+                    label "Grandezza del testo"
+
+                    bar value Preference("font size")
 
                 vbox:
 
@@ -898,7 +1132,7 @@ style pref_label_text:
     yalign 1.0
 
 style pref_vbox:
-    xsize gui.scale(225)
+    xsize gui.scale(290)
 
 style radio_vbox:
     spacing gui.pref_button_spacing

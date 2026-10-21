@@ -102,6 +102,14 @@ label caino_cap5:
 
     "Si appoggia al merlo. Sotto di noi, Zefiro brilla come un registro pieno di voci."
 
+    "Ha la neve tra i capelli e non la scuote. L'Arconte che non lascia nulla al caso, stanotte, lascia cadere la neve."
+
+    caino "Da bambino salivo qui a contare le lanterne. Ogni sera. Se il numero cambiava, volevo sapere perché."
+
+    pc "E lo scoprivi?"
+
+    caino "Sempre. Una morte, un debito, una fuga. Ogni lanterna spenta era una voce chiusa. Ho imparato a leggere la città prima delle lettere."
+
     caino "Io non ci credo, [player_name]. Ai sentimenti. Sono la moneta più falsa del Nord: tutti la spendono, nessuno la conia. Mia madre regna da prima che io nascessi, e non l'ho mai vista amare niente che non le servisse."
 
     caino "Quindi spiegami tu. Cosa vuoi da me? Tutti vogliono qualcosa. La carica, il favore, il seggio, la spada. Tu quale vuoi? Dimmelo e risparmiamo entrambi un inverno di finzioni."
@@ -281,5 +289,11 @@ label caino_cap6:
     "Caino si alza. Prende entrambe le pergamene, le piega, le infila nel farsetto."
 
     caino "Il Consiglio mi aspetta. La tua risposta — quella vera, sinistra o destra — me la darai dopo. Se dopo esisto ancora."
+
+    "Sulla soglia si ferma. Non si volta."
+
+    caino "Se domani qualcuno ti chiede di me, di' la verità. È l'unica moneta che non riescono a falsificare. Nemmeno io."
+
+    "La porta si chiude. Resto sol[fin] con il calamaio, il fuoco e due solchi sul tavolo, dove prima c'erano le pergamene."
 
     return

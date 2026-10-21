@@ -18,17 +18,19 @@ label caino_climax:
 
     "E io so — perché i registri li tengo io — che esiste una via d'uscita perfetta: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino, e il ritardo diventa colpa mia. Lo scrivano nuovo, inesperto, del Ceppo di Briseide. Il capro perfetto."
 
+    "Il Primo Arconte legge l'accusa con voce piatta, da notaio. Ogni data cade nella sala come una moneta sul tavolo."
+
+    "Lenora non guarda né l'accusatore né l'accusato. Si osserva le mani. Le dita intrecciate, immobili, come chi ha già fatto il conto e aspetta solo il totale."
+
+    "Al terzo banco a sinistra, Druso. Ha le braccia incrociate e la mascella serrata. Per una volta, niente TESCHIO."
+
     "Caino lo sa. Mi guarda. La sala intera segue il suo sguardo fino a me."
 
-    # Routing — ordine vincolante: good -> segreto -> bad -> neutral.
-    if caino_fiducia >= 12 and caino_trappole <= 1 and caino_memoria >= 2:
-        jump caino_good_end
-    elif caino_druso >= 2 and caino_fiducia < 12:
-        jump caino_secret_end
-    elif caino_fiducia < 5 or caino_trappole >= 3:
-        jump caino_bad_end
-    else:
-        jump caino_neutral_end
+    # Routing (rl.finale_caino) — ordine vincolante: caino_good_end ->
+    # caino_secret_end -> caino_bad_end -> caino_neutral_end.
+    $ cal_finale = rl.finale_caino(caino_fiducia, caino_trappole,
+                                   caino_memoria, caino_druso)
+    jump expression cal_finale
 
 ################################################################################
 ## GOOD END — La legge del cuore
@@ -66,6 +68,10 @@ label caino_good_end:
 
     caino "Tu: qui. Il registro chiude in attivo, [player_name]. Per la prima volta in vita mia, il registro chiude in attivo senza che io abbia fregato nessuno."
 
+    pc "Tua madre ti perdonerà?"
+
+    caino "Mia madre non perdona. Riclassifica. Fra un anno sarò una voce in attivo anche per lei, vedrai. Le piacciono i figli che sanno perdere al momento giusto."
+
     "Mi prende il viso tra le mani — le mani callose dello spadaccino, attente come su un filo di lama."
 
     caino "La pergamena di destra. Quella senza niente scritto. La firmo io, se tu la firmi con me. E ti avverto: quello che c'è sotto l'Arconte farebbe di tutto per te. Di tutto. È l'unico contratto che non so limitare."
@@ -84,6 +90,8 @@ label caino_good_end:
 
     scene bg nero with fade
 
+    $ sblocca_finale("caino_good_end")
+    with lampo_oro
     centered "{cps=20}{size=+10}LA LEGGE DEL CUORE{/size}\n\nIl registro chiude in attivo.\nPer sempre.{/cps}"
 
     return
@@ -105,6 +113,8 @@ label caino_secret_end:
     caino "Grazie per il silenzio, Figlio di Briseide. Il tuo conto è pari."
 
     "Pari. Un registro chiuso. Tutto qui."
+
+    "Nessuno sguardo, nessun drago al mignolo. Le mani nude, come la sera del ballo."
 
     scene bg palestra with fade
 
@@ -149,6 +159,7 @@ label caino_secret_end:
 
     scene bg nero with fade
 
+    $ sblocca_finale("caino_secret_end")
     centered "{cps=20}{size=+10}TESCHIO{/size}\n\n{i}Finale segreto{/i}\n\nIl fratello sbagliato. O forse quello giusto.{/cps}"
 
     return
@@ -168,6 +179,10 @@ label caino_bad_end:
     "Provo a parlare: il Primo Arconte mi toglie la parola. I Figli nuovi non parlano in Consiglio. Il mio nome entra nei verbali; la Virtù della Verità richiede un'ammenda; Briseide ottiene — a fatica — che sia l'esilio dalla capitale e non le Segrete Silenti."
 
     "Caino vota con la maggioranza. Ovviamente. Vince gli scontri, Caino. Tutti. Soprattutto quando è dalla parte del torto."
+
+    "Dal terzo banco, Druso si alza e se ne va prima del voto. È l'unico rumore della seduta."
+
+    "Lenora firma l'atto senza leggerlo. Le basta il nome in fondo: il mio."
 
     scene bg vicoli_zefiro with fade
 
@@ -189,6 +204,7 @@ label caino_bad_end:
 
     scene bg nero with fade
 
+    $ sblocca_finale("caino_bad_end")
     centered "{cps=20}{size=+10}LA PEDINA{/size}\n\nNel registro di Caino\nla tua riga è già archiviata.{/cps}"
 
     return
@@ -217,6 +233,8 @@ label caino_neutral_end:
 
     "Caino la prende, la guarda un lungo istante. Poi la tiene — non la straccia. La ripone nel cassetto, sotto chiave."
 
+    "La chiave non la mette al collo, come le altre. La lascia sul tavolo, tra noi due, dove chiunque potrebbe prenderla."
+
     caino "Archiviata. Non cancellata. C'è differenza, nei registri: le cose archiviate, un giorno, si possono riaprire."
 
     pc "E chi decide quando?"
@@ -227,6 +245,7 @@ label caino_neutral_end:
 
     scene bg nero with fade
 
+    $ sblocca_finale("caino_neutral_end")
     centered "{cps=20}{size=+10}SOCI{/size}\n\nLa pergamena di destra resta nel cassetto.\nArchiviata. Non cancellata.{/cps}"
 
     return

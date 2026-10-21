@@ -12,6 +12,8 @@ label ofelia_fiaccolata:
     "Ofelia mi aspetta al primo gradino, in nero. Come se la festa fosse un lutto e lei l'unica ad averlo capito."
     ofelia "Ogni anno tre pretendenti mi chiedono la mano su questa scala. Ogni anno scendo da sola. È una tradizione anche questa."
     ofelia "Quest'anno cambio. Non montarti la testa: mi annoio in fretta."
+    "Tre gradini più su, un pretendente in mantello verde stringe un mazzo di gigli. Ci guarda, guarda i gigli, e li lascia cadere nel fiume."
+    ofelia "Il terzo dell'anno scorso. Ha aspettato dodici mesi per sentirsi dire di no. Glielo risparmio: è un regalo, a modo mio."
     menu:
         "Mi tende la mano col palmo in giù. Una regina che aspetta un baciamano, non una ragazza che aspetta una stretta."
         "Prenderle la mano e scendere senza dire niente":
@@ -30,6 +32,8 @@ label ofelia_fiaccolata:
             ofelia "Vuoi garanzie? Va' da un notaio. Le leggende non rilasciano ricevute."
             "Scende da sola i primi cento gradini. Al centunesimo mi aspetta, senza voltarsi."
     "In fondo alla Calà il fiume si porta via i riflessi delle lanterne. Ofelia li guarda andare come si guardano i pretendenti: senza rimpianti."
+    ofelia "Domani mio padre saprà. Aede lo saprà prima di lui, e Ascadeo ci avrà già scommesso sopra."
+    ofelia "Lasciali parlare. Chi parla non sta guardando la mano che stringi."
     return
 
 
@@ -44,6 +48,8 @@ label ofelia_fiaccolata_caino:
     ofelia "Hai controllato una leggenda, Caino. Su cosa, sui registri delle nonne?"
     show caino sarcastico with qdiss
     caino "Sui registri dei matrimoni annullati. Sono molto più istruttivi."
+    ofelia "E cosa dicono, i tuoi annullati?"
+    caino "Che nessuno è mai sceso in tre. Quindi nessuno ha mai fallito in tre. Statisticamente, siamo imbattuti."
     show ofelia compiaciuta with qdiss
     ofelia "Decidi tu, [player_name]. Una mano a testa e tu nel mezzo. Lo vedranno tutti, sia chiaro."
     menu:
@@ -62,6 +68,7 @@ label ofelia_fiaccolata_caino:
             show ofelia rabbia with qdiss
             ofelia "A turno. Come in fila dal barbiere. Il secondo turno l'ho appena regalato al fiume."
             "Scendiamo in tre, separati da un palmo d'aria che tutta Zefiro sa misurare."
+    "In fondo alla scala, Ofelia si ferma e guarda indietro, verso la cima. Le lanterne tremano. Da lassù, qualcuno del Ceppo ha visto tutto."
     return
 
 
@@ -73,6 +80,8 @@ label ofelia_fiaccolata_aede:
     "La Calà accesa da cima a fondo. Ofelia mi intercetta al primo gradino, dove le lanterne fanno più ombra che luce."
     ofelia "Mia sorella è di turno, stanotte. Sorveglia la festa dall'alto della scala. Dice."
     ofelia "Sa che sei qui. Non sa di me. Sarebbe un peccato rovinarle la serata, no?"
+    ofelia "Da bambine scendevamo la Calà insieme, io e lei, mano nella mano. Per gioco. Lei la stringeva così forte che mi lasciava i segni."
+    "Lo dice senza nostalgia. Come si cita una vecchia ferita, per far vedere che è chiusa."
     show ofelia compiaciuta with qdiss
     ofelia "Una scala, due sorelle, una mano sola. Fa' i conti, [player_name]. Io li ho già fatti."
     menu:
@@ -115,6 +124,9 @@ label ofelia_climax:
     show glauco minaccioso with qdiss
     glauco "Stanotte firmi la rinuncia e torni da tua madre con un dono del Ceppo. Oppure non firmi, e il dono te lo porto io."
     "La pergamena è sul tavolo, la penna accanto, già intinta. Glauco non lascia mai niente a metà."
+    glauco "Ascadeo ha scommesso su di te, sai? Contro sua sorella. Lo farò frustare per questo, o forse lo farò ricco. Dipende da come esci di qui."
+    "Sulla parete alle sue spalle, le lame sono trentadue. Tutte affilate, tutte parallele. Glauco non si chiede mai chi le curi."
+    "Ofelia non si muove. Il silenzio è suo: lo lascia crescere finché diventa una stanza dentro la stanza."
     show ofelia compiaciuta at left with qdiss
     ofelia "Padre. Hai dimenticato una clausola."
     "Prende la pergamena e la avvicina alla candela, con la grazia con cui si porge un fazzoletto."
@@ -123,6 +135,10 @@ label ofelia_climax:
     "La carta prende fuoco. Ofelia la lascia cadere nel calice di suo padre, e il vino sfrigola."
     ofelia "Non scelgo pretendenti da un catalogo, padre. Li scelgo come tu scegli le lame: da come reggono il colpo."
     ofelia "Questo l'ha retto. I tuoi, no."
+    ofelia "Me ne hai mandati sei, padre, in sei anni. Il sonetto, il cavallo, l'uomo con l'anello. Tutti col tuo sigillo addosso, come le pecore."
+    show glauco minaccioso with qdiss
+    glauco "Erano alleanze. Tu li hai trattati come pretendenti."
+    ofelia "E tu li hai trattati come pegni. Almeno io li guardavo in faccia, quando dicevo di no."
     if route_seconda_viva() == "caino":
         ofelia "E sì, c'è un altro contraente. Lo sai già: tieni registri migliori dei suoi. Si firma in tre, o non firma nessuno."
     show glauco deluso with qdiss
@@ -132,17 +148,17 @@ label ofelia_climax:
     glauco "E tu, [figlio_t] di Briseide? Lei ha bruciato la carta. Ora dimmi cosa resta sul tavolo."
     menu:
         "Ofelia non si volta. Aspetta, le dita ferme sullo stelo del calice. Sa cosa spera; non lo dirà."
-        "Mettersi al suo fianco, senza dire niente":
+        "Mettersi al suo fianco, senza dire niente" (peso=True):
             $ ofelia_affinity += 1
             show ofelia imbarazzata at left with dissolve
             "Mi alzo e vado alla finestra. Le sfioro la mano col dorso della mia. Lei non la ritira."
             ofelia "...di nuovo niente frasi. Cominci a conoscermi. È preoccupante."
             glauco "Il silenzio. Almeno questo l'hai capito prima di me."
-        "Rispondere a Glauco a testa alta: «Resta lei. E resto io.»":
+        "Rispondere a Glauco a testa alta: «Resta lei. E resto io.»" (peso=True):
             show ofelia neutra at left with qdiss
             ofelia "Elegante. Un po' troppo coraggios[fin] per i miei gusti. Ma il tono era giusto."
             glauco "Il coraggio. Il difetto preferito di chi muore giovane. Vedremo."
-        "Prendere le sue difese: «Non decidete voi per lei.»":
+        "Prendere le sue difese: «Non decidete voi per lei.»" (peso=True):
             $ ofelia_affinity -= 1
             show ofelia rabbia at left with qdiss
             ofelia "Non mi serve un avvocato, [player_name]. La carta l'ho bruciata da sola."
@@ -151,13 +167,11 @@ label ofelia_climax:
     jump ofelia_routing
 
 label ofelia_routing:
-    # Ordine vincolante: good poly Caino -> good -> neutral.
-    if ofelia_affinity >= 11 and ofelia_mancati <= 1 and route_seconda_viva() == "caino" and caino_fiducia >= 12:
-        jump ofelia_good_caino
-    elif ofelia_affinity >= 11 and ofelia_mancati <= 1:
-        jump ofelia_good
-    else:
-        jump ofelia_neutral
+    # rl.finale_ofelia — ordine vincolante: ofelia_good_caino -> ofelia_good
+    # -> ofelia_neutral.
+    $ cal_finale = rl.finale_ofelia(ofelia_affinity, ofelia_mancati,
+                                    route_seconda_viva(), caino_fiducia)
+    jump expression cal_finale
 
 
 ################################################################################
@@ -165,25 +179,18 @@ label ofelia_routing:
 ################################################################################
 
 label ofelia_poly_aede_routing:
-    # Ordine vincolante: tempesta -> good a due -> good sola (coda amara) ->
-    # routing Aede esistente, ricopiato senza il good (gestito qui sopra).
-    if aede_sospetto >= 2:
-        jump ofelia_bad_tempesta
-    elif ofelia_affinity >= 11 and ofelia_mancati <= 1 and aede_affinity >= 12 and flag_giuramento and flag_accetta_lavoro:
-        jump ofelia_good_aede
-    elif ofelia_affinity >= 11 and ofelia_mancati <= 1:
-        jump ofelia_good
+    # rl.finale_ofelia_poly_aede — ordine vincolante: ofelia_bad_tempesta ->
+    # ofelia_good_aede -> ofelia_good (coda amara) -> routing di Aede
+    # (rl.finale_aede: good_end, bad_end_glauco, bad_end_aede, neutral_end).
+    $ cal_finale = rl.finale_ofelia_poly_aede(
+        aede_sospetto, ofelia_affinity, ofelia_mancati, aede_affinity,
+        flag_giuramento, flag_accetta_lavoro, flag_segreto_svelo)
+    if cal_finale in rl.OFELIA_POLY_AEDE:
+        jump expression cal_finale
     # Finali di Aede: Ofelia esce di scena prima (i finali usano glauco at left).
     "Ofelia mi guarda un'ultima volta, poi arretra nel bianco. La neve si richiude su di lei senza un rumore."
     hide ofelia with dissolve
-    if aede_affinity >= 12 and flag_giuramento and flag_accetta_lavoro:
-        jump good_end
-    elif not flag_segreto_svelo and aede_affinity < 3:
-        jump bad_end_glauco
-    elif aede_affinity < 3:
-        jump bad_end_aede
-    else:
-        jump neutral_end
+    jump expression cal_finale
 
 
 ################################################################################
@@ -209,7 +216,10 @@ label ofelia_good:
     show ofelia imbarazzata with dissolve
     ofelia "Niente di sdolcinato, non chiederlo. Ma domani a cena da mio padre mi siedo accanto a te."
     ofelia "Davanti a tutto il Ceppo. Per me è come scriverlo sulle mura."
+    ofelia "Ascadeo ha vinto la sua scommessa più grossa, comunque. Non dirgli niente: voglio che me lo chieda lui. Voglio vederlo pagare il disturbo."
     "Scendiamo al buio, mano nella mano. Al centesimo gradino lei ride piano, una volta sola. Non lo ammetterà mai."
+    "A metà della scala si ferma. Si toglie un guanto e me lo mette in tasca, senza spiegare. È lo stesso che faceva raccogliere ai pretendenti."
+    ofelia "Non lo lascerò cadere più. Non ce n'è bisogno."
     if route_seconda == "aede":
         scene bg esterno_neve with fade
         "Qualche notte dopo, sulle mura, vedo una sagoma col fiocco del Ceppo. Ferma nella neve, a guardare la città."
@@ -222,6 +232,8 @@ label ofelia_good:
         "Chiude il registro con un colpo secco. Le dita gli tremano appena: la prima voce del suo bilancio che non torna."
         hide caino with dissolve
     scene bg nero with fade
+    $ sblocca_finale("ofelia_good")
+    with lampo_oro
     centered "{cps=20}{size=+10}TANTO BELLA QUANTO LETALE{/size}\n\nOfelia ha preso sul serio un pretendente.\nUno solo. L'ultimo.{/cps}"
     return
 
@@ -245,8 +257,15 @@ label ofelia_good_caino:
     ofelia "La terza la violi tu per primo, Caino. Ti ho visto arrossire sulla Calà."
     show caino tenero at left with dissolve
     caino "...era il riverbero delle lanterne. Firma, [player_name]. Prima che cambi idea. O prima che la cambi lei."
+    ofelia "Aggiungi una clausola, Caino. La quarta. Chi tradisce il contratto, lo dice a me prima che agli altri due."
+    show caino neutro at left with qdiss
+    caino "E poi?"
+    ofelia "E poi niente. Lo dice a me. Il resto si vede."
     "Firmo. Ofelia firma per ultima, con un ghirigoro che occupa mezza pagina. Caino non protesta: la guarda come si guarda un bilancio in attivo."
+    "Sotto le firme, in piccolo, Caino aggiunge una data e un'ora. Come se un giorno qualcuno dovesse verificare che è successo davvero."
     scene bg nero with fade
+    $ sblocca_finale("ofelia_good_caino")
+    with lampo_oro
     centered "{cps=20}{size=+10}IL CONTRATTO A TRE{/size}\n\nTre firme, nessuna esclusiva.\nE nessuna intenzione di rescindere.{/cps}"
     return
 
@@ -273,13 +292,18 @@ label ofelia_good_aede:
     scene bg cala_notte with fade
     show aede sorriso with dissolve
     "La cena è lunga. Aede ride, una volta, quando le verso il vino. Ofelia, dall'altro lato del tavolo, non ride mai."
+    "C'è anche Ascadeo, a capotavola accanto al padre. Mi guarda, guarda le sorelle, e conta qualcosa sulle dita sotto la tovaglia."
+    "A fine cena mi passa accanto e mi sussurra una cifra. Non capisco se è una vincita o un avvertimento. Forse tutte e due."
     hide aede with dissolve
     show ofelia compiaciuta with dissolve
     "Dopo, sulla Calà spenta, Ofelia mi aspetta al primo gradino. Due minuti, non uno di più."
     ofelia "Lei ti ha alla luce. Io al buio. Non lamentarti: il buio mi dona."
     show ofelia imbarazzata with qdiss
     ofelia "Non dirglielo mai. Non per lei: per me. Non sopporterei di essere perdonata."
+    "Mi bacia una volta, sulla tempia, di fretta. Poi sale i gradini al contrario, verso la luce del Ceppo, senza voltarsi."
     scene bg nero with fade
+    $ sblocca_finale("ofelia_good_aede")
+    with lampo_oro
     centered "{cps=20}{size=+10}LE FIGLIE DI GLAUCO{/size}\n\nDue lame, un solo bersaglio.\nUna sola lo sa.{/cps}"
     return
 
@@ -302,6 +326,9 @@ label ofelia_bad_tempesta:
     aede "Credevate che la lama migliore del Nord non sapesse contare fino a due?"
     show ofelia rabbia at left with qdiss
     ofelia "Sorella. Abbassa la lama. Non è [lui_t] che vuoi."
+    aede "Hai sempre preso il nero, Ofelia. Lasciavi a me il rosso, e io ti ringraziavo. Che stupida."
+    ofelia "Non ti ho mai tolto niente che tu avessi già."
+    aede "Questa la conservo. È la più crudele che tu abbia mai detto."
     show aede furia with lampo
     aede "No. Vi voglio entrambi. E per una volta, l'ordine di mio padre e il mio coincidono."
     with vpunch
@@ -311,6 +338,7 @@ label ofelia_bad_tempesta:
     scene bg nero with lampo
     "Il Margine, dicono gli Arvali, è un fiume lento. Lo attraverso con due nomi in gola, e non so quale dire per ultimo."
     "A Zefiro, dicono, le sorelle Severo non si parlano più. Una scende la Calà da sola. L'altra non la scende più."
+    $ sblocca_finale("ofelia_bad_tempesta")
     centered "{cps=20}{size=+10}LA TEMPESTA{/size}\n\nNon si ama una figlia di Glauco di nascosto.\nNon due volte.{/cps}"
     return
 
@@ -325,11 +353,17 @@ label ofelia_neutral:
     show ofelia neutra at left with qdiss
     ofelia "Hai ragione, padre. Per una volta."
     "Mi guarda come si guarda un vestito della stagione scorsa: bello, certo. Ma la stagione è finita."
+    ofelia "Hai esitato, [player_name]. Una volta di troppo. Io non aspetto: non per crudeltà, per abitudine."
+    "Raccoglie la cenere della pergamena dal fondo del calice e la sparge sul tavolo con un dito. Un gesto da bambina annoiata."
+    glauco "Va', [figlio_t] di Briseide. Il dono del Ceppo te lo risparmio. Mia figlia ti ha già fatto il suo."
     scene bg cala_notte with fade
     "Una Luna dopo, la vedo sulla Calà con un pretendente nuovo. Un Asi alto, i capelli in ordine, le frasi pronte."
     show ofelia compiaciuta with dissolve
     "Mi passa accanto senza fermarsi. Un cenno, il minimo sindacale della cortesia."
     ofelia "Sei stat[fin] un interesse piacevole, [player_name]. Passeggero, ma piacevole. Non tutti arrivano a tanto."
+    "Il pretendente nuovo mi guarda di sbieco, cercando di capire chi sono. Lei non glielo dice. Non vale la spesa."
+    "Ai piedi della scala c'è un ragazzo che prende appunti su un libretto. Ascadeo, credo. Accanto al mio nome tira una riga."
     scene bg nero with fade
+    $ sblocca_finale("ofelia_neutral")
     centered "{cps=20}{size=+10}INTERESSE PASSEGGERO{/size}\n\nOfelia scende la Calà ogni anno.\nQuest'anno, con qualcun altro.{/cps}"
     return

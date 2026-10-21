@@ -5,6 +5,8 @@
 
 init -10 python:
     import calendario_logic as cl
+    import routing_logic as rl
+    import relazioni_logic as rlz
 
     # 6 Lune; esistono solo i giorni/slot salienti (il resto si salta).
     # Le date fisse della spec cadono su questi giorni:
@@ -53,20 +55,60 @@ init -10 python:
     # Hook chiamati con gli id degli inviti a scadenza lasciati cadere.
     cal_inviti_ignorati_hooks = []
 
-    # Riga mostrata quando il pool di un'attivita' e' esaurito.
+    # Attivita' ripetibili senza pool: id -> label giocato ogni volta.
+    ATTIVITA_RIPETIBILI = {}
+
+    # Riga mostrata quando il pool di un'attivita' senza personaggio e'
+    # esaurito (i territori usano CAL_FALLBACK_AFF).
     CAL_FALLBACK = {
-        "spada": "Un altro giorno di guardie e affondi. Le braccia ricordano anche quando la testa è altrove.",
-        "spada_p": "Un altro giorno di guardie e affondi. Le braccia ricordano anche quando la testa è altrove.",
-        "scudo": "Scudo su, scudo giù. Druso oggi tortura altri novellini: si sente da qui.",
         "studio": "Pagine, stemmi, date. La storia della Famiglia non finisce mai; la mia pazienza sì.",
         "studio_p": "Pagine, stemmi, date. La storia della Famiglia non finisce mai; la mia pazienza sì.",
         "riti": "Brodo, cucine, voci. Il Ceppo gira anche senza di me. Ma gira meglio con me.",
         "citta": "Zefiro d'ordinanza: commissioni, saluti, scorciatoie. Nessuna lama nell'ombra, oggi.",
-        "registri": "Colonne che tornano, Scudi che non mancano. Giornata rara, alla Proprietà.",
-        "taverna": "Boccali, cori stonati, nessuna rissa degna di nota. La locandiera ringrazia.",
-        "fumeria": "Fumo dolce e carte lente. Icaro vince, come il sole sorge.",
-        "corte": "Fiori d'inverno, pretendenti in fila. Oggi Ofelia non ha guardato nessuno. Nemmeno me.",
     }
+
+    # Pool esaurito nel territorio di un personaggio: la riga cambia con
+    # l'affinita' (bassa / media / alta, soglie del diario). 0 punti.
+    CAL_AFF_VAR = {"aede": "aede_affinity", "caino": "caino_fiducia",
+                   "druso": "druso_affinity", "icaro": "icaro_affinity",
+                   "ofelia": "ofelia_affinity"}
+    CAL_FALLBACK_AFF = {
+        "spada": ("aede", 4, 8, (
+            "Aede corregge la mia guardia senza guardarmi in faccia. Per lei sono ancora un bersaglio che respira.",
+            "Ripresa dopo ripresa. A un certo punto Aede smette di correggermi e comincia a contrattaccare: è una promozione.",
+            "Ci alleniamo senza parlare. Lei para, io affondo, e quando sbaglio sorride prima di ricordarsi di non farlo.")),
+        "scudo": ("druso", 5, 9, (
+            "Druso mi usa come esempio di cosa non fare. Tre volte. Con commento in rima.",
+            "Druso mi mette a terra e mi tende la mano nello stesso gesto. Poi la ritira, ovviamente. Poi me la ridà.",
+            "«Linguaccia, con me.» Druso mi sceglie come compagno di lotta davanti a tutti. Nessuno osa ridere. Quasi nessuno.")),
+        "taverna": ("druso", 5, 9, (
+            "Druso declama al tavolo grande. Io bevo a quello piccolo. Nessuno dei due finge di non saperlo.",
+            "A metà serata Druso mi dedica un verso osceno. La taverna applaude. Credo sia un onore.",
+            "Druso mi tiene il posto accanto al suo, col boccale già pieno. «Il mio pubblico migliore», dice. A voce alta.")),
+        "fumeria": ("icaro", 4, 7, (
+            "Icaro vince. Io guardo. Lui non guarda me: nel guardarmi non ci sono Scudi da guadagnare.",
+            "Icaro sposta il posacenere per farmi spazio. Un gesto minimo. Da lui, un trattato.",
+            "Icaro mi passa la pipa senza dire niente, e senza contare quanto ne prendo. Non l'ho mai visto farlo con nessuno.")),
+        "registri": ("caino", 6, 10, (
+            "Colonne, decime, inchiostro. Caino passa dietro di me senza fermarsi. Per ora sono una penna come le altre.",
+            "Caino si ferma alle mie spalle, legge tre righe, ne corregge una. Poi ci ripensa e rimette la mia.",
+            "Caino mi lascia il suo calamaio e il suo posto al tavolo grande. «I dettagli», dice. Sa che ricordo il resto.")),
+        "corte": ("ofelia", 4, 8, (
+            "La serra, i pretendenti in fila. Ofelia ne congeda tre con una frase sola. Io sono il quarto, e alla frase non arrivo nemmeno.",
+            "Ofelia mi concede un giro di serra al suo fianco. Non mi parla. Ma non congeda nessuno finché non esco.",
+            "Ofelia manda via tutti gli altri prima del tramonto. Restiamo noi, i fiori d'inverno e un silenzio che sembra scelto.")),
+    }
+    CAL_FALLBACK_AFF["spada_p"] = CAL_FALLBACK_AFF["spada"]
+
+    def cal_fallback_testo(att_id):
+        voce = CAL_FALLBACK_AFF.get(att_id)
+        if voce is None:
+            return CAL_FALLBACK.get(att_id, "La giornata passa come tante: fatica, abitudine, il Nord che non chiede niente.")
+        char, media, alta, righe = voce
+        aff = getattr(store, CAL_AFF_VAR[char], 0)
+        if char in store.congelate or aff < media:
+            return righe[0]
+        return righe[2] if aff >= alta else righe[1]
 
     def cal_vars():
         """Dict passato alle cond degli eventi."""
@@ -84,6 +126,8 @@ init -10 python:
             "route_attiva": store.route_attiva,
             "flag_accetta_lavoro": store.flag_accetta_lavoro,
             "flag_giuramento": store.flag_giuramento,
+            "scudi": store.scudi,
+            "dono_tenuto": store.dono_tenuto,
             "visti": store.eventi_visti,
         }
         return v
@@ -96,9 +140,14 @@ init -10 python:
             stato = ("oggi" if num == giorno
                      else "passato" if num < giorno else "futuro")
             fisso = any(e["tipo"] == "fisso" and e.get("luna") == luna
-                        and e.get("giorno") == num for e in EVENTI)
+                        and e.get("giorno") == num
+                        and cl._cond_ok(e, cal_vars()) for e in EVENTI)
             out.append((num, stato, fisso))
         return out
+
+    def cal_giorno_segnato(luna, giorno):
+        """Il giorno ha un evento fisso con cond vera (il ◆ di cal_strip)."""
+        return any(f for n, _s, f in cal_strip(luna, giorno) if n == giorno)
 
     def cal_slot_stati(momento):
         luna, giorno, slot = momento
@@ -134,15 +183,23 @@ init -10 python:
     def diario_eventi_contati():
         return sum(1 for e in EVENTI if e["id"] in store.eventi_visti)
 
+    def diario_borsa():
+        riga = "Borsa: %d Scudi" % store.scudi
+        if store.dono_tenuto:
+            riga += " — in borsa, %s" % DONI[store.dono_tenuto][0]
+        return riga
+
     def diario_rapporti():
         righe = []
 
-        def riga(nome, char, aff, soglie):
+        def riga(nome, char, aff, soglie, segnale=None):
             alta, media, bassa = soglie
-            if store.route_attiva == char:
-                righe.append((nome, alta[1]))
-            elif char in store.congelate:
+            if char in store.congelate:
                 righe.append((nome, "Una porta chiusa. Da dentro."))
+            elif segnale:
+                righe.append((nome, segnale))
+            elif store.route_attiva == char:
+                righe.append((nome, alta[1]))
             elif aff >= alta[0]:
                 righe.append((nome, alta[1]))
             elif aff >= media[0]:
@@ -155,7 +212,10 @@ init -10 python:
         riga("Aede", "aede", store.aede_affinity,
              ((8, "Ti tiene il posto accanto agli allenamenti. Negherebbe."),
               (4, "Ti chiama ancora «novellin[fin]», ma con meno veleno."),
-              (1, "Ti squadra come un bersaglio mobile.")))
+              (1, "Ti squadra come un bersaglio mobile.")),
+             "Ti guarda come si guarda un conto che non torna."
+             if store.route_seconda == "aede" and store.aede_sospetto >= 1
+             else None)
         if "adunanza" in store.eventi_visti:
             riga("Caino", "caino", getattr(store, "caino_fiducia", 0),
                  ((10, "Ti versa l'idromele senza chiedere."),
@@ -164,7 +224,10 @@ init -10 python:
         riga("Druso", "druso", store.druso_affinity,
              ((9, "Ti chiama «linguaccia» davanti a tutti. È affetto."),
               (5, "Ti dedica i versi peggiori. Buon segno."),
-              (1, "Ti punzecchia per capire se abbai o mordi.")))
+              (1, "Ti punzecchia per capire se abbai o mordi.")),
+             "Ti ha segnato nel registro delle cose che non perdona. Una riga sola. Per ora."
+             if store.player_gender == "m" and store.druso_passi_falsi == 1
+             else None)
         riga("Icaro", "icaro", store.icaro_affinity,
              ((7, "Ti lascia guardare le sue mani. Sa che vedi."),
               (4, "Non ti conta più tra i passivi."),
@@ -172,8 +235,33 @@ init -10 python:
         riga("Ofelia", "ofelia", store.ofelia_affinity,
              ((8, "Ti concede un ballo che rifiuta a tutti. Non lo dirà mai."),
               (4, "Ricorda il tuo nome. Lo usa come una lama."),
-              (1, "Ti conta tra i pretendenti. In fondo alla fila.")))
+              (1, "Ti conta tra i pretendenti. In fondo alla fila.")),
+             "Ha aspettato una volta. Non aspetterà la seconda."
+             if store.ofelia_mancati == 1 else None)
         return righe
+
+    # Pannello del pianificatore: nomi, righe degli inviti, ritratto grande
+    # (lo sprite del cast del menu, se c'e').
+    CAL_NOMI = {"aede": "Aede", "caino": "Caino", "ofelia": "Ofelia",
+                "druso": "Druso", "icaro": "Icaro"}
+    CAL_INVITO_DESC = {
+        "aede": "Aede non chiede mai due volte. Questa conta come una.",
+        "caino": "Caino ti vuole dove può vederti. Ha le sue ragioni.",
+        "ofelia": "Ofelia sceglie chi invitare. Oggi ha scelto te.",
+        "druso": "Druso ti cerca a voce alta. Mezza Dignitas lo sa già.",
+        "icaro": "Icaro non invita: lascia una porta socchiusa.",
+    }
+
+    # Salvataggi: la route attiva finisce nel json dello slot, cosi'
+    # file_slots mostra il ritratto (FileJson(slot, "route")).
+    def cal_json_route(d):
+        d["route"] = getattr(store, "route_attiva", None)
+
+    config.save_json_callbacks.append(cal_json_route)
+
+    def cal_ritratto_grande(char):
+        p = "gui/cast_%s.png" % char if char else None
+        return p if p and renpy.loadable(p) else cal_portrait(char)
 
     def cal_portrait(char):
         p = "gui/portrait_%s.png" % char if char else "gui/portrait_locked.png"
@@ -234,7 +322,9 @@ label cal_loop:
     if cal_ultimo_giorno != (cal_luna, cal_giorno):
         $ cal_ultimo_giorno = (cal_luna, cal_giorno)
         $ save_name = LUNE_NOMI[cal_luna] + " — giorno " + str(cal_giorno)
-        centered "{cps=30}[LUNE_NOMI[cal_luna]] — giorno [cal_giorno]{/cps}"
+        call screen cartello_data(cal_luna, cal_giorno, cal_giorno_segnato(cal_luna, cal_giorno))
+        # Voce di cronologia per il separatore di giorno (come il vecchio centered).
+        $ narrator.add_history("adv", None, save_name)
 
     $ cal_fisso_id = cal_trova_fisso_id((cal_luna, cal_giorno, cal_slot))
 
@@ -269,6 +359,10 @@ label cal_loop:
             eventi_visti.add(cal_sel_id)
         call expression cal_label_di(cal_sel_id)
         $ cal_dopo_evento(cal_sel_id)
+        # Dono in borsa: si offre alla fine dell'invito del personaggio.
+        $ cal_sel_char = cal_evento_di(cal_sel_id).get("char")
+        if cal_sel_char:
+            call dono_check(cal_sel_char)
     else:
         call cal_attivita(_return[1])
 
@@ -279,19 +373,29 @@ label cal_avanza:
     jump cal_loop
 
 label cal_attivita(att_id):
+    if att_id in ATTIVITA_RIPETIBILI:
+        call expression ATTIVITA_RIPETIBILI[att_id]
+        return
     python:
         cal_pool = None
+        cal_att_char = None
         for slot_att in ATTIVITA.values():
             for voce in slot_att:
                 if voce[0] == att_id:
                     cal_pool = voce[3]
+                    cal_att_char = voce[2]
         cal_label = cl.pesca_variante(cal_pool or [], eventi_visti)
+        # Commissioni: oltre al pool, gli eventi casuali (economia.rpy).
+        if att_id == "citta":
+            cal_label = eco_pesca_citta(cal_label)
     if cal_label is None:
-        $ cal_fallback_txt = CAL_FALLBACK.get(att_id, "La giornata passa come tante: fatica, abitudine, il Nord che non chiede niente.")
+        $ cal_fallback_txt = cal_fallback_testo(att_id)
         "[cal_fallback_txt]"
-        return
-    $ eventi_visti.add(cal_label)
-    call expression cal_label
+    else:
+        $ eventi_visti.add(cal_label)
+        call expression cal_label
+    # Paghe, giro alla taverna, dono al personaggio del territorio.
+    call eco_dopo_attivita(att_id, cal_att_char)
     return
 
 label cal_fine_semestre:
@@ -302,6 +406,67 @@ label cal_fine_semestre:
     return
 
 
+## Cartello di data ##########################################################
+# A ogni cambio di giorno: pergamena che si srotola, Luna e giorno, ◆ se il
+# giorno ha un evento fisso. Click o ~2.5 s per proseguire.
+
+transform cartello_srotola:
+    align (0.5, 0.42)
+    alpha 0.0 xzoom 0.06
+    easein 0.15 alpha 1.0
+    easeout 0.55 xzoom 1.0
+
+transform cartello_fermo:
+    align (0.5, 0.42)
+
+transform cartello_testo_fermo:
+    alpha 1.0
+
+transform cartello_testo:
+    alpha 0.0
+    pause 0.5
+    linear 0.35 alpha 1.0
+
+screen cartello_data(luna, giorno, festa=False):
+
+    modal True
+
+    # Click (o tasto) per proseguire; in skip passa subito.
+    key "dismiss" action Return()
+    button:
+        xysize (1920, 1080)
+        background None
+        action Return()
+    timer (0.05 if config.skipping else 2.5) action Return()
+
+    fixed:
+        xysize (760, 210)
+        at (cartello_fermo if mm_movimento_ridotto() else cartello_srotola)
+        add "gui/cartello_data.png"
+        vbox:
+            align (0.5, 0.5)
+            spacing 2
+            at (cartello_testo_fermo if mm_movimento_ridotto() else cartello_testo)
+            text LUNE_NOMI[luna]:
+                xalign 0.5
+                font gui.name_text_font
+                size 46
+                color "#4a1010"
+            hbox:
+                xalign 0.5
+                spacing 14
+                if festa:
+                    text "◆" size 22 color "#c0392b" yalign 0.5
+                text ("giorno " + str(giorno)):
+                    font gui.text_font
+                    size 32
+                    italic True
+                    color "#5a4426"
+                    yalign 0.5
+                if festa:
+                    text "◆" size 22 color "#c0392b" yalign 0.5
+
+
 ## Screen di pianificazione ##################################################
 
 screen pianificazione(momento, inviti, attivita):
@@ -310,13 +475,20 @@ screen pianificazione(momento, inviti, attivita):
 
     add "gui/game_menu.png"
 
+    ## Colonna delle scelte a sinistra, pannello del personaggio a destra
+    ## (si riempie all'hover via tooltip).
     vbox:
-        align (0.5, 0.5)
-        spacing 18
-        xmaximum 1100
+        xpos 120
+        yalign 0.5
+        spacing 12
+        xsize 1060
 
-        add Solid("#d4af37", xsize=320, ysize=2) xalign 0.5
-        label LUNE_NOMI[momento[0]] text_size 44 text_color gui.accent_color xalign 0.5
+        add "gui/divisore.png" xalign 0.5
+        hbox:
+            xalign 0.5
+            spacing 18
+            add ("gui/luna_%d.png" % momento[0]) yalign 0.5 zoom 0.7
+            label LUNE_NOMI[momento[0]] text_size 42 text_color gui.accent_color yalign 0.5
 
         # Striscia dei giorni salienti della Luna: ◆ = festa o evento segnato.
         hbox:
@@ -329,49 +501,197 @@ screen pianificazione(momento, inviti, attivita):
                     text ("◆" if fisso else " ") size 14 xalign 0.5 color "#f0c75e"
                     text str(num) size 26 xalign 0.5 bold (stato == "oggi") color ("#f0c75e" if stato == "oggi" else "#6b5f4a" if stato == "passato" else "#c9b78a")
 
-        # Slot del giorno: dove siamo arrivati.
+        # Slot del giorno (dove siamo arrivati) e borsa, sulla stessa riga.
         hbox:
             xalign 0.5
             spacing 24
             for nome_s, stato_s in cal_slot_stati(momento):
-                text nome_s.capitalize() size 22 italic (stato_s == "corrente") color ("#f0e6d2" if stato_s == "corrente" else "#6b5f4a" if stato_s == "passato" else "#a89468")
+                text nome_s.capitalize() size 22 italic (stato_s == "corrente") color ("#f0e6d2" if stato_s == "corrente" else "#6b5f4a" if stato_s == "passato" else "#a89468") yalign 0.5
+            text "·" size 22 color "#6b5f4a" yalign 0.5
+            text "Borsa: [scudi] Scudi" size 17 italic True color "#8f7f5c" yalign 0.5
 
-        add Solid("#d4af37", xsize=320, ysize=2) xalign 0.5
-        null height 6
+        add "gui/divisore.png" xalign 0.5
 
-        for inv in inviti:
-            button:
+        ## Inviti e attivita': fino a 7 attivita' piu' gli inviti nel
+        ## pomeriggio. Il viewport si stringe sul contenuto e scorre (barra
+        ## miniata, nascosta se non serve) solo quando non ci sta. Con piu'
+        ## di 6 voci le righe si compattano: titolo e sottotitolo su una riga.
+        $ cal_compatto = len(inviti) + len(attivita) > 6
+        viewport:
+            id "cal_lista"
+            xsize 1060
+            ymaximum 680
+            scrollbars "vertical"
+            vscrollbar_unscrollable "hide"
+            side_spacing 12
+            mousewheel True
+            draggable True
+
+            vbox:
+                spacing (8 if cal_compatto else 10)
                 xfill True
-                ypadding 8
-                background Frame("gui/button/choice_idle_background.png", 24, 12)
-                hover_background Frame("gui/button/choice_hover_background.png", 24, 12)
-                action Return(("evento", inv["id"]))
-                hbox:
-                    spacing 18
-                    add Transform(cal_portrait(inv["char"]), zoom=0.4) yalign 0.5
-                    vbox:
-                        yalign 0.5
-                        text inv["titolo"] size 26 color "#f5e3b8"
-                        if inv.get("scade"):
-                            text "Solo adesso" size 17 color "#8f7f5c"
 
-        for aid, etichetta, char, _pool in attivita:
-            button:
+                for inv in inviti:
+                    button:
+                        xfill True
+                        ypadding (5 if cal_compatto else 8)
+                        left_padding 26
+                        right_padding 26
+                        background Frame("gui/button/piano_idle_background.png", 26, 26)
+                        hover_background Frame("gui/button/piano_hover_background.png", 26, 26)
+                        tooltip ("invito", inv["char"], inv["titolo"], inv["scade"])
+                        action Return(("evento", inv["id"]))
+                        hbox:
+                            spacing 18
+                            add Transform(cal_portrait(inv["char"]), zoom=0.36) yalign 0.5
+                            if cal_compatto:
+                                hbox:
+                                    yalign 0.5
+                                    spacing 16
+                                    text inv["titolo"] size 25 color "#f5e3b8" yalign 0.5
+                                    if inv.get("scade"):
+                                        fixed:
+                                            xysize (26, 26)
+                                            yalign 0.5
+                                            add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
+                                        text "Solo adesso" size 17 color "#d9a441" yalign 0.5
+                            else:
+                                vbox:
+                                  yalign 0.5
+                                  text inv["titolo"] size 25 color "#f5e3b8"
+                                  if inv.get("scade"):
+                                      hbox:
+                                          spacing 8
+                                          fixed:
+                                              xysize (26, 26)
+                                              yalign 0.5
+                                              add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
+                                          text "Solo adesso" size 17 color "#d9a441" yalign 0.5
+
+                for aid, etichetta, char, _pool in attivita:
+                    button:
+                        xfill True
+                        yminimum (58 if cal_compatto else 0)
+                        ypadding (5 if cal_compatto else 8)
+                        left_padding 26
+                        right_padding 26
+                        background Frame("gui/button/piano_idle_background.png", 26, 26)
+                        hover_background Frame("gui/button/piano_hover_background.png", 26, 26)
+                        tooltip ("attivita", char, etichetta, aid)
+                        action Return(("att", aid))
+                        hbox:
+                            spacing 18
+                            if char:
+                                add Transform(cal_portrait(char), zoom=0.28) yalign 0.5
+                            else:
+                                null width 45
+                            if cal_compatto:
+                                hbox:
+                                    yalign 0.5
+                                    spacing 18
+                                    text etichetta size 25 color "#f0e6d2" yalign 1.0
+                                    if aid in ATTIVITA_DESC:
+                                        text ATTIVITA_DESC[aid] size 17 color "#8f7f5c" yalign 1.0 yoffset -3
+                            else:
+                                vbox:
+                                  yalign 0.5
+                                  spacing 0
+                                  text etichetta size 25 color "#f0e6d2"
+                                  if aid in ATTIVITA_DESC:
+                                      text ATTIVITA_DESC[aid] size 17 color "#8f7f5c"
+
+    ## Pannello laterale.
+    $ cal_tt = GetTooltip("pianificazione")
+    frame:
+        style "cal_pannello"
+        if cal_tt:
+            $ cal_tipo, cal_chr, cal_titolo, cal_extra = cal_tt
+            vbox:
+                at cal_pannello_in
+                spacing 12
                 xfill True
-                ypadding 8
-                background Frame("gui/button/choice_idle_background.png", 24, 12)
-                hover_background Frame("gui/button/choice_hover_background.png", 24, 12)
-                action Return(("att", aid))
-                hbox:
-                    spacing 18
-                    if char:
-                        add Transform(cal_portrait(char), zoom=0.3) yalign 0.5
-                    vbox:
-                        yalign 0.5
-                        spacing 2
-                        text etichetta size 26 color "#f0e6d2"
-                        if aid in ATTIVITA_DESC:
-                            text ATTIVITA_DESC[aid] size 17 color "#8f7f5c"
+                fixed:
+                    xysize (480, 470)
+                    if cal_chr:
+                        add cal_ritratto_grande(cal_chr):
+                            fit "contain"
+                            xysize (480, 470)
+                            align (0.5, 1.0)
+                    else:
+                        ## Attività senza personaggio: la luna del mese.
+                        add ("gui/luna_%d.png" % momento[0]) align (0.5, 0.6) zoom 1.5
+                text CAL_NOMI.get(cal_chr, "Il semestre") style "cal_pannello_nome"
+                text cal_titolo style "cal_pannello_titolo"
+                if cal_tipo == "invito":
+                    text CAL_INVITO_DESC.get(cal_chr, "Qualcuno ti cerca. Non dice perché.") style "cal_pannello_testo"
+                    if cal_extra:
+                        hbox:
+                            spacing 10
+                            fixed:
+                                xysize (30, 30)
+                                yalign 0.5
+                                add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
+                            text "Solo adesso: se scegli altro, l'invito cade." style "cal_pannello_avviso" yalign 0.5
+                else:
+                    text ATTIVITA_DESC.get(cal_extra, "") style "cal_pannello_testo"
+        else:
+            vbox:
+                align (0.5, 0.5)
+                spacing 16
+                add ("gui/luna_%d.png" % momento[0]) xalign 0.5
+                text "Come spendi questo tempo?" style "cal_pannello_titolo" xalign 0.5 textalign 0.5
+
+
+## Clessidra degli inviti a scadenza: si capovolge a intervalli.
+transform clessidra_ferma:
+    align (0.5, 0.5)
+    zoom 0.6
+
+transform clessidra_gira:
+    align (0.5, 0.5)
+    zoom 0.6
+    rotate 0
+    block:
+        pause 1.1
+        ease 0.45 rotate 180
+        pause 1.1
+        ease 0.45 rotate 360
+        rotate 0
+        repeat
+
+transform cal_pannello_in:
+    alpha 0.0 xoffset 14
+    ease 0.18 alpha 1.0 xoffset 0
+
+style cal_pannello is empty
+style cal_pannello:
+    xpos 1240
+    yalign 0.5
+    xsize 580
+    ysize 860
+    background Frame("gui/frame.png", 60, 60)
+    padding (50, 44, 50, 44)
+
+style cal_pannello_nome is text:
+    font gui.name_text_font
+    size 38
+    color gui.accent_color
+
+style cal_pannello_titolo is text:
+    font gui.text_font
+    size 27
+    color "#f5e3b8"
+
+style cal_pannello_testo is text:
+    font gui.text_font
+    size 23
+    italic True
+    color "#c9b78a"
+
+style cal_pannello_avviso is text:
+    font gui.text_font
+    size 21
+    color "#e0b75a"
 
 
 ## Diario del semestre #######################################################
@@ -399,3 +719,12 @@ screen diario():
             null height 14
 
             text "Momenti del semestre vissuti: [diario_eventi_contati()]" size 22 color "#8f7f5c"
+
+            text diario_borsa() size 22 color "#8f7f5c"
+
+            null height 10
+
+            textbutton _("Apri le Cronache"):
+                style "cronache_tab"
+                text_style "cronache_tab_text"
+                action ShowMenu("cronache")

@@ -46,14 +46,14 @@ label impegno_aede:
     aede "Quindi dimmelo adesso: ha un nome, oppure no? Rispondi male e ti butto dal ballatoio."
     menu:
         "Non è una minaccia. È una domanda con l'armatura."
-        "«Ha un nome. Il tuo.»":
+        "«Ha un nome. Il tuo.»" (peso=True):
             $ impegno_esito = True
             show aede sorriso with dissolve
             aede "...risposta accettabile. L'unica, per la cronaca."
             show aede irritata with qdiss
             aede "E sia chiaro: io non divido. Né le lame, né il posto agli allenamenti, né te. Chi ti ronza intorno, da stanotte, parla con me."
             "Non mi butta dal ballatoio. Resta, invece. E il resto del semestre, da stanotte, ha una direzione sola."
-        "«Non ancora. Non così.»":
+        "«Non ancora. Non così.»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("aede")
             show aede neutra with qdiss

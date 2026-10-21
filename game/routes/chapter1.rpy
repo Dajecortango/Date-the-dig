@@ -30,4 +30,7 @@ label capitolo1:
 
     "E questa, tra i malandrini di Rocca Tempesta, è la tua storia: sei Lune, un giorno alla volta."
 
+    # Nuova partita+: con il prologo gia' visto si puo' saltare lo Svelo.
+    call prologo_o_salto
+
     jump cal_loop

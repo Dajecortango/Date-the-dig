@@ -1,34 +1,16 @@
-"""Verifica il routing dei finali di Caino leggendo le condizioni reali.
+"""Verifica il routing dei finali di Caino (routing_logic.finale_caino, la
+stessa funzione che caino_finali.rpy usa con `jump expression`).
 
 Uso: python -I tests/test_routing_caino.py
 """
 import os
-import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FINALI = os.path.join(HERE, "..", "game", "routes", "caino_finali.rpy")
+sys.path.insert(0, os.path.join(HERE, "..", "game"))
 
-
-def load_branches():
-    with open(FINALI, encoding="utf-8") as f:
-        src = f.read()
-    block = src.split("# Routing")[1]
-    branches = []
-    pat = re.compile(r"(?:if|elif)\s+(.+?):\s*\n\s*jump\s+(\w+)|else:\s*\n\s*jump\s+(\w+)")
-    for m in pat.finditer(block):
-        if m.group(3):
-            branches.append(("True", m.group(3)))
-            break
-        branches.append((m.group(1), m.group(2)))
-    return branches
-
-
-def route(branches, **vars):
-    for cond, dest in branches:
-        if eval(cond, {}, vars):  # condizioni nostre dal .rpy
-            return dest
-    raise AssertionError("nessun ramo preso")
+import routing_logic as rl  # noqa: E402
 
 
 SCENARI = [
@@ -45,13 +27,12 @@ SCENARI = [
 
 
 def main():
-    branches = load_branches()
-    assert len(branches) == 4, f"attesi 4 rami: {branches}"
-    assert branches[0][1] == "caino_good_end", "good va controllato per primo"
+    with open(FINALI, encoding="utf-8") as f:
+        src = f.read()
+    assert "rl.finale_caino(" in src, "caino_finali.rpy deve usare rl.finale_caino"
     failures = 0
     for nome, fid, mem, tra, dru, atteso in SCENARI:
-        got = route(branches, caino_fiducia=fid, caino_memoria=mem,
-                    caino_trappole=tra, caino_druso=dru)
+        got = rl.finale_caino(fid, tra, mem, dru)
         ok = got == atteso
         failures += 0 if ok else 1
         print(f"{'PASS' if ok else 'FAIL'}: {nome} -> {got} (atteso {atteso})")
