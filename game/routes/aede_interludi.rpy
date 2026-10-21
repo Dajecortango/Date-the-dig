@@ -30,7 +30,7 @@ label interludio1:
 
     "E del Ceppo di Glauco Severo, che nel Ramo fa il lavoro di cui nessuno parla all'Adunanza."
 
-    vanna "Ooh, il fratellino ha conosciuto la volpe rossa!"
+    vanna "Ooh, [il_fratello_t] ha conosciuto la volpe rossa!"
 
     "Vanna. Sorella maggiore di Ceppo, orecchie ovunque, discrezione da ariete."
 
@@ -42,7 +42,7 @@ label interludio1:
 
     "Litigano su di me per un'ora. Nessuno dei due ha torto. È questo il problema."
 
-    jump cap1
+    return
 
 ################################################################################
 ## INTERLUDIO 2 — La taverna (dopo l'Athlion)
@@ -54,7 +54,7 @@ label interludio2:
 
     "La sera dopo l'Athlion, il Ceppo festeggia — vittorie altrui, birra propria — in una taverna della Contrada Lumina."
 
-    vanna "E allora io gli dico: fratellino, o le parli o la smetti di fissarla come un merluzzo. E lui che fa? Entrambe le cose!"
+    vanna "E allora io [gli_t] dico: [fratello_t], o le parli o la smetti di fissarla come un merluzzo. E [lui_t] che fa? Entrambe le cose!"
 
     "Risate del tavolo. Io studio il fondo del boccale."
 
@@ -80,9 +80,9 @@ label interludio2:
 
     pc "Sì. No. Non lo so."
 
-    vanna "Benvenuto nell'amore, fratellino."
+    vanna "Benvenut[fin] nell'amore, [fratello_t]."
 
-    jump cap3
+    return
 
 ################################################################################
 ## INTERLUDIO 3 — Briseide e il vecchio leone (dopo il vicolo)
@@ -122,6 +122,6 @@ label interludio3:
 
     "Si alza, mi lascia la seconda tazza di brodo."
 
-    briseide "E [player_name]... il mio Ceppo non forgia attrezzi. Ma neanche codardi. Qualunque cosa tu decida, decidila da Figlio mio."
+    briseide "E [player_name]... il mio Ceppo non forgia attrezzi. Ma neanche codardi. Qualunque cosa tu decida, decidila da [figlio_t] mi[fin]."
 
-    jump cap5
+    return

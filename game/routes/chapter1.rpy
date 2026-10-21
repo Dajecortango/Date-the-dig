@@ -1,71 +1,33 @@
-# Sistema a capitoli — Capitolo I: Rocca Tempesta.
-# Ogni capitolo è un'espansione con più ship. Una route per personaggio.
-# Per aggiungere una route: metti i suoi file in game/routes/, aggiungi la
-# voce qui sotto in CAP1_ROUTES e il salto in label capitolo1_dispatch.
-
-define CAP1_ROUTES = [
-    # (id, nome, sottotitolo, disponibile)
-    ("aede", "Aede", "La lama di Glauco Severo — tsundere", True),
-    ("velia", "Velia Ascea", "La cacciatrice di taglie", False),
-    ("luvia", "Luvia Algida", "L'alchimista sprezzante", False),
-    ("teodosio", "Teodosio Byensønn", "Il Comandante delle Fenrirkard", False),
-    ("mercuzio", "Mercuzio Virtuoso", "Il bardo dell'Hammergrad", False),
-]
-
-
-screen chapter_select():
-
-    modal True
-
-    add "gui/game_menu.png"
-
-    vbox:
-        align (0.5, 0.5)
-        spacing 26
-        xmaximum 1100
-
-        label _("CAPITOLO I") text_size 64 text_color gui.accent_color xalign 0.5
-        text _("Rocca Tempesta") size 34 color "#f0e6d2" xalign 0.5
-        null height 10
-        text _("Chi corteggerai, Figlio di Briseide?") size 26 color "#c9b78a" xalign 0.5
-        null height 14
-
-        for rid, nome, sub, attiva in CAP1_ROUTES:
-            if attiva:
-                button:
-                    xfill True
-                    ypadding 14
-                    background Frame("gui/button/choice_idle_background.png", 24, 12)
-                    hover_background Frame("gui/button/choice_hover_background.png", 24, 12)
-                    action Return(rid)
-                    hbox:
-                        spacing 18
-                        text nome size 30 color "#f5e3b8" yalign 0.5
-                        text sub size 20 color "#c9b78a" yalign 0.5
-            else:
-                frame:
-                    xfill True
-                    ypadding 14
-                    background Frame("gui/button/choice_idle_background.png", 24, 12)
-                    hbox:
-                        spacing 18
-                        text nome size 30 color "#6b5f4a" yalign 0.5
-                        text sub size 20 color "#564c3c" yalign 0.5
-                        text _("— Prossimamente") size 20 color "#8f7f5c" yalign 0.5
-
+# Capitolo I — "Malandrini".
+# Dating sim a calendario: ~6 mesi nel Ceppo di Briseide, giornate in slot
+# (mattina/pomeriggio/sera), attività che decidono chi frequenti. Il motore
+# vive in game/calendario.rpy + game/calendario_logic.py; gli eventi delle
+# route in game/routes/*_eventi.rpy e *_route.rpy; gli snodi comuni in
+# game/routes/snodi.rpy.
 
 label capitolo1:
 
     scene bg nero with fade
 
-    centered "{size=+14}CAPITOLO I{/size}\n\n{i}Rocca Tempesta{/i}"
+    centered "{cps=20}{size=+14}CAPITOLO I{/size}\n\n{i}Malandrini{/i}{/cps}"
 
-    call screen chapter_select
+    menu:
+        "Chi sei, in questa storia?"
 
-label capitolo1_dispatch:
+        "Un uomo":
+            $ set_gender("m")
 
-    if _return == "aede":
-        jump prologo
+        "Una donna":
+            $ set_gender("f")
 
-    # Route non ancora scritte: non si arriva qui (slot disabilitati).
-    jump capitolo1
+    $ player_name = renpy.input("Come ti chiama la Famiglia? (Primo Nome)", length=20)
+    $ player_name = sanitize_name(player_name)
+
+    # Background del protagonista di questo capitolo.
+    "Nel Nord c'è una sola Famiglia, e non è questione di sangue: è questione di giuramento."
+
+    "Tu sei [figlio_t] adottiv[fin] di Briseide Ippodamia, la madre degli orfani, Autarca della Columna Lactaria. Il tuo nome di prima è morto; ora ti chiami [player_name]."
+
+    "E questa, tra i malandrini di Rocca Tempesta, è la tua storia: sei Lune, un giorno alla volta."
+
+    jump cal_loop

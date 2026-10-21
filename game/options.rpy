@@ -1,6 +1,6 @@
 ## Opzioni di configurazione del gioco.
 
-define config.name = _("Date the Dig")
+define config.name = _("Date the Dignitas")
 define gui.show_name = True
 define config.version = "0.1"
 define gui.about = _p("""
@@ -38,7 +38,10 @@ define config.save_directory = "DateTheDig-1760000000"
 
 ## Icona #######################################################################
 
-# define config.window_icon = "gui/window_icon.png"
+define config.window_icon = "gui/window_icon.png"
+
+## Lingua predefinita (voci di interfaccia tematiche in game/tl/italian/).
+define config.language = "italian"
 
 ## Build #######################################################################
 

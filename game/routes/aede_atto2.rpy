@@ -24,6 +24,8 @@ label cap4:
 
     "L'uomo supplica ancora. Nomina dei figli, una casa a Rundeberg, cifre."
 
+    with lampo
+
     "La lama è un lampo bianco. Poi il vicolo torna silenzioso."
 
     show aede neutra at center
@@ -33,7 +35,7 @@ label cap4:
     "Non trasalisce. Non si giustifica. Mi guarda e basta, e nel suo sguardo c'è una domanda fredda: e adesso?"
 
     menu:
-        aede "Di' qualcosa, novellino. Qualunque cosa. Ma pensala bene."
+        aede "Di' qualcosa, novellin[fin]. Qualunque cosa. Ma pensala bene."
 
         "«Questo è... questo è assassinio.»":
             $ aede_affinity -= 3
@@ -41,7 +43,7 @@ label cap4:
 
             pc "Questo è... questo è assassinio."
 
-            show aede irritata
+            show aede irritata with qdiss
 
             aede "Questo è il Nord. Questo è il mio Ceppo. Questo sono io."
 
@@ -49,7 +51,7 @@ label cap4:
 
             "La voce le si incrina sull'ultima parola. Di rabbia, mi dico. Ma non è solo rabbia."
 
-            aede "Torna dal tuo mercante di lane, Figlio di Briseide. E dimentica il vicolo."
+            aede "Torna dal tuo mercante di lane, [figlio_t] di Briseide. E dimentica il vicolo."
 
             "Mi volta le spalle. E per la prima volta da quando la conosco, sembra avere fretta."
 
@@ -59,7 +61,7 @@ label cap4:
 
             pc "Il tuo Ceppo salda. Ho capito. Non ho visto niente."
 
-            show aede neutra
+            show aede neutra with qdiss
 
             aede "Impari in fretta le regole."
 
@@ -71,11 +73,11 @@ label cap4:
 
             pc "Chi era per te, quest'uomo? Cosa ti costa, questo lavoro?"
 
-            show aede sorpresa
+            show aede sorpresa with qdiss
 
             "Si blocca. Nessuno, capisco in quell'istante, le ha mai fatto quella domanda. Né il padre, né i fratelli, né i morti."
 
-            show aede neutra
+            show aede neutra with qdiss
 
             aede "Per me non era nessuno. È questo che lo rende un lavoro."
 
@@ -91,7 +93,7 @@ label cap4:
 
             "L'ha detto così piano che potrei averlo sognato."
 
-    jump interludio3
+    return
 
 ################################################################################
 ## CAPITOLO 5 — La Fiaccolata della Calà
@@ -111,7 +113,7 @@ label cap5:
 
     "Lei è lì. Non per la leggenda, dice: il Ceppo di Glauco sorveglia la festa, e a lei è toccato il turno. Dice."
 
-    aede "Non fare quella faccia, novellino. Sono qui per lavoro."
+    aede "Non fare quella faccia, novellin[fin]. Sono qui per lavoro."
 
     pc "Non ho detto niente."
 
@@ -131,7 +133,7 @@ label cap5:
 
             "Le prendo la mano. Le sue dita si irrigidiscono — un istante — poi, piano, si intrecciano alle mie."
 
-            show aede imbarazzata
+            show aede imbarazzata with qdiss
 
             aede "Questo non significa niente. È... perché la scala è ripida."
 
@@ -145,7 +147,7 @@ label cap5:
 
             aede "[player_name]. Io—"
 
-            show aede irritata
+            show aede irritata with qdiss
 
             "Un fischio dalla cima della scala. Il segnale del suo Ceppo: cambio turno."
 
@@ -157,11 +159,11 @@ label cap5:
 
             "Non chiedo il permesso. Allungo la mano verso la sua."
 
-            show aede irritata
+            show aede irritata with qdiss
 
             "Lei la ritira con naturalezza perfetta, come se dovesse sistemarsi i capelli proprio in quell'istante."
 
-            aede "Attento, novellino. Su questa scala i gesti hanno un significato. E tu e io non ci conosciamo abbastanza perché ne abbiano."
+            aede "Attent[fin], novellin[fin]. Su questa scala i gesti hanno un significato. E tu e io non ci conosciamo abbastanza perché ne abbiano."
 
             "Non è crudele. È esatta. Fa più male così."
 
@@ -170,7 +172,7 @@ label cap5:
 
             "Scendiamo fianco a fianco, le mani a un dito di distanza, senza che nessuna delle due attraversi il confine."
 
-            show aede neutra
+            show aede neutra with qdiss
 
             aede "Tutta Zefiro crede a questa storia della mano nella mano. Patetico."
 
@@ -187,13 +189,13 @@ label cap5:
 
             "Rallento. Metto distanza. La leggenda, il Ceppo, il padre: troppo, tutto insieme."
 
-            show aede neutra
+            show aede neutra with qdiss
 
             "Lei non si volta a cercarmi. Finisce la scala da sola, dritta come una lama, e si perde tra le lanterne del fondo."
 
-            "Corrado, più tardi, mi chiede com'è andata. Non rispondo. È andata che sono un codardo."
+            "Corrado, più tardi, mi chiede com'è andata. Non rispondo. È andata che sono [un_t] codard[fin]."
 
-    jump cap6
+    return
 
 ################################################################################
 ## CAPITOLO 6 — Il giuramento
@@ -221,7 +223,7 @@ label cap6:
 
     aede "Non l'ho mai detto a nessuno. Mio padre lo sa senza che io l'abbia detto, perché mio padre sa tutto. Ma dirlo... dirlo è un'altra cosa. Dirlo è darlo via."
 
-    show aede imbarazzata
+    show aede imbarazzata with qdiss
 
     aede "E io stanotte avrei voglia di darlo via. A te. Capisci cosa ti sto offrendo, [player_name]?"
 
@@ -238,13 +240,13 @@ label cap6:
 
             pc "Non devi comprarmi con un segreto, Aede. Non devi comprarmi affatto."
 
-            show aede sorpresa
+            show aede sorpresa with qdiss
 
             "Mi fissa. Qualcosa le si scioglie nella linea delle spalle, un nodo vecchio di vent'anni."
 
-            show aede sorriso
+            show aede sorriso with dissolve
 
-            aede "Sei l'unico uomo del Nord che rifiuta un tesoro per prendersi la cassaforte."
+            aede "Sei l'unic[fin] [uomo_t] del Nord che rifiuta un tesoro per prendersi la cassaforte."
 
             pc "La cassaforte mi è sempre piaciuta più del tesoro."
 
@@ -277,7 +279,7 @@ label cap6:
 
             pc "Allora facciamo a metà. Il tuo segreto per il mio. Anch'io avevo un nome, prima."
 
-            show aede irritata
+            show aede irritata with qdiss
 
             "Si stacca dalla balaustra di scatto, come scottata."
 
@@ -291,8 +293,8 @@ label cap6:
 
     "Due giorni dopo, un messo col leone dorato sul petto si presenta alla mia tenuta."
 
-    "Il Ceppo di Glauco Severo convoca il Figlio di Briseide, [player_name], nello studio dell'Autarca."
+    "Il Ceppo di Glauco Severo convoca [il_t] [figlio_t] di Briseide, [player_name], nello studio dell'Autarca."
 
     "Da solo."
 
-    jump climax
+    return

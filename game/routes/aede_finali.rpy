@@ -12,7 +12,7 @@ label climax:
 
     "Lo studio è come lo ricordavo: silenzioso, ordinato, letale."
 
-    glauco "Siediti, Figlio di Briseide. Il vino è buono. Bevilo adesso: dopo, uno di noi due non ne avrà più voglia."
+    glauco "Siediti, [figlio_t] di Briseide. Il vino è buono. Bevilo adesso: dopo, uno di noi due non ne avrà più voglia."
 
     "Mi siedo. Non bevo."
 
@@ -21,17 +21,17 @@ label climax:
     glauco "E tu, in una stagione, hai fatto ciò che vent'anni di disciplina avevano impedito: la lama ha cominciato a chiedersi perché taglia."
 
     if flag_aede_rivelato:
-        glauco "E non solo. Sul ballatoio della tua tenuta, mia figlia ha pronunciato il nome che il giuramento le ha sepolto in gola. L'ho sentito io, Figlio di Briseide. Sai cosa comanda la legge della Famiglia per chi rivela la vita di prima — e per chi ascolta."
+        glauco "E non solo. Sul ballatoio della tua tenuta, mia figlia ha pronunciato il nome che il giuramento le ha sepolto in gola. L'ho sentito io, [figlio_t] di Briseide. Sai cosa comanda la legge della Famiglia per chi rivela la vita di prima — e per chi ascolta."
 
         glauco "Quella parola, stanotte, pesa sulla bilancia insieme a te. Ricordalo, quando vedrai la lama."
 
-    show glauco minaccioso
+    show glauco minaccioso with qdiss
 
     glauco "Una lama che si fa domande è una lama rotta. E le lame rotte, nel mio Ceppo, si rifondono."
 
     glauco "Perciò ho dato a mia figlia un ordine semplice. Il bersaglio sei tu. Stanotte, sotto le mura, lei salda il conto. Oppure non lo salda — e allora il conto lo saldo io, con entrambi."
 
-    glauco "Vai pure, Figlio di Briseide. La neve stanotte è ottima per morire. O per vivere. Dipende interamente da ciò che avete costruito, tu e lei."
+    glauco "Vai pure, [figlio_t] di Briseide. La neve stanotte è ottima per morire. O per vivere. Dipende interamente da ciò che avete costruito, tu e lei."
 
     scene bg esterno_neve with fade
 
@@ -85,7 +85,7 @@ label good_end:
 
     pc "Una."
 
-    show aede sorriso
+    show aede sorriso with dissolve
 
     aede "Una. E non era un errore."
 
@@ -103,11 +103,11 @@ label good_end:
 
     "Il silenzio dura una nevicata intera. Poi Glauco Severo fa la cosa più spaventosa che abbia mai fatto."
 
-    show glauco neutro at left
+    show glauco neutro at left with qdiss
 
     glauco "Vent'anni perché imparasse a disobbedirmi per qualcosa che vale. Era l'ultima lezione, figlia. L'unica che non potevo insegnarti io."
 
-    glauco "Figlio di Briseide: la cena è al tramonto, alla tenuta del Ceppo. Non si rifiuta l'invito di Glauco Severo due volte."
+    glauco "[figlio_t] di Briseide: la cena è al tramonto, alla tenuta del Ceppo. Non si rifiuta l'invito di Glauco Severo due volte."
 
     hide glauco with dissolve
 
@@ -131,7 +131,7 @@ label good_end:
 
     scene bg nero with fade
 
-    centered "{size=+10}FINE{/size}\n\nAede ha scelto il suo bersaglio.\nPer sempre."
+    centered "{cps=20}{size=+10}FINE{/size}\n\nAede ha scelto il suo bersaglio.\nPer sempre.{/cps}"
 
     return
 
@@ -145,6 +145,8 @@ label neutral_end:
 
     aede "Mio padre vuole un saldo. E avrà un saldo."
 
+    with vpunch
+
     "Si muove prima che io possa rispondere. Il pomo della lama — non il filo — mi prende alla tempia. Il mondo diventa neve."
 
     scene bg nero with fade
@@ -154,7 +156,7 @@ label neutral_end:
     if flag_aede_rivelato:
         "{i}«Mio padre sa del ballatoio. Del nome. È il vero motivo per cui non puoi più restare a Zefiro: finché respiri lontano, il mio giuramento rotto resta una parola nella neve. Se torni, diventa una prova.{/i}"
 
-    "{i}«Per mio padre sei morto congelato nel fosso, e il fosso non si controlla. È il migliore dei miei lavori: il primo bersaglio sbagliato di proposito.{/i}"
+    "{i}«Per mio padre sei mort[fin] congelat[fin] nel fosso, e il fosso non si controlla. È il migliore dei miei lavori: il primo bersaglio sbagliato di proposito.{/i}"
 
     "{i}Non tornare a cercarmi. Ma se un giorno una lama ti salva la vita da un tetto di Zefiro, non chiederti di chi è.{/i}"
 
@@ -170,7 +172,7 @@ label neutral_end:
 
     scene bg nero with fade
 
-    centered "{size=+10}FINE{/size}\n\nNon tutti i debiti si saldano col sangue.\nAlcuni si saldano con l'assenza."
+    centered "{cps=20}{size=+10}FINE{/size}\n\nNon tutti i debiti si saldano col sangue.\nAlcuni si saldano con l'assenza.{/cps}"
 
     return
 
@@ -194,13 +196,13 @@ label bad_end_aede:
 
     aede "Dovevi guardare, ascoltare e non farti notare. Te l'avevano detto."
 
-    scene bg nero with fade
+    scene bg nero with lampo
 
     "Il Margine, dicono gli Arvali, è un fiume lento. I Dignitas meritevoli lo attraversano verso Drakengrad, la sala del Leone, dove ogni storia viene raccontata per sempre."
 
-    "Chissà se qualcuno, laggiù, racconterà la mia: la storia del novellino che amò la lama, e la lama saldò il conto."
+    "Chissà se qualcuno, laggiù, racconterà la mia: la storia di chi amò la lama, e la lama saldò il conto."
 
-    centered "{size=+10}FINE{/size}\n\nIl Nord non perdona.\nLei meno di tutti."
+    centered "{cps=20}{size=+10}FINE{/size}\n\nIl Nord non perdona.\nLei meno di tutti.{/cps}"
 
     return
 
@@ -220,13 +222,13 @@ label bad_end_glauco:
 
     show glauco minaccioso at left with dissolve
 
-    glauco "Lo sapevo prima di darle l'ordine, Figlio di Briseide. Era l'ultima verifica, e l'avete fallita entrambi."
+    glauco "Lo sapevo prima di darle l'ordine, [figlio_t] di Briseide. Era l'ultima verifica, e l'avete fallita entrambi."
 
     glauco "Mia figlia non commette errori. Quando li commette, li erediti tu."
 
     "Non vedo il gesto. Con lui non lo vede nessuno."
 
-    scene bg nero with fade
+    scene bg nero with lampo
 
     "L'ultima cosa che sento è la voce di lei che urla il mio nome — il mio Primo Nome, quello vero, l'unico che ho."
 
@@ -234,6 +236,6 @@ label bad_end_glauco:
 
     "E a Drakengrad, nella sala del Leone, c'è un posto anche per le storie finite male. Il Nord le preferisce: insegnano meglio."
 
-    centered "{size=+10}FINE{/size}\n\n«Chi minaccia me, parla con lui.\nE nessuno parla con lui due volte.»"
+    centered "{cps=20}{size=+10}FINE{/size}\n\n«Chi minaccia me, parla con lui.\nE nessuno parla con lui due volte.»{/cps}"
 
     return

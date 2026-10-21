@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Copioni Malandrini</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Alegreya:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* layout: colonna unica da lettura, nav sticky per route, copione teatrale */
+:root{
+  --bg:#141010; --panel:#1e1717; --fg:#f0e6d2; --muted:#a89468;
+  --oro:#d4af37; --rosso:#c0392b; --line:#3a2c2c;
+  --pos:#7fae6a; --neg:#d06a5a; --flag:#7a9bc0;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:Alegreya,Georgia,serif;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0 60px;font-size:17px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto}
+h1,h2{font-family:Cinzel,Georgia,serif;text-wrap:balance}
+h1{color:var(--oro);font-size:2rem;margin:28px 0 4px;letter-spacing:.04em}
+.sub{color:var(--muted);margin:0 0 24px;font-style:italic}
+h2{font-size:1.5rem;margin:48px 0 6px;padding-top:18px;border-top:3px double var(--oro)}
+h2 .who{color:var(--rosso)}
+h2.caino .who{color:#c87a30}
+h3{font-family:Cinzel,Georgia,serif;color:var(--oro);font-size:1.05rem;
+  letter-spacing:.08em;margin:36px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.toc{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0 8px;font-size:.85rem}
+.toc a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--line)}
+.toc a:hover{color:var(--oro)}
+.narr{margin:10px 0;color:var(--fg)}
+.say{margin:10px 0 10px 18px}
+.say b{font-family:Cinzel,Georgia,serif;font-size:.82em;letter-spacing:.05em}
+.stage{color:var(--muted);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;margin:20px 0 8px}
+.centered{text-align:center;font-family:Cinzel,Georgia,serif;color:var(--oro);margin:22px 0;font-size:1.1rem}
+.choice{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--oro);
+  border-radius:8px;padding:12px 16px;margin:16px 0}
+.choice .cap{margin:0 0 8px;font-style:italic;color:var(--muted)}
+.choice ol{margin:0;padding-left:22px}
+.choice li{margin:8px 0}
+.opt{font-weight:700}
+.cond{color:var(--flag);font-size:.85em}
+.fx{display:inline-block;font-family:Cinzel,Georgia,serif;font-size:.68rem;letter-spacing:.05em;
+  border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:middle;border:1px solid}
+.fx.pos{color:var(--pos);border-color:var(--pos)}
+.fx.neg{color:var(--neg);border-color:var(--neg)}
+.fx.flag,.fx.flagoff{color:var(--flag);border-color:var(--flag)}
+.fxline{margin:6px 0 6px 18px}
+details{margin:6px 0 0}
+summary{cursor:pointer;color:var(--muted);font-size:.85rem}
+details .s{margin:6px 0 6px 14px;font-size:.95em}
+details .s.n{color:var(--muted)}
+.var{color:var(--flag);font-style:normal}
+.routing{border-collapse:collapse;margin:18px 0;width:100%;background:var(--panel);
+  border:1px solid var(--line);border-radius:8px}
+.routing caption{font-family:Cinzel,Georgia,serif;color:var(--oro);font-size:.8rem;
+  letter-spacing:.08em;text-align:left;padding:8px 12px 4px}
+.routing td{padding:6px 12px;border-top:1px solid var(--line);font-size:.9rem}
+.routing code{color:var(--fg)}
+.legend{background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  padding:12px 16px;margin:14px 0;font-size:.9rem;color:var(--muted)}
+em{color:#e8d9b8}
+@media (max-width:480px){body{font-size:16px}.say{margin-left:8px}}
+</style>
+</head><body><div class="wrap">
+<h1>Date the Dig</h1>
+<p class="sub">Capitolo I · Malandrini — copioni completi per la review (generati dagli script di gioco)</p>
+<div class="legend">Le caselle bordate d'oro sono i bivi del giocatore: in grassetto l'opzione,
+le pastiglie mostrano gli effetti (verde = guadagno, rosso = perdita, azzurro = flag),
+«svolgimento» apre il testo che segue quella scelta. [parole] tra parentesi =
+variabili (nome del giocatore, concordanze di genere).</div>
+
+<h2>Route I — <span class="who">Aede</span>, la lama di Glauco Severo</h2>
+<nav class="toc"><a href="#a-prologo">Prologo — Lo Svelo</a><a href="#a-interludio1">Interludio — Il Ceppo di Briseide</a><a href="#a-cap1">Capitolo 1 — L&#x27;incarico</a><a href="#a-cap2">Capitolo 2 — L&#x27;Athlion</a><a href="#a-interludio2">Interludio — La taverna</a><a href="#a-cap3">Capitolo 3 — L&#x27;intrigo dei Rami</a><a href="#a-cap4">Capitolo 4 — Il lavoro di Aede</a><a href="#a-interludio3">Interludio — Briseide e il vecchio leone</a><a href="#a-cap5">Capitolo 5 — La Fiaccolata della Calà</a><a href="#a-cap6">Capitolo 6 — Il giuramento</a><a href="#a-climax">Climax — La neve</a><a href="#a-good_end">GOOD END</a><a href="#a-neutral_end">NEUTRAL END</a><a href="#a-bad_end_aede">BAD END — La lama di Aede</a><a href="#a-bad_end_glauco">BAD END — La mano di Glauco</a></nav>
+<section id="a-prologo"><h3>Prologo — Lo Svelo</h3>
+<p class="stage">■ Scena: bg nero</p>
+<p class="narr">Il Nord non ti chiede chi eri. Te lo strappa di dosso, come il vento strappa il fiato sulla Via del Settentrione.</p>
+<p class="narr">Tre settimane fa ho pronunciato il giuramento. Il mio nome di prima è morto in quella sala, davanti all'Autarca e ai miei nuovi fratelli.</p>
+<p class="narr">Ora mi chiamo <span class="var">[player_name]</span>. Primo Nome, dato da Briseide Ippodamia in persona. <span class="var">[figlio_t]</span> del suo Ceppo, la madre degli orfani.</p>
+<p class="stage">■ Scena: bg sala_svelo</p>
+<p class="narr">Rocca Tempesta, la notte dello Svelo. La festa in maschera dove il ceto non conta: per una notte il Figlio appena adottato può urtare il gomito di un Autarca e riderci sopra.</p>
+<p class="narr">Briseide mi ha spedito qui con un ordine solo: «Guarda, ascolta, non farti notare».</p>
+<p class="narr">Due comandi su tre li sto rispettando.</p>
+<p class="narr">Mi infilo in un corridoio laterale per sfuggire alla calca. Lanterne basse, arazzi col leone dorato, musica lontana.</p>
+<p class="narr">Un errore.</p>
+<p class="narr">Una mano mi aggancia la spalla, il mondo ruota, la schiena sbatte contro l'arazzo. Freddo sotto il mento: una lama.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Non un fiato. Il messaggio lo consegno io, e tu lo ricevi: così muore chi vende i segreti del Ceppo di Glauco.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> ...credo che tu abbia sbagliato persona.</p>
+<p class="narr">La maschera di lei è un intaglio di volpe. Gli occhi dietro, grigioverdi, si stringono.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Il sigillo. Mostrami il polso.</p>
+<p class="narr">Le mostro il polso. Nessun sigillo. Solo il nodo di corda che Briseide fa portare ai suoi Figli nel primo anno.</p>
+<p class="narr">La lama si stacca. Lei fa mezzo passo indietro, e per un istante — un istante solo — la volpe vacilla.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> <span class="var">[Un_t]</span> novellin<span class="var">[fin]</span> del Ceppo di Briseide. Nel corridoio sbagliato, nella notte sbagliata.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> E tu hai quasi aperto la gola <span class="var">[al_t]</span> novellin<span class="var">[fin]</span> sbagliat<span class="var">[fin]</span>. Siamo pari?</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Non siamo niente. Tu non hai visto niente.</p>
+<p class="narr">Si toglie la maschera per un attimo, giusto il tempo di asciugarsi la fronte. Capelli rosso fiamma, raccolti male. La riconosco: Aede, la figlia di Glauco Severo.</p>
+<p class="narr">Il piccolo gioiello dell'Autarca. Quella di cui i miei fratelli di Ceppo parlano solo a voce bassa.</p>
+<p class="narr">E io sono l'unic<span class="var">[fin]</span>, in tutta Rocca Tempesta, ad averla vista sbagliare bersaglio.</p>
+<div class="choice"><p class="cap"><b style="color:#e05a4a">Aede:</b> Allora? Cosa devo fare di te, novellin<span class="var">[fin]</span>?</p><ol><li><span class="opt">«Il tuo segreto muore con me. Hai la mia parola.»</span> <span class="fx flag">flag_segreto_svelo = True</span><span class="fx pos">affinità +2</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Il tuo segreto muore con me. Hai la mia parola.</p><p class="s n">Mi studia a lungo. Poi rinfodera la lama, di scatto, come se la decisione la irritasse.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Le parole dei novellini valgono poco. Ma stanotte mi accontento.</p></details></li><li><span class="opt">«Sbagli bersaglio spesso, o sono speciale?»</span> <span class="fx pos">affinità +1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Sbagli bersaglio spesso, o sono speciale?</p><p class="s"><b style="color:#e05a4a">Aede:</b> Continua a parlare e il bersaglio diventa giusto.</p><p class="s n">Ma c'è una piega minuscola all'angolo della sua bocca. Quasi un sorriso. Quasi.</p></details></li><li><span class="opt">«Glauco Severo sarà curioso di saperlo.»</span> <span class="fx neg">affinità −2</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Glauco Severo sarà curioso di saperlo.</p><p class="s n">La lama torna dov'era. Più vicina.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Mio padre sa già tutto quello che deve sapere. Tu invece impara questo: chi minaccia me, parla con lui. E nessuno parla con lui due volte.</p></details></li></ol></div>
+<p class="narr">Sparisce tra le maschere come se il corridoio l'avesse inghiottita.</p>
+<p class="narr">Dovrei avere paura. Ce l'ho. Ma sotto la paura c'è altro: quella piega all'angolo della bocca non me la tolgo dalla testa.</p>
+</section>
+<section id="a-interludio1"><h3>Interludio — Il Ceppo di Briseide</h3>
+<p class="stage">■ Scena: bg corridoio_ceppo</p>
+<p class="narr">La tenuta del Ceppo di Briseide non somiglia a una caserma, né a un palazzo. Somiglia a una cucina troppo grande dove vivono troppe persone che si vogliono bene urlando.</p>
+<p class="narr">Briseide Ippodamia, Autarca della Columna Lactaria, madre di tutti gli orfani del Nord. Cinquanta Figli adottati in trent'anni, e ogni nome se lo ricorda, con la data e il motivo.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Com'è andato lo Svelo, <span class="var">[player_name]</span>?</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Istruttivo, madre.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Mh. «Istruttivo». Quando un mio Figlio risponde con una parola sola, di solito ha conosciuto o una lama o una donna.</p>
+<p class="narr">Non rispondo. Lei sorride come chi ha già vinto.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Entrambe, dunque. Siediti, che ti racconto una cosa sui Ceppi di questa Famiglia.</p>
+<p class="narr">Mi racconta. Dei 63 Ceppi e dei 9 Rami, uno per Primarca. Delle correnti del Consiglio, che si muovono come fiumi sotto il ghiaccio: in superficie fermi, sotto una corrente che ti porta via le gambe.</p>
+<p class="narr">E del Ceppo di Glauco Severo, che nel Ramo fa il lavoro di cui nessuno parla all'Adunanza.</p>
+<p class="say"><b style="color:#8fbc8f">Vanna:</b> Ooh, <span class="var">[il_fratello_t]</span> ha conosciuto la volpe rossa!</p>
+<p class="narr">Vanna. Sorella maggiore di Ceppo, orecchie ovunque, discrezione da ariete.</p>
+<p class="say"><b style="color:#87a7c7">Corrado:</b> Lascialo respirare. E tu, fratello: da quella, distanza. È la figlia di Glauco. Il <em>gioiello</em>. Sai cosa fanno ai ladri di gioielli, da queste parti?</p>
+<p class="say"><b style="color:#8fbc8f">Vanna:</b> Non è rubare se il gioiello ti segue a casa, Corrado.</p>
+<p class="say"><b style="color:#87a7c7">Corrado:</b> È rubare peggio.</p>
+<p class="narr">Litigano su di me per un'ora. Nessuno dei due ha torto. È questo il problema.</p>
+</section>
+<section id="a-cap1"><h3>Capitolo 1 — L&#x27;incarico</h3>
+<p class="stage">■ Scena: bg corridoio_ceppo</p>
+<p class="narr">Sette giorni dopo lo Svelo, Briseide mi convoca all'alba.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Il Ceppo di Glauco Severo ha chiesto un paio di mani fidate per una consegna in città. Ho fatto il tuo nome.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Il Ceppo di Glauco? Madre, io—</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Tu guarderai, ascolterai e non ti farai notare. Come allo Svelo.</p>
+<p class="narr">C'è un lampo negli occhi di Briseide che non so leggere. Sa qualcosa? Con lei è impossibile capirlo.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> La scorta ti aspetta al cancello. Porta rispetto, <span class="var">[player_name]</span>. Quel Ceppo non perdona.</p>
+<p class="stage">■ Scena: bg vicoli_zefiro</p>
+<p class="narr">Al cancello, appoggiata al muro con l'aria di chi aspetta da un'ora apposta per fartelo pesare: lei.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> <span class="var">[Il_t]</span> novellin<span class="var">[fin]</span>. Ovviamente.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> La scorta sei tu. Ovviamente.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Io non scorto te. Io scorto questa.</p>
+<p class="narr">Solleva una cassetta di legno scuro, sigillata con cera e filo d'oro. Poi me la pianta tra le braccia.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Tu la porti. Io porto te. Zefiro è piena di mani leste, e la metà le conosco per nome.</p>
+<p class="narr">Camminiamo. Le Contrade scorrono: Lumina coi suoi lanternai, la Consorteria coi banchi dei cambiavalute. Aede taglia la folla senza toccare nessuno, come acqua tra i sassi.</p>
+<p class="narr">A un incrocio, tre tipi col cappuccio basso ci squadrano un momento di troppo. Aede neanche li guarda.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Quelli della Malacorte. Se fossero qui per noi, non li avresti visti.</p>
+<div class="choice"><p class="cap">La cassetta pesa. Le dita mi formicolano. E la curiosità peggio.</p><ol><li><span class="opt">«Tenere il passo in silenzio, senza chiedere nulla»</span> <span class="fx pos">affinità +2</span><details><summary>svolgimento</summary><p class="s n">Stringo i denti e tengo il suo passo. Un'ora senza una domanda, senza un lamento.</p><p class="s"><b style="color:#e05a4a">Aede:</b> ...Briseide li sceglie meno male del previsto, i suoi Figli.</p><p class="s n">Dalla figlia di Glauco, è quasi una cerimonia d'onore.</p></details></li><li><span class="opt">«Chiederle cosa c'è dentro la cassetta»</span> <details><summary>svolgimento</summary><p class="s n">Resisto mezz'ora. Poi la lingua vince.</p><p class="s"><b style="color:#f0e6d2">TU:</b> Cosa stiamo trasportando, di preciso?</p><p class="s"><b style="color:#e05a4a">Aede:</b> Una cosa che non è affar tuo, dentro una cassetta che non è affar tuo, verso un posto che non è affar tuo.</p><p class="s"><b style="color:#f0e6d2">TU:</b> Chiarissimo.</p></details></li><li><span class="opt">«Lamentarmi del peso»</span> <span class="fx neg">affinità −1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Potevamo prendere un carretto. O un mulo.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Il mulo ce l'ho già. Parla pure troppo.</p></details></li></ol></div>
+<p class="stage">■ Scena: bg studio_glauco</p>
+<p class="narr">La consegna finisce in una sala che non mi aspettavo: lo studio privato di Glauco Severo, nella tenuta del Ceppo.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Posa pure lì, <span class="var">[figlio_t]</span> di Briseide.</p>
+<p class="narr">Glauco Severo non alza la voce. Non ne ha bisogno. Ogni parola arriva già pesata, come moneta d'oro contata due volte.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Aede. Il resoconto.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Nessun contatto. Tre osservatori della Malacorte sulla Via Lumina, nessuna mossa.</p>
+<p class="narr">Mentre parla con il padre, Aede cambia. La schiena più dritta, la voce più piatta. Un'arma che fa rapporto all'armaiolo.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> E quest<span class="var">[fin]</span> sarebbe <span class="var">[il_t]</span> giovane che si trovava nel corridoio ovest, la notte dello Svelo.</p>
+<p class="narr">Il gelo mi scende dalla nuca ai talloni. Lo sa. Ovviamente lo sa.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Mia figlia non commette errori, <span class="var">[figlio_t]</span> di Briseide. Chi sostiene il contrario commette l'ultimo dei propri.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Non ho visto nessun errore, Autarca. Solo una lama molto rapida e una notte molto lunga.</p>
+<p class="narr">Silenzio. Lungo. Poi Glauco fa un cenno minimo, e la porta alle mie spalle si apre da sola.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Buona giornata, <span class="var">[figlio_t]</span> di Briseide. Porta i miei rispetti alla tua Autarca.</p>
+<p class="narr">Fuori, Aede mi affianca per tre passi esatti.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Hai risposto meno peggio del previsto.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Era un complimento?</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Era una constatazione.</p>
+<p class="narr">Ma di nuovo: quella piega all'angolo della bocca.</p>
+</section>
+<section id="a-cap2"><h3>Capitolo 2 — L&#x27;Athlion</h3>
+<p class="stage">■ Scena: bg arena_athlion</p>
+<p class="narr">L'Athlion. La gara atletica annuale in onore di Allmän, dove i Ceppi si misurano senza sangue — in teoria.</p>
+<p class="narr">Corsa, salto, lancio, lotta. I Rami si giocano un anno di vanterie, e gli Autarchi fingono che non conti nulla mentre contano tutto.</p>
+<p class="narr">Il Ceppo di Glauco schiera lei. La vedo nel recinto degli atleti mentre si fascia i polsi, concentrata come davanti a un bersaglio.</p>
+<p class="narr">Vanna, mia sorella di Ceppo, mi dà di gomito.</p>
+<p class="say"><b style="color:#8fbc8f">Vanna:</b> La figlia di Glauco corre l'ultima staffetta. Dicono che quest'anno il Ramo se la giochi contro i Figli di Vittoria. Tu per chi tifi, <span class="var">[fratello_t]</span>?</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Io guardo, ascolto e non mi faccio notare.</p>
+<p class="say"><b style="color:#8fbc8f">Vanna:</b> Col modo in cui la fissi, due su tre.</p>
+<div class="choice"><p class="cap">La staffetta si avvicina. Aede è alla linea, in attesa del testimone.</p><ol><li><span class="opt">«Tifare per lei a squarciagola»</span> <details><summary>svolgimento</summary><p class="s n">Quando passa, urlo il suo nome con mezzo stadio.</p><p class="s n">Mi sente. Rompe il ritmo per un decimo di respiro, mi fulmina con un'occhiata, riparte più forte.</p><p class="s n">Vince. Ma quando viene premiata non guarda nella mia direzione neanche per sbaglio. Credo di averla imbarazzata davanti al suo Ramo.</p></details></li><li><span class="opt">«Aiutarla senza farmi vedere»</span> <span class="fx pos">affinità +2</span><details><summary>svolgimento</summary><p class="s n">Noto un Figlio del Ramo rivale armeggiare vicino alla corsia di cambio: sparge sabbia fine sulla pietra, dove lei pianterà il piede.</p><p class="s n">Non grido. Passo di lì con la borraccia «per sbaglio» aperta, e lavo via tutto.</p><p class="s n">Aede vince di tre lunghezze. Alla premiazione i suoi occhi trovano i miei, poi la borraccia vuota, poi di nuovo i miei.</p><p class="s n">Non un grazie. Un cenno della testa, misurato al millimetro. Da lei, vale un discorso.</p></details></li><li><span class="opt">«Iscrivermi alla corsa aperta e sfidarla»</span> <span class="fx pos">affinità +2</span><details><summary>svolgimento</summary><p class="s n">C'è una corsa aperta a tutti i Figli, a fine giornata. Mi iscrivo. Lei pure, per dovere di Ceppo.</p><p class="s n">Arrivo quart<span class="var">[fin]</span>, con i polmoni in fiamme. Lei prima, ovviamente, senza fiatone.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Quart<span class="var">[fin]</span>. Per chi ha imparato a correre tre settimane fa, è quasi non umiliante.</p><p class="s"><b style="color:#f0e6d2">TU:</b> L'anno prossimo arrivo terzo.</p><p class="s"><b style="color:#e05a4a">Aede:</b> L'anno prossimo ti doppio.</p><p class="s n">È la prima volta che la vedo sorridere a viso aperto. Dura un battito. Poi se ne accorge e il sorriso sparisce come refurtiva.</p></details></li><li><span class="opt">«Ignorare la gara e andarmene presto»</span> <span class="fx neg">affinità −2</span><details><summary>svolgimento</summary><p class="s n">Me ne vado prima della staffetta. Le gare non mi sono mai interessate.</p><p class="s n">Il giorno dopo, Corrado mi riferisce che Aede ha vinto per il suo Ramo. E che a fine gara ha cercato qualcuno tra la folla, senza trovarlo.</p><p class="s n">Me lo riferisce con la faccia di chi dice: sei un idiota, <span class="var">[fratello_t]</span>.</p></details></li></ol></div>
+</section>
+<section id="a-interludio2"><h3>Interludio — La taverna</h3>
+<p class="stage">■ Scena: bg vicoli_zefiro</p>
+<p class="narr">La sera dopo l'Athlion, il Ceppo festeggia — vittorie altrui, birra propria — in una taverna della Contrada Lumina.</p>
+<p class="say"><b style="color:#8fbc8f">Vanna:</b> E allora io <span class="var">[gli_t]</span> dico: <span class="var">[fratello_t]</span>, o le parli o la smetti di fissarla come un merluzzo. E <span class="var">[lui_t]</span> che fa? Entrambe le cose!</p>
+<p class="narr">Risate del tavolo. Io studio il fondo del boccale.</p>
+<p class="say"><b style="color:#87a7c7">Corrado:</b> Ridete, ridete. Io ho chiesto in giro, invece. Del Ceppo di Glauco. Volete sapere cosa si dice?</p>
+<p class="narr">Il tavolo si zittisce. Corrado ha il talento di guastare le feste con la verità.</p>
+<p class="say"><b style="color:#87a7c7">Corrado:</b> Si dice che chi entra in quel Ceppo da bambino non sceglie mai. Che il vecchio raccoglie orfani come Briseide — ma dove nostra madre cresce Figli, lui forgia attrezzi.</p>
+<p class="say"><b style="color:#87a7c7">Corrado:</b> E si dice che la figlia prediletta avesse sette anni al primo addestramento. Sette. Con le lame vere, perché «quelle finte insegnano bugie».</p>
+<p class="say"><b style="color:#8fbc8f">Vanna:</b> ...e la madre? Nel Ceppo di Glauco c'è una madre?</p>
+<p class="say"><b style="color:#87a7c7">Corrado:</b> C'era una Filius Maior che faceva da madre a tutti. Morta quando la ragazzina ne aveva dodici. Un lavoro andato male. Da allora, dicono, Glauco raddoppiò gli addestramenti. Il lutto, nel suo Ceppo, si lavora.</p>
+<p class="narr">Il boccale mi si ferma a mezz'aria.</p>
+<p class="narr">Sette anni. Lame vere. Una madre persa a dodici, e un padre che risponde al dolore con la disciplina.</p>
+<p class="narr">Ripenso alla sua voce nel vicolo: «il gioiello è un sasso che porto in tasca».</p>
+<p class="say"><b style="color:#8fbc8f">Vanna:</b> Fratellino. Tutto bene?</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Sì. No. Non lo so.</p>
+<p class="say"><b style="color:#8fbc8f">Vanna:</b> Benvenut<span class="var">[fin]</span> nell'amore, <span class="var">[fratello_t]</span>.</p>
+</section>
+<section id="a-cap3"><h3>Capitolo 3 — L&#x27;intrigo dei Rami</h3>
+<p class="stage">■ Scena: bg vicoli_zefiro</p>
+<p class="narr">Le Bocche Sicofanti. Fessure di pietra sparse per Zefiro dove chiunque può infilare una delazione anonima.</p>
+<p class="narr">Qualcuno ne ha infilata una contro il mio Ceppo: un carico di Briseide sparito, e il mio nome — il mio — indicato come complice del furto.</p>
+<p class="narr">E qualcun'altra ha ricevuto l'ordine di indagare in silenzio, prima che la cosa arrivi agli Arconti.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Non ti agitare, novellin<span class="var">[fin]</span>. Se ti credessi colpevole, non staremmo parlando.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> E cosa staremmo facendo?</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Tu, da bersaglio, mi fai da esca. Io, da esca, prendo il pesce. Qualcuno vuole colpire Briseide passando da te, e usare il mio Ceppo come mannaia.</p>
+<p class="narr">Due Rami, una sola trappola. Se la delazione regge, il mio Ceppo perde l'onore e il suo viene usato come arma. Aede l'ha capito prima di tutti.</p>
+<div class="choice"><p class="cap"><b style="color:#e05a4a">Aede:</b> Il magazzino della Contrada Marcassa. Stanotte. Decidi: vieni come esca viva, o resti a dormire come esca stupida?</p><ol><li><span class="opt">«Vengo. Ma se è una trappola per te, chi fa da esca sono io.»</span> <span class="fx pos">affinità +2</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Vengo. Ma se è una trappola per te, chi fa da esca sono io.</p><p class="s"><b style="color:#e05a4a">Aede:</b> ...sei più scem<span class="var">[fin]</span> di quanto sembri.</p><p class="s n">Lo dice piano. Senza veleno. Quasi con cura.</p></details></li><li><span class="opt">«Resto. Delle trappole te ne intendi più tu.»</span> <details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Resto. Delle trappole te ne intendi più tu.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Finalmente un po' di buonsenso. Peccato. Cominciavo ad abituarmi alla compagnia.</p><p class="s n">Lo dice voltandosi, troppo in fretta perché possa leggerle la faccia.</p></details></li></ol></div>
+<p class="stage">■ Scena: bg nero</p>
+<p class="narr">La notte del magazzino va come doveva andare: male, poi bene.</p>
+<p class="stage">■ Scena: bg vicoli_zefiro</p>
+<p class="narr">Il delatore si presenta con due lame a pagamento. Aede ne disarma una prima che io finisca di capire da dove è arrivata. La seconda esita — e l'esitazione, con lei, è una resa.</p>
+<p class="narr">Il delatore prova a correre. Non è veloce.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Un Filius del Ramo di Iperione. Gioco sporco tra correnti del Consiglio. Mio padre dirà due parole al suo Autarca, e le Bocche Sicofanti dimenticheranno il tuo nome.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Così, semplicemente?</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Così, semplicemente. È il vantaggio di essere il gioiello di Glauco Severo: nessuno discute il prezzo.</p>
+<p class="narr">Lo dice con una voce strana. Come se il gioiello fosse un sasso che porta in tasca da troppi anni.</p>
+<p class="narr">Poi, mentre il delatore geme a terra, Aede ride. Una risata corta, vera, sorpresa di esistere.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Hai fatto la faccia del merluzzo per tutta la rissa. Tutta.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> È la mia tecnica. Distraggo il nemico con l'incredulità.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Pessima tecnica. Non cambiarla.</p>
+<p class="narr">Rientriamo che è quasi alba. E io capisco due cose: che le devo la reputazione, forse la vita.</p>
+<p class="narr">E che la risata di Aede, figlia di Glauco, è il suono più raro del Nord. E io voglio sentirla ancora.</p>
+</section>
+<section id="a-cap4"><h3>Capitolo 4 — Il lavoro di Aede</h3>
+<p class="stage">■ Scena: bg vicoli_zefiro</p>
+<p class="narr">Contrada Marcassa, dopo il tramonto. Briseide mi ha mandato a ritirare un pagamento da un mercante di lane. Strade sbagliate, ora sbagliata.</p>
+<p class="narr">Sento le voci prima di vedere niente: un uomo che supplica, a bassa voce, come chi sa che urlare è inutile.</p>
+<p class="narr">Mi affaccio al vicolo. E la vedo.</p>
+<p class="narr">Aede. Senza maschera, senza fretta. Davanti a lei, in ginocchio tra le casse, un uomo di mezza età con l'anello d'oro dei cambiavalute.</p>
+<p class="narr">Non è una rissa. Non è una trappola. È un lavoro.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Hai venduto i movimenti delle carovane del mio Ceppo alla Lama Nera. Due scorte morte sul Passo. Il Consiglio non lo saprà mai, perché il mio Ceppo non processa: salda.</p>
+<p class="narr">L'uomo supplica ancora. Nomina dei figli, una casa a Rundeberg, cifre.</p>
+<p class="narr">La lama è un lampo bianco. Poi il vicolo torna silenzioso.</p>
+<p class="narr">Aede pulisce l'acciaio con un gesto che ha fatto mille volte. Poi alza gli occhi. E mi vede.</p>
+<p class="narr">Non trasalisce. Non si giustifica. Mi guarda e basta, e nel suo sguardo c'è una domanda fredda: e adesso?</p>
+<div class="choice"><p class="cap"><b style="color:#e05a4a">Aede:</b> Di' qualcosa, novellin<span class="var">[fin]</span>. Qualunque cosa. Ma pensala bene.</p><ol><li><span class="opt">«Questo è... questo è assassinio.»</span> <span class="fx neg">affinità −3</span><span class="fx flagoff">flag_accetta_lavoro = False</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Questo è... questo è assassinio.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Questo è il Nord. Questo è il mio Ceppo. Questo sono io.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Credevi di passeggiare con cosa, esattamente? Con una ricamatrice?</p><p class="s n">La voce le si incrina sull'ultima parola. Di rabbia, mi dico. Ma non è solo rabbia.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Torna dal tuo mercante di lane, <span class="var">[figlio_t]</span> di Briseide. E dimentica il vicolo.</p><p class="s n">Mi volta le spalle. E per la prima volta da quando la conosco, sembra avere fretta.</p></details></li><li><span class="opt">«Il tuo Ceppo salda. Ho capito. Non ho visto niente.»</span> <span class="fx pos">affinità +1</span><span class="fx flag">flag_accetta_lavoro = True</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Il tuo Ceppo salda. Ho capito. Non ho visto niente.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Impari in fretta le regole.</p><p class="s n">Lo dice piatta. Ma mentre mi passa accanto rallenta di mezzo passo, come se si aspettasse altro da me. Come se le regole, stanotte, non le bastassero.</p></details></li><li><span class="opt">«Chi era per te, quest'uomo? Cosa ti costa, questo lavoro?»</span> <span class="fx pos">affinità +3</span><span class="fx flag">flag_accetta_lavoro = True</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Chi era per te, quest'uomo? Cosa ti costa, questo lavoro?</p><p class="s n">Si blocca. Nessuno, capisco in quell'istante, le ha mai fatto quella domanda. Né il padre, né i fratelli, né i morti.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Per me non era nessuno. È questo che lo rende un lavoro.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Quanto costa... Il primo costa tutto. Gli altri costano il ricordo del primo.</p><p class="s n">Si siede su una cassa. Io mi siedo su quella accanto, a distanza di rispetto. Restiamo così finché le lanterne della Contrada non si spengono.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Se lo racconti a qualcuno, ti ammazzo.</p><p class="s"><b style="color:#f0e6d2">TU:</b> Lo so.</p><p class="s"><b style="color:#e05a4a">Aede:</b> ...grazie.</p><p class="s n">L'ha detto così piano che potrei averlo sognato.</p></details></li></ol></div>
+</section>
+<section id="a-interludio3"><h3>Interludio — Briseide e il vecchio leone</h3>
+<p class="stage">■ Scena: bg corridoio_ceppo</p>
+<p class="narr">Non dormo. Da tre notti, da quella del vicolo, l'alba mi trova sul ballatoio.</p>
+<p class="narr">Briseide mi ci trova pure lei. Con due tazze di brodo caldo, perché Briseide a tutto risponde col brodo.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> I miei Figli insonni vengono in due specie: quelli che hanno fatto qualcosa, e quelli che hanno visto qualcosa. Tu che specie sei, stanotte?</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Madre... voi conoscete Glauco Severo. Da prima che io nascessi, forse.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Dall'anno Tre della Famiglia. Sedevamo già entrambi in Consiglio quando di Ceppi ce n'erano la metà.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Che uomo è? Sotto l'Autarca, intendo. Sotto il titolo.</p>
+<p class="narr">Briseide beve il suo brodo. Prende tempo come altri prendono fiato.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Glauco Severo è l'uomo più onesto che io conosca, <span class="var">[player_name]</span>. È questo che lo rende terribile.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Non mente mai. Non odia mai. Non punisce mai per rabbia. Fa esattamente ciò che dice, sempre, e ciò che dice è esattamente ciò che la Virtù dell'Esclusività gli comanda: il Ceppo prima di tutto, il Ceppo sopra tutto.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Io ho seppellito Figli, e ho pianto ogni fossa. Lui ha seppellito Figli, e da ogni fossa è tornato con una lezione nuova per i vivi. Non so dirti quale di noi due ami di più i propri. So dirti che il suo amore somiglia a un'incudine.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> E Aede?</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Aede è ciò che resta quando un'incudine ama un diamante per vent'anni: la cosa più dura e più luminosa del Nord.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Vuoi un consiglio da vecchia madre? Chi vuole bene a quella ragazza non deve vincere contro il padre. Deve solo essere più paziente dell'incudine. Nessuno, finora, lo è stato.</p>
+<p class="narr">Si alza, mi lascia la seconda tazza di brodo.</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> E <span class="var">[player_name]</span>... il mio Ceppo non forgia attrezzi. Ma neanche codardi. Qualunque cosa tu decida, decidila da <span class="var">[figlio_t]</span> mi<span class="var">[fin]</span>.</p>
+</section>
+<section id="a-cap5"><h3>Capitolo 5 — La Fiaccolata della Calà</h3>
+<p class="stage">■ Scena: bg cala_notte</p>
+<p class="narr">La Calà: la scalinata vecchia che scende dalla Contrada Eburnea al fiume, trecento gradini consumati.</p>
+<p class="narr">Una notte all'anno, la Fiaccolata. Lanterne su ogni gradino, e la leggenda che tutta Zefiro finge di non prendere sul serio prendendola malissimo sul serio:</p>
+<p class="narr">chi percorre la Calà mano nella mano, si amerà per sempre.</p>
+<p class="narr">Lei è lì. Non per la leggenda, dice: il Ceppo di Glauco sorveglia la festa, e a lei è toccato il turno. Dice.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Non fare quella faccia, novellin<span class="var">[fin]</span>. Sono qui per lavoro.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Non ho detto niente.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> La tua faccia parla per tre.</p>
+<p class="narr">Scendiamo insieme i primi gradini, a un braccio di distanza. Sotto di noi la scala di luci cola verso il fiume come oro fuso.</p>
+<p class="narr">Vanna e Corrado ci incrociano salendo. Vanna mi fa un gesto osceno di incoraggiamento alle spalle di Aede. Corrado la trascina via per la collottola.</p>
+<div class="choice"><p class="cap">Al trentesimo gradino, la sua mano è vicina alla mia. Non si sposta.</p><ol><li><span class="opt">«Prenderle la mano»</span> <span class="cond">[solo se aede_affinity &gt;= 8]</span> <span class="fx pos">affinità +3</span><details><summary>svolgimento</summary><p class="s n">Non chiedo il permesso. Se lo chiedessi, direbbe no per principio.</p><p class="s n">Le prendo la mano. Le sue dita si irrigidiscono — un istante — poi, piano, si intrecciano alle mie.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Questo non significa niente. È... perché la scala è ripida.</p><p class="s"><b style="color:#f0e6d2">TU:</b> Ripidissima.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Se cadi, ti lascio rotolare fino al fiume.</p><p class="s n">Ma non lascia la presa. Non la lascia per duecentosettanta gradini.</p><p class="s n">Al fondo della Calà, col fiume davanti e le lanterne alle spalle, si volta verso di me. E per un momento né la figlia di Glauco né l'assassina: solo Aede, con gli occhi pieni di luci.</p><p class="s"><b style="color:#e05a4a">Aede:</b> <span class="var">[player_name]</span>. Io—</p><p class="s n">Un fischio dalla cima della scala. Il segnale del suo Ceppo: cambio turno.</p><p class="s"><b style="color:#e05a4a">Aede:</b> ...devo andare.</p><p class="s n">Sale i gradini a due a due. A metà scala si ferma, un solo istante, e si volta. Poi la notte se la riprende.</p></details></li><li><span class="opt">«Prenderle la mano»</span> <span class="cond">[solo se aede_affinity &lt; 8]</span> <details><summary>svolgimento</summary><p class="s n">Non chiedo il permesso. Allungo la mano verso la sua.</p><p class="s n">Lei la ritira con naturalezza perfetta, come se dovesse sistemarsi i capelli proprio in quell'istante.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Attent<span class="var">[fin]</span>, novellin<span class="var">[fin]</span>. Su questa scala i gesti hanno un significato. E tu e io non ci conosciamo abbastanza perché ne abbiano.</p><p class="s n">Non è crudele. È esatta. Fa più male così.</p></details></li><li><span class="opt">«Camminarle accanto, senza toccarla»</span> <span class="fx pos">affinità +1</span><details><summary>svolgimento</summary><p class="s n">Scendiamo fianco a fianco, le mani a un dito di distanza, senza che nessuna delle due attraversi il confine.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Tutta Zefiro crede a questa storia della mano nella mano. Patetico.</p><p class="s"><b style="color:#f0e6d2">TU:</b> Patetico.</p><p class="s"><b style="color:#e05a4a">Aede:</b> ...tu ci credi?</p><p class="s"><b style="color:#f0e6d2">TU:</b> Chiedimelo al fondo della scala.</p><p class="s n">Ma al fondo della scala c'è il cambio turno del suo Ceppo, e la domanda resta sui gradini, insieme alle lanterne.</p></details></li><li><span class="opt">«Restare qualche gradino indietro»</span> <span class="fx neg">affinità −2</span><details><summary>svolgimento</summary><p class="s n">Rallento. Metto distanza. La leggenda, il Ceppo, il padre: troppo, tutto insieme.</p><p class="s n">Lei non si volta a cercarmi. Finisce la scala da sola, dritta come una lama, e si perde tra le lanterne del fondo.</p><p class="s n">Corrado, più tardi, mi chiede com'è andata. Non rispondo. È andata che sono <span class="var">[un_t]</span> codard<span class="var">[fin]</span>.</p></details></li></ol></div>
+</section>
+<section id="a-cap6"><h3>Capitolo 6 — Il giuramento</h3>
+<p class="stage">■ Scena: bg corridoio_ceppo</p>
+<p class="narr">Mi trova lei, stavolta. Alla tenuta del mio Ceppo, su un ballatoio che guarda i tetti di Zefiro, un'ora prima dell'alba.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Non riuscivo a dormire. E la tua tenuta ha le serrature peggiori del Nord, sappilo.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Lo riferirò a Briseide.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Non lo riferirai.</p>
+<p class="narr">Si appoggia alla balaustra accanto a me. Per un po' guardiamo i tetti scurirsi e poi accendersi di brace, a oriente.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Questa notte, vent'anni fa, io avevo un altro nome.</p>
+<p class="narr">Il cuore mi si ferma. Il giuramento. Il tabù dei tabù: nessun Dignitas rivela la vita di prima. Proclamarla è morte; ascoltarla, forse peggio.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Non l'ho mai detto a nessuno. Mio padre lo sa senza che io l'abbia detto, perché mio padre sa tutto. Ma dirlo... dirlo è un'altra cosa. Dirlo è darlo via.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> E io stanotte avrei voglia di darlo via. A te. Capisci cosa ti sto offrendo, <span class="var">[player_name]</span>?</p>
+<div class="choice"><p class="cap">La capisco. Sta offrendo l'unica cosa che il giuramento le ha lasciato da offrire.</p><ol><li><span class="opt">«Fermarla. «Il tuo nome di prima è morto. Io voglio quella viva.»»</span> <span class="fx flag">flag_giuramento = True</span><span class="fx pos">affinità +2</span><details><summary>svolgimento</summary><p class="s n">Le metto due dita sulle labbra, piano.</p><p class="s"><b style="color:#f0e6d2">TU:</b> Il tuo nome di prima è morto. Io voglio quella viva.</p><p class="s"><b style="color:#f0e6d2">TU:</b> Non devi comprarmi con un segreto, Aede. Non devi comprarmi affatto.</p><p class="s n">Mi fissa. Qualcosa le si scioglie nella linea delle spalle, un nodo vecchio di vent'anni.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Sei l'unic<span class="var">[fin]</span> <span class="var">[uomo_t]</span> del Nord che rifiuta un tesoro per prendersi la cassaforte.</p><p class="s"><b style="color:#f0e6d2">TU:</b> La cassaforte mi è sempre piaciuta più del tesoro.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Idiota.</p><p class="s n">Ma lo dice con la fronte appoggiata alla mia spalla. E il sole, quando sorge, ci trova così.</p></details></li><li><span class="opt">«Ascoltarla fino in fondo»</span> <span class="fx flagoff">flag_giuramento = False</span><span class="fx flag">flag_aede_rivelato = True</span><span class="fx pos">affinità +1</span><details><summary>svolgimento</summary><p class="s n">Non la fermo. Mi racconta: un villaggio dei Collifreddi, un clan in faida, una bambina veloce di mano che rubava per mangiare. Un nome che non scriverò mai, da nessuna parte.</p><p class="s n">Quando finisce, trema. Io le copro le spalle col mio mantello.</p><p class="s n">E dal buio del cortile, sotto di noi, qualcosa si muove. Una sagoma ferma, grigia, paziente.</p><p class="s n">Glauco Severo. Che guarda il ballatoio. Che ha sentito, o sa senza aver bisogno di sentire.</p><p class="s n">Quando riguardo il cortile, non c'è più nessuno. Aede non l'ha visto. Io non dormirò mai più.</p></details></li><li><span class="opt">«Fermarla e offrirle il mio, di passato»</span> <span class="fx flagoff">flag_giuramento = False</span><span class="fx neg">affinità −1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Allora facciamo a metà. Il tuo segreto per il mio. Anch'io avevo un nome, prima.</p><p class="s n">Si stacca dalla balaustra di scatto, come scottata.</p><p class="s"><b style="color:#e05a4a">Aede:</b> No. No, tu non capisci niente. Io posso buttare via il mio giuramento: è mio. Ma non ti lascerò buttare il tuo per pareggiare un conto.</p><p class="s"><b style="color:#e05a4a">Aede:</b> Il giuramento è l'unica cosa che ci rende Dignitas, <span class="var">[player_name]</span>. Se lo rompi per me, un giorno mi odierai. E io—</p><p class="s n">Non finisce la frase. Se ne va com'è venuta, dalle serrature peggiori del Nord.</p></details></li></ol></div>
+<p class="stage">■ Scena: bg nero</p>
+<p class="narr">Due giorni dopo, un messo col leone dorato sul petto si presenta alla mia tenuta.</p>
+<p class="narr">Il Ceppo di Glauco Severo convoca <span class="var">[il_t]</span> <span class="var">[figlio_t]</span> di Briseide, <span class="var">[player_name]</span>, nello studio dell'Autarca.</p>
+<p class="narr">Da solo.</p>
+</section>
+<section id="a-climax"><h3>Climax — La neve</h3>
+<p class="stage">■ Scena: bg studio_glauco</p>
+<p class="narr">Lo studio è come lo ricordavo: silenzioso, ordinato, letale.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Siediti, <span class="var">[figlio_t]</span> di Briseide. Il vino è buono. Bevilo adesso: dopo, uno di noi due non ne avrà più voglia.</p>
+<p class="narr">Mi siedo. Non bevo.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Mia figlia è l'opera della mia vita. L'ho raccolta che era un pugno di fame e rabbia, e ne ho fatto la lama perfetta del Nord.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> E tu, in una stagione, hai fatto ciò che vent'anni di disciplina avevano impedito: la lama ha cominciato a chiedersi perché taglia.</p>
+<table class="routing"><caption>Smistamento finali (in ordine)</caption><tr><td><code>flag_aede_rivelato</code></td><td>→ glauco "E non solo. Sul ballatoio della tua tenuta, mia figlia ha pronunciato il nome che il giuramento le ha sepolto in gola. L'ho sentito io, [figlio_t] di Briseide. Sai cosa comanda la legge della Famiglia per chi rivela la vita di prima — e per chi ascolta."</td></tr></table>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Quella parola, stanotte, pesa sulla bilancia insieme a te. Ricordalo, quando vedrai la lama.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Una lama che si fa domande è una lama rotta. E le lame rotte, nel mio Ceppo, si rifondono.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Perciò ho dato a mia figlia un ordine semplice. Il bersaglio sei tu. Stanotte, sotto le mura, lei salda il conto. Oppure non lo salda — e allora il conto lo saldo io, con entrambi.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Vai pure, <span class="var">[figlio_t]</span> di Briseide. La neve stanotte è ottima per morire. O per vivere. Dipende interamente da ciò che avete costruito, tu e lei.</p>
+<p class="stage">■ Scena: bg esterno_neve</p>
+<p class="narr">Le mura esterne di Zefiro. La neve cade piatta, senza vento. Ogni passo scricchiola come un conto alla rovescia.</p>
+<p class="narr">È lì. Ferma nel bianco, il cappuccio abbassato, i capelli rossi come una ferita nella neve.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Ti ha detto tutto, vero? È il suo stile. Pulito.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Mi ha detto che il bersaglio sono io.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Il bersaglio sei tu.</p>
+<p class="narr">La lama è già nella sua mano. Non l'ho vista estrarla. Non la vedo mai.</p>
+<div class="choice"><p class="cap">La neve cade. Lei aspetta. Tutto quello che siamo stati si decide adesso.</p><ol><li><span class="opt">«Parlarle, un'ultima volta»</span> <details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Qualunque cosa accada adesso, Aede: rifarei ogni gradino della Calà.</p></details></li><li><span class="opt">«Restare in silenzio e guardarla negli occhi»</span> <details><summary>svolgimento</summary><p class="s n">Non dico niente. Le parole, con lei, sono sempre state la moneta sbagliata. La guardo e basta, come al fondo della scala.</p></details></li><li><span class="opt">«Tendere la mano, aperta»</span> <details><summary>svolgimento</summary><p class="s n">Tendo la mano. Aperta, vuota, ferma nella neve. La stessa che le ho offerto sulla Calà.</p></details></li></ol></div>
+<table class="routing"><caption>Smistamento finali (in ordine)</caption><tr><td><code>aede_affinity &gt;= 12 and flag_giuramento and flag_accetta_lavoro</code></td><td>→ good_end</td></tr><tr><td><code>not flag_segreto_svelo and aede_affinity &lt; 3</code></td><td>→ bad_end_glauco</td></tr><tr><td><code>aede_affinity &lt; 3</code></td><td>→ bad_end_aede</td></tr><tr><td><code>altrimenti</code></td><td>→ neutral_end</td></tr></table>
+</section>
+<section id="a-good_end"><h3>GOOD END</h3>
+<p class="narr">Aede guarda la lama nella propria mano come se la vedesse per la prima volta.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Vent'anni di ordini eseguiti. Sai quante volte ho sbagliato un bersaglio, <span class="var">[player_name]</span>?</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Una.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Una. E non era un errore.</p>
+<p class="narr">Apre le dita. La lama cade nella neve, dritta, e vi resta piantata come un piccolo monumento.</p>
+<p class="narr">Glauco emerge dal bianco. Era lì da sempre, naturalmente.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Disobbedienza.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Verità, padre. La tua lama perfetta sceglie il suo bersaglio: è questo che l'hai addestrata a fare. Scegliere meglio di chiunque.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> E io scelgo lui. Davanti a te, davanti al Groviglio, davanti a ogni Asi che vorrà guardare. Se il Ceppo deve rifondermi, cominci stanotte.</p>
+<p class="narr">Il silenzio dura una nevicata intera. Poi Glauco Severo fa la cosa più spaventosa che abbia mai fatto.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Vent'anni perché imparasse a disobbedirmi per qualcosa che vale. Era l'ultima lezione, figlia. L'unica che non potevo insegnarti io.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> <span class="var">[figlio_t]</span> di Briseide: la cena è al tramonto, alla tenuta del Ceppo. Non si rifiuta l'invito di Glauco Severo due volte.</p>
+<p class="narr">Se ne va com'è venuto. La neve gli si richiude dietro.</p>
+<p class="stage">■ Scena: bg cala_notte</p>
+<p class="narr">Più tardi — molto più tardi — la Calà è spenta, la festa è lontana, i gradini sono solo gradini.</p>
+<p class="narr">Li scendiamo lo stesso. Mano nella mano, dal primo all'ultimo.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Lo sai che la leggenda vale solo la notte della Fiaccolata, vero? Stanotte non conta.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Allora torniamo alla prossima Fiaccolata.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> ...idiota.</p>
+<p class="narr">Ma le sue dita stringono le mie. E il Nord, per una volta, non ci chiede niente.</p>
+<p class="stage">■ Scena: bg nero</p>
+<p class="centered">FINE<br><br>Aede ha scelto il suo bersaglio.<br>Per sempre.</p>
+</section>
+<section id="a-neutral_end"><h3>NEUTRAL END</h3>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Mio padre vuole un saldo. E avrà un saldo.</p>
+<p class="narr">Si muove prima che io possa rispondere. Il pomo della lama — non il filo — mi prende alla tempia. Il mondo diventa neve.</p>
+<p class="stage">■ Scena: bg nero</p>
+<p class="narr">Mi sveglio su un carro di lane, fuori dalle mura, con un bernoccolo epico e una lettera cucita nel mantello.</p>
+<table class="routing"><caption>Smistamento finali (in ordine)</caption><tr><td><code>flag_aede_rivelato</code></td><td>→ "{i}«Mio padre sa del ballatoio. Del nome. È il vero motivo per cui non puoi più restare a Zefiro: finché respiri lontano, il mio giuramento rotto resta una parola nella neve. Se torni, diventa una prova.{/i}"</td></tr></table>
+<p class="narr"><em>«Per mio padre sei mort<span class="var">[fin]</span> congelat<span class="var">[fin]</span> nel fosso, e il fosso non si controlla. È il migliore dei miei lavori: il primo bersaglio sbagliato di proposito.</em></p>
+<p class="narr"><em>Non tornare a cercarmi. Ma se un giorno una lama ti salva la vita da un tetto di Zefiro, non chiederti di chi è.</em></p>
+<p class="narr"><em>L'amica che non hai mai avuto. — A.»</em></p>
+<p class="stage">■ Scena: bg vicoli_zefiro</p>
+<p class="narr">Torno alla mia tenuta per vie lunghe. Briseide non fa domande: sa già, come sempre.</p>
+<p class="narr">E negli anni, ogni tanto, una moneta della Lega con un graffio a forma di volpe compare sul mio davanzale. Nessun biglietto. Nessuna firma.</p>
+<p class="narr">Non serve. So di chi è la mano. La più veloce del Nord.</p>
+<p class="stage">■ Scena: bg nero</p>
+<p class="centered">FINE<br><br>Non tutti i debiti si saldano col sangue.<br>Alcuni si saldano con l'assenza.</p>
+</section>
+<section id="a-bad_end_aede"><h3>BAD END — La lama di Aede</h3>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Sai qual è la differenza tra te e tutti gli altri bersagli, <span class="var">[player_name]</span>?</p>
+<p class="narr">La neve scricchiola. Un passo. Non vedo la lama. Non la vedo mai.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Nessuna. È questo che non hai mai capito.</p>
+<p class="narr">Freddo sotto il mento. Come la prima notte, allo Svelo. Il cerchio si chiude.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Dovevi guardare, ascoltare e non farti notare. Te l'avevano detto.</p>
+<p class="stage">■ Scena: bg nero</p>
+<p class="narr">Il Margine, dicono gli Arvali, è un fiume lento. I Dignitas meritevoli lo attraversano verso Drakengrad, la sala del Leone, dove ogni storia viene raccontata per sempre.</p>
+<p class="narr">Chissà se qualcuno, laggiù, racconterà la mia: la storia di chi amò la lama, e la lama saldò il conto.</p>
+<p class="centered">FINE<br><br>Il Nord non perdona.<br>Lei meno di tutti.</p>
+</section>
+<section id="a-bad_end_glauco"><h3>BAD END — La mano di Glauco</h3>
+<p class="narr">Aede non si muove. La lama le pende dalla mano come un pensiero incompiuto.</p>
+<p class="say"><b style="color:#e05a4a">Aede:</b> Non ci riesco.</p>
+<p class="narr">Lo dice piano, stupita di se stessa. E nella neve alle mie spalle, una voce pesata come oro contato:</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Lo sapevo prima di darle l'ordine, <span class="var">[figlio_t]</span> di Briseide. Era l'ultima verifica, e l'avete fallita entrambi.</p>
+<p class="say"><b style="color:#9a9a9a">Glauco Severo:</b> Mia figlia non commette errori. Quando li commette, li erediti tu.</p>
+<p class="narr">Non vedo il gesto. Con lui non lo vede nessuno.</p>
+<p class="stage">■ Scena: bg nero</p>
+<p class="narr">L'ultima cosa che sento è la voce di lei che urla il mio nome — il mio Primo Nome, quello vero, l'unico che ho.</p>
+<p class="narr">Gli Arvali dicono che chi muore nella neve attraversa il Margine senza freddo. Mentono. Ma è un freddo breve.</p>
+<p class="narr">E a Drakengrad, nella sala del Leone, c'è un posto anche per le storie finite male. Il Nord le preferisce: insegnano meglio.</p>
+<p class="centered">FINE<br><br>«Chi minaccia me, parla con lui.<br>E nessuno parla con lui due volte.»</p>
+</section>
+
+<h2 class="caino">Route II — <span class="who">Caino</span>, la legge del cuore</h2>
+<nav class="toc"><a href="#c-caino_prologo">Prologo — L&#x27;Adunanza</a><a href="#c-caino_cap1">Capitolo 1 — La Proprietà</a><a href="#c-caino_cap2">Capitolo 2 — TESCHIO</a><a href="#c-caino_cap3">Capitolo 3 — Il ballo</a><a href="#c-caino_cap4">Capitolo 4 — Il tradimento</a><a href="#c-caino_cap5">Capitolo 5 — La breccia</a><a href="#c-caino_cap6">Capitolo 6 — La prova</a><a href="#c-caino_climax">Climax — Il Consiglio</a><a href="#c-caino_good_end">GOOD END — La legge del cuore</a><a href="#c-caino_secret_end">FINALE SEGRETO — Teschio</a><a href="#c-caino_bad_end">BAD END — La pedina</a><a href="#c-caino_neutral_end">NEUTRAL END — Soci</a></nav>
+<section id="c-caino_prologo"><h3>Prologo — L&#x27;Adunanza</h3>
+<p class="stage">■ Scena: bg sala_svelo</p>
+<p class="narr">L'Adunanza annuale. Tutta la Famiglia sotto un tetto solo: Autarchi, Arconti, Eparchi, e in fondo alla sala i Figli nuovi come me, messi lì dove non facciamo danni.</p>
+<p class="narr">È lì che lo vedo la prima volta: al centro esatto della sala, dove le correnti del potere si incrociano. Ride con tre Autarchi insieme, e tutti e tre credono di essere il motivo della risata.</p>
+<p class="narr">Caino. Figlio di Lenora, fratello di Druso e di Icaro. Arconte della Proprietà. Dicono che sia la spada migliore di Rocca Tempesta dopo sua madre, e la lingua migliore senza nessun dopo.</p>
+<p class="narr">E a un certo punto — non so come, non so perché — quella lingua punta me.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Tu. Figlio di Briseide. Sì, tu, quello che da mezz'ora studia la sala come se dovesse comprarla.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Osservavo, Arconte. Niente di più.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> «Osservavo, Arconte». Educato, misurato, inutile. Briseide vi fabbrica tutti così?</p>
+<p class="narr">Sorride mentre lo dice. Ha un sorriso facile, Caino: il tipo di sorriso che ti fa sentire importante due secondi prima di scoprire cosa ti è costato.</p>
+<p class="narr">Un servo passa col vassoio. Caino scarta il vino con un gesto che è quasi un insulto.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Vino di Glostok. Lo bevono i cambiavalute e i pentiti. Io bevo idromele di Rurikstad, e chi mi conosce lo sa. Ricordatelo, Figlio di Briseide: nella Famiglia, chi ricorda i dettagli possiede le persone.</p>
+<p class="narr">Prende invece un corno di idromele. Al mignolo destro gli brilla un anello: un sigillo con un drago, non un leone. Un dettaglio che stona, su un uomo che non lascia nulla al caso.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Ora dimmi una cosa, così capisco con chi parlo.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Il Ballo delle Candele Spente. Che festa magnifica dev'essere stata, eh? Luci soffuse, musica, mia madre che cura ogni dettaglio. Mi spiace solo non esserci stato. Tu che ne pensi?</p>
+<div class="choice"><p class="cap">Qualcosa, nella sua voce, è troppo liscio per essere vero.</p><ol><li><span class="opt">«Magnifica davvero. Peccato essermela persa.»</span> <span class="fx neg">fiducia −2</span><span class="fx neg">trappola caduta</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Magnifica davvero. Peccato essermela persa.</p><p class="s"><b style="color:#c87a30">Caino:</b> Già. Peccato.</p><p class="s n">Il sorriso non cambia di un millimetro. Ma qualcosa dietro gli occhi archivia: <em>questo annuisce senza sapere</em>. E io capisco di aver perso un punto in una partita che non sapevo di giocare.</p><p class="s n">Solo più tardi, da Vanna, scopro cos'era il Ballo delle Candele Spente: un massacro. Ideato da Lenora. Sua madre.</p></details></li><li><span class="opt">«Era un massacro, Arconte. Lo sanno anche i nuovi.»</span> <span class="fx pos">fiducia +2</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Era un massacro, Arconte. Lo sanno anche i nuovi. Strano che il figlio della Capofamiglia se lo ricordi come una festa.</p><p class="s n">Per un istante — mezzo battito — il sorriso si ferma.</p><p class="s"><b style="color:#c87a30">Caino:</b> ...Briseide vi fabbrica meglio di quanto dicessi.</p><p class="s"><b style="color:#c87a30">Caino:</b> Era una prova, Figlio di Briseide. La sala è piena di gente che mi dà ragione per riflesso. Tu no. Interessante.</p></details></li><li><span class="opt">«Restare in silenzio e sorridere»</span> <span class="fx neg">fiducia −1</span><details><summary>svolgimento</summary><p class="s n">Sorrido e non rispondo. La via sicura.</p><p class="s"><b style="color:#c87a30">Caino:</b> Il silenzio. La risposta di chi non vuole perdere. Prudente. Noioso. Ma prudente.</p></details></li></ol></div>
+<p class="say"><b style="color:#c87a30">Caino:</b> Ci rivedremo, Figlio di Briseide. La Proprietà ha sempre bisogno di mani nuove. E io ho sempre bisogno di sapere cosa valgono, le mani nuove.</p>
+<p class="narr">Se ne va attraversando la sala come se la sala fosse sua. E il punto, mi dico, è proprio questo: un giorno potrebbe esserlo.</p>
+</section>
+<section id="c-caino_cap1"><h3>Capitolo 1 — La Proprietà</h3>
+<p class="stage">■ Scena: bg corridoio_ceppo</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> L'Arconte della Proprietà ha chiesto di te. Per nome.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Per nome?</p>
+<p class="say"><b style="color:#d4af37">Briseide Ippodamia:</b> Per nome. <span class="var">[player_name]</span>, del Ceppo di Briseide. Quando Caino chiede per nome, ha già deciso a cosa gli servi. Scoprilo prima che lo decida del tutto: è l'unico vantaggio che avrai.</p>
+<p class="stage">■ Scena: bg studio_glauco</p>
+<p class="narr">Lo studio dell'Arconte della Proprietà è l'opposto di quello di Glauco: caldo, pieno, teatrale. Registri ovunque, mappe dei Ceppi, e una spada appesa dove chiunque entri deve vederla.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Il Figlio che non annuisce. Entra. Ho un problema di aritmetica e tutti i miei scrivani hanno già sbagliato la risposta.</p>
+<p class="narr">Il problema di aritmetica è un registro delle decime di tre Contrade. Lavoriamo un'ora: lui parla, io conto, lui controlla il mio contare fingendo di non farlo.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Passabile. Briseide ti presta a buon mercato o devo firmare qualcosa?</p>
+<p class="narr">Un servo entra con un vassoio: due coppe già piene.</p>
+<div class="choice"><p class="cap">Vino rosso. Di Glostok, dal sigillo sulla brocca.</p><ol><li><span class="opt">«Fermare il servo: «L'Arconte beve idromele di Rurikstad.»»</span> <span class="fx pos">fiducia +2</span><span class="fx pos">memoria +1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Aspetta. L'Arconte beve idromele di Rurikstad. Il vino di Glostok lo bevono i cambiavalute e i pentiti.</p><p class="s n">Caino si volta lentamente. Mi guarda come si guarda una moneta trovata per terra: con sospetto, e con interesse.</p><p class="s"><b style="color:#c87a30">Caino:</b> ...hai ricordato. Parola per parola.</p><p class="s"><b style="color:#c87a30">Caino:</b> Sai quanti, in questa Rocca, ricordano quello che dico quando non sto minacciando nessuno? Due. Mia madre. E adesso tu.</p></details></li><li><span class="opt">«Prendere la coppa e ringraziare»</span> <span class="fx neg">fiducia −1</span><details><summary>svolgimento</summary><p class="s n">Prendo la coppa. Caino guarda la sua senza toccarla, poi guarda me, e qualcosa negli occhi gli si spegne di un grado.</p><p class="s"><b style="color:#c87a30">Caino:</b> Salute, Figlio di Briseide. Al vino di Glostok e a chi non ascolta.</p></details></li><li><span class="opt">«Aspettare di vedere se la beve»</span> <details><summary>svolgimento</summary><p class="s n">Aspetto. Caino lascia la coppa dov'è, senza commentare. Il servo la riporta via.</p><p class="s"><b style="color:#c87a30">Caino:</b> Prudente. Sempre prudente. Prima o poi dovrai scegliere qualcosa, sai.</p></details></li></ol></div>
+<p class="say"><b style="color:#c87a30">Caino:</b> Torna domani. La Proprietà ha un lavoro vero per te. E il lavoro vero, qui dentro, è l'unico complimento che faccio.</p>
+</section>
+<section id="c-caino_cap2"><h3>Capitolo 2 — TESCHIO</h3>
+<p class="stage">■ Scena: bg palestra</p>
+<p class="narr">Il cortile d'armi del Ramo di Lenora, l'alba dopo. Mi hanno detto di presentarmi presto. Non mi hanno detto per cosa.</p>
+<p class="narr">Caino è a torso di camicia, al centro del cortile. Ai suoi piedi, due blocchi di marmo bianco con maniglie di ferro incassate.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Ventiquattro chili l'uno. Marmo delle Cimebianche, tagliato male apposta: il peso non è mai dove te lo aspetti. Come la Famiglia.</p>
+<p class="narr">Li solleva. E comincia — che gli Asi mi fulminino — a fare alzate laterali. Le braccia dritte, il marmo che sale fino alla linea delle spalle, scende, risale. Il respiro regolare come un conto.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Dodici... tredici... il potere, Figlio di Briseide, è questo... quattordici... peso morto che impari a sollevare... con grazia...</p>
+<p class="narr">Una voce tuona dall'arcata.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> FRATELLO!</p>
+<p class="narr">Druso. Più largo di Caino di una spanna, la barba più selvaggia, il sorriso più facile ancora.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> TESCHIO!</p>
+<p class="narr">E prima che io capisca cosa significa, Druso scaglia un pugno diretto ai genitali di Caino. Caino — con quarantotto chili di marmo in mano — ruota sul fianco, para col blocco sinistro, e il pugno di Druso incontra la pietra.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> AAAH! Figlio di—</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Di Lenora. Come te. Quindici.</p>
+<p class="narr">Caino posa i blocchi, e con lo stesso movimento tira un calcio secco all'inguine del fratello. Druso lo blocca con entrambe le mani per un pelo.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> TESCHIO.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> Parato! Non vale, avevi ancora il marmo in mano quando ho dichiarato!</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Il Codice del Teschio non dice niente sul marmo. L'ho scritto io, lo saprò.</p>
+<p class="narr">I due si abbracciano ridendo come due orsi. Io resto sulla soglia, con la precisa sensazione di aver visto un rito più antico e più sacro dell'Adunanza.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> E questo chi è? Il famoso Figlio di Briseide che non annuisce?</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> Quaranta Scudi, fratello. Me li devi da tre lune: hai scommesso che il Ciambellano di Glostok non sarebbe durato un anno, ed è ancora lì.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Quaranta Scudi che diventeranno venti, perché la metà la persi per colpa del tuo consiglio sbagliato sul torneo. Dettagli, fratello. I dettagli possiedono le persone.</p>
+<div class="choice"><p class="cap"><b style="color:#8a9bb0">Druso:</b> Novellin<span class="var">[fin]</span>! Fai da testimone: ha detto quaranta o non ha detto quaranta?</p><ol><li><span class="opt">«Quaranta. E il Codice del Teschio non parla di sconti.»</span> <span class="fx pos">legame Druso +1</span><span class="fx pos">fiducia +1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Quaranta. E se il Codice del Teschio l'ha scritto lui, varrà anche sui debiti: niente sconti non dichiarati.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> AH! Mi piace! Briseide, benedetta donna, finalmente uno con la spina dorsale!</p><p class="s"><b style="color:#c87a30">Caino:</b> Traditore. Sei nel mio studio da un giorno e già testimoni per il nemico.</p><p class="s n">Ma ride. Rido anche io. È impossibile non ridere, in mezzo a questi due.</p></details></li><li><span class="opt">«Non ho sentito niente. Io conto solo registri.»</span> <span class="fx pos">fiducia +1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Non ho sentito niente, io conto solo registri. E nei registri della Proprietà questo debito non esiste.</p><p class="s"><b style="color:#c87a30">Caino:</b> Risposta da politico. Forse ti ho sottovalutato.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> Risposta da vigliacco! Quaranta Scudi, pagherai, legislatore dei miei—</p><p class="s"><b style="color:#c87a30">Caino:</b> TESCHIO.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> NO—</p><p class="s n">Stavolta Druso non para.</p></details></li></ol></div>
+<p class="narr">Quando il cortile si svuota, Caino mi trattiene con un gesto.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Mio fratello. Un idiota magnifico. Il preferito di nostra madre, lo dico senza un filo di invidia: a lui il cuore di Lenora, a me solo i suoi incarichi, i suoi segreti e il suo seggio in Consiglio, un giorno. Vedi quanto ci ho perso.</p>
+<div class="choice"><p class="cap">Di nuovo quella voce troppo liscia.</p><ol><li><span class="opt">«Certo. Si vede che non t'importa affatto.»</span> <span class="fx neg">fiducia −2</span><span class="fx neg">trappola caduta</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Certo. Si vede che non t'importa affatto.</p><p class="s"><b style="color:#c87a30">Caino:</b> Già. Per niente.</p><p class="s n">Archiviato: <em>annuisce senza capire</em>. Due a zero per lui, e io continuo a non sapere a che gioco giochiamo.</p></details></li><li><span class="opt">«Hai appena detto il contrario di quello che pensi. Di nuovo.»</span> <span class="fx pos">fiducia +2</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Hai appena detto il contrario di quello che pensi. Di nuovo. Il preferito sei tu, e la cosa ti pesa più dei tuoi blocchi di marmo.</p><p class="s n">Silenzio. Druso, dall'arcata, fischia piano.</p><p class="s"><b style="color:#c87a30">Caino:</b> ...Druso. Il Figlio di Briseide resta a pranzo.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> Lo so, fratello. L'ho capito prima di te.</p></details></li></ol></div>
+</section>
+<section id="c-caino_cap3"><h3>Capitolo 3 — Il ballo</h3>
+<p class="stage">■ Scena: bg sala_svelo</p>
+<p class="narr">Festa di mezzo inverno a Rocca Tempesta. La sala grande, le lanterne, e la Famiglia che danza come se non si spiasse a vicenda da cento anni.</p>
+<p class="narr">Caino balla come combatte: in anticipo su tutti. Tre dame di tre Ceppi diversi si sono già alternate al suo braccio, e ognuna è tornata al suo posto convinta di avergli strappato un segreto.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Figlio di Briseide. Sai ballare o Briseide vi insegna solo l'aritmetica?</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> L'aritmetica è una danza, Arconte. Solo più lenta.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Risposta da scrivano con ambizioni. Vediamo la pratica.</p>
+<p class="narr">Mi tende la mano. E la sala intera — lo sento sulla pelle — smette per un istante di respirare: l'Arconte della Proprietà non invita i Figli nuovi.</p>
+<div class="choice"><p class="cap">La musica riparte.</p><ol><li><span class="opt">«Accettare e lasciarlo condurre»</span> <span class="fx pos">fiducia +2</span><details><summary>svolgimento</summary><p class="s n">Accetto. Conduce lui, ovviamente: ogni passo è un contratto, ogni giro una clausola. Ma a metà danza succede una cosa strana — smette di guardare la sala e guarda me.</p><p class="s"><b style="color:#c87a30">Caino:</b> Curioso. Di solito a questo punto i miei partner contano i passi o contano i vantaggi. Tu che conti?</p><p class="s"><b style="color:#f0e6d2">TU:</b> Niente. È questo il bello della danza: è l'unica cosa che non serve a niente.</p><p class="s n">Non risponde. Ma per quattro battute intere, l'Arconte della Proprietà balla senza guardare nessun altro nella sala.</p></details></li><li><span class="opt">«Accettare, ma giocare a condurre io»</span> <span class="fx pos">fiducia +2</span><details><summary>svolgimento</summary><p class="s n">Accetto — e al terzo passo gli rubo la conduzione. Un furto piccolo, tecnico, visibile solo a noi due.</p><p class="s"><b style="color:#c87a30">Caino:</b> ...questo era il mio tempo.</p><p class="s"><b style="color:#f0e6d2">TU:</b> Era. I dettagli possiedono le persone, Arconte.</p><p class="s"><b style="color:#c87a30">Caino:</b> Rubare le mie massime per usarle contro di me. C'è della Proprietà in te, Figlio di Briseide. Forse troppa.</p><p class="s n">Ma non si riprende la conduzione. Per tutta la danza.</p></details></li><li><span class="opt">«Rifiutare con un inchino»</span> <span class="fx neg">fiducia −2</span><details><summary>svolgimento</summary><p class="s n">Mi inchino e rifiuto. La mano di Caino resta tesa nel vuoto per un secondo — un secondo che la sala intera vede.</p><p class="s"><b style="color:#c87a30">Caino:</b> Prudenza, di nuovo. Un giorno, Figlio di Briseide, la prudenza ti salverà la vita. E sarà l'unica cosa che avrai salvato.</p></details></li></ol></div>
+<p class="narr">Tra una danza e l'altra, Druso mi intercetta al tavolo lungo, due boccali in mano e il fiato di chi ha già vinto tre brindisi.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> Novellin<span class="var">[fin]</span>! Mio fratello balla, io bevo. Ognuno il suo talento. Gara: chi finisce il boccale per ultimo paga il prossimo giro E balla con la vedova Tersicore.</p>
+<div class="choice"><p class="cap">Il boccale è grande quanto un elmo.</p><ol><li><span class="opt">«Accettare la gara»</span> <span class="fx pos">legame Druso +1</span><details><summary>svolgimento</summary><p class="s n">Accetto. Perdo. Pago. E la vedova Tersicore, giuro, balla meglio di metà sala.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> Hai perso con onore e pagato senza piangere. Nel mio Codice personale, vali già più di mezzo Consiglio.</p><p class="s n">Da quella sera, Druso mi saluta per nome. Tutte le volte. Anche in mezzo alla folla.</p></details></li><li><span class="opt">«Declinare con diplomazia»</span> <details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> La Proprietà mi vuole sobrio, temo.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> «La Proprietà mi vuole sobrio». Parli già come lui. Che gli Asi ci salvino, due Caino.</p></details></li></ol></div>
+<p class="narr">Più tardi, al tavolo dell'idromele, mi raggiunge con due corni. Me ne porge uno.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Una domanda, prima che la serata finisca. Guardami le mani.</p>
+<p class="narr">Le guardo. Le dita lunghe, i calli della spada. Nessun anello.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> All'Adunanza, la sera che ci siamo conosciuti, portavo un anello. Se mi dici qual era e dov'era, questo idromele lo paghi con la risposta. Se sbagli, resti a bocca asciutta e io archivio.</p>
+<div class="choice"><p class="cap">Chiudo gli occhi. La sala, il vassoio, il corno di idromele, la mano...</p><ol><li><span class="opt">«Un sigillo col drago. Al mignolo destro.»</span> <span class="fx pos">fiducia +2</span><span class="fx pos">memoria +1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Un sigillo con un drago. Al mignolo destro. Stonava: un drago, su un uomo del leone.</p><p class="s n">Caino resta immobile. Poi, piano, mi mette il corno in mano.</p><p class="s"><b style="color:#c87a30">Caino:</b> Il drago è Draken, il Mutevole. L'anello era di mio padre. Non lo sa nessuno, perché nessuno guarda davvero.</p><p class="s"><b style="color:#c87a30">Caino:</b> Tre. Siamo in tre, adesso, a ricordare quello che dico. E uno dei tre comincia a preoccuparmi.</p></details></li><li><span class="opt">«Un leone d'oro, all'indice.»</span> <span class="fx neg">fiducia −1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Un leone d'oro. All'indice.</p><p class="s"><b style="color:#c87a30">Caino:</b> Un leone. Certo. Come tutti, ovvio, prevedibile. Hai guardato senza vedere, Figlio di Briseide.</p><p class="s n">Si riprende il corno e lo beve lui, fino in fondo, guardandomi negli occhi. Archiviato.</p></details></li><li><span class="opt">«Non portavi anelli.»</span> <span class="fx neg">fiducia −1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Non portavi anelli. Le mani di uno spadaccino.</p><p class="s"><b style="color:#c87a30">Caino:</b> Poetico. E sbagliato. La poesia è l'ultima difesa di chi non ricorda.</p></details></li></ol></div>
+</section>
+<section id="c-caino_cap4"><h3>Capitolo 4 — Il tradimento</h3>
+<p class="stage">■ Scena: bg consiglio</p>
+<p class="narr">La Rocca degli Arconti. Caino mi ha voluto con sé «per i registri». I registri, scopro, sono un'arma.</p>
+<p class="narr">Davanti a noi siede un uomo con lo stemma del Ceppo di Cardia: Aulo, Filius Maior, alleato di Caino da sei anni. Lo so perché me l'ha detto Caino stesso: «Aulo è la mia mano sinistra nel Consiglio».</p>
+<p class="narr">Oggi la mano sinistra trema.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Aulo. I registri della tua Contrada hanno tre buchi. Tre. Li ho trovati io, il che è un bene. Se li avesse trovati l'Arconte della Verità, saresti già nelle Segrete Silenti.</p>
+<p class="narr">Aulo balbetta. Spiega. Erano prestiti, dice. Li avrebbe ricoperti, dice. Caino ascolta col mento sulla mano, paziente come un gatto sazio.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Ti credo. Davvero. Ed è per questo che mi fa male quello che devo fare.</p>
+<p class="narr">E lo fa: consegna i registri al Consiglio quella sera stessa. Aulo perde il titolo, il seggio e il nome. La carica di Sovrintendente delle Contrade — quella che Aulo custodiva — passa alla Proprietà. A Caino.</p>
+<p class="narr">Sei anni di alleanza, spesi in una sera, per una carica.</p>
+<p class="stage">■ Scena: bg studio_glauco</p>
+<p class="narr">Nello studio, dopo, Caino versa due idromele come se niente fosse.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Dillo. Ce l'hai scritto in faccia, e le facce non sanno tenere i registri.</p>
+<div class="choice"><p class="cap">Cosa dico all'uomo che ha appena venduto la sua mano sinistra?</p><ol><li><span class="opt">«Era tuo alleato. Sei anni. E l'hai bruciato per una carica.»</span> <span class="fx pos">fiducia +2</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Era tuo alleato. Sei anni. E l'hai bruciato per una carica. Non per giustizia: per la carica. Se la giustizia c'entrava, i buchi li avresti portati al Consiglio sei mesi fa, quando li hai trovati davvero.</p><p class="s n">Il corno di idromele si ferma a mezz'aria.</p><p class="s"><b style="color:#c87a30">Caino:</b> ...come sai quando li ho trovati?</p><p class="s"><b style="color:#f0e6d2">TU:</b> Perché i registri li tengo io, adesso. E le date di consultazione restano. I dettagli, Arconte. I dettagli possiedono le persone.</p><p class="s n">Caino posa il corno. E per la prima volta da quando lo conosco, impiega più di un secondo a scegliere le parole.</p><p class="s"><b style="color:#c87a30">Caino:</b> Chiunque altro, con quella frase, sarebbe già rotolato giù dalle scale della Rocca. Tu invece resti a bere. Dovresti chiederti perché.</p><p class="s"><b style="color:#f0e6d2">TU:</b> Me lo sto chiedendo.</p><p class="s"><b style="color:#c87a30">Caino:</b> Anche io.</p></details></li><li><span class="opt">«Hai fatto bene. Aulo era un peso.»</span> <span class="fx neg">fiducia −2</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Hai fatto bene. Aulo era un peso. La Famiglia non ha posto per i deboli.</p><p class="s"><b style="color:#c87a30">Caino:</b> Che discorso ammirevole. Sembro io, senza il talento.</p><p class="s n">Mi guarda come si guarda uno specchio sporco: con fastidio, e con il sospetto che lo sporco non sia dello specchio.</p><p class="s"><b style="color:#c87a30">Caino:</b> Il problema di chi mi dà sempre ragione, Figlio di Briseide, è che non mi serve: ho già me stesso per quello.</p></details></li><li><span class="opt">«Tacere e bere»</span> <details><summary>svolgimento</summary><p class="s n">Bevo. Il silenzio, con Caino, è l'unica frase che non può rivoltarti contro.</p><p class="s"><b style="color:#c87a30">Caino:</b> Il silenzio. Di nuovo. Sai che è la cosa più onesta che ti ho visto fare?</p></details></li></ol></div>
+</section>
+<section id="c-caino_cap5"><h3>Capitolo 5 — La breccia</h3>
+<p class="stage">■ Scena: bg esterno_neve</p>
+<p class="narr">Mi convoca di notte, sugli spalti della Rocca. Niente registri stavolta: solo la neve, le lanterne di Zefiro in basso, e un uomo che per una volta non sta al centro di nessuna sala.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Lo sai cosa si dice di te, nei corridoi? Che il Figlio di Briseide ha stregato l'Arconte della Proprietà. Che ceno con te più spesso che con i miei scrivani. Che ti ho fatto ballare.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> E ti disturba?</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Mi disturba che sia vero.</p>
+<p class="narr">Si appoggia al merlo. Sotto di noi, Zefiro brilla come un registro pieno di voci.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Io non ci credo, <span class="var">[player_name]</span>. Ai sentimenti. Sono la moneta più falsa del Nord: tutti la spendono, nessuno la conia. Mia madre regna da prima che io nascessi, e non l'ho mai vista amare niente che non le servisse.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Quindi spiegami tu. Cosa vuoi da me? Tutti vogliono qualcosa. La carica, il favore, il seggio, la spada. Tu quale vuoi? Dimmelo e risparmiamo entrambi un inverno di finzioni.</p>
+<div class="choice"><p class="cap">La domanda è una lama ben tenuta. E la risposta sbagliata taglia.</p><ol><li><span class="opt">«Niente che puoi firmare. È questo che ti spaventa.»</span> <span class="fx pos">fiducia +2</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Niente che puoi firmare, Caino. Nessuna carica, nessun favore, nessun seggio. È questo che ti spaventa: non hai un registro dove scrivermi.</p><p class="s n">Tace. L'uomo che vince ogni scontro verbale di Rocca Tempesta tace, e la neve gli si posa sulle spalle senza che se ne accorga.</p><p class="s"><b style="color:#c87a30">Caino:</b> ...tutti hanno un prezzo. Tutti. Se tu non ce l'hai, sei la cosa più pericolosa che sia mai entrata nella mia Proprietà.</p><p class="s"><b style="color:#f0e6d2">TU:</b> O la prima che non ne fa parte.</p></details></li><li><span class="opt">«Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto.»</span> <details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto.</p><p class="s"><b style="color:#c87a30">Caino:</b> Onesto. Sì. E deludente, il che è peggio.</p><p class="s n">Annuisce piano, come chi ritrova una moneta conosciuta. Comoda, la moneta conosciuta. Ma non vale niente di nuovo.</p></details></li><li><span class="opt">«Non lo so ancora. E non te lo dirò prima di saperlo.»</span> <span class="fx pos">fiducia +1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Non lo so ancora. E non te lo dirò prima di saperlo per certo. Ti fidi delle risposte precise, ed è il tuo punto debole: le risposte precise si possono comprare.</p><p class="s"><b style="color:#c87a30">Caino:</b> Dare del punto debole all'Arconte della Proprietà. Sugli spalti. Di notte. Senza testimoni. O sei coraggios<span class="var">[fin]</span> o sei scem<span class="var">[fin]</span>.</p><p class="s"><b style="color:#f0e6d2">TU:</b> I dettagli possiedono le persone. Scegli tu quale dettaglio sono.</p></details></li></ol></div>
+<p class="narr">Il vento gira. Caino guarda Zefiro ancora un poco, poi — con la voce più piatta che ha —</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Sai, è buffo. Credo di essermi innamorato di te. Perdutamente. Come mi innamoro delle decime pagate in anticipo e dei registri senza buchi. Un sentimento travolgente, da ballata di Mercuzio. Dovremmo sposarci in Cantalba, che dici?</p>
+<div class="choice"><p class="cap">Il tono è sbagliato. Troppo liscio. È la voce del Ballo delle Candele Spente, la voce del «preferito senza invidia».</p><ol><li><span class="opt">«Anch'io ti amo, Caino.»</span> <span class="fx neg">fiducia −2</span><span class="fx neg">trappola caduta</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Anch'io ti amo, Caino.</p><p class="s n">Il viso gli si chiude come un registro a fine mese.</p><p class="s"><b style="color:#c87a30">Caino:</b> ...già. Certo. È tardi, Figlio di Briseide. La Rocca si alza presto.</p><p class="s n">E capisco, troppo tardi, che era l'ultima prova: voleva vedere se abboccavo alla moneta falsa. Ho abboccato.</p></details></li><li><span class="opt">«Questa era la peggiore delle tue trappole. Riprova quando fai sul serio.»</span> <span class="fx pos">fiducia +2</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Questa era la peggiore delle tue trappole, Caino. La voce era quella del Ballo delle Candele Spente: troppo liscia. Riprova quando fai sul serio. Se mai saprai farlo.</p><p class="s n">Lunga pausa. La neve cade. E poi Caino ride — non la risata da sala piena: una corta, vera, quasi sorpresa di esistere.</p><p class="s"><b style="color:#c87a30">Caino:</b> «Se mai saprai farlo». Ecco il problema, <span class="var">[player_name]</span>. Comincio a volerlo imparare. E non c'è registro, carica o spada che mi abbia mai spaventato quanto questa frase.</p></details></li></ol></div>
+</section>
+<section id="c-caino_cap6"><h3>Capitolo 6 — La prova</h3>
+<p class="stage">■ Scena: bg studio_glauco</p>
+<p class="narr">Lo studio, sette giorni dopo. Sul tavolo, due pergamene già scritte. Caino le gira verso di me come un banco di mercato.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Scegli. A sinistra: la nomina a Primo Scrivano della Proprietà. Mio braccio destro ufficiale. Carriera, Scudi, un seggio minore tra dieci anni. Firmata, manca il tuo nome.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> A destra: niente. Nessuna carica, nessun titolo. Solo me. Quello che resta di me quando togli l'Arconte, e ti avverto: nessuno l'ha mai visto, nemmeno io. Potrebbe non esserci nulla.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Perché me lo chiedi adesso?</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Perché mia madre ha cominciato a farmi domande su di te. E quando Lenora fa domande, le risposte le sceglie lei, se non gliele dai prima. Devo sapere cosa sei per me, <span class="var">[player_name]</span>. Stanotte.</p>
+<p class="narr">La porta si apre senza bussare. Druso. Niente sorriso, stavolta.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> Fratello. Il Consiglio. Qualcuno ha parlato a madre dei registri di Aulo. Dicono che li hai tenuti sei mesi per tempistica politica. Chiedono una testa.</p>
+<p class="narr">Caino non risponde. Druso si volta verso di me, e per una volta il gigante parla piano.</p>
+<div class="choice"><p class="cap"><b style="color:#8a9bb0">Druso:</b> Tu. Le date sui registri sono tue. Se resti, finisci nel calderone con lui. Posso farti uscire dalla postierla prima che la Rocca chiuda. Decidi adesso.</p><ol><li><span class="opt">«Resto. I registri li difendo io.»</span> <span class="fx pos">fiducia +1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Resto. I registri li ho tenuti io: li difendo io.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> Spina dorsale. L'avevo detto.</p></details></li><li><span class="opt">«Portami alla postierla. Ma torno all'alba.»</span> <span class="fx pos">legame Druso +1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Portami alla postierla. Ma torno all'alba: non scappo, prendo fiato.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> Furb<span class="var">[fin]</span> e viv<span class="var">[fin]</span>. È così che mi piacciono gli alleati. Vieni.</p><p class="s n">Alla postierla, prima di lasciarmi andare, Druso mi tiene la spalla un istante più del necessario.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> Qualunque cosa succeda domani... tu un fratello ce l'hai già, in questa Rocca. Ricordatelo.</p></details></li></ol></div>
+<p class="narr">Caino non si muove. Ma io ho tenuto i suoi registri, e so leggere anche lui, ormai: sotto il tavolo, la mano si è chiusa a pugno.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Le pergamene non scappano. Ma prima — un'ultima domanda. La più importante. Se sbagli questa, tutto il resto non conta.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> In tutti questi mesi, io ho detto di odiare una cosa sola. Una. Qual è?</p>
+<div class="choice"><p class="cap">Una cosa sola. Ripasso ogni sala, ogni corno, ogni sorriso.</p><ol><li><span class="opt">«Il vino di Glostok.»</span> <span class="fx pos">fiducia +2</span><span class="fx pos">memoria +1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Il vino di Glostok. «Lo bevono i cambiavalute e i pentiti.» Prima frase che mi hai detto dopo avermi dato del mobile inutile.</p><p class="s"><b style="color:#c87a30">Caino:</b> ...non ti ho dato del mobile inutile.</p><p class="s"><b style="color:#f0e6d2">TU:</b> «Educato, misurato, inutile». Adunanza. Verbale disponibile su richiesta.</p><p class="s"><b style="color:#c87a30">Caino:</b> Tre cose, allora, in vita mia: l'idromele, i dettagli, e te. È la lista completa delle cose che non tradirò.</p></details></li><li><span class="opt">«I traditori.»</span> <span class="fx neg">fiducia −1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> I traditori.</p><p class="s"><b style="color:#c87a30">Caino:</b> Io? Odiare i traditori? Io SONO un traditore, <span class="var">[player_name]</span>. È il mio mestiere. Risposta da ballata, e le ballate, nei registri, valgono zero.</p></details></li><li><span class="opt">«Tua madre.»</span> <span class="fx neg">fiducia −1</span><details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> Tua madre.</p><p class="s"><b style="color:#c87a30">Caino:</b> No. Mia madre la temo, la ammiro e la combatto. L'odio è per le cose piccole. Hai confuso la taglia del sentimento.</p></details></li></ol></div>
+<p class="narr">Caino si alza. Prende entrambe le pergamene, le piega, le infila nel farsetto.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Il Consiglio mi aspetta. La tua risposta — quella vera, sinistra o destra — me la darai dopo. Se dopo esisto ancora.</p>
+</section>
+<section id="c-caino_climax"><h3>Climax — Il Consiglio</h3>
+<p class="stage">■ Scena: bg consiglio</p>
+<p class="narr">La Sala del Consiglio di Rocca Tempesta. Non dovrei essere qui: i Figli nuovi non entrano. Ma il mio nome è sulla convocazione, scritto da mano ignota.</p>
+<p class="narr">Al centro, Caino. Davanti a lui, il semicerchio degli Arconti. E sul seggio più alto, una donna che non ha bisogno di presentazioni: fredda, dorata, immobile. Lenora.</p>
+<p class="narr">L'accusa è semplice: l'Arconte della Proprietà ha trattenuto le prove contro Aulo per sei mesi, usandole quando conveniva a lui. Abuso della Virtù dell'Operosità. Qualcuno deve pagare.</p>
+<p class="narr">E io so — perché i registri li tengo io — che esiste una via d'uscita perfetta: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino, e il ritardo diventa colpa mia. Lo scrivano nuovo, inesperto, del Ceppo di Briseide. Il capro perfetto.</p>
+<p class="narr">Caino lo sa. Mi guarda. La sala intera segue il suo sguardo fino a me.</p>
+<table class="routing"><caption>Smistamento finali (in ordine)</caption><tr><td><code>caino_fiducia &gt;= 12 and caino_trappole &lt;= 1 and caino_memoria &gt;= 2</code></td><td>→ caino_good_end</td></tr><tr><td><code>caino_druso &gt;= 2 and caino_fiducia &lt; 12</code></td><td>→ caino_secret_end</td></tr><tr><td><code>caino_fiducia &lt; 5 or caino_trappole &gt;= 3</code></td><td>→ caino_bad_end</td></tr><tr><td><code>altrimenti</code></td><td>→ caino_neutral_end</td></tr></table>
+</section>
+<section id="c-caino_good_end"><h3>GOOD END — La legge del cuore</h3>
+<p class="say"><b style="color:#c87a30">Caino:</b> Arconti. La tempistica dei registri di Aulo ha un solo responsabile.</p>
+<p class="narr">Il silenzio della sala è un animale affamato. Caino mi guarda un'ultima volta. E sorride — non il sorriso facile. L'altro. Quello che siamo in tre a conoscere.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Io. Li ho trovati, li ho tenuti, li ho usati. Per ambizione. Come ogni cosa che ho fatto in questa Rocca, tranne una.</p>
+<p class="narr">La sala esplode. Lenora alza una mano e il rumore muore.</p>
+<p class="narr">La Capofamiglia guarda suo figlio per un tempo lunghissimo. Poi:</p>
+<p class="narr">«La Proprietà passa ad altra mano per un anno. L'onestà, per quanto tardiva, resta una Virtù. Seduta tolta.»</p>
+<p class="stage">■ Scena: bg esterno_neve</p>
+<p class="narr">Sugli spalti, dopo. Caino guarda Zefiro con l'aria di chi ha perso una carica e non riesce a smettere di sorridere.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Vent'anni di scalata. Bruciati in una frase. Dovrei odiarti.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> E invece?</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Invece ho fatto i conti. Io i conti li faccio sempre, lo sai. Carica: persa. Seggio: rimandato. Madre: furiosa, il che è quasi un guadagno.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Tu: qui. Il registro chiude in attivo, <span class="var">[player_name]</span>. Per la prima volta in vita mia, il registro chiude in attivo senza che io abbia fregato nessuno.</p>
+<p class="narr">Mi prende il viso tra le mani — le mani callose dello spadaccino, attente come su un filo di lama.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> La pergamena di destra. Quella senza niente scritto. La firmo io, se tu la firmi con me. E ti avverto: quello che c'è sotto l'Arconte farebbe di tutto per te. Di tutto. È l'unico contratto che non so limitare.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Allora firmiamo senza limiti.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> TESCHIO.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Cosa—</p>
+<p class="narr">Il pugno si ferma a un dito dal mio inguine. Caino ride come suo fratello, finalmente.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Benvenut<span class="var">[fin]</span> nella famiglia. Quella piccola. La regola è una sola: si dichiara prima di colpire.</p>
+<p class="stage">■ Scena: bg nero</p>
+<p class="centered">LA LEGGE DEL CUORE<br><br>Il registro chiude in attivo.<br>Per sempre.</p>
+</section>
+<section id="c-caino_secret_end"><h3>FINALE SEGRETO — Teschio</h3>
+<p class="say"><b style="color:#c87a30">Caino:</b> Arconti. La tempistica è colpa mia. Del mio metodo. Ne risponderò alla Capofamiglia in forma privata.</p>
+<p class="narr">Lenora inclina la testa di un grado: concesso. La sala si svuota con un brusio deluso: niente teste, oggi.</p>
+<p class="narr">Caino mi passa accanto senza fermarsi.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Grazie per il silenzio, Figlio di Briseide. Il tuo conto è pari.</p>
+<p class="narr">Pari. Un registro chiuso. Tutto qui.</p>
+<p class="stage">■ Scena: bg palestra</p>
+<p class="narr">È Druso che mi trova, la sera, nel cortile d'armi. Due corni di idromele, uno me lo pianta in mano senza chiedere.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> Mio fratello è un idiota.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Tuo fratello è l'uomo più intelligente di Rocca Tempesta.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> Le due cose convivono benissimo, fidati, li conosco da quando è nato. Ha davanti una cosa vera — la prima della sua vita — e la archivia come un conto pari, perché i conti pari non fanno paura.</p>
+<p class="narr">Druso beve metà corno in un sorso, poi mi guarda. Senza sorriso, per la terza volta da che lo conosco.</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> Io invece le cose vere le riconosco. E non le archivio.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Druso—</p>
+<p class="say"><b style="color:#8a9bb0">Druso:</b> Non dire niente. Di' solo se la regola la conosci.</p>
+<p class="narr">La regola. La regola di questa famiglia piccola e assurda, l'unica legge che Caino ha scritto per amore e non per potere.</p>
+<div class="choice"><p class="cap">Il corno di idromele è caldo tra le mani.</p><ol><li><span class="opt">«TESCHIO.»</span> <details><summary>svolgimento</summary><p class="s"><b style="color:#f0e6d2">TU:</b> TESCHIO.</p><p class="s n">Druso para ridendo, e l'idromele vola, e da qualche parte sugli spalti giuro che qualcuno — qualcuno con un anello col drago — ci guarda e scuote la testa, sorridendo suo malgrado.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> Dichiarazione accettata. Da domani, novellin<span class="var">[fin]</span>, ti insegno il Codice intero. Articolo primo: il cuore si difende come i genitali. Sempre in guardia, e mai da solo.</p></details></li><li><span class="opt">«Bere in silenzio e restare»</span> <details><summary>svolgimento</summary><p class="s n">Non dico niente. Resto. E il restare, con un uomo come Druso, è già una dichiarazione.</p><p class="s"><b style="color:#8a9bb0">Druso:</b> Lo prendo come un TESCHIO sussurrato. Vale, per stavolta.</p></details></li></ol></div>
+<p class="stage">■ Scena: bg nero</p>
+<p class="centered">TESCHIO<br><br><em>Finale segreto</em><br><br>Il fratello sbagliato. O forse quello giusto.</p>
+</section>
+<section id="c-caino_bad_end"><h3>BAD END — La pedina</h3>
+<p class="say"><b style="color:#c87a30">Caino:</b> Arconti. Le date di consultazione dei registri parlano chiaro. La mano è quella dello scrivano: <span class="var">[player_name]</span>, del Ceppo di Briseide. Nuov<span class="var">[fin]</span>, inespert<span class="var">[fin]</span>. Il ritardo nasce lì.</p>
+<p class="narr">Lo dice senza guardarmi. Liscio, misurato, perfetto. La voce del Ballo delle Candele Spente.</p>
+<p class="narr">Provo a parlare: il Primo Arconte mi toglie la parola. I Figli nuovi non parlano in Consiglio. Il mio nome entra nei verbali; la Virtù della Verità richiede un'ammenda; Briseide ottiene — a fatica — che sia l'esilio dalla capitale e non le Segrete Silenti.</p>
+<p class="narr">Caino vota con la maggioranza. Ovviamente. Vince gli scontri, Caino. Tutti. Soprattutto quando è dalla parte del torto.</p>
+<p class="stage">■ Scena: bg vicoli_zefiro</p>
+<p class="narr">Al cancello di Zefiro, la mattina dopo, c'è una figura che non mi aspettavo.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Niente rancore, Figlio di Briseide. Eri il pezzo giusto nel turno sbagliato. Capita ai migliori. Soprattutto ai migliori: i pezzi scarsi non li gioca nessuno.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> Mi hai usato dal primo giorno.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Ti ho ASSUNTO dal primo giorno. L'uso era nel contratto; dovevi leggere le clausole. I dettagli, ricordi? I dettagli possiedono le persone.</p>
+<p class="narr">Si volta. Poi, un passo dopo, si ferma — un mezzo istante, le spalle rigide — come se il registro, da qualche parte, non chiudesse.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> ...Rurikstad è decente, d'inverno. Evita il vino di Glostok.</p>
+<p class="narr">È l'unica crepa che gli vedrò mai. La porto in esilio con me: non vale niente, e non smette di pesare.</p>
+<p class="stage">■ Scena: bg nero</p>
+<p class="centered">LA PEDINA<br><br>Nel registro di Caino<br>la tua riga è già archiviata.</p>
+</section>
+<section id="c-caino_neutral_end"><h3>NEUTRAL END — Soci</h3>
+<p class="say"><b style="color:#c87a30">Caino:</b> Arconti. I registri hanno due mani: la mia e quella del mio scrivano. La tempistica è mia. Gli errori di forma, suoi. Propongo ammenda doppia e chiudiamo: il Consiglio ha guerre più vere di questa.</p>
+<p class="narr">Mezza colpa a testa. Il compromesso perfetto: nessuno cade, nessuno vince. Lenora approva con un cenno annoiato.</p>
+<p class="stage">■ Scena: bg studio_glauco</p>
+<p class="narr">Nello studio, quella sera, le due pergamene sono ancora sul tavolo. Caino spinge verso di me quella di sinistra: la nomina.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Primo Scrivano della Proprietà. Te la sei guadagnata: metà colpa, metà merito. È così che si costruiscono le carriere vere.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> E la pergamena di destra?</p>
+<p class="narr">Caino la prende, la guarda un lungo istante. Poi la tiene — non la straccia. La ripone nel cassetto, sotto chiave.</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Archiviata. Non cancellata. C'è differenza, nei registri: le cose archiviate, un giorno, si possono riaprire.</p>
+<p class="say"><b style="color:#f0e6d2">TU:</b> E chi decide quando?</p>
+<p class="say"><b style="color:#c87a30">Caino:</b> Il tempo. O un idromele abbastanza buono. Al lavoro, Primo Scrivano. La Proprietà non si amministra da sola.</p>
+<p class="stage">■ Scena: bg nero</p>
+<p class="centered">SOCI<br><br>La pergamena di destra resta nel cassetto.<br>Archiviata. Non cancellata.</p>
+</section>
+</div>
+</body></html>

@@ -1,4 +1,4 @@
-# Date the Dig
+# Date the Dignitas
 
 Visual novel (dating sim) in italiano ambientata nel mondo di Yr, nel Nord della Famiglia Dignitas. Motore: Ren'Py. Prima release: route di Aede completa (prologo, 6 capitoli + 3 interludi, climax, 4 finali: good / neutral / 2 bad).
 

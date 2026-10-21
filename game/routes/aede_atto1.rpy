@@ -12,7 +12,7 @@ label prologo:
 
     "Tre settimane fa ho pronunciato il giuramento. Il mio nome di prima è morto in quella sala, davanti all'Autarca e ai miei nuovi fratelli."
 
-    "Ora mi chiamo [player_name]. Primo Nome, dato da Briseide Ippodamia in persona. Figlio del suo Ceppo, la madre degli orfani."
+    "Ora mi chiamo [player_name]. Primo Nome, dato da Briseide Ippodamia in persona. [figlio_t] del suo Ceppo, la madre degli orfani."
 
     scene bg sala_svelo with dissolve
 
@@ -26,7 +26,7 @@ label prologo:
 
     "Un errore."
 
-    show aede furia with dissolve
+    show aede furia with vpunch
 
     "Una mano mi aggancia la spalla, il mondo ruota, la schiena sbatte contro l'arazzo. Freddo sotto il mento: una lama."
 
@@ -40,15 +40,15 @@ label prologo:
 
     "Le mostro il polso. Nessun sigillo. Solo il nodo di corda che Briseide fa portare ai suoi Figli nel primo anno."
 
-    show aede sorpresa
+    show aede sorpresa with qdiss
 
     "La lama si stacca. Lei fa mezzo passo indietro, e per un istante — un istante solo — la volpe vacilla."
 
-    aede "Un novellino del Ceppo di Briseide. Nel corridoio sbagliato, nella notte sbagliata."
+    aede "[Un_t] novellin[fin] del Ceppo di Briseide. Nel corridoio sbagliato, nella notte sbagliata."
 
-    pc "E tu hai quasi aperto la gola al novellino sbagliato. Siamo pari?"
+    pc "E tu hai quasi aperto la gola [al_t] novellin[fin] sbagliat[fin]. Siamo pari?"
 
-    show aede irritata
+    show aede irritata with qdiss
 
     aede "Non siamo niente. Tu non hai visto niente."
 
@@ -56,10 +56,10 @@ label prologo:
 
     "Il piccolo gioiello dell'Autarca. Quella di cui i miei fratelli di Ceppo parlano solo a voce bassa."
 
-    "E io sono l'unico, in tutta Rocca Tempesta, ad averla vista sbagliare bersaglio."
+    "E io sono l'unic[fin], in tutta Rocca Tempesta, ad averla vista sbagliare bersaglio."
 
     menu:
-        aede "Allora? Cosa devo fare di te, novellino?"
+        aede "Allora? Cosa devo fare di te, novellin[fin]?"
 
         "«Il tuo segreto muore con me. Hai la mia parola.»":
             $ flag_segreto_svelo = True
@@ -67,7 +67,7 @@ label prologo:
 
             pc "Il tuo segreto muore con me. Hai la mia parola."
 
-            show aede neutra
+            show aede neutra with qdiss
 
             "Mi studia a lungo. Poi rinfodera la lama, di scatto, come se la decisione la irritasse."
 
@@ -78,7 +78,7 @@ label prologo:
 
             pc "Sbagli bersaglio spesso, o sono speciale?"
 
-            show aede irritata
+            show aede irritata with qdiss
 
             aede "Continua a parlare e il bersaglio diventa giusto."
 
@@ -99,7 +99,7 @@ label prologo:
 
     "Dovrei avere paura. Ce l'ho. Ma sotto la paura c'è altro: quella piega all'angolo della bocca non me la tolgo dalla testa."
 
-    jump interludio1
+    return
 
 ################################################################################
 ## CAPITOLO 1 — L'incarico
@@ -129,7 +129,7 @@ label cap1:
 
     "Al cancello, appoggiata al muro con l'aria di chi aspetta da un'ora apposta per fartelo pesare: lei."
 
-    aede "Il novellino. Ovviamente."
+    aede "[Il_t] novellin[fin]. Ovviamente."
 
     pc "La scorta sei tu. Ovviamente."
 
@@ -153,7 +153,7 @@ label cap1:
 
             "Stringo i denti e tengo il suo passo. Un'ora senza una domanda, senza un lamento."
 
-            show aede neutra
+            show aede neutra with qdiss
 
             aede "...Briseide li sceglie meno male del previsto, i suoi Figli."
 
@@ -164,7 +164,7 @@ label cap1:
 
             pc "Cosa stiamo trasportando, di preciso?"
 
-            show aede irritata
+            show aede irritata with qdiss
 
             aede "Una cosa che non è affar tuo, dentro una cassetta che non è affar tuo, verso un posto che non è affar tuo."
 
@@ -175,7 +175,7 @@ label cap1:
 
             pc "Potevamo prendere un carretto. O un mulo."
 
-            show aede irritata
+            show aede irritata with qdiss
 
             aede "Il mulo ce l'ho già. Parla pure troppo."
 
@@ -185,7 +185,7 @@ label cap1:
 
     show glauco neutro with dissolve
 
-    glauco "Posa pure lì, Figlio di Briseide."
+    glauco "Posa pure lì, [figlio_t] di Briseide."
 
     "Glauco Severo non alza la voce. Non ne ha bisogno. Ogni parola arriva già pesata, come moneta d'oro contata due volte."
 
@@ -195,19 +195,19 @@ label cap1:
 
     "Mentre parla con il padre, Aede cambia. La schiena più dritta, la voce più piatta. Un'arma che fa rapporto all'armaiolo."
 
-    show glauco minaccioso
+    show glauco minaccioso with qdiss
 
-    glauco "E questo sarebbe il giovane che si trovava nel corridoio ovest, la notte dello Svelo."
+    glauco "E quest[fin] sarebbe [il_t] giovane che si trovava nel corridoio ovest, la notte dello Svelo."
 
     "Il gelo mi scende dalla nuca ai talloni. Lo sa. Ovviamente lo sa."
 
-    glauco "Mia figlia non commette errori, Figlio di Briseide. Chi sostiene il contrario commette l'ultimo dei propri."
+    glauco "Mia figlia non commette errori, [figlio_t] di Briseide. Chi sostiene il contrario commette l'ultimo dei propri."
 
     pc "Non ho visto nessun errore, Autarca. Solo una lama molto rapida e una notte molto lunga."
 
     "Silenzio. Lungo. Poi Glauco fa un cenno minimo, e la porta alle mie spalle si apre da sola."
 
-    glauco "Buona giornata, Figlio di Briseide. Porta i miei rispetti alla tua Autarca."
+    glauco "Buona giornata, [figlio_t] di Briseide. Porta i miei rispetti alla tua Autarca."
 
     hide glauco with dissolve
 
@@ -217,13 +217,13 @@ label cap1:
 
     pc "Era un complimento?"
 
-    show aede irritata
+    show aede irritata with qdiss
 
     aede "Era una constatazione."
 
     "Ma di nuovo: quella piega all'angolo della bocca."
 
-    jump cap2
+    return
 
 ################################################################################
 ## CAPITOLO 2 — L'Athlion
@@ -243,7 +243,7 @@ label cap2:
 
     "Vanna, mia sorella di Ceppo, mi dà di gomito."
 
-    vanna "La figlia di Glauco corre l'ultima staffetta. Dicono che quest'anno il Ramo se la giochi contro i Figli di Vittoria. Tu per chi tifi, fratellino?"
+    vanna "La figlia di Glauco corre l'ultima staffetta. Dicono che quest'anno il Ramo se la giochi contro i Figli di Vittoria. Tu per chi tifi, [fratello_t]?"
 
     pc "Io guardo, ascolto e non mi faccio notare."
 
@@ -255,7 +255,7 @@ label cap2:
         "Tifare per lei a squarciagola":
             "Quando passa, urlo il suo nome con mezzo stadio."
 
-            show aede irritata
+            show aede irritata with qdiss
 
             "Mi sente. Rompe il ritmo per un decimo di respiro, mi fulmina con un'occhiata, riparte più forte."
 
@@ -268,11 +268,11 @@ label cap2:
 
             "Non grido. Passo di lì con la borraccia «per sbaglio» aperta, e lavo via tutto."
 
-            show aede sorpresa
+            show aede sorpresa with qdiss
 
             "Aede vince di tre lunghezze. Alla premiazione i suoi occhi trovano i miei, poi la borraccia vuota, poi di nuovo i miei."
 
-            show aede neutra
+            show aede neutra with qdiss
 
             "Non un grazie. Un cenno della testa, misurato al millimetro. Da lei, vale un discorso."
 
@@ -281,11 +281,11 @@ label cap2:
 
             "C'è una corsa aperta a tutti i Figli, a fine giornata. Mi iscrivo. Lei pure, per dovere di Ceppo."
 
-            "Arrivo quarto, con i polmoni in fiamme. Lei prima, ovviamente, senza fiatone."
+            "Arrivo quart[fin], con i polmoni in fiamme. Lei prima, ovviamente, senza fiatone."
 
-            show aede sorriso
+            show aede sorriso with dissolve
 
-            aede "Quarto. Per uno che ha imparato a correre tre settimane fa, è quasi non umiliante."
+            aede "Quart[fin]. Per chi ha imparato a correre tre settimane fa, è quasi non umiliante."
 
             pc "L'anno prossimo arrivo terzo."
 
@@ -300,9 +300,9 @@ label cap2:
 
             "Il giorno dopo, Corrado mi riferisce che Aede ha vinto per il suo Ramo. E che a fine gara ha cercato qualcuno tra la folla, senza trovarlo."
 
-            "Me lo riferisce con la faccia di chi dice: sei un idiota, fratellino."
+            "Me lo riferisce con la faccia di chi dice: sei un idiota, [fratello_t]."
 
-    jump interludio2
+    return
 
 ################################################################################
 ## CAPITOLO 3 — L'intrigo dei Rami
@@ -320,7 +320,7 @@ label cap3:
 
     "E qualcun'altra ha ricevuto l'ordine di indagare in silenzio, prima che la cosa arrivi agli Arconti."
 
-    aede "Non ti agitare, novellino. Se ti credessi colpevole, non staremmo parlando."
+    aede "Non ti agitare, novellin[fin]. Se ti credessi colpevole, non staremmo parlando."
 
     pc "E cosa staremmo facendo?"
 
@@ -336,16 +336,16 @@ label cap3:
 
             pc "Vengo. Ma se è una trappola per te, chi fa da esca sono io."
 
-            show aede sorpresa
+            show aede sorpresa with qdiss
 
-            aede "...sei più scemo di quanto sembri."
+            aede "...sei più scem[fin] di quanto sembri."
 
             "Lo dice piano. Senza veleno. Quasi con cura."
 
         "«Resto. Delle trappole te ne intendi più tu.»":
             pc "Resto. Delle trappole te ne intendi più tu."
 
-            show aede neutra
+            show aede neutra with qdiss
 
             aede "Finalmente un po' di buonsenso. Peccato. Cominciavo ad abituarmi alla compagnia."
 
@@ -356,13 +356,13 @@ label cap3:
     "La notte del magazzino va come doveva andare: male, poi bene."
 
     scene bg vicoli_zefiro with dissolve
-    show aede furia
+    show aede furia with vpunch
 
     "Il delatore si presenta con due lame a pagamento. Aede ne disarma una prima che io finisca di capire da dove è arrivata. La seconda esita — e l'esitazione, con lei, è una resa."
 
     "Il delatore prova a correre. Non è veloce."
 
-    show aede neutra
+    show aede neutra with qdiss
 
     aede "Un Filius del Ramo di Iperione. Gioco sporco tra correnti del Consiglio. Mio padre dirà due parole al suo Autarca, e le Bocche Sicofanti dimenticheranno il tuo nome."
 
@@ -378,7 +378,7 @@ label cap3:
 
     pc "È la mia tecnica. Distraggo il nemico con l'incredulità."
 
-    show aede sorriso
+    show aede sorriso with dissolve
 
     aede "Pessima tecnica. Non cambiarla."
 
@@ -386,4 +386,4 @@ label cap3:
 
     "E che la risata di Aede, figlia di Glauco, è il suono più raro del Nord. E io voglio sentirla ancora."
 
-    jump cap4
+    return

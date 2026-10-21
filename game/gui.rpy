@@ -58,19 +58,19 @@ define gui.interface_text_color = "#f0e6d2"
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "fonts/Quicksand.ttf"
+define gui.text_font = "fonts/EBGaramond.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "fonts/Quicksand.ttf"
+define gui.name_text_font = "fonts/Cinzel.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "fonts/Quicksand.ttf"
+define gui.interface_text_font = "fonts/Cinzel.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = gui.scale(22)
+define gui.text_size = gui.scale(27)
 
 ## The size of character names.
-define gui.name_text_size = gui.scale(30)
+define gui.name_text_size = gui.scale(32)
 
 ## The size of text in the game's user interface.
 define gui.interface_text_size = gui.scale(22)
@@ -82,7 +82,7 @@ define gui.label_text_size = gui.scale(24)
 define gui.notify_text_size = gui.scale(16)
 
 ## The size of the game's title.
-define gui.title_text_size = gui.scale(50)
+define gui.title_text_size = gui.scale(54)
 
 
 ## Main and Game Menus #########################################################
@@ -98,16 +98,22 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## at a time.
 
 ## The height of the textbox containing dialogue.
-define gui.textbox_height = gui.scale(185)
+## Pari all'altezza di gui/textbox.png (1920x277): la finestra copre tutto il box.
+define gui.textbox_height = gui.scale(277)
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
 ## center, and 1.0 is the bottom.
 define gui.textbox_yalign = 1.0
 
+## Leggibilità del dialogo sugli sfondi chiari (es. esterno_neve): contorno
+## scuro e interlinea più ariosa per il serif.
+define gui.dialogue_text_outlines = [(2, "#000000c8", 0, 0)]
+define gui.dialogue_text_line_spacing = 3
+
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = gui.scale(240)
+define gui.name_xpos = gui.scale(150)
 define gui.name_ypos = gui.scale(0)
 
 ## The horizontal alignment of the character's name. This can be 0.0 for
@@ -131,11 +137,11 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5
 ## to center.
-define gui.dialogue_xpos = gui.scale(268)
-define gui.dialogue_ypos = gui.scale(50)
+define gui.dialogue_xpos = gui.scale(150)
+define gui.dialogue_ypos = gui.scale(70)
 
 ## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = gui.scale(744)
+define gui.dialogue_width = gui.scale(1620)
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for
 ## left-aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -205,7 +211,7 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ##
 ## Choice buttons are used in the in-game menus.
 
-define gui.choice_button_width = gui.scale(790)
+define gui.choice_button_width = gui.scale(1185)
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
 define gui.choice_button_borders = Borders(gui.scale(100), gui.scale(5), gui.scale(100), gui.scale(5))
@@ -261,7 +267,10 @@ define gui.notify_ypos = gui.scale(45)
 define gui.choice_spacing = gui.scale(22)
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = gui.scale(4)
+define gui.navigation_spacing = gui.scale(12)
+
+## Voci del menu principale/di gioco più grandi.
+define gui.navigation_button_text_size = gui.scale(30)
 
 ## Controls the amount of spacing between preferences.
 define gui.pref_spacing = gui.scale(10)
@@ -342,22 +351,22 @@ define config.history_length = 250
 
 ## The height of a history screen entry, or None to make the height variable
 ## at the cost of performance.
-define gui.history_height = gui.scale(140)
+define gui.history_height = gui.scale(170)
 
 ## Additional space to add between history screen entries.
 define gui.history_spacing = 0
 
 ## The position, width, and alignment of the label giving the name of the
 ## speaking character.
-define gui.history_name_xpos = gui.scale(155)
+define gui.history_name_xpos = gui.scale(235)
 define gui.history_name_ypos = 0
-define gui.history_name_width = gui.scale(155)
+define gui.history_name_width = gui.scale(235)
 define gui.history_name_xalign = 1.0
 
 ## The position, width, and alignment of the dialogue text.
-define gui.history_text_xpos = gui.scale(170)
+define gui.history_text_xpos = gui.scale(255)
 define gui.history_text_ypos = gui.scale(2)
-define gui.history_text_width = gui.scale(740)
+define gui.history_text_width = gui.scale(1450)
 define gui.history_text_xalign = 0.0
 
 

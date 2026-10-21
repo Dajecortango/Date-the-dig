@@ -95,6 +95,27 @@ style frame:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
+## Indicatore click-to-continue: diamantino oro che pulsa.
+image ctc_diamante:
+    "gui/ctc.png"
+    subpixel True
+    alpha 0.2
+    linear 0.7 alpha 1.0
+    linear 0.7 alpha 0.2
+    repeat
+
+## Colori dei personaggi per il diamante del namebox.
+init python:
+    CHAR_COLORS = {
+        "Aede": "#c0392b", "Caino": "#c87a30", "Druso": "#8a9bb0",
+        "Icaro": "#7fa06a", "Glauco Severo": "#6b6b6b",
+        "Briseide Ippodamia": "#b8860b", "Vanna": "#8fbc8f",
+        "Corrado": "#87a7c7",
+    }
+
+    def char_color(who):
+        return CHAR_COLORS.get(who, "#d4af37")
+
 screen say(who, what):
 
     window:
@@ -105,9 +126,14 @@ screen say(who, what):
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who"
+                hbox:
+                    spacing 10
+                    text "◆" size 20 yalign 0.5 color char_color(who)
+                    text who id "who"
 
         text what id "what"
+
+        add "ctc_diamante" xpos 1802 ypos 196
 
 
     ## If there's a side image, display it above the text. Do not display
@@ -209,7 +235,11 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            # Scelta gia' presa in una run precedente: oro spento.
+            if getattr(i, "chosen", False):
+                textbutton i.caption action i.action text_color "#9c8a5e"
+            else:
+                textbutton i.caption action i.action
 
 
 style choice_vbox is vbox
@@ -289,7 +319,10 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
+        # Centrata: nel pannello del menu principale (x 60-560) o nella
+        # colonna del menu di gioco (larga 280).
+        xpos (310 if main_menu else 140)
+        xanchor 0.5
         yalign 0.5
 
         spacing gui.navigation_spacing
@@ -299,6 +332,8 @@ screen navigation():
             textbutton _("Start") action Start()
 
         else:
+
+            textbutton _("Diario") action ShowMenu("diario")
 
             textbutton _("History") action ShowMenu("history")
 
@@ -334,9 +369,12 @@ style navigation_button_text is gui_button_text
 
 style navigation_button:
     size_group "navigation"
+    xalign 0.5
     properties gui.button_properties("navigation_button")
 
 style navigation_button_text:
+    xalign 0.5
+    text_align 0.5
     properties gui.text_properties("navigation_button")
 
 
@@ -346,12 +384,21 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
+## Pattern del menu che scorre piano sotto il pannello fisso.
+image mm_pattern_anim:
+    Tile("gui/mm_pattern.png", size=(3460, 1080))
+    subpixel True
+    xoffset -1540
+    linear 60.0 xoffset 0
+    repeat
+
 screen main_menu():
 
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    add "mm_pattern_anim"
+    add "gui/mm_front.png"
 
     ## This empty frame darkens the main menu.
     frame:
@@ -386,11 +433,20 @@ style main_menu_frame:
     background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
-    xalign 1.0
-    xoffset gui.scale(-20)
-    xmaximum gui.scale(800)
-    yalign 1.0
-    yoffset gui.scale(-20)
+    xpos 310
+    xanchor 0.5
+    xmaximum gui.scale(420)
+    ypos gui.scale(128)
+
+style main_menu_title:
+    xalign 0.5
+    text_align 0.5
+    color "#3f2d1a"
+    size gui.scale(46)
+
+style main_menu_version:
+    xalign 0.5
+    color "#6b5335"
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
@@ -416,7 +472,8 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     style_prefix "game_menu"
 
     if main_menu:
-        add gui.main_menu_background
+        add "mm_pattern_anim"
+        add "gui/mm_front.png"
     else:
         add gui.game_menu_background
 
