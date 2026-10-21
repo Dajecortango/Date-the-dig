@@ -50,6 +50,9 @@ init -10 python:
     # Hook chiamati dopo ogni evento/attivita' (es. gelosia di Icaro, Task 7).
     cal_post_evento_hooks = []
 
+    # Hook chiamati con gli id degli inviti a scadenza lasciati cadere.
+    cal_inviti_ignorati_hooks = []
+
     # Riga mostrata quando il pool di un'attivita' e' esaurito.
     CAL_FALLBACK = {
         "spada": "Un altro giorno di guardie e affondi. Le braccia ricordano anche quando la testa è altrove.",
@@ -62,6 +65,7 @@ init -10 python:
         "registri": "Colonne che tornano, Scudi che non mancano. Giornata rara, alla Proprietà.",
         "taverna": "Boccali, cori stonati, nessuna rissa degna di nota. La locandiera ringrazia.",
         "fumeria": "Fumo dolce e carte lente. Icaro vince, come il sole sorge.",
+        "corte": "Fiori d'inverno, pretendenti in fila. Oggi Ofelia non ha guardato nessuno. Nemmeno me.",
     }
 
     def cal_vars():
@@ -71,6 +75,10 @@ init -10 python:
             "caino_fiducia": getattr(store, "caino_fiducia", 0),
             "druso_affinity": store.druso_affinity,
             "icaro_affinity": store.icaro_affinity,
+            "ofelia_affinity": store.ofelia_affinity,
+            "ofelia_mancati": store.ofelia_mancati,
+            "route_seconda": store.route_seconda,
+            "aede_sospetto": store.aede_sospetto,
             "congelate": store.congelate,
             "player_gender": store.player_gender,
             "route_attiva": store.route_attiva,
@@ -113,6 +121,7 @@ init -10 python:
         "registri": "Le colonne della Proprietà. L'Arconte controlla.",
         "taverna": "Boccali e versi osceni. Druso tiene banco.",
         "fumeria": "Fumo dolce e carte. Icaro non perde mai.",
+        "corte": "La serra, i pretendenti, e lei che sceglie.",
     }
 
     # Diario del semestre: stato diegetico, mai numeri.
@@ -160,6 +169,10 @@ init -10 python:
              ((7, "Ti lascia guardare le sue mani. Sa che vedi."),
               (4, "Non ti conta più tra i passivi."),
               (1, "Ti tollera al tavolo piccolo.")))
+        riga("Ofelia", "ofelia", store.ofelia_affinity,
+             ((8, "Ti concede un ballo che rifiuta a tutti. Non lo dirà mai."),
+              (4, "Ricorda il tuo nome. Lo usa come una lama."),
+              (1, "Ti conta tra i pretendenti. In fondo alla fila.")))
         return righe
 
     def cal_portrait(char):
@@ -184,12 +197,15 @@ init -10 python:
 
     def cal_inviti_info(momento):
         evs = cl.trova_inviti(momento, EVENTI, cal_vars(), store.eventi_visti)
-        # A route attiva, gli inviti degli altri personaggi scalano a sfondo.
+        # A route attiva, gli inviti degli altri personaggi scalano a sfondo
+        # (nel poliamore con Ofelia passano anche quelli della seconda).
         if store.route_attiva is not None:
             evs = [e for e in evs
-                   if e.get("char") in (None, store.route_attiva)]
+                   if e.get("char") in (None, store.route_attiva,
+                                        store.route_seconda)]
         return [{"id": e["id"], "char": e.get("char"),
-                 "titolo": e.get("titolo", "Qualcuno ti cerca")} for e in evs]
+                 "titolo": e.get("titolo", "Qualcuno ti cerca"),
+                 "scade": bool(e.get("scade", False))} for e in evs]
 
     def cal_dopo_evento(eid):
         ev = cal_evento_di(eid)
@@ -239,6 +255,13 @@ label cal_loop:
 
     $ renpy.transition(Dissolve(0.2))
     call screen pianificazione((cal_luna, cal_giorno, cal_slot), cal_inviti, cal_att)
+
+    python:
+        scelto = _return[1] if _return[0] == "evento" else None
+        ign = cl.inviti_ignorati(cal_inviti, scelto)
+        if ign:
+            for hook in cal_inviti_ignorati_hooks:
+                hook(ign)
 
     if _return[0] == "evento":
         python:
@@ -326,7 +349,11 @@ screen pianificazione(momento, inviti, attivita):
                 hbox:
                     spacing 18
                     add Transform(cal_portrait(inv["char"]), zoom=0.4) yalign 0.5
-                    text inv["titolo"] size 26 color "#f5e3b8" yalign 0.5
+                    vbox:
+                        yalign 0.5
+                        text inv["titolo"] size 26 color "#f5e3b8"
+                        if inv.get("scade"):
+                            text "Solo adesso" size 17 color "#8f7f5c"
 
         for aid, etichetta, char, _pool in attivita:
             button:
@@ -345,17 +372,6 @@ screen pianificazione(momento, inviti, attivita):
                         text etichetta size 26 color "#f0e6d2"
                         if aid in ATTIVITA_DESC:
                             text ATTIVITA_DESC[aid] size 17 color "#8f7f5c"
-
-        null height 6
-        frame:
-            xfill True
-            ypadding 8
-            background Frame("gui/button/choice_idle_background.png", 24, 12)
-            hbox:
-                spacing 18
-                add Transform(cal_portrait("ofelia"), zoom=0.4, alpha=0.55) yalign 0.5
-                text "Ofelia" size 26 color "#6b5f4a" yalign 0.5
-                text "— Prossimamente" size 20 color "#8f7f5c" yalign 0.5
 
 
 ## Diario del semestre #######################################################

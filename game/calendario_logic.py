@@ -62,3 +62,10 @@ def pesca_variante(pool_ids, visti):
         if vid not in visti:
             return vid
     return None
+
+
+def inviti_ignorati(mostrati, scelto_id):
+    """Id degli inviti a scadenza mostrati nello slot e non scelti
+    (scelto_id None = il giocatore ha preso un'attivita')."""
+    return [m["id"] for m in mostrati
+            if m.get("scade") and m["id"] != scelto_id]

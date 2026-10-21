@@ -10,7 +10,7 @@ Niente idee a ruota libera: ogni proposta nasce già vincolata a lore, struttura
 
 ## Leggi PRIMA di proporre
 1. `docs/superpowers/specs/2026-10-20-malandrini-calendario-design.md` — struttura: Lune, date fisse, scelta del cuore, snodi
-2. `docs/profili/*.md` — personaggi canonici (e menzioni: Pandora, Lenora, Ofelia)
+2. `docs/profili/*.md` — personaggi canonici (e menzioni: Pandora, Lenora, Ascadeo)
 3. `game/routes/snodi.rpy` + `calendario.rpy` — cosa è fisso vs a soglia
 4. Lore: Famiglia Dignitas, Nord di Yr, Rocca Tempesta, Ceppi/Rami/Autarchi/Arconti, le Virtù, il giuramento (il nome di prima è tabù), TESCHIO
 
@@ -21,8 +21,8 @@ Niente idee a ruota libera: ogni proposta nasce già vincolata a lore, struttura
 
 ## Formato della proposta (tutte le voci, sennò è incompleta)
 1. **Concept** — chi è, contrappeso nel cast (cosa copre che gli altri non coprono)
-2. **Lucchetto** — meccanicamente DIVERSO dagli esistenti (prova a metà / trappola d'ingresso / passi falsi / gelosia sono presi)
-3. **Territorio** — slot e attività, senza rubare quelli altrui (spada=Aede, registri=Caino, palestra+taverna=Druso, fumeria sera=Icaro)
+2. **Lucchetto** — meccanicamente DIVERSO dagli esistenti (prova a metà / trappola d'ingresso / passi falsi / gelosia / inviti a scadenza sono presi)
+3. **Territorio** — slot e attività, senza rubare quelli altrui (spada=Aede, registri=Caino, palestra+taverna=Druso, fumeria sera=Icaro, corte/serra=Ofelia)
 4. **Eventi** — 3, mappati su Lune I-IV, con soglie
 5. **Economia** — tabella punti: massimo ottenibile per Luna vs soglie. Le soglie DEVONO essere raggiungibili (territorio ±1 una-tantum, eventi +1/+2); il 5/5 è "zero errori", mai "matematicamente impossibile"
 6. **Finali** — condizioni in termini di variabili reali

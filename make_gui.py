@@ -260,9 +260,8 @@ def main():
     portrait("aede neutra.png", "portrait_aede.png", top_f=0.0, side_f=0.45, cx_f=0.43)
     portrait("caino neutro.png", "portrait_caino.png", top_f=0.0, side_f=0.42, cx_f=0.52)
     portrait("ofelia neutra.png", "portrait_ofelia.png", top_f=0.0, side_f=0.40, cx_f=0.45)
-    # Icaro e Druso: sprite ancora placeholder, diamanti finche' non c'e' l'arte.
-    portrait_diamond("portrait_icaro.png", (127, 160, 106, 255), ORO + (255,))
-    portrait_diamond("portrait_druso.png", (138, 155, 176, 255), ORO + (255,))
+    portrait("icaro neutro.png", "portrait_icaro.png", top_f=0.15, side_f=0.42, cx_f=0.6)
+    portrait("druso neutro.png", "portrait_druso.png", top_f=0.0, side_f=0.40, cx_f=0.5)
     portrait_diamond("portrait_locked.png", (90, 30, 26, 255), (120, 100, 48, 255))
 
     print("GUI Dignitas generata in", GUI)

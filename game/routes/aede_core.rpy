@@ -1,4 +1,6 @@
-# Route Aede — personaggi, variabili, utilità.
+# Route Aede — "Tempesta d'amore". Personaggi, variabili, utilità.
+# Aede: figlia di Glauco, sorella di Ofelia e Ascadeo. Difficoltà 3/5.
+# Niente poliamore: la scelta del cuore chiude le altre route.
 
 init python:
     def set_gender(g):

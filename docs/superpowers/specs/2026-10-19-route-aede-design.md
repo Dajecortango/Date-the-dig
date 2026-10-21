@@ -78,7 +78,9 @@ tre finali.
   il giuramento vale anche per lui ed è tema portante della route.
 
 ### Aede — love interest (route di questa release)
-- **Figlia adottiva del Ceppo di Glauco Severo** (Autarca presente nel lore).
+- **Figlia del Ceppo di Glauco Severo** (Autarca presente nel lore), sorella
+  di Ofelia e Ascadeo. Route "Tempesta d'amore", difficoltà 3/5, niente
+  poliamore. Profilo canonico: `docs/profili/aede.md`.
 - Assassina temibile, scaltra e veloce di mano. "Piccolo gioiello" del padre:
   Glauco la difende sempre, a prescindere dalle atrocità che commette.
 - Archetipo: **tsundere**. Ostile, tagliente, orgogliosa; le incrinature

@@ -127,7 +127,7 @@ label caino_cap5:
         "«Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto.»":
             pc "Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto."
 
-            show caino neutro with qdiss
+            show caino freddo with qdiss
 
             caino "Onesto. Sì. E deludente, il che è peggio."
 
@@ -159,7 +159,7 @@ label caino_cap5:
 
             pc "Anch'io ti amo, Caino."
 
-            show caino neutro with qdiss
+            show caino freddo with qdiss
 
             "Il viso gli si chiude come un registro a fine mese."
 

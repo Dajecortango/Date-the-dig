@@ -141,7 +141,7 @@ label caino_cap1:
 
             "Prendo la coppa. Caino guarda la sua senza toccarla, poi guarda me, e qualcosa negli occhi gli si spegne di un grado."
 
-            show caino sarcastico with qdiss
+            show caino freddo with qdiss
 
             caino "Salute, Figlio di Briseide. Al vino di Glostok e a chi non ascolta."
 
@@ -345,7 +345,7 @@ label caino_cap3:
 
             "Mi inchino e rifiuto. La mano di Caino resta tesa nel vuoto per un secondo — un secondo che la sala intera vede."
 
-            show caino neutro with qdiss
+            show caino freddo with qdiss
 
             caino "Prudenza, di nuovo. Un giorno, Figlio di Briseide, la prudenza ti salverà la vita. E sarà l'unica cosa che avrai salvato."
 

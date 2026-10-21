@@ -32,10 +32,11 @@ description: Use when adding or changing calendar events, invitations, affinity 
 - Scene territorio: ±1, una-tantum. Eventi: +1/+2.
 - Massimo teorico = somma dei massimi `+=` per label (il test `check_economia_punti` in tests/test_calendario.py la calcola con `_max_punti`).
 - OGNI soglia nuova va verificata contro quel massimo, e il test aggiornato. Aggiungere +2 a una route cambia la distanza dal good end: ribilancia le soglie nello stesso edit, non "da controllare poi".
-- Soglie attuali scelta del cuore (snodi.rpy): aede 8, caino 10, druso 9F/11M, icaro 7F/6M. Good end: aede>=12(+flag), caino>=12(+2 cond), druso>=13+coraggio, icaro>=10+coperto. I numeri veri sono nei file e in `check_economia_punti`: in dubbio, fidati del test.
+- Soglie attuali scelta del cuore (snodi.rpy): aede 8, caino 10, druso 9F/11M, icaro 7F/6M, ofelia 8. Good end: aede>=12(+flag), caino>=12(+2 cond), druso>=13+coraggio, icaro>=10+coperto, ofelia>=11 + mancati<=1. I numeri veri sono nei file e in `check_economia_punti`: in dubbio, fidati del test.
 
 ## Lucchetti e congelamento
-- Ogni route ha UN lucchetto meccanicamente diverso (Aede: prova a metà; Caino: trappola d'ingresso; Druso: passi falsi se uomo; Icaro: smascherarlo/gelosia). Un personaggio nuovo richiede un lucchetto nuovo, non un clone.
+- Ogni route ha UN lucchetto meccanicamente diverso (Aede: prova a metà; Caino: trappola d'ingresso; Druso: passi falsi se uomo; Icaro: smascherarlo/gelosia; Ofelia: inviti a scadenza, `"scade": True`, hook `cal_inviti_ignorati_hooks`). Un personaggio nuovo richiede un lucchetto nuovo, non un clone.
+- Route doppia: `route_seconda` ("aede"|"caino"|None) è una stringa picklabile; `route_seconda_viva()` in snodi.rpy dice se è ancora viva. Poly solo Ofelia+Aede (segreta) o Ofelia+Caino (dichiarata).
 - Chiudere una route: `congelate.add("char")` — gli inviti spariscono da soli.
 - Gate di genere: cond su `v["player_gender"]`; romance Icaro solo "f", linea Bro "m".
 

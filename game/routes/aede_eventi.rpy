@@ -41,7 +41,7 @@ label impegno_aede:
     scene bg corridoio_ceppo with fade
     show aede imbarazzata with dissolve
     "La trovo sul ballatoio del mio Ceppo, le serrature peggiori del Nord alle spalle, l'aria di chi prova le parole da un'ora."
-    aede "Novellin[fin]. Questa... cosa. Tra te e me. I miei fratelli di Ramo cominciano a farci sopra delle scommesse, e io odio le scommesse che non controllo."
+    aede "Novellin[fin]. Questa... cosa. Tra te e me. Ofelia e Ascadeo cominciano a farci sopra delle scommesse, e io odio le scommesse che non controllo."
     show aede irritata with qdiss
     aede "Quindi dimmelo adesso: ha un nome, oppure no? Rispondi male e ti butto dal ballatoio."
     menu:
@@ -50,6 +50,8 @@ label impegno_aede:
             $ impegno_esito = True
             show aede sorriso with dissolve
             aede "...risposta accettabile. L'unica, per la cronaca."
+            show aede irritata with qdiss
+            aede "E sia chiaro: io non divido. Né le lame, né il posto agli allenamenti, né te. Chi ti ronza intorno, da stanotte, parla con me."
             "Non mi butta dal ballatoio. Resta, invece. E il resto del semestre, da stanotte, ha una direzione sola."
         "«Non ancora. Non così.»":
             $ impegno_esito = False

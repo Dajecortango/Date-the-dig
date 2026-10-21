@@ -154,6 +154,15 @@ def check_snodi():
                 "finale_neutro_semestre", "ev_scelta_cuore"):
         check("label " + lbl, "label " + lbl + ":" in ev, True)
     check("pari merito scelto dal giocatore", "renpy.display_menu" in ev, True)
+    check("candidata ofelia soglia 8", "store.ofelia_affinity >= 8" in ev, True)
+    check("coppie poly", '"ofelia+aede"' in ev and '"ofelia+caino"' in ev, True)
+    check("route_seconda impostata", "route_seconda =" in ev, True)
+    check("aede_cap6 anche da seconda", 'v["route_seconda"] == "aede"' in ev, True)
+    cap6 = ev.split('"id": "aede_cap6"')[1].split("},")[0]
+    check("aede_cap6 salta se sospetto", 'v["aede_sospetto"] < 2' in cap6, True)
+    cal = _leggi("calendario.rpy")
+    check("cal_vars aede_sospetto", '"aede_sospetto": store.aede_sospetto' in cal, True)
+    check("dispatch ofelia", ev.count('cal_route == "ofelia"') >= 2, True)
 
 
 def check_label_esistenti():
@@ -184,6 +193,8 @@ def check_store_picklabile():
     check("loop usa cal_fisso_id", "cal_fisso_id" in cal, True)
     check("niente cal_evento_corrente", "cal_evento_corrente" in cal, False)
     check("niente inviti_fatti", "inviti_fatti" in cal, False)
+    check("info inviti espone scade", '"scade": bool(e.get("scade", False))' in cal, True)
+    check("loop chiama hook scadenza", "cal_inviti_ignorati_hooks" in cal, True)
 
 
 def _max_punti(var):
@@ -215,6 +226,18 @@ def check_economia_punti():
     sn = _leggi(os.path.join("routes", "snodi.rpy"))
     check("soglie druso 9F/11M", "(9 if f else 11)" in sn, True)
     check("soglie icaro 7F/6M", "(7 if f else 6)" in sn, True)
+    ofelia_max = _max_punti("ofelia_affinity")
+    check("ofelia: impegno (8) raggiungibile", ofelia_max >= 8, True)
+    check("ofelia: good end (11) raggiungibile", ofelia_max >= 11, True)
+    # Percorso segreto con Aede: corte/eventi pre-cuore danno al massimo 9,
+    # la mano di Aede sulla Calà +1, il climax di Aede non tocca Ofelia ma
+    # ev4 (+2) si'. Budget 9 + 1 + 2 = 12: il good (>= 11) tollera un errore
+    # solo se anche il ramo "mano di Aede" premia Ofelia.
+    fin = _leggi(os.path.join("routes", "ofelia_finali.rpy"))
+    fiac_aede = fin.split("label ofelia_fiaccolata_aede:")[1].split("\nlabel ")[0]
+    ramo_aede = fiac_aede.split("call cap5")[1].split('"Prendere la mano di Ofelia"')[0]
+    check("ofelia: mano di Aede premia la discrezione",
+          "ofelia_affinity += 1" in ramo_aede, True)
     ic = _leggi(os.path.join("routes", "icaro_route.rpy"))
     for soglia in (">= 2", ">= 4", ">= 6"):
         check("icaro scala eventi " + soglia,
@@ -239,6 +262,10 @@ def check_prerequisiti_sequenza():
           ca.count('"scelta_cuore" not in v["visti"]') >= 2, True)
     check("aede_cap4 muore dopo scelta_cuore",
           '"scelta_cuore" not in v["visti"]' in ae, True)
+    of = _leggi(os.path.join("routes", "ofelia_route.rpy"))
+    check("ofelia_ev2 richiede ev1", '"ofelia_ev1" in v["visti"]' in of, True)
+    check("ofelia_ev3 richiede ev2", '"ofelia_ev2" in v["visti"]' in of, True)
+    check("ofelia_ev3 muore dopo scelta_cuore", '"scelta_cuore" not in v["visti"]' in of, True)
 
 
 def check_congelamento_route_attiva():
@@ -247,12 +274,63 @@ def check_congelamento_route_attiva():
     check("dispatch usa route_viva", "route_viva()" in sn, True)
     check("aede_cap6 esclude congelata",
           '"aede" not in v["congelate"]' in sn, True)
+    check("seconda viva esclude congelata", "def route_seconda_viva" in sn, True)
+    cal = _leggi("calendario.rpy")
+    check("filtro inviti con seconda", "store.route_seconda" in cal, True)
 
 
 def check_incroci():
     ev = _leggi(os.path.join("routes", "incroci.rpy"))
     for eid in ('"trio_lenora"', '"incrocio_palestra"', '"incrocio_carte"'):
         check("evento incrocio " + eid, eid in ev, True)
+
+
+def test_scadenza():
+    a = {"id": "of1", "scade": True}
+    b = {"id": "ae1"}
+    c = {"id": "of2", "scade": True}
+    check("scadenza: scelto altro", cl.inviti_ignorati([a, b], "ae1"), ["of1"])
+    check("scadenza: scelto lei", cl.inviti_ignorati([a, b], "of1"), [])
+    check("scadenza: attivita'", cl.inviti_ignorati([a, b, c], None), ["of1", "of2"])
+    check("scadenza: nessuna", cl.inviti_ignorati([b], None), [])
+
+
+def check_eventi_ofelia():
+    ev = _leggi(os.path.join("routes", "ofelia_route.rpy"))
+    check("hook scadenza registrato",
+          "cal_inviti_ignorati_hooks.append(ofelia_scadenza)" in ev, True)
+    check("congela a 2 mancati", "ofelia_mancati >= 2" in ev, True)
+    check("territorio corte", '"corte", "La corte di Ofelia", "ofelia"' in ev, True)
+    for lbl in ("att_corte_1", "att_corte_2", "att_corte_3"):
+        check("label " + lbl, "label " + lbl + ":" in ev, True)
+    for eid in ('"ofelia_ev1"', '"ofelia_ev2"', '"ofelia_ev3"'):
+        check("evento ofelia " + eid, eid in ev, True)
+    check("inviti ofelia a scadenza", ev.count('"scade": True') >= 3, True)
+    cal = _leggi("calendario.rpy")
+    check("Prossimamente rimosso", "Prossimamente" in cal, False)
+    check("cal_vars ofelia", '"ofelia_affinity": store.ofelia_affinity' in cal, True)
+    for lbl in ("impegno_ofelia", "impegno_ofelia_aede", "impegno_ofelia_caino"):
+        check("label " + lbl, "label " + lbl + ":" in ev, True)
+    fin = _leggi(os.path.join("routes", "ofelia_finali.rpy"))
+    for lbl in ("ofelia_fiaccolata", "ofelia_fiaccolata_caino", "ofelia_fiaccolata_aede"):
+        check("label " + lbl, "label " + lbl + ":" in fin, True)
+    check("mano di Ofelia alza il sospetto", "aede_sospetto += 2" in fin, True)
+    check("mano di Aede gioca cap5", "call cap5" in fin, True)
+    check("ofelia_ev4 fisso V/26", '"luna": 5, "giorno": 26' in ev, True)
+    for lbl in ("ofelia_climax", "ofelia_routing", "ofelia_poly_aede_routing",
+                "ofelia_good", "ofelia_good_caino", "ofelia_good_aede",
+                "ofelia_bad_tempesta", "ofelia_neutral"):
+        check("label " + lbl, "label " + lbl + ":" in fin, True)
+    check("good ofelia soglie",
+          "ofelia_affinity >= 11 and ofelia_mancati <= 1" in fin, True)
+    check("tempesta prima del good", fin.index("aede_sospetto >= 2") <
+          fin.index("label ofelia_good_aede:"), True)
+    check("cartello route", "TANTO BELLA QUANTO LETALE" in fin, True)
+    check("fallback poly include good Aede",
+          "jump good_end" in fin.split("label ofelia_poly_aede_routing:")[1]
+          .split("\nlabel ")[0], True)
+    ae = _leggi(os.path.join("routes", "aede_finali.rpy"))
+    check("innesto poly nel climax Aede", 'route_seconda == "aede"' in ae, True)
 
 
 def main():
@@ -267,11 +345,13 @@ def main():
     check_eventi_caino()
     check_eventi_druso()
     check_eventi_icaro()
+    check_eventi_ofelia()
     check_snodi()
     test_sequenza()
     test_fisso()
     test_inviti()
     test_pool()
+    test_scadenza()
     if FAILURES:
         print(f"{len(FAILURES)} FALLITI: {FAILURES}")
         sys.exit(1)

@@ -110,7 +110,7 @@ init python:
         "Aede": "#c0392b", "Caino": "#c87a30", "Druso": "#8a9bb0",
         "Icaro": "#7fa06a", "Glauco Severo": "#6b6b6b",
         "Briseide Ippodamia": "#b8860b", "Vanna": "#8fbc8f",
-        "Corrado": "#87a7c7",
+        "Corrado": "#87a7c7", "Ofelia": "#7d3c98",
     }
 
     def char_color(who):

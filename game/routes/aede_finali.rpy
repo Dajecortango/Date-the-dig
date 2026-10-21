@@ -61,6 +61,11 @@ label climax:
         "Tendere la mano, aperta":
             "Tendo la mano. Aperta, vuota, ferma nella neve. La stessa che le ho offerto sulla Calà."
 
+    if route_seconda == "aede":
+        show ofelia neutra at left with dissolve
+        ofelia "Non guardarmi così, sorella. Anch'io so camminare nella neve senza lasciare impronte. Me l'hai insegnato tu."
+        jump ofelia_poly_aede_routing
+
     # Routing finali — ordine vincolante: good -> bad_glauco -> bad_aede -> neutral.
     if aede_affinity >= 12 and flag_giuramento and flag_accetta_lavoro:
         jump good_end
@@ -131,7 +136,7 @@ label good_end:
 
     scene bg nero with fade
 
-    centered "{cps=20}{size=+10}FINE{/size}\n\nAede ha scelto il suo bersaglio.\nPer sempre.{/cps}"
+    centered "{cps=20}{size=+10}TEMPESTA D'AMORE{/size}\n\nAede ha scelto il suo bersaglio.\nPer sempre.{/cps}"
 
     return
 

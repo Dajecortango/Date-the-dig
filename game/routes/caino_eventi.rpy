@@ -82,7 +82,7 @@ label impegno_caino:
     show caino neutro with dissolve
     "Lo studio, a tarda sera. Sul tavolo, non i registri: due corni di idromele. Entrambi pieni."
     caino "Siediti. Ho fatto un inventario, stanotte. Cariche: in ordine. Scudi: in ordine. Tu: fuori inventario. E le cose fuori inventario, [player_name], mi tolgono il sonno."
-    show caino sorpreso with qdiss
+    show caino neutro with qdiss
     caino "Quindi la domanda è semplice, e la faccio una volta sola: vuoi entrare nel registro che non mostro a nessuno? Rispondi adesso. Dopo, archivio."
     menu:
         "L'Arconte della Proprietà aspetta. E per la prima volta non sta recitando."
@@ -94,6 +94,6 @@ label impegno_caino:
         "«Non firmo contratti che non so leggere.»":
             $ impegno_esito = False
             $ congelate.add("caino")
-            show caino sarcastico with qdiss
+            show caino freddo with qdiss
             caino "Prudente. Sempre prudente. Archiviato, Figlio di Briseide: la Proprietà ti terrà il posto da scrivano. Solo quello."
     return

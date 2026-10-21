@@ -66,6 +66,8 @@ label interludio2:
 
     corrado "E si dice che la figlia prediletta avesse sette anni al primo addestramento. Sette. Con le lame vere, perché «quelle finte insegnano bugie»."
 
+    corrado "Gli altri due, Ofelia e Ascadeo, sono arrivati dopo. Ma è lei che il vecchio porta alle feste."
+
     vanna "...e la madre? Nel Ceppo di Glauco c'è una madre?"
 
     corrado "C'era una Filius Maior che faceva da madre a tutti. Morta quando la ragazzina ne aveva dodici. Un lavoro andato male. Da allora, dicono, Glauco raddoppiò gli addestramenti. Il lutto, nel suo Ceppo, si lavora."

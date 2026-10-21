@@ -22,7 +22,7 @@ emergono dalla frequentazione, non da un menu iniziale.
   visibili). Resta solo l'affinità nascosta per personaggio.
 - All'inizio incontri i personaggi nei loro luoghi; più avanti sono loro a
   cercarti (missioni, inviti, bevute).
-- Ofelia: per ora ignorata — slot e ritratto bloccato, contenuto rinviato.
+- Ofelia: superato dalla spec 2026-10-21-route-ofelia-design.md.
 - Lucchetti di accesso per route: come da sezione "Lucchetti" (approvati).
 
 ## Struttura temporale
@@ -71,7 +71,7 @@ emergono dalla frequentazione, non da un menu iniziale.
 | Caino | lavoro sui registri della Proprietà (solo dopo sblocco Adunanza) | pomeriggio |
 | Druso | palestra (scudo/lotta) e taverna | mattina / sera |
 | Icaro | sala da gioco e fumeria | solo sera |
-| Ofelia | TBD (slot riservato) | TBD |
+| Ofelia | la corte di Ofelia (serra) | pomeriggio |
 
 ## Lucchetti (approvati dal committente)
 
@@ -99,7 +99,7 @@ emergono dalla frequentazione, non da un menu iniziale.
   pubblico). Good ending più difficile del gioco (5/5). Possessivo: corteggiare
   altri dopo il suo evento di impegno chiude la route per sempre.
   Route "Untouchable" (nome provvisorio).
-- **Ofelia** — bloccata con "Prossimamente" nel calendario.
+- **Ofelia** — inviti a scadenza (vedi spec 2026-10-21-route-ofelia-design.md).
 
 ## Esclusività e lock-in
 
@@ -177,8 +177,8 @@ emergono dalla frequentazione, non da un menu iniziale.
 ## Non-goals
 
 - Statistiche numeriche visibili.
-- Contenuto Ofelia.
-- Poliamore.
+- Contenuto Ofelia (ora in 2026-10-21-route-ofelia-design.md).
+- Poliamore, salvo la route Ofelia (con Aede e Caino).
 - Riscrittura dei testi esistenti di Aede/Caino.
 
 ## Anti-goals (fallimento anche se "funziona")

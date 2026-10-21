@@ -159,7 +159,7 @@ label caino_secret_end:
 
 label caino_bad_end:
 
-    show caino neutro with dissolve
+    show caino freddo with dissolve
 
     caino "Arconti. Le date di consultazione dei registri parlano chiaro. La mano è quella dello scrivano: [player_name], del Ceppo di Briseide. Nuov[fin], inespert[fin]. Il ritardo nasce lì."
 

@@ -10,17 +10,20 @@ init python:
         {"id": "fiaccolata", "label": "ev_fiaccolata", "tipo": "fisso",
          "char": None, "luna": 5, "giorno": 14, "slot": "sera"},
         # Il giuramento di Aede segue la Fiaccolata, solo a route attiva
-        # e non congelata (il vicolo puo' congelare anche dopo l'impegno).
+        # (o seconda, nel poliamore con Ofelia) e non congelata: il vicolo
+        # puo' congelare anche dopo l'impegno.
         {"id": "aede_cap6", "label": "cap6", "tipo": "fisso", "char": "aede",
          "luna": 5, "giorno": 20, "slot": "sera",
-         "cond": lambda v: v["route_attiva"] == "aede"
-         and "aede" not in v["congelate"]},
+         "cond": lambda v: (v["route_attiva"] == "aede"
+                            or v["route_seconda"] == "aede")
+         and "aede" not in v["congelate"]
+         and v["aede_sospetto"] < 2},
         {"id": "luna6_climax", "label": "ev_luna6", "tipo": "fisso",
          "char": None, "luna": 6, "giorno": 21, "slot": "sera"},
     ])
 
     CUORE_NOMI = {"aede": "Aede", "caino": "Caino",
-                  "druso": "Druso", "icaro": "Icaro"}
+                  "druso": "Druso", "icaro": "Icaro", "ofelia": "Ofelia"}
 
     def cuore_candidati():
         """Personaggi sopra soglia e non congelati, per la scelta del cuore."""
@@ -30,6 +33,7 @@ init python:
             "caino": store.caino_fiducia >= 10,
             "druso": store.druso_affinity >= (9 if f else 11),
             "icaro": store.icaro_affinity >= (7 if f else 6),
+            "ofelia": store.ofelia_affinity >= 8,
         }
         return [c for c, ok in soglie.items()
                 if ok and c not in store.congelate]
@@ -39,6 +43,26 @@ init python:
         if store.route_attiva and store.route_attiva not in store.congelate:
             return store.route_attiva
         return None
+
+    def route_seconda_viva():
+        """Seconda route del poliamore (solo con Ofelia viva), se non
+        congelata nel frattempo; altrimenti None."""
+        if route_viva() != "ofelia":
+            return None
+        if store.route_seconda and store.route_seconda not in store.congelate:
+            return store.route_seconda
+        return None
+
+    def cuore_opzioni(cands):
+        """Voci del menu del cuore: (testo, chiave). Oltre ai singoli, le
+        coppie del poliamore se Ofelia e l'altro sono entrambi candidati."""
+        opz = [(CUORE_NOMI[c], c) for c in cands]
+        if "ofelia" in cands:
+            for altro in ("aede", "caino"):
+                if altro in cands:
+                    opz.append(("Ofelia e " + CUORE_NOMI[altro],
+                                "ofelia+" + altro))
+        return opz
 
 
 ## Scelta del cuore ##########################################################
@@ -51,18 +75,36 @@ label ev_scelta_cuore:
     if not cuore_lista:
         "Guardo il semestre alle spalle: facce, allenamenti, serate. Nessun nome pesa più degli altri. Forse è presto. Forse sono io."
         return
-    if len(cuore_lista) == 1:
-        $ cuore_scelto = cuore_lista[0]
+    $ cuore_voci = cuore_opzioni(cuore_lista)
+    if len(cuore_voci) == 1:
+        $ cuore_scelto = cuore_voci[0][1]
     else:
         $ cuore_scelto = renpy.display_menu(
-            [("A chi appartiene questo semestre?", None)] +
-            [(CUORE_NOMI[c], c) for c in cuore_lista])
+            [("A chi appartiene questo semestre?", None)] + cuore_voci)
+    if cuore_scelto in ("ofelia+aede", "ofelia+caino"):
+        $ cuore_altro = cuore_scelto.split("+")[1]
+        if cuore_altro == "aede":
+            call impegno_ofelia_aede
+        else:
+            call impegno_ofelia_caino
+        if impegno_of and impegno_altro:
+            $ route_attiva = "ofelia"
+            $ route_seconda = cuore_altro
+        elif impegno_of:
+            $ route_attiva = "ofelia"
+            $ route_seconda = None
+        elif impegno_altro:
+            $ route_attiva = cuore_altro
+            $ route_seconda = None
+        return
     if cuore_scelto == "aede":
         call impegno_aede
     elif cuore_scelto == "caino":
         call impegno_caino
     elif cuore_scelto == "druso":
         call impegno_druso
+    elif cuore_scelto == "ofelia":
+        call impegno_ofelia
     elif player_gender == "f":
         call impegno_icaro
     else:
@@ -84,6 +126,12 @@ label ev_fiaccolata:
         call druso_fiaccolata
     elif cal_route == "icaro":
         call icaro_fiaccolata
+    elif cal_route == "ofelia" and route_seconda_viva() == "caino":
+        call ofelia_fiaccolata_caino
+    elif cal_route == "ofelia" and route_seconda_viva() == "aede":
+        call ofelia_fiaccolata_aede
+    elif cal_route == "ofelia":
+        call ofelia_fiaccolata
     else:
         call fiaccolata_neutra
     return
@@ -121,6 +169,11 @@ label ev_luna6:
         call druso_climax
     elif cal_route == "icaro":
         call icaro_climax
+    elif cal_route == "ofelia":
+        if route_seconda_viva() == "aede":
+            call climax
+        else:
+            call ofelia_climax
     else:
         call finale_neutro_semestre
     return

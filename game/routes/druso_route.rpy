@@ -106,9 +106,11 @@ label druso_ev3:
             druso "TESCHIO, BRUTTO STRACCIONE!"
             "Druso. Il codardo dichiarato. Addosso all'esattore con tutti i suoi cento chili, la barba e nessun piano."
             "Dopo, mentre il lanternaio ci benedice in tre dialetti, Druso si guarda le mani come se non le riconoscesse."
+            show druso imbarazzato with qdiss
             druso "...non dirlo a nessuno. Il coraggio mi rovina la reputazione peggio della gratitudine."
         "Dargli retta e andarcene":
             $ druso_affinity -= 1
+            show druso serio with qdiss
             "Ce ne andiamo. Druso non fa battute per tutta la strada. È la cosa più vicina al disprezzo che gli abbia mai visto addosso — e non so se è per me o per sé."
     return
 
@@ -125,15 +127,16 @@ label druso_ev4:
         "Un'ombra sul cammino di ronda. Druso afferra la lanterna e non fa battute."
         "«Dimmi cosa c'è. Senza rima.»":
             $ druso_affinity += 1
-            show druso ghigno with qdiss
+            show druso serio with qdiss
             druso "...ho paura del buio, ecco. Dei cento chili e della barba, del buio. Dillo e ti butto di sotto."
             "Resto con lui fino all'alba, a un passo, senza dire niente. Il sole sorge sul suo ghigno: per una volta stanco, e vero."
         "Prenderlo in giro: «Il coraggioso Druso e le sue ombre»":
             $ druso_passo_falso()
+            show druso irritato with qdiss
             druso "Ah. Bene. Questa me la segno nel registro delle cose che non perdono."
             "Il resto della guardia lo passa a recitare versi osceni al vento, rivolto verso la città. Mai verso di me."
         "Mettersi in silenzio al suo fianco":
-            show druso neutro with qdiss
+            show druso imbarazzato with qdiss
             druso "...grazie. Non lo dirò mai più. Né a te, né alla taverna."
             "Il turno finisce all'alba. Non succede niente, ed è la cosa più importante."
     return
@@ -143,7 +146,7 @@ label druso_ev4:
 
 label impegno_druso:
     scene bg vicoli_zefiro with fade
-    show druso neutro at left with dissolve
+    show druso imbarazzato at left with dissolve
     "Mi aspetta fuori dalla taverna, per una volta senza pubblico. Ha in mano un foglio piegato in quattro, e l'aria di chi preferirebbe un TESCHIO."
     druso "Ho scritto una cosa. Non oscena. È... il problema è proprio questo, che non è oscena. Prima di dartela devo sapere se ridi."
     "Il foglio trema appena. Il poeta del disagio altrui, in imbarazzo per la prima volta da che lo conosco."
@@ -172,6 +175,7 @@ label druso_fiaccolata:
     "La Calà, trecento gradini di lanterne. Druso li guarda come un palco."
     druso "La leggenda dice mano nella mano. Io dico che la leggenda non ha mai visto le TUE mani: ruvide come la mia poesia."
     "Ma la mano la tende lui. E per trecento gradini il provocatore più insopportabile del Nord non provoca nessuno: cammina, stringe, e ogni venti gradini controlla che io ci sia ancora."
+    show druso imbarazzato with dissolve
     druso "Se lo racconti in taverna, nego. Ho una reputazione. ...al gradino duecento puoi raccontare quello che vuoi."
     $ druso_affinity += 1
     return
@@ -182,7 +186,7 @@ label druso_fiaccolata:
 label druso_climax:
     scene bg consiglio with fade
     "Convocazione del Ramo di Lenora. Qualcuno ha riferito alla Capofamiglia che il suo secondogenito «frequenta un[fin] Figli[fin] di Briseide oltre il decoro», e che per giunta ha fatto a botte nei vicoli per un lanternaio."
-    show druso neutro at left with dissolve
+    show druso serio at left with dissolve
     "Druso, davanti alla madre che non si vede ma si sente, deve scegliere chi essere: il buffone che nega tutto, o l'uomo del gradino duecento."
     if flag_druso_coraggio and druso_affinity >= 13:
         jump druso_good
@@ -200,6 +204,7 @@ label druso_good:
     show druso ghigno at left with dissolve
     druso "Hai sentito? Pubblico nuovo. Il migliore. E tutto grazie al mio talento, ovviamente."
     pc "Ovviamente."
+    show druso imbarazzato with dissolve
     druso "...e a te. Ma questo è fuori metrica."
     scene bg nero with fade
     centered "{cps=20}{size=+10}IL CUORE PROVOCATORE{/size}\n\nIl poema più bello non nasce dall'immaginazione.\nSi ispira alla realtà.{/cps}"
@@ -215,7 +220,7 @@ label druso_neutral:
     return
 
 label druso_bad:
-    show druso neutro at left with qdiss
+    show druso serio at left with qdiss
     druso "Chi? Quell[fin]? Madre, ti prego. Un cane che abbaia, al mio seguito. Il pubblico non si sceglie."
     "Lo dice guardandomi. E il ghigno, stavolta, non arriva agli occhi."
     "Da quella sera le sue provocazioni tornano a essere solo crudeli, e io torno a essere solo pubblico. Il gioco crudo e duro ha dato il suo verdetto: non l'ho retto."

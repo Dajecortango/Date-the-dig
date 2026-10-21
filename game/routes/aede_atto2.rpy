@@ -75,7 +75,7 @@ label cap4:
 
             show aede sorpresa with qdiss
 
-            "Si blocca. Nessuno, capisco in quell'istante, le ha mai fatto quella domanda. Né il padre, né i fratelli, né i morti."
+            "Si blocca. Nessuno, capisco in quell'istante, le ha mai fatto quella domanda. Né il padre, né Ofelia, né Ascadeo, né i morti."
 
             show aede neutra with qdiss
 

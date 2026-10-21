@@ -22,6 +22,7 @@ label trio_lenora:
     "Serata rara: i tre figli di Lenora allo stesso tavolo. Caino beve idromele, Icaro conta le vincite, Druso cerca guai."
     show icaro neutro at right with dissolve
     druso "Fratellino! Tre settimane che non ti vedo. Sai cosa significa."
+    show icaro irritato with qdiss
     icaro "Significa che stavo bene. Non farlo. Lo detesto. È scritto, firmato e protocollato: LO DETESTO."
     druso "TESCHIO!"
     with vpunch
@@ -54,6 +55,7 @@ label incrocio_palestra:
     druso "Volpe rossa! Se vinco, mi concedi un ballo alla prossima festa. Se perdi, idem! Il sistema è perfetto."
     aede "Il sistema ha un difetto."
     with lampo
+    show druso sorpreso with qdiss
     "Non vedo il colpo. Nessuno lo vede. Druso è a terra, lo scudo a tre metri, la lama di lei ferma a un dito dal naso."
     aede "Il difetto sei tu."
     menu:
@@ -62,9 +64,11 @@ label incrocio_palestra:
             $ aede_affinity += 1
             show aede sorriso with dissolve
             aede "...domani all'alba. Porta la guardia alta e zero domande."
+            show druso irritato with qdiss
             druso "E NESSUNO che chieda se mi sono fatto male. Famiglia di serpi."
         "Tendere la mano a Druso con un verso: «Cadde il poeta, ma cadde rimando»":
             $ druso_affinity += 1
+            show druso ghigno with qdiss
             druso "«Cadde rimando»! BELLISSIMO! Lo metto nel repertorio e non ti pago i diritti!"
             "Si rialza ridendo. Aede scuote la testa, ma non smentisce il mezzo sorriso."
         "Restare neutrale: qui si rischia la pelle":
@@ -80,6 +84,7 @@ label incrocio_carte:
     show caino neutro at left with dissolve
     "Il tavolo grande, posta alta: Icaro contro Caino. L'Arconte della Proprietà perde da tre mani e non è abituato."
     caino "Quarta mano. Fratello, la tua fortuna stasera è... statisticamente interessante."
+    show icaro furbo with qdiss
     icaro "La fortuna è una tassa sugli sprovveduti. Tu non sei sprovveduto: quindi non è fortuna. Gioca."
     "E io, dal mio posto, l'ho visto: il taglio del mazzo. Quello che le dita non dovrebbero saper fare."
     menu:
@@ -87,7 +92,9 @@ label incrocio_carte:
         "Un cenno discreto a Caino: guarda il taglio":
             $ caino_fiducia += 1
             $ icaro_affinity -= 1
+            show caino sorpreso with qdiss
             caino "...ah. Ecco la statistica. Fratello: rigiochiamo con il MIO mazzo, e la Proprietà dimentica l'imposta straordinaria sulle fumerie."
+            show icaro irritato with qdiss
             icaro "Estorsione. E il novellino fa la spia. Annotato. Con la data, l'ora e il taglio di capelli."
         "Tacere: al tavolo di Icaro, chi guarda non parla":
             $ icaro_affinity += 1

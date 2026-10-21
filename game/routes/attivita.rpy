@@ -137,7 +137,7 @@ label att_scudo_2:
 
 label att_scudo_3:
     scene bg palestra with fade
-    show druso neutro at left with dissolve
+    show druso serio at left with dissolve
     "Druso, stranamente serio, controlla le cinghie del mio scudo una a una."
     druso "Cinghia molle, braccio rotto. Te lo dico io che le ho rotte tutte e due, e non per modo di dire."
     menu:
@@ -242,14 +242,14 @@ label att_taverna_2:
 
 label att_taverna_3:
     scene bg vicoli_zefiro with fade
-    show druso neutro at left with dissolve
+    show druso serio at left with dissolve
     "Trovo Druso da solo, per una volta. Fissa il fondo del boccale come se ci avesse perso qualcosa."
     druso "Mio fratello Caino colleziona cariche. Icaro colleziona Scudi. Io colleziono... pubblico. Qualcuno doveva pur farlo."
     menu:
         "Non è una battuta. O non del tutto."
         "«Il pubblico si scorda. Gli amici no.»":
             $ druso_affinity += 1
-            show druso ghigno with qdiss
+            show druso imbarazzato with qdiss
             druso "Sentimentale! Che schifo. ...ripetilo."
         "«Ti compiango, figlio di Lenora.»":
             druso "Compiangimi, compiangimi. Almeno tu reciti gratis."
@@ -368,11 +368,11 @@ label att_taverna_4:
             druso "Questa non è poesia, è un'accusa! ...ripetila più piano, che la scrivo."
             "Druso ride fino alle lacrime. La locandiera no."
         "«Io non rimo. Io pago e me ne vado.»":
-            show druso neutro with qdiss
+            show druso ghigno with qdiss
             druso "Ritirata con onore: la peggior poesia che esista. Siediti, almeno bevi."
         "«Per favore, basta, non so far versi...»":
             $ druso_affinity -= 1
-            show druso neutro with qdiss
+            show druso ghigno with qdiss
             druso "Supplica. Il genere meno originale. Ti do un voto: «zero», in rima con «ciao»."
     return
 
@@ -385,6 +385,7 @@ label att_fumeria_4:
         "Una pila è più corta delle altre. Lo noto. Lui nota che lo noto."
         "«Manca uno Scudo nella terza pila.»":
             $ icaro_affinity += 1
+            show icaro furbo with qdiss
             icaro "...l'ho messo io da parte, per vedere chi se ne accorgeva. Tre settimane. Sei [il_t] prim[fin]."
             "Lo rimette nella pila con un mezzo sorriso. Da Icaro, è un applauso."
         "Guardare e basta, com'è gratis":

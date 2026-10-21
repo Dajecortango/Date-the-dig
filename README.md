@@ -2,6 +2,8 @@
 
 Visual novel (dating sim) in italiano ambientata nel mondo di Yr, nel Nord della Famiglia Dignitas. Motore: Ren'Py. Prima release: route di Aede completa (prologo, 6 capitoli + 3 interludi, climax, 4 finali: good / neutral / 2 bad).
 
+Route di Ofelia "Tanto bella quanto letale" (difficoltà 4/5): corte e serra nel pomeriggio, inviti a scadenza, fiaccolate, climax e 5 finali (good, "Il contratto a tre", "Le figlie di Glauco", "La tempesta", "Interesse passeggero"). Si sblocca tramite la scelta del cuore; Ofelia può essere affiancata ad Aede (segreta) o Caino (dichiarato).
+
 ## Come lanciare
 
 1. Scarica [Ren'Py SDK 8.3.7](https://www.renpy.org/dl/8.3.7/renpy-8.3.7-sdk.zip) ed estrailo in `tools/renpy-8.3.7-sdk/` (cartella gitignored).
@@ -54,6 +56,8 @@ Riferimento aspetto Aede: capelli rosso fiamma lunghi e mossi, occhi grigioverdi
 - `game/routes/aede_interludi.rpy` — interludi 1–3.
 - `game/routes/aede_atto2.rpy` — capitoli 4–6.
 - `game/routes/aede_finali.rpy` — climax, routing, 4 finali.
+- `game/routes/ofelia_route.rpy` — route di Ofelia: territorio corte, eventi 1–4, impegni.
+- `game/routes/ofelia_finali.rpy` — route di Ofelia: fiaccolate, climax, finali.
 - `docs/superpowers/specs/` — design document. `docs/superpowers/plans/` — piano.
 
 Una route futura aggiunge i propri file in `game/routes/` e un bivio in `script.rpy`.
