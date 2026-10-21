@@ -434,6 +434,14 @@ define gui.language = "unicode"
 ## Mobile devices
 ################################################################################
 
+define MOBILE_SCALA_TESTO = 1.3
+define MOBILE_SCALA_INTERFACCIA = 1.12
+
+## Testi minuti delle screen custom (sottotitoli, note, "Solo adesso"): su
+## telefono restano sotto la soglia di lettura anche scalati.
+define TESTO_MINUTO = (20 if renpy.variant("small") else 17)
+define TESTO_NOTA = (23 if renpy.variant("small") else 20)
+
 init python:
 
     ## This increases the size of the quick buttons to make them easier to
@@ -443,55 +451,29 @@ init python:
 
         gui.quick_button_borders = Borders(gui.scale(40), gui.scale(14), gui.scale(40), gui.scale(0))
 
-    ## This changes the size and spacing of various GUI elements to ensure
-    ## they are easily visible on phones.
+    ## Telefono. Il template SDK riportava qui valori pensati per 1280x720
+    ## (gui.scale qui e' l'identita', vedi guisupport.rpy) e restringeva il
+    ## dialogo: su 1920x1080 il layout PC va gia' bene. Il problema e' solo
+    ## la dimensione dei testi sullo schermo piccolo, quindi si scala ogni
+    ## font di MOBILE_SCALA_TESTO: vale anche per le size scritte a mano nelle
+    ## screen custom (calendario, cronache, menu_cast...), che i gui.* non
+    ## coprono.
     @gui.variant
     def small():
 
-        ## Font sizes.
-        gui.text_size = gui.scale(30)
-        gui.name_text_size = gui.scale(36)
-        gui.notify_text_size = gui.scale(25)
-        gui.interface_text_size = gui.scale(30)
-        gui.button_text_size = gui.scale(30)
-        gui.label_text_size = gui.scale(34)
+        for f in ("fonts/EBGaramond.ttf", "fonts/EBGaramond-Italic.ttf",
+                  "fonts/Quicksand.ttf", "DejaVuSans.ttf"):
+            config.ftfont_scale[f] = MOBILE_SCALA_TESTO
 
-        ## Adjust the location of the textbox.
-        gui.textbox_height = gui.scale(240)
-        gui.name_xpos = gui.scale(80)
-        gui.dialogue_xpos = gui.scale(90)
-        gui.dialogue_width = gui.scale(1100)
+        ## Cinzel (titoli, nomi, bottoni) e' tutto maiuscoletto e gia' largo:
+        ## a 1.3 le voci di menu escono dalle cornici. Si ingrandisce meno.
+        config.ftfont_scale["fonts/Cinzel.ttf"] = MOBILE_SCALA_INTERFACCIA
 
-        ## Change the size and spacing of various things.
-        gui.slider_size = gui.scale(36)
+        ## Il menu laterale e' largo 360 px: "Riprendi la cronaca" ci sta
+        ## solo alla misura PC.
+        gui.navigation_button_text_size = gui.scale(27)
 
-        gui.choice_button_width = gui.scale(1240)
-        gui.choice_button_text_size = gui.scale(30)
-
-        gui.navigation_spacing = gui.scale(20)
-        gui.pref_button_spacing = gui.scale(10)
-
-        gui.history_height = gui.scale(190)
-        gui.history_text_width = gui.scale(690)
-
-        gui.quick_button_text_size = gui.scale(20)
-
-        ## File button layout.
-        gui.file_slot_cols = 2
-        gui.file_slot_rows = 2
-
-        ## NVL-mode.
-        gui.nvl_height = gui.scale(170)
-
-        gui.nvl_name_width = gui.scale(305)
-        gui.nvl_name_xpos = gui.scale(325)
-
-        gui.nvl_text_width = gui.scale(915)
-        gui.nvl_text_xpos = gui.scale(345)
-        gui.nvl_text_ypos = gui.scale(5)
-
-        gui.nvl_thought_width = gui.scale(1240)
-        gui.nvl_thought_xpos = gui.scale(20)
-
-        gui.nvl_button_width = gui.scale(1240)
-        gui.nvl_button_xpos = gui.scale(20)
+        ## Le didascalie degli slot di salvataggio sono minuscole anche
+        ## scalate.
+        gui.slot_button_text_size = gui.scale(18)
+        gui.notify_text_size = gui.scale(20)

@@ -1,7 +1,8 @@
 # Feedback sulle scelte e ritratti accanto al box.
 #
-# - Side image: "image side <char>" per i cinque personaggi datable; le
-#   Character relative hanno image="<char>" (nessun ritratto per gli altri).
+# - Side image: "image side <char>" per i cinque personaggi datable e per
+#   Briseide, Vanna e Corrado; le Character relative hanno image="<char>"
+#   (nessun ritratto per gli altri).
 # - Overlay "feedback_overlay": a ogni interazione confronta le affinità di
 #   store con l'ultimo valore visto; se cambiano, il ritratto del personaggio
 #   pulsa in un angolo con una riga breve, ~2 s. Nessun numero.
@@ -16,6 +17,10 @@ image side caino = "gui/portrait_caino.png"
 image side ofelia = "gui/portrait_ofelia.png"
 image side druso = "gui/portrait_druso.png"
 image side icaro = "gui/portrait_icaro.png"
+# Comprimari del Ceppo di Briseide: solo ritratto, niente feedback affinita'.
+image side briseide = "gui/portrait_briseide.png"
+image side vanna = "gui/portrait_vanna.png"
+image side corrado = "gui/portrait_corrado.png"
 
 ## Il ritratto accanto al box solo se lo sprite di chi parla non è in scena.
 define config.side_image_only_not_showing = True

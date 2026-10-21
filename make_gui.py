@@ -191,11 +191,11 @@ def menu_front():
 # personaggio al centro) hanno lo stesso ingombro; le dimensioni ai lati le
 # decide la screen con zoom.
 MM_CAST = [
-    ("aede", "aede neutra.png"),
-    ("ofelia", "ofelia compiaciuta.png"),
-    ("caino", "caino neutro.png"),
-    ("icaro", "icaro furbo.png"),
-    ("druso", "druso ghigno.png"),
+    ("aede", "aede neutra.webp"),
+    ("ofelia", "ofelia compiaciuta.webp"),
+    ("caino", "caino neutro.webp"),
+    ("icaro", "icaro furbo.webp"),
+    ("druso", "druso ghigno.webp"),
 ]
 MM_ALTEZZA = 860  # altezza dello sprite a scala piena
 MM_MARGINE = 40   # bordo trasparente attorno allo sprite (ombra e alone)
@@ -216,14 +216,14 @@ def menu_cast():
 
         idle = Image.new("RGBA", size, (0, 0, 0, 0))
         idle.alpha_composite(spr, (M, M))
-        save(idle, "cast_%s.png" % key)
+        save(idle, "cast_%s.webp" % key)
 
         # Ombra: 35%, +16 px, sfocatura 7.
         sh = Image.new("RGBA", size, (0, 0, 0, 0))
         shadow = Image.new("RGBA", spr.size, (0, 0, 0, 255))
         shadow.putalpha(alpha.point(lambda a: a * 0.35))
         sh.alpha_composite(shadow, (M + 16, M + 16))
-        save(sh.filter(ImageFilter.GaussianBlur(7)), "cast_%s_ombra.png" % key)
+        save(sh.filter(ImageFilter.GaussianBlur(7)), "cast_%s_ombra.webp" % key)
 
         # Alone oro sfocato attorno alla sagoma.
         glow_a = Image.new("L", size, 0)
@@ -232,7 +232,7 @@ def menu_cast():
             lambda a: min(255, int(a * 0.9)))
         glow = Image.new("RGBA", size, ORO_CHIARO + (0,))
         glow.putalpha(glow_a)
-        save(glow, "cast_%s_alone.png" % key)
+        save(glow, "cast_%s_alone.webp" % key)
 
         # Hover: alone + sprite schiarito.
         hov = Image.new("RGBA", size, (0, 0, 0, 0))
@@ -240,7 +240,7 @@ def menu_cast():
         chiaro = Image.blend(spr, Image.new("RGBA", spr.size, (255, 244, 220, 255)), 0.10)
         chiaro.putalpha(alpha)
         hov.alpha_composite(chiaro, (M, M))
-        save(hov, "cast_%s_hover.png" % key)
+        save(hov, "cast_%s_hover.webp" % key)
 
     menu_carosello_comandi()
 
@@ -1090,11 +1090,14 @@ def stile_carosello():
 
 
 def stile_ritratti():
-    portrait("aede neutra.png", "portrait_aede.png", top_f=0.0, side_f=0.45, cx_f=0.43)
-    portrait("caino neutro.png", "portrait_caino.png", top_f=0.0, side_f=0.42, cx_f=0.52)
+    portrait("aede neutra.webp", "portrait_aede.png", top_f=0.0, side_f=0.45, cx_f=0.43)
+    portrait("caino neutro.webp", "portrait_caino.png", top_f=0.0, side_f=0.42, cx_f=0.52)
     portrait("ofelia neutra.png", "portrait_ofelia.png", top_f=0.0, side_f=0.40, cx_f=0.45)
     portrait("icaro neutro.png", "portrait_icaro.png", top_f=0.15, side_f=0.42, cx_f=0.6)
     portrait("druso neutro.png", "portrait_druso.png", top_f=0.0, side_f=0.40, cx_f=0.5)
+    portrait("briseide neutra.png", "portrait_briseide.png", top_f=0.0, side_f=0.36, cx_f=0.5)
+    portrait("vanna neutra.png", "portrait_vanna.png", top_f=0.0, side_f=0.36, cx_f=0.5)
+    portrait("corrado neutro.png", "portrait_corrado.png", top_f=0.0, side_f=0.36, cx_f=0.5)
     portrait_diamond("portrait_locked.png", (90, 30, 26, 255), (120, 100, 48, 255))
 
 

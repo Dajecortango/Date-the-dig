@@ -260,12 +260,20 @@ init -10 python:
     config.save_json_callbacks.append(cal_json_route)
 
     def cal_ritratto_grande(char):
-        p = "gui/cast_%s.png" % char if char else None
+        p = "gui/cast_%s.webp" % char if char else None
         return p if p and renpy.loadable(p) else cal_portrait(char)
 
     def cal_portrait(char):
         p = "gui/portrait_%s.png" % char if char else "gui/portrait_locked.png"
         return p if renpy.loadable(p) else "gui/portrait_locked.png"
+
+    def cal_azione(touch, sel, info, ritorno):
+        """Azione di una voce del pianificatore. Col mouse sceglie subito
+        (l'anteprima la da' l'hover); su touch il primo tocco seleziona e il
+        secondo sulla stessa voce conferma."""
+        if not touch or (sel is not None and sel[0] == info):
+            return Return(ritorno)
+        return SetScreenVariable("cal_sel", (info, ritorno))
 
     # I dict evento contengono lambda (cond): non devono MAI finire nello
     # store o in _return, o il salvataggio fallisce il pickle. Nello store
@@ -473,10 +481,16 @@ screen pianificazione(momento, inviti, attivita):
 
     modal True
 
+    ## Su touch non c'e' hover: il primo tocco seleziona la voce e riempie il
+    ## pannello, il secondo tocco (o "Scegli" nel pannello) la conferma.
+    ## cal_sel = (tooltip, valore di ritorno) della voce selezionata.
+    default cal_sel = None
+    $ cal_touch = renpy.variant("touch")
+
     add "gui/game_menu.png"
 
     ## Colonna delle scelte a sinistra, pannello del personaggio a destra
-    ## (si riempie all'hover via tooltip).
+    ## (si riempie all'hover via tooltip, o alla selezione su touch).
     vbox:
         xpos 120
         yalign 0.5
@@ -508,7 +522,7 @@ screen pianificazione(momento, inviti, attivita):
             for nome_s, stato_s in cal_slot_stati(momento):
                 text nome_s.capitalize() size 22 italic (stato_s == "corrente") color ("#f0e6d2" if stato_s == "corrente" else "#6b5f4a" if stato_s == "passato" else "#a89468") yalign 0.5
             text "·" size 22 color "#6b5f4a" yalign 0.5
-            text "Borsa: [scudi] Scudi" size 17 italic True color "#8f7f5c" yalign 0.5
+            text "Borsa: [scudi] Scudi" size TESTO_MINUTO italic True color "#8f7f5c" yalign 0.5
 
         add "gui/divisore.png" xalign 0.5
 
@@ -532,6 +546,7 @@ screen pianificazione(momento, inviti, attivita):
                 xfill True
 
                 for inv in inviti:
+                    $ cal_info = ("invito", inv["char"], inv["titolo"], inv["scade"])
                     button:
                         xfill True
                         ypadding (5 if cal_compatto else 8)
@@ -539,8 +554,10 @@ screen pianificazione(momento, inviti, attivita):
                         right_padding 26
                         background Frame("gui/button/piano_idle_background.png", 26, 26)
                         hover_background Frame("gui/button/piano_hover_background.png", 26, 26)
-                        tooltip ("invito", inv["char"], inv["titolo"], inv["scade"])
-                        action Return(("evento", inv["id"]))
+                        selected_background Frame("gui/button/piano_hover_background.png", 26, 26)
+                        tooltip cal_info
+                        selected (cal_touch and cal_sel is not None and cal_sel[0] == cal_info)
+                        action cal_azione(cal_touch, cal_sel, cal_info, ("evento", inv["id"]))
                         hbox:
                             spacing 18
                             add Transform(cal_portrait(inv["char"]), zoom=0.36) yalign 0.5
@@ -554,7 +571,7 @@ screen pianificazione(momento, inviti, attivita):
                                             xysize (26, 26)
                                             yalign 0.5
                                             add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
-                                        text "Solo adesso" size 17 color "#d9a441" yalign 0.5
+                                        text "Solo adesso" size TESTO_MINUTO color "#d9a441" yalign 0.5
                             else:
                                 vbox:
                                   yalign 0.5
@@ -566,9 +583,10 @@ screen pianificazione(momento, inviti, attivita):
                                               xysize (26, 26)
                                               yalign 0.5
                                               add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
-                                          text "Solo adesso" size 17 color "#d9a441" yalign 0.5
+                                          text "Solo adesso" size TESTO_MINUTO color "#d9a441" yalign 0.5
 
                 for aid, etichetta, char, _pool in attivita:
+                    $ cal_info = ("attivita", char, etichetta, aid)
                     button:
                         xfill True
                         yminimum (58 if cal_compatto else 0)
@@ -577,8 +595,10 @@ screen pianificazione(momento, inviti, attivita):
                         right_padding 26
                         background Frame("gui/button/piano_idle_background.png", 26, 26)
                         hover_background Frame("gui/button/piano_hover_background.png", 26, 26)
-                        tooltip ("attivita", char, etichetta, aid)
-                        action Return(("att", aid))
+                        selected_background Frame("gui/button/piano_hover_background.png", 26, 26)
+                        tooltip cal_info
+                        selected (cal_touch and cal_sel is not None and cal_sel[0] == cal_info)
+                        action cal_azione(cal_touch, cal_sel, cal_info, ("att", aid))
                         hbox:
                             spacing 18
                             if char:
@@ -591,17 +611,19 @@ screen pianificazione(momento, inviti, attivita):
                                     spacing 18
                                     text etichetta size 25 color "#f0e6d2" yalign 1.0
                                     if aid in ATTIVITA_DESC:
-                                        text ATTIVITA_DESC[aid] size 17 color "#8f7f5c" yalign 1.0 yoffset -3
+                                        text ATTIVITA_DESC[aid] size TESTO_MINUTO color "#8f7f5c" yalign 1.0 yoffset -3
                             else:
                                 vbox:
                                   yalign 0.5
                                   spacing 0
                                   text etichetta size 25 color "#f0e6d2"
                                   if aid in ATTIVITA_DESC:
-                                      text ATTIVITA_DESC[aid] size 17 color "#8f7f5c"
+                                      text ATTIVITA_DESC[aid] size TESTO_MINUTO color "#8f7f5c"
 
     ## Pannello laterale.
-    $ cal_tt = GetTooltip("pianificazione")
+    $ cal_tt = cal_sel[0] if (cal_touch and cal_sel) else GetTooltip("pianificazione")
+    ## Su touch il ritratto cede spazio al bottone "Scegli".
+    $ cal_ritratto_h = 380 if cal_touch else 470
     frame:
         style "cal_pannello"
         if cal_tt:
@@ -611,11 +633,11 @@ screen pianificazione(momento, inviti, attivita):
                 spacing 12
                 xfill True
                 fixed:
-                    xysize (480, 470)
+                    xysize (480, cal_ritratto_h)
                     if cal_chr:
                         add cal_ritratto_grande(cal_chr):
                             fit "contain"
-                            xysize (480, 470)
+                            xysize (480, cal_ritratto_h)
                             align (0.5, 1.0)
                     else:
                         ## Attività senza personaggio: la luna del mese.
@@ -634,12 +656,19 @@ screen pianificazione(momento, inviti, attivita):
                             text "Solo adesso: se scegli altro, l'invito cade." style "cal_pannello_avviso" yalign 0.5
                 else:
                     text ATTIVITA_DESC.get(cal_extra, "") style "cal_pannello_testo"
+            if cal_touch and cal_sel:
+                button:
+                    style "cal_scegli"
+                    action Return(cal_sel[1])
+                    text "Scegli" style "cal_scegli_text"
         else:
             vbox:
                 align (0.5, 0.5)
                 spacing 16
                 add ("gui/luna_%d.png" % momento[0]) xalign 0.5
                 text "Come spendi questo tempo?" style "cal_pannello_titolo" xalign 0.5 textalign 0.5
+                if cal_touch:
+                    text "Tocca una voce per leggerla, toccala di nuovo per sceglierla." style "cal_pannello_testo" xalign 0.5 textalign 0.5
 
 
 ## Clessidra degli inviti a scadenza: si capovolge a intervalli.
@@ -692,6 +721,21 @@ style cal_pannello_avviso is text:
     font gui.text_font
     size 21
     color "#e0b75a"
+
+style cal_scegli is button:
+    xalign 0.5
+    yalign 1.0
+    xminimum 260
+    padding (40, 14, 40, 14)
+    background Frame("gui/button/piano_idle_background.png", 26, 26)
+    hover_background Frame("gui/button/piano_hover_background.png", 26, 26)
+
+style cal_scegli_text is text:
+    font gui.interface_text_font
+    size 30
+    xalign 0.5
+    color gui.accent_color
+    hover_color "#f5e3b8"
 
 
 ## Diario del semestre #######################################################

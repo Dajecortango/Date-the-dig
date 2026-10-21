@@ -255,11 +255,11 @@ screen menu_cast():
                 if not fermo:
                     at mm_vivo(fase, prof)
 
-                add ("gui/cast_%s_ombra.png" % chiave)
-                add ("gui/cast_%s_alone.png" % chiave) at alone
+                add ("gui/cast_%s_ombra.webp" % chiave)
+                add ("gui/cast_%s_alone.webp" % chiave) at alone
                 imagebutton:
-                    idle ("gui/cast_%s.png" % chiave)
-                    hover ("gui/cast_%s_hover.png" % chiave)
+                    idle ("gui/cast_%s.webp" % chiave)
+                    hover ("gui/cast_%s_hover.webp" % chiave)
                     focus_mask True
                     tooltip chiave
                     action (ShowMenu("scheda_personaggio", chiave) if al_centro else mm_ruota(locals(), mm_centro, i))
@@ -353,7 +353,7 @@ screen scheda_personaggio(chiave):
         hbox:
             spacing 40
 
-            add ("gui/cast_%s.png" % chiave):
+            add ("gui/cast_%s.webp" % chiave):
                 fit "contain"
                 xysize (380, 760)
                 yalign 0.0

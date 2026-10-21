@@ -5,7 +5,7 @@ legare sfondi AI di batch diversi alla palette rosso-oro-nero.
 Uso:
   py -3 make_bg.py <cartella_sorgenti>     installa i sorgenti in game/images
   py -3 make_bg.py --grade-only <file>...  gradua in place file gia' installati
-  py -3 make_bg.py --nero                  rigenera solo "bg nero.png"
+  py -3 make_bg.py --nero                  rigenera solo "bg nero.webp"
 
 ATTENZIONE: il grading va applicato UNA sola volta, sui sorgenti originali.
 Riapplicarlo a file gia' graduati somma l'effetto.
@@ -21,18 +21,18 @@ W, H = 1920, 1080
 
 # Sorgenti con nomi che la normalizzazione generica non copre.
 MAP = {
-    "bg arena": "bg arena_athlion.png",
+    "bg arena": "bg arena_athlion.webp",
 }
 
 
 def canon(filename):
-    """'BG esterno neve_.jpg' -> 'bg esterno_neve.png' (nome Ren'Py canonico)."""
+    """'BG esterno neve_.jpg' -> 'bg esterno_neve.webp' (nome Ren'Py canonico)."""
     stem = os.path.splitext(filename)[0]
     stem = re.sub(r"(?i)^bg[ _]*", "", stem).replace("_", " ").strip()
     key = "bg " + " ".join(stem.lower().split())
     if key in MAP:
         return MAP[key]
-    return "bg " + "_".join(stem.lower().split()) + ".png"
+    return "bg " + "_".join(stem.lower().split()) + ".webp"
 
 
 def cover(im):
@@ -74,8 +74,8 @@ def make_nero():
     base = Image.new("RGB", (W, H), (24, 10, 9))
     dark = Image.new("RGB", (W, H), (8, 6, 6))
     img = Image.composite(dark, base, vignette_mask(255))
-    out = os.path.join(IMAGES, "bg nero.png")
-    img.save(out, optimize=True)
+    out = os.path.join(IMAGES, "bg nero.webp")
+    img.save(out, quality=90, method=6)
     print("rigenerato", out)
 
 
@@ -85,7 +85,7 @@ def install(src_dir):
             continue
         im = Image.open(os.path.join(src_dir, f))
         out = os.path.join(IMAGES, canon(f))
-        grade(cover(im)).save(out, optimize=True)
+        grade(cover(im)).save(out, quality=90, method=6)
         print(f, "->", out)
 
 
@@ -94,7 +94,7 @@ def grade_only(paths):
         im = Image.open(p)
         if im.size != (W, H):
             im = cover(im)
-        grade(im).save(p, optimize=True)
+        grade(im).save(p, quality=90, method=6)
         print("graduato in place:", p)
 
 

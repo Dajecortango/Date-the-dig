@@ -7,3 +7,8 @@ game/cache/
 log.txt
 traceback.txt
 errors.txt
+
+# Chiavi di firma Android: tenerle fuori dal repo, ma farne un backup.
+android.keystore
+bundle.keystore
+__pycache__/

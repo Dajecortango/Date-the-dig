@@ -87,4 +87,4 @@ screen galleria_finali():
                         else:
                             vbox:
                                 text "???" size 24 color "#8a8578"
-                                text indizio size 20 color "#8a8578" italic True
+                                text indizio size TESTO_NOTA color "#8a8578" italic True

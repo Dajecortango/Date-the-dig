@@ -243,7 +243,7 @@ screen cronache():
                         action [SetScreenVariable("cron_cat", cat),
                                 SetScreenVariable("cron_sel", cronache_prima(cat))]
                 $ cron_n, cron_tot = cronache_conto()
-                text "Voci scoperte: [cron_n] / [cron_tot]" size 20 italic True color "#8f7f5c" yalign 0.5 xoffset 30
+                text "Voci scoperte: [cron_n] / [cron_tot]" size TESTO_NOTA italic True color "#8f7f5c" yalign 0.5 xoffset 30
 
             add "gui/divisore.png" xalign 0.0
 
@@ -287,7 +287,7 @@ screen cronache():
                                 spacing 16
                                 xfill True
                                 text cron_v[2] style "cronache_titolo"
-                                text cron_v[1] size 20 italic True color "#8f7f5c"
+                                text cron_v[1] size TESTO_NOTA italic True color "#8f7f5c"
                                 add "gui/divisore.png"
                                 text cron_v[4] style "cronache_testo"
                                 for agg in cronache_aggiunte(cron_sel):

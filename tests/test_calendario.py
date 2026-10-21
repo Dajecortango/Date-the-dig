@@ -215,7 +215,10 @@ def check_store_picklabile():
     """C1: nessun dict evento (con lambda) deve finire nello store o in
     _return: la screen ritorna id, il loop maneggia solo id/label."""
     cal = _leggi("calendario.rpy")
-    check("screen ritorna id non dict", 'Return(("evento", inv["id"]))' in cal, True)
+    # Il ritorno passa da cal_azione (selezione su touch), ma resta la tupla
+    # ("evento", id): mai il dict inv.
+    check("screen ritorna id non dict",
+          'cal_azione(cal_touch, cal_sel, cal_info, ("evento", inv["id"]))' in cal, True)
     check("niente dict evento in _return", 'Return(("evento", ev))' in cal, False)
     check("loop usa cal_fisso_id", "cal_fisso_id" in cal, True)
     check("niente cal_evento_corrente", "cal_evento_corrente" in cal, False)

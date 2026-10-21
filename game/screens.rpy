@@ -328,8 +328,22 @@ init python:
         ("qcarica", _("Caricamento rapido")),
         ("costumanze", _("Costumanze")),
     ]
-    QUICK_LATO = 60
-    QUICK_SPAZIO = 10
+    # Su touch non c'e' tooltip: sopra ogni sigillo un'etichetta corta (i
+    # tooltip interi non ci stanno nei 96 px del sigillo).
+    QUICK_ETICHETTE = {
+        "indietro": _("Indietro"),
+        "memorie": _("Memorie"),
+        "salta": _("Salta"),
+        "auto": _("Auto"),
+        "salva": _("Salva"),
+        "qsalva": _("Q.salva"),
+        "qcarica": _("Q.carica"),
+        "costumanze": _("Opzioni"),
+    }
+    # Su telefono i sigilli (60 px nel png) si ingrandiscono: sotto i 60 px
+    # il dito ne prende due.
+    QUICK_LATO = 84 if renpy.variant("small") else 60
+    QUICK_SPAZIO = 12 if renpy.variant("small") else 10
 
     def quick_azione(chiave):
         return {
@@ -355,7 +369,8 @@ init python:
             return None
         if renpy.get_screen("pianificazione"):
             return (1530 - quick_larghezza() // 2, 996)
-        return (1130, 1080 - gui.textbox_height + 14 - QUICK_LATO // 2)
+        return (min(1130, 1880 - quick_larghezza()),
+                1080 - gui.textbox_height + 14 - QUICK_LATO // 2)
 
     def quick_larghezza():
         n = len(QUICK_SIGILLI)
@@ -381,7 +396,16 @@ screen quick_menu():
                     action quick_azione(chiave)
                     alternate (Skip(fast=True, confirm=True) if chiave == "salta" else None)
                     tooltip suggerimento
-                    at (quick_fermo if mm_movimento_ridotto() else quick_hover)
+                    at (quick_fermo if mm_movimento_ridotto() else quick_hover), quick_scala
+
+        if renpy.variant("touch"):
+            hbox:
+                pos (qpos[0], qpos[1] - 26)
+                spacing QUICK_SPAZIO
+                for chiave, _s in QUICK_SIGILLI:
+                    fixed:
+                        xysize (QUICK_LATO, 26)
+                        text QUICK_ETICHETTE[chiave] style "quick_etichetta_text"
 
         $ qtt = GetTooltip("quick_menu")
         $ qtesti = [s for _c, s in QUICK_SIGILLI]
@@ -393,6 +417,9 @@ screen quick_menu():
                 ypos qpos[1] - 6
                 text qtt style "quick_tooltip_text"
 
+
+transform quick_scala:
+    zoom QUICK_LATO / 60.0
 
 ## Hover dei sigilli: si sollevano appena.
 transform quick_fermo:
@@ -424,6 +451,14 @@ style quick_tooltip_text:
     size 21
     color "#f5e3b8"
     outlines [(2, "#140a08", 0, 0)]
+
+style quick_etichetta_text is quick_tooltip_text
+style quick_etichetta_text:
+    size 14
+    layout "nobreak"
+    xalign 0.5
+    yalign 1.0
+    textalign 0.5
 
 style quick_button is default
 style quick_button_text is button_text
@@ -1796,107 +1831,27 @@ define bubble.expand_area = {
 ## Mobile Variants
 ################################################################################
 
+## Il template SDK qui sostituiva il quick menu coi bottoni di testo e
+## puntava a immagini gui/phone/ (bar, slider, scrollbar, radio, check) mai
+## generate: su telefono la prima schermata con uno slider andava in errore.
+## Su 1920x1080 lo stile PC regge anche su telefono; i testi li scala
+## gui.rpy (variant small), i sigilli del quick menu QUICK_LATO.
+
 style pref_vbox:
     variant "medium"
     xsize gui.scale(450)
 
-## Since a mouse may not be present, we replace the quick menu with a version
-## that uses fewer and bigger buttons that are easier to touch.
-screen quick_menu():
-    variant "touch"
-
-    zorder 100
-
-    if quick_menu:
-
-        hbox:
-            style_prefix "quick"
-
-            xalign 0.5
-            yalign 1.0
-
-            textbutton _("Back") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Menu") action ShowMenu()
-
-
-style window:
-    variant "small"
-    background "gui/phone/textbox.png"
-
-style radio_button:
-    variant "small"
-    foreground "gui/phone/button/radio_[prefix_]foreground.png"
-
-style check_button:
-    variant "small"
-    foreground "gui/phone/button/check_[prefix_]foreground.png"
-
-style nvl_window:
-    variant "small"
-    background "gui/phone/nvl.png"
-
-style main_menu_frame:
-    variant "small"
-    background "gui/phone/overlay/main_menu.png"
-
-style game_menu_outer_frame:
-    variant "small"
-    background "gui/phone/overlay/game_menu.png"
-
-style game_menu_navigation_frame:
+## Su telefono i testi delle opzioni sono piu' grandi: colonne piu' larghe,
+## o "Testo mai letto" va a capo sopra la riga sotto.
+style pref_vbox:
     variant "small"
     xsize gui.scale(340)
 
-style game_menu_content_frame:
+## Il titolo sulla pergamena del menu principale, scalato, tocca il bordo.
+style main_menu_title:
     variant "small"
-    top_margin 0
+    size gui.scale(41)
 
-style pref_vbox:
+style slot_name_text:
     variant "small"
-    xsize gui.scale(400)
-
-style bar:
-    variant "small"
-    ysize gui.bar_size
-    left_bar Frame("gui/phone/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
-    right_bar Frame("gui/phone/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
-
-style vbar:
-    variant "small"
-    xsize gui.bar_size
-    top_bar Frame("gui/phone/bar/top.png", gui.vbar_borders, tile=gui.bar_tile)
-    bottom_bar Frame("gui/phone/bar/bottom.png", gui.vbar_borders, tile=gui.bar_tile)
-
-style scrollbar:
-    variant "small"
-    ysize gui.scrollbar_size
-    base_bar Frame("gui/phone/scrollbar/horizontal_[prefix_]bar.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/phone/scrollbar/horizontal_[prefix_]thumb.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
-
-style vscrollbar:
-    variant "small"
-    xsize gui.scrollbar_size
-    base_bar Frame("gui/phone/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/phone/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
-
-style slider:
-    variant "small"
-    ysize gui.slider_size
-    base_bar Frame("gui/phone/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/phone/slider/horizontal_[prefix_]thumb.png"
-
-style vslider:
-    variant "small"
-    xsize gui.slider_size
-    base_bar Frame("gui/phone/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
-    thumb "gui/phone/slider/vertical_[prefix_]thumb.png"
-
-style slider_vbox:
-    variant "small"
-    xsize None
-
-style slider_slider:
-    variant "small"
-    xsize gui.scale(600)
+    size 20
