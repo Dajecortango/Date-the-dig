@@ -38,7 +38,9 @@ label ev_aede_cap4:
 
 # Mini-scena di impegno (chiamata dalla scelta del cuore, fine Luna IV).
 label impegno_aede:
+    $ lento()
     scene bg corridoio_ceppo with fade
+    $ lento()
     show aede imbarazzata with dissolve
     "La trovo sul ballatoio del mio Ceppo, le serrature peggiori del Nord alle spalle, l'aria di chi prova le parole da un'ora."
     aede "Novellin[fin]. Questa... cosa. Tra te e me. Ofelia e Ascadeo cominciano a farci sopra delle scommesse, e io odio le scommesse che non controllo."

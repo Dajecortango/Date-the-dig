@@ -89,7 +89,9 @@ init python:
 ## Impegno (scelta del cuore) ################################################
 
 label impegno_icaro:
+    $ lento()
     scene bg vicoli_zefiro with fade
+    $ lento()
     "La fumeria è chiusa. Ha mandato via tutti, anche il vecchio che dorme sui cuscini: un'eccezione che deve essergli costata."
     show icaro neutro with dissolve
     "Mi aspetta al tavolo piccolo, quello dove non gioca: quello dove conta. Davanti a lui, un registro aperto su una pagina bianca."
@@ -117,7 +119,9 @@ label impegno_icaro:
     return
 
 label impegno_bro:
+    $ lento()
     scene bg vicoli_zefiro with fade
+    $ lento()
     "La fumeria, a quest'ora, è solo fumo vecchio e sedie capovolte. Icaro ha tenuto acceso un lume solo."
     show icaro neutro with dissolve
     "Il tavolo piccolo. Icaro spinge verso di me una chiave di ferro, senza cerimonie."

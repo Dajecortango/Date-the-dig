@@ -38,6 +38,7 @@ label caino_climax:
 ################################################################################
 
 label caino_good_end:
+    $ lento()
 
     show caino neutro with dissolve
 
@@ -54,6 +55,7 @@ label caino_good_end:
     "«La Proprietà passa ad altra mano per un anno. L'onestà, per quanto tardiva, resta una Virtù. Seduta tolta.»"
 
     scene bg esterno_neve with fade
+    $ lento()
 
     show caino neutro with dissolve
 
@@ -256,6 +258,7 @@ label caino_neutral_end:
 ################################################################################
 
 label caino_passeggero:
+    $ lento()
 
     show caino neutro with dissolve
 
@@ -266,6 +269,7 @@ label caino_passeggero:
     "Lenora toglie la seduta con un gesto. La Proprietà passa ad altra mano per un anno."
 
     scene bg esterno_neve with fade
+    $ lento()
 
     show caino freddo with dissolve
 
@@ -283,6 +287,7 @@ label caino_passeggero:
     "Mi tende la mano. Una stretta da notaio: ferma, breve, registrata."
 
     scene bg consiglio with fade
+    $ lento()
 
     "Una Luna dopo lo vedo alla Rocca, già in piedi, a un banco più in fondo. Caino non resta a terra a lungo."
 

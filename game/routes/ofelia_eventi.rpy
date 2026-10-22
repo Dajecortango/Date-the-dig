@@ -78,7 +78,9 @@ label ofelia_scadenza_prima:
 ## Impegno — La serra di sera ##################################################
 
 label impegno_ofelia:
+    $ lento()
     scene bg sala_svelo with fade
+    $ lento()
     show ofelia neutra with dissolve
     "La serra di sera, senza pretendenti. Solo lanterne basse, e la rosa nera potata fino all'osso."
     ofelia "Ho mandato via la fila. Tutta. Il cavallo compreso."
@@ -110,9 +112,11 @@ label impegno_ofelia:
 ## Impegno a tre — Il contratto con Caino ######################################
 
 label impegno_ofelia_caino:
+    $ lento()
     $ impegno_of = False
     $ impegno_altro = False
     scene bg studio_glauco with fade
+    $ lento()
     show ofelia neutra with dissolve
     "Lo studio di Glauco, a tarda sera. Ofelia siede sulla scrivania di suo padre come se fosse un trono che non le basta."
     show caino neutro at left with dissolve
@@ -154,9 +158,11 @@ label impegno_ofelia_caino:
 ## Impegno a tre — Il segreto della sorella ####################################
 
 label impegno_ofelia_aede:
+    $ lento()
     $ impegno_of = False
     $ impegno_altro = False
     scene bg sala_svelo with fade
+    $ lento()
     show ofelia neutra with dissolve
     "La serra, a notte fatta. Ofelia ha spento tutte le lanterne tranne una, quella che illumina solo le sue mani."
     ofelia "Lo so, di mia sorella. Lo sa mezza Zefiro: Aede non è mai stata brava a nascondere chi le piace."

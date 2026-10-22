@@ -325,6 +325,7 @@ init -10 python:
 
 default cal_idx = 0
 default cal_ultimo_giorno = None
+default cal_giorno_prima = (None, None)
 default eventi_visti = set()
 default congelate = set()
 default route_attiva = None
@@ -343,9 +344,13 @@ label cal_loop:
 
     # Riga di data a ogni cambio di giorno + nome del salvataggio.
     if cal_ultimo_giorno != (cal_luna, cal_giorno):
+        # (giorno, luna) di prima per il cartello: il numero gira, la luna
+        # cambia fase al primo giorno di una Luna nuova.
+        $ cal_giorno_prima = ((cal_ultimo_giorno[1], cal_ultimo_giorno[0])
+                              if cal_ultimo_giorno else (None, None))
         $ cal_ultimo_giorno = (cal_luna, cal_giorno)
         $ save_name = LUNE_NOMI[cal_luna] + " — giorno " + str(cal_giorno)
-        call screen cartello_data(cal_luna, cal_giorno, cal_giorno_segnato(cal_luna, cal_giorno))
+        call screen cartello_data(cal_luna, cal_giorno, cal_giorno_segnato(cal_luna, cal_giorno), *cal_giorno_prima)
         # Voce di cronologia per il separatore di giorno (come il vecchio centered).
         $ narrator.add_history("adv", None, save_name)
 
@@ -480,11 +485,42 @@ transform cartello_sigillo:
     easein 0.18 alpha 1.0 zoom 0.66
     easeout 0.08 zoom 0.7
 
+# Numero del giorno che gira: il vecchio sale e sparisce, il nuovo sale dal
+# basso, mentre il testo compare (pause 0.5 come cartello_testo).
+transform giorno_esce:
+    alpha 1.0 yoffset 0
+    pause 0.55
+    easeout 0.35 alpha 0.0 yoffset -24
+
+transform giorno_entra:
+    alpha 0.0 yoffset 24
+    pause 0.55
+    easeout 0.35 alpha 1.0 yoffset 0
+
+# Primo giorno di una Luna nuova: la luna di prima sfuma nella nuova, con un
+# piccolo bagliore oro.
+transform luna_esce:
+    align (0.5, 0.0) yoffset -64
+    alpha 1.0
+    pause 0.5
+    linear 0.6 alpha 0.0
+
+transform luna_entra:
+    align (0.5, 0.0) yoffset -64
+    alpha 0.0 zoom 0.9
+    pause 0.5
+    easeout 0.6 alpha 1.0 zoom 1.0
+    matrixcolor BrightnessMatrix(0.25)
+    linear 0.5 matrixcolor BrightnessMatrix(0.0)
+
+transform luna_ferma:
+    align (0.5, 0.0) yoffset -64
+
 transform cartello_sigillo_fermo:
     align (0.5, 1.0) yoffset 78
     zoom 0.7
 
-screen cartello_data(luna, giorno, festa=False):
+screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None):
 
     modal True
 
@@ -498,6 +534,7 @@ screen cartello_data(luna, giorno, festa=False):
     if not (config.skipping or mm_movimento_ridotto()):
         timer 1.08 action Play("sound", "audio/sigillo.ogg")
 
+    default cartello_anim = not (config.skipping or mm_movimento_ridotto())
     fixed:
         xysize (760, 210)
         at (cartello_fermo if mm_movimento_ridotto() else cartello_srotola)
@@ -516,14 +553,26 @@ screen cartello_data(luna, giorno, festa=False):
                 spacing 14
                 if festa:
                     text "◆" size 22 color "#c0392b" yalign 0.5
-                text ("giorno " + str(giorno)):
-                    font gui.text_font
-                    size 32
-                    italic True
-                    color "#5a4426"
+                hbox:
+                    spacing 8
                     yalign 0.5
+                    text "giorno" style "cartello_numero" yalign 0.5
+                    if cartello_anim and giorno_prec is not None and giorno_prec != giorno:
+                        fixed:
+                            fit_first True
+                            yalign 0.5
+                            text str(giorno) style "cartello_numero" at giorno_entra
+                            text str(giorno_prec) style "cartello_numero" at giorno_esce
+                    else:
+                        text str(giorno) style "cartello_numero" yalign 0.5
                 if festa:
                     text "◆" size 22 color "#c0392b" yalign 0.5
+        if luna_prec is not None and luna_prec != luna:
+            if cartello_anim:
+                add ("gui/luna_%d.png" % luna_prec) at luna_esce
+                add ("gui/luna_%d.png" % luna) at luna_entra
+            else:
+                add ("gui/luna_%d.png" % luna) at luna_ferma
         add ("gui/ceralacca_festa.png" if festa else "gui/ceralacca.png"):
             at (cartello_sigillo_fermo if (mm_movimento_ridotto() or config.skipping) else cartello_sigillo)
 
@@ -865,3 +914,11 @@ screen diario():
                     style "cronache_tab"
                     text_style "cronache_tab_text"
                     action ShowMenu("inventario")
+
+
+style cartello_numero is text
+style cartello_numero:
+    font gui.text_font
+    size 32
+    italic True
+    color "#5a4426"

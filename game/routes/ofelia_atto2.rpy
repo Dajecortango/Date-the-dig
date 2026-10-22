@@ -24,6 +24,7 @@ label ofelia_ev3:
             $ ofelia_affinity += 2
             show ofelia compiaciuta with qdiss
             ofelia "Nessuno regge. Nemmeno Aede, da bambine, e di coraggio ne ha per tre."
+            $ muovi("ofelia", "trema")
             "Abbassa la lama. Mi tende la mano libera, e noto che trema appena. Per l'attesa, forse. Per qualcos'altro."
         "Arrendermi con eleganza: «Hai vinto. Ma ti è costato fatica, ammettilo.»":
             $ ofelia_affinity += 1

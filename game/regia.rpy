@@ -97,6 +97,15 @@ define ricordo = Fade(0.6, 0.0, 0.9, color="#f5e3b8")
 # fondo_fx). E' nello store: rollback e salvataggi la ritrovano.
 default regia_intimo = False
 
+# Neve fitta nei climax sulla neve: $ tempesta() dopo la "scene"; ogni
+# "scene" la spegne (effetti.rpy, rgl.effetti_per).
+default regia_tempesta = False
+
+# Testo piu' lento nei momenti intimi: $ lento() ... $ fine_lento(); ogni
+# "scene" lo spegne. Le battute scorrono al 70% della velocita' scelta dal
+# giocatore (moltiplicatore, rgl.LENTO_CPS). I "centered" non cambiano.
+default regia_lento = False
+
 # Camera (layer master): $ camera_dentro(), $ camera_su(x), $ camera_panoramica(),
 # $ camera_riposo(). Ogni "scene" e ogni caricamento la rimettono a riposo.
 # Con "Animazioni: No" non si muove.
@@ -127,6 +136,29 @@ init python:
     def fine_intimo():
         store.regia_intimo = False
 
+    import regia_logic as rgl
+
+    def tempesta():
+        store.regia_tempesta = True
+
+    def lento():
+        store.regia_lento = True
+
+    def fine_lento():
+        store.regia_lento = False
+
+    _regia_say_args_prec = config.say_arguments_callback
+
+    def _regia_say_args(who, *args, **kwargs):
+        if _regia_say_args_prec is not None:
+            args, kwargs = _regia_say_args_prec(who, *args, **kwargs)
+        if (store.regia_lento and who is not store.centered
+                and "what_slow_cps_multiplier" not in kwargs):
+            kwargs["what_slow_cps_multiplier"] = rgl.LENTO_CPS
+        return args, kwargs
+
+    config.say_arguments_callback = _regia_say_args
+
     def _camera(t):
         if not mm_movimento_ridotto():
             renpy.show_layer_at([t], layer="master", camera=True)
@@ -154,6 +186,8 @@ init python:
     def _regia_scene(layer="master"):
         if layer == "master":
             store.regia_intimo = False
+            store.regia_tempesta = False
+            store.regia_lento = False
             camera_riposo_subito()
         _regia_scene_prec(layer)
 

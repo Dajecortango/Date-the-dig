@@ -56,6 +56,8 @@ init python:
     ## Comparsa a tempo durante le scene ####################################
 
     BORSA_DURATA = 3.0
+    MONETA_VOLO = 0.55       # secondi di volo di una moneta verso la Borsa
+    MONETA_PASSO = 0.06      # secondi tra una moneta e la successiva
 
     class _BorsaStato(NoRollback):
         def __init__(self):
@@ -64,6 +66,7 @@ init python:
             self.fino = 0.0      # time() fino a cui la pillola resta visibile
             self.da = 0          # Scudi di partenza del contatore che scorre
             self.t0 = 0.0        # time() d'inizio del contatore (0 = fermo)
+            self.volo = None     # (monete, verso +1/-1, time() d'inizio)
 
     _bo = _BorsaStato()
 
@@ -71,6 +74,7 @@ init python:
         _bo.snap = None
         _bo.fino = 0.0
         _bo.t0 = 0.0
+        _bo.volo = None
 
     def _bo_controlla():
         """start_interact_callback: Scudi o dono cambiati -> mostra."""
@@ -83,12 +87,19 @@ init python:
             _bo.snap = cur
             _bo.fino = 0.0
             _bo.t0 = 0.0
+            _bo.volo = None
             return
         if cur != _bo.snap:
             _bo.delta = cur[0] - _bo.snap[0]
             if _bo.delta:
                 _bo.da = _bo.snap[0]
                 _bo.t0 = _bo_time.time()
+                if not (mm_movimento_ridotto() or renpy.is_skipping()):
+                    _bo.volo = (rgl.monete_per(_bo.delta),
+                                1 if _bo.delta > 0 else -1, _bo_time.time())
+                    # Guadagno: il contatore parte quando arriva la prima moneta.
+                    if _bo.delta > 0:
+                        _bo.t0 += MONETA_VOLO
             _bo.fino = _bo_time.time() + BORSA_DURATA
             _bo.snap = cur
             if _bo.delta:
@@ -121,6 +132,20 @@ init python:
     config.start_interact_callbacks.append(_bo_controlla)
     config.after_load_callbacks.append(_bo_reset)
     config.overlay_screens.append("borsa_hud")
+    config.overlay_screens.append("borsa_monete")
+
+    def _bo_volo_attivo():
+        if _bo.volo is None:
+            return False
+        n, _verso, t = _bo.volo
+        if _bo_time.time() > t + MONETA_VOLO + n * MONETA_PASSO + 0.3:
+            _bo.volo = None
+            return False
+        return True
+
+    def _bo_fine_volo():
+        if _bo.volo is not None and not _bo_volo_attivo():
+            renpy.restart_interaction()
 
 
 transform borsa_comparsa:
@@ -285,3 +310,39 @@ style inventario_desc:
     size TESTO_NOTA
     italic True
     color "#c9b78a"
+
+
+## Monete che volano: dal centro basso alla pillola della Borsa quando gli
+## Scudi salgono (arco: x accelera, y frena), o cadono dalla Borsa quando
+## scendono. La chiave (istante del volo) fa ripartire le animazioni.
+
+transform moneta_vola(ritardo, chiave):
+    xanchor 0.5 yanchor 0.5 xpos 960 ypos 880 zoom 0.8 alpha 0.0
+    pause ritardo
+    alpha 1.0
+    parallel:
+        easein 0.55 xpos 1790
+    parallel:
+        easeout 0.55 ypos 44
+    linear 0.1 alpha 0.0
+
+transform moneta_cade(ritardo, chiave):
+    xanchor 0.5 yanchor 0.5 xpos 1790 ypos 50 zoom 0.8 alpha 0.0
+    pause ritardo
+    alpha 1.0
+    parallel:
+        easein 0.5 ypos 170
+    parallel:
+        linear 0.5 alpha 0.0
+
+screen borsa_monete():
+    zorder 56
+
+    if _bo_volo_attivo():
+        timer 0.2 repeat True action Function(_bo_fine_volo)
+        $ _bo_n, _bo_verso, _bo_chiave = _bo.volo
+        for _bo_i in range(_bo_n):
+            if _bo_verso > 0:
+                add "gui/scudo.png" at moneta_vola(_bo_i * MONETA_PASSO, _bo_chiave)
+            else:
+                add "gui/scudo.png" at moneta_cade(_bo_i * 0.08, _bo_chiave)

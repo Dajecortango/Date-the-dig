@@ -34,6 +34,7 @@ label udienza_lenora:
     show icaro neutro with dissolve
     show druso ghigno at right with dissolve
     "Sul primo banco, i figli di lei. Caino dritto come un atto notarile. Icaro conta qualcosa: le torce, credo. O noi. Druso sbadiglia."
+    $ muovi("druso", "sobbalzo")
     "Accanto alla grata, in piedi, una donna con un registro aperto sul braccio. Non la conosco. Druso sì: si raddrizza sul banco come un girasole."
     druso "Pandora. Non guardarla. La guardo io per tutti e due."
     pandora "Ceppo della Columna Lactaria. Avanti."

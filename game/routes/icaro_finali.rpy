@@ -56,6 +56,7 @@ label icaro_climax:
     jump expression cal_finale
 
 label icaro_good:
+    $ lento()
     show icaro furbo with qdiss
     icaro "Ultima mano del semestre. Posta: tutto il mio inventario contro la tua parola. Carte coperte."
     "Giochiamo. E a fine mano, quando scopro le carte, capisco: ha barato. Al contrario. Per perdere."
@@ -77,6 +78,7 @@ label icaro_good:
     icaro "Fuori listino. Le cose che non si vendono non hanno un prezzo. Hanno un proprietario."
     "Non mi tocca. Sposta il mazzo di un dito verso di me, sul panno. Da Icaro, è una mano tesa."
     scene bg cala_notte with fade
+    $ lento()
     show icaro sereno with dissolve
     "Il tetto sopra la Consorteria. Due stuoie, una pipa sola, e la regola cambiata: si fuma a turno."
     "Mi passa la pipa. Le nostre dita si toccano, stavolta. Non la ritira."
@@ -164,6 +166,7 @@ label icaro_bro_end:
 ## Finale passeggero — In pari ################################################
 
 label icaro_passeggero:
+    $ lento()
     show icaro neutro with qdiss
     icaro "Ultima mano. Niente posta. Solo per vedere come va a finire."
     "Gioca pulito. Nessuna carta nel polsino, né dentro né fuori. Vince di poco, e lo sa contare."
@@ -174,6 +177,7 @@ label icaro_passeggero:
     show icaro sereno with qdiss
     "Mi passa la pipa. Una boccata, una sola. Poi se la riprende e pulisce il cannello con cura."
     scene bg vicoli_zefiro with fade
+    $ lento()
     "Una Luna dopo, la fumeria ha una lampada nuova sul tavolo grande. Brutta, enorme, d'ottone. Icaro la guarda come un figlio."
     show icaro furbo with dissolve
     "Al tavolo piccolo siede un ragazzo che non conosco, coi polsini troppo larghi. Icaro gli insegna a contare le torce."

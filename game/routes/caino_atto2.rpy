@@ -14,6 +14,7 @@ label caino_cap4:
 
     "Davanti a noi siede un uomo con lo stemma del Ceppo di Cardia: Aulo, Filius Maior, alleato di Caino da sei anni. Lo so perché me l'ha detto Caino stesso: «Aulo è la mia mano sinistra nel Consiglio»."
 
+    $ muovi("caino", "trema")
     "Oggi la mano sinistra trema."
 
     caino "Aulo. I registri della tua Contrada hanno tre buchi. Tre. Li ho trovati io, il che è un bene. Se li avesse trovati l'Arconte della Verità, saresti già nelle Segrete Silenti."

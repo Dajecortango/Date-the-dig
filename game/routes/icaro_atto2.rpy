@@ -231,6 +231,7 @@ label icaro_luna5:
             "Icaro si sfila la giacca e rovescia le maniche sul panno. Cenere, tabacco. Niente."
             "La carta non c'è più. Dove sia finita, non lo saprò mai."
             icaro "Contate pure. Poi, Milone, mi chiederai scusa davanti a tuo zio."
+            $ muovi("icaro", "trema")
             "Milone chiede scusa. Icaro vince. Ma il piatto lo raccoglie con una mano sola: l'altra trema, appena."
             icaro "Sei rimast[fin] immobile. Neanche un'occhiata alla manica. ...Lo metto a registro."
             "Sulla strada del ritorno mi cammina accanto più vicino del solito. Mezzo passo. Non di più."
@@ -273,6 +274,7 @@ label icaro_luna6:
             pc "Quale?"
             icaro "Appunto. Non si dimentica per caso. Bene così."
         "Accendergli la pipa, senza chiedere":
+            $ muovi("icaro", "avanza")
             "Batto l'acciarino. Lui si sporge, la pipa tra i denti, e la fiamma ci illumina tutti e due per un istante."
             show icaro sorpreso with qdiss
             icaro "...nessuno mi accende la pipa. Lo faccio da solo da quando avevo dodici anni."
@@ -300,6 +302,7 @@ label icaro_febbre:
     icaro "Ho scritto «non bussare». In quale lingua del Nord quella frase vuol dire «bussa»?"
     pc "Hai la febbre."
     icaro "Ho un inventario. La febbre è un dettaglio contabile."
+    $ muovi("icaro", "trema")
     "Gli trema la penna. Rifà lo stesso numero tre volte. Al terzo lo cancella con rabbia e il foglio si strappa."
     if player_gender == "m":
         icaro "Socio. Se resti, resti zitto e conti tu. Se te ne vai, chiudi la porta. Le altre opzioni non sono a listino."

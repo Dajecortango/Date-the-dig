@@ -96,7 +96,9 @@ label att_registri_3:
 
 # Mini-scena di impegno (scelta del cuore, fine Luna IV).
 label impegno_caino:
+    $ lento()
     scene bg studio_glauco with fade
+    $ lento()
     show caino neutro with dissolve
     "Lo studio, a tarda sera. Sul tavolo, non i registri: due corni di idromele. Entrambi pieni."
     "Le candele sono consumate fino al piattino. Non ha dormito, e non ha nemmeno finto di provarci."

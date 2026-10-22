@@ -34,6 +34,7 @@ label climax:
     glauco "Vai pure, [figlio_t] di Briseide. La neve stanotte è ottima per morire. O per vivere. Dipende interamente da ciò che avete costruito, tu e lei."
 
     scene bg esterno_neve with fade
+    $ tempesta()
 
     "Le mura esterne di Zefiro. La neve cade piatta, senza vento. Ogni passo scricchiola come un conto alla rovescia."
 
@@ -78,6 +79,7 @@ label climax:
 ################################################################################
 
 label good_end:
+    $ lento()
 
     show aede neutra with dissolve
 
@@ -116,6 +118,7 @@ label good_end:
     "Se ne va com'è venuto. La neve gli si richiude dietro."
 
     scene bg cala_notte with fade
+    $ lento()
 
     show aede sorriso with dissolve
 
@@ -252,6 +255,7 @@ label bad_end_glauco:
 ################################################################################
 
 label aede_passeggero:
+    $ lento()
 
     show aede neutra with dissolve
 
@@ -277,6 +281,7 @@ label aede_passeggero:
     hide glauco with dissolve
 
     scene bg vicoli_zefiro with fade
+    $ lento()
 
     "Una Luna dopo, la vedo su un tetto della Consorteria. Mantello grigio, passo leggero, un incarico nuovo tra le dita."
 

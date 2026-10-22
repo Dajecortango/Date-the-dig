@@ -3,6 +3,7 @@ palette della Famiglia Dignitas (rosso, oro, nero). Sovrascrive game/gui/.
 
 Uso: python make_gui.py
 """
+import json
 import os
 from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
@@ -1420,6 +1421,73 @@ def rigenera_blocco_g():
     particelle_extra()
 
 
+def particelle_estetica2():
+    """Foglie della serra, scintille dell'arena, riflessi dei canali
+    (game/effetti.rpy)."""
+    # Foglia: mandorla verde con nervatura chiara.
+    W, H = 40, 24
+    k = 4
+    img = Image.new("RGBA", (W * k, H * k), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    d.ellipse([3 * k, 4 * k, 37 * k, 20 * k], fill=(92, 140, 70, 235))
+    d.line([5 * k, 12 * k, 35 * k, 12 * k], fill=(170, 205, 130, 200), width=k)
+    img = img.resize((W, H), Image.LANCZOS)
+    save(img, "fx_foglia.png")
+
+    # Scintilla: nucleo bianco-oro con alone.
+    W = H = 12
+    m = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(m).ellipse([2, 2, 9, 9], fill=150)
+    m = m.filter(ImageFilter.GaussianBlur(1.5))
+    img = Image.new("RGBA", (W, H), (255, 200, 90, 0))
+    img.putalpha(m)
+    ImageDraw.Draw(img).ellipse([4, 4, 7, 7], fill=(255, 246, 210, 255))
+    save(img, "fx_scintilla.png")
+
+    # Riflesso: striscia bianca morbida, orizzontale.
+    W, H = 18, 6
+    m = Image.new("L", (W * 4, H * 4), 0)
+    ImageDraw.Draw(m).ellipse([0, 4, W * 4 - 1, H * 4 - 5], fill=200)
+    m = m.resize((W, H), Image.LANCZOS).filter(ImageFilter.GaussianBlur(0.8))
+    img = Image.new("RGBA", (W, H), (235, 245, 255, 0))
+    img.putalpha(m)
+    save(img, "fx_luccichio.png")
+
+
+def ombre_sprite():
+    """Ombra della sagoma di ogni sprite (game/luce.rpy): l'alfa dello sprite,
+    sfocata e scurita, a meta' risoluzione (in gioco zoom 2). Pre-calcolata:
+    il blur di Ren'Py su questi sprite non si vedeva."""
+    src = os.path.join(HERE, "game", "images")
+    out = os.path.join(GUI, "ombre")
+    os.makedirs(out, exist_ok=True)
+    dimensioni = {}
+    for fn in sorted(os.listdir(src)):
+        base, ext = os.path.splitext(fn)
+        parti = base.lower().split()
+        if ext.lower() not in (".webp", ".png") or len(parti) < 2:
+            continue
+        if parti[0] in ("bg", "side"):
+            continue
+        spr = Image.open(os.path.join(src, fn)).convert("RGBA")
+        a = spr.getchannel("A").resize((spr.width // 2, spr.height // 2), Image.LANCZOS)
+        a = a.filter(ImageFilter.GaussianBlur(7)).point(lambda v: int(v * 0.45))
+        img = Image.new("RGBA", a.size, (0, 0, 0, 0))
+        img.putalpha(a)
+        img.save(os.path.join(out, "_".join(parti) + ".webp"), "WEBP", quality=70)
+        dimensioni[" ".join(parti)] = [spr.width, spr.height]
+    # Dimensioni degli sprite: il gioco le legge da qui invece di decodificare
+    # ogni immagine all'avvio (Android).
+    with open(os.path.join(out, "dimensioni.json"), "w", encoding="utf-8") as f:
+        json.dump(dimensioni, f, indent=1, sort_keys=True)
+
+
+def rigenera_estetica2():
+    """Solo gli asset del pacchetto estetica 2 (ombre, particelle nuove)."""
+    particelle_estetica2()
+    ombre_sprite()
+
+
 def main():
     # Menu principale: pattern + fronte. main_menu.png resta per compatibilita';
     # la screen anima mm_pattern.png (tile 1540: periodo comune di righe 140
@@ -1447,6 +1515,7 @@ def main():
 
     # Pacchetto grafico: scelte, cartello, Borsa, particelle.
     rigenera_blocco_g()
+    rigenera_estetica2()
 
     print("GUI Dignitas generata in", GUI)
 

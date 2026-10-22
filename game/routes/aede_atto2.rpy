@@ -259,8 +259,11 @@ label cap6:
             $ flag_aede_rivelato = True
             $ aede_affinity += 1
 
+            with ricordo
+
             "Non la fermo. Mi racconta: un villaggio dei Collifreddi, un clan in faida, una bambina veloce di mano che rubava per mangiare. Un nome che non scriverò mai, da nessuna parte."
 
+            $ muovi("aede", "trema")
             "Quando finisce, trema. Io le copro le spalle col mio mantello."
 
             "E dal buio del cortile, sotto di noi, qualcosa si muove. Una sagoma ferma, grigia, paziente."

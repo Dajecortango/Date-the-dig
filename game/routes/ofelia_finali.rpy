@@ -90,6 +90,7 @@ label ofelia_poly_aede_routing:
 ################################################################################
 
 label ofelia_good:
+    $ lento()
     # Prologo solo se arriviamo dal climax di Aede (neve); la coda resta su route_seconda.
     if route_seconda_viva() == "aede":
         show aede neutra with dissolve
@@ -98,6 +99,7 @@ label ofelia_good:
         "Rinfodera. Si volta e se ne va nella neve, senza fretta. Non si gira."
         hide aede with dissolve
     scene bg cala_notte with fade
+    $ lento()
     show ofelia neutra with dissolve
     "Più tardi, la Calà è spenta. Trecento gradini al buio: nessuna lanterna, nessuna leggenda a garantire niente."
     ofelia "Sai cosa dicono di me a Zefiro? Che sono bella. Sbagliano l'ordine: prima sono letale. La bellezza è un dettaglio."
@@ -135,7 +137,9 @@ label ofelia_good:
 ################################################################################
 
 label ofelia_good_caino:
+    $ lento()
     scene bg corridoio_ceppo with fade
+    $ lento()
     show caino neutro at left with dissolve
     "Fuori dallo studio, nel corridoio del Ceppo, Caino aspetta con la schiena al muro e il registro sotto il braccio."
     caino "Sei uscit[fin] viv[fin]. Ottimo. Avevo preparato due versioni del necrologio: le archivio entrambe."
@@ -167,6 +171,7 @@ label ofelia_good_caino:
 ################################################################################
 
 label ofelia_good_aede:
+    $ lento()
     show aede neutra with dissolve
     "Aede guarda la lama nella propria mano. Poi la lascia cadere nella neve, dritta, come una piccola lapide."
     aede "Vent'anni di ordini. Il primo che rifiuto, lo rifiuto per te. Mio padre se ne farà una ragione."
@@ -182,6 +187,7 @@ label ofelia_good_aede:
     glauco "Cena al tramonto, [figlio_t] di Briseide. Siederai tra le mie figlie. Spero tu sappia tenere il coltello dalla parte giusta."
     hide glauco with dissolve
     scene bg cala_notte with fade
+    $ lento()
     show aede sorriso with dissolve
     "La cena è lunga. Aede ride, una volta, quando le verso il vino. Ofelia, dall'altro lato del tavolo, non ride mai."
     "C'è anche Ascadeo, a capotavola accanto al padre. Mi guarda, guarda le sorelle, e conta qualcosa sulle dita sotto la tovaglia."

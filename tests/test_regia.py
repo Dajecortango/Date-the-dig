@@ -60,7 +60,7 @@ def test_movimenti():
     check("sorpresa", rl.movimento_per("neutra", "sorpresa"), "sobbalzo")
     check("sorpreso", rl.movimento_per("neutro", "sorpreso"), "sobbalzo")
     check("imbarazzato", rl.movimento_per("neutro", "imbarazzato"), "arretra")
-    check("furioso", rl.movimento_per("freddo", "furioso"), "avanza")
+    check("furioso", rl.movimento_per("freddo", "furioso"), "trema")
     check("irritata", rl.movimento_per("neutra", "irritata"), "avanza")
     check("sorriso", rl.movimento_per("neutra", "sorriso"), None)
     check("pausa", rl.MOVIMENTO_PAUSA, 3)
@@ -164,10 +164,10 @@ def check_menu():
 
 def check_particelle():
     fx = leggi("effetti.rpy")
+    righe = {(b, n) for b, n, _q in rl.EFFETTI_SFONDI}
     for bg, nome in (("studio_glauco", "braci"), ("corridoio_ceppo", "braci"),
                      ("arena_athlion", "nevischio"), ("vicoli_zefiro", "pioggia")):
-        check("particelle %s su %s" % (nome, bg),
-              bool(re.search(r'\("bg %s", "%s"' % (bg, nome), fx)), True)
+        check("particelle %s su %s" % (nome, bg), (bg, nome) in righe, True)
     check("pioggia usa rgl.piove", "rgl.piove(" in fx, True)
     au = leggi("audio.rpy")
     check("ambiente pioggia", "audio/amb_pioggia.ogg" in au, True)
@@ -189,6 +189,172 @@ def check_regia_primitive():
     check("sfondi con fondo_fx", "fondo_fx()" in luce, True)
 
 
+
+# --- Pacchetto estetica 2 (spec 2026-10-22-estetica-animazioni) ----------
+
+def test_estetica2_regole():
+    check("furia trema", rl.movimento_per("neutra", "furia"), "trema")
+    check("minaccioso trema", rl.movimento_per("neutro", "minaccioso"), "trema")
+    check("rabbia avanza ancora", rl.movimento_per("neutra", "rabbia"), "avanza")
+
+    check("respiro a riposo", rl.respiro(0.0, 0.0), 1.0)
+    valori = [rl.respiro(i * 0.01, 0.0) for i in range(int(rl.RESPIRO_PERIODO * 100) + 1)]
+    check("respiro massimo", max(valori) <= 1.0 + rl.RESPIRO_AMPIEZZA + 1e-9
+          and max(valori) >= 1.0 + rl.RESPIRO_AMPIEZZA - 1e-4, True)
+    check("respiro minimo", min(valori) >= 1.0 - 1e-9, True)
+    fasi = {rl.fase_per(t) for t in ("aede", "caino", "druso", "icaro", "ofelia")}
+    check("fasi diverse", len(fasi), 5)
+    check("fase in [0,1)", all(0 <= f < 1 for f in fasi), True)
+
+    fiamme = [rl.fiamma(i * 0.05) for i in range(600)]
+    check("fiamma nei limiti", all(0.97 <= f <= 1.03 for f in fiamme), True)
+    check("fiamma continua",
+          max(abs(a - b) for a, b in zip(fiamme, fiamme[1:])) < 0.01, True)
+    veli = [rl.velo_fuoco(i * 0.05) for i in range(600)]
+    check("velo nei limiti", all(0.02 <= v <= 0.06 for v in veli), True)
+    check("fuoco vicoli sera", rl.fuoco_per("vicoli_zefiro", "sera"), True)
+    check("niente fuoco vicoli mattina", rl.fuoco_per("vicoli_zefiro", "mattina"), False)
+    check("fuoco studio", rl.fuoco_per("studio_glauco", "mattina"), True)
+    check("niente fuoco palestra", rl.fuoco_per("palestra", "sera"), False)
+
+    ep = rl.effetti_per
+    check("neve fitta in tempesta", ep("esterno_neve", "sera", "luna6_climax", False, True), ("neve_fitta",))
+    check("neve normale", ep("esterno_neve", "sera", "luna6_climax", False, False), ("neve",))
+    check("vicoli sera", ep("vicoli_zefiro", "sera", None, False, False), ("fumo", "luccichii"))
+    check("vicoli pioggia", ep("vicoli_zefiro", "mattina", None, True, False), ("pioggia",))
+    check("vicoli mattina asciutta", ep("vicoli_zefiro", "mattina", None, False, False), ("luccichii",))
+    check("serra", ep("sala_svelo", "pomeriggio", "corte", False, False), ("foglie",))
+    check("svelo senza corte", ep("sala_svelo", "sera", "svelo", False, False), ("polvere",))
+    check("contesto su altro sfondo", ep("cala_notte", "mattina", "ofelia_ev3", False, False), ("lanterne",))
+    check("arena", ep("arena_athlion", "pomeriggio", "athlion", False, False), ("nevischio", "scintille"))
+    check("fumeria", ep("vicoli_zefiro", "sera", "fumeria", False, False), ("fumo_pipa", "luccichii"))
+    check("sfondo ignoto", ep("palestra", "sera", None, False, False), ())
+    check("nessuno sfondo", ep(None, None, None, False, False), ())
+
+    for d, n in ((0, 0), (1, 2), (2, 2), (3, 3), (5, 3), (6, 4), (9, 4), (10, 5),
+                 (40, 5), (-1, 1), (-2, 1), (-3, 2), (-5, 2), (-6, 3), (-30, 3)):
+        check("monete per %+d" % d, rl.monete_per(d), n)
+    check("lento", rl.LENTO_CPS, 0.7)
+
+
+def check_estetica2_sprite():
+    luce = leggi("luce.rpy")
+    curva = luce.split("def _lu_curva", 1)[1].split("def ", 1)[0]
+    check("curva tonfo", '"tonfo"' in curva, True)
+    check("muovi definito", "def muovi(" in luce, True)
+    check("respiro negli sprite", "rgl.respiro(" in luce, True)
+    check("fiamma negli sprite", "rgl.fiamma(" in luce, True)
+    check("velo del fuoco sullo sfondo", "rgl.velo_fuoco(" in luce, True)
+    check("ombra della sagoma dietro gli sprite", "_lu_ombra(nome)" in luce, True)
+    mg = open(os.path.join(HERE, "..", "make_gui.py"), encoding="utf-8").read()
+    check("make_gui genera le ombre", "def ombre_sprite" in mg and "ombre_sprite()" in mg, True)
+    check("ombre generate", os.path.exists(os.path.join(GAME, "gui", "ombre", "ofelia_neutra.webp")), True)
+    check("tonfo di Druso all'entrata", '("tonfo"' in luce and '"druso"' in luce, True)
+
+
+def check_estetica2_particelle():
+    fx = leggi("effetti.rpy")
+    fabbriche = fx.split("FX_FABBRICHE", 1)[1].split("}", 1)[0]
+    for nome in ("foglie", "fumo_pipa", "scintille", "luccichii", "neve_fitta"):
+        check("fabbrica " + nome, '"%s"' % nome in fabbriche, True)
+    check("effetti da rgl.effetti_per", "rgl.effetti_per(" in fx, True)
+    regia = leggi("regia.rpy")
+    check("default regia_tempesta", "default regia_tempesta = False" in regia, True)
+    scena = regia.split("def _regia_scene", 1)[1].split("def ", 1)[0]
+    check("scene spegne la tempesta", "regia_tempesta = False" in scena, True)
+    climax = leggi(os.path.join("routes", "aede_finali.rpy")).split("label climax:", 1)[1].split("\nlabel ", 1)[0]
+    check("tempesta nel climax di Aede", "$ tempesta()" in climax, True)
+    mg = open(os.path.join(HERE, "..", "make_gui.py"), encoding="utf-8").read()
+    for img in ("fx_foglia.png", "fx_scintilla.png", "fx_luccichio.png"):
+        check("make_gui genera " + img, img in mg, True)
+        check("immagine " + img, os.path.exists(os.path.join(GAME, "gui", img)), True)
+
+
+def check_estetica2_lento():
+    regia = leggi("regia.rpy")
+    check("lento definito", "def lento(" in regia and "def fine_lento(" in regia, True)
+    check("default regia_lento", "default regia_lento = False" in regia, True)
+    scena = regia.split("def _regia_scene", 1)[1].split("def ", 1)[0]
+    check("scene spegne lento", "regia_lento = False" in scena, True)
+    check("say_arguments_callback", "config.say_arguments_callback = _regia_say_args" in regia, True)
+    check("moltiplicatore da rgl", "rgl.LENTO_CPS" in regia, True)
+
+
+def check_estetica2_cartello():
+    cal = leggi("calendario.rpy")
+    check("cartello con giorno e luna precedenti",
+          "screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None)" in cal, True)
+    for t in ("giorno_esce", "giorno_entra", "luna_esce", "luna_entra"):
+        check("transform " + t, "transform %s:" % t in cal, True)
+    check("chiamata passa il giorno prima",
+          "cartello_data(cal_luna, cal_giorno, cal_giorno_segnato(cal_luna, cal_giorno), *cal_giorno_prima)" in cal, True)
+
+
+def check_estetica2_monete():
+    bo = leggi("borsa.rpy")
+    check("numero di monete da rgl", "rgl.monete_per(" in bo, True)
+    check("screen delle monete", "screen borsa_monete():" in bo, True)
+    check("overlay delle monete", 'config.overlay_screens.append("borsa_monete")' in bo, True)
+    reset = bo.split("def _bo_reset", 1)[1].split("def ", 1)[0]
+    check("reset ferma il volo", "volo = None" in reset, True)
+    check("transform moneta_vola", "transform moneta_vola(" in bo, True)
+    check("transform moneta_cade", "transform moneta_cade(" in bo, True)
+
+
+MUOVI_NOMI = ("sobbalzo", "arretra", "avanza", "trema", "tonfo")
+
+
+def _labels_route():
+    """(file, label, corpo) di ogni label nelle route."""
+    out = []
+    cartella = os.path.join(GAME, "routes")
+    for f in sorted(os.listdir(cartella)):
+        if not f.endswith(".rpy"):
+            continue
+        src = open(os.path.join(cartella, f), encoding="utf-8").read()
+        for blocco in re.split(r"\nlabel ", "\n" + src)[1:]:
+            nome = re.match(r"(\w+)", blocco).group(1)
+            out.append((f, nome, blocco))
+    return out
+
+
+def check_estetica2_scene():
+    labels = _labels_route()
+    n_muovi = 0
+    for f, nome, corpo in labels:
+        righe = corpo.split("\n")
+        for i, r in enumerate(righe):
+            m = re.search(r'\$ muovi\("(\w+)", "(\w+)"\)', r)
+            if not m:
+                continue
+            n_muovi += 1
+            tag, mov = m.groups()
+            prima = "\n".join(righe[:i])
+            check("%s:%s muovi %s nome valido" % (f, nome, tag), mov in MUOVI_NOMI, True)
+            check("%s:%s muovi %s in scena" % (f, nome, tag),
+                  bool(re.search(r"^\s*show %s\b" % tag, prima, re.M)), True)
+    check("ci sono movimenti a mano", n_muovi >= 8, True)
+    impegni = [(f, n, c) for f, n, c in labels if n.startswith("impegno_")]
+    check("impegni trovati", len(impegni) >= 7, True)
+    for f, nome, corpo in impegni:
+        check("lento in " + nome, "$ lento()" in corpo, True)
+    tutto = "\n".join(c for _f, _n, c in labels)
+    check("ricordo usato", "with ricordo" in tutto, True)
+
+
+def check_estetica2_revisione():
+    luce = leggi("luce.rpy")
+    check("niente image_size all'avvio", "renpy.image_size(" in luce, False)
+    check("dimensioni dalla tabella", "gui/ombre/dimensioni.json" in luce, True)
+    import json
+    tab = os.path.join(GAME, "gui", "ombre", "dimensioni.json")
+    dim = json.load(open(tab, encoding="utf-8")) if os.path.exists(tab) else {}
+    check("tabella con ofelia neutra", isinstance(dim.get("ofelia neutra"), list), True)
+    fx = leggi("effetti.rpy")
+    corpo = fx.split("def effetto_corrente", 1)[1].split("def ", 1)[0]
+    check("particelle ferme in skip", "renpy.is_skipping()" in corpo, True)
+
+
 def main():
     check_luce()
     check_regia_primitive()
@@ -205,6 +371,14 @@ def main():
     test_transizioni()
     test_fondo_menu()
     test_conteggio()
+    test_estetica2_regole()
+    check_estetica2_sprite()
+    check_estetica2_particelle()
+    check_estetica2_lento()
+    check_estetica2_cartello()
+    check_estetica2_monete()
+    check_estetica2_scene()
+    check_estetica2_revisione()
     if FAILURES:
         print(f"{len(FAILURES)} FALLITI: {FAILURES}")
         sys.exit(1)

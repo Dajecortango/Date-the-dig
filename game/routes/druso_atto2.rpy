@@ -95,6 +95,7 @@ label druso_ev4:
     druso "Per scaldarci, una cosa leggera. «Sulle mura di Zefiro c'è una guardia sola: ha freddo ai piedi e altro alla...» No. Non stanotte."
     "Per due ore il provocatore non provoca. Conta le torce sulla Calà, nomina le stelle sbagliate, e ogni tanto si zittisce a metà frase."
     druso "Quella è la Lepre. No, il Carro. È il Carro che insegue la Lepre. Icaro le sa tutte, io le invento. Vengono meglio."
+    $ muovi("druso", "sobbalzo")
     "Una civetta si alza dal cornicione. Druso trasale così forte che la lanterna oscilla."
     menu:
         "Un'ombra sul cammino di ronda. Druso afferra la lanterna e non fa battute."

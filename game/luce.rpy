@@ -23,6 +23,7 @@ init 1 python:
 
     LUCE_PASSAGGIO = 0.2     # secondi per scurire/schiarire
     MOVIMENTO_DURATA = 0.35
+    DRUSO_RITARDO = 0.3      # il tonfo parte quando finisce la scivolata
 
     class _LuceStato(NoRollback):
         def __init__(self):
@@ -34,6 +35,7 @@ init 1 python:
             self.mov = {}      # tag -> (nome movimento, istante d'inizio)
             self.ultimo = {}   # tag -> interazione dell'ultimo movimento
             self.n = 0         # contatore interazioni
+            self.presenti = None   # tag in scena all'interazione prima
 
     _lu = _LuceStato()
 
@@ -54,6 +56,13 @@ init 1 python:
         for tag in list(_lu.attr):
             if tag not in presenti:
                 del _lu.attr[tag]
+        # Druso entra col suo tonfo, a fine scivolata (mai dopo un caricamento).
+        if (_lu.presenti is not None and "druso" in presenti
+                and "druso" not in _lu.presenti
+                and not mm_movimento_ridotto() and not renpy.is_skipping()):
+            _lu.mov["druso"] = ("tonfo", _lu_time.time() + DRUSO_RITARDO)
+            _lu.ultimo["druso"] = _lu.n
+        _lu.presenti = presenti
 
     config.start_interact_callbacks.append(_lu_interazione)
     config.after_load_callbacks.append(_lu.reset)
@@ -80,6 +89,8 @@ init 1 python:
             return (0, 6 * s, 1.0 - 0.03 * s)
         if nome == "avanza":
             return (0, 0, 1.0 + 0.03 * s)
+        if nome == "tonfo":
+            return (0, 10 * s, 1.0 + 0.02 * s)
         if nome == "trema":
             return (4 * _lu_math.sin(k * 40) * (1.0 - k), 0, 1.0)
         return (0, 0, 1.0)
@@ -113,6 +124,8 @@ init 1 python:
         if tag not in _lu.mov:
             return (0, 0, 1.0), False
         nome, t0 = _lu.mov[tag]
+        if ora < t0:
+            return (0, 0, 1.0), True
         k = (ora - t0) / MOVIMENTO_DURATA
         if k >= 1.0 or fermo:
             del _lu.mov[tag]
@@ -125,16 +138,40 @@ init 1 python:
             fermo = mm_movimento_ridotto()
             luce, luce_viva = _lu_luce(tag, ora, fermo)
             slot = getattr(store, "cal_slot", None)
-            r, g, b = _lu_moltiplicatore(rgl.tinta_per(_lu_bg(), slot), luce)
-            trans.matrixcolor = TintMatrix(Color(rgb=(r, g, b)))
+            bg = _lu_bg()
+            r, g, b = _lu_moltiplicatore(rgl.tinta_per(bg, slot), luce)
+            vivo = not fermo and not renpy.is_skipping()
+            if vivo and rgl.fuoco_per(bg, slot):
+                fl = rgl.fiamma(ora)
+                r, g, b = r * fl, g * fl, b * fl
+            trans.matrixcolor = TintMatrix(Color(rgb=(min(r, 1.0), min(g, 1.0), min(b, 1.0))))
             (dx, dy, z), mov_vivo = _lu_movimento(tag, ora, fermo)
             trans.xoffset = dx
             trans.yoffset = dy
-            trans.zoom = z
-            # Animazione in corso: ogni frame. Altrimenti un controllo
-            # leggero, per accorgersi di chi parla e del cambio di sfondo.
-            return 0 if (luce_viva or mov_vivo) else 0.1
+            trans.zoom = z * (rgl.respiro(ora, rgl.fase_per(tag)) if vivo else 1.0)
+            # Animazione in corso: ogni frame. Respiro e fuoco: 30 fps (15
+            # su telefono). Da fermi: un controllo leggero, per accorgersi
+            # di chi parla e del cambio di sfondo.
+            if luce_viva or mov_vivo:
+                return 0
+            if vivo:
+                return SPRITE_PASSO
+            return 0.1
         return Transform(function=f)
+
+    SPRITE_PASSO = 1.0 / 15 if renpy.variant("small") else 1.0 / 30
+
+    def muovi(tag, nome):
+        """Movimento a mano su uno sprite in scena (sobbalzo, arretra,
+        avanza, trema, tonfo): la posizione resta quella dello show."""
+        if mm_movimento_ridotto() or renpy.is_skipping():
+            return
+        if tag not in _lu_in_scena():
+            return
+        if _lu.n - _lu.ultimo.get(tag, -99) < rgl.MOVIMENTO_PAUSA:
+            return
+        _lu.mov[tag] = (nome, _lu_time.time())
+        _lu.ultimo[tag] = _lu.n
 
     ## Sfondi: sfocatura della profondita' di campo (regia_intimo, regia.rpy),
     ## blur 0 <-> 6 in 0.4 s, con uno zoom minimo che nasconde i bordi sfumati.
@@ -173,11 +210,43 @@ init 1 python:
             else:
                 trans.blur = None
                 trans.zoom = 1.0
-            return 0 if _fo.k != voluto else 0.1
+            # Velo caldo del fuoco (dietro gli sprite: e' lo sfondo).
+            slot = getattr(store, "cal_slot", None)
+            fuoco = (not mm_movimento_ridotto() and not renpy.is_skipping()
+                     and rgl.fuoco_per(_lu_bg(), slot))
+            if fuoco:
+                a = rgl.velo_fuoco(ora)
+                trans.matrixcolor = TintMatrix(Color(rgb=(1.0, 1.0 - a * 0.31, 1.0 - a * 0.6)))
+            else:
+                trans.matrixcolor = None
+            if _fo.k != voluto:
+                return 0
+            return SPRITE_PASSO if fuoco else 0.1
         return Transform(function=f)
+
+    OMBRA_SCOSTAMENTO = (14, 8)   # px verso destra e verso il basso
+
+    def _lu_ombra(nome):
+        # Immagine pre-sfocata da make_gui.py (ombre_sprite), a meta'
+        # risoluzione: "gui/ombre/<tag>_<espressione>.webp".
+        f = "gui/ombre/%s.webp" % "_".join(nome.split())
+        if not renpy.loadable(f):
+            return Null()
+        return Transform(f, zoom=2.0, xoffset=OMBRA_SCOSTAMENTO[0],
+                         yoffset=OMBRA_SCOSTAMENTO[1])
+
+    def _lu_dimensioni():
+        """Dimensioni degli sprite scritte da make_gui.py (ombre_sprite)."""
+        import json as _lu_json
+        try:
+            with renpy.open_file("gui/ombre/dimensioni.json") as f:
+                return _lu_json.loads(f.read().decode("utf-8"))
+        except Exception:
+            return {}
 
     def _lu_definisci_sprite():
         prefisso = "images/"
+        dimensioni = _lu_dimensioni()
         for fn in renpy.list_files():
             if not fn.startswith(prefisso):
                 continue
@@ -190,7 +259,16 @@ init 1 python:
                 continue
             if parti[0] == "bg":
                 renpy.image(nome, At(fn, fondo_fx()))
-            else:
+            elif nome not in dimensioni:
+                # Senza ombra pre-calcolata: come prima, solo la luce.
                 renpy.image(nome, At(fn, luce_personaggio(parti[0])))
+            else:
+                # Ombra della sagoma dietro lo sprite: gli sprite sono mezzi
+                # busti tagliati dal bordo, quindi niente ombra a terra; una
+                # sagoma scura e sfocata li stacca dallo sfondo. Respira e si
+                # muove con lo sprite (sta dentro la stessa luce).
+                renpy.image(nome, At(Fixed(
+                    _lu_ombra(nome), fn, xysize=tuple(dimensioni[nome])),
+                    luce_personaggio(parti[0])))
 
     _lu_definisci_sprite()

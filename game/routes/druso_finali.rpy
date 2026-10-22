@@ -62,6 +62,7 @@ label druso_climax:
     jump expression cal_finale
 
 label druso_good:
+    $ lento()
     show druso ghigno at left with qdiss
     druso "Confermo tutto, madre. Il decoro, la rissa, [il_t] Figli[fin] di Briseide. E aggiungo un componimento in tema, se il Consiglio gradisce. Rima baciata."
     "Un Eparca si alza per protestare. Caino, senza voltarsi, gli posa una mano sul braccio. L'Eparca si risiede."
@@ -73,6 +74,7 @@ label druso_good:
     "Druso resta a bocca aperta. Per la prima volta in vita sua, non ha la chiusa pronta."
     "Icaro, accanto a Caino, mormora qualcosa. Dal labiale sembra «ho perso un'altra scommessa». Sembra felice."
     scene bg cala_notte with fade
+    $ lento()
     show druso ghigno at left with dissolve
     druso "Hai sentito? Pubblico nuovo. Il migliore. E tutto grazie al mio talento, ovviamente."
     pc "Ovviamente."
@@ -140,11 +142,13 @@ label druso_bad:
 ## Finale passeggero — La rima che manca ######################################
 
 label druso_passeggero:
+    $ lento()
     show druso serio at left with qdiss
     druso "Madre. [Il_t] Figli[fin] di Briseide mi è car[fin]. Lo dico davanti al Consiglio, e senza rima."
     "Lo dice bene. Pulito, coraggioso. Una frase sola, e la sala la sente tutta."
     "La grata tace, poi archivia. Un figlio che ha detto una cosa vera: per una volta basta."
     scene bg vicoli_zefiro with fade
+    $ lento()
     show druso neutro at left with dissolve
     druso "Ti voglio bene, lo sai. Te l'ho appena detto a mezzo Nord."
     if "druso_ev3" in eventi_visti:
@@ -156,6 +160,7 @@ label druso_passeggero:
     druso "Io ho bisogno di qualcuno che salti nel fosso prima che io finisca la strofa. Tu aspetti la chiusa. È un talento. Non è il mio."
     "Ride, per non lasciare la frase nuda. Mi dà una pacca sulla spalla. Pesa come tutte le sue pacche, e non di più."
     scene bg vicoli_zefiro with fade
+    $ lento()
     "Una Luna dopo, in taverna, Druso legge un componimento serio. La sala tace, il che in taverna è un miracolo."
     show druso imbarazzato at left with dissolve
     "A metà alza gli occhi. Non verso di me: verso il fondo, dove Pandora tiene il registro aperto sul braccio e finge di non ascoltare."

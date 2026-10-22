@@ -62,12 +62,15 @@ init python:
 ## Impegno (scelta del cuore) ################################################
 
 label impegno_druso:
+    $ lento()
     scene bg vicoli_zefiro with fade
+    $ lento()
     show druso imbarazzato at left with dissolve
     "Mi aspetta fuori dalla taverna, per una volta senza pubblico. Ha in mano un foglio piegato in quattro, e l'aria di chi preferirebbe un TESCHIO."
     "Dentro, qualcuno grida il suo nome per il solito giro di versi. Lui non si gira."
     druso "Ho scritto una cosa. Non oscena. È... il problema è proprio questo, che non è oscena. Prima di dartela devo sapere se ridi."
     druso "Ci ho messo tre notti. Le altre le scrivo in tre minuti, sul tovagliolo. Questa no. Questa non voleva venire."
+    $ muovi("druso", "trema")
     "Il foglio trema appena. Il poeta del disagio altrui, in imbarazzo per la prima volta da che lo conosco."
     menu:
         "«Perché il poema più bello non nasce dall'immaginazione.»"
