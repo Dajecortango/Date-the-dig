@@ -67,7 +67,8 @@ label climax:
         jump ofelia_poly_aede_routing
 
     # Routing finali (rl.finale_aede) — ordine vincolante:
-    # good_end -> bad_end_glauco -> bad_end_aede -> neutral_end.
+    # good_end -> aede_passeggero -> bad_end_glauco -> bad_end_aede ->
+    # neutral_end.
     $ cal_finale = rl.finale_aede(aede_affinity, flag_giuramento,
                                   flag_accetta_lavoro, flag_segreto_svelo)
     jump expression cal_finale

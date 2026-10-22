@@ -50,7 +50,7 @@ label icaro_climax:
             icaro "«Ottimizzo.» Lo farò incidere sulla lapide. In piccolo, così nessuno lo contesta."
     "Il mazzo riparte. Icaro fa la sua offerta, come sempre, per ultimo."
     # Routing (rl.finale_icaro): se player_gender == "m" sempre icaro_bro_end;
-    # altrimenti icaro_good -> icaro_neutral -> icaro_bad.
+    # altrimenti icaro_good -> icaro_passeggero -> icaro_neutral -> icaro_bad.
     $ cal_finale = rl.finale_icaro(player_gender, icaro_affinity,
                                    flag_icaro_coperto, congelate)
     jump expression cal_finale
@@ -169,10 +169,7 @@ label icaro_passeggero:
     "Gioca pulito. Nessuna carta nel polsino, né dentro né fuori. Vince di poco, e lo sa contare."
     "Poi slega il nastro del registro. Lo apre alla pagina della riga coperta e me la gira davanti."
     "C'era scritto qualcosa, nella sua grafia stretta. Una riga tirata sopra, dritta, col righello."
-    if "icaro" in congelate:
-        icaro "L'avevo scritta prima che accettassi l'invito di qualcun altro. Te l'avevo detto: io non divido. Nemmeno le cose che non ho."
-    else:
-        icaro "L'avevo scritta la prima sera al tavolo grande. Il mercante gridava al baro, serviva qualcuno che mi coprisse, e tu hai guardato da un'altra parte. Non ti accuso: hai tenuto i conti separati. Ho fatto lo stesso."
+    icaro "L'avevo scritta la prima sera al tavolo grande. Il mercante gridava al baro, serviva qualcuno che mi coprisse, e tu hai guardato da un'altra parte. Non ti accuso: hai tenuto i conti separati. Ho fatto lo stesso."
     icaro "Voce chiusa. In pari. Né debiti né crediti: un bilancio rarissimo, credimi. Dovresti farlo incorniciare."
     show icaro sereno with qdiss
     "Mi passa la pipa. Una boccata, una sola. Poi se la riprende e pulisce il cannello con cura."

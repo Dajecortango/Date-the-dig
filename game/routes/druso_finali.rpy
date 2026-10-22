@@ -56,7 +56,8 @@ label druso_climax:
             "Druso si volta verso di me. Il ghigno gli torna in faccia come una bandiera."
             druso "Sentito, madre? Mi hanno rubato la battuta. Allora la seconda la dico io."
     "La grata tace. Aspetta il verdetto, e il verdetto adesso tocca a lui."
-    # Routing (rl.finale_druso): druso_good -> druso_neutral -> druso_bad.
+    # Routing (rl.finale_druso): druso_good -> druso_passeggero ->
+    # druso_neutral -> druso_bad.
     $ cal_finale = rl.finale_druso(druso_affinity, flag_druso_coraggio)
     jump expression cal_finale
 

@@ -27,7 +27,8 @@ label caino_climax:
     "Caino lo sa. Mi guarda. La sala intera segue il suo sguardo fino a me."
 
     # Routing (rl.finale_caino) — ordine vincolante: caino_good_end ->
-    # caino_secret_end -> caino_bad_end -> caino_neutral_end.
+    # caino_passeggero -> caino_secret_end -> caino_bad_end ->
+    # caino_neutral_end.
     $ cal_finale = rl.finale_caino(caino_fiducia, caino_trappole,
                                    caino_memoria, caino_druso)
     jump expression cal_finale

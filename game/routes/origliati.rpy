@@ -18,9 +18,6 @@ init python:
         return csl.origliato_ok(store.eventi_visti, store.congelate, luna,
                                 a, b, PRIMI_ORIGLIATI)
 
-    ECO_DOPO_LABELS.append(("registri", "orig_caino_druso"))
-    ECO_DOPO_LABELS.append(("corte", "orig_caino_ofelia"))
-
     EVENTI.extend([
         {"id": "orig_druso_ofelia", "label": "orig_druso_ofelia",
          "tipo": "invito", "char": None, "ritratto": "vanna",
@@ -58,12 +55,21 @@ init python:
         {"id": "echi_orig_ottone", "fatto": "fx_orig_caino_druso",
          "luoghi": ("registri",), "label": "echi_orig_ottone"},
         {"id": "echi_orig_caino_via", "fatto": "fx_orig_caino_ofelia_via",
-         "luoghi": ("registri",), "label": "echi_orig_caino_via"},
+         "luoghi": ("registri",), "label": "echi_orig_caino_via",
+         "cond": lambda v: "caino" not in v["congelate"]},
         {"id": "echi_orig_ofelia", "fatto": "fx_orig_caino_ofelia",
-         "luoghi": ("corte",), "label": "echi_orig_ofelia"},
+         "luoghi": ("corte",), "label": "echi_orig_ofelia",
+         "cond": lambda v: "ofelia" not in v["congelate"]},
         {"id": "echi_orig_druso", "fatto": "fx_orig_druso_ofelia",
-         "luoghi": ("taverna",), "label": "echi_orig_druso"},
+         "luoghi": ("taverna",), "label": "echi_orig_druso",
+         "cond": lambda v: "druso" not in v["congelate"]},
     ])
+
+
+# Dopo le voci di economia_extra (init 1): l'esattore del debito resta primo.
+init 2 python:
+    ECO_DOPO_LABELS.append(("registri", "orig_caino_druso"))
+    ECO_DOPO_LABELS.append(("corte", "orig_caino_ofelia"))
 
 
 ## Caino e Druso — per caso, in archivio ######################################

@@ -3,6 +3,7 @@
 Uso: py -3 -I tests/test_calendario.py
 """
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -845,6 +846,48 @@ def check_revisione_finale():
           i > 0 and '"druso_luna5" in eventi_visti' in eco[:i], True)
 
 
+def check_bugfix_minori():
+    """Bugfix dopo la revisione finale (problemi minori)."""
+    orig = _leggi(os.path.join("routes", "origliati.rpy"))
+    blocco = orig.split("ECO_DOPO_LABELS.append", 1)[0].rsplit("init", 1)[1]
+    m = re.match(r"\s*(-?\d+)?\s*python", blocco)
+    prio = int(m.group(1) or 0) if m else 0
+    check("origliati dopo l'esattore (init > 1)", prio > 1, True)
+    tutto = "\n".join(
+        open(os.path.join(HERE, "..", "game", "routes", f), encoding="utf-8").read()
+        for f in os.listdir(os.path.join(HERE, "..", "game", "routes"))
+        if f.endswith(".rpy"))
+    for eid, char in (("echi_druso_quaderno", "druso"),
+                      ("echi_druso_udienza", "druso"),
+                      ("echi_icaro_tintora", "icaro"),
+                      ("echi_icaro_febbre", "icaro"),
+                      ("echi_ofelia_specchio", "ofelia"),
+                      ("echi_ofelia_ballo", "ofelia"),
+                      ("echi_orig_caino_via", "caino"),
+                      ("echi_orig_ofelia", "ofelia"),
+                      ("echi_orig_druso", "druso")):
+        voce = tutto.split('"id": "%s"' % eid, 1)[1].split("},", 1)[0]
+        check("eco %s tace se %s ti ha chiuso" % (eid, char),
+              '"%s" not in v["congelate"]' % char in voce, True)
+    ic = _leggi(os.path.join("routes", "icaro_finali.rpy"))
+    check("icaro_passeggero senza ramo morto",
+          '"icaro" in congelate' in _corpo_label(ic, "icaro_passeggero"), False)
+    for f, lbl in (("aede_finali.rpy", "climax"),
+                   ("caino_finali.rpy", "caino_climax"),
+                   ("druso_finali.rpy", "druso_climax"),
+                   ("icaro_finali.rpy", "icaro_climax")):
+        corpo = _corpo_label(_leggi(os.path.join("routes", f)), lbl)
+        check("commento routing aggiornato in " + f, "passeggero" in corpo, True)
+    readme = open(os.path.join(HERE, "..", "README.md"), encoding="utf-8").read()
+    check("README: cancellare i vecchi _route.rpyc", "_route.rpyc" in readme, True)
+    check("niente splashscreen di test in game/",
+          os.path.exists(os.path.join(HERE, "..", "game", "zz_rea.rpy")), False)
+    cons = _leggi("conseguenze.rpy")
+    check("Trama migra lo storico anche dopo un rollback",
+          "migra_storico" in cons.split("def trama_albero", 1)[1].split("def ", 1)[0],
+          True)
+
+
 def main():
     check_segnali()
     check_wiring()
@@ -865,6 +908,7 @@ def main():
     check_galleria_finali()
     check_deviazioni()
     check_revisione_finale()
+    check_bugfix_minori()
     test_sequenza()
     test_fisso()
     test_inviti()

@@ -674,12 +674,7 @@ ICARO: Ultima mano. Niente posta. Solo per vedere come va a finire.
 Gioca pulito. Nessuna carta nel polsino, né dentro né fuori. Vince di poco, e lo sa contare.
 Poi slega il nastro del registro. Lo apre alla pagina della riga coperta e me la gira davanti.
 C'era scritto qualcosa, nella sua grafia stretta. Una riga tirata sopra, dritta, col righello.
-
-[VARIANTE]
-    ICARO: L'avevo scritta prima che accettassi l'invito di qualcun altro. Te l'avevo detto: io non divido. Nemmeno le cose che non ho.
-
-[VARIANTE]
-    ICARO: L'avevo scritta la prima sera al tavolo grande. Il mercante gridava al baro, serviva qualcuno che mi coprisse, e tu hai guardato da un'altra parte. Non ti accuso: hai tenuto i conti separati. Ho fatto lo stesso.
+ICARO: L'avevo scritta la prima sera al tavolo grande. Il mercante gridava al baro, serviva qualcuno che mi coprisse, e tu hai guardato da un'altra parte. Non ti accuso: hai tenuto i conti separati. Ho fatto lo stesso.
 ICARO: Voce chiusa. In pari. Né debiti né crediti: un bilancio rarissimo, credimi. Dovresti farlo incorniciare.
 Mi passa la pipa. Una boccata, una sola. Poi se la riprende e pulisce il cannello con cura.
 Una Luna dopo, la fumeria ha una lampada nuova sul tavolo grande. Brutta, enorme, d'ottone. Icaro la guarda come un figlio.

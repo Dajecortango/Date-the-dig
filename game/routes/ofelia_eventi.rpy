@@ -211,8 +211,10 @@ init python:
     ECHI.extend([
         {"id": "echi_ofelia_specchio", "fatto": "fx_ofelia_specchio",
          "luoghi": ("corte",), "label": "echi_ofelia_specchio",
-         "cond": lambda v: v["luna"] >= 5},
+         "cond": lambda v: v["luna"] >= 5
+         and "ofelia" not in v["congelate"]},
         {"id": "echi_ofelia_ballo", "fatto": "fx_ofelia_ballo",
          "luoghi": ("riti",), "label": "echi_ofelia_ballo",
-         "cond": lambda v: v["luna"] >= 5},
+         "cond": lambda v: v["luna"] >= 5
+         and "ofelia" not in v["congelate"]},
     ])

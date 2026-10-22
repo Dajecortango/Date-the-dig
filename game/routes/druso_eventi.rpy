@@ -108,8 +108,10 @@ init python:
     ECHI.extend([
         {"id": "echi_druso_quaderno", "fatto": "fx_druso_quaderno",
          "luoghi": ("taverna",), "label": "echi_druso_quaderno",
-         "cond": lambda v: v["luna"] >= 5},
+         "cond": lambda v: v["luna"] >= 5
+         and "druso" not in v["congelate"]},
         {"id": "echi_druso_udienza", "fatto": "fx_druso_udienza",
          "luoghi": ("fumeria",), "label": "echi_druso_udienza",
-         "cond": lambda v: v["luna"] >= 5},
+         "cond": lambda v: v["luna"] >= 5
+         and "druso" not in v["congelate"]},
     ])

@@ -275,8 +275,11 @@ init -5 python:
                 for _k, ev in scelti]
 
     def trama_albero(scheda):
+        # Copia migrata: regge anche un rollback oltre il caricamento.
+        scelte = dict(store.scelte_partita)
+        csl.migra_storico(scelte, {}, set(), csl.OPZIONI_RINOMINATE)
         return csl.albero(trama_nodi(scheda), store.eventi_visti,
-                          persistent.trama_visti, store.scelte_partita,
+                          persistent.trama_visti, scelte,
                           persistent.opzioni_viste, persistent.opzioni_scelte,
                           store.fatti_noti, FATTI)
 

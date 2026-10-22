@@ -72,3 +72,5 @@ Una route futura aggiunge i propri file in `game/routes/` e un bivio in `script.
   punto riconosciuto più vicino (inizio scena o salvataggio precedente). I
   salvataggi fatti dal calendario non cambiano. Quattro testi di scelta
   sono stati riscritti: lo storico della Trama li riconosce comunque.
+  In un'altra copia del progetto, cancellare i vecchi `game/routes/*_route.rpyc`
+  (druso, icaro, ofelia): Ren'Py li caricherebbe ancora e troverebbe label doppie.

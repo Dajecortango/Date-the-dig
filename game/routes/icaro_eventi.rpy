@@ -161,8 +161,10 @@ init python:
     ECHI.extend([
         {"id": "echi_icaro_tintora", "fatto": "fx_icaro_debito",
          "luoghi": ("citta",), "label": "echi_icaro_tintora",
-         "cond": lambda v: v["luna"] >= 5},
+         "cond": lambda v: v["luna"] >= 5
+         and "icaro" not in v["congelate"]},
         {"id": "echi_icaro_febbre", "fatto": "fx_icaro_febbre",
          "luoghi": ("fumeria",), "label": "echi_icaro_febbre",
-         "cond": lambda v: v["luna"] >= 5},
+         "cond": lambda v: v["luna"] >= 5
+         and "icaro" not in v["congelate"]},
     ])
