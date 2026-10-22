@@ -14,6 +14,7 @@ Route di Ofelia "Tanto bella quanto letale" (difficoltà 4/5): corte e serra nel
 - Lint: `powershell -File lint.ps1`
 - Test routing finali: `python -I tests/test_routing.py`
 - Test input nome: `python -I tests/test_sanitize.py`
+- Tutti i test: `for f in tests/test_*.py; do py -3 -I "$f" > /dev/null || echo "FAIL $f"; done`
 
 ## Specifica asset (per sostituire i placeholder)
 
@@ -55,9 +56,19 @@ Riferimento aspetto Aede: capelli rosso fiamma lunghi e mossi, occhi grigioverdi
 - `game/routes/aede_atto1.rpy` — prologo, capitoli 1–3.
 - `game/routes/aede_interludi.rpy` — interludi 1–3.
 - `game/routes/aede_atto2.rpy` — capitoli 4–6.
-- `game/routes/aede_finali.rpy` — climax, routing, 4 finali.
-- `game/routes/ofelia_route.rpy` — route di Ofelia: territorio corte, eventi 1–4, impegni.
-- `game/routes/ofelia_finali.rpy` — route di Ofelia: fiaccolate, climax, finali.
+- `game/routes/aede_finali.rpy` — climax, routing, finali (anche "passeggero").
+- Caino, Druso, Icaro, Ofelia: stesso schema per route — `<nome>_core.rpy`
+  (variabili), `_atto1`/`_atto2` (scene), `_eventi` (registry del calendario,
+  impegno, fatti ed echi), `_finali` (climax e finali).
+- `game/routes/origliati.rpy` — dialoghi origliati tra Caino, Druso e Ofelia.
 - `docs/superpowers/specs/` — design document. `docs/superpowers/plans/` — piano.
 
 Una route futura aggiunge i propri file in `game/routes/` e un bivio in `script.rpy`.
+
+## Note di versione
+
+- 2026-10-22 — Le route di Druso, Icaro e Ofelia sono state divise in più
+  file. Un salvataggio fatto a metà di una scena di queste route riparte dal
+  punto riconosciuto più vicino (inizio scena o salvataggio precedente). I
+  salvataggi fatti dal calendario non cambiano. Quattro testi di scelta
+  sono stati riscritti: lo storico della Trama li riconosce comunque.

@@ -33,13 +33,13 @@ init python:
 ## Personaggi #################################################################
 
 define aede = Character("Aede", color="#c0392b", image="aede")
-define glauco = Character("Glauco Severo", color="#6b6b6b")
-define briseide = Character("Briseide Ippodamia", color="#b8860b")
+define glauco = Character("Glauco Severo", color="#6b6b6b", image="glauco")
+define briseide = Character("Briseide Ippodamia", color="#b8860b", image="briseide")
 define pc = Character("[player_name]", color="#f0e6d2")
 
 # Fratelli di Ceppo del protagonista (Ceppo di Briseide Ippodamia).
-define vanna = Character("Vanna", color="#8fbc8f")
-define corrado = Character("Corrado", color="#87a7c7")
+define vanna = Character("Vanna", color="#8fbc8f", image="vanna")
+define corrado = Character("Corrado", color="#87a7c7", image="corrado")
 
 ## Variabili di route #########################################################
 

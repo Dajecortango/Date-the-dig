@@ -114,9 +114,17 @@ def check_eventi_caino():
               or "jump caino_climax" in src, False)
 
 
+def _route(nome):
+    """Tutti i file di una route (nome_*.rpy) concatenati."""
+    cartella = os.path.join(HERE, "..", "game", "routes")
+    return "\n".join(
+        open(os.path.join(cartella, f), encoding="utf-8").read()
+        for f in sorted(os.listdir(cartella))
+        if f.startswith(nome + "_") and f.endswith(".rpy"))
+
+
 def check_eventi_druso():
-    ev = open(os.path.join(HERE, "..", "game", "routes", "druso_route.rpy"),
-              encoding="utf-8").read()
+    ev = _route("druso")
     for eid in ('"druso_ev1"', '"druso_ev2"', '"druso_ev3"', '"druso_ev4"',
                 '"druso_luna5"'):
         check("evento druso " + eid, eid in ev, True)
@@ -134,8 +142,7 @@ def check_eventi_druso():
 
 
 def check_eventi_icaro():
-    ev = open(os.path.join(HERE, "..", "game", "routes", "icaro_route.rpy"),
-              encoding="utf-8").read()
+    ev = _route("icaro")
     for eid in ('"icaro_ev1"', '"icaro_ev2"', '"icaro_ev3"', '"icaro_luna5"'):
         check("evento icaro " + eid, eid in ev, True)
     for lbl in ("impegno_icaro", "impegno_bro", "icaro_fiaccolata",
@@ -224,6 +231,7 @@ def check_store_picklabile():
     check("niente cal_evento_corrente", "cal_evento_corrente" in cal, False)
     check("niente inviti_fatti", "inviti_fatti" in cal, False)
     check("info inviti espone scade", '"scade": bool(e.get("scade", False))' in cal, True)
+    check("info inviti: avviso solo per la screen", '"avviso": _avviso(e)' in cal, True)
     check("loop chiama hook scadenza", "cal_inviti_ignorati_hooks" in cal, True)
 
 
@@ -268,7 +276,7 @@ def check_economia_punti():
     # ev4 (+2) si'; il dono preferito +1. Budget 9 + 1 + 2 + 1 = 13: il good
     # (>= 12) tollera un errore solo se anche il ramo "mano di Aede" premia
     # Ofelia.
-    fin = _leggi(os.path.join("routes", "ofelia_finali.rpy"))
+    fin = _route("ofelia")
     fiac_aede = fin.split("label ofelia_fiaccolata_aede:")[1].split("\nlabel ")[0]
     ramo_aede = fiac_aede.split("call cap5")[1].split('"Prendere la mano di Ofelia"')[0]
     check("ofelia: mano di Aede premia la discrezione",
@@ -287,7 +295,7 @@ def check_economia_punti():
           (rl.finale_ofelia(12, 0, "caino", 13),
            rl.finale_ofelia(12, 0, "caino", 12)),
           ("ofelia_good_caino", "ofelia_good"))
-    ic = _leggi(os.path.join("routes", "icaro_route.rpy"))
+    ic = _route("icaro")
     for soglia in (">= 2", ">= 4", ">= 6"):
         check("icaro scala eventi " + soglia,
               '"icaro_affinity"] ' + soglia in ic.replace("v[", "["), True)
@@ -320,7 +328,12 @@ def check_economia_scudi():
     check("doni via relazioni_logic",
           "rlz.dono_offribile(" in eco and "rlz.dono_consegna(" in eco, True)
     cal = _leggi("calendario.rpy")
-    check("borsa nel pianificatore", "Borsa: [scudi] Scudi" in cal, True)
+    borsa = _leggi("borsa.rpy")
+    check("borsa a schermo nel pianificatore",
+          'renpy.get_screen("pianificazione")' in borsa
+          and 'config.overlay_screens.append("borsa_hud")' in borsa, True)
+    check("inventario dal menu rapido",
+          '"borsa": ShowMenu("inventario")' in _leggi("screens.rpy"), True)
     check("borsa nel diario", "def diario_borsa" in cal, True)
     check("fallback per affinita'", "CAL_FALLBACK_AFF" in cal, True)
 
@@ -343,7 +356,7 @@ def check_prerequisiti_sequenza():
           ca.count('"scelta_cuore" not in v["visti"]') >= 2, True)
     check("aede_cap4 muore dopo scelta_cuore",
           '"scelta_cuore" not in v["visti"]' in ae, True)
-    of = _leggi(os.path.join("routes", "ofelia_route.rpy"))
+    of = _route("ofelia")
     check("ofelia_ev2 richiede ev1", '"ofelia_ev1" in v["visti"]' in of, True)
     check("ofelia_ev3 richiede ev2", '"ofelia_ev2" in v["visti"]' in of, True)
     check("ofelia_ev3 muore dopo scelta_cuore", '"scelta_cuore" not in v["visti"]' in of, True)
@@ -655,7 +668,7 @@ def test_casuali():
 
 
 def check_eventi_ofelia():
-    ev = _leggi(os.path.join("routes", "ofelia_route.rpy"))
+    ev = _route("ofelia")
     check("hook scadenza registrato",
           "cal_inviti_ignorati_hooks.append(ofelia_scadenza)" in ev, True)
     check("scadenza via relazioni_logic", "rlz.ofelia_esiti_scadenza(" in ev,
@@ -673,7 +686,7 @@ def check_eventi_ofelia():
     check("cal_vars ofelia", '"ofelia_affinity": store.ofelia_affinity' in cal, True)
     for lbl in ("impegno_ofelia", "impegno_ofelia_aede", "impegno_ofelia_caino"):
         check("label " + lbl, "label " + lbl + ":" in ev, True)
-    fin = _leggi(os.path.join("routes", "ofelia_finali.rpy"))
+    fin = _route("ofelia")
     for lbl in ("ofelia_fiaccolata", "ofelia_fiaccolata_caino", "ofelia_fiaccolata_aede"):
         check("label " + lbl, "label " + lbl + ":" in fin, True)
     check("mano di Ofelia alza il sospetto", "aede_sospetto += 2" in fin, True)
@@ -706,7 +719,7 @@ def check_galleria_finali():
     gal = _leggi("finali_galleria.rpy")
     ids = re.findall(r'^\s*\("(\w+)",\s*"[^"]+",\s*"\w+",\s*"[^"]+"\),?$',
                      gal, re.M)
-    check("FINALI ha 22 voci", len(ids), 22)
+    check("FINALI ha 26 voci", len(ids), 26)
     check("id FINALI unici", len(set(ids)), len(ids))
     tutto = ""
     for f in glob.glob(os.path.join(HERE, "..", "game", "**", "*.rpy"),
@@ -734,7 +747,7 @@ def check_galleria_finali():
 def check_segnali():
     """Segnali al giocatore: scena primo mancato, righe diario, notify Druso."""
     import re
-    of = _leggi(os.path.join("routes", "ofelia_route.rpy"))
+    of = _route("ofelia")
     m = re.search(r"^label ofelia_scadenza_prima:\n(.*?)(?=^\S)",
                   of + "\nX", re.M | re.S)
     check("label ofelia_scadenza_prima", m is not None, True)
@@ -752,9 +765,84 @@ def check_segnali():
               "Ti ha segnato nel registro delle cose che non perdona. "
               "Una riga sola. Per ora."):
         check("diario: " + t[:30], t in cal, True)
-    dr = _leggi(os.path.join("routes", "druso_route.rpy"))
+    dr = _route("druso")
     check("notify Druso se la segna",
           'renpy.notify("Druso se la segna.")' in dr, True)
+
+
+# Deviazioni nuove (spec 2026-10-22-route-finali-origliati, punto 1b):
+# (route, id, predecessore, luna_min)
+DEVIAZIONI = [
+    ("druso", "druso_quaderno", "druso_ev1", 2),
+    ("druso", "druso_udienza", "druso_ev2", 3),
+    ("icaro", "icaro_debito_altrui", "icaro_int1", 2),
+    ("icaro", "icaro_febbre", "icaro_ev2", 3),
+    ("ofelia", "specchio_ofelia", "ofelia_ev1", 2),
+    ("ofelia", "ballo_pretendenti", "ofelia_ev2", 3),
+]
+
+
+def _voce_registry(src, eid):
+    """Testo del dict del registry con "id": eid (fino alla graffa)."""
+    i = src.find('"id": "%s"' % eid)
+    if i < 0:
+        return None
+    return src[i:src.find("},", i)]
+
+
+def check_deviazioni():
+    import glob
+    tutto = ""
+    for f in glob.glob(os.path.join(HERE, "..", "game", "**", "*.rpy"),
+                       recursive=True):
+        tutto += open(f, encoding="utf-8").read()
+    for route, eid, prima, luna in DEVIAZIONI:
+        ev = _leggi(os.path.join("routes", route + "_eventi.rpy"))
+        voce = _voce_registry(ev, eid)
+        check("deviazione %s nel registry" % eid, voce is not None, True)
+        if voce is None:
+            continue
+        check("deviazione %s luna_min" % eid,
+              '"luna_min": %d' % luna in voce, True)
+        check("deviazione %s dopo %s" % (eid, prima),
+              '"%s" in v["visti"]' % prima in voce, True)
+        check("deviazione %s muore col cuore" % eid,
+              '"scelta_cuore" not in v["visti"]' in voce, True)
+        check("label %s" % eid, "label %s:" % eid in tutto, True)
+        # Nessuna cond esistente dipende dalla deviazione.
+        check("nessuno richiede %s" % eid,
+              '"%s" in v["visti"]' % eid in tutto, False)
+        if route == "ofelia":
+            check("%s non conta come mancato" % eid,
+                  eid.startswith("ofelia_") or '"scade"' in voce, False)
+
+
+def _corpo_label(src, label):
+    return src.split("label %s" % label, 1)[1].split("\nlabel ", 1)[0]
+
+
+def check_revisione_finale():
+    """Correzioni della revisione finale (route-finali-origliati)."""
+    orig = _leggi(os.path.join("routes", "origliati.rpy"))
+    for lbl in ("orig_caino_druso", "orig_caino_ofelia"):
+        check(lbl + " registra i fatti",
+              "conseguenze_aggiorna()" in _corpo_label(orig, lbl), True)
+    dru = _route("druso")
+    check("druso_passeggero: accordo di genere",
+          "mi è car[fin]" in _corpo_label(dru, "druso_passeggero"), True)
+    check("niente trent'anni di Druso", "trent'anni di rime" in dru, False)
+    cai = _leggi(os.path.join("routes", "caino_finali.rpy"))
+    check("caino_passeggero: niente promozione dopo la sospensione",
+          "più in alto" in _corpo_label(cai, "caino_passeggero"), False)
+    gal = _leggi("finali_galleria.rpy")
+    riga = gal.split('"icaro_passeggero"', 1)[1].split(")", 1)[0]
+    check("indizio icaro_passeggero raggiungibile",
+          "invito di un altro" in riga, False)
+    eco = _corpo_label(_leggi(os.path.join("routes", "echi.rpy")),
+                       "echi_druso_quaderno")
+    i = eco.find("sfida dei versi")
+    check("eco quaderno: sfida dei versi solo se vista",
+          i > 0 and '"druso_luna5" in eventi_visti' in eco[:i], True)
 
 
 def main():
@@ -775,6 +863,8 @@ def main():
     check_eventi_ofelia()
     check_snodi()
     check_galleria_finali()
+    check_deviazioni()
+    check_revisione_finale()
     test_sequenza()
     test_fisso()
     test_inviti()

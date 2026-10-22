@@ -102,14 +102,30 @@ style frame:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
-## Indicatore click-to-continue: diamantino oro che pulsa.
+## Indicatore click-to-continue: diamantino oro che pulsa e ondeggia, in coda
+## al testo (ctc_continua, regia.rpy).
 image ctc_diamante:
     "gui/ctc.png"
     subpixel True
-    alpha 0.2
-    linear 0.7 alpha 1.0
-    linear 0.7 alpha 0.2
-    repeat
+    parallel:
+        alpha 0.2
+        linear 0.7 alpha 1.0
+        linear 0.7 alpha 0.2
+        repeat
+    parallel:
+        yoffset 0
+        easein 0.7 yoffset -3
+        easeout 0.7 yoffset 0
+        repeat
+
+## Box che entra: sale di poco e compare quando la finestra si mostra, non a
+## ogni battuta (on replace non fa niente).
+transform box_entra:
+    on show:
+        alpha 0.0 yoffset (0 if mm_movimento_ridotto() else 20)
+        easein 0.25 alpha 1.0 yoffset 0
+    on replace:
+        alpha 1.0 yoffset 0
 
 ## Colori dei personaggi per il diamante del namebox.
 init python:
@@ -128,6 +144,7 @@ screen say(who, what):
 
     window:
         id "window"
+        at box_entra
 
         if who is not None:
 
@@ -140,8 +157,6 @@ screen say(who, what):
                     text who id "who"
 
         text what id "what"
-
-        add "ctc_diamante" xpos 1802 ypos 196
 
 
     ## If there's a side image, display it above the text. Do not display
@@ -197,6 +212,8 @@ style say_dialogue:
     ypos gui.dialogue_ypos
 
     adjust_spacing False
+    # Contorno sottile e ombra morbida: leggibile anche sulla neve.
+    outlines [(2, "#140a08", 0, 0), (3, "#14080860", 1, 2)]
 
 ## Input screen ################################################################
 ##
@@ -244,13 +261,16 @@ style input:
 screen choice(items):
     style_prefix "choice"
 
+    $ scelte_ferme = mm_movimento_ridotto() or renpy.is_skipping()
+
     vbox:
-        for i in items:
+        for n, i in enumerate(items):
             # peso=True (argomento di menu): scelta che pesa, diamante rosso.
             $ peso = i.kwargs.get("peso", False)
             button:
                 action i.action
-                at (scelta_hover_fermo if mm_movimento_ridotto() else scelta_hover)
+                # Entrano in cascata dall'alto, poi rispondono all'hover.
+                at (scelta_hover_fermo if scelte_ferme else scelta_hover), (scelta_ferma if scelte_ferme else scelta_entra(n * 0.05))
                 hbox:
                     xalign 0.5
                     spacing 16
@@ -269,7 +289,8 @@ screen choice(items):
                         text "◆" style "choice_peso" yalign 0.5
 
 
-# Hover delle scelte: allargamento lieve (lo sfondo hover ha il bordo oro).
+# Hover delle scelte: allargamento lieve e passo a destra (lo sfondo hover ha
+# il bordo oro e l'alone, style choice_button).
 transform scelta_hover_fermo:
     xalign 0.5
 
@@ -277,9 +298,17 @@ transform scelta_hover:
     xalign 0.5
     transform_anchor True
     on idle:
-        ease 0.12 zoom 1.0
+        ease 0.12 zoom 1.0 xoffset 0
     on hover:
-        ease 0.12 zoom 1.04
+        ease 0.12 zoom 1.04 xoffset 10
+
+transform scelta_ferma:
+    alpha 1.0
+
+transform scelta_entra(ritardo):
+    alpha 0.0 xoffset -16
+    pause ritardo
+    ease 0.18 alpha 1.0 xoffset 0
 
 style choice_peso is default:
     font gui.text_font
@@ -301,6 +330,10 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    hover_background Fixed(
+        Transform("gui/scelta_bagliore.png", align=(0.5, 0.5)),
+        Frame("gui/button/choice_hover_background.png", gui.choice_button_borders, tile=gui.choice_button_tile))
+    hover_sound "audio/scelta.ogg"
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
@@ -327,6 +360,7 @@ init python:
         ("qsalva", _("Salvataggio rapido")),
         ("qcarica", _("Caricamento rapido")),
         ("costumanze", _("Costumanze")),
+        ("borsa", _("Borsa e oggetti")),
     ]
     # Su touch non c'e' tooltip: sopra ogni sigillo un'etichetta corta (i
     # tooltip interi non ci stanno nei 96 px del sigillo).
@@ -339,6 +373,7 @@ init python:
         "qsalva": _("Q.salva"),
         "qcarica": _("Q.carica"),
         "costumanze": _("Opzioni"),
+        "borsa": _("Borsa"),
     }
     # Su telefono i sigilli (60 px nel png) si ingrandiscono: sotto i 60 px
     # il dito ne prende due.
@@ -355,6 +390,7 @@ init python:
             "qsalva": QuickSave(),
             "qcarica": QuickLoad(),
             "costumanze": ShowMenu("preferences"),
+            "borsa": ShowMenu("inventario"),
         }[chiave]
 
     def quick_posizione():
@@ -368,7 +404,7 @@ init python:
         if renpy.get_screen("cartello_data") or renpy.get_screen("input"):
             return None
         if renpy.get_screen("pianificazione"):
-            return (1530 - quick_larghezza() // 2, 996)
+            return (min(1530 - quick_larghezza() // 2, 1890 - quick_larghezza()), 996)
         return (min(1130, 1880 - quick_larghezza()),
                 1080 - gui.textbox_height + 14 - QUICK_LATO // 2)
 
@@ -509,6 +545,10 @@ screen navigation():
 
             textbutton _("Cronache") action ShowMenu("cronache")
 
+            textbutton _("Trama") action ShowMenu("trama")
+
+            textbutton _("Borsa") action ShowMenu("inventario")
+
             textbutton _("History") action ShowMenu("history")
 
             textbutton _("Save") action ShowMenu("save")
@@ -582,8 +622,13 @@ screen main_menu():
     tag menu
 
     add mm_sfondo_pattern()
+    ## Dopo un finale: lo sfondo della sua route, sfocato (menu_cast.rpy).
+    $ mm_sfondo_finale = mm_fondo()
+    if mm_sfondo_finale is not None:
+        add mm_sfondo_finale
     if not mm_movimento_ridotto():
         add "mm_neve"
+        add mm_polvere()
     add "gui/mm_front.png"
 
     ## This empty frame darkens the main menu.
@@ -602,14 +647,33 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            ## Titolo con un alone oro che respira dietro.
+            fixed:
+                fit_first True
+                xalign 0.5
+                text "[config.name!t]":
+                    style "main_menu_title"
+                    color gui.accent_color
+                    at (mm_titolo_spento if mm_movimento_ridotto() else mm_titolo_respira)
+                text "[config.name!t]":
+                    style "main_menu_title"
 
         ## Versione in fondo al pannello, lontana dal primo pulsante.
         text "[config.version]":
             style "main_menu_version"
             xpos 310 xanchor 0.5 ypos 968 yanchor 1.0
 
+
+transform mm_titolo_spento:
+    alpha 0.0
+
+transform mm_titolo_respira:
+    blur 8
+    alpha 0.35
+    block:
+        ease 1.6 alpha 0.9
+        ease 1.6 alpha 0.35
+        repeat
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -1077,6 +1141,13 @@ screen preferences():
                     textbutton _("Sì") action SetField(persistent, "menu_animato", True)
                     textbutton _("No") action SetField(persistent, "menu_animato", False)
 
+                vbox:
+                    style_prefix "radio"
+                    xsize 340
+                    label _("Avvisi delle conseguenze")
+                    textbutton _("Sì") action SetField(persistent, "avvisi_conseguenze", True)
+                    textbutton _("No") action SetField(persistent, "avvisi_conseguenze", False)
+
             null height (4 * gui.pref_spacing)
 
             hbox:
@@ -1114,6 +1185,11 @@ screen preferences():
 
                             if config.sample_sound:
                                 textbutton _("Test") action Play("sound", config.sample_sound)
+
+                    label _("Volume ambiente")
+
+                    hbox:
+                        bar value Preference("mixer ambiente volume")
 
 
                     if config.has_voice:
@@ -1244,6 +1320,11 @@ screen history():
                 $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
                 text what:
                     substitute False
+                    ## I pensieri (pensiero, regia.rpy) restano in corsivo.
+                    if h.what_args.get("italic"):
+                        italic True
+                    if "color" in h.what_args:
+                        color h.what_args["color"]
 
         if not _history_list:
             label _("The dialogue history is empty.")

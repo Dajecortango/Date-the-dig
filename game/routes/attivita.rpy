@@ -156,6 +156,7 @@ label att_scudo_3:
 
 label att_studio_1:
     scene bg studio_glauco with fade
+    show corrado neutro with dissolve
     "L'archivio del Ceppo. Corrado mi fa da maestro: 63 Ceppi, 9 Rami, un Primarca per Ramo, e in cima la Capofamiglia."
     corrado "Impara gli stemmi prima dei nomi. I nomi mentono, gli stemmi mai: nessuno ricama un leone per sbaglio."
     "Tre ore di araldica. Alla fine distinguo il drago di Draken dal leone di Allmän anche a occhi chiusi."
@@ -163,6 +164,7 @@ label att_studio_1:
 
 label att_studio_2:
     scene bg studio_glauco with fade
+    show corrado neutro with dissolve
     "Oggi: le Virtù. Operosità, Esclusività, Verità. Ogni Arconte ne custodisce una, ogni processo ne invoca almeno due."
     corrado "E ricorda: la Virtù che un Dignitas predica di più è quella che teme di meno. È l'altra che lo tiene sveglio."
     "Me lo scrivo. Ho il sospetto che un giorno mi salverà la vita."
@@ -170,6 +172,7 @@ label att_studio_2:
 
 label att_studio_3:
     scene bg studio_glauco with fade
+    show corrado neutro with dissolve
     "Il Ballo delle Candele Spente. Il libro ne parla per tre righe asciutte; Corrado, a voce bassa, per un'ora."
     corrado "Lenora spense le candele, e con le candele una congiura intera. Nessun processo. Nessun nome. Capito perché studiamo, [fratello_t]?"
     "Capito. Nel Nord la storia non si studia per sapere com'era: si studia per sapere dove non mettere i piedi."
@@ -328,6 +331,7 @@ label att_scudo_4:
 
 label att_studio_4:
     scene bg studio_glauco with fade
+    show corrado neutro with dissolve
     "Oggi Corrado mi insegna il Margine: il fiume lento che gli Arvali dicono separi i vivi da Drakengrad, la sala del Leone dove ogni storia viene raccontata per sempre."
     corrado "Non è teologia, [fratello_t]: è contabilità. Un Dignitas si comporta bene perché qualcuno, laggiù, prende appunti."
     "Mi segno anche questa. Nel Nord perfino l'aldilà tiene i registri."

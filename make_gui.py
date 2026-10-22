@@ -1141,7 +1141,7 @@ def rigenera_menu():
 
 QUICK_D = 60          # lato dei sigilli del menu rapido
 QUICK_AZIONI = ("indietro", "memorie", "salta", "auto", "salva",
-                "qsalva", "qcarica", "costumanze")
+                "qsalva", "qcarica", "costumanze", "borsa")
 
 
 def _mandorla(t, x0, y0, dx, dy, L, wmax, coda=0.35):
@@ -1220,6 +1220,16 @@ def _glifo(t, azione, c, s):
             r = s * (0.95 if (i % 4) in (1, 2) else 0.68)
             pts.append((c + r * math.cos(a), c + r * math.sin(a)))
         return m_sub(m_poly(t, pts), m_ell(t, c, c, s * 0.3))
+    if azione == "borsa":
+        # Borsa di cuoio legata al collo, con uno Scudo inciso sul ventre.
+        corpo = m_ell(t, c, c + s * 0.3, s * 0.8, s * 0.62)
+        collo = m_rect(t, (c - s * 0.26, c - s * 0.46, c + s * 0.26, c - s * 0.2))
+        bocca = m_poly(t, [(c - s * 0.62, c - s * 0.95), (c + s * 0.62, c - s * 0.95),
+                           (c + s * 0.26, c - s * 0.44), (c - s * 0.26, c - s * 0.44)])
+        mk = m_add(corpo, collo, bocca)
+        mk = m_sub(mk, m_linea(t, [(c - s * 0.4, c - s * 0.3), (c + s * 0.4, c - s * 0.3)], 1.2))
+        moneta = m_sub(m_ell(t, c, c + s * 0.34, s * 0.32), m_ell(t, c, c + s * 0.34, s * 0.2))
+        return m_sub(mk, moneta)
     raise ValueError(azione)
 
 
@@ -1268,6 +1278,26 @@ def sigilli_quick():
         save(sigillo_quick(az, "selected"), "quick", "%s_selected_idle.png" % az)
         save(hov, "quick", "%s_selected_hover.png" % az)
         save(sigillo_quick(az, "insensitive"), "quick", "%s_insensitive.png" % az)
+
+
+def borsa_hud():
+    """Moneta dello Scudo e fondo della borsa a schermo (game/borsa.rpy):
+    leggeri, senza cornice miniata."""
+    D = 44
+    t = Tela(D, D)
+    c = D / 2.0
+    disco = m_ell(t, c, c, D * 0.42)
+    cel(t, disco, "oro", ombra=1.6, luce=1.2, contorno=1.2)
+    colora(t, m_sub(m_ell(t, c, c, D * 0.33), m_ell(t, c, c, D * 0.3)), MAT["oro"][0], 200)
+    rombo = m_poly(t, [(c, c - D * 0.17), (c + D * 0.12, c), (c, c + D * 0.17), (c - D * 0.12, c)])
+    cel(t, rombo, "rosso", ombra=0.8, luce=0.6, contorno=0.8)
+    save(t.fine(), "scudo.png")
+    # Pillola scura semitrasparente, angoli tondi: si usa come Frame.
+    pil = Image.new("RGBA", (64, 44), (0, 0, 0, 0))
+    ImageDraw.Draw(pil).rounded_rectangle([0, 0, 63, 43], radius=21,
+                                          fill=(16, 10, 10, 150),
+                                          outline=ORO + (90,), width=1)
+    save(pil, "borsa_pillola.png")
 
 
 def particelle_effetti():
@@ -1325,6 +1355,71 @@ def rigenera_blocco_d():
     segno_scelta()
 
 
+def bagliore_scelta():
+    """Alone oro morbido dietro la scelta in hover (1185x72 + margine)."""
+    W, H = 1265, 132
+    m = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(m).rounded_rectangle([60, 40, W - 60, H - 40], 26, fill=120)
+    m = m.filter(ImageFilter.GaussianBlur(16))
+    img = Image.new("RGBA", (W, H), ORO_CHIARO + (0,))
+    img.putalpha(m)
+    save(img, "scelta_bagliore.png")
+
+
+def ceralacca():
+    """Sigillo di ceralacca del cartello del giorno: rosso nei giorni di
+    festa, bruno scuro negli altri."""
+    rosso = sigillo(180, "sel", "check")
+    save(rosso, "ceralacca_festa.png")
+    scuro = ImageChops.multiply(rosso, Image.new("RGBA", rosso.size, (120, 84, 64, 255)))
+    save(scuro, "ceralacca.png")
+
+
+def scudo_luccichio():
+    """Riflesso diagonale che passa sullo scudo della Borsa (44x44)."""
+    W = H = 44
+    m = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(m).polygon([(14, 0), (24, 0), (10, H), (0, H)], fill=230)
+    m = m.filter(ImageFilter.GaussianBlur(2.5))
+    img = Image.new("RGBA", (W, H), (255, 252, 236, 0))
+    img.putalpha(m)
+    save(img, "scudo_luccichio.png")
+
+
+def particelle_extra():
+    """Braci e gocce di pioggia (game/effetti.rpy)."""
+    # Brace: puntino arancio con alone.
+    W = H = 18
+    m = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(m).ellipse([5, 5, 13, 13], fill=255)
+    m = m.filter(ImageFilter.GaussianBlur(2.2))
+    img = Image.new("RGBA", (W, H), (255, 150, 60, 0))
+    img.putalpha(m)
+    nucleo = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(nucleo).ellipse([7, 7, 11, 11], fill=(255, 226, 150, 255))
+    img.alpha_composite(nucleo.filter(ImageFilter.GaussianBlur(0.6)))
+    save(img, "fx_brace.png")
+
+    # Goccia: riga sottile e chiara, leggermente obliqua (la direzione la da'
+    # la velocita' nella screen).
+    W, H = 8, 54
+    m = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(m).line([(5, 0), (3, H - 1)], fill=230, width=3)
+    m = m.filter(ImageFilter.GaussianBlur(0.7))
+    img = Image.new("RGBA", (W, H), (200, 214, 236, 0))
+    img.putalpha(m)
+    save(img, "fx_goccia.png")
+
+
+def rigenera_blocco_g():
+    """Solo gli asset nuovi del pacchetto grafico (scelte, cartello, Borsa,
+    particelle)."""
+    bagliore_scelta()
+    ceralacca()
+    scudo_luccichio()
+    particelle_extra()
+
+
 def main():
     # Menu principale: pattern + fronte. main_menu.png resta per compatibilita';
     # la screen anima mm_pattern.png (tile 1540: periodo comune di righe 140
@@ -1349,6 +1444,9 @@ def main():
 
     # Bottoni, barre, cornici, textbox, ritratti: stile miniato.
     rigenera_stile()
+
+    # Pacchetto grafico: scelte, cartello, Borsa, particelle.
+    rigenera_blocco_g()
 
     print("GUI Dignitas generata in", GUI)
 

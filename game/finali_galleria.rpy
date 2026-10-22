@@ -1,6 +1,9 @@
 # Galleria dei finali: registro persistente (sopravvive tra le partite).
 
 default persistent.finali_visti = set()
+# Ultimo finale raggiunto: il menu principale ne prende fondo e personaggio
+# (menu_cast.rpy).
+default persistent.ultimo_finale = None
 
 init python:
 
@@ -8,6 +11,8 @@ init python:
     FINALI = [
         ("good_end", "TEMPESTA D'AMORE", "Aede",
          "Convinci Aede a disobbedire a Glauco, e che la lama la scelga lei."),
+        ("aede_passeggero", "LA LAMA NEL FODERO", "Aede",
+         "Conquistala, ma resta fuori dal suo mondo: niente giuramento, o il suo lavoro rifiutato."),
         ("neutral_end", "I DEBITI E L'ASSENZA", "Aede",
          "Resta vicino ad Aede, ma non abbastanza da farle cambiare strada."),
         ("bad_end_aede", "IL NORD NON PERDONA", "Aede",
@@ -16,6 +21,8 @@ init python:
          "Muoviti nel buio senza sapere chi ti protegge, e senza averla avvicinata."),
         ("caino_good_end", "LA LEGGE DEL CUORE", "Caino",
          "Sii affidabile nei registri e nei fatti, e non cadere nelle sue trappole."),
+        ("caino_passeggero", "UN'ALTRA MANO", "Caino",
+         "Guadagna tutta la sua fiducia, ma inciampa nelle trappole o dimentica ciò che ti dice."),
         ("caino_secret_end", "TESCHIO", "Caino",
          "Dai tempo a Druso, e lascia che Caino non si fidi fino in fondo."),
         ("caino_bad_end", "LA PEDINA", "Caino",
@@ -24,12 +31,16 @@ init python:
          "Una fiducia onesta ma a metà, senza chiudere né il debito né il patto."),
         ("druso_good", "IL CUORE PROVOCATORE", "Druso",
          "Stagli accanto anche quando lo deridono, mostra coraggio, e davanti al Ramo non parlare al posto suo."),
+        ("druso_passeggero", "LA RIMA CHE MANCA", "Druso",
+         "Fatti amare da lui, ma non rischiare mai niente al suo fianco."),
         ("druso_neutral", "IL POSTO ACCANTO", "Druso",
          "Una bella amicizia, ma senza il gesto che lo convinca a restare."),
         ("druso_bad", "IL CANE CHE ABBAIA", "Druso",
          "Lascialo solo con le sue battute finché nessuno lo prende sul serio."),
         ("icaro_good", "UNTOUCHABLE", "Icaro",
          "Mentigli a favore la prima volta che il tavolo lo accusa, e non sbagliare una mano fino all'ultima."),
+        ("icaro_passeggero", "IN PARI", "Icaro",
+         "Arriva in cima al suo registro, ma la prima volta che il tavolo lo accusa non coprirlo."),
         ("icaro_neutral", "IL SOCIO", "Icaro",
          "Fai affari con lui senza mai diventare altro che un buon cliente."),
         ("icaro_bad", "FUORI LISTINO", "Icaro",
@@ -58,6 +69,7 @@ init python:
         if persistent.finali_visti is None:
             persistent.finali_visti = set()
         persistent.finali_visti.add(fid)
+        persistent.ultimo_finale = fid
         renpy.save_persistent()
 
 screen galleria_finali():

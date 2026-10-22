@@ -129,6 +129,7 @@ init -10 python:
             "scudi": store.scudi,
             "dono_tenuto": store.dono_tenuto,
             "visti": store.eventi_visti,
+            "luna": CAL_SEQUENZA[min(store.cal_idx, len(CAL_SEQUENZA) - 1)][0],
         }
         return v
 
@@ -244,6 +245,9 @@ init -10 python:
     # (lo sprite del cast del menu, se c'e').
     CAL_NOMI = {"aede": "Aede", "caino": "Caino", "ofelia": "Ofelia",
                 "druso": "Druso", "icaro": "Icaro"}
+    # Comprimari che possono invitare (ritratto degli inviti senza route).
+    CAL_NOMI_COMPRIMARI = {"vanna": "Vanna", "corrado": "Corrado",
+                           "briseide": "Briseide"}
     CAL_INVITO_DESC = {
         "aede": "Aede non chiede mai due volte. Questa conta come una.",
         "caino": "Caino ti vuole dove può vederti. Ha le sue ragioni.",
@@ -299,9 +303,20 @@ init -10 python:
             evs = [e for e in evs
                    if e.get("char") in (None, store.route_attiva,
                                         store.route_seconda)]
+        # avviso: "scade" (cade se scegli altro), "cuore" (Luna IV: dopo la
+        # scelta del cuore forse non torna), False; solo per la screen.
+        # ritratto: chi mostrare (i comprimari senza route hanno char None).
+        def _avviso(e):
+            if e.get("scade"):
+                return "scade"
+            if momento[0] == 4 and e.get("char"):
+                return "cuore"
+            return False
         return [{"id": e["id"], "char": e.get("char"),
+                 "ritratto": e.get("ritratto", e.get("char")),
                  "titolo": e.get("titolo", "Qualcuno ti cerca"),
-                 "scade": bool(e.get("scade", False))} for e in evs]
+                 "scade": bool(e.get("scade", False)),
+                 "avviso": _avviso(e)} for e in evs]
 
     def cal_dopo_evento(eid):
         ev = cal_evento_di(eid)
@@ -338,12 +353,17 @@ label cal_loop:
 
     if cal_fisso_id is not None:
         $ eventi_visti.add(cal_fisso_id)
+        # Contesto delle scelte registrate (conseguenze.rpy).
+        $ cal_contesto = cal_fisso_id
         call expression cal_label_di(cal_fisso_id)
         $ cal_dopo_evento(cal_fisso_id)
+        $ cal_contesto = "fuori"
         jump cal_avanza
 
     python:
         cal_inviti = cal_inviti_info((cal_luna, cal_giorno, cal_slot))
+        # Inviti offerti almeno una volta (per invito_perso, conseguenze.rpy).
+        inviti_mostrati.update(i["id"] for i in cal_inviti)
         # Una voce attivita' puo' avere una cond opzionale come quinto campo.
         cal_att = [a[:4] for a in ATTIVITA.get(cal_slot, [])
                    if len(a) < 5 or a[4](cal_vars())]
@@ -351,7 +371,11 @@ label cal_loop:
     if not cal_inviti and not cal_att:
         jump cal_avanza
 
-    $ renpy.transition(Dissolve(0.2))
+    # La pergamena si srotola (screen pianificazione); da ferma, dissolvenza.
+    if mm_movimento_ridotto() or renpy.is_skipping():
+        $ renpy.transition(Dissolve(0.2))
+    else:
+        play sound "audio/carta.ogg"
     call screen pianificazione((cal_luna, cal_giorno, cal_slot), cal_inviti, cal_att)
 
     python:
@@ -365,8 +389,10 @@ label cal_loop:
         python:
             cal_sel_id = _return[1]
             eventi_visti.add(cal_sel_id)
+            cal_contesto = cal_sel_id
         call expression cal_label_di(cal_sel_id)
         $ cal_dopo_evento(cal_sel_id)
+        $ cal_contesto = "fuori"
         # Dono in borsa: si offre alla fine dell'invito del personaggio.
         $ cal_sel_char = cal_evento_di(cal_sel_id).get("char")
         if cal_sel_char:
@@ -381,8 +407,10 @@ label cal_avanza:
     jump cal_loop
 
 label cal_attivita(att_id):
+    $ cal_contesto = att_id
     if att_id in ATTIVITA_RIPETIBILI:
         call expression ATTIVITA_RIPETIBILI[att_id]
+        $ cal_contesto = "fuori"
         return
     python:
         cal_pool = None
@@ -401,7 +429,15 @@ label cal_attivita(att_id):
         "[cal_fallback_txt]"
     else:
         $ eventi_visti.add(cal_label)
+        $ cal_contesto = cal_label
         call expression cal_label
+    # Fatti nuovi, poi al massimo un eco di una scelta passata (conseguenze.rpy).
+    $ conseguenze_aggiorna()
+    $ cal_eco = echi_pesca(att_id)
+    if cal_eco is not None:
+        $ echi_visti.add(cal_eco)
+        call expression echi_label(cal_eco)
+    $ cal_contesto = "fuori"
     # Paghe, giro alla taverna, dono al personaggio del territorio.
     call eco_dopo_attivita(att_id, cal_att_char)
     return
@@ -435,6 +471,19 @@ transform cartello_testo:
     pause 0.5
     linear 0.35 alpha 1.0
 
+# Sigillo di ceralacca: cade sul bordo basso dopo il testo (~0.9 s), con un
+# piccolo rimbalzo; rosso nei giorni segnati, bruno negli altri.
+transform cartello_sigillo:
+    align (0.5, 1.0) yoffset 78
+    alpha 0.0 zoom 1.12
+    pause 0.9
+    easein 0.18 alpha 1.0 zoom 0.66
+    easeout 0.08 zoom 0.7
+
+transform cartello_sigillo_fermo:
+    align (0.5, 1.0) yoffset 78
+    zoom 0.7
+
 screen cartello_data(luna, giorno, festa=False):
 
     modal True
@@ -446,6 +495,8 @@ screen cartello_data(luna, giorno, festa=False):
         background None
         action Return()
     timer (0.05 if config.skipping else 2.5) action Return()
+    if not (config.skipping or mm_movimento_ridotto()):
+        timer 1.08 action Play("sound", "audio/sigillo.ogg")
 
     fixed:
         xysize (760, 210)
@@ -458,7 +509,7 @@ screen cartello_data(luna, giorno, festa=False):
             text LUNE_NOMI[luna]:
                 xalign 0.5
                 font gui.name_text_font
-                size 46
+                size 58
                 color "#4a1010"
             hbox:
                 xalign 0.5
@@ -473,6 +524,8 @@ screen cartello_data(luna, giorno, festa=False):
                     yalign 0.5
                 if festa:
                     text "◆" size 22 color "#c0392b" yalign 0.5
+        add ("gui/ceralacca_festa.png" if festa else "gui/ceralacca.png"):
+            at (cartello_sigillo_fermo if (mm_movimento_ridotto() or config.skipping) else cartello_sigillo)
 
 
 ## Screen di pianificazione ##################################################
@@ -487,11 +540,16 @@ screen pianificazione(momento, inviti, attivita):
     default cal_sel = None
     $ cal_touch = renpy.variant("touch")
 
-    add "gui/game_menu.png"
+    ## Pergamena che si srotola dall'alto, poi colonne e voci in cascata.
+    ## Ferma con "Animazioni: No" o in skip.
+    default pian_fermo = mm_movimento_ridotto() or renpy.is_skipping()
+
+    add "gui/game_menu.png" at (pian_fisso if pian_fermo else pian_srotola)
 
     ## Colonna delle scelte a sinistra, pannello del personaggio a destra
     ## (si riempie all'hover via tooltip, o alla selezione su touch).
     vbox:
+        at (pian_fisso if pian_fermo else pian_contenuto)
         xpos 120
         yalign 0.5
         spacing 12
@@ -515,14 +573,13 @@ screen pianificazione(momento, inviti, attivita):
                     text ("◆" if fisso else " ") size 14 xalign 0.5 color "#f0c75e"
                     text str(num) size 26 xalign 0.5 bold (stato == "oggi") color ("#f0c75e" if stato == "oggi" else "#6b5f4a" if stato == "passato" else "#c9b78a")
 
-        # Slot del giorno (dove siamo arrivati) e borsa, sulla stessa riga.
+        # Slot del giorno (dove siamo arrivati). Gli Scudi stanno nella borsa
+        # a schermo (borsa.rpy).
         hbox:
             xalign 0.5
             spacing 24
             for nome_s, stato_s in cal_slot_stati(momento):
                 text nome_s.capitalize() size 22 italic (stato_s == "corrente") color ("#f0e6d2" if stato_s == "corrente" else "#6b5f4a" if stato_s == "passato" else "#a89468") yalign 0.5
-            text "·" size 22 color "#6b5f4a" yalign 0.5
-            text "Borsa: [scudi] Scudi" size TESTO_MINUTO italic True color "#8f7f5c" yalign 0.5
 
         add "gui/divisore.png" xalign 0.5
 
@@ -545,9 +602,10 @@ screen pianificazione(momento, inviti, attivita):
                 spacing (8 if cal_compatto else 10)
                 xfill True
 
-                for inv in inviti:
-                    $ cal_info = ("invito", inv["char"], inv["titolo"], inv["scade"])
+                for k, inv in enumerate(inviti):
+                    $ cal_info = ("invito", inv["ritratto"], inv["titolo"], inv["avviso"])
                     button:
+                        at (pian_fisso if pian_fermo else pian_voce(0.3 + 0.04 * k))
                         xfill True
                         ypadding (5 if cal_compatto else 8)
                         left_padding 26
@@ -560,34 +618,35 @@ screen pianificazione(momento, inviti, attivita):
                         action cal_azione(cal_touch, cal_sel, cal_info, ("evento", inv["id"]))
                         hbox:
                             spacing 18
-                            add Transform(cal_portrait(inv["char"]), zoom=0.36) yalign 0.5
+                            add Transform(cal_portrait(inv["ritratto"]), zoom=0.36) yalign 0.5
                             if cal_compatto:
                                 hbox:
                                     yalign 0.5
                                     spacing 16
                                     text inv["titolo"] size 25 color "#f5e3b8" yalign 0.5
-                                    if inv.get("scade"):
+                                    if inv["avviso"]:
                                         fixed:
                                             xysize (26, 26)
                                             yalign 0.5
                                             add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
-                                        text "Solo adesso" size TESTO_MINUTO color "#d9a441" yalign 0.5
+                                        text ("Solo adesso" if inv["avviso"] == "scade" else "Fino al cuore") size TESTO_MINUTO color "#d9a441" yalign 0.5
                             else:
                                 vbox:
                                   yalign 0.5
                                   text inv["titolo"] size 25 color "#f5e3b8"
-                                  if inv.get("scade"):
+                                  if inv["avviso"]:
                                       hbox:
                                           spacing 8
                                           fixed:
                                               xysize (26, 26)
                                               yalign 0.5
                                               add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
-                                          text "Solo adesso" size TESTO_MINUTO color "#d9a441" yalign 0.5
+                                          text ("Solo adesso" if inv["avviso"] == "scade" else "Fino alla scelta del cuore") size TESTO_MINUTO color "#d9a441" yalign 0.5
 
-                for aid, etichetta, char, _pool in attivita:
+                for k, (aid, etichetta, char, _pool) in enumerate(attivita):
                     $ cal_info = ("attivita", char, etichetta, aid)
                     button:
+                        at (pian_fisso if pian_fermo else pian_voce(0.3 + 0.04 * (len(inviti) + k)))
                         xfill True
                         yminimum (58 if cal_compatto else 0)
                         ypadding (5 if cal_compatto else 8)
@@ -626,6 +685,7 @@ screen pianificazione(momento, inviti, attivita):
     $ cal_ritratto_h = 380 if cal_touch else 470
     frame:
         style "cal_pannello"
+        at (pian_fisso if pian_fermo else pian_contenuto)
         if cal_tt:
             $ cal_tipo, cal_chr, cal_titolo, cal_extra = cal_tt
             vbox:
@@ -642,7 +702,7 @@ screen pianificazione(momento, inviti, attivita):
                     else:
                         ## Attività senza personaggio: la luna del mese.
                         add ("gui/luna_%d.png" % momento[0]) align (0.5, 0.6) zoom 1.5
-                text CAL_NOMI.get(cal_chr, "Il semestre") style "cal_pannello_nome"
+                text CAL_NOMI.get(cal_chr, CAL_NOMI_COMPRIMARI.get(cal_chr, "Il semestre")) style "cal_pannello_nome"
                 text cal_titolo style "cal_pannello_titolo"
                 if cal_tipo == "invito":
                     text CAL_INVITO_DESC.get(cal_chr, "Qualcuno ti cerca. Non dice perché.") style "cal_pannello_testo"
@@ -653,7 +713,7 @@ screen pianificazione(momento, inviti, attivita):
                                 xysize (30, 30)
                                 yalign 0.5
                                 add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
-                            text "Solo adesso: se scegli altro, l'invito cade." style "cal_pannello_avviso" yalign 0.5
+                            text ("Solo adesso: se scegli altro, l'invito cade." if cal_extra == "scade" else "Dopo la scelta del cuore, forse non tornerà.") style "cal_pannello_avviso" yalign 0.5
                 else:
                     text ATTIVITA_DESC.get(cal_extra, "") style "cal_pannello_testo"
             if cal_touch and cal_sel:
@@ -687,6 +747,29 @@ transform clessidra_gira:
         ease 0.45 rotate 360
         rotate 0
         repeat
+
+transform pian_fisso:
+    alpha 1.0
+
+transform pian_srotola:
+    on show:
+        yanchor 0.0 ypos 0 yzoom 0.04 alpha 0.5
+        easein 0.35 yzoom 1.0 alpha 1.0
+    on hide:
+        easeout 0.2 yzoom 0.04 alpha 0.0
+
+transform pian_contenuto:
+    on show:
+        alpha 0.0
+        pause 0.25
+        ease 0.2 alpha 1.0
+    on hide:
+        ease 0.15 alpha 0.0
+
+transform pian_voce(ritardo):
+    alpha 0.0 xoffset -14
+    pause ritardo
+    ease 0.18 alpha 1.0 xoffset 0
 
 transform cal_pannello_in:
     alpha 0.0 xoffset 14
@@ -768,7 +851,17 @@ screen diario():
 
             null height 10
 
-            textbutton _("Apri le Cronache"):
-                style "cronache_tab"
-                text_style "cronache_tab_text"
-                action ShowMenu("cronache")
+            hbox:
+                spacing 12
+                textbutton _("Apri le Cronache"):
+                    style "cronache_tab"
+                    text_style "cronache_tab_text"
+                    action ShowMenu("cronache")
+                textbutton _("Apri la Trama"):
+                    style "cronache_tab"
+                    text_style "cronache_tab_text"
+                    action ShowMenu("trama")
+                textbutton _("Apri la Borsa"):
+                    style "cronache_tab"
+                    text_style "cronache_tab_text"
+                    action ShowMenu("inventario")

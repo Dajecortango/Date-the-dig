@@ -30,9 +30,13 @@ label interludio1:
 
     "E del Ceppo di Glauco Severo, che nel Ramo fa il lavoro di cui nessuno parla all'Adunanza."
 
+    show vanna neutra at left with easeinleft
+
     vanna "Ooh, [il_fratello_t] ha conosciuto la volpe rossa!"
 
     "Vanna. Sorella maggiore di Ceppo, orecchie ovunque, discrezione da ariete."
+
+    show corrado neutro at right with easeinright
 
     corrado "Lascialo respirare. E tu, fratello: da quella, distanza. È la figlia di Glauco. Il {i}gioiello{/i}. Sai cosa fanno ai ladri di gioielli, da queste parti?"
 
@@ -53,6 +57,9 @@ label interludio2:
     scene bg vicoli_zefiro with fade
 
     "La sera dopo l'Athlion, il Ceppo festeggia — vittorie altrui, birra propria — in una taverna della Contrada Lumina."
+
+    show vanna neutra at left with dissolve
+    show corrado neutro at right with dissolve
 
     vanna "E allora io [gli_t] dico: [fratello_t], o le parli o la smetti di fissarla come un merluzzo. E [lui_t] che fa? Entrambe le cose!"
 

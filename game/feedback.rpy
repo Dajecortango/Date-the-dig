@@ -44,6 +44,7 @@ init python:
             self.snap = None      # dict var -> valore, None = da inizializzare
             self.voci = []        # [(serial, char, riga, su, scadenza)]
             self.serial = 0
+            self.pendenti = []    # avvisi delle conseguenze: [(char, riga)]
 
     _fb = _FeedbackStato()
 
@@ -53,6 +54,13 @@ init python:
     def _fb_reset():
         _fb.snap = None
         _fb.voci = []
+        _fb.pendenti = []
+
+    def feedback_avviso(char, riga):
+        """Avviso di una conseguenza (conseguenze.rpy): esce con le righe di
+        affinita' alla prossima interazione, e si scarta se lo stesso
+        personaggio ha gia' la sua riga. char None = senza ritratto."""
+        _fb.pendenti.append((char, riga))
 
     def _fb_controlla():
         """start_interact_callback: confronta le affinità con lo snapshot."""
@@ -64,10 +72,12 @@ init python:
                 or renpy.in_rollback()):
             _fb.snap = cur
             _fb.voci = []
-            return
-        if cur == _fb.snap:
+            _fb.pendenti = []
             return
         ora = _fb_time.time()
+        nuovi_char = set()
+        if cur == _fb.snap and not _fb.pendenti:
+            return
         for v, char, nome in FEEDBACK_AFFINITA:
             a, b = _fb.snap.get(v), cur.get(v)
             if a is None or b is None or a == b:
@@ -77,6 +87,14 @@ init python:
             _fb.serial += 1
             _fb.voci = [x for x in _fb.voci if x[1] != char]
             _fb.voci.append((_fb.serial, char, riga, su, ora + FEEDBACK_DURATA))
+            nuovi_char.add(char)
+        for char, riga in _fb.pendenti:
+            if char in nuovi_char:
+                continue
+            _fb.serial += 1
+            _fb.voci.append((_fb.serial, char, riga, None, ora + FEEDBACK_DURATA))
+            nuovi_char.add(char)
+        _fb.pendenti = []
         _fb.voci = _fb.voci[-3:]
         _fb.snap = cur
 
@@ -124,5 +142,15 @@ screen feedback_overlay():
                         spacing 12
                         fixed:
                             xysize (100, 100)
-                            add "gui/portrait_%s.png" % char at (fb_fermo if mm_movimento_ridotto() else fb_pulsa) align (0.5, 0.5)
-                        text riga yalign 0.5 size 26 color ("#f0c75e" if su else "#d9c9a8")
+                            if char:
+                                add cal_portrait(char) at (fb_fermo if mm_movimento_ridotto() else fb_pulsa) align (0.5, 0.5)
+                            else:
+                                text "◆" size 44 color "#c0392b" align (0.5, 0.5)
+                        if su is None:
+                            ## Conseguenza: va nella Trama (conseguenze.rpy).
+                            vbox:
+                                yalign 0.5
+                                text "Nella Trama" size 18 italic True color "#a89468"
+                                text riga size 26 color "#d9a38a"
+                        else:
+                            text riga yalign 0.5 size 26 color ("#f0c75e" if su else "#d9c9a8")

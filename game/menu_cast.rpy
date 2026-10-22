@@ -11,6 +11,7 @@
 default persistent.menu_animato = True
 
 init python:
+    import regia_logic as rgl
 
     MM_MARGINE = 40
     MM_ALTEZZA = 860
@@ -50,7 +51,42 @@ init python:
         return sorted(enumerate(MM_CAST), key=lambda e: -abs(mm_rel(e[0], centro)))
 
     def mm_centro_iniziale():
+        # Prima apertura della sessione: al centro il personaggio dell'ultimo
+        # finale raggiunto, se ce n'e' uno.
+        if "mm_carosello" not in renpy.session:
+            chiave = rgl.fondo_menu(persistent.ultimo_finale, FINALI)[1]
+            for i, (k, _fase, _prof) in enumerate(MM_CAST):
+                if k == chiave:
+                    return i
         return renpy.session.get("mm_carosello", 0) % MM_N
+
+    def mm_fondo():
+        """Sfondo della route dell'ultimo finale, sfocato e scurito, o None."""
+        bg = rgl.fondo_menu(persistent.ultimo_finale, FINALI)[0]
+        if bg is None:
+            return None
+        return Transform("bg " + bg, blur=12, matrixcolor=BrightnessMatrix(-0.45))
+
+    ## Entrata del cast alla prima apertura del menu nella sessione: uno
+    ## dopo l'altro dal basso, poi il carosello di sempre.
+    def mm_entrata_attiva():
+        return not renpy.session.get("mm_entrata_fatta") and not mm_movimento_ridotto()
+
+    def mm_entrata_fatta():
+        renpy.session["mm_entrata_fatta"] = True
+
+    ## Polvere dorata che scende sul menu (stesse particelle della sala dello
+    ## Svelo, effetti.rpy), costruita una volta sola.
+    class _MMPolvere(NoRollback):
+        def __init__(self):
+            self.d = None
+
+    _mm_polvere = _MMPolvere()
+
+    def mm_polvere():
+        if _mm_polvere.d is None:
+            _mm_polvere.d = FxOrologio(_fx_polvere())
+        return _mm_polvere.d
 
     def mm_ricorda(centro):
         renpy.session["mm_carosello"] = centro
@@ -206,6 +242,11 @@ transform mm_vivo(fase, profondita):
             ease 2.2 zoom 1.0
             repeat
 
+transform mm_entrata(ritardo):
+    alpha 0.0 yoffset 40
+    pause ritardo
+    ease 0.4 alpha 1.0 yoffset 0
+
 transform mm_fumetto_in:
     alpha 0.0 yoffset 8
     ease 0.18 alpha 1.0 yoffset 0
@@ -227,6 +268,9 @@ screen menu_cast():
 
     $ fermo = mm_movimento_ridotto()
     $ sotto = GetTooltip("main_menu")
+    $ entrata = mm_entrata_attiva()
+    if entrata:
+        timer 1.3 action Function(mm_entrata_fatta)
 
     ## Dal fondo al primo piano: prima i bordi, poi i vicini, il centro sopra.
     ## "index chiave" lega a ogni personaggio i suoi transform anche quando
@@ -248,7 +292,7 @@ screen menu_cast():
 
         fixed:
             fit_first True
-            at slot
+            at ((slot, mm_entrata(0.1 * i)) if entrata else slot)
 
             fixed:
                 fit_first True

@@ -110,9 +110,12 @@ def aede_good(aff, giuramento, lavoro):
 
 
 def finale_aede(aff, giuramento, lavoro, segreto):
-    """Ordine vincolante: good -> bad_glauco -> bad_aede -> neutral."""
+    """Ordine vincolante: good -> passeggero -> bad_glauco -> bad_aede ->
+    neutral. Passeggero: affinita' da good, ma niente giuramento o lavoro."""
     if aede_good(aff, giuramento, lavoro):
         return "good_end"
+    if aff >= GOOD["aede"]:
+        return "aede_passeggero"
     if not segreto and aff < AEDE_BAD:
         return "bad_end_glauco"
     if aff < AEDE_BAD:
@@ -121,10 +124,14 @@ def finale_aede(aff, giuramento, lavoro, segreto):
 
 
 def finale_caino(fiducia, trappole, memoria, druso):
-    """Ordine vincolante: good -> segreto -> bad -> neutral."""
+    """Ordine vincolante: good -> passeggero -> segreto -> bad -> neutral.
+    Passeggero: fiducia da good, ma trappole o memoria fuori soglia (le
+    trappole da bad restano bad)."""
     if (fiducia >= GOOD["caino"] and trappole <= CAINO_TRAPPOLE_GOOD
             and memoria >= CAINO_MEMORIA_GOOD):
         return "caino_good_end"
+    if fiducia >= GOOD["caino"] and trappole < CAINO_TRAPPOLE_BAD:
+        return "caino_passeggero"
     if druso >= CAINO_DRUSO_SEGRETO and fiducia < GOOD["caino"]:
         return "caino_secret_end"
     if fiducia < CAINO_BAD or trappole >= CAINO_TRAPPOLE_BAD:
@@ -133,8 +140,12 @@ def finale_caino(fiducia, trappole, memoria, druso):
 
 
 def finale_druso(aff, coraggio):
+    """Ordine: good -> passeggero (affinita' da good, mai rischiato) ->
+    neutral -> bad."""
     if coraggio and aff >= GOOD["druso"]:
         return "druso_good"
+    if aff >= GOOD["druso"]:
+        return "druso_passeggero"
     if aff >= DRUSO_NEUTRAL:
         return "druso_neutral"
     return "druso_bad"
@@ -156,6 +167,8 @@ def finale_icaro(gender, aff, coperto, congelate):
         return "icaro_bro_end"
     if aff >= GOOD["icaro"] and coperto and "icaro" not in congelate:
         return "icaro_good"
+    if aff >= GOOD["icaro"]:
+        return "icaro_passeggero"
     if aff >= ICARO_NEUTRAL:
         return "icaro_neutral"
     return "icaro_bad"

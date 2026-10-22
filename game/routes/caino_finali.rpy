@@ -249,3 +249,53 @@ label caino_neutral_end:
     centered "{cps=20}{size=+10}SOCI{/size}\n\nLa pergamena di destra resta nel cassetto.\nArchiviata. Non cancellata.{/cps}"
 
     return
+
+################################################################################
+## FINALE PASSEGGERO — Un'altra mano
+################################################################################
+
+label caino_passeggero:
+
+    show caino neutro with dissolve
+
+    caino "Arconti. La tempistica dei registri è mia. Solo mia. Lo scrivano ha copiato quello che gli ho dettato."
+
+    "Si prende tutto. Non mi guarda mentre lo fa. È questo, capisco dopo, il punto."
+
+    "Lenora toglie la seduta con un gesto. La Proprietà passa ad altra mano per un anno."
+
+    scene bg esterno_neve with fade
+
+    show caino freddo with dissolve
+
+    pc "Potevi dividere la colpa. Ti avrei coperto."
+
+    if caino_trappole > rl.CAINO_TRAPPOLE_GOOD:
+        caino "Nelle trappole ci sei cadut[fin] più di una volta. Ogni volta mi hai chiesto scusa un passo dopo. Le scuse tardive, nei registri, si chiamano rettifiche."
+    else:
+        caino "Lo so. Ma a coprire serve ricordare. E tu le cose che ti ho detto le hai lasciate cadere, una a una. Come fogli in un archivio senza indice."
+
+    show caino neutro with qdiss
+
+    caino "Non è un rimprovero. È un saldo. Sei stat[fin] lo scrivano migliore che ho avuto. Non ti chiedo di essere altro."
+
+    "Mi tende la mano. Una stretta da notaio: ferma, breve, registrata."
+
+    scene bg consiglio with fade
+
+    "Una Luna dopo lo vedo alla Rocca, già in piedi, a un banco più in fondo. Caino non resta a terra a lungo."
+
+    show caino sarcastico with dissolve
+
+    "Accanto a lui c'è uno scrivano nuovo. Giovane, attento, prende appunti su tutto. Anche sulle battute."
+
+    "Caino gli dice qualcosa e lo scrivano ride. Io quella battuta la conoscevo. Me l'aveva detta per primo."
+
+    "Al terzo banco Druso mi fa un cenno, la mascella storta. Ha l'aria di chi ha visto chiudersi una porta e non ha avuto il coraggio di dire niente."
+
+    scene bg nero with fade
+
+    $ sblocca_finale("caino_passeggero")
+    centered "{cps=20}{size=+10}UN'ALTRA MANO{/size}\n\nCaino ha pagato da solo.\nIl conto, con te, era già chiuso.{/cps}"
+
+    return

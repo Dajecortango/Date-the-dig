@@ -167,6 +167,8 @@ label fiaccolata_caino:
 
 label fiaccolata_neutra:
     scene bg cala_notte with fade
+    show vanna neutra at left with dissolve
+    show corrado neutro at right with dissolve
     "La Fiaccolata. Scendo la Calà con Vanna e Corrado, un gradino di luce alla volta."
     vanna "Guardali, i piccioncini della Rocca. E tu niente, [fratello_t]? Nemmeno una mano da tenere?"
     corrado "Lascialo stare. C'è chi scende la Calà per la leggenda, e chi per contare i gradini. Entrambi arrivano al fiume."
@@ -484,8 +486,11 @@ label epilogo_semestre:
         else:
             "Ofelia ha una fila nuova di pretendenti. Nessuno arriva al secondo sguardo. Io, credo, non ci arrivai mai."
 
+    # Code delle rivalita' e "un anno dopo": routes/epilogo_coda.rpy.
+    call epilogo_rivali
     scene bg nero with fade
     centered "{cps=20}Il semestre è finito.\nRocca Tempesta, no.{/cps}"
+    call epilogo_anno_dopo
     return
 
 label epilogo_route:

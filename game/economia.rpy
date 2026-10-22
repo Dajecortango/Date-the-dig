@@ -10,6 +10,8 @@ default doni_dati = set()
 default dono_esito = "neutro"
 default dono_nome = ""
 default dono_chi = ""
+default dono_ultimo = None
+default eco_extra = []
 
 init python:
     # Catalogo del mercato coperto: chiave -> (nome in scena, costo).
@@ -44,6 +46,16 @@ init python:
 
     def dono_valuta(char, chiave):
         return rlz.dono_valuta(DONI_GUSTI, char, chiave)
+
+    # Reazioni proprie per (personaggio, dono) nel caso neutro: chiave ->
+    # (espressione dello sprite, [(chi, riga)]), chi = "char" o "narr".
+    # Riempito da economia_extra.rpy.
+    DONI_REAZIONI = {}
+
+    # Label chiamate a fine attivita' prima del dono: (att_id | None, label).
+    # Ogni label riceve att_id e decide da sola se fare qualcosa (una
+    # tantum, condizioni). Riempito da altri file (es. economia_extra.rpy).
+    ECO_DOPO_LABELS = []
 
     def eco_spendi(n):
         store.scudi = max(0, store.scudi - n)
@@ -86,6 +98,10 @@ label eco_dopo_attivita(att_id, char):
                     druso "Un mecenate! Finalmente qualcuno che capisce come si finanzia la poesia."
             "Tenere la borsa chiusa":
                 "Pago il mio e basta. Al Becco Storto la generosità si ricorda una sera; la tirchieria, una stagione."
+    $ eco_extra = [l for a, l in ECO_DOPO_LABELS if a in (att_id, None)]
+    while eco_extra:
+        $ eco_lbl = eco_extra.pop(0)
+        call expression eco_lbl pass (att_id)
     if char:
         call dono_check(char)
     return
@@ -130,12 +146,29 @@ label dono_check(char):
                 dono_esito, dono_segna = rlz.dono_consegna(DONI_GUSTI, char,
                                                            dono_tenuto,
                                                            doni_dati)
+                dono_ultimo = dono_tenuto
                 dono_tenuto = None
                 if dono_segna:
                     doni_dati.add(char)
-            call expression "dono_" + char
+            if dono_esito == "neutro" and (char, dono_ultimo) in DONI_REAZIONI:
+                call dono_reazione(char, dono_ultimo)
+            else:
+                call expression "dono_" + char
         "Tenerlo per un'altra occasione":
             pass
+    return
+
+# Reazione propria di un dono neutro (DONI_REAZIONI).
+label dono_reazione(char, chiave):
+    python:
+        dono_espr, dono_righe = DONI_REAZIONI[(char, chiave)]
+        renpy.show(char + " " + dono_espr)
+        renpy.with_statement(qdiss)
+        for chi, riga in dono_righe:
+            if chi == "narr":
+                renpy.say(None, riga)
+            else:
+                renpy.say(getattr(store, char), riga)
     return
 
 label dono_aede:

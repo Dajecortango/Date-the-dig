@@ -245,3 +245,55 @@ label bad_end_glauco:
     centered "{cps=20}{size=+10}FINE{/size}\n\n«Chi minaccia me, parla con lui.\nE nessuno parla con lui due volte.»{/cps}"
 
     return
+
+################################################################################
+## FINALE PASSEGGERO — La lama nel fodero
+################################################################################
+
+label aede_passeggero:
+
+    show aede neutra with dissolve
+
+    "Aede abbassa la lama. Piano, come si posa una cosa che non serve più."
+
+    aede "Non ti tocco. Non stanotte, non mai. Questo lo decido io."
+
+    if not flag_accetta_lavoro:
+        aede "Ma il mio lavoro l'hai guardato dall'alto in basso. E il mio lavoro sono io, [player_name]."
+    else:
+        aede "Ma quando c'era da giurare, sei rimast[fin] sulla soglia. Io sulla soglia ci vivo da vent'anni. Non ci si sta in due."
+
+    show glauco neutro at left with dissolve
+
+    glauco "Una lama che risparmia senza scegliere. Interessante, figlia. Inutile, ma interessante."
+
+    aede "È il mio bersaglio, padre. Decido io quando mancarlo."
+
+    "Rinfodera. Il suono è piccolo, pulito. Per un istante mi guarda come si guarda una strada che non si prenderà."
+
+    hide aede with dissolve
+
+    hide glauco with dissolve
+
+    scene bg vicoli_zefiro with fade
+
+    "Una Luna dopo, la vedo su un tetto della Consorteria. Mantello grigio, passo leggero, un incarico nuovo tra le dita."
+
+    show aede sorriso with dissolve
+
+    "Sorride a qualcosa che non vedo. Non a me. Lavora bene. Si vede che lavora bene."
+
+    "Mi riconosce. Un cenno, due dita alla fronte, come tra colleghi. Poi salta al tetto successivo e la neve la cancella."
+
+    show ofelia neutra at left with dissolve
+
+    ofelia "Mia sorella ha mancato un bersaglio. La prima volta in vent'anni. Dovresti esserne fier[fin]."
+
+    ofelia "Io non lo sarei. Una che manca il bersaglio, poi se lo dimentica."
+
+    scene bg nero with fade
+
+    $ sblocca_finale("aede_passeggero")
+    centered "{cps=20}{size=+10}LA LAMA NEL FODERO{/size}\n\nAede ti ha risparmiat[fin].\nScegliere, ha scelto il suo lavoro.{/cps}"
+
+    return
