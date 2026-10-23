@@ -10,6 +10,9 @@
 
 define qdiss = Dissolve(0.15)
 
+# Spostamento in scena: frena all'arrivo (il "move" di Ren'Py e' lineare).
+define sposta = MoveTransition(0.32, time_warp=_warper.easein_quart)
+
 # Curva delle entrate UI: easein_quart (parte veloce e frena forte).
 # Attenzione: in ATL "easein" frena e "easeout" accelera, al contrario del
 # CSS (easein_quart di Ren'Py = easeOutQuart di easings.net).
@@ -20,6 +23,10 @@ define lampo = Fade(0.08, 0.0, 0.25, color="#fff")
 # Stacco a tema per i cambi scena: dissolvenza diagonale (alto-sinistra per
 # primo), come le righe del pattern Dignitas. Maschera: make_gui.py.
 define stacco = ImageDissolve("gui/transizione_diagonale.png", 0.8, ramplen=128)
+
+# Cambio scena di tutti i giorni (oltre 200 "with fade"): piu' corto del
+# Fade(0.5, 0, 0.5) di Ren'Py e su un nero caldo, come end_game_transition.
+define fade = Fade(0.3, 0.08, 0.42, color="#100c0c")
 
 # Lampo d'oro: momenti solenni e cartelli dei good end.
 define lampo_oro = Fade(0.25, 0.15, 0.9, color="#d4af37")
@@ -193,24 +200,49 @@ init python:
             store.regia_tempesta = False
             store.regia_lento = False
             camera_riposo_subito()
+            renpy.show_layer_at([], layer="master")
         _regia_scene_prec(layer)
 
     config.scene = _regia_scene
 
     # shock / ricordo / scosse / lampi con "Animazioni: No": dissolvenza
-    # breve. Il suono resta: audio.rpy avvolge questo callback e vede la
-    # transizione originale.
+    # breve. Questo callback avvolge quello di audio.rpy (caricato prima).
     _regia_with_prec = config.with_callback
 
+    # vpunch/hpunch: al posto del Move a +-10 px costante (che scuote anche
+    # il box del testo) una scossa che decade (trauma^2), solo sul master.
+    import math as _sc_m
+
+    def _scossa(forza, durata, ax, ay):
+        def f(trans, st, at):
+            if st >= durata:
+                trans.xoffset = trans.yoffset = 0
+                return None
+            t = (1.0 - st / durata) ** 2
+            trans.xoffset = ax * forza * t * _sc_m.sin(st * 53)
+            trans.yoffset = ay * forza * t * _sc_m.sin(st * 71 + 1.3)
+            return 0
+        return Transform(function=f)
+
     def _regia_con_transizione(trans, paired):
-        if mm_movimento_ridotto():
-            if (trans is store.shock or trans is store.ricordo
-                    or trans is store.vpunch or trans is store.hpunch):
-                trans = Dissolve(0.2)
-            elif trans is store.lampo or trans is store.lampo_oro:
-                trans = Dissolve(0.3)
+        orig = trans
+        # Prima i callback precedenti (audio.rpy): vedono la transizione
+        # originale, quindi il suono resta anche quando qui la si cambia.
         if _regia_with_prec is not None:
             trans = _regia_with_prec(trans, paired)
+        punch = orig is store.vpunch or orig is store.hpunch
+        if mm_movimento_ridotto():
+            if punch or orig is store.shock or orig is store.ricordo:
+                trans = Dissolve(0.2)
+            elif orig is store.lampo or orig is store.lampo_oro:
+                trans = Dissolve(0.3)
+        elif punch:
+            if not renpy.is_skipping():
+                v = orig is store.vpunch
+                renpy.show_layer_at(
+                    [_scossa(16, 0.32, 0.35 if v else 1.0, 1.0 if v else 0.25)],
+                    layer="master")
+            trans = None
         return trans
 
     config.with_callback = _regia_con_transizione

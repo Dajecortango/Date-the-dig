@@ -19,15 +19,16 @@ import routing_logic as rl  # noqa: E402
 SCENARI = [
     # (nome, fiducia, memoria, trappole, druso, atteso)
     ("run perfetta", 17, 3, 0, 1, "caino_good_end"),
-    ("fiducia alta ma 2 trappole -> passeggero", 14, 3, 2, 0, "caino_passeggero"),
-    ("fiducia alta ma memoria 1 -> passeggero", 13, 1, 0, 0, "caino_passeggero"),
-    ("fiducia alta ma tre trappole -> bad", 13, 2, 3, 0, "caino_bad_end"),
-    ("fiducia 12, 2 trappole -> neutral", 12, 2, 2, 0, "caino_neutral_end"),
-    ("legame Druso, fiducia media", 8, 1, 1, 3, "caino_secret_end"),
+    ("fiducia alta ma 1 trappola e memoria 1 -> passeggero", 16, 1, 1, 0,
+     "caino_passeggero"),
+    ("fiducia alta ma memoria 1 -> passeggero", 15, 1, 0, 0, "caino_passeggero"),
+    ("fiducia alta ma due trappole -> bad", 16, 2, 2, 0, "caino_bad_end"),
+    ("fiducia 12, 1 trappola -> neutral", 12, 2, 1, 0, "caino_neutral_end"),
+    ("legame Druso, fiducia media", 12, 1, 1, 3, "caino_secret_end"),
+    ("fiducia sotto 9 -> bad", 8, 2, 0, 0, "caino_bad_end"),
     ("fiducia bassa", 3, 0, 1, 0, "caino_bad_end"),
-    ("tre trappole", 7, 2, 3, 0, "caino_bad_end"),
-    ("via di mezzo", 8, 2, 1, 1, "caino_neutral_end"),
-    ("good batte segreto", 13, 2, 1, 3, "caino_good_end"),
+    ("via di mezzo", 10, 2, 1, 1, "caino_neutral_end"),
+    ("good batte segreto", 15, 2, 1, 3, "caino_good_end"),
 ]
 
 

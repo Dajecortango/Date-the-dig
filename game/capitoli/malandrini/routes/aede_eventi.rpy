@@ -24,6 +24,21 @@ init python:
          "cond": lambda v: v["aede_affinity"] >= 7
          and "aede_cap3" in v["visti"]
          and "scelta_cuore" not in v["visti"]},
+        # Interludi (0 punti): escono solo dopo i fatti che raccontano.
+        {"id": "interludio2", "label": "interludio2", "tipo": "invito",
+         "char": None, "ritratto": "vanna",
+         "titolo": "Il Ceppo festeggia l'Athlion in taverna",
+         "luna_min": 3, "slot": "pomeriggio",
+         "cond": lambda v: "athlion" in v["visti"]
+         and ("scelta_cuore" not in v["visti"]
+              or v["route_attiva"] == "aede")},
+        {"id": "interludio3", "label": "interludio3", "tipo": "invito",
+         "char": None, "ritratto": "briseide",
+         "titolo": "Briseide ti trova sul ballatoio, all'alba",
+         "luna_min": 4, "slot": "mattina",
+         "cond": lambda v: "aede_cap4" in v["visti"]
+         and ("scelta_cuore" not in v["visti"]
+              or v["route_attiva"] == "aede")},
     ])
 
 default impegno_esito = None

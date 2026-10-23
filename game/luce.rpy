@@ -216,8 +216,10 @@ init 1 python:
                     _fo.k = max(voluto, _fo.k - passo)
             _fo.t = ora
             if _fo.k > 0:
-                trans.blur = FONDO_BLUR * _fo.k
-                trans.zoom = 1.0 + 0.02 * _fo.k
+                # k e' lo stato (lineare), la resa passa da una smoothstep.
+                e = _fo.k * _fo.k * (3 - 2 * _fo.k)
+                trans.blur = FONDO_BLUR * e
+                trans.zoom = 1.0 + 0.02 * e
             else:
                 trans.blur = None
                 trans.zoom = 1.0

@@ -143,6 +143,8 @@ style mg_barra:
 style mg_bottone is button:
     background Frame("gui/button/choice_idle_background.png", 100, 16)
     hover_background Frame("gui/button/choice_hover_background.png", 100, 16)
+    hover_sound "audio/scelta.ogg"
+    activate_sound "audio/carta.ogg"
     xfill True
     yminimum 84
     padding (70, 16, 70, 16)
@@ -199,7 +201,7 @@ label att_spada_duello:
     "Aede mi lancia una spada da esercizio. La prendo al volo. Quasi."
     aede "Basta paglia. Oggi la paglia sono io. Tre riprese."
     aede "Non guardare la lama: guarda me. Il corpo dice sempre cosa farà la mano, un battito prima."
-    show aede neutra at mg_lato with move
+    show aede neutra at mg_lato with sposta
     $ mg_segnali = mgl.pesca_segnali(renpy.random)
     $ mg_punti = 0
     $ mg_i = 0
@@ -222,7 +224,7 @@ label att_spada_duello:
             show aede irritata with qdiss
             with hpunch
             "Aede mi passa sotto la guardia. Il legno mi bacia le costole."
-    show aede neutra at center with move
+    show aede neutra at center with sposta
     if mg_lascia:
         $ mg_duello = "lasciato"
         show aede irritata with qdiss
@@ -254,13 +256,13 @@ label att_fumeria_carte:
     show icaro neutro with dissolve
     "La fumeria, tardi. Icaro gioca contro un mercante di lana che crede di essere fortunato."
     "Tre mani di fila. Il mercante perde la prima, la seconda e la terza. Una sola, ne sono sicur[fin], non era fortuna."
-    show icaro neutro at mg_lato with move
+    show icaro neutro at mg_lato with sposta
     python:
         mg_mani, mg_truccata = mgl.pesca_mani(renpy.random)
         mg_opz = [("%s mano: %s" % (MG_ORDINALI[i], m), i) for i, m in enumerate(mg_mani)]
     call screen mg_prova("Quale mano era truccata?", "Ripenso alle sue dita, una mano alla volta.", mg_opz)
     $ mg_scelta = _return
-    show icaro neutro at center with move
+    show icaro neutro at center with sposta
     if mg_scelta == "lascia":
         $ mg_carte = "lasciato"
         "Smetto di guardare le mani. Il fumo è dolce, la sera è lunga, e gli Scudi del mercante non sono miei."
@@ -306,14 +308,14 @@ label att_registri_conti:
     show caino neutro with dissolve
     caino "Una di quelle somme mente. Trovala prima che la trovi io."
     caino "Hai il tempo che ti serve. Io ne ho meno."
-    show caino neutro at mg_lato with move
+    show caino neutro at mg_lato with sposta
     python:
         mg_righe, mg_errata = mgl.genera_registro(renpy.random)
         mg_opz = [(mgl.riga_testo(r), i) for i, r in enumerate(mg_righe)]
         mg_cardia_errata = mg_righe[mg_errata]["nome"] == mgl.CARDIA
     call screen mg_prova("Decime della Proprietà", "Tocca la riga con la somma sbagliata.", mg_opz)
     $ mg_scelta = _return
-    show caino neutro at center with move
+    show caino neutro at center with sposta
     if mg_scelta == "lascia":
         $ mg_registri = "lasciato"
         "Rendo il foglio a Ottone senza segni. Lui lo prende, lo piega in quattro e se lo mette nella manica."

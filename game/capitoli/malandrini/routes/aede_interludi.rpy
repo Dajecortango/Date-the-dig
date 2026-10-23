@@ -83,13 +83,19 @@ label interludio2:
 
     "Sette anni. Lame vere. Una madre persa a dodici, e un padre che risponde al dolore con la disciplina."
 
-    "Ripenso alla sua voce nel vicolo: «il gioiello è un sasso che porto in tasca»."
+    if "aede_cap3" in eventi_visti:
+        "Ripenso a come ha detto «il gioiello di Glauco Severo». Come se il gioiello fosse un sasso che porta in tasca da troppi anni."
+    else:
+        "Ripenso a lei nell'ultima frazione della staffetta. A come vince senza fermarsi a guardare chi applaude."
 
-    vanna "Fratellino. Tutto bene?"
+    vanna "[fratello_t!c]. Tutto bene?"
 
     pc "Sì. No. Non lo so."
 
-    vanna "Benvenut[fin] nell'amore, [fratello_t]."
+    if aede_affinity >= 5:
+        vanna "Benvenut[fin] nell'amore, [fratello_t]."
+    else:
+        vanna "Benvenut[fin] nel Nord, [fratello_t]. Qui le storie tristi si bevono, non si ascoltano."
 
     return
 

@@ -207,9 +207,16 @@ label caino_cap6:
 
     caino "A destra: niente. Nessuna carica, nessun titolo. Solo me. Quello che resta di me quando togli l'Arconte, e ti avverto: nessuno l'ha mai visto, nemmeno io. Potrebbe non esserci nulla."
 
-    pc "Perché me lo chiedi adesso?"
+    if "scelta_cuore" in eventi_visti:
+        pc "Mi hai già scritt[fin] nel tuo registro. Perché me lo chiedi ancora?"
 
-    caino "Perché mia madre ha cominciato a farmi domande su di te. E quando Lenora fa domande, le risposte le sceglie lei, se non gliele dai prima. Devo sapere cosa sei per me, [player_name]. Stanotte."
+        caino "Perché un contratto si rilegge prima di onorarlo. E perché mia madre ha cominciato a farmi domande su di te."
+    else:
+        pc "Perché me lo chiedi adesso?"
+
+        caino "Perché mia madre ha cominciato a farmi domande su di te."
+
+    caino "E quando Lenora fa domande, le risposte le sceglie lei, se non gliele dai prima. Devo sapere cosa sei per me, [player_name]. Stanotte."
 
     show druso neutro at left with dissolve
 

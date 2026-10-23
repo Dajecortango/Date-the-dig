@@ -248,6 +248,16 @@ init -10 python:
     # Comprimari che possono invitare (ritratto degli inviti senza route).
     CAL_NOMI_COMPRIMARI = {"vanna": "Vanna", "corrado": "Corrado",
                            "briseide": "Briseide"}
+    # Testi degli avvisi sugli inviti (cal_inviti_info): riga compatta,
+    # riga piena, pannello di dettaglio.
+    CAL_AVVISI = {
+        "scade": ("Solo adesso", "Solo adesso",
+                  "Solo adesso: se scegli altro, l'invito cade."),
+        "gelosia": ("Icaro lo saprà", "Icaro se ne accorgerà",
+                    "Icaro se ne accorgerà: accettare chiude la sua strada."),
+        "cuore": ("Fino al cuore", "Fino alla scelta del cuore",
+                  "Dopo la scelta del cuore, forse non tornerà."),
+    }
     CAL_INVITO_DESC = {
         "aede": "Aede non chiede mai due volte. Questa conta come una.",
         "caino": "Caino ti vuole dove può vederti. Ha le sue ragioni.",
@@ -303,12 +313,15 @@ init -10 python:
             evs = [e for e in evs
                    if e.get("char") in (None, store.route_attiva,
                                         store.route_seconda)]
-        # avviso: "scade" (cade se scegli altro), "cuore" (Luna IV: dopo la
-        # scelta del cuore forse non torna), False; solo per la screen.
+        # avviso: "scade" (cade se scegli altro), "gelosia" (accettarlo
+        # chiude Icaro), "cuore" (Luna IV: dopo la scelta del cuore forse non
+        # torna), False; solo per la screen (testi in CAL_AVVISI).
         # ritratto: chi mostrare (i comprimari senza route hanno char None).
         def _avviso(e):
             if e.get("scade"):
                 return "scade"
+            if icaro_gelosia_armata(e):
+                return "gelosia"
             if momento[0] == 4 and e.get("char"):
                 return "cuore"
             return False
@@ -380,7 +393,7 @@ label cal_loop:
     if mm_movimento_ridotto() or renpy.is_skipping():
         $ renpy.transition(Dissolve(0.2))
     else:
-        play sound "audio/carta.ogg"
+        play audio "audio/carta.ogg"
     call screen pianificazione((cal_luna, cal_giorno, cal_slot), cal_inviti, cal_att)
 
     python:
@@ -533,7 +546,7 @@ screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None
         action Return()
     timer (0.05 if config.skipping else 2.5) action Return()
     if not (config.skipping or mm_movimento_ridotto()):
-        timer 1.08 action Play("sound", "audio/sigillo.ogg")
+        timer 1.08 action Play("audio", "audio/sigillo.ogg")
 
     default cartello_anim = not (config.skipping or mm_movimento_ridotto())
     fixed:
@@ -683,7 +696,7 @@ screen pianificazione(momento, inviti, attivita):
                                             xysize (26, 26)
                                             yalign 0.5
                                             add "gui/malandrini/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
-                                        text ("Solo adesso" if inv["avviso"] == "scade" else "Fino al cuore") size TESTO_MINUTO color "#d9a441" yalign 0.5
+                                        text CAL_AVVISI[inv["avviso"]][0] size TESTO_MINUTO color "#d9a441" yalign 0.5
                             else:
                                 vbox:
                                   yalign 0.5
@@ -695,7 +708,7 @@ screen pianificazione(momento, inviti, attivita):
                                               xysize (26, 26)
                                               yalign 0.5
                                               add "gui/malandrini/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
-                                          text ("Solo adesso" if inv["avviso"] == "scade" else "Fino alla scelta del cuore") size TESTO_MINUTO color "#d9a441" yalign 0.5
+                                          text CAL_AVVISI[inv["avviso"]][1] size TESTO_MINUTO color "#d9a441" yalign 0.5
 
                 for k, (aid, etichetta, char, _pool) in enumerate(attivita):
                     $ cal_info = ("attivita", char, etichetta, aid)
@@ -767,7 +780,7 @@ screen pianificazione(momento, inviti, attivita):
                                 xysize (30, 30)
                                 yalign 0.5
                                 add "gui/malandrini/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
-                            text ("Solo adesso: se scegli altro, l'invito cade." if cal_extra == "scade" else "Dopo la scelta del cuore, forse non tornerà.") style "cal_pannello_avviso" yalign 0.5
+                            text CAL_AVVISI[cal_extra][2] style "cal_pannello_avviso" yalign 0.5
                 else:
                     text ATTIVITA_DESC.get(cal_extra, "") style "cal_pannello_testo"
             if cal_touch and cal_sel:

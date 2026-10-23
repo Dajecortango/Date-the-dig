@@ -30,14 +30,16 @@ init python:
          "luna_min": 4, "slot": "sera",
          "cond": lambda v: v["caino_fiducia"] >= 9
          and "caino_cap4" in v["visti"]
-         and "scelta_cuore" not in v["visti"]},
+         and ("scelta_cuore" not in v["visti"]
+              or "caino" in (v["route_attiva"], v["route_seconda"]))},
         {"id": "caino_cap6", "label": "caino_cap6", "tipo": "invito",
          "char": "caino", "titolo": "Due pergamene sul tavolo dell'Arconte",
          "luna_min": 4, "slot": "sera",
          "cond": lambda v: v["caino_fiducia"] >= 10
          and "caino_cap5" in v["visti"]
-         and "scelta_cuore" not in v["visti"]},
-        # Luna V, route attiva: la talpa nei registri (nessun punto).
+         and ("scelta_cuore" not in v["visti"]
+              or "caino" in (v["route_attiva"], v["route_seconda"]))},
+        # Luna V, route attiva: la talpa nei registri (fiducia +2 / -2 / 0).
         {"id": "caino_luna5", "label": "caino_luna5", "tipo": "fisso",
          "char": "caino", "luna": 5, "giorno": 20, "slot": "pomeriggio",
          "cond": lambda v: v["route_attiva"] == "caino"
@@ -130,7 +132,7 @@ label impegno_caino:
     return
 
 ################################################################################
-## LUNA V — La talpa (fisso V/20 pomeriggio, nessun punto)
+## LUNA V — La talpa (fisso V/20 pomeriggio, fiducia +2 / -2 / 0)
 ################################################################################
 
 label caino_luna5:
@@ -155,6 +157,7 @@ label caino_luna5:
     menu:
         "Caino si volta verso di me. Il registro che ho in mano pesa come un'accusa."
         "«Ha tradito. Ma sa chi ha pagato. Fallo parlare, prima di cancellarlo.»":
+            $ caino_fiducia += 2
             pc "Ha tradito, Caino. Ma sa chi l'ha pagato. Un nome ci serve più di una riga cancellata."
             show caino neutro with qdiss
             caino "Ci serve. Plurale. Lo hai detto senza accorgertene."
@@ -162,6 +165,7 @@ label caino_luna5:
             "Caino e io ci guardiamo. Un leone d'oro all'indice: l'anello di tutti, a Rocca Tempesta. L'anello di chi vuole sembrare chiunque."
             caino "Un leone qualsiasi. Quindi qualcuno che sa che io guardo gli anelli. La lista dei sospetti si accorcia, e i nomi rimasti sono tutti di famiglia."
         "«Trentun anni. Concedigli l'esilio, non le Segrete.»":
+            $ caino_fiducia -= 2
             pc "Trentun anni di servizio, Caino. Una sola riga sbagliata. Concedigli l'esilio, non le Segrete."
             show caino sarcastico with qdiss
             caino "Clemenza. Una moneta rara, nella Rocca. E come tutte le monete rare, qualcuno ne approfitta."

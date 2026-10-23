@@ -45,7 +45,7 @@ init python:
                              relative_volume=AMBIENTE_VOLUME)
             arrivo = cap.ambiente_arrivo.get(voluto)
             if arrivo and not renpy.is_skipping():
-                renpy.play(arrivo, channel="sound")
+                renpy.play(arrivo)
 
     config.start_interact_callbacks.append(audio_ambiente_aggiorna)
 
@@ -56,9 +56,9 @@ init python:
         """config.with_callback: un suono per le transizioni di regia."""
         if not renpy.is_skipping():
             if trans is store.lampo:
-                renpy.play("audio/lama.ogg", channel="sound")
+                renpy.play("audio/lama.ogg")
             elif trans is store.vpunch or trans is store.hpunch:
-                renpy.play("audio/colpo.ogg", channel="sound")
+                renpy.play("audio/colpo.ogg")
         if _audio_with_prec is not None:
             trans = _audio_with_prec(trans, paired)
         return trans
@@ -67,4 +67,4 @@ init python:
 
     def audio_monete():
         if not renpy.is_skipping():
-            renpy.play("audio/moneta.ogg", channel="sound")
+            renpy.play("audio/moneta.ogg")

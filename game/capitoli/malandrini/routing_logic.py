@@ -13,21 +13,21 @@ CUORE_VAR = {"aede": "aede_affinity", "caino": "caino_fiducia",
              "ofelia": "ofelia_affinity"}
 
 # Good end (alzati di 1 per il dono preferito, economia.rpy).
-GOOD = {"aede": 13, "caino": 13, "druso": 15, "icaro": 13, "ofelia": 12}
+GOOD = {"aede": 13, "caino": 15, "druso": 15, "icaro": 13, "ofelia": 12}
 
 # Altre soglie dei finali.
-AEDE_BAD = 3                # sotto: bad end (Glauco se il segreto e' tradito)
+AEDE_BAD = 6                # sotto: bad end (Glauco se il segreto e' tradito)
 CAINO_TRAPPOLE_GOOD = 1     # good: trappole <= 1
 CAINO_MEMORIA_GOOD = 2      # good: memoria >= 2
 CAINO_DRUSO_SEGRETO = 2     # finale segreto: legame con Druso >= 2
-CAINO_BAD = 5               # bad: fiducia < 5 ...
-CAINO_TRAPPOLE_BAD = 3      # ... o trappole >= 3
+CAINO_BAD = 9               # bad: fiducia < 9 ...
+CAINO_TRAPPOLE_BAD = 2      # ... o trappole >= 2
 DRUSO_NEUTRAL = 8
 ICARO_NEUTRAL = 6
-ICARO_BRO = 6               # Bro "listino": affinita' >= 6 e impegnato
+ICARO_BRO = 10              # Bro "listino": affinita' >= 10 e impegnato
 OFELIA_MANCATI_MAX = 0      # good Ofelia: nessun invito mancato
 OFELIA_MANCATI_GELO = 2     # al secondo mancato Ofelia congela
-OFELIA_BAD = 8              # sotto la soglia del cuore a fine route: bad
+OFELIA_BAD = 10             # sotto, a fine route: bad (neutral 10-11)
 AEDE_SOSPETTO_TEMPESTA = 2  # poly segreto scoperto: tempesta
 # Epilogo, personaggi non scelti: riga "alta" a soglia del cuore
 # (cuore_soglie), riga "media" da qui, sotto la riga "bassa".
@@ -50,11 +50,19 @@ def cuore_classifica(v):
     return out
 
 
+# Scena senza la quale un personaggio non e' candidato al cuore: il suo
+# lucchetto di meta' (senza il vicolo il good di Aede sarebbe gia' perso).
+CUORE_REQUISITI = {"aede": "aede_cap4"}
+
+
 def cuore_candidati(v):
-    """Personaggi sopra soglia e non congelati, nell'ordine di CUORE_VAR."""
+    """Personaggi sopra soglia, non congelati e con la scena di
+    CUORE_REQUISITI vista, nell'ordine di CUORE_VAR."""
     soglie = cuore_soglie(v["player_gender"] == "f")
+    visti = v.get("visti", ())
     return [c for c in CUORE_VAR
-            if v[CUORE_VAR[c]] >= soglie[c] and c not in v["congelate"]]
+            if v[CUORE_VAR[c]] >= soglie[c] and c not in v["congelate"]
+            and (c not in CUORE_REQUISITI or CUORE_REQUISITI[c] in visti)]
 
 
 def rivali_cuore(v):

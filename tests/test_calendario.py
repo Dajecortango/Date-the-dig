@@ -310,16 +310,16 @@ def check_economia_punti():
     # Good end alzati di 1 per il dono preferito (uno per personaggio).
     check("aede: good end (13) raggiungibile", _max_punti("aede_affinity") >= 13, True)
     check("aede good end soglia 13", rl.GOOD["aede"], 13)
-    check("caino: good end (13) raggiungibile", _max_punti("caino_fiducia") >= 13, True)
-    check("caino good end soglia 13", rl.GOOD["caino"], 13)
+    check("caino: good end (15) raggiungibile", _max_punti("caino_fiducia") >= 15, True)
+    check("caino good end soglia 15", rl.GOOD["caino"], 15)
     check("ofelia good end soglia 12", rl.GOOD["ofelia"], 12)
     check("poly aede: good Aede a 13 (12 non basta)",
           (rl.finale_ofelia_poly_aede(0, 0, 0, 13, True, True, True),
            rl.finale_ofelia_poly_aede(0, 0, 0, 12, True, True, True)),
           ("good_end", "neutral_end"))
-    check("ofelia: good con Caino a 13",
-          (rl.finale_ofelia(12, 0, "caino", 13),
-           rl.finale_ofelia(12, 0, "caino", 12)),
+    check("ofelia: good con Caino a 15",
+          (rl.finale_ofelia(12, 0, "caino", 15),
+           rl.finale_ofelia(12, 0, "caino", 14)),
           ("ofelia_good_caino", "ofelia_good"))
     ic = _route("icaro")
     for soglia in (">= 2", ">= 4", ">= 6"):
@@ -535,14 +535,18 @@ def test_scadenza_ofelia():
 
 def test_cuore():
     """Scelta del cuore: candidati, opzioni, coppia, rivali, route vive."""
-    def v(f=True, cong=(), **aff):
+    def v(f=True, cong=(), visti=("aede_cap4",), **aff):
         base = {"aede_affinity": 0, "caino_fiducia": 0, "druso_affinity": 0,
                 "icaro_affinity": 0, "ofelia_affinity": 0}
         base.update(aff)
         base["player_gender"] = "f" if f else "m"
         base["congelate"] = set(cong)
+        base["visti"] = set(visti)
         return base
     check("cuore: nessuno", rl.cuore_candidati(v()), [])
+    check("cuore: Aede senza il vicolo non e' candidata",
+          rl.cuore_candidati(v(visti=(), aede_affinity=12, ofelia_affinity=8)),
+          ["ofelia"])
     check("cuore: soglie esatte donna",
           rl.cuore_candidati(v(aede_affinity=8, caino_fiducia=10,
                                druso_affinity=9, icaro_affinity=7,

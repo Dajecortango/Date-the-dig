@@ -16,7 +16,7 @@ init python:
         ("spada_p", "Addestramento di spada", "aede",
          ["att_spada_1", "att_spada_2", "att_spada_3", "att_spada_4"]),
         ("riti", "I riti del Ceppo di Briseide", None,
-         ["att_riti_1", "att_riti_2", "att_riti_3", "att_riti_4"]),
+         ["att_riti_1", "att_riti_4"]),
         ("citta", "Commissioni in città", None,
          ["att_citta_1", "att_citta_2", "att_citta_3"]),
         ("studio_p", "Studio della storia della Famiglia", None,
@@ -185,6 +185,8 @@ label att_riti_1:
     call interludio1
     return
 
+# Fuori dal pool (gli interludi 2-3 sono inviti a condizione, aede_eventi.rpy):
+# restano per i salvataggi fatti dentro queste scene.
 label att_riti_2:
     call interludio2
     return

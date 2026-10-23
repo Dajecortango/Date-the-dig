@@ -72,6 +72,7 @@ init python:
             return
         ora = _fb_time.time()
         nuovi_char = set()
+        suono = None
         if cur == _fb.snap and not _fb.pendenti:
             return
         for v, char, nome in _fb_affinita():
@@ -88,15 +89,21 @@ init python:
             _fb.voci = [x for x in _fb.voci if x[1] != char]
             _fb.voci.append((_fb.serial, char, riga, su, ora + FEEDBACK_DURATA))
             nuovi_char.add(char)
+            if suono is None or not su:
+                suono = "audio/affetto_su.ogg" if su else "audio/affetto_giu.ogg"
         for char, riga in _fb.pendenti:
             if char in nuovi_char:
                 continue
             _fb.serial += 1
             _fb.voci.append((_fb.serial, char, riga, None, ora + FEEDBACK_DURATA))
             nuovi_char.add(char)
+            suono = "audio/sigillo.ogg"
         _fb.pendenti = []
         _fb.voci = _fb.voci[-3:]
         _fb.snap = cur
+        # Un solo suono per interazione: conseguenza > distanza > vicinanza.
+        if suono and not renpy.is_skipping():
+            renpy.play(suono)
 
     def _fb_scadi():
         ora = _fb_time.time()
@@ -122,12 +129,25 @@ transform fb_comparsa:
 transform fb_fermo:
     zoom 0.55 transform_anchor True
 
+transform fb_fermo_diamante:
+    zoom 1.0
+
 transform fb_pulsa:
     zoom 0.55 transform_anchor True
     ease 0.25 zoom 0.62
     ease 0.25 zoom 0.55
     ease 0.25 zoom 0.6
     ease 0.25 zoom 0.55
+
+# ▼: il ritratto scende e si spegne, niente battito allegro.
+transform fb_cala:
+    zoom 0.55 transform_anchor True matrixcolor SaturationMatrix(1.0)
+    easein 0.35 yoffset 6 matrixcolor SaturationMatrix(0.35)
+
+# Conseguenza: il diamante batte una volta, deciso.
+transform fb_avviso:
+    zoom 1.25
+    easein_back 0.3 zoom 1.0
 
 screen feedback_overlay():
     zorder 60
@@ -147,9 +167,9 @@ screen feedback_overlay():
                         fixed:
                             xysize (100, 100)
                             if char:
-                                add fb_ritratto(char) at (fb_fermo if mm_movimento_ridotto() else fb_pulsa) align (0.5, 0.5)
+                                add fb_ritratto(char) at (fb_fermo if mm_movimento_ridotto() else fb_pulsa if su is not False else fb_cala) align (0.5, 0.5)
                             else:
-                                text "◆" size 44 color "#c0392b" align (0.5, 0.5)
+                                text "◆" size 44 color "#c0392b" align (0.5, 0.5) at (fb_fermo_diamante if mm_movimento_ridotto() else fb_avviso)
                         if su is None:
                             ## Conseguenza: va nella Trama (conseguenze.rpy).
                             vbox:

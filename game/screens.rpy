@@ -270,6 +270,8 @@ screen choice(items):
     style_prefix "choice"
 
     $ scelte_ferme = mm_movimento_ridotto() or renpy.is_skipping()
+    # Voce presa: si conferma con un pop per 140 ms prima di rispondere.
+    default presa = None
 
     vbox:
         for n, i in enumerate(items):
@@ -277,9 +279,14 @@ screen choice(items):
             $ peso = i.kwargs.get("peso", False)
             button:
                 # La scelta presa resta nelle Memorie, prima della risposta.
-                action [Function(scelta_in_memorie, i.caption), i.action]
+                action (NullAction() if presa is not None
+                        else [Function(scelta_in_memorie, i.caption), i.action] if scelte_ferme
+                        else SetScreenVariable("presa", n))
+                # Le scelte che pesano chiudono col sigillo.
+                activate_sound ("audio/sigillo.ogg" if peso else "audio/carta.ogg")
                 # Entrano in cascata dall'alto, poi rispondono all'hover.
-                at (scelta_hover_fermo if scelte_ferme else scelta_hover), (scelta_ferma if scelte_ferme else scelta_entra(n * 0.05))
+                at ((scelta_presa if presa == n else scelta_scarta) if presa is not None
+                    else ((scelta_hover_fermo if scelte_ferme else scelta_hover), (scelta_ferma if scelte_ferme else scelta_entra(n * 0.05))))
                 hbox:
                     xalign 0.5
                     spacing 16
@@ -296,6 +303,9 @@ screen choice(items):
                         text i.caption style "choice_button_text" yalign 0.5
                     if peso:
                         text "◆" style "choice_peso" yalign 0.5
+
+    if presa is not None:
+        timer 0.14 action [Function(scelta_in_memorie, items[presa].caption), items[presa].action]
 
 
 # Hover delle scelte: allargamento lieve e passo a destra (lo sfondo hover ha
@@ -314,10 +324,21 @@ transform scelta_hover:
 transform scelta_ferma:
     alpha 1.0
 
+# Conferma della scelta: la voce presa fa un pop, le altre escono prima.
+transform scelta_presa:
+    xalign 0.5
+    transform_anchor True
+    zoom 0.97
+    easein_back 0.14 zoom 1.03
+
+transform scelta_scarta:
+    xalign 0.5
+    easeout 0.1 alpha 0.0
+
 transform scelta_entra(ritardo):
     alpha 0.0 xoffset -16
     pause ritardo
-    ease 0.18 alpha 1.0 xoffset 0
+    easein_quart 0.2 alpha 1.0 xoffset 0
 
 style choice_peso is default:
     font gui.text_font
@@ -343,6 +364,8 @@ style choice_button is default:
         Transform("gui/scelta_bagliore.png", align=(0.5, 0.5)),
         Frame("gui/button/choice_hover_background.png", gui.choice_button_borders, tile=gui.choice_button_tile))
     hover_sound "audio/scelta.ogg"
+    # Sul touch non c.e. hover: la pressione deve farsi sentire.
+    activate_sound "audio/carta.ogg"
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
@@ -1734,10 +1757,10 @@ screen notify(message):
 
 transform notify_appear:
     on show:
-        alpha 0
-        linear .25 alpha 1.0
+        alpha 0 yoffset -10
+        easein_quart 0.2 alpha 1.0 yoffset 0
     on hide:
-        linear .5 alpha 0.0
+        easeout 0.2 alpha 0.0
 
 
 style notify_frame is empty

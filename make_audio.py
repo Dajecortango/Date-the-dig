@@ -231,6 +231,24 @@ def sigillo():
     return normalizza(dissolvenza(tonfo + 0.35 * cera, rel=0.05), 0.6)
 
 
+def affetto_su():
+    """Due note morbide che salgono (toast ▲, ~0.35 s)."""
+    x = np.zeros(secondi(0.4))
+    for k, (f, ritardo) in enumerate(((660, 0.0), (880, 0.09))):
+        nota = parziali([f, 2 * f], 0.3, [0.12, 0.06], [1, 0.25])
+        aggiungi(x, dissolvenza(nota * (0.8 + 0.2 * k), rel=0.05), secondi(ritardo))
+    return normalizza(dissolvenza(x, rel=0.08), 0.22)
+
+
+def affetto_giu():
+    """Nota grave smorzata che cala (toast ▼, ~0.4 s)."""
+    n = secondi(0.4)
+    t = np.arange(n) / SR
+    freq = 330 - 60 * np.minimum(1.0, t / 0.3)
+    nota = np.sin(2 * np.pi * np.cumsum(freq) / SR) * np.exp(-t / 0.14)
+    return normalizza(dissolvenza(nota, rel=0.08), 0.22)
+
+
 def amb_pioggia():
     """Pioggia sui vicoli: fruscio largo + gocce sparse, in loop."""
     n = secondi(LOOP)

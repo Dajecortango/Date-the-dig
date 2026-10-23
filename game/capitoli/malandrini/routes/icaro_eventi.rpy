@@ -72,14 +72,22 @@ init python:
          and "icaro" not in v["congelate"]},
     ])
 
-    # Possessività: dopo che il suo interesse e' acceso (>=6), accettare
-    # l'invito di un altro personaggio lo chiude per sempre.
-    def icaro_gelosia(ev):
-        if (ev.get("tipo") == "invito"
+    # Possessività (solo romance, protagonista donna): dopo che il suo
+    # interesse e' acceso (>= ICARO_GELOSIA, come icaro_ev3), accettare
+    # l'invito di un altro personaggio lo chiude per sempre. Il pianificatore
+    # lo avvisa prima (cal_inviti_info, avviso "gelosia").
+    ICARO_GELOSIA = 6
+
+    def icaro_gelosia_armata(ev):
+        return (ev.get("tipo") == "invito"
                 and ev.get("char") not in (None, "icaro")
-                and store.icaro_affinity >= 4
+                and store.player_gender == "f"
+                and store.icaro_affinity >= ICARO_GELOSIA
                 and store.route_attiva is None
-                and "icaro" not in store.congelate):
+                and "icaro" not in store.congelate)
+
+    def icaro_gelosia(ev):
+        if icaro_gelosia_armata(ev):
             store.congelate.add("icaro")
             renpy.notify("Icaro non dimentica.")
 

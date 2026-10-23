@@ -76,6 +76,8 @@ BASELINE = [
     'EV:aede_cap1',
     'EV:aede_cap3',
     'EV:aede_cap4',
+    'EV:interludio2',
+    'EV:interludio3',
     'AT:spada',
     'AT:scudo',
     'AT:studio',
