@@ -141,25 +141,31 @@ init 1 python:
             bg = _lu_bg()
             r, g, b = _lu_moltiplicatore(rgl.tinta_per(bg, slot), luce)
             vivo = not fermo and not renpy.is_skipping()
-            if vivo and rgl.fuoco_per(bg, slot):
+            fuoco = vivo and rgl.fuoco_per(bg, slot)
+            if fuoco:
                 fl = rgl.fiamma(ora)
                 r, g, b = r * fl, g * fl, b * fl
             trans.matrixcolor = TintMatrix(Color(rgb=(min(r, 1.0), min(g, 1.0), min(b, 1.0))))
             (dx, dy, z), mov_vivo = _lu_movimento(tag, ora, fermo)
             trans.xoffset = dx
             trans.yoffset = dy
-            trans.zoom = z * (rgl.respiro(ora, rgl.fase_per(tag)) if vivo else 1.0)
+            respira = vivo and SPRITE_RESPIRO
+            trans.zoom = z * (rgl.respiro(ora, rgl.fase_per(tag)) if respira else 1.0)
             # Animazione in corso: ogni frame. Respiro e fuoco: 30 fps (15
             # su telefono). Da fermi: un controllo leggero, per accorgersi
             # di chi parla e del cambio di sfondo.
             if luce_viva or mov_vivo:
                 return 0
-            if vivo:
+            if respira or fuoco:
                 return SPRITE_PASSO
             return 0.1
         return Transform(function=f)
 
     SPRITE_PASSO = 1.0 / 15 if renpy.variant("small") else 1.0 / 30
+    # Su telefono niente respiro (0.6% di zoom, invisibile su 6"): la scena
+    # va a riposo e non ridisegna gli sprite 15 volte al secondo. Il fuoco
+    # resta.
+    SPRITE_RESPIRO = not renpy.variant("small")
 
     def muovi(tag, nome):
         """Movimento a mano su uno sprite in scena (sobbalzo, arretra,

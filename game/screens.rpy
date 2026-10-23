@@ -145,6 +145,8 @@ screen say(who, what):
     window:
         id "window"
         at box_entra
+        ## Opacita' del box dalle Costumanze (slider "Box del dialogo").
+        background Transform(Image("gui/textbox.png", xalign=0.5, yalign=1.0), alpha=persistent.box_opacita)
 
         if who is not None:
 
@@ -258,6 +260,17 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
+default persistent.box_opacita = 1.0
+
+init python:
+    def scelta_in_memorie(caption):
+        narrator.add_history("adv", None, "◆ " + caption)
+
+    ## Telefono: giu'-su con un dito nasconde l'interfaccia per guardare la
+    ## scena (su PC c'e' il tasto H / clic centrale). Restano i gesti di
+    ## default (accessibilita', progresso).
+    config.gestures["s_n"] = "hide_windows"
+
 screen choice(items):
     style_prefix "choice"
 
@@ -268,7 +281,8 @@ screen choice(items):
             # peso=True (argomento di menu): scelta che pesa, diamante rosso.
             $ peso = i.kwargs.get("peso", False)
             button:
-                action i.action
+                # La scelta presa resta nelle Memorie, prima della risposta.
+                action [Function(scelta_in_memorie, i.caption), i.action]
                 # Entrano in cascata dall'alto, poi rispondono all'hover.
                 at (scelta_hover_fermo if scelte_ferme else scelta_hover), (scelta_ferma if scelte_ferme else scelta_entra(n * 0.05))
                 hbox:
@@ -1187,6 +1201,15 @@ screen preferences():
                     label "Grandezza del testo"
 
                     bar value Preference("font size")
+
+                    ## Dal 30% al 100%: sotto, il testo perde il fondo.
+                    label "Box del dialogo"
+
+                    bar value FieldValue(persistent, "box_opacita", range=0.7, offset=0.3)
+
+                    ## Menu di accessibilita' di Ren'Py (voce, contrasto,
+                    ## font): su PC e' Shift+A, su telefono non ha un tasto.
+                    textbutton _("Accessibilità") action ToggleScreen("_accessibility")
 
                 vbox:
 

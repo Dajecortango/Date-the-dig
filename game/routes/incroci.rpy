@@ -210,16 +210,20 @@ label incrocio_serra:
     menu:
         "Si guardano come due lame che si conoscono. Io sono in fila, due posti più indietro."
         "Contare a voce alta le bocche di calore, per Caino":
+            $ caino_fiducia += 1
+            $ ofelia_affinity -= 1
             "Conto. Undici bocche nel pavimento, due per fila, una sotto il fiore blu. Caino annota senza guardarmi."
             show caino sarcastico at left with qdiss
             caino "Undici. La serra di Glauco ha appena trovato un perito. Ofelia, il tuo pretendente lavora per me."
             show ofelia rabbia with qdiss
             ofelia "Il mio pretendente è in fila. Lavora per me. Torna al tuo posto, [player_name]: il quarto da sinistra ti fissa."
         "Prendere le parti di Ofelia: «La primavera non si tassa»":
+            $ ofelia_affinity += 1
             ofelia "Sentito, Arconte? La primavera non si tassa. Lo faccio scrivere sulla porta."
             show caino freddo at left with qdiss
             caino "Tutto si tassa. Anche la primavera, anche le frasi fatte. La tua, [player_name], la metto a registro gratis."
         "Chiedere a Caino quanto vale, a registro, un fiore che non fiorisce":
+            $ caino_fiducia += 1
             show caino sorpreso at left with qdiss
             caino "...niente. Una spesa senza rendita. A bilancio, una perdita pura."
             show ofelia neutra with qdiss

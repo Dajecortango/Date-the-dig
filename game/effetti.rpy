@@ -136,6 +136,8 @@ init python:
                     "foglie": _fx_foglie, "fumo_pipa": _fx_fumo_pipa,
                     "scintille": _fx_scintille, "luccichii": _fx_luccichii}
 
+    FX_PASSO = 1.0 / 30 if renpy.variant("small") else 0
+
     class FxOrologio(renpy.Displayable):
         """Rende il figlio con un tempo che parte da 0 al primo render."""
         def __init__(self, child, **kwargs):
@@ -150,7 +152,9 @@ init python:
             cr = renpy.render(self.child, width, height, t, t)
             rv = renpy.Render(width, height)
             rv.blit(cr, (0, 0))
-            renpy.redraw(self, 0)
+            # Su telefono le particelle a 30 fps: a fps pieni annullavano il
+            # risparmio di SPRITE_PASSO (luce.rpy).
+            renpy.redraw(self, FX_PASSO)
             return rv
 
         def visit(self):

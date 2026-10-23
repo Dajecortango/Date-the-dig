@@ -87,6 +87,7 @@ label icaro_bro_affari:
     menu:
         "Il mercante guarda me. Cerca un alleato, o almeno una crepa."
         "Restare zitto, braccia conserte, e guardare l'uscita":
+            $ icaro_affinity += 1
             "Non dico niente. Guardo la porta del mercato come se avessi già un altro affare lì fuori."
             "Il mercante suda. Scende di prezzo due volte, da solo, senza che nessuno glielo chieda."
             show icaro furbo with qdiss
@@ -98,6 +99,7 @@ label icaro_bro_affari:
             "Il mercante cede. Fuori dal mercato, Icaro mi ferma con due dita sul petto, e le ritira subito."
             icaro "Funziona. Ma il vetraio chiude il martedì, e oggi è martedì. Se il mercante lo sapeva, eravamo fuori. Il metodo, la prossima volta, me lo dici prima."
         "Indicare il bollo sotto un piattino: è ridipinto":
+            $ icaro_affinity += 1
             "Sotto un piattino il bollo di Glostok ha i bordi troppo freschi. Lo giro verso Icaro, senza una parola."
             show icaro sorpreso with qdiss
             icaro "...ridipinto. Mezzo servizio è di Glostok, mezzo di un forno qualunque."
@@ -133,9 +135,11 @@ label icaro_bro_colpo:
             "Barcollo verso di lui con una canzone di Druso in bocca. Quella sulla locandiera. La conosco tutta, purtroppo."
             "La guardia ride, mi indica la strada sbagliata, mi spinge via con una pacca. Dietro di lui, la finestra si richiude piano."
         "Restare fermo nell'ombra, senza respirare":
+            $ icaro_affinity += 1
             "Non mi muovo. Chi scappa ha qualcosa da nascondere. Io sono una colonna del portico."
             "La guardia guarda nella mia direzione per un tempo lunghissimo. Poi sbadiglia, e riprende a dormire in piedi."
         "Fare un fischio basso, come quello dei lanternai":
+            $ icaro_affinity += 1
             "Fischio. Due note, il segnale dei lanternai di Lumina quando passa la ronda. Dalla finestra non viene più nessun rumore."
             "La guardia si guarda intorno, non vede nessuno, maledice i lanternai. Quando torna a dormire, la finestra si apre di nuovo."
     "Icaro scende dal muro con una spada avvolta in un sacco. Non ha fretta. Non ha mai fretta."
