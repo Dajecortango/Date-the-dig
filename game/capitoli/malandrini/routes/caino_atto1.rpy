@@ -368,9 +368,9 @@ label caino_cap3:
             "Da quella sera, Druso mi saluta per nome. Tutte le volte. Anche in mezzo alla folla."
 
         "Declinare con diplomazia":
-            pc "La Proprietà mi vuole sobrio, temo."
+            pc "La Proprietà mi vuole sobri[fin], temo."
 
-            druso "«La Proprietà mi vuole sobrio». Parli già come lui. Che gli Asi ci salvino, due Caino."
+            druso "«La Proprietà mi vuole sobri[fin]». Parli già come lui. Che gli Asi ci salvino, due Caino."
 
     hide druso with dissolve
 

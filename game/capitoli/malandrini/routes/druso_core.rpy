@@ -7,6 +7,8 @@ default druso_passi_falsi = 0
 default flag_druso_coraggio = False
 # Scelta davanti al Consiglio (druso_climax): "parla" | "lascia" | "battuta".
 default druso_consiglio = None
+# La lettera del Ramo (druso_luna6): "riscrivi" | "se_stesso" | "brucia".
+default druso_difesa = None
 default druso_sfida = None
 # Deviazioni: "detto" | "chiuso" | "nascosto"; "neve" | "chiesto" | "aspettato".
 default druso_quaderno_esito = None

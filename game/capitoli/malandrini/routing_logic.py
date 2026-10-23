@@ -225,3 +225,15 @@ def finale_ofelia_poly_aede(sospetto, of_aff, mancati, aede_aff,
     if ofelia_good(of_aff, mancati):
         return "ofelia_good"
     return finale_aede(aede_aff, giuramento, lavoro, segreto)
+
+
+# Diario a route attiva: quanto manca al good end, in tre gradini (mai
+# numeri a schermo). 0 = lontano (sotto GOOD - 3), 1 = vicino, 2 = raggiunto.
+PROGRESSO_VICINO = 3
+
+
+def progresso_route(char, aff):
+    good = GOOD[char]
+    if aff >= good:
+        return 2
+    return 1 if aff >= good - PROGRESSO_VICINO else 0

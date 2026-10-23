@@ -193,7 +193,7 @@ label druso_quaderno:
             $ druso_quaderno_esito = "chiuso"
             "Lo chiudo, ci passo sopra il palmo, glielo tendo. Lui lo prende per un angolo, con due dita, e se lo ficca sotto la camicia."
             show druso serio with qdiss
-            druso "Nessuno restituisce chiuso un quaderno aperto. O sei un santo o sei un bugiardo."
+            druso "Nessuno restituisce chiuso un quaderno aperto. O hai l'anima di un santo o la lingua di un bugiardo."
             druso "Non dirmi quale. Santo fa rima con pianto, bugiardo con lardo, e stasera non ho fame né dell'uno né dell'altro."
         "Rimetterlo sotto la panca prima che si avvicini":
             $ druso_quaderno_esito = "nascosto"

@@ -6,8 +6,10 @@
 # - Overlay "feedback_overlay": a ogni interazione confronta le affinità di
 #   store (capitolo().affinita: variabile di store, ritratto, nome) con
 #   l'ultimo valore visto; se cambiano, il ritratto del personaggio
-#   pulsa in un angolo con una riga breve (▲/▼), ~3.5 s, copiata anche
-#   nelle Memorie. Nessun numero.
+#   pulsa in un angolo con una riga breve (▲/▼), copiata anche nelle
+#   Memorie. Nessun numero. Dura almeno 3.5 s, di piu' se la riga e' lunga,
+#   il doppio con la lettura vocale (che la pronuncia). Nel pianificatore
+#   va a destra, sotto la Borsa, per non coprire la testata.
 #   Lo snapshot vive in un oggetto non-store (NoRollback, mai riassegnato):
 #   non entra nei salvataggi né nel rollback. Si riallinea in silenzio al
 #   menu principale (quindi a ogni nuova partita), dopo un caricamento e
@@ -21,6 +23,10 @@ init python:
     import time as _fb_time
 
     FEEDBACK_DURATA = 3.5
+
+    def _fb_durata(riga):
+        d = max(FEEDBACK_DURATA, FEEDBACK_DURATA + 0.05 * (len(riga) - 20))
+        return d * (2 if _preferences.self_voicing else 1)
 
     def _fb_affinita():
         """(variabile di store, ritratto, nome) del capitolo corrente."""
@@ -38,7 +44,7 @@ init python:
         """Stato del feedback, fuori dallo store: niente save, niente rollback."""
         def __init__(self):
             self.snap = None      # dict var -> valore, None = da inizializzare
-            self.voci = []        # [(serial, char, riga, su, scadenza)]
+            self.voci = []        # [(serial, char, riga, su, scadenza, durata)]
             self.serial = 0
             self.pendenti = []    # avvisi delle conseguenze: [(char, riga)]
 
@@ -72,6 +78,7 @@ init python:
             return
         ora = _fb_time.time()
         nuovi_char = set()
+        da_dire = []
         suono = None
         if cur == _fb.snap and not _fb.pendenti:
             return
@@ -87,20 +94,26 @@ init python:
             narrator.add_history("adv", None, riga)
             _fb.serial += 1
             _fb.voci = [x for x in _fb.voci if x[1] != char]
-            _fb.voci.append((_fb.serial, char, riga, su, ora + FEEDBACK_DURATA))
+            _fb.voci.append((_fb.serial, char, riga, su, ora + _fb_durata(riga), _fb_durata(riga)))
             nuovi_char.add(char)
+            da_dire.append(riga)
             if suono is None or not su:
                 suono = "audio/affetto_su.ogg" if su else "audio/affetto_giu.ogg"
         for char, riga in _fb.pendenti:
             if char in nuovi_char:
                 continue
             _fb.serial += 1
-            _fb.voci.append((_fb.serial, char, riga, None, ora + FEEDBACK_DURATA))
+            _fb.voci.append((_fb.serial, char, riga, None, ora + _fb_durata(riga), _fb_durata(riga)))
             nuovi_char.add(char)
+            da_dire.append("Nella Trama: " + riga)
             suono = "audio/sigillo.ogg"
         _fb.pendenti = []
         _fb.voci = _fb.voci[-3:]
         _fb.snap = cur
+        # Lettura vocale: l'overlay non ha focus, quindi la riga si dice qui.
+        if da_dire and _preferences.self_voicing:
+            renpy.display.tts.speak(" ".join(r.lstrip("▲▼ ") for r in da_dire),
+                                    translate=False)
         # Un solo suono per interazione: conseguenza > distanza > vicinanza.
         if suono and not renpy.is_skipping():
             renpy.play(suono)
@@ -119,11 +132,11 @@ init python:
 
 # Entra veloce e frena (easein_quart); esce da sola poco prima della scadenza (la voce
 # tolta dalla lista non riceve "on hide": senza uscita sparirebbe di netto).
-transform fb_comparsa:
+transform fb_comparsa(durata=FEEDBACK_DURATA):
     on show, start:
         alpha 0.0 xoffset -30
         easein_quart 0.25 alpha 1.0 xoffset 0
-        pause (FEEDBACK_DURATA - 0.55)
+        pause (durata - 0.55)
         easeout 0.25 alpha 0.0 xoffset -16
 
 transform fb_fermo:
@@ -155,11 +168,16 @@ screen feedback_overlay():
     if _fb.voci and not main_menu:
         timer 0.2 repeat True action Function(_fb_scadi)
 
+        ## Nel pianificatore la testata e' in alto a sinistra: a destra,
+        ## sotto la pillola della Borsa.
+        $ fb_destra = renpy.get_screen("pianificazione") is not None
         vbox:
-            xpos 30 ypos 30
+            xpos (1890 if fb_destra else 30)
+            xanchor (1.0 if fb_destra else 0.0)
+            ypos ((160 if renpy.variant("small") else 110) if fb_destra else 30)
             spacing 10
-            for serial, char, riga, su, _scad index serial in _fb.voci:
-                frame at fb_comparsa:
+            for serial, char, riga, su, _scad, durata index serial in _fb.voci:
+                frame at fb_comparsa(durata):
                     background Frame("gui/frame_piccolo.png", 26, 26)
                     padding (22, 12, 30, 12)
                     hbox:

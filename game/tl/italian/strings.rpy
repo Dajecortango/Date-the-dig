@@ -178,3 +178,7 @@ translate italian strings:
 
     old "Menu"
     new "Menu"
+
+    # Data negli slot di salvataggio (giorni e mesi: common.rpy).
+    old "{#file_time}%A, %B %d %Y, %H:%M"
+    new "{#file_time}%A %d %B %Y, %H:%M"

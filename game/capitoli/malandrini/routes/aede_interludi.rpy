@@ -38,7 +38,7 @@ label interludio1:
 
     show corrado neutro at right with easeinright
 
-    corrado "Lascialo respirare. E tu, fratello: da quella, distanza. È la figlia di Glauco. Il {i}gioiello{/i}. Sai cosa fanno ai ladri di gioielli, da queste parti?"
+    corrado "Fa' respirare [il_fratello_t], Vanna. E tu, [fratello_t]: da quella, distanza. È la figlia di Glauco. Il {i}gioiello{/i}. Sai cosa fanno ai ladri di gioielli, da queste parti?"
 
     vanna "Non è rubare se il gioiello ti segue a casa, Corrado."
 

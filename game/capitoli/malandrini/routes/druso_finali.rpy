@@ -17,6 +17,12 @@ label druso_climax:
     "Sul banco dei familiari, Caino siede immobile. Icaro, accanto, si studia le unghie con grande attenzione."
     show druso serio at left with dissolve
     "Druso è in piedi al centro. Niente boccale, niente pubblico amico."
+    if druso_difesa == "riscrivi":
+        "Dalla tasca gli spunta un foglio piegato: la difesa riscritta in due al Becco Storto. Non lo tira fuori."
+    elif druso_difesa == "se_stesso":
+        "Non ha fogli in mano. Nessuna poesia: si è portato se stesso, come gli ho detto. Adesso non sa dove metterlo."
+    elif druso_difesa == "brucia":
+        "La convocazione che ho bruciato gliel'hanno rimandata in copia. Sa ancora di fumo, giura lui."
     "Lenora non si vede. Siede dietro la grata in fondo alla sala, e la sala intera respira al suo ritmo."
     "Una voce, da dietro la grata. Bassa, senza fretta."
     "«Druso. Ti ascolto.»"
@@ -68,6 +74,12 @@ label druso_good:
     "Un Eparca si alza per protestare. Caino, senza voltarsi, gli posa una mano sul braccio. L'Eparca si risiede."
     "Lo recita. Davanti a Lenora, agli Arconti, al Nord intero. Il poema non osceno. Il mio."
     "Dentro ci sono cose che sappiamo solo noi due. Nessuno in sala capisce. Io sì."
+    if druso_difesa == "riscrivi":
+        "Riconosco i miei versi. Ognuno con una parola cambiata, perché possa dire che è suo."
+    elif druso_difesa == "se_stesso":
+        "Niente strofe sul decoro. Cento chili di debiti, versi e paura, tutti in piedi, tutti in rima."
+    elif druso_difesa == "brucia":
+        "Nemmeno una parola sulla convocazione. Recita come uno che non deve più niente a nessuna lettera."
     "La sala non ride. La sala — che gli Asi la conservino — applaude."
     "Da dietro la grata, una sola parola: «Bis.»"
     show druso sorpreso with qdiss
@@ -87,6 +99,9 @@ label druso_good:
     "Scendiamo i gradini della Calà a passo lento. Al duecentesimo si ferma."
     show druso imbarazzato with dissolve
     druso "...e a te. Ma questo è fuori metrica."
+    "Poi mi bacia. Fuori metrica anche quello: troppo lungo, senza ritmo, la barba che punge."
+    show druso ghigno with qdiss
+    druso "Non abituarti. Il prossimo lo faccio in endecasillabi."
     "Da quella sera Zefiro ha un poeta nuovo. Stesso uomo, stessa barba. Le rime oscene restano."
     "Ma alla fine di ogni serata, a voce bassa, ce n'è una che non lo è. Ed è per me."
     scene bg nero with fade

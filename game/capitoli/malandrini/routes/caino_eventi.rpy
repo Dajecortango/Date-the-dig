@@ -44,6 +44,11 @@ init python:
          "char": "caino", "luna": 5, "giorno": 20, "slot": "pomeriggio",
          "cond": lambda v: v["route_attiva"] == "caino"
          and "caino" not in v["congelate"]},
+        # Luna VI, route attiva: l'ultima pagina prima del Consiglio (0 punti).
+        {"id": "caino_luna6", "label": "caino_luna6", "tipo": "fisso",
+         "char": "caino", "luna": 6, "giorno": 5, "slot": "sera",
+         "cond": lambda v: v["route_attiva"] == "caino"
+         and "caino" not in v["congelate"]},
     ])
 
     # Lavoro da scrivano: si sblocca dopo l'Adunanza, resta anche a route
@@ -144,6 +149,9 @@ label caino_luna5:
     "Dietro di me, scortato da due guardie del Ramo di Lenora, entra Ottone. Lo scrivano del calamaio. Le mani gli tremano; le nasconde nelle maniche, e tremano le maniche."
     caino "Ottone. Trentun anni alla Proprietà. Mio padre ti assunse. Io ti ho confermato. Due firme, due generazioni."
     caino "Stamattina il Primo Arconte aveva sul tavolo le copie dei registri di Aulo. Con le date di consultazione. Scritte con la tua mano."
+    if "caino_cap4" not in eventi_visti:
+        "Aulo. Il Filius Maior del Ceppo di Cardia, la «mano sinistra» di Caino in Consiglio. In Luna III Caino l'ha consegnato con tre buchi nei registri, e si è preso la sua carica."
+        "Io ero agli scrittoi delle decime, quella sera. Le date di consultazione, però, le ho ricopiate io: le copie passano tutte dalla mia mano."
     ottone "Arconte, io... mi hanno detto che era per l'ordine della Famiglia. Che la Verità voleva solo controllare."
     show caino furioso with vpunch
     caino "LA VERITÀ NON PAGA IN SCUDI D'ORO, OTTONE."
@@ -158,6 +166,7 @@ label caino_luna5:
         "Caino si volta verso di me. Il registro che ho in mano pesa come un'accusa."
         "«Ha tradito. Ma sa chi ha pagato. Fallo parlare, prima di cancellarlo.»":
             $ caino_fiducia += 2
+            $ caino_ottone = "parla"
             pc "Ha tradito, Caino. Ma sa chi l'ha pagato. Un nome ci serve più di una riga cancellata."
             show caino neutro with qdiss
             caino "Ci serve. Plurale. Lo hai detto senza accorgertene."
@@ -166,12 +175,14 @@ label caino_luna5:
             caino "Un leone qualsiasi. Quindi qualcuno che sa che io guardo gli anelli. La lista dei sospetti si accorcia, e i nomi rimasti sono tutti di famiglia."
         "«Trentun anni. Concedigli l'esilio, non le Segrete.»":
             $ caino_fiducia -= 2
+            $ caino_ottone = "esilio"
             pc "Trentun anni di servizio, Caino. Una sola riga sbagliata. Concedigli l'esilio, non le Segrete."
             show caino sarcastico with qdiss
             caino "Clemenza. Una moneta rara, nella Rocca. E come tutte le monete rare, qualcuno ne approfitta."
             caino "Rurikstad, Ottone. Stanotte. Se torni, non ci sarà un secondo margine."
             "Ottone esce senza voltarsi. Sulla soglia si ferma un istante, e mi fa un cenno minimo. Un grazie da tre Scudi."
         "Tacere e lasciare decidere l'Arconte":
+            $ caino_ottone = "tace"
             "Taccio. È la sua Proprietà, il suo traditore, la sua legge."
             show caino freddo with qdiss
             caino "Il silenzio. Saggio, oggi. Le guardie sanno cosa fare."
@@ -185,4 +196,44 @@ label caino_luna5:
     show caino tenero with dissolve
     caino "Sto bruciando tutto quello che potrebbero usare contro di te. Tutto tranne una cosa. Quella devo deciderla io, davanti a tutti."
     caino "Fino ad allora, scrivi in bella grafia, [player_name]. E non firmare niente che io non abbia letto."
+    return
+
+################################################################################
+## LUNA VI — L'ultima pagina (fisso VI/5 sera, nessun punto)
+################################################################################
+
+label caino_luna6:
+    scene bg esterno_neve with fade
+    "Gli spalti della Rocca, a notte fonda. Caino mi ha mandato un biglietto senza firma: «Gli spalti. Porta freddo»."
+    show caino neutro with dissolve
+    "È seduto sul parapetto, il registro aperto sulle ginocchia. Una lanterna sola, schermata dal mantello."
+    caino "Sedici giorni al Consiglio. Ho bruciato tutto quello che potevano usare. Resta una pagina."
+    "La gira verso di me. Due colonne tirate a righello: attivo, passivo. In cima, il mio nome. Sotto, niente."
+    caino "Non so dove metterti. È la prima volta in vent'anni che non so dove mettere un nome."
+    show caino freddo with qdiss
+    caino "Quindi lo chiedo a te, che è contro tutte le mie regole. Di che colonna sei, [player_name]?"
+    menu:
+        "La neve si posa sulla pagina, e Caino non la scuote via."
+        "«Attivo. Mettimi dove ti serve, al Consiglio.»":
+            $ caino_colonna = "attivo"
+            pc "Attivo. Se al Consiglio ti serve un nome, mettimi dove ti serve."
+            show caino sarcastico with qdiss
+            caino "Generos[fin]. È la parola che uso per chi non ha letto le clausole."
+            "Scrive il mio nome a sinistra. Poi resta con la penna alzata, come se la riga non gli tornasse."
+        "«Nessuna. Non sono una voce del tuo registro.»":
+            $ caino_colonna = "nessuna"
+            pc "Nessuna delle due. Non sono una voce del tuo registro, Caino. Non lo sono mai stat[fin]."
+            show caino sorpreso with qdiss
+            "Mi guarda come si guarda un errore di somma che, ricontrollato, risulta giusto."
+            caino "Allora il registro è sbagliato. Lo dico io, che non sbaglio registri."
+        "Prendergli la penna, e scrivere il mio nome da sol[fin]":
+            $ caino_colonna = "scrive"
+            "Gli tolgo la penna di mano. Lui me la lascia, e questo da solo vale più di una firma."
+            "Scrivo il mio nome a metà, a cavallo della riga. Né attivo, né passivo."
+            show caino tenero with dissolve
+            caino "Fuori colonna. Lo sai che l'inchiostro su una riga non si cancella senza strappare la pagina."
+            pc "Lo so. Per questo l'ho fatto."
+    show caino neutro with qdiss
+    caino "Il ventuno, in Consiglio, non guardarmi come se sapessi già cosa dirò. Non lo so nemmeno io."
+    "Chiude il registro. La neve resta dentro, tra le pagine. Non la scuote via nemmeno adesso."
     return

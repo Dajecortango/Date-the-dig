@@ -150,7 +150,7 @@ label icaro_bro_colpo:
     "Ci allontaniamo per i vicoli. Al secondo angolo si ferma, srotola il sacco e mi mostra l'elsa. Dorata, pacchiana, con una gemma finta."
     show icaro sereno with qdiss
     icaro "Brutta. Vale poco. Ma è mia, e nessuno tocca ciò che è mio."
-    icaro "Stanotte sei rimasto, e non hai chiesto la tua parte. Avevo messo da parte dieci Scudi per trattare. Restano in tasca mia."
+    icaro "Stanotte sei rimast[fin], e non hai chiesto la tua parte. Avevo messo da parte dieci Scudi per trattare. Restano in tasca mia."
     "Mi passa la pipa, accesa al riparo di un portone. Il cannello verso di me, le dita lontane."
     return
 
@@ -267,16 +267,19 @@ label icaro_luna6:
     menu:
         "Resta una colonna vuota, in fondo alla pagina. Icaro la tiene coperta col palmo."
         "Chiedergli cosa va scritto lì":
+            $ icaro_colonna = "chiede"
             show icaro irritato with qdiss
             icaro "Domanda prematura. La colonna si chiude a fine semestre, non prima. Gli interessi maturano fino all'ultimo giorno."
             "Ma non toglie la mano. La preme un po' di più, come su una carta che il vento potrebbe girare."
         "Leggere il totale del semestre, come se niente fosse":
+            $ icaro_colonna = "totale"
             pc "Totale: un magazzino, una lampada di Lumina, quarantaquattro Scudi di Druso."
             show icaro sereno with qdiss
             icaro "Hai dimenticato una voce."
             pc "Quale?"
             icaro "Appunto. Non si dimentica per caso. Bene così."
         "Accendergli la pipa, senza chiedere":
+            $ icaro_colonna = "pipa"
             $ muovi("icaro", "avanza")
             "Batto l'acciarino. Lui si sporge, la pipa tra i denti, e la fiamma ci illumina tutti e due per un istante."
             show icaro sorpreso with qdiss

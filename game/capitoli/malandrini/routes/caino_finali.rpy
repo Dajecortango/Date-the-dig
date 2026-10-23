@@ -16,7 +16,7 @@ label caino_climax:
 
     "L'accusa è semplice: l'Arconte della Proprietà ha trattenuto le prove contro Aulo per sei mesi, usandole quando conveniva a lui. Abuso della Virtù dell'Operosità. Qualcuno deve pagare."
 
-    "E io so — perché i registri li tengo io — che esiste una via d'uscita perfetta: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino, e il ritardo diventa colpa mia. Lo scrivano nuovo, inesperto, del Ceppo di Briseide. Il capro perfetto."
+    "E io so — perché i registri li tengo io — che esiste una via d'uscita perfetta: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino, e il ritardo diventa colpa mia. L'ultim[fin] arrivat[fin] agli scrittoi, inespert[fin], del Ceppo di Briseide. Il capro perfetto."
 
     "Il Primo Arconte legge l'accusa con voce piatta, da notaio. Ogni data cade nella sala come una moneta sul tavolo."
 
@@ -24,13 +24,53 @@ label caino_climax:
 
     "Al terzo banco a sinistra, Druso. Ha le braccia incrociate e la mascella serrata. Per una volta, niente TESCHIO."
 
+    if caino_ottone == "parla":
+        "Fra i testimoni, in fondo, c'è Ottone. Ha dato il leone d'oro all'indice, in Luna V. Oggi tiene gli occhi sulle scarpe, e le scarpe sono pulite."
+    elif caino_ottone == "esilio":
+        "Il posto di Ottone agli scrittoi è vuoto. Il Primo Arconte lo nota ad alta voce: «Lo scrivano anziano è a Rurikstad. Comodo»."
+    elif caino_ottone == "tace":
+        "Di Ottone, nelle Segrete, non parla nessuno. Le date che ha venduto sono lì, sul tavolo del Primo Arconte, accanto alle mie."
+
+    if caino_colonna == "attivo":
+        "Sugli spalti gli ho detto: mettimi dove ti serve. Il mio nome è nella colonna di sinistra, e lui lo sa a memoria."
+    elif caino_colonna == "nessuna":
+        "Sugli spalti gli ho detto che non sono una voce del suo registro. Adesso il registro è sul tavolo del Primo Arconte."
+    elif caino_colonna == "scrive":
+        "Sugli spalti ho scritto il mio nome a cavallo della riga. Né attivo né passivo. Non si cancella senza strappare la pagina."
+
     "Caino lo sa. Mi guarda. La sala intera segue il suo sguardo fino a me."
+
+    menu:
+        "Ho un istante. Uno solo, prima che Caino apra bocca."
+
+        "Alzarmi: «Le date le ho scritte io.»" (peso=True):
+            $ caino_climax_scelta = "colpa"
+            "Mi alzo. La panca stride sul marmo, e trenta teste si voltano insieme."
+            pc "Le date di consultazione sono mie, Arconti. La mano è la mia."
+            "Il Primo Arconte mi guarda come si guarda una macchia sul verbale."
+            "«I Figli nuovi non parlano in Consiglio. Si sieda.» Ma l'ha scritto. L'ho visto scriverlo."
+            show caino sorpreso with qdiss
+            "Caino non si muove. Solo l'anello col drago, al mignolo, gira di mezzo giro."
+
+        "Restare sedut[fin], e reggere il suo sguardo" (peso=True):
+            $ caino_climax_scelta = "tace"
+            "Non mi alzo. Non abbasso gli occhi. Gli lascio la frase intera, qualunque sia."
+            "È una firma in bianco. Lui lo sa leggere meglio di chiunque."
+
+        "Guardare Lenora, invece di lui" (peso=True):
+            $ caino_climax_scelta = "lenora"
+            "Sposto gli occhi sul seggio più alto. Lenora sta già guardando me."
+            "Non sorride. Le dita intrecciate si sciolgono, un dito alla volta, come chi riapre un conto che credeva chiuso."
+            "Caino se ne accorge. Per la prima volta da che lo conosco, è lui a dover scegliere senza sapere cosa ho visto."
 
     # Routing (rl.finale_caino) — ordine vincolante: caino_good_end ->
     # caino_passeggero -> caino_secret_end -> caino_bad_end ->
     # caino_neutral_end.
-    $ cal_finale = rl.finale_caino(caino_fiducia, caino_trappole,
-                                   caino_memoria, caino_druso)
+    # Il segreto e' una dichiarazione di Druso: se Druso ha archiviato
+    # il protagonista (congelato), il legame non conta piu'.
+    $ cal_finale = rl.finale_caino(
+        caino_fiducia, caino_trappole, caino_memoria,
+        0 if "druso" in congelate else caino_druso)
     jump expression cal_finale
 
 ################################################################################
@@ -48,6 +88,9 @@ label caino_good_end:
 
     caino "Io. Li ho trovati, li ho tenuti, li ho usati. Per ambizione. Come ogni cosa che ho fatto in questa Rocca, tranne una."
 
+    if caino_climax_scelta == "colpa":
+        caino "Chi tiene i miei registri si è alzat[fin] per mentire al Consiglio. Mettetelo a verbale: ha copiato quello che gli dettavo. Mente male. È la sua unica qualità discutibile."
+
     "La sala esplode. Lenora alza una mano e il rumore muore."
 
     "La Capofamiglia guarda suo figlio per un tempo lunghissimo. Poi:"
@@ -63,6 +106,13 @@ label caino_good_end:
 
     caino "Vent'anni di scalata. Bruciati in una frase. Dovrei odiarti."
 
+    if caino_climax_scelta == "colpa":
+        caino "Ti sei alzat[fin]. Davanti al Primo Arconte, per una colpa mia. Nessuno mi ha mai prestato niente senza interessi."
+    elif caino_climax_scelta == "tace":
+        caino "Mi hai lasciato la frase. Intera. Potevo dire il tuo nome, e tu sei rimast[fin] lì a guardarmi come se non potessi."
+    elif caino_climax_scelta == "lenora":
+        caino "Hai guardato mia madre. Nessuno guarda Lenora mentre lei guarda me. Adesso sa chi sei, e non ha ancora deciso cosa farne."
+
     pc "E invece?"
 
     caino "Invece ho fatto i conti. Io i conti li faccio sempre, lo sai. Carica: persa. Seggio: rimandato. Madre: furiosa, il che è quasi un guadagno."
@@ -70,6 +120,13 @@ label caino_good_end:
     show caino tenero with dissolve
 
     caino "Tu: qui. Il registro chiude in attivo, [player_name]. Controparti raggirate: zero. Ricontrolla pure le somme, io non ci credo ancora."
+
+    if caino_colonna == "attivo":
+        caino "In attivo, come mi avevi chiesto sugli spalti. Solo che la colonna, alla fine, l'ho scelta io."
+    elif caino_colonna == "nessuna":
+        caino "E non sei una voce. Me l'hai detto sugli spalti. Ho dovuto inventare una colonna nuova."
+    elif caino_colonna == "scrive":
+        caino "Fuori colonna, l'avevi scritto tu. Stanotte ho provato a cancellarlo. Avrei dovuto strappare la pagina."
 
     pc "Tua madre ti perdonerà?"
 
@@ -80,6 +137,12 @@ label caino_good_end:
     caino "La pergamena di destra. Quella senza niente scritto. La firmo io, se tu la firmi con me. E ti avverto: quello che c'è sotto l'Arconte farebbe di tutto per te. Di tutto. Non sono riuscito a scriverci una clausola di recesso. Ci ho provato per tre notti."
 
     pc "Allora firmiamo senza limiti."
+
+    caino "Senza limiti. E senza la clausola che scrivo in tutti i contratti: niente sentimentalismi."
+
+    "Mi bacia. Piano, preciso, come chi firma in fondo alla pagina e poi ricontrolla la data."
+
+    "Poi senza ricontrollare niente."
 
     caino "TESCHIO."
 
@@ -113,7 +176,12 @@ label caino_secret_end:
 
     "Caino mi passa accanto senza fermarsi."
 
-    caino "Grazie per il silenzio, [figlio_t] di Briseide. Il tuo conto è pari."
+    if caino_climax_scelta == "colpa":
+        caino "Ti sei alzat[fin] per me, [figlio_t] di Briseide. Respinto. Il tuo conto è pari."
+    elif caino_climax_scelta == "lenora":
+        caino "Hai guardato mia madre invece di me. Prudente. Il tuo conto è pari, [figlio_t] di Briseide."
+    else:
+        caino "Grazie per il silenzio, [figlio_t] di Briseide. Il tuo conto è pari."
 
     "Pari. Un registro chiuso. Tutto qui."
 
@@ -179,6 +247,12 @@ label caino_bad_end:
 
     "Lo dice senza guardarmi. Liscio, misurato, perfetto. La voce del Ballo delle Candele Spente."
 
+    if caino_climax_scelta == "colpa":
+        caino "Lo scrivano stesso l'ha ammesso, Arconti. In piedi. L'avete sentito tutti."
+        "La mia frase. Detta per lui, e girata contro di me con mezza riga. Il Primo Arconte non deve nemmeno riscriverla."
+    elif caino_climax_scelta == "lenora":
+        "Lenora mi guarda una volta sola, mentre lui parla. Lo stesso sguardo di prima. Adesso so cosa voleva dire: niente di personale."
+
     "Provo a parlare: il Primo Arconte mi toglie la parola. I Figli nuovi non parlano in Consiglio. Il mio nome entra nei verbali; la Virtù della Verità richiede un'ammenda; Briseide ottiene — a fatica — che sia l'esilio dalla capitale e non le Segrete Silenti."
 
     "Caino vota con la maggioranza. Ovviamente. Vince gli scontri, Caino. Tutti. Soprattutto quando è dalla parte del torto."
@@ -223,6 +297,9 @@ label caino_neutral_end:
     caino "Arconti. I registri hanno due mani: la mia e quella del mio scrivano. La tempistica è mia. Gli errori di forma, suoi. Propongo ammenda doppia e chiudiamo: il Consiglio ha guerre più vere di questa."
 
     "Mezza colpa a testa. Il compromesso perfetto: nessuno cade, nessuno vince. Lenora approva con un cenno annoiato."
+
+    if caino_climax_scelta == "colpa":
+        "Mi ero alzat[fin] per prenderla tutta. Ne ha presa metà. Da Caino, è quasi un regalo."
 
     scene bg studio_glauco with fade
 
@@ -273,7 +350,10 @@ label caino_passeggero:
 
     show caino freddo with dissolve
 
-    pc "Potevi dividere la colpa. Ti avrei coperto."
+    if caino_climax_scelta == "colpa":
+        pc "Mi ero alzat[fin]. Potevi lasciarmene metà, della colpa."
+    else:
+        pc "Potevi dividere la colpa. Ti avrei coperto."
 
     if caino_trappole > rl.CAINO_TRAPPOLE_GOOD:
         caino "Nelle trappole ci sei cadut[fin] più di una volta. Ogni volta mi hai chiesto scusa un passo dopo. Le scuse tardive, nei registri, si chiamano rettifiche."

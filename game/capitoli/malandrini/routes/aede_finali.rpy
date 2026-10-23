@@ -48,19 +48,47 @@ label climax:
 
     aede "Il bersaglio sei tu."
 
+    if aede_luna6_esito == "resta":
+        aede "In palestra sei rimast[fin] fino all'ultima stoccata. Col gomito alto. Non dovevi."
+    elif aede_luna6_esito == "chiede":
+        aede "Me l'hai chiesto, in palestra. Adesso lo sai. Adesso è vero."
+    elif aede_luna6_esito == "lascia":
+        aede "In palestra te ne sei andat[fin] quando te l'ho chiesto. Stanotte non te lo chiedo."
+
     "La lama è già nella sua mano. Non l'ho vista estrarla. Non la vedo mai."
 
     menu:
         "La neve cade. Lei aspetta. Tutto quello che siamo stati si decide adesso."
 
         "Parlarle, un'ultima volta" (peso=True):
-            pc "Qualunque cosa accada adesso, Aede: rifarei ogni gradino della Calà."
+            $ aede_climax_gesto = "parla"
+            if ofelia_mano_cala:
+                pc "Sulla Calà ho preso la mano di tua sorella, sotto i tuoi occhi. Non ti chiedo di dimenticarlo. Ti chiedo di guardarmi adesso."
+            elif aede_mano_cala == "indietro":
+                pc "Sulla Calà sono rimast[fin] indietro, Aede. Stanotte no. Qualunque cosa accada, resto qui."
+            elif aede_mano_cala == "rifiutata":
+                pc "Qualunque cosa accada adesso, Aede: rifarei ogni gradino della Calà. Anche quello in cui mi hai tolto la mano."
+            elif aede_mano_cala in ("presa", "accanto"):
+                pc "Qualunque cosa accada adesso, Aede: rifarei ogni gradino della Calà."
+            else:
+                pc "Qualunque cosa accada adesso, Aede: non me ne vado. Non da te."
 
         "Restare in silenzio e guardarla negli occhi" (peso=True):
+            $ aede_climax_gesto = "silenzio"
             "Non dico niente. Le parole, con lei, sono sempre state la moneta sbagliata. La guardo e basta, come al fondo della scala."
 
         "Tendere la mano, aperta" (peso=True):
-            "Tendo la mano. Aperta, vuota, ferma nella neve. La stessa che le ho offerto sulla Calà."
+            $ aede_climax_gesto = "mano"
+            if ofelia_mano_cala:
+                "Tendo la mano. Aperta, vuota, ferma nella neve. Sulla Calà l'ha vista stringere quella di sua sorella. Gliela tendo lo stesso."
+            elif aede_mano_cala == "presa":
+                "Tendo la mano. Aperta, vuota, ferma nella neve. La stessa che le ho offerto sulla Calà."
+            elif aede_mano_cala == "rifiutata":
+                "Tendo la mano. Aperta, vuota, ferma nella neve. Sulla Calà l'ha ritirata con naturalezza perfetta. Gliela offro di nuovo."
+            elif aede_mano_cala == "accanto":
+                "Tendo la mano. Aperta, vuota, ferma nella neve. Sulla Calà è rimasta a un dito dalla sua. Stanotte il dito lo attraverso io."
+            else:
+                "Tendo la mano. Aperta, vuota, ferma nella neve."
 
     if route_seconda == "aede":
         show ofelia neutra at left with dissolve
@@ -87,13 +115,23 @@ label good_end:
 
     aede "Vent'anni di ordini eseguiti. Sai quante volte ho sbagliato un bersaglio, [player_name]?"
 
-    pc "Una."
+    if aede_climax_gesto == "silenzio":
+        "Non rispondo. Ho smesso di parlare da tre passi, e lei lo sa leggere."
 
-    show aede sorriso with dissolve
+        show aede sorriso with dissolve
 
-    aede "Una. E non era un errore."
+        aede "Una. Non dirlo. Me lo stai dicendo da quando sei arrivat[fin] in questa neve."
+    else:
+        pc "Una."
+
+        show aede sorriso with dissolve
+
+        aede "Una. E non era un errore."
 
     "Apre le dita. La lama cade nella neve, dritta, e vi resta piantata come un piccolo monumento."
+
+    if aede_climax_gesto == "mano":
+        "Poi prende la mano che le tendo. Dita fredde, presa da spadaccina. Non la lascia nemmeno quando sente i passi alle mie spalle."
 
     show glauco minaccioso at left with dissolve
 
@@ -103,7 +141,7 @@ label good_end:
 
     aede "No, padre. Mi hai insegnato a scegliere il bersaglio. Ho scelto."
 
-    aede "E io scelgo lui. Davanti a te, davanti al Groviglio, davanti a ogni Asi che vorrà guardare. Se il Ceppo deve rifondermi, cominci stanotte."
+    aede "E io scelgo [lui_t]. Davanti a te, davanti al Groviglio, davanti a ogni Asi che vorrà guardare. Se il Ceppo deve rifondermi, cominci stanotte."
 
     "Il silenzio dura una nevicata intera. Poi Glauco Severo fa la cosa più spaventosa che abbia mai fatto."
 
@@ -132,6 +170,25 @@ label good_end:
 
     aede "...idiota."
 
+    "All'ultimo gradino si ferma. Il fiume davanti, le lanterne spente alle spalle."
+
+    if aede_mano_cala == "presa":
+        aede "Alla Fiaccolata ti ho detto «io—». Poi hanno fischiato."
+
+        pc "Me lo ricordo."
+
+        aede "Stanotte non fischia nessuno."
+    else:
+        aede "Stanotte non c'è nessun cambio turno. Nessun fischio dalla cima."
+
+    "Mi bacia. Di colpo, come attacca: senza preavviso, e senza lasciarmi il tempo di parare."
+
+    show aede imbarazzata with dissolve
+
+    "Quando si stacca ha le guance del colore dei capelli. Mi punta un dito sul petto."
+
+    aede "Se lo racconti a Vanna, ti ammazzo davvero."
+
     "Ma le sue dita stringono le mie. E il Nord, per una volta, non ci chiede niente."
 
     scene bg nero with fade
@@ -150,6 +207,13 @@ label neutral_end:
 
     show aede neutra with dissolve
 
+    if aede_climax_gesto == "parla":
+        aede "Lo so. Ogni gradino. È proprio per questo."
+    elif aede_climax_gesto == "mano":
+        "Guarda la mia mano tesa. Non la prende. La guarda come si guarda una porta che non si può aprire."
+    else:
+        aede "Non dire niente. Così è più facile."
+
     aede "Mio padre vuole un saldo. E avrà un saldo."
 
     with vpunch
@@ -165,13 +229,13 @@ label neutral_end:
 
     "{i}«Per mio padre sei mort[fin] congelat[fin] nel fosso, e il fosso non si controlla. È il migliore dei miei lavori: il primo bersaglio sbagliato di proposito.{/i}"
 
-    "{i}Non tornare a cercarmi. Ma se un giorno una lama ti salva la vita da un tetto di Zefiro, non chiederti di chi è.{/i}"
+    "{i}Non tornare a cercarmi. Ma se un giorno una lama ti salva la vita da un tetto, ovunque tu sia, non chiederti di chi è.{/i}"
 
     "{i}L'amica che non hai mai avuto. — A.»{/i}"
 
     scene bg vicoli_zefiro with fade
 
-    "Torno alla mia tenuta per vie lunghe. Briseide non fa domande: sa già, come sempre."
+    "Lascio Zefiro per vie lunghe, senza passare dalla tenuta. Briseide mi scrive una volta a Luna, e non fa domande: sa già, come sempre."
 
     "E negli anni, ogni tanto, una moneta della Lega con un graffio a forma di volpe compare sul mio davanzale. Nessun biglietto. Nessuna firma."
 

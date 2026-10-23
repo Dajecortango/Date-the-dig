@@ -70,6 +70,12 @@ label icaro_good:
     show icaro imbarazzato with dissolve
     "Poi slega il nastro del registro. Lo apre alla pagina della riga coperta. Stavolta la mano resta ferma."
     "Una riga sola, nella sua grafia stretta da notaio. «Voce unica. Non ammortizzabile. Non cedibile.»"
+    if icaro_colonna == "chiede":
+        icaro "Mi avevi chiesto cosa andava in fondo alla pagina. Il semestre è chiuso. Gli interessi sono maturati."
+    elif icaro_colonna == "totale":
+        icaro "Nel totale avevi dimenticato una voce. Apposta. È questa."
+    elif icaro_colonna == "pipa":
+        icaro "La sera della pipa non sapevo in che colonna metterti. Ne ho aperta una nuova."
     if icaro_climax_scelta == "dettaglio":
         icaro "Prima di scriverla mi sono fermato mezzo respiro. Ormai sai cosa vuol dire."
     else:
@@ -141,6 +147,12 @@ label icaro_bro_end:
         show icaro sereno with dissolve
         "Slega il nastro del registro e lo gira verso di me. Una pagina, una riga."
         "«Fratello. Nessuna contropartita.» Sotto, la sua firma. E lo spazio per la mia."
+        if icaro_colonna == "chiede":
+            "È la colonna vuota che teneva coperta col palmo. Adesso ha una risposta."
+        elif icaro_colonna == "totale":
+            "È la voce che avevo «dimenticato» nel totale. Adesso è scritta, e non si dimentica più."
+        elif icaro_colonna == "pipa":
+            "A margine, a matita, una nota piccola: «accende la pipa senza chiedere». Nessun importo."
         "Firmo. Lui soffia sull'inchiostro, chiude il registro e torna a mescolare, come se niente fosse."
         icaro "Druso pretenderà di firmare anche lui. Gli dirò che la pagina è finita."
         icaro "Caino lo saprà entro l'alba. Lascialo sapere. Per una volta, è un credito che non può riscuotere."

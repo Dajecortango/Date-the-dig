@@ -20,10 +20,13 @@ init python:
          "di corda.",
          [(("att_riti_4",),
            "Nel suo Ceppo i conti si fanno col brodo: «chi parla tagliando non "
-           "mente: è impegnato».")]),
+           "mente: è impegnato»."),
+          (("att_ceppo_3",),
+           "Al coprifuoco passa tra le brande con una candela e conta le teste, "
+           "una per una, come si contano gli Scudi a fine mese.")]),
         ("vanna_corrado", "Personaggi", "Vanna e Corrado",
          ("athlion", "cap2", "att_studio_1", "att_studio_2", "att_studio_3",
-          "att_studio_4"),
+          "att_studio_4", "att_ceppo_1", "att_ceppo_2"),
          "Fratelli di Ceppo, Figli di Briseide come te. Corrado è l'erudito: "
          "araldica, Virtù, il Margine. Vanna sa chi corre, chi perde e chi "
          "guarda chi, e lo dice ad alta voce.",
@@ -221,14 +224,14 @@ init python:
         return None
 
 
-screen cronache():
+screen cronache(da=None):
 
     tag menu
 
     default cron_cat = CRONACHE_CATEGORIE[0]
     default cron_sel = cronache_prima(CRONACHE_CATEGORIE[0])
 
-    use game_menu(_("Cronache")):
+    use game_menu(_("Cronache"), da=da):
 
         vbox:
             spacing 18
@@ -243,7 +246,7 @@ screen cronache():
                         action [SetScreenVariable("cron_cat", cat),
                                 SetScreenVariable("cron_sel", cronache_prima(cat))]
                 $ cron_n, cron_tot = cronache_conto()
-                text "Voci scoperte: [cron_n] / [cron_tot]" size TESTO_NOTA italic True color "#8f7f5c" yalign 0.5 xoffset 30
+                text "Voci scoperte: [cron_n] / [cron_tot]" size TESTO_NOTA italic True color "#b3a173" yalign 0.5 xoffset 30
 
             add "gui/divisore.png" xalign 0.0
 
@@ -272,6 +275,7 @@ screen cronache():
                                 textbutton "— ? —":
                                     style "cronache_voce"
                                     text_style "cronache_voce_text"
+                                    alt _("Voce non ancora scoperta")
                                     action None
 
                 ## Pagina della voce.
@@ -288,7 +292,7 @@ screen cronache():
                                 spacing 16
                                 xfill True
                                 text cron_v[2] style "cronache_titolo"
-                                text cron_v[1] size TESTO_NOTA italic True color "#8f7f5c"
+                                text cron_v[1] size TESTO_NOTA italic True color "#b3a173"
                                 add "gui/divisore.png"
                                 text cron_v[4] style "cronache_testo"
                                 for agg in cronache_aggiunte(cron_sel):
@@ -325,6 +329,16 @@ style cronache_voce:
     selected_hover_background Frame("gui/button/selected_hover_background.png", 12, 12)
     padding (22, 8, 22, 8)
 
+## Telefono: schede e voci alte quanto un dito (~7 mm).
+style cronache_tab:
+    variant "small"
+    yminimum 112
+    padding (26, 8, 26, 8)
+
+style cronache_voce:
+    variant "small"
+    yminimum 112
+
 style cronache_voce_text is button_text
 style cronache_voce_text:
     font gui.text_font
@@ -332,7 +346,7 @@ style cronache_voce_text:
     idle_color "#d9c9a8"
     hover_color "#ffffff"
     selected_color "#f0c75e"
-    insensitive_color "#6b5f4a"
+    insensitive_color "#968a72"
 
 style cronache_pagina is empty
 style cronache_pagina:

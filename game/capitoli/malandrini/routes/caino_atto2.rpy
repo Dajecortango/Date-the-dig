@@ -133,8 +133,8 @@ label caino_cap5:
 
             pc "Oppure apri una colonna nuova."
 
-        "«Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto.»":
-            pc "Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto."
+        "«Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onest[fin].»":
+            pc "Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onest[fin]."
 
             show caino freddo with qdiss
 

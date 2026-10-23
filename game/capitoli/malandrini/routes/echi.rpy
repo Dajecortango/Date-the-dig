@@ -158,3 +158,13 @@ label echi_ofelia_ballo:
     else:
         vanna "Al ballo di Glauco qualcuno ha detto no a Ofelia. Davanti a tutti. Mezza serra non parla d'altro, l'altra metà ne scrive."
     return
+
+# Druso: il mecenate del Becco Storto, due giri offerti (taverna).
+label echi_druso_mecenate:
+    scene bg vicoli_zefiro with dissolve
+    show druso ghigno at left with easeinleft
+    druso "Eccol[fin], il mio mecenate! Il Becco Storto ti ha dedicato uno sgabello. Ci ha inciso il tuo nome. Sbagliato, ma con affetto."
+    "Lo sgabello c'è davvero. Il nome no: c'è scritto «MECENATE», a coltello, e storto."
+    pc "È un onore o un conto aperto?"
+    druso "Nel Nord è la stessa cosa. Siediti: stasera i versi li dedico a chi li finanzia."
+    return

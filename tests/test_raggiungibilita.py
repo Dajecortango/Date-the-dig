@@ -83,7 +83,7 @@ def test_coerenza():
     # Il modello deve vedere punti veri: ogni personaggio ha inviti con
     # punti (protezione contro un analizzatore che non conta piu' nulla).
     base = {ss.VAR[c]: 20 for c in ss.CHARS}
-    base.update(scudi=5, caino_trappole=0, aede_sospetto=0, druso_passi_falsi=0, ofelia_mancati=0,
+    base.update(scudi=3, caino_trappole=0, aede_sospetto=0, druso_passi_falsi=0, ofelia_mancati=0,
                 route_attiva=None, route_seconda=None, player_gender="f",
                 congelate=frozenset(), eventi_visti=frozenset(), cal_luna=1,
                 dono_tenuto=None)

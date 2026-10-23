@@ -20,3 +20,10 @@ default flag_segreto_svelo = False
 default flag_accetta_lavoro = False
 default flag_giuramento = False
 default flag_aede_rivelato = False
+# La mano sulla Calà (cap5: "presa" | "rifiutata" | "accanto" | "indietro";
+# None se cap5 non c'e' stato) e il gesto del climax ("parla" | "silenzio" |
+# "mano"): li ricordano climax e finali.
+default aede_mano_cala = None
+default aede_climax_gesto = None
+# La sera in palestra di Luna VI: "resta" | "chiede" | "lascia".
+default aede_luna6_esito = None

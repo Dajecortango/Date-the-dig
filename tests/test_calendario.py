@@ -331,9 +331,11 @@ def check_economia_scudi():
     """Blocco C: Scudi, mercato, doni (un += 1 per personaggio), casuali."""
     import re
     eco = _mal("economia.rpy")
-    check("scudi iniziali 5", "default scudi = 5" in eco, True)
-    check("registri +2", "scudi += 2" in eco.split("label eco_dopo_attivita")[1]
-          .split('"citta"')[0], True)
+    check("scudi iniziali 3", "default scudi = 3" in eco, True)
+    registri = eco.split("label eco_dopo_attivita")[1].split('"citta"')[0]
+    check("registri +2 col pool, +1 a pool esaurito",
+          ("scudi += 2" in registri, "scudi += 1" in registri,
+           "if cal_label is None:" in registri), (True, True, True))
     check("mercato condizionato", 'v["scudi"] >= 2' in eco, True)
     for ch, var in (("aede", "aede_affinity"), ("caino", "caino_fiducia"),
                     ("druso", "druso_affinity"), ("icaro", "icaro_affinity"),
@@ -531,6 +533,58 @@ def test_scadenza_ofelia():
             aff -= 1
             gelo = gelo or esito == "gelo"
     check("ofelia: stato dopo la catena", (mancati, aff, gelo), (2, 5, True))
+
+
+def test_salto_vuoti():
+    """M5: in Lune V-VI gli slot vuoti si saltano, mai prima del cuore."""
+    f = cl.slot_da_saltare
+    viv = ("citta", "mercato")
+    check("salto: tutto esaurito in Luna V",
+          f(5, True, None, [], ["taverna", "fumeria"], {"taverna", "fumeria"}, viv), True)
+    check("salto: mai prima della Luna V",
+          f(4, True, None, [], ["taverna"], {"taverna"}, viv), False)
+    check("salto: mai senza la scelta del cuore",
+          f(5, False, None, [], ["taverna"], {"taverna"}, viv), False)
+    check("salto: un fisso resta", f(6, True, "x", [], ["taverna"], {"taverna"}, viv), False)
+    check("salto: un invito resta",
+          f(6, True, None, [{"id": "i"}], ["taverna"], {"taverna"}, viv), False)
+    check("salto: una variante nuova resta",
+          f(5, True, None, [], ["taverna", "fumeria"], {"taverna"}, viv), False)
+    check("salto: commissioni e mercato restano vive",
+          f(5, True, None, [], ["citta", "spada_p"], {"citta", "spada_p"}, viv), False)
+    check("salto: dono in borsa resta",
+          f(5, True, None, [], ["taverna"], {"taverna"}, viv, True), False)
+    cal = _mal("calendario.rpy")
+    check("salto: cal_loop chiama il predicato prima del cartello",
+          cal.index("cal_slot_da_saltare((cal_luna") < cal.index("call screen cartello_data"), True)
+
+
+def test_fase_c():
+    """Fase C: conto alla rovescia, territori esauriti, progresso di route."""
+    seq = [(3, 4, "mattina"), (3, 4, "sera"), (3, 10, "pomeriggio"),
+           (4, 3, "mattina"), (4, 28, "sera"), (5, 6, "mattina")]
+    check("cuore: tre giorni prima", cl.momenti_fino_a(seq, 0, 4, 28), 3)
+    check("cuore: stesso giorno, slot dopo", cl.momenti_fino_a(seq, 1, 4, 28), 3)
+    check("cuore: ultimo giorno prima", cl.momenti_fino_a(seq, 3, 4, 28), 1)
+    check("cuore: oggi", cl.momenti_fino_a(seq, 4, 4, 28), 0)
+    check("cuore: passato", cl.momenti_fino_a(seq, 5, 4, 28), None)
+    check("cuore: fuori sequenza", cl.momenti_fino_a(seq, 6, 4, 28), None)
+    check("esaurito: pool finito", cl.territorio_esaurito(["a", "b"], {"a", "b"}, False), True)
+    check("esaurito: resta una variante", cl.territorio_esaurito(["a", "b"], {"a"}, False), False)
+    check("esaurito: eco pronto", cl.territorio_esaurito(["a"], {"a"}, True), False)
+    check("esaurito: senza pool mai", cl.territorio_esaurito([], set(), False), False)
+    luoghi = {"spada": "cortile d'armi", "spada_p": "cortile d'armi",
+              "taverna": "taverna", "corte": "serra"}
+    check("riepilogo: due luoghi",
+          cl.riepilogo_luna({"taverna": 2, "spada": 1, "spada_p": 2, "corte": 1}, luoghi),
+          "Una Luna di cortile d'armi e di taverna.")
+    check("riepilogo: uno", cl.riepilogo_luna({"corte": 1, "x": 5}, luoghi),
+          "Una Luna di serra.")
+    check("riepilogo: niente", cl.riepilogo_luna({}, luoghi), None)
+    g = rl.GOOD["aede"]
+    check("progresso: lontano", rl.progresso_route("aede", g - 4), 0)
+    check("progresso: vicino", rl.progresso_route("aede", g - 3), 1)
+    check("progresso: raggiunto", rl.progresso_route("aede", g), 2)
 
 
 def test_cuore():
@@ -949,6 +1003,8 @@ def main():
     test_cuore()
     test_doni()
     test_casuali()
+    test_salto_vuoti()
+    test_fase_c()
     if FAILURES:
         print(f"{len(FAILURES)} FALLITI: {FAILURES}")
         sys.exit(1)

@@ -87,7 +87,7 @@ label echi_ricordo_tazza:
             "Riprendo la tazza. Non ho detto una parola."
         "Tenerla in tasca e passare oltre":
             $ ricordi_usati["tazza"] = "tenuto"
-            "Tiro dritto. Lui si lamenta con la vicina del «magro con la pipa», e di un ragazzo con la faccia seria che non diceva niente."
+            "Tiro dritto. Lui si lamenta con la vicina del «magro con la pipa», e di [un_t] ragazz[fin] con la faccia seria che non diceva niente."
             "Non mi volto. Il servizio è completo a metà, e la metà mia resta dove deve stare: lontano dai banchi."
     $ conseguenze_aggiorna()
     return

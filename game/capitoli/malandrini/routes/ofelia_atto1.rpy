@@ -14,7 +14,10 @@ label att_corte_1:
     ofelia "Il quarto da sinistra mi ha dedicato un sonetto. Il terzo, un cavallo. Il cavallo era più eloquente."
     "Il primo della fila fa un passo avanti e si inchina troppo. Lei aspetta che si rialzi, poi gli porge il dorso della mano. Non per il bacio: per congedarlo."
     ofelia "Grazie. Il prossimo."
-    "Il prossimo sono io. Mi accorgo che i pretendenti dietro di me trattengono il fiato, curiosi di vedermi cadere."
+    if "ofelia_ev1" in eventi_visti:
+        "Mi rimetto in fila, per abitudine. Ofelia finge di non avermi visto. I pretendenti dietro di me non capiscono perché le trema un angolo della bocca."
+    else:
+        "Il prossimo sono io. Mi accorgo che i pretendenti dietro di me trattengono il fiato, curiosi di vedermi cadere."
     menu:
         "Mi tocca il turno: mi guarda, e aspetta."
         "«Il tuo giardino è splendido, Ofelia. Quasi quanto te.»":

@@ -123,12 +123,19 @@ label ofelia_good:
     ofelia "Il più grosso della tua vita. Te lo ricorderò ogni giorno. È il mio modo di essere affettuosa."
     "Mi tende la mano. Non col palmo in giù, stavolta: aperta, alla pari."
     show ofelia imbarazzata with dissolve
-    ofelia "Niente di sdolcinato, non chiederlo. Ma domani a cena da mio padre mi siedo accanto a te."
-    ofelia "Davanti a tutto il Ceppo. Per me è come scriverlo sulle mura."
+    if route_seconda == "aede":
+        ofelia "Niente di sdolcinato, non chiederlo. E niente cene da mio padre, per un po'."
+        ofelia "Mia sorella ha rinfoderato, stanotte. Le devo almeno questo: non sedermi accanto a te davanti a lei. Il Ceppo aspetterà."
+    else:
+        ofelia "Niente di sdolcinato, non chiederlo. Ma domani a cena da mio padre mi siedo accanto a te."
+        ofelia "Davanti a tutto il Ceppo. Per me è come scriverlo sulle mura."
     ofelia "Ascadeo ha vinto la sua scommessa più grossa, comunque. Non dirgli niente: voglio che me lo chieda lui. Voglio vederlo pagare il disturbo."
     "Scendiamo al buio, mano nella mano. Al centesimo gradino lei ride piano, una volta sola. Non lo ammetterà mai."
     "A metà della scala si ferma. Si toglie un guanto e me lo mette in tasca, senza spiegare. È lo stesso che faceva raccogliere ai pretendenti."
     ofelia "Non lo lascerò cadere più. Non ce n'è bisogno."
+    "Poi fa la cosa che la sera delle forbici non ha fatto. Mi bacia: breve, a occhi aperti, come chi vuole vedere cosa succede."
+    ofelia "Quella sera ti ho fatto aspettare. Volevo sapere se aspettavi."
+    ofelia "Hai aspettato. Non abituarti."
     if route_seconda == "aede":
         scene bg esterno_neve with fade
         "Qualche notte dopo, sulle mura, vedo una sagoma col fiocco del Ceppo. Ferma nella neve, a guardare la città."

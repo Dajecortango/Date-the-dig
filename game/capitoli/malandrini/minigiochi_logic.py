@@ -160,7 +160,7 @@ DELTA = {
     ("duello", "vinto"): 1, ("duello", "perso"): 0,
     ("carte", "taciuto"): 1, ("carte", "detto"): 0, ("carte", "sviato"): 0,
     ("registri", "trovato"): 1, ("registri", "sbagliato"): -1,
-    ("botta", "vinta"): 1, ("botta", "pari"): 0, ("botta", "persa"): -1,
+    ("botta", "vinta"): 1, ("botta", "pari"): 0, ("botta", "persa"): 0,
 }
 
 

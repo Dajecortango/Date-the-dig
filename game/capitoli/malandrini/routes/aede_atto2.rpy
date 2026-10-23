@@ -128,6 +128,7 @@ label cap5:
 
         "Prenderle la mano" if aede_affinity >= 8:
             $ aede_affinity += 3
+            $ aede_mano_cala = "presa"
 
             "Non chiedo il permesso. Se lo chiedessi, direbbe no per principio."
 
@@ -156,6 +157,7 @@ label cap5:
             "Sale i gradini a due a due. A metà scala si ferma, un solo istante, e si volta. Poi la notte se la riprende."
 
         "Prenderle la mano" if aede_affinity < 8:
+            $ aede_mano_cala = "rifiutata"
 
             "Non chiedo il permesso. Allungo la mano verso la sua."
 
@@ -169,6 +171,7 @@ label cap5:
 
         "Camminarle accanto, senza toccarla":
             $ aede_affinity += 1
+            $ aede_mano_cala = "accanto"
 
             "Scendiamo fianco a fianco, le mani a un dito di distanza, senza che nessuna delle due attraversi il confine."
 
@@ -186,6 +189,7 @@ label cap5:
 
         "Restare qualche gradino indietro":
             $ aede_affinity -= 2
+            $ aede_mano_cala = "indietro"
 
             "Rallento. Metto distanza. La leggenda, il Ceppo, il padre: troppo, tutto insieme."
 
@@ -298,6 +302,62 @@ label cap6:
 
     "Il Ceppo di Glauco Severo convoca [il_t] [figlio_t] di Briseide, [player_name], nello studio dell'Autarca."
 
-    "Da solo."
+    "Da sol[fin]."
+
+    return
+
+################################################################################
+## LUNA VI — La palestra al buio (fisso VI/12 sera, nessun punto)
+################################################################################
+
+label aede_luna6:
+
+    scene bg corridoio_ceppo with fade
+
+    show vanna neutra at left with dissolve
+
+    "La convocazione di Glauco è per il ventuno. Mancano nove giorni, e Aede è sparita."
+
+    vanna "Tre volte nello studio di suo padre, in una settimana. Tre. L'ultima è uscita senza mantello, con la neve che c'era."
+
+    vanna "E stamattina il suo Ceppo ha fatto affilare una lama sola. Una, [fratello_t]. Le altre le lasciano spuntate."
+
+    hide vanna with dissolve
+
+    scene bg palestra with fade
+
+    "La trovo dove sapevo di trovarla: in palestra, a quest'ora, con una lanterna sola e il fantoccio di paglia già mezzo sventrato."
+
+    show aede neutra with dissolve
+
+    "Non si volta. Sente i miei passi dalla soglia, lo so dal modo in cui la stoccata successiva arriva più bassa."
+
+    aede "Non stasera, [player_name]."
+
+    menu:
+        "La lama si ferma a un dito dalla paglia. Aspetta che io faccia qualcosa."
+
+        "Prendere una spada di legno e allenarmi accanto a lei, in silenzio":
+            $ aede_luna6_esito = "resta"
+            "Prendo una spada dalla rastrelliera. Mi metto al fantoccio accanto. Non dico niente."
+            show aede irritata with qdiss
+            aede "Il gomito. Lo alzi sempre, quando sei stanc[fin]."
+            "Lo abbasso. Andiamo avanti così fino a che la lanterna non comincia a fumare. Lei non mi manda via. Non mi guarda nemmeno."
+
+        "«Cosa ti ha ordinato tuo padre?»":
+            $ aede_luna6_esito = "chiede"
+            pc "Cosa ti ha ordinato tuo padre, Aede?"
+            show aede rabbia with vpunch
+            "La lama entra nella paglia fino all'elsa."
+            aede "Non chiedermelo. Se te lo dico, diventa vero. E le cose vere, io le eseguo."
+            show aede triste with qdiss
+            aede "Il ventuno. Vai da lui. Ascolta tutto. Poi decidi tu cosa sono."
+
+        "Lasciarle la sala, e andarmene":
+            $ aede_luna6_esito = "lascia"
+            "Mi volto. Sulla soglia mi fermo un istante, poi tiro dritto."
+            show aede triste with qdiss
+            aede "...grazie."
+            "Lo dice al fantoccio, non a me. Dietro di me ricominciano le stoccate. Più veloci. Più storte."
 
     return

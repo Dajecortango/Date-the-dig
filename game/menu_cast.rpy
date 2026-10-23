@@ -211,6 +211,9 @@ screen menu_cast():
 
     $ fermo = mm_movimento_ridotto()
     $ sotto = GetTooltip("main_menu")
+    ## Su touch non c'e' hover: niente giro automatico (sposterebbe il
+    ## personaggio sotto il dito) e nome e route del centro sempre visibili.
+    $ mm_touch = renpy.variant("touch")
     $ entrata = mm_entrata_attiva()
     if entrata:
         timer 1.3 action Function(mm_entrata_fatta)
@@ -249,23 +252,29 @@ screen menu_cast():
                     hover ("gui/cast_%s_hover.webp" % chiave)
                     focus_mask True
                     tooltip chiave
+                    alt (mm_schede()[chiave]["nome"] + ((", " + mm_schede()[chiave]["route"]) if al_centro else ""))
                     action (ShowMenu("scheda_personaggio", chiave) if al_centro else mm_ruota(locals(), mm_centro, i))
 
     ## Avanzamento automatico, in pausa col mouse su un personaggio.
-    if not fermo and sotto is None:
+    if not fermo and sotto is None and not mm_touch:
         timer MM_AUTO repeat True action mm_ruota(locals(), mm_centro, mm_centro + 1)
 
     ## Frecce (a metà altezza del carosello), tastiera e pallini (sotto il
     ## pannello di sinistra, lontani dai personaggi).
+    ## Su touch le frecce (76 px, ~4,7 mm) hanno un bordo toccabile in piu'.
     imagebutton:
         idle "gui/mm_freccia_sx.png"
         hover "gui/mm_freccia_sx_hover.png"
         xpos 605 xanchor 0.5 ypos 560 yanchor 0.5
+        padding ((24, 24) if mm_touch else (0, 0))
+        alt _("Personaggio precedente")
         action mm_ruota(locals(), mm_centro, mm_centro - 1)
     imagebutton:
         idle "gui/mm_freccia_dx.png"
         hover "gui/mm_freccia_dx_hover.png"
         xpos 1872 xanchor 0.5 ypos 560 yanchor 0.5
+        padding ((24, 24) if mm_touch else (0, 0))
+        alt _("Personaggio successivo")
         action mm_ruota(locals(), mm_centro, mm_centro + 1)
     ## Le frecce restano alla navigazione col focus (tastiera/gamepad tra i
     ## bottoni e il cast): il carosello gira con PagSu/PagGiu e i dorsali.
@@ -276,6 +285,8 @@ screen menu_cast():
 
     frame:
         style "mm_pallini"
+        ## Su touch i pallini sono piu' alti: la fila sale per non uscire.
+        ypos (1020 if mm_touch else 1042)
         hbox:
             ## Il pallino e' 22 px: il padding allarga la parte toccabile
             ## senza cambiare il disegno (su touch ~3 mm per lato in piu').
@@ -284,12 +295,13 @@ screen menu_cast():
                 imagebutton:
                     idle ("gui/mm_punto_on.png" if i == mm_centro else "gui/mm_punto.png")
                     hover "gui/mm_punto_on.png"
-                    padding ((14, 14) if renpy.variant("touch") else (5, 4))
+                    padding ((24, 40) if mm_touch else (5, 4))
+                    alt (_("Porta al centro ") + mm_schede()[chiave]["nome"])
                     action mm_ruota(locals(), mm_centro, i)
 
     ## Fumetto sopra la testa del personaggio sotto il mouse.
     for i, (chiave, fase, prof) in enumerate(mm_cast()):
-        if sotto == chiave:
+        if sotto == chiave or (mm_touch and sotto is None and i == mm_centro):
             $ s = mm_schede()[chiave]
             $ px, pz, pa, psat, plum = mm_posto(mm_rel(i, mm_centro))
             frame:
@@ -301,7 +313,8 @@ screen menu_cast():
                     spacing 4
                     text s["nome"] style "mm_fumetto_nome"
                     text s["route"] style "mm_fumetto_route"
-                    text s["battuta"] style "mm_fumetto_battuta"
+                    if not mm_touch:
+                        text s["battuta"] style "mm_fumetto_battuta"
 
 
 style mm_pallini is empty

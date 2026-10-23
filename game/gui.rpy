@@ -33,7 +33,7 @@ define gui.idle_color = "#a89468"
 
 ## The small color is used for small text, which needs to be
 ## brighter/darker to achieve the same effect.
-define gui.idle_small_color = "#8f7f5c"
+define gui.idle_small_color = "#b3a173"
 
 ## The color that is used for buttons and bars that are hovered.
 define gui.hover_color = "#f0c75e"
@@ -43,7 +43,7 @@ define gui.hover_color = "#f0c75e"
 define gui.selected_color = "#f5e3b8"
 
 ## The color used for a text button when it cannot be selected.
-define gui.insensitive_color = "#6b5f4a80"
+define gui.insensitive_color = "#8a8578"
 
 ## Colors used for the portions of bars that are not filled in. These are
 ## not used directly, but are used when re-generating bar image files.
@@ -227,7 +227,7 @@ define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
 define gui.choice_button_text_idle_color = "#d9c9a8"
 define gui.choice_button_text_hover_color = "#ffffff"
-define gui.choice_button_text_insensitive_color = "#444444"
+define gui.choice_button_text_insensitive_color = "#8a8578"
 
 
 ## File Slot Buttons ###########################################################
@@ -442,8 +442,8 @@ define MOBILE_SCALA_INTERFACCIA = 1.12
 
 ## Testi minuti delle screen custom (sottotitoli, note, "Solo adesso"): su
 ## telefono restano sotto la soglia di lettura anche scalati.
-define TESTO_MINUTO = (22 if renpy.variant("small") else 19)
-define TESTO_NOTA = (23 if renpy.variant("small") else 20)
+define TESTO_MINUTO = (24 if renpy.variant("small") else 19)
+define TESTO_NOTA = (25 if renpy.variant("small") else 20)
 
 init python:
 

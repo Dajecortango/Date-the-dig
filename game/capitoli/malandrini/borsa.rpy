@@ -176,11 +176,13 @@ screen borsa_hud():
     if capitolo_ha("borsa") and borsa_hud_visibile():
         button at borsa_comparsa:
             style "borsa_pillola"
-            xalign 1.0 xoffset -28 ypos 24
+            xalign 1.0 xoffset -28 ypos (8 if renpy.variant("small") else 24)
             action ShowMenu("inventario")
             tooltip _("Borsa e oggetti")
+            alt (_("Borsa: ") + str(scudi) + " Scudi" + (", un dono" if dono_tenuto is not None else ""))
             hbox:
                 spacing 8
+                yalign 0.5
                 if _bo_contando():
                     fixed:
                         fit_first True
@@ -202,7 +204,10 @@ style borsa_pillola:
     hover_background Frame("gui/malandrini/borsa_pillola.png", 21, 21)
     ## Su telefono e' anche l'unico accesso rapido alla Borsa: bersaglio
     ## da ~4 mm.
-    padding ((20, 16, 26, 16) if renpy.variant("small") else (14, 6, 20, 6))
+    padding ((24, 16, 30, 16) if renpy.variant("small") else (14, 6, 20, 6))
+    ## Telefono: bersaglio da ~7 mm.
+    yminimum (100 if renpy.variant("small") else 0)
+    xminimum (150 if renpy.variant("small") else 0)
 
 style borsa_pillola_text is text
 style borsa_pillola_text:
@@ -224,11 +229,11 @@ style borsa_pillola_nota:
 
 ## Inventario #################################################################
 
-screen inventario():
+screen inventario(da=None):
 
     tag menu
 
-    use game_menu(_("Borsa"), scroll="viewport"):
+    use game_menu(_("Borsa"), scroll="viewport", da=da):
 
         vbox:
             spacing 18
@@ -238,7 +243,7 @@ screen inventario():
                 spacing 16
                 add "gui/malandrini/scudo.png" yalign 0.5
                 text "[scudi] Scudi" style "cronache_titolo" yalign 0.5
-            text "Paghe dei registri, commissioni del Ceppo, qualche colpo di fortuna. Al mercato coperto diventano doni." size TESTO_NOTA italic True color "#8f7f5c"
+            text "Paghe dei registri, commissioni del Ceppo, qualche colpo di fortuna. Al mercato coperto diventano doni." size TESTO_NOTA italic True color "#b3a173"
 
             add "gui/divisore.png" xalign 0.0
 
@@ -247,7 +252,7 @@ screen inventario():
             if inv_dono:
                 hbox:
                     spacing 14
-                    text "◆" size 18 color "#c0392b" yoffset 8
+                    text "❦" size 24 color "#d9a38a" yoffset 2
                     vbox:
                         spacing 2
                         text inv_dono[0] style "inventario_nome"
@@ -263,7 +268,7 @@ screen inventario():
                 for nome, desc in inv_debiti:
                     hbox:
                         spacing 14
-                        text "◆" size 18 color "#c0392b" yoffset 8
+                        add "gui/malandrini/scudo.png" zoom 0.45 yoffset 4
                         vbox:
                             spacing 2
                             text nome style "inventario_nome"
@@ -276,7 +281,7 @@ screen inventario():
                 for nome, desc in inv_soffiate:
                     hbox:
                         spacing 14
-                        text "◆" size 18 color "#8f7f5c" yoffset 8
+                        text "»" size 24 color "#b3a173" yoffset 2
                         vbox:
                             spacing 2
                             text nome style "inventario_nome"
@@ -287,7 +292,7 @@ screen inventario():
             for nome, desc in borsa_ricordi():
                 hbox:
                     spacing 14
-                    text "◆" size 18 color "#d4af37" yoffset 8
+                    text "❧" size 24 color "#d4af37" yoffset 2
                     vbox:
                         spacing 2
                         text nome style "inventario_nome"

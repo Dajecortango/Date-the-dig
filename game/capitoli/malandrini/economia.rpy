@@ -2,7 +2,8 @@
 # città. Regola pickle: nello store girano solo stringhe (chiavi dei doni,
 # id degli eventi); i dict restano nei registry di init.
 
-default scudi = 5
+# 3, non 5: il dono piu' caro (4) costa almeno un turno pagato.
+default scudi = 3
 # Chiave del dono in borsa (stringa) o None: se ne porta uno alla volta.
 default dono_tenuto = None
 # Personaggi che hanno già ricevuto un dono con punti (uno per semestre).
@@ -12,6 +13,8 @@ default dono_nome = ""
 default dono_chi = ""
 default dono_ultimo = None
 default eco_extra = []
+# Giri offerti alla taverna (fatto druso_mecenate dal secondo).
+default eco_giri = 0
 
 init python:
     # Catalogo del mercato coperto: chiave -> (nome in scena, costo).
@@ -42,6 +45,16 @@ init python:
         4: ["pietra", "idromele", "fiori", "dadi"],
         5: ["spillone", "taccuino", "vino", "erba"],
         6: ["pietra", "idromele", "ballate", "fiori"],
+    }
+
+    # Dopo un dono neutro: (chi, riga) che orienta verso il preferito di
+    # DONI_GUSTI senza nominarlo. Solo testo, nessun punto.
+    DONI_INDIZI = {
+        "aede": ("narr", "Più tardi la vedo affilare la lama su una pietra spaccata in due. Le cose che taglia le cura meglio di qualsiasi regalo."),
+        "ofelia": ("char", "La prossima volta portami qualcosa che punga, [player_name]. Fiori e nastri me li portano tutti; un ago, nessuno."),
+        "caino": ("narr", "Sul suo tavolo, accanto ai registri, una fiasca vuota col sigillo di Rurikstad. Di vino, nemmeno l'ombra."),
+        "druso": ("char", "Sai cosa mi manca davvero? Carta. Scrivo i versi sui tovaglioli, e l'oste me li usa per asciugare i boccali."),
+        "icaro": ("narr", "Icaro batte la pipa sul bordo del tavolo. Il fornello è freddo da giorni: niente da fumare, niente di buono."),
     }
 
     def dono_valuta(char, chiave):
@@ -76,22 +89,52 @@ init python:
          lambda v: v["scudi"] >= 2 and v["dono_tenuto"] is None))
     ATTIVITA_RIPETIBILI["mercato"] = "eco_mercato"
     ATTIVITA_DESC["mercato"] = "Spezie, stoffe, ferraglia. Un dono giusto apre porte."
+    # Nel pannello: perche' a volte il mercato non c'e'.
+    ATTIVITA_NOTA["mercato"] = "C'è solo quando hai almeno 2 Scudi e nessun dono in borsa."
+
+    def eco_maiuscola(s):
+        """Prima lettera maiuscola senza abbassare il resto (Hammergrad)."""
+        return s[:1].upper() + s[1:]
+
+    # Etichette del pianificatore: cosa rende o costa l'attivita'.
+    def eco_paga_mercato():
+        prezzi = [DONI[k][1] for k in MERCATO_LUNE.get(store.cal_luna, MERCATO_LUNE[1])]
+        lo, hi = min(prezzi), max(prezzi)
+        return ("%d Scudi" % lo) if lo == hi else ("%d-%d Scudi" % (lo, hi))
+
+    def eco_paga_registri():
+        # A pool esaurito (minigioco compreso) il lavoro e' solo lavoro:
+        # paga la meta' (eco_dopo_attivita).
+        pool = next((v[3] for v in ATTIVITA["pomeriggio"] if v[0] == "registri"), [])
+        if cl.pesca_variante(pool, store.eventi_visti) is None:
+            return "+1 Scudo"
+        return "+2 Scudi"
+
+    ATTIVITA_PAGA.update({"registri": eco_paga_registri, "citta": "+1 Scudo",
+                          "mercato": eco_paga_mercato})
 
 
 ## Dopo ogni attività: paghe, giro alla taverna, dono ########################
 
 label eco_dopo_attivita(att_id, char):
     if att_id == "registri":
-        $ scudi += 2
-        "A fine giornata Ottone mi conta due Scudi nel palmo. La Proprietà paga il giusto, e lo annota."
+        # cal_label None = pool esaurito (la giornata e' stata di routine).
+        if cal_label is None:
+            $ scudi += 1
+            "Ottone mi conta uno Scudo nel palmo. Le colonne di routine valgono metà: la Proprietà paga il giusto, e lo annota."
+        else:
+            $ scudi += 2
+            "A fine giornata Ottone mi conta due Scudi nel palmo. La Proprietà paga il giusto, e lo annota."
     elif att_id == "citta":
         $ scudi += 1
         "Per le commissioni, uno Scudo dalla cassa del Ceppo. Briseide non dimentica mai chi cammina per lei."
     elif att_id == "taverna" and scudi >= 1:
         menu:
             "Il boccale è vuoto. La taverna no."
-            "Offrire un giro a tutto il tavolo":
+            "Offrire un giro a tutto il tavolo (1 Scudo)":
                 $ eco_spendi(1)
+                # Al secondo giro nasce il fatto "druso_mecenate" (conseguenze).
+                $ eco_giri += 1
                 with hpunch
                 "Uno Scudo sul bancone e la taverna mi canta il nome, storpiato in tre modi diversi."
                 if "druso" not in congelate:
@@ -113,9 +156,13 @@ label eco_mercato:
     scene bg vicoli_zefiro with fade
     "Il mercato coperto di Zefiro: spezie, stoffe, ferraglia, e mercanti di Glostok che giurano su tutto tranne che sul prezzo."
     python:
-        mercato_voci = [("%s — %d Scudi" % (DONI[k][0].capitalize(), DONI[k][1]), k)
-                        for k in MERCATO_LUNE.get(cal_luna, MERCATO_LUNE[1])
-                        if DONI[k][1] <= scudi]
+        # Quello che non ti puoi permettere resta sul banco, spento: il
+        # prezzo si impara anche senza comprare (valore None = disattivata).
+        mercato_voci = [(("%s — %d Scudi" % (eco_maiuscola(DONI[k][0]), DONI[k][1]))
+                         if DONI[k][1] <= scudi else
+                         ("%s — servono %d Scudi" % (eco_maiuscola(DONI[k][0]), DONI[k][1])),
+                         k if DONI[k][1] <= scudi else None)
+                        for k in MERCATO_LUNE.get(cal_luna, MERCATO_LUNE[1])]
         mercato_voci.append(("Guardare e basta, e non spendere niente", None))
         mercato_scelta = renpy.display_menu(mercato_voci)
     if mercato_scelta is None:
@@ -154,8 +201,21 @@ label dono_check(char):
                 call dono_reazione(char, dono_ultimo)
             else:
                 call expression "dono_" + char
+            # Dono neutro: mezza riga che indica la strada del preferito.
+            if dono_esito == "neutro" and char not in doni_dati and char in DONI_INDIZI:
+                call dono_indizio(char)
         "Tenerlo per un'altra occasione":
             pass
+    return
+
+# Indizio sul dono preferito dopo un dono neutro (DONI_INDIZI): solo testo.
+label dono_indizio(char):
+    python:
+        chi, riga = DONI_INDIZI[char]
+        if chi == "narr":
+            renpy.say(None, riga)
+        else:
+            renpy.say(getattr(store, char), riga)
     return
 
 # Reazione propria di un dono neutro (DONI_REAZIONI).
@@ -345,7 +405,7 @@ label caso_lanternaio:
         "Tenergliela finché non scende":
             $ scudi += 1
             "Scende, mi guarda, mi lascia uno Scudo. «Debito saldato», dice. Non sapevo di averne uno."
-        "Comprargli una lanterna nuova per il Ceppo" if scudi >= 2:
+        "Comprargli una lanterna nuova per il Ceppo (2 Scudi)" if scudi >= 2:
             $ eco_spendi(2)
             "Due Scudi per una lanterna di vetro di Glostok. Briseide la appenderà in cucina, e la chiamerà «la lanterna di [player_name]»."
     return

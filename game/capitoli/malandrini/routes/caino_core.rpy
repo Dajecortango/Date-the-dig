@@ -9,3 +9,9 @@ default caino_memoria = 0
 default caino_trappole = 0
 default caino_druso = 0
 default flag_caino_teschio = False
+# Scelte ricordate dopo: la talpa di Luna V ("parla" | "esilio" | "tace") e il
+# gesto del protagonista al Consiglio ("colpa" | "tace" | "lenora").
+default caino_ottone = None
+default caino_climax_scelta = None
+# L'ultima pagina di Luna VI: "attivo" | "nessuna" | "scrive".
+default caino_colonna = None

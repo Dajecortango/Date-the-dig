@@ -232,3 +232,34 @@ label incrocio_serra:
     "Caino se ne va prima che la corte finisca. Sul tavolino dei doni lascia una ricevuta: «Accertamento rinviato»."
     "Ofelia la infila tra i sonetti. È il primo dono, oggi, che non butta."
     return
+
+
+## Fatti degli incroci senza punti (le scelte restano nel diario) #############
+
+init python:
+    FATTI.extend([
+        {"id": "fx_debiti_letti", "char": "druso",
+         "testo": "Al Becco Storto hai letto ad alta voce i debiti di Druso, cifra per cifra. La sala ha fischiato a ogni riga.",
+         "avviso": None,
+         "cond": lambda v: _scelto(v, "incrocio_debiti", "Leggere ad alta voce")},
+        {"id": "fx_debiti_versi", "char": "druso",
+         "testo": "Hai inventato il mercato dei versi: Druso ha pagato Icaro con una strofa sulla locandiera.",
+         "avviso": None,
+         "cond": lambda v: _scelto(v, "incrocio_debiti", "Proporre a Druso")},
+        {"id": "fx_debiti_registro", "char": "icaro",
+         "testo": "Hai chiuso il registro di Icaro con la mano, per difendere Druso. Icaro ha segnato data e ora.",
+         "avviso": None,
+         "cond": lambda v: _scelto(v, "incrocio_debiti", "Chiudere il registro")},
+        {"id": "fx_sorelle_filo", "char": "ofelia",
+         "testo": "Hai chiesto a Ofelia come si legge un filo. Aede ti ha ripreso la lama prima che la toccassi.",
+         "avviso": None,
+         "cond": lambda v: _scelto(v, "incrocio_sorelle", "Chiedere a Ofelia")},
+        {"id": "fx_sorelle_aede", "char": "aede",
+         "testo": "Hai dato ragione ad Aede contro sua sorella: la lama pesa diversa. Per Ofelia è una maggioranza, non una verità.",
+         "avviso": None,
+         "cond": lambda v: _scelto(v, "incrocio_sorelle", "Dare ragione ad Aede")},
+        {"id": "fx_sorelle_piede", "char": "aede",
+         "testo": "Hai visto il piede sinistro di Aede caricare storto. E lei, senza dirlo, ha cambiato guardia.",
+         "avviso": None,
+         "cond": lambda v: _scelto(v, "incrocio_sorelle", "Restare in silenzio e guardare il piede")},
+    ])

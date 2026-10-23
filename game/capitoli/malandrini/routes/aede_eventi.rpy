@@ -39,6 +39,11 @@ init python:
          "cond": lambda v: "aede_cap4" in v["visti"]
          and ("scelta_cuore" not in v["visti"]
               or v["route_attiva"] == "aede")},
+        # Luna VI, route attiva: Aede evita il protagonista (0 punti).
+        {"id": "aede_luna6", "label": "aede_luna6", "tipo": "fisso",
+         "char": "aede", "luna": 6, "giorno": 12, "slot": "sera",
+         "cond": lambda v: v["route_attiva"] == "aede"
+         and "aede" not in v["congelate"]},
     ])
 
 default impegno_esito = None

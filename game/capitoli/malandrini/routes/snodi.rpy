@@ -217,7 +217,7 @@ label finale_neutro_semestre:
     return
 
 
-## Luna IV — Rivalità (fisso IV/18 sera) #####################################
+## Luna IV — Rivalità (fisso IV/18 mattina) #####################################
 # Solo se almeno due candidati sono sopra la soglia del cuore: i due piu'
 # alti si accorgono l'uno dell'altro. Varianti per coppia. Prendere una
 # parte vale +1 a chi si sceglie e -1 all'altro (puo' far scendere uno dei
@@ -529,22 +529,30 @@ label epilogo_route:
         "Aede si allena da sola, all'alba. Non chiede più a nessuno di guardare. Nessuno si offre."
     elif epilogo_finale == "bad_end_glauco":
         "Nello studio di Glauco la candela è sempre una. Aede non ci entra più. Lui non la chiama."
+    elif epilogo_finale == "aede_passeggero":
+        "Una volta a Luna, su un tetto della Consorteria, una sagoma in grigio alza due dita alla fronte. Un saluto da colleghi. Lo ricambio, e la neve se la riprende."
     elif epilogo_finale == "caino_good_end":
         "Nel registro di Caino c'è una riga scritta con un inchiostro diverso. Non la tassa. Non la archivia. La rilegge."
     elif epilogo_finale == "caino_secret_end":
         "Druso mi insegna il Codice del Teschio, un articolo a sera. Dagli spalti, Caino finge di non contare le volte che ridiamo."
     elif epilogo_finale == "caino_bad_end":
         "A Rurikstad l'idromele è buono, d'inverno. Lo bevo a piccoli sorsi, come mi era stato consigliato. Da chi, non lo dico."
+    elif epilogo_finale == "caino_passeggero":
+        "Lo scrivano nuovo di Caino ride alle sue battute, in Consiglio. Le conosco tutte. Me le aveva dette per prime."
     elif epilogo_finale == "caino_neutral_end":
         "La chiave del cassetto è ancora sul tavolo, tra me e Caino. Nessuno dei due la prende. Nessuno dei due la sposta."
     elif epilogo_finale == "druso_good":
         "Al Becco Storto, a fine serata, Druso recita ancora la sua strofa fuori metrica. La sala, per quella, ha imparato a stare zitta."
+    elif epilogo_finale == "druso_passeggero":
+        "Al Becco Storto Druso legge versi seri, ogni tanto. Li legge verso il fondo della sala, dove Pandora tiene il registro aperto. Applaudo per prim[fin]."
     elif epilogo_finale == "druso_neutral":
         "Il posto accanto a Druso, in taverna, è sempre il mio. Il foglio piegato in quattro non l'ho più visto. Non l'ho più chiesto."
     elif epilogo_finale == "druso_bad":
         "Druso fa ridere tutta Zefiro. Quando mi incrocia per strada, la battuta gli muore a metà. La finisce per qualcun altro."
     elif epilogo_finale == "icaro_good":
         "La lampada più brutta del magazzino sta sul mio davanzale. Icaro passa a controllare che ci sia ancora. Dice che è per l'inventario."
+    elif epilogo_finale == "icaro_passeggero":
+        "Nella copia di Caino del registro la mia riga c'è ancora, tirata via col righello. Icaro mi saluta con due dita dal mazzo: in pari."
     elif epilogo_finale == "icaro_neutral":
         "Fine Luna: una busta sotto la porta, cifra esatta. Il dieci per cento di Icaro non sbaglia mai un centesimo."
     elif epilogo_finale == "icaro_bad":
@@ -555,7 +563,10 @@ label epilogo_route:
         else:
             "Al tavolo grande della fumeria c'è un posto libero. Icaro non lo riassegna. Lo tiene a listino, a un prezzo che nessuno paga."
     elif epilogo_finale == "ofelia_good":
-        "Il guanto di Ofelia è ancora nella mia tasca. A cena da Glauco si siede accanto a me, davanti a tutto il Ceppo, e non lo nomina mai."
+        if "aede" in epilogo_scelti:
+            "Il guanto di Ofelia è ancora nella mia tasca. Alle cene di Glauco non ci andiamo, per ora. Ofelia dice che il Ceppo sa aspettare. Lei no, ma ci prova."
+        else:
+            "Il guanto di Ofelia è ancora nella mia tasca. A cena da Glauco si siede accanto a me, davanti a tutto il Ceppo, e non lo nomina mai."
     elif epilogo_finale == "ofelia_good_caino":
         "Il contratto a tre ha una quinta clausola, scritta in piccolo da Caino. Ofelia finge di non averla letta. L'ha letta tre volte."
     elif epilogo_finale == "ofelia_good_aede":
@@ -574,7 +585,7 @@ label epilogo_route:
         "Il semestre ha chiuso i suoi conti. Alcuni in attivo."
     # Poly segreto con Aede finito in un finale di Aede: Ofelia era uscita
     # nella neve, e merita la sua riga.
-    if "ofelia" in epilogo_scelti and epilogo_finale in ("good_end", "neutral_end", "bad_end_aede", "bad_end_glauco"):
+    if "ofelia" in epilogo_scelti and epilogo_finale in ("good_end", "aede_passeggero", "neutral_end", "bad_end_aede", "bad_end_glauco"):
         "Ofelia, a Zefiro, non pronuncia il mio nome. Ascadeo lo tiene in fondo al libretto, senza quota."
     # E il contrario: Ofelia sola nel good, la coda amara. Aede ha visto
     # la neve, e merita la sua riga.

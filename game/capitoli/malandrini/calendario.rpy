@@ -22,7 +22,9 @@ init -10 python:
             {"giorno": 15, "slots": ["mattina", "pomeriggio", "sera"]},
             {"giorno": 22, "slots": ["pomeriggio", "sera"]}],
         3: [{"giorno": 4, "slots": ["mattina", "pomeriggio", "sera"]},
-            {"giorno": 10, "slots": ["pomeriggio"]},
+            # III/10: il torneo è di pomeriggio; mattina e sera restano
+            # libere (la Luna III ha sei fissi, senza mattine libere era strozzata).
+            {"giorno": 10, "slots": ["mattina", "pomeriggio", "sera"]},
             {"giorno": 16, "slots": ["mattina", "pomeriggio", "sera"]},
             {"giorno": 25, "slots": ["mattina", "sera"]}],
         4: [{"giorno": 3, "slots": ["mattina", "pomeriggio", "sera"]},
@@ -65,6 +67,7 @@ init -10 python:
         "studio_p": "Pagine, stemmi, date. La storia della Famiglia non finisce mai; la mia pazienza sì.",
         "riti": "Brodo, cucine, voci. Il Ceppo gira anche senza di me. Ma gira meglio con me.",
         "citta": "Zefiro d'ordinanza: commissioni, saluti, scorciatoie. Nessuna lama nell'ombra, oggi.",
+        "ceppo_sera": "Il focolare, le scodelle, Vanna che parla sopra a tutti. Una sera di casa, niente di più.",
     }
 
     # Pool esaurito nel territorio di un personaggio: la riga cambia con
@@ -172,6 +175,7 @@ init -10 python:
         "taverna": "Boccali e versi osceni. Druso tiene banco.",
         "fumeria": "Fumo dolce e carte. Icaro non perde mai.",
         "corte": "La serra, i pretendenti, e lei che sceglie.",
+        "ceppo_sera": "Il focolare di Briseide. Vanna, Corrado, i Figli piccoli.",
     }
 
     # Diario del semestre: stato diegetico, mai numeri.
@@ -200,7 +204,9 @@ init -10 python:
             elif segnale:
                 righe.append((nome, segnale))
             elif store.route_attiva == char:
-                righe.append((nome, alta[1]))
+                # Dopo la scelta del cuore: quanto manca al finale buono,
+                # in tre gradini (routing_logic.progresso_route).
+                righe.append((nome, DIARIO_PROGRESSO[char][rl.progresso_route(char, aff)]))
             elif aff >= alta[0]:
                 righe.append((nome, alta[1]))
             elif aff >= media[0]:
@@ -241,6 +247,106 @@ init -10 python:
              if store.ofelia_mancati == 1 else None)
         return righe
 
+    # Diario a route attiva: lontano / vicino / raggiunto il finale buono.
+    DIARIO_PROGRESSO = {
+        "aede": ("Ti ha scelto. Non si fida ancora della scelta.",
+                 "Abbassa la guardia con te. Solo con te, e solo un poco.",
+                 "Ti guarda le spalle senza che tu lo chieda. Il Nord lo chiama giuramento."),
+        "caino": ("Ti tiene vicino. Vicino non vuol dire dentro.",
+                  "Ti lascia leggere i registri che non mostra a nessuno.",
+                  "Ti affiderebbe la Proprietà. E qualcosa di più fragile."),
+        "druso": ("Ti dedica i versi buoni. Gli altri li tiene per la piazza.",
+                  "Smette di recitare quando arrivi. È la cosa più vera che fa.",
+                  "Ha scritto un verso che non legge a nessuno. Parla di te."),
+        "icaro": ("Ti ha fatto posto al tavolo. Non ancora nelle sue carte.",
+                  "Ti mostra una mano prima di giocarla. Non lo fa con nessuno.",
+                  "Ha smesso di contare quello che gli devi. Conta i giorni senza di te."),
+        "ofelia": ("Ti ha scelto davanti alla serra. Aspetta di vedere se reggi.",
+                   "Ti chiama per nome quando nessuno ascolta.",
+                   "Ha congedato l'ultimo pretendente. Non ti dice perché. Non serve."),
+    }
+
+    def cal_rapporto_di(char):
+        """La riga del Diario per char (pannello del pianificatore), o None."""
+        nome = CAL_NOMI.get(char)
+        for n, r in diario_rapporti():
+            if n == nome:
+                return r
+        return None
+
+    # Cosa rende o costa un'attivita' (etichetta a destra della voce):
+    # stringa o funzione senza argomenti (economia.rpy aggiunge le sue).
+    ATTIVITA_PAGA = {}
+    # Riga in piu' nel pannello (es. la condizione del mercato).
+    ATTIVITA_NOTA = {}
+
+    def cal_paga(aid):
+        p = ATTIVITA_PAGA.get(aid)
+        return p() if callable(p) else p
+
+    # Territori senza niente di nuovo (pool finito, nessun eco pronto). Le
+    # commissioni hanno i casi, i ripetibili non hanno pool: mai esauriti.
+    def cal_esauriti_di(attivita):
+        return set(aid for aid, _e, _c, pool in attivita
+                   if aid != "citta" and aid not in ATTIVITA_RIPETIBILI
+                   and cl.territorio_esaurito(pool, store.eventi_visti,
+                                              echi_pesca(aid) is not None))
+
+    # Lune V-VI: slot senza fisso, senza inviti e con soli territori esauriti
+    # non esistono (spec del calendario: i giorni vuoti non si mostrano).
+    CAL_SEMPRE_VIVE = ("citta", "mercato")
+
+    def cal_att_visibili(slot):
+        return [a[:4] for a in ATTIVITA.get(slot, [])
+                if len(a) < 5 or a[4](cal_vars())]
+
+    def cal_slot_da_saltare(momento):
+        if momento[0] < 5 or "scelta_cuore" not in store.eventi_visti:
+            return False
+        att = cal_att_visibili(momento[2])
+        return cl.slot_da_saltare(
+            momento[0], True, cal_trova_fisso_id(momento),
+            cal_inviti_info(momento), [a[0] for a in att], cal_esauriti_di(att),
+            CAL_SEMPRE_VIVE, store.dono_tenuto is not None)
+
+    # Conto alla rovescia (da Luna III) verso la scelta del cuore, IV/28:
+    # giorni salienti, non di calendario. None = non mostrarlo.
+    def cal_cuore_mancano():
+        if store.cal_idx >= len(CAL_SEQUENZA) or CAL_SEQUENZA[store.cal_idx][0] < 3:
+            return None
+        if "scelta_cuore" in store.eventi_visti:
+            return None
+        n = cl.momenti_fino_a(CAL_SEQUENZA, store.cal_idx, 4, 28)
+        if n is None:
+            return None
+        if n == 0:
+            return "Stasera, la scelta del cuore."
+        if n == 1:
+            return "Alla scelta del cuore: solo oggi."
+        return "Alla scelta del cuore: %d giorni." % n
+
+    # Riepilogo a cambio di Luna (cartello): i luoghi piu' frequentati
+    # nella Luna passata e, se sono nati fatti, un rimando alla Trama.
+    CAL_LUOGHI = {"spada": "cortile d'armi", "spada_p": "cortile d'armi",
+                  "scudo": "palestra", "studio": "libri", "studio_p": "libri",
+                  "riti": "cucine", "citta": "vicoli", "registri": "registri",
+                  "taverna": "taverna", "fumeria": "fumeria",
+                  "corte": "serra", "mercato": "mercato",
+                  "ceppo_sera": "focolare"}
+
+    def cal_conta_attivita(att_id):
+        luoghi = store.cal_frequenze.setdefault(store.cal_luna, {})
+        luoghi[att_id] = luoghi.get(att_id, 0) + 1
+
+    def cal_riepilogo_luna(luna):
+        riga = cl.riepilogo_luna(store.cal_frequenze.get(luna, {}), CAL_LUOGHI)
+        idx_luna = set(i for i, m in enumerate(CAL_SEQUENZA) if m[0] == luna)
+        nati = any(isinstance(n, tuple) and len(n) > 1 and n[1] in idx_luna
+                   for n in store.fatti_noti.values())
+        if nati:
+            riga = (riga + " " if riga else "") + "Qualcuno se ne ricorderà — Trama."
+        return riga
+
     # Pannello del pianificatore: nomi, righe degli inviti, ritratto grande
     # (lo sprite del cast del menu, se c'e').
     CAL_NOMI = {"aede": "Aede", "caino": "Caino", "ofelia": "Ofelia",
@@ -255,8 +361,8 @@ init -10 python:
                   "Solo adesso: se scegli altro, l'invito cade."),
         "gelosia": ("Icaro lo saprà", "Icaro se ne accorgerà",
                     "Icaro se ne accorgerà: accettare chiude la sua strada."),
-        "cuore": ("Fino al cuore", "Fino alla scelta del cuore",
-                  "Dopo la scelta del cuore, forse non tornerà."),
+        "cuore": ("Fino a Luna IV, giorno 28", "Fino alla Luna IV, giorno 28",
+                  "Resta fino alla scelta del cuore (Luna IV, giorno 28). Dopo, forse non tornerà."),
     }
     CAL_INVITO_DESC = {
         "aede": "Aede non chiede mai due volte. Questa conta come una.",
@@ -337,6 +443,13 @@ init -10 python:
             hook(ev)
 
 default cal_idx = 0
+# Ultima variante pescata da cal_attivita (None = pool esaurito).
+default cal_label = None
+# Vero mentre il loop salta slot vuoti di Lune V-VI (una riga sola).
+default cal_saltando = False
+# Attivita' giocate per Luna (riepilogo del cartello): luna -> {id: volte}.
+default cal_frequenze = {}
+default cal_riepilogo = None
 default cal_ultimo_giorno = None
 default cal_giorno_prima = (None, None)
 default eventi_visti = set()
@@ -355,6 +468,15 @@ label cal_loop:
     python:
         cal_luna, cal_giorno, cal_slot = CAL_SEQUENZA[cal_idx]
 
+    # Lune V-VI: lo slot vuoto si salta (e il giorno vuoto, cartello
+    # compreso); una riga sola per ogni tratto saltato.
+    if cal_slot_da_saltare((cal_luna, cal_giorno, cal_slot)):
+        if not cal_saltando:
+            $ cal_saltando = True
+            "I giorni passano uguali: allenamenti, cucine, il Nord che non chiede niente."
+        jump cal_avanza
+    $ cal_saltando = False
+
     # Riga di data a ogni cambio di giorno + nome del salvataggio.
     if cal_ultimo_giorno != (cal_luna, cal_giorno):
         # (giorno, luna) di prima per il cartello: il numero gira, la luna
@@ -363,6 +485,9 @@ label cal_loop:
                               if cal_ultimo_giorno else (None, None))
         $ cal_ultimo_giorno = (cal_luna, cal_giorno)
         $ save_name = LUNE_NOMI[cal_luna] + " — giorno " + str(cal_giorno)
+        # Primo giorno di una Luna nuova: una riga su quella passata.
+        $ cal_riepilogo = (cal_riepilogo_luna(cal_giorno_prima[1])
+                           if cal_giorno_prima[1] not in (None, cal_luna) else None)
         call screen cartello_data(cal_luna, cal_giorno, cal_giorno_segnato(cal_luna, cal_giorno), *cal_giorno_prima)
         # Voce di cronologia per il separatore di giorno (come il vecchio centered).
         $ narrator.add_history("adv", None, save_name)
@@ -383,8 +508,9 @@ label cal_loop:
         # Inviti offerti almeno una volta (per invito_perso, conseguenze.rpy).
         inviti_mostrati.update(i["id"] for i in cal_inviti)
         # Una voce attivita' puo' avere una cond opzionale come quinto campo.
-        cal_att = [a[:4] for a in ATTIVITA.get(cal_slot, [])
-                   if len(a) < 5 or a[4](cal_vars())]
+        cal_att = cal_att_visibili(cal_slot)
+        # Territori senza niente di nuovo: restano, ma lo dicono.
+        cal_esauriti = cal_esauriti_di(cal_att)
 
     if not cal_inviti and not cal_att:
         jump cal_avanza
@@ -394,7 +520,10 @@ label cal_loop:
         $ renpy.transition(Dissolve(0.2))
     else:
         play audio "audio/carta.ogg"
-    call screen pianificazione((cal_luna, cal_giorno, cal_slot), cal_inviti, cal_att)
+    # Primo pianificatore: la guida sopra (si salta; il "?" la riapre).
+    if not persistent.guida_pianificatore:
+        $ renpy.show_screen("guida_pianificatore")
+    call screen pianificazione((cal_luna, cal_giorno, cal_slot), cal_inviti, cal_att, cal_esauriti)
 
     python:
         scelto = _return[1] if _return[0] == "evento" else None
@@ -426,6 +555,7 @@ label cal_avanza:
 
 label cal_attivita(att_id):
     $ cal_contesto = att_id
+    $ cal_conta_attivita(att_id)
     if att_id in ATTIVITA_RIPETIBILI:
         call expression ATTIVITA_RIPETIBILI[att_id]
         $ cal_contesto = "fuori"
@@ -544,7 +674,9 @@ screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None
         xysize (1920, 1080)
         background None
         action Return()
-    timer (0.05 if config.skipping else 2.5) action Return()
+    ## Primo giorno di una Luna nuova: riga sulla Luna passata (M10).
+    $ cartello_riep = cal_riepilogo if (luna_prec is not None and luna_prec != luna) else None
+    timer (0.05 if config.skipping else 4.0 if cartello_riep else 2.5) action Return()
     if not (config.skipping or mm_movimento_ridotto()):
         timer 1.08 action Play("audio", "audio/sigillo.ogg")
 
@@ -565,8 +697,9 @@ screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None
             hbox:
                 xalign 0.5
                 spacing 14
+                ## Giorno segnato: lo stesso sigillo della striscia dei giorni.
                 if festa:
-                    text "◆" size 22 color "#c0392b" yalign 0.5
+                    add "gui/malandrini/ceralacca_festa.png" zoom 0.14 yalign 0.5
                 hbox:
                     spacing 8
                     yalign 0.5
@@ -580,7 +713,7 @@ screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None
                     else:
                         text str(giorno) style "cartello_numero" yalign 0.5
                 if festa:
-                    text "◆" size 22 color "#c0392b" yalign 0.5
+                    add "gui/malandrini/ceralacca_festa.png" zoom 0.14 yalign 0.5
         if luna_prec is not None and luna_prec != luna:
             if cartello_anim:
                 add ("gui/malandrini/luna_%d.png" % luna_prec) at luna_esce
@@ -589,11 +722,16 @@ screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None
                 add ("gui/malandrini/luna_%d.png" % luna) at luna_ferma
         add ("gui/malandrini/ceralacca_festa.png" if festa else "gui/ceralacca.png"):
             at (cartello_sigillo_fermo if (mm_movimento_ridotto() or config.skipping) else cartello_sigillo)
+    if cartello_riep:
+        frame:
+            style "cartello_riepilogo"
+            at (cartello_testo_fermo if mm_movimento_ridotto() else cartello_testo)
+            text cartello_riep style "cartello_riepilogo_text"
 
 
 ## Screen di pianificazione ##################################################
 
-screen pianificazione(momento, inviti, attivita):
+screen pianificazione(momento, inviti, attivita, esauriti=()):
 
     modal True
 
@@ -602,6 +740,8 @@ screen pianificazione(momento, inviti, attivita):
     ## cal_sel = (tooltip, valore di ritorno) della voce selezionata.
     default cal_sel = None
     $ cal_touch = renpy.variant("touch")
+    ## Telefono: righe alte ~7,5 mm, mai compatte (il viewport scorre).
+    $ cal_small = renpy.variant("small")
 
     ## Pergamena che si srotola dall'alto, poi colonne e voci in cascata.
     ## Ferma con "Animazioni: No" o in skip.
@@ -619,13 +759,31 @@ screen pianificazione(momento, inviti, attivita):
         xsize 1060
 
         add "gui/divisore.png" xalign 0.5
-        hbox:
-            xalign 0.5
-            spacing 18
-            add ("gui/malandrini/luna_%d.png" % momento[0]) yalign 0.5 zoom 0.7
-            label LUNE_NOMI[momento[0]] text_size 42 text_color gui.accent_color yalign 0.5
+        ## Testata: la Luna al centro, Diario e guida ("?") a destra.
+        fixed:
+            xsize 1060
+            ysize (112 if cal_small else 72)
+            hbox:
+                align (0.5, 0.5)
+                spacing 18
+                add ("gui/malandrini/luna_%d.png" % momento[0]) yalign 0.5 zoom 0.7
+                label LUNE_NOMI[momento[0]] text_size 42 text_color gui.accent_color yalign 0.5
+            hbox:
+                align (1.0, 0.5)
+                spacing 10
+                textbutton _("Diario"):
+                    style "cal_testata"
+                    text_style "cal_testata_text"
+                    alt _("Apri il Diario dei rapporti")
+                    action ShowMenu("diario")
+                textbutton "?":
+                    style "cal_testata"
+                    text_style "cal_testata_text"
+                    alt _("Guida al pianificatore")
+                    action Show("guida_pianificatore")
 
-        # Striscia dei giorni salienti della Luna: ◆ = festa o evento segnato.
+        # Striscia dei giorni salienti della Luna: il sigillo rosso segna un
+        # giorno con un evento fisso (lo stesso del cartello di data).
         hbox:
             xalign 0.5
             spacing 30
@@ -633,8 +791,16 @@ screen pianificazione(momento, inviti, attivita):
                 vbox:
                     spacing 0
                     xminimum 46
-                    text ("◆" if fisso else " ") size 14 xalign 0.5 color "#f0c75e"
-                    text str(num) size 26 xalign 0.5 bold (stato == "oggi") color ("#f0c75e" if stato == "oggi" else "#8a7a5a" if stato == "passato" else "#c9b78a")
+                    if fisso:
+                        add "gui/malandrini/ceralacca_festa.png" zoom 0.12 xalign 0.5
+                    else:
+                        null height 22
+                    text str(num) size 26 xalign 0.5 bold (stato == "oggi") color ("#f0c75e" if stato == "oggi" else "#9a8b6c" if stato == "passato" else "#c9b78a")
+
+        # Da Luna III: quanti giorni salienti mancano alla scelta del cuore.
+        $ cal_cuore = cal_cuore_mancano()
+        if cal_cuore:
+            text cal_cuore size TESTO_NOTA italic True color "#e0b75a" xalign 0.5
 
         # Slot del giorno (dove siamo arrivati). Gli Scudi stanno nella borsa
         # a schermo (borsa.rpy).
@@ -642,7 +808,7 @@ screen pianificazione(momento, inviti, attivita):
             xalign 0.5
             spacing 24
             for nome_s, stato_s in cal_slot_stati(momento):
-                text nome_s.capitalize() size 22 italic (stato_s == "corrente") color ("#f0e6d2" if stato_s == "corrente" else "#8a7a5a" if stato_s == "passato" else "#a89468") yalign 0.5
+                text nome_s.capitalize() size 22 italic (stato_s == "corrente") color ("#f0e6d2" if stato_s == "corrente" else "#9a8b6c" if stato_s == "passato" else "#a89468") yalign 0.5
 
         add "gui/divisore.png" xalign 0.5
 
@@ -650,14 +816,14 @@ screen pianificazione(momento, inviti, attivita):
         ## pomeriggio. Il viewport si stringe sul contenuto e scorre (barra
         ## miniata, nascosta se non serve) solo quando non ci sta. Con piu'
         ## di 6 voci le righe si compattano: titolo e sottotitolo su una riga.
-        $ cal_compatto = len(inviti) + len(attivita) > 6
-        ## Righe alte (~1 cm su telefono): con 6 voci stanno ancora tutte
-        ## tra il cartello e il menu rapido senza scorrere.
-        $ PIAN_RIGA_H = 96
+        ## Su telefono mai compatte: righe da 120 (~7,5 mm) e il viewport
+        ## scorre. Su PC, con 6 voci stanno tutte senza scorrere.
+        $ cal_compatto = (not cal_small) and len(inviti) + len(attivita) > 6
+        $ PIAN_RIGA_H = 120 if cal_small else 96
         viewport:
             id "cal_lista"
             xsize 1060
-            ymaximum 680
+            ymaximum (620 if cal_small else 680)
             scrollbars "vertical"
             vscrollbar_unscrollable "hide"
             side_spacing 12
@@ -665,7 +831,7 @@ screen pianificazione(momento, inviti, attivita):
             draggable True
 
             vbox:
-                spacing (8 if cal_compatto else 10)
+                spacing (8 if cal_compatto else 14 if cal_small else 10)
                 xfill True
 
                 for k, inv in enumerate(inviti):
@@ -683,7 +849,9 @@ screen pianificazione(momento, inviti, attivita):
                         tooltip cal_info
                         selected (cal_touch and cal_sel is not None and cal_sel[0] == cal_info)
                         action cal_azione(cal_touch, cal_sel, cal_info, ("evento", inv["id"]))
+                        alt (inv["titolo"] + (". " + CAL_AVVISI[inv["avviso"]][1] if inv["avviso"] else ""))
                         hbox:
+                            yalign 0.5
                             spacing 18
                             add Transform(cal_portrait(inv["ritratto"]), zoom=0.36) yalign 0.5
                             if cal_compatto:
@@ -712,6 +880,12 @@ screen pianificazione(momento, inviti, attivita):
 
                 for k, (aid, etichetta, char, _pool) in enumerate(attivita):
                     $ cal_info = ("attivita", char, etichetta, aid)
+                    ## Territorio senza niente di nuovo: resta, attenuato.
+                    $ cal_vuoto = aid in esauriti
+                    $ cal_sotto = ("Il solito. Niente di nuovo, oggi." if cal_vuoto
+                                   else ATTIVITA_DESC.get(aid))
+                    ## Cosa rende o costa (registri, commissioni, mercato).
+                    $ cal_rende = cal_paga(aid)
                     button:
                         at (pian_fisso if pian_fermo else pian_voce(0.3 + 0.04 * (len(inviti) + k)))
                         xfill True
@@ -725,31 +899,44 @@ screen pianificazione(momento, inviti, attivita):
                         tooltip cal_info
                         selected (cal_touch and cal_sel is not None and cal_sel[0] == cal_info)
                         action cal_azione(cal_touch, cal_sel, cal_info, ("att", aid))
-                        hbox:
-                            spacing 18
-                            if char:
-                                add Transform(cal_portrait(char), zoom=0.36) yalign 0.5
+                        alt (etichetta + (". " + cal_sotto if cal_sotto else "") + (". " + cal_rende if cal_rende else ""))
+                        ## Al centro la voce, a destra cosa rende o costa.
+                        side "c r":
+                            xfill True
+                            yalign 0.5
+                            spacing 12
+                            hbox:
+                                yalign 0.5
+                                spacing 18
+                                if char:
+                                    add Transform(cal_portrait(char), zoom=0.36) yalign 0.5 alpha (0.6 if cal_vuoto else 1.0)
+                                else:
+                                    null width 58
+                                if cal_compatto:
+                                    hbox:
+                                        yalign 0.5
+                                        spacing 18
+                                        text etichetta size 25 color ("#c9bfa8" if cal_vuoto else "#f0e6d2") yalign 1.0
+                                        if cal_sotto:
+                                            text cal_sotto size TESTO_MINUTO italic cal_vuoto color ("#968a72" if cal_vuoto else "#b3a173") yalign 1.0 yoffset -3
+                                else:
+                                    vbox:
+                                      yalign 0.5
+                                      spacing 4
+                                      xmaximum 760
+                                      text etichetta size 28 color ("#c9bfa8" if cal_vuoto else "#f0e6d2")
+                                      if cal_sotto:
+                                          text cal_sotto size TESTO_MINUTO italic cal_vuoto color ("#968a72" if cal_vuoto else "#b3a173")
+                            if cal_rende:
+                                text cal_rende size TESTO_MINUTO italic True color "#e0b75a" yalign 0.5
                             else:
-                                null width 58
-                            if cal_compatto:
-                                hbox:
-                                    yalign 0.5
-                                    spacing 18
-                                    text etichetta size 25 color "#f0e6d2" yalign 1.0
-                                    if aid in ATTIVITA_DESC:
-                                        text ATTIVITA_DESC[aid] size TESTO_MINUTO color "#8f7f5c" yalign 1.0 yoffset -3
-                            else:
-                                vbox:
-                                  yalign 0.5
-                                  spacing 4
-                                  text etichetta size 28 color "#f0e6d2"
-                                  if aid in ATTIVITA_DESC:
-                                      text ATTIVITA_DESC[aid] size TESTO_MINUTO color "#8f7f5c"
+                                null
 
     ## Pannello laterale.
     $ cal_tt = cal_sel[0] if (cal_touch and cal_sel) else GetTooltip("pianificazione")
     ## Su touch il ritratto cede spazio al bottone "Scegli".
-    $ cal_ritratto_h = 380 if cal_touch else 470
+    ## Su telefono, testo piu' grande: il ritratto cede ancora un po'.
+    $ cal_ritratto_h = 300 if cal_small else 380 if cal_touch else 470
     frame:
         style "cal_pannello"
         at (pian_fisso if pian_fermo else pian_contenuto)
@@ -770,6 +957,10 @@ screen pianificazione(momento, inviti, attivita):
                         ## Attività senza personaggio: la luna del mese.
                         add ("gui/malandrini/luna_%d.png" % momento[0]) align (0.5, 0.6) zoom 1.5
                 text CAL_NOMI.get(cal_chr, CAL_NOMI_COMPRIMARI.get(cal_chr, "Il semestre")) style "cal_pannello_nome"
+                ## Lo stato del rapporto, come nel Diario (mai numeri).
+                $ cal_rapp = cal_rapporto_di(cal_chr) if cal_chr in CAL_NOMI else None
+                if cal_rapp:
+                    text cal_rapp style "cal_pannello_rapporto"
                 text cal_titolo style "cal_pannello_titolo"
                 if cal_tipo == "invito":
                     text CAL_INVITO_DESC.get(cal_chr, "Qualcuno ti cerca. Non dice perché.") style "cal_pannello_testo"
@@ -782,10 +973,19 @@ screen pianificazione(momento, inviti, attivita):
                                 add "gui/malandrini/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
                             text CAL_AVVISI[cal_extra][2] style "cal_pannello_avviso" yalign 0.5
                 else:
-                    text ATTIVITA_DESC.get(cal_extra, "") style "cal_pannello_testo"
+                    if cal_extra in esauriti:
+                        text "Il solito. Niente di nuovo, oggi: niente scene, niente punti." style "cal_pannello_testo"
+                    else:
+                        text ATTIVITA_DESC.get(cal_extra, "") style "cal_pannello_testo"
+                    $ cal_rende_p = cal_paga(cal_extra)
+                    if cal_rende_p:
+                        text cal_rende_p style "cal_pannello_avviso"
+                    if cal_extra in ATTIVITA_NOTA:
+                        text ATTIVITA_NOTA[cal_extra] style "cal_pannello_testo"
             if cal_touch and cal_sel:
                 button:
                     style "cal_scegli"
+                    alt _("Scegli questa voce")
                     action Return(cal_sel[1])
                     text "Scegli" style "cal_scegli_text"
         else:
@@ -880,12 +1080,139 @@ style cal_scegli is button:
     background Frame("gui/button/piano_idle_background.png", 26, 26)
     hover_background Frame("gui/button/piano_hover_background.png", 26, 26)
 
+style cal_scegli:
+    variant "small"
+    yminimum 112
+    xminimum 300
+
+style cal_pannello_rapporto is text:
+    font gui.text_font
+    size 22
+    italic True
+    color "#e0b75a"
+
+## Bottoni della testata (Diario, ?).
+style cal_testata is button:
+    yalign 0.5
+    xminimum 64
+    padding (20, 8, 20, 8)
+    background Frame("gui/button/piano_idle_background.png", 26, 26)
+    hover_background Frame("gui/button/piano_hover_background.png", 26, 26)
+
+style cal_testata:
+    variant "small"
+    xminimum 112
+    yminimum 112
+
+style cal_testata_text is text:
+    font gui.interface_text_font
+    size 24
+    xalign 0.5
+    yalign 0.5
+    color gui.accent_color
+    hover_color "#f5e3b8"
+
 style cal_scegli_text is text:
     font gui.interface_text_font
     size 30
     xalign 0.5
+    yalign 0.5
     color gui.accent_color
     hover_color "#f5e3b8"
+
+
+## Guida al pianificatore ####################################################
+# Al primo pianificatore (cal_loop la mostra se manca il flag), poi dal "?".
+# Quattro schede, si salta in ogni momento.
+
+default persistent.guida_pianificatore = False
+
+init python:
+    GUIDA_PIANIFICATORE = [
+        ("La giornata",
+         "Il semestre salta da un giorno che conta all'altro. Ogni giorno ha "
+         "uno, due o tre momenti: mattina, pomeriggio, sera. In ognuno scegli "
+         "una voce sola, e il tempo speso non torna."),
+        ("Inviti e attività",
+         "In cima, gli inviti: qualcuno ti cerca. Sotto, le attività: i "
+         "territori dove trovi qualcuno e i lavori che pagano. A destra di "
+         "una voce, cosa rende o costa. Un territorio che non ha più niente "
+         "di nuovo lo dice: «Il solito»."),
+        ("La clessidra e i sigilli",
+         "La clessidra accanto a un invito vuol dire che scade. «Solo "
+         "adesso»: se scegli altro, l'invito cade. «Fino alla Luna IV, "
+         "giorno 28»: resta fino alla scelta del cuore, poi forse no. Un "
+         "sigillo rosso sopra un giorno della striscia: quel giorno qualcosa "
+         "accade comunque."),
+        ("Diario, Trama, Borsa",
+         "Il Diario racconta a che punto sei con ognuno: si apre dal bottone "
+         "in alto. La Trama tiene le scelte che pesano (il {color=#c0392b}◆{/color} "
+         "rosso accanto a una scelta) e quello che ne nasce. La Borsa tiene Scudi e doni: si "
+         "apre dalla pillola in alto a destra. Il «?» riapre questa guida."),
+    ]
+
+screen guida_pianificatore():
+
+    modal True
+    zorder 150
+
+    default gp = 0
+    $ gp_ultima = len(GUIDA_PIANIFICATORE) - 1
+    $ gp_chiudi = [SetField(persistent, "guida_pianificatore", True),
+                   Hide("guida_pianificatore")]
+
+    key "game_menu" action gp_chiudi
+
+    add Solid("#000000b0")
+
+    frame:
+        style "cal_guida"
+        vbox:
+            spacing 22
+            xfill True
+            hbox:
+                spacing 16
+                text GUIDA_PIANIFICATORE[gp][0] style "cal_pannello_nome" yalign 0.5
+                text "%d / %d" % (gp + 1, gp_ultima + 1) style "cal_pannello_testo" yalign 0.5
+            add "gui/divisore.png" xalign 0.0
+            text GUIDA_PIANIFICATORE[gp][1] style "cal_guida_testo"
+            null height 6
+            hbox:
+                xalign 1.0
+                spacing 18
+                if gp < gp_ultima:
+                    textbutton _("Salta"):
+                        style "cal_testata"
+                        text_style "cal_testata_text"
+                        action gp_chiudi
+                if gp > 0:
+                    textbutton _("Indietro"):
+                        style "cal_testata"
+                        text_style "cal_testata_text"
+                        action SetScreenVariable("gp", gp - 1)
+                if gp < gp_ultima:
+                    textbutton _("Avanti"):
+                        style "cal_testata"
+                        text_style "cal_testata_text"
+                        action SetScreenVariable("gp", gp + 1)
+                else:
+                    textbutton _("Ho capito"):
+                        style "cal_testata"
+                        text_style "cal_testata_text"
+                        action gp_chiudi
+
+style cal_guida is empty
+style cal_guida:
+    align (0.5, 0.5)
+    xsize 1100
+    background Frame("gui/frame.png", 60, 60)
+    padding (60, 50, 60, 50)
+
+style cal_guida_testo is text:
+    font gui.text_font
+    size 28
+    color "#f0e6d2"
+    line_spacing 4
 
 
 ## Diario del semestre #######################################################
@@ -912,9 +1239,9 @@ screen diario():
 
             null height 14
 
-            text "Momenti del semestre vissuti: [diario_eventi_contati()]" size 22 color "#8f7f5c"
+            text "Momenti del semestre vissuti: [diario_eventi_contati()]" size 22 color "#b3a173"
 
-            text diario_borsa() size 22 color "#8f7f5c"
+            text diario_borsa() size 22 color "#b3a173"
 
             null height 10
 
@@ -923,16 +1250,32 @@ screen diario():
                 textbutton _("Apri le Cronache"):
                     style "cronache_tab"
                     text_style "cronache_tab_text"
-                    action ShowMenu("cronache")
+                    action ShowMenu("cronache", da="diario")
                 textbutton _("Apri la Trama"):
                     style "cronache_tab"
                     text_style "cronache_tab_text"
-                    action ShowMenu("trama")
+                    action ShowMenu("trama", da="diario")
                 textbutton _("Apri la Borsa"):
                     style "cronache_tab"
                     text_style "cronache_tab_text"
-                    action ShowMenu("inventario")
+                    action ShowMenu("inventario", da="diario")
 
+
+style cartello_riepilogo is empty
+style cartello_riepilogo:
+    xalign 0.5
+    ypos 680
+    xmaximum 1100
+    background Frame("gui/frame_piccolo.png", 26, 26)
+    padding (36, 16, 36, 16)
+
+style cartello_riepilogo_text is text:
+    font gui.text_font
+    size 28
+    italic True
+    color "#f5e3b8"
+    textalign 0.5
+    xalign 0.5
 
 style cartello_numero is text
 style cartello_numero:

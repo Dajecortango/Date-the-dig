@@ -35,7 +35,7 @@ init -5 python:
         "druso_sfida", "druso_consiglio", "flag_icaro_coperto",
         "icaro_partita", "icaro_climax_scelta", "ofelia_mancati",
         "ofelia_in_pubblico", "ofelia_mano_cala", "route_attiva",
-        "player_gender",
+        "player_gender", "eco_giri",
     ]
 
     def conseguenze_vars():
@@ -102,6 +102,14 @@ init -5 python:
          "testo": "Alla sfida di Lisandro hai portato via Druso per il braccio.",
          "avviso": "Druso se ne ricorderà.",
          "cond": lambda v: v["druso_sfida"] == "via"},
+        {"id": "druso_mecenate", "char": "druso",
+         "testo": "Al Becco Storto hai offerto da bere a tutto il tavolo, più di una sera.",
+         "avviso": "Druso se ne ricorderà.",
+         "cond": lambda v: (v["eco_giri"] or 0) >= 2},
+        {"id": "spada_difeso_druso", "char": "druso",
+         "testo": "Al cortile d'armi hai difeso Druso davanti ad Aede.",
+         "avviso": "Druso lo saprà.",
+         "cond": lambda v: _scelto(v, "att_spada_3", "«Druso morde")},
         {"id": "druso_silenzio", "char": "druso",
          "testo": "Alla sfida di Lisandro sei rimast[fin] in silenzio: toccava a lui.",
          "avviso": None,
@@ -157,6 +165,9 @@ init -5 python:
          "luoghi": ("citta",), "label": "echi_icaro_mercante"},
         {"id": "echi_druso_lanternaio", "fatto": "druso_lanternaio",
          "luoghi": ("citta",), "label": "echi_druso_lanternaio"},
+        {"id": "echi_druso_mecenate", "fatto": "druso_mecenate",
+         "luoghi": ("taverna",), "label": "echi_druso_mecenate",
+         "cond": lambda v: "druso" not in v["congelate"]},
         {"id": "echi_teschio_taverna", "fatto": "caino_teschio",
          "luoghi": ("taverna",), "label": "echi_teschio_taverna"},
         {"id": "echi_aede_marcassa", "fatto": "aede_vicolo_coperto",
@@ -307,13 +318,13 @@ default persistent.avvisi_conseguenze = True
 
 ## Screen Trama ###############################################################
 
-screen trama(scheda="comune"):
+screen trama(scheda="comune", da=None):
 
     tag menu
 
     default trama_scheda = scheda
 
-    use game_menu(_("Trama")):
+    use game_menu(_("Trama"), da=da):
 
         vbox:
             spacing 16
@@ -329,7 +340,7 @@ screen trama(scheda="comune"):
                         action SetScreenVariable("trama_scheda", sid)
 
             $ trama_n, trama_tot = trama_conto(trama_scheda)
-            text "Momenti vissuti: [trama_n] / [trama_tot]  ·  ◆ questa partita  ·  ◇ un'altra partita  ·  in oro la tua scelta" size TESTO_NOTA italic True color "#8f7f5c"
+            text "Momenti vissuti: [trama_n] / [trama_tot]     ◆ questa partita     ◇ un'altra partita     · mai presa" size TESTO_NOTA italic True color "#b3a173"
 
             add "gui/divisore.png" xalign 0.0
 
@@ -350,17 +361,17 @@ screen trama(scheda="comune"):
                             hbox:
                                 spacing 12
                                 if stato == "ignoto":
-                                    text "— ? —" style "trama_nodo" color "#6b5f4a"
+                                    text "— ? —" style "trama_nodo" color "#968a72"
                                 else:
-                                    text ("◆" if stato == "vissuto" else "◇") size 22 color ("#c0392b" if stato == "vissuto" else "#8f7f5c") yoffset 6
+                                    text ("◆" if stato == "vissuto" else "◇") size 22 color ("#c0392b" if stato == "vissuto" else "#b3a173") yoffset 6
                                     text titolo style "trama_nodo" color ("#f0c75e" if stato == "vissuto" else "#a89468")
-                                text luna size TESTO_NOTA italic True color "#8a7a5a" yalign 0.5
+                                text luna size TESTO_NOTA italic True color "#9a8b6c" yalign 0.5
                             for didascalia, righe in menu_nodo:
                                 vbox:
                                     xoffset 38
                                     spacing 2
                                     for testo, st in righe:
-                                        text ("› " + testo) style "trama_opzione" color ("#f0c75e" if st == "scelta" else "#a89468" if st == "passata" else "#5e5442")
+                                        text ({"scelta": "◆ ", "passata": "◇ "}.get(st, "· ") + testo) style "trama_opzione" italic (st not in ("scelta", "passata")) color ("#f0c75e" if st == "scelta" else "#a89468" if st == "passata" else "#968a72")
                             for fatto in nati:
                                 text ("◆ " + fatto) style "trama_fatto" xoffset 38
                             if eid in ("aede_cap4", "adunanza") and trama_scheda in congelate and eid in eventi_visti:

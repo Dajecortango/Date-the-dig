@@ -69,3 +69,64 @@ def inviti_ignorati(mostrati, scelto_id):
     (scelto_id None = il giocatore ha preso un'attivita')."""
     return [m["id"] for m in mostrati
             if m.get("scade") and m["id"] != scelto_id]
+
+
+def momenti_fino_a(sequenza, idx, luna, giorno):
+    """Giorni salienti (oggi compreso) da sequenza[idx] fino a (luna, giorno)
+    escluso. 0 = il giorno e' oggi; None = gia' passato (o idx fuori)."""
+    if idx >= len(sequenza):
+        return None
+    meta = (luna, giorno)
+    oggi = sequenza[idx][:2]
+    if oggi > meta:
+        return None
+    giorni = []
+    for m in sequenza[idx:]:
+        g = m[:2]
+        if g >= meta:
+            break
+        if g not in giorni:
+            giorni.append(g)
+    return len(giorni)
+
+
+def territorio_esaurito(pool_ids, visti, eco_pronto):
+    """Voce del pianificatore senza niente di nuovo: pool finito e nessun
+    eco pronto. Pool vuoto (ripetibili, mercato) = mai esaurito."""
+    return (bool(pool_ids) and pesca_variante(pool_ids, visti) is None
+            and not eco_pronto)
+
+
+def riepilogo_luna(conteggi, luoghi):
+    """Riga sui due luoghi piu' frequentati ("Una Luna di taverna e di
+    serra."); a pari volte vince l'ordine di comparsa. None se nessuno."""
+    per_luogo = []
+    for aid, n in conteggi.items():
+        nome = luoghi.get(aid)
+        if nome is None:
+            continue
+        for voce in per_luogo:
+            if voce[0] == nome:
+                voce[1] += n
+                break
+        else:
+            per_luogo.append([nome, n])
+    if not per_luogo:
+        return None
+    primi = sorted(per_luogo, key=lambda v: -v[1])[:2]
+    return "Una Luna di " + " e di ".join(v[0] for v in primi) + "."
+
+
+def slot_da_saltare(luna, cuore_scelto, fisso, inviti, attivita, esauriti,
+                    sempre_vive=(), dono_in_borsa=False, luna_da=5):
+    """Lune V-VI (dopo la scelta del cuore): lo slot non esiste se non ha
+    un fisso, nessun invito e nessuna attivita' con qualcosa di nuovo.
+    attivita = id visibili nello slot, esauriti = quelli senza niente di
+    nuovo; sempre_vive = id che non si saltano mai (mercato, commissioni:
+    Scudi e doni restano scelte vere). Con un dono in borsa non si salta
+    (il territorio esaurito puo' ancora consegnarlo)."""
+    if luna < luna_da or not cuore_scelto or dono_in_borsa:
+        return False
+    if fisso is not None or inviti:
+        return False
+    return all(a in esauriti and a not in sempre_vive for a in attivita)

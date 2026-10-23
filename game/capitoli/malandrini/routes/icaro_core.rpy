@@ -6,6 +6,7 @@ default icaro_impegnato = False
 default flag_icaro_coperto = False
 default icaro_partita = None        # "copre" | "smaschera" | "silenzio"
 default icaro_climax_scelta = None  # "dettaglio" | "silenzio" | "accusa"
+default icaro_colonna = None        # luna6: "chiede" | "totale" | "pipa"
 # Deviazioni: "dettaglio" | "silenzio" | "minaccia"; "conta" | "aiuto" | "via".
 default icaro_debito_esito = None
 default icaro_febbre_esito = None

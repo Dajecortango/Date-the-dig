@@ -27,6 +27,10 @@ init python:
          ["att_taverna_1", "att_taverna_2", "att_taverna_3", "att_taverna_4"]),
         ("fumeria", "La sala da gioco e la fumeria", "icaro",
          ["att_fumeria_1", "att_fumeria_2", "att_fumeria_3", "att_fumeria_4"]),
+        # Sera neutra: il focolare del Ceppo, senza punti (fuori dai
+        # territori di Druso e di Icaro).
+        ("ceppo_sera", "Una sera al Ceppo", None,
+         ["att_ceppo_1", "att_ceppo_2", "att_ceppo_3"]),
     ])
 
 
@@ -89,7 +93,16 @@ label att_spada_3:
     if druso_affinity >= 5:
         show aede irritata with qdiss
         aede "Il figlio di Lenora ti chiama «linguaccia», in giro. Digli che qui la linguaccia impara a parlare con l'acciaio."
-        "Non è gelosia. È catalogazione. Credo."
+        # Costo incrociato (M8): a chi dai ragione? +1 a Druso o niente.
+        menu:
+            "Aspetta una risposta. Con la spada ancora alzata."
+            "«Druso morde, ma morde per primo chi lo merita.»":
+                $ druso_affinity += 1
+                show aede neutra with qdiss
+                aede "Difendi il poeta. Annotato."
+                "Nei cortili della Rocca la pioggia non copre le voci: Druso lo saprà prima di cena. E se ne vanterà."
+            "«Glielo dirò. Con l'acciaio, come dici tu.»":
+                "Aede annuisce una volta, secca. Non è gelosia. È catalogazione. Credo."
     return
 
 
@@ -396,4 +409,67 @@ label att_fumeria_4:
             "Lo rimette nella pila con un mezzo sorriso. La terza pila torna pari alle altre."
         "Guardare e basta, com'è gratis":
             icaro "Bravo. Il pubblico migliore è quello che non fa domande."
+    return
+
+
+## Una sera al Ceppo — voce serale neutra (0 punti) ##########################
+# Il focolare di Briseide con Vanna, Corrado e i Figli piccoli. Nessuna
+# affinita': le scelte cambiano solo il racconto.
+
+label att_ceppo_1:
+    scene bg corridoio_ceppo with fade
+    show vanna neutra at left with dissolve
+    "Dopo cena il Ceppo si stringe attorno al focolare. Vanna ha già occupato il posto migliore e tiene banco."
+    vanna "Gioco nuovo, [fratello_t]: indovino chi guardi. Tre tentativi. Se sbaglio, lavo io le scodelle."
+    if route_attiva in CAL_NOMI:
+        $ ceppo_nome = CAL_NOMI[route_attiva]
+        vanna "Anzi, niente tentativi. [ceppo_nome]. Lo sa tutto il Ceppo, lo sa perfino il gatto."
+    menu:
+        "Mezza tavolata si gira ad ascoltare."
+        "Darle un nome falso, a caso":
+            vanna "Bugi[fin]! Ti si allarga il naso quando menti. Come a Corrado quando dice che ha letto un libro intero."
+            "Corrado, dall'altro capo della stanza, alza il libro senza alzare gli occhi. Le scodelle restano a me."
+        "«Nessuno. Guardo il fuoco.»":
+            vanna "Il fuoco. Certo. E il fuoco ha i capelli di che colore?"
+            "Ride così forte che il più piccolo dei Figli si sveglia e ride anche lui, senza sapere perché."
+        "«E tu, Vanna? Chi guardi tu?»":
+            "Per la prima volta in tre Lune, Vanna non ha una risposta pronta. Si alza a lavare le scodelle. Tutte."
+    return
+
+label att_ceppo_2:
+    scene bg corridoio_ceppo with fade
+    show corrado neutro at left with dissolve
+    "Sera di racconti. Corrado racconta ai Figli piccoli la storia del Ceppo, con la voce che usa per le cose importanti."
+    corrado "...e in trent'anni nostra madre ha raccolto quaranta Figli. Quaranta, e di ognuno ricorda il nome."
+    "Fa una pausa di troppo. Mi guarda di sbieco, sopra il libro: sta controllando chi ascolta."
+    menu:
+        "Il numero è sbagliato. Lo so io, e lo sa lui."
+        "«Cinquanta, Corrado. Non quaranta.»":
+            corrado "Bene. Qualcuno studia, in questo Ceppo."
+            "Sorride, piccolo e soddisfatto. I bambini contano sulle dita e si perdono a dodici."
+        "Lasciar correre":
+            "Lascio correre. Corrado sospira, delude solo un po' se stesso, e va avanti fino alla fine."
+        "Aggiungere un drago, per i bambini":
+            pc "E c'era un drago. Grande come il Consiglio. Con la barba di Druso."
+            "I Figli piccoli urlano di gioia. Corrado chiude gli occhi come chi conta fino a dieci in tre lingue."
+            corrado "Nessun drago. ...va bene. Un drago piccolo."
+    return
+
+label att_ceppo_3:
+    scene bg corridoio_ceppo with fade
+    show briseide neutra with dissolve
+    "Coprifuoco. Briseide passa tra le brande con la candela, contando teste come si contano gli Scudi a fine mese."
+    briseide "[player_name]. Sveglia, a quest'ora? Allora rendi qualcosa al Ceppo."
+    briseide "Il più piccolo non dorme. Vuole sentire dello Svelo. Da chi c'era."
+    menu:
+        "Il bambino mi fissa dalla branda, con gli occhi grandi come scodelle."
+        "Raccontarlo com'è andato":
+            "Le maschere, il buio, la paura. Lo racconto senza togliere niente. Il bambino ascolta serio, poi si addormenta a metà."
+            briseide "Hai detto la verità a un bambino. È più difficile che dirla all'Autarca."
+        "Raccontarlo meglio di com'è andato":
+            "Nella mia versione ci sono tre lame, un salto dal tetto e nessuna paura. Il bambino non chiude occhio fino all'alba."
+            briseide "Domani lo metti a letto tu. E pure dopodomani."
+        "«Domani, se dormi adesso.»":
+            "Il patto regge: il bambino si gira dall'altra parte e dorme in tre respiri."
+            briseide "Promesse a scadenza. Le fanno le madri e gli Arconti. Impari in fretta, [player_name]."
     return

@@ -93,7 +93,9 @@ screen mg_prova(titolo, testo, opzioni, tempo=None):
             spacing 18
             text titolo style "mg_titolo"
             text testo style "mg_testo"
-            if tempo:
+            ## La lettura vocale consuma il tempo: con self-voicing niente
+            ## clessidra, qualunque sia l'opzione.
+            if tempo and not _preferences.self_voicing:
                 bar value AnimatedValue(0.0, tempo, tempo, tempo) style "mg_barra"
                 timer tempo action Return("silenzio")
             null height 4

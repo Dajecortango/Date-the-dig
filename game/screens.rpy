@@ -277,11 +277,18 @@ screen choice(items):
         for n, i in enumerate(items):
             # peso=True (argomento di menu): scelta che pesa, diamante rosso.
             $ peso = i.kwargs.get("peso", False)
+            # Voce senza azione (es. al mercato, un dono che non ti puoi
+            # permettere): resta visibile ma spenta.
+            $ spenta = i.action is None
             button:
                 # La scelta presa resta nelle Memorie, prima della risposta.
-                action (NullAction() if presa is not None
+                action (None if spenta
+                        else NullAction() if presa is not None
                         else [Function(scelta_in_memorie, i.caption), i.action] if scelte_ferme
                         else SetScreenVariable("presa", n))
+                # Il ◆ e' solo un glifo: la lettura vocale lo dice a parole.
+                alt (("Scelta importante: " if peso else "") + i.caption
+                     + (". Non disponibile." if spenta else ""))
                 # Le scelte che pesano chiudono col sigillo.
                 activate_sound ("audio/sigillo.ogg" if peso else "audio/carta.ogg")
                 # Entrano in cascata dall'alto, poi rispondono all'hover.
@@ -295,7 +302,7 @@ screen choice(items):
                     # Scelta gia' presa (in questa o in una partita
                     # precedente): fogliolina d'oro e testo d'oro spento.
                     # Dice solo "gia' percorsa", mai dove porta.
-                    if getattr(i, "chosen", False):
+                    if getattr(i, "chosen", False) and not spenta:
                         add "gui/scelta_vista.png" yalign 0.5 alpha 0.7
                         text i.caption style "choice_button_text" idle_color "#b3a173" hover_color "#f5e3b8" yalign 0.5
                         null width 24
@@ -351,9 +358,11 @@ style choice_vbox is vbox
 style choice_button is button
 style choice_button_text is button_text
 
+## Centrate nell'area libera sopra il box (che parte da y 803): anche
+## 5-6 voci col testo scalato del telefono non escono dal bordo alto.
 style choice_vbox:
     xalign 0.5
-    ypos gui.scale(270)
+    ypos gui.scale(400)
     yanchor 0.5
 
     spacing gui.choice_spacing
@@ -478,6 +487,7 @@ screen quick_menu():
                     action quick_azione(chiave)
                     alternate (Skip(fast=True, confirm=True) if chiave == "salta" else None)
                     tooltip suggerimento
+                    alt suggerimento
                     at (quick_fermo if mm_movimento_ridotto() else quick_hover), quick_scala
 
         if renpy.variant("touch"):
@@ -570,7 +580,9 @@ style quick_button_text:
 screen navigation():
 
     vbox:
-        style_prefix "navigation"
+        ## Menu principale e menu di gioco hanno misure diverse su telefono
+        ## (navigation_mm_*: piu' alte, le voci sono meno).
+        style_prefix ("navigation_mm" if main_menu else "navigation")
 
         # Centrata: nel pannello del menu principale (x 60-560) o nella
         # colonna del menu di gioco (larga 360 + margine: il nastro di
@@ -579,7 +591,7 @@ screen navigation():
         xanchor 0.5
         yalign 0.5
 
-        spacing gui.navigation_spacing
+        spacing (gui.navigation_spacing if not renpy.variant("small") else 10 if main_menu else 4)
 
         if main_menu:
 
@@ -651,6 +663,25 @@ style navigation_button_text:
     text_align 0.5
     properties gui.text_properties("navigation_button")
     outlines [(2, "#140a08", 0, 0)]
+
+style navigation_mm_vbox is navigation_vbox
+style navigation_mm_button is navigation_button
+style navigation_mm_button_text is navigation_button_text
+
+## Telefono: ~42 px di nastro sono 2,6 mm. Nel menu di gioco le voci sono
+## fino a 10 e devono stare tra il titolo e "Indietro": 80 px (~5 mm); nel
+## menu principale (5-6 voci) 96 px, un po' piu' in basso della pergamena.
+style navigation_button:
+    variant "small"
+    yminimum 80
+
+style navigation_mm_button:
+    variant "small"
+    yminimum 96
+
+style navigation_mm_vbox:
+    variant "small"
+    yoffset 70
 
 
 ## Main Menu screen ############################################################
@@ -780,7 +811,9 @@ style main_menu_version:
 ## This screen is intended to be used with one or more children, which are
 ## transcluded (placed) inside it.
 
-screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
+## da: screen da cui si e' arrivati (es. "diario"); "Indietro" e Esc ci
+## tornano invece di chiudere il menu.
+screen game_menu(title, scroll=None, yinitial=0.0, spacing=0, da=None):
 
     style_prefix "game_menu"
 
@@ -848,7 +881,10 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     textbutton _("Return"):
         style ("return_button_mm" if main_menu else "return_button")
 
-        action Return()
+        action (ShowMenu(da) if da else Return())
+
+    if da:
+        key "game_menu" action ShowMenu(da)
 
     if main_menu:
         label title style "game_menu_label_mm" text_style "game_menu_label_mm_text"
@@ -948,6 +984,12 @@ style game_menu_label_mm_text:
     textalign 0.5
     xalign 0.5
     layout "subtitle"
+
+## Telefono: "Indietro" alto quanto un dito.
+style return_button:
+    variant "small"
+    yminimum 96
+    yoffset -16
 
 style return_button_mm is return_button
 style return_button_mm_text is return_button_text
@@ -1049,7 +1091,8 @@ screen file_slots(title):
                 style_prefix "slot"
 
                 xalign 0.5
-                yalign 0.5
+                ## Su telefono le pagine sono alte un dito: la griglia sale.
+                yalign (0.3 if renpy.variant("small") else 0.5)
 
                 spacing gui.slot_spacing
 
@@ -1059,6 +1102,8 @@ screen file_slots(title):
 
                     button:
                         action FileAction(slot)
+                        ## Su touch non c'e' il tasto Canc: pressione lunga.
+                        alternate (FileDelete(slot) if renpy.variant("touch") else None)
 
                         has vbox
 
@@ -1145,6 +1190,11 @@ style page_button:
 style page_button_text:
     properties gui.text_properties("page_button")
 
+style page_button:
+    variant "small"
+    yminimum 112
+    xminimum 80
+
 style slot_button:
     properties gui.button_properties("slot_button")
 
@@ -1200,6 +1250,7 @@ screen preferences():
                     label _("Animazioni")
                     textbutton _("Sì") action SetField(persistent, "menu_animato", True)
                     textbutton _("No") action SetField(persistent, "menu_animato", False)
+                    text _("Anche scosse, lampi e particelle.") style "pref_nota"
 
                 vbox:
                     style_prefix "radio"
@@ -1207,6 +1258,7 @@ screen preferences():
                     label _("Avvisi delle conseguenze")
                     textbutton _("Sì") action SetField(persistent, "avvisi_conseguenze", True)
                     textbutton _("No") action SetField(persistent, "avvisi_conseguenze", False)
+                    text _("Il riquadro quando una scelta lascia il segno.") style "pref_nota"
 
                 vbox:
                     style_prefix "radio"
@@ -1214,6 +1266,7 @@ screen preferences():
                     label _("Scelte a tempo")
                     textbutton _("Sì") action SetField(persistent, "scelte_a_tempo", True)
                     textbutton _("No") action SetField(persistent, "scelte_a_tempo", False)
+                    text _("La clessidra nelle sfide. Con la lettura vocale è sempre tolta.") style "pref_nota"
 
             null height (4 * gui.pref_spacing)
 
@@ -1284,6 +1337,13 @@ screen preferences():
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
 
+
+style pref_nota is gui_text:
+    font gui.text_font
+    size TESTO_NOTA
+    italic True
+    color "#b3a173"
+    xmaximum 330
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
@@ -1679,6 +1739,10 @@ style confirm_button:
 
 style confirm_button_text:
     properties gui.text_properties("confirm_button")
+
+style confirm_button:
+    variant "small"
+    yminimum 112
 
 
 ## Skip indicator screen #######################################################

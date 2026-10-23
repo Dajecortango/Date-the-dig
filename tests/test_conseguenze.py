@@ -212,6 +212,9 @@ ATTESE_RINOMINATE = {
     "Prenderla": "Prendere la chiave del magazzino",
     "Rifiutarla": "Lasciargli la chiave",
     "Aspettare ancora": "Rimandare il saldo dei sei Scudi",
+    # Fase C: costo uniforme "(N Scudi)" nelle scelte che spendono.
+    "Offrire un giro a tutto il tavolo": "Offrire un giro a tutto il tavolo (1 Scudo)",
+    "Comprargli una lanterna nuova per il Ceppo": "Comprargli una lanterna nuova per il Ceppo (2 Scudi)",
 }
 
 

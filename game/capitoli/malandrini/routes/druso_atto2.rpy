@@ -190,8 +190,17 @@ label druso_fiaccolata:
     druso "Domani lo saprà tutta la Rocca. Caino non parla, ma il suo sopracciglio è un banditore."
     show druso imbarazzato with dissolve
     druso "Se lo racconti in taverna, nego. Ho una reputazione. ...al gradino duecento puoi raccontare quello che vuoi."
+    menu:
+        "Mi stringe la mano più forte, come se la risposta passasse da lì."
+        "«Lo racconto eccome. In rima. Peggio delle tue.»":
+            $ druso_affinity += 1
+            show druso ghigno with qdiss
+            druso "Peggio delle mie è impossibile. Ma ti concedo il tentativo. E i diritti."
+        "«Non lo saprà nessuno. Promesso.»":
+            show druso neutro with qdiss
+            druso "Promesso. Che parola noiosa. ...tienila lo stesso."
+            "Il resto della salita lo fa in silenzio. Non so se l'ho deluso o l'ho calmato. Con Druso, a volte, è uguale."
     "In cima, la lanterna nostra è l'unica storta. Druso dice che è voluto. Che è arte."
-    $ druso_affinity += 1
     return
 
 
@@ -215,17 +224,20 @@ label druso_luna6:
     menu:
         "Mi guarda in attesa del verdetto, come se il Consiglio fossi già io."
         "«Fa schifo. Riscrivila. Con me.»":
+            $ druso_difesa = "riscrivi"
             show druso sorpreso with qdiss
             druso "...fa schifo? Undici strofe! Ottave! Ci ho perso il sonno!"
             show druso ghigno with qdiss
             druso "Hai ragione. Fa schifo. Prendi la penna, linguaccia. Se dobbiamo affondare, che sia in metrica."
             "Scriviamo fino a tardi. Lui cancella ogni mio verso, poi lo rimette, cambiandogli una parola sola per poter dire che è suo."
         "«Non portarti una poesia. Portati te stesso.»":
+            $ druso_difesa = "se_stesso"
             show druso irritato with qdiss
             druso "Me stesso? Hai visto me stesso? Cento chili di debiti, versi e paura. Non è una difesa: è una confessione."
             show druso serio with qdiss
             druso "...però è vero, maledizione. Una poesia la FISCHIANO. Uno in carne e ossa, al massimo lo impiccano."
         "Strappargli la lettera e bruciarla sulla candela":
+            $ druso_difesa = "brucia"
             with hpunch
             "La cera nera sfrigola. L'odore di carta bruciata riempie la taverna vuota."
             show druso sorpreso with qdiss
