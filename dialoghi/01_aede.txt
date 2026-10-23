@@ -31,20 +31,20 @@ TU: E tu hai quasi aperto la gola al/alla novellino/a sbagliato/a. Siamo pari?
 AEDE: Non siamo niente. Tu non hai visto niente.
 Si toglie la maschera per un attimo, giusto il tempo di asciugarsi la fronte. Capelli rosso fiamma, raccolti male. La riconosco: Aede, la figlia di Glauco Severo.
 Il piccolo gioiello dell'Autarca. Quella di cui i miei fratelli di Ceppo parlano solo a voce bassa.
-E io sono l'unico/a, in tutta Rocca Tempesta, ad averla vista sbagliare bersaglio.
+E il suo bersaglio sbagliato, stanotte, ero io.
 
 [SCELTA]
     AEDE: Allora? Cosa devo fare di te, novellino/a?
 
     > «Il tuo segreto muore con me. Hai la mia parola.»
-        TU: Il tuo segreto muore con me. Hai la mia parola.
+        TU: Non lo dico a nessuno. Neanche a Briseide.
         Mi studia a lungo. Poi rinfodera la lama, di scatto, come se la decisione la irritasse.
-        AEDE: Le parole dei novellini valgono poco. Ma stanotte mi accontento.
+        AEDE: Parola di novellino/a. Bah. Per stanotte basta.
 
     > «Sbagli bersaglio spesso, o sono speciale?»
-        TU: Sbagli bersaglio spesso, o sono speciale?
+        TU: Ti capita spesso di sbagliare gola, o sono un caso speciale?
         AEDE: Continua a parlare e il bersaglio diventa giusto.
-        Ma c'è una piega minuscola all'angolo della sua bocca. Quasi un sorriso. Quasi.
+        Ma l'angolo della bocca le si piega, appena. Se ne accorge e lo raddrizza.
 
     > «Glauco Severo sarà curioso di saperlo.»
         TU: Glauco Severo sarà curioso di saperlo.
@@ -78,7 +78,7 @@ AEDE: Quelli della Malacorte. Se fossero qui per noi, non li avresti visti.
     > Tenere il passo in silenzio, senza chiedere nulla
         Stringo i denti e tengo il suo passo. Un'ora senza una domanda, senza un lamento.
         AEDE: ...Briseide li sceglie meno male del previsto, i suoi Figli.
-        Dalla figlia di Glauco, è quasi una cerimonia d'onore.
+        Non si gira a dirmelo. Lo dice alla strada davanti.
 
     > Chiederle cosa c'è dentro la cassetta
         Resisto mezz'ora. Poi la lingua vince.
@@ -130,7 +130,7 @@ VANNA: Col modo in cui la fissi, due su tre.
         Noto un Figlio del Ramo rivale armeggiare vicino alla corsia di cambio: sparge sabbia fine sulla pietra, dove lei pianterà il piede.
         Non grido. Passo di lì con la borraccia «per sbaglio» aperta, e lavo via tutto.
         Aede vince di tre lunghezze. Alla premiazione i suoi occhi trovano i miei, poi la borraccia vuota, poi di nuovo i miei.
-        Non un grazie. Un cenno della testa, misurato al millimetro. Da lei, vale un discorso.
+        Non un grazie. Un cenno della testa, uno solo, misurato al millimetro.
 
     > Iscrivermi alla corsa aperta e sfidarla
         C'è una corsa aperta a tutti i Figli, a fine giornata. Mi iscrivo. Lei pure, per dovere di Ceppo.
@@ -138,7 +138,7 @@ VANNA: Col modo in cui la fissi, due su tre.
         AEDE: Quarto/a. Per chi ha imparato a correre tre settimane fa, è quasi non umiliante.
         TU: L'anno prossimo arrivo terzo.
         AEDE: L'anno prossimo ti doppio.
-        È la prima volta che la vedo sorridere a viso aperto. Dura un battito. Poi se ne accorge e il sorriso sparisce come refurtiva.
+        E sorride. Tutta la faccia, denti compresi. Dura un battito, poi se ne accorge e lo fa sparire come refurtiva.
 
     > Ignorare la gara e andarmene presto
         Me ne vado prima della staffetta. Le gare non mi sono mai interessate.
@@ -160,13 +160,13 @@ Due Rami, una sola trappola. Se la delazione regge, il mio Ceppo perde l'onore e
     AEDE: Il magazzino della Contrada Marcassa. Stanotte. Decidi: vieni come esca viva, o resti a dormire come esca stupida?
 
     > «Vengo. Ma se è una trappola per te, chi fa da esca sono io.»
-        TU: Vengo. Ma se è una trappola per te, chi fa da esca sono io.
+        TU: Vengo. E se qualcuno deve prendersi la coltellata, mettimi davanti.
         AEDE: ...sei più scemo/a di quanto sembri.
-        Lo dice piano. Senza veleno. Quasi con cura.
+        Lo dice piano. Intanto mi stringe la fibbia del mantello, due strattoni secchi.
 
     > «Resto. Delle trappole te ne intendi più tu.»
         TU: Resto. Delle trappole te ne intendi più tu.
-        AEDE: Finalmente un po' di buonsenso. Peccato. Cominciavo ad abituarmi alla compagnia.
+        AEDE: Buonsenso. Era ora. ...Peccato, però.
         Lo dice voltandosi, troppo in fretta perché possa leggerle la faccia.
 La notte del magazzino va come doveva andare: male, poi bene.
 Il delatore si presenta con due lame a pagamento. Aede ne disarma una prima che io finisca di capire da dove è arrivata. La seconda esita — e l'esitazione, con lei, è una resa.
@@ -180,7 +180,7 @@ AEDE: Hai fatto la faccia del merluzzo per tutta la rissa. Tutta.
 TU: È la mia tecnica. Distraggo il nemico con l'incredulità.
 AEDE: Pessima tecnica. Non cambiarla.
 Rientriamo che è quasi alba. E io capisco due cose: che le devo la reputazione, forse la vita.
-E che la risata di Aede, figlia di Glauco, è il suono più raro del Nord. E io voglio sentirla ancora.
+E che voglio sentirla ridere ancora. Anche a costo di rifare il merluzzo.
 
 
 === INTERLUDIO1 ===
@@ -257,7 +257,7 @@ AEDE: Quindi dimmelo adesso: ha un nome, oppure no? Rispondi male e ti butto dal
     Non è una minaccia. È una domanda con l'armatura.
 
     > «Ha un nome. Il tuo.»
-        AEDE: ...risposta accettabile. L'unica, per la cronaca.
+        AEDE: ...risposta accettabile. Con le altre volavi di sotto.
         AEDE: E sia chiaro: io non divido. Né le lame, né il posto agli allenamenti, né te. Chi ti ronza intorno, da stanotte, parla con me.
         Non mi butta dal ballatoio. Resta, invece. E il resto del semestre, da stanotte, ha una direzione sola.
 
@@ -286,20 +286,20 @@ Non trasalisce. Non si giustifica. Mi guarda e basta, e nel suo sguardo c'è una
         TU: Questo è... questo è assassinio.
         AEDE: Questo è il Nord. Questo è il mio Ceppo. Questo sono io.
         AEDE: Credevi di passeggiare con cosa, esattamente? Con una ricamatrice?
-        La voce le si incrina sull'ultima parola. Di rabbia, mi dico. Ma non è solo rabbia.
+        La voce le si incrina sull'ultima parola. Stringe l'elsa finché le nocche sbiancano.
         AEDE: Torna dal tuo mercante di lane, Figlio/a di Briseide. E dimentica il vicolo.
-        Mi volta le spalle. E per la prima volta da quando la conosco, sembra avere fretta.
+        Mi volta le spalle. Il passo è troppo svelto, per lei.
 
     > «Il tuo Ceppo salda. Ho capito. Non ho visto niente.»
-        TU: Il tuo Ceppo salda. Ho capito. Non ho visto niente.
+        TU: Salda. Ho capito. Io qui non c'ero.
         AEDE: Impari in fretta le regole.
-        Lo dice piatta. Ma mentre mi passa accanto rallenta di mezzo passo, come se si aspettasse altro da me. Come se le regole, stanotte, non le bastassero.
+        Lo dice piatta. Ma mentre mi passa accanto rallenta di mezzo passo. Aspetta. Non dico niente, e lei riparte.
 
     > «Chi era per te, quest'uomo? Cosa ti costa, questo lavoro?»
-        TU: Chi era per te, quest'uomo? Cosa ti costa, questo lavoro?
-        Si blocca. Nessuno, capisco in quell'istante, le ha mai fatto quella domanda. Né il padre, né Ofelia, né Ascadeo, né i morti.
+        TU: Chi era, per te? E a te quanto costa?
+        Si blocca. La lama, a metà del fodero, resta lì.
         AEDE: Per me non era nessuno. È questo che lo rende un lavoro.
-        AEDE: Quanto costa... Il primo costa tutto. Gli altri costano il ricordo del primo.
+        AEDE: Quanto costa. Col primo non dormi per una Luna. Poi dormi. È peggio.
         Si siede su una cassa. Io mi siedo su quella accanto, a distanza di rispetto. Restiamo così finché le lanterne della Contrada non si spengono.
         AEDE: Se lo racconti a qualcuno, ti ammazzo.
         TU: Lo so.
@@ -338,8 +338,8 @@ Vanna e Corrado ci incrociano salendo. Vanna mi fa un gesto osceno di incoraggia
     > Prenderle la mano
         Non chiedo il permesso. Allungo la mano verso la sua.
         Lei la ritira con naturalezza perfetta, come se dovesse sistemarsi i capelli proprio in quell'istante.
-        AEDE: Attento/a, novellino/a. Su questa scala i gesti hanno un significato. E tu e io non ci conosciamo abbastanza perché ne abbiano.
-        Non è crudele. È esatta. Fa più male così.
+        AEDE: Giù le mani, novellino/a. Su questa scala una mano vuol dire una cosa. E noi due quella cosa non siamo.
+        Senza cattiveria. Un taglio pulito, di quelli che bruciano dopo.
 
     > Camminarle accanto, senza toccarla
         Scendiamo fianco a fianco, le mani a un dito di distanza, senza che nessuna delle due attraversi il confine.
@@ -368,14 +368,14 @@ AEDE: Non l'ho mai detto a nessuno. Mio padre lo sa senza che io l'abbia detto, 
 AEDE: E io stanotte avrei voglia di darlo via. A te. Capisci cosa ti sto offrendo, <Nome>?
 
 [SCELTA]
-    La capisco. Sta offrendo l'unica cosa che il giuramento le ha lasciato da offrire.
+    Ha le mani strette sulla balaustra. Le nocche bianche.
 
     > Fermarla. «Il tuo nome di prima è morto. Io voglio quella viva.»
         Le metto due dita sulle labbra, piano.
         TU: Il tuo nome di prima è morto. Io voglio quella viva.
         TU: Non devi comprarmi con un segreto, Aede. Non devi comprarmi affatto.
         Mi fissa. Qualcosa le si scioglie nella linea delle spalle, un nodo vecchio di vent'anni.
-        AEDE: Sei l'unico/a uomo/donna del Nord che rifiuta un tesoro per prendersi la cassaforte.
+        AEDE: Rifiuti il tesoro e ti prendi la cassaforte. Che razza di ladro/a...
         TU: La cassaforte mi è sempre piaciuta più del tesoro.
         AEDE: Idiota.
         Ma lo dice con la fronte appoggiata alla mia spalla. E il sole, quando sorge, ci trova così.
@@ -391,7 +391,7 @@ AEDE: E io stanotte avrei voglia di darlo via. A te. Capisci cosa ti sto offrend
         TU: Allora facciamo a metà. Il tuo segreto per il mio. Anch'io avevo un nome, prima.
         Si stacca dalla balaustra di scatto, come scottata.
         AEDE: No. No, tu non capisci niente. Io posso buttare via il mio giuramento: è mio. Ma non ti lascerò buttare il tuo per pareggiare un conto.
-        AEDE: Il giuramento è l'unica cosa che ci rende Dignitas, <Nome>. Se lo rompi per me, un giorno mi odierai. E io—
+        AEDE: Senza giuramento siamo ladri col mantello, <Nome>. Se lo rompi per me, un giorno mi odierai. E io—
         Non finisce la frase. Se ne va com'è venuta, dalle serrature peggiori del Nord.
 Due giorni dopo, un messo col leone dorato sul petto si presenta alla mia tenuta.
 Il Ceppo di Glauco Severo convoca il/la Figlio/a di Briseide, <Nome>, nello studio dell'Autarca.
@@ -437,14 +437,14 @@ La lama è già nella sua mano. Non l'ho vista estrarla. Non la vedo mai.
 
 === GOOD END ===
 
-Aede guarda la lama nella propria mano come se la vedesse per la prima volta.
+Aede abbassa gli occhi sulla lama. La gira una volta, piatto e filo. Le trema il polso.
 AEDE: Vent'anni di ordini eseguiti. Sai quante volte ho sbagliato un bersaglio, <Nome>?
 TU: Una.
 AEDE: Una. E non era un errore.
 Apre le dita. La lama cade nella neve, dritta, e vi resta piantata come un piccolo monumento.
 Glauco emerge dal bianco. Era lì da sempre, naturalmente.
 GLAUCO SEVERO: Disobbedienza.
-AEDE: Verità, padre. La tua lama perfetta sceglie il suo bersaglio: è questo che l'hai addestrata a fare. Scegliere meglio di chiunque.
+AEDE: No, padre. Mi hai insegnato a scegliere il bersaglio. Ho scelto.
 AEDE: E io scelgo lui. Davanti a te, davanti al Groviglio, davanti a ogni Asi che vorrà guardare. Se il Ceppo deve rifondermi, cominci stanotte.
 Il silenzio dura una nevicata intera. Poi Glauco Severo fa la cosa più spaventosa che abbia mai fatto.
 GLAUCO SEVERO: Vent'anni perché imparasse a disobbedirmi per qualcosa che vale. Era l'ultima lezione, figlia. L'unica che non potevo insegnarti io.
@@ -496,7 +496,7 @@ Lo dice piano, stupita di se stessa. E nella neve alle mie spalle, una voce pesa
 GLAUCO SEVERO: Lo sapevo prima di darle l'ordine, Figlio/a di Briseide. Era l'ultima verifica, e l'avete fallita entrambi.
 GLAUCO SEVERO: Mia figlia non commette errori. Quando li commette, li erediti tu.
 Non vedo il gesto. Con lui non lo vede nessuno.
-L'ultima cosa che sento è la voce di lei che urla il mio nome — il mio Primo Nome, quello vero, l'unico che ho.
+L'ultima cosa che sento è la voce di lei che urla il mio nome — il mio Primo Nome, quello vero, quello che mi resta.
 Gli Arvali dicono che chi muore nella neve attraversa il Margine senza freddo. Mentono. Ma è un freddo breve.
 E a Drakengrad, nella sala del Leone, c'è un posto anche per le storie finite male. Il Nord le preferisce: insegnano meglio.
 ~ FINE «Chi minaccia me, parla con lui. E nessuno parla con lui due volte.» ~
@@ -504,7 +504,7 @@ E a Drakengrad, nella sala del Leone, c'è un posto anche per le storie finite m
 
 === AEDE PASSEGGERO ===
 
-Aede abbassa la lama. Piano, come si posa una cosa che non serve più.
+Aede abbassa la lama. Piano. La punta tocca la neve e ci resta.
 AEDE: Non ti tocco. Non stanotte, non mai. Questo lo decido io.
 
 [VARIANTE]
@@ -514,7 +514,7 @@ AEDE: Non ti tocco. Non stanotte, non mai. Questo lo decido io.
     AEDE: Ma quando c'era da giurare, sei rimasto/a sulla soglia. Io sulla soglia ci vivo da vent'anni. Non ci si sta in due.
 GLAUCO SEVERO: Una lama che risparmia senza scegliere. Interessante, figlia. Inutile, ma interessante.
 AEDE: È il mio bersaglio, padre. Decido io quando mancarlo.
-Rinfodera. Il suono è piccolo, pulito. Per un istante mi guarda come si guarda una strada che non si prenderà.
+Rinfodera. Il suono è piccolo, pulito. Per un istante mi guarda. Poi guarda oltre, verso le mura.
 Una Luna dopo, la vedo su un tetto della Consorteria. Mantello grigio, passo leggero, un incarico nuovo tra le dita.
 Sorride a qualcosa che non vedo. Non a me. Lavora bene. Si vede che lavora bene.
 Mi riconosce. Un cenno, due dita alla fronte, come tra colleghi. Poi salta al tetto successivo e la neve la cancella.

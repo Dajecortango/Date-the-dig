@@ -638,6 +638,9 @@ screen pianificazione(momento, inviti, attivita):
         ## miniata, nascosta se non serve) solo quando non ci sta. Con piu'
         ## di 6 voci le righe si compattano: titolo e sottotitolo su una riga.
         $ cal_compatto = len(inviti) + len(attivita) > 6
+        ## Righe alte (~1 cm su telefono): con 6 voci stanno ancora tutte
+        ## tra il cartello e il menu rapido senza scorrere.
+        $ PIAN_RIGA_H = 96
         viewport:
             id "cal_lista"
             xsize 1060
@@ -657,7 +660,8 @@ screen pianificazione(momento, inviti, attivita):
                     button:
                         at (pian_fisso if pian_fermo else pian_voce(0.3 + 0.04 * k))
                         xfill True
-                        ypadding (5 if cal_compatto else 8)
+                        yminimum (66 if cal_compatto else PIAN_RIGA_H)
+                        ypadding (8 if cal_compatto else 14)
                         left_padding 26
                         right_padding 26
                         background Frame("gui/button/piano_idle_background.png", 26, 26)
@@ -683,7 +687,7 @@ screen pianificazione(momento, inviti, attivita):
                             else:
                                 vbox:
                                   yalign 0.5
-                                  text inv["titolo"] size 25 color "#f5e3b8"
+                                  text inv["titolo"] size 28 color "#f5e3b8"
                                   if inv["avviso"]:
                                       hbox:
                                           spacing 8
@@ -698,8 +702,8 @@ screen pianificazione(momento, inviti, attivita):
                     button:
                         at (pian_fisso if pian_fermo else pian_voce(0.3 + 0.04 * (len(inviti) + k)))
                         xfill True
-                        yminimum (58 if cal_compatto else 0)
-                        ypadding (5 if cal_compatto else 8)
+                        yminimum (66 if cal_compatto else PIAN_RIGA_H)
+                        ypadding (8 if cal_compatto else 14)
                         left_padding 26
                         right_padding 26
                         background Frame("gui/button/piano_idle_background.png", 26, 26)
@@ -711,9 +715,9 @@ screen pianificazione(momento, inviti, attivita):
                         hbox:
                             spacing 18
                             if char:
-                                add Transform(cal_portrait(char), zoom=0.28) yalign 0.5
+                                add Transform(cal_portrait(char), zoom=0.36) yalign 0.5
                             else:
-                                null width 45
+                                null width 58
                             if cal_compatto:
                                 hbox:
                                     yalign 0.5
@@ -724,8 +728,8 @@ screen pianificazione(momento, inviti, attivita):
                             else:
                                 vbox:
                                   yalign 0.5
-                                  spacing 0
-                                  text etichetta size 25 color "#f0e6d2"
+                                  spacing 4
+                                  text etichetta size 28 color "#f0e6d2"
                                   if aid in ATTIVITA_DESC:
                                       text ATTIVITA_DESC[aid] size TESTO_MINUTO color "#8f7f5c"
 

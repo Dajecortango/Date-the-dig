@@ -9,7 +9,7 @@ NOME: battuta · testo semplice = narrazione · ~ testo ~ = cartello a schermo
 === ATT CORTE 1 ===
 
 La serra di Glauco in pieno inverno: fiori che non dovrebbero esistere e una fila di pretendenti che sembra voler somigliare a loro.
-Ofelia li passa in rassegna come si passa un mazzo di carte scadenti. Nessuno regge il suo sguardo oltre il secondo.
+Ofelia li passa in rassegna uno per uno, e a ciascuno dedica mezzo respiro. Nessuno regge il suo sguardo oltre il secondo.
 
 [VARIANTE]
     Mi accorgo troppo tardi che una servetta ci osserva dal corridoio. Domani Aede saprà che passo in serra.
@@ -55,7 +55,7 @@ OFELIA: Vedi? Riporta. Questo almeno lo sa fare.
         Tullio mi abbraccia come un fratello d'arme. Ofelia si allontana prima che possa abbracciare anche lei.
 
     > «L'orso non c'era. Ma i suoi graffi sul braccio sono veri.»
-        OFELIA: ...hai notato i graffi. Gli altri guardano sempre me.
+        OFELIA: Il braccio, non l'orso. Tieni gli occhi dove servono, tu.
         OFELIA: Era un gatto. Non dirglielo.
         Tullio non ha capito niente. Ofelia gli restituisce il guanto, gentile, e lo congeda con una pacca da padrona di cani.
 
@@ -72,7 +72,7 @@ Fine pomeriggio, la serra svuotata. Rimane solo lei, a potare una rosa nera con 
     Mi giunge voce che Aede ha chiesto dove passo i pomeriggi. Qualcuno ha risposto: in serra.
 OFELIA: Tutti mi chiedono cosa voglio. Nessuno si domanda perché lo chiedo a voce così alta. Fa parte del gioco, immagino.
 OFELIA: Aede risponde con la spada. Ascadeo con una battuta e una porta che sbatte. Io poto le rose. Ognuno ha il suo modo di non parlare con nostro padre.
-Lo stelo cade nel cesto. Lei lo segue con gli occhi come si segue un nemico che si arrende troppo presto.
+Lo stelo cade nel cesto. Lei lo segue con gli occhi fino in fondo, delusa: si è arreso troppo presto.
 
 [SCELTA]
     Non mi guarda. Taglia, con calma, uno stelo.
@@ -113,7 +113,7 @@ Lucio apre la bocca. Non ne esce niente. Le rose, nel suo pugno, cominciano a pe
         Il ragazzo approfitta della pausa per scappare. Non mi ringrazia.
 
     > Restare immobile, senza ridere e senza intervenire
-        OFELIA: Né il coro né il/la paladino/a. Strano: sei l'unico/a che non ha fatto il verso a nessuno dei due.
+        OFELIA: Né il coro né il/la paladino/a. Resta lì. Mi servono testimoni che sappiano stare zitti.
         Si china a raccogliere una rosa caduta e la annusa, distratta.
         OFELIA: Lucio non tornerà. Se ti chiedono com'è andata, di' che il fiore era buono. Questo almeno è vero.
 Più tardi, uscendo, incrocio i servi che spazzano il vialetto. Raccolgono petali bianchi con la stessa cura con cui si raccolgono i cocci.
@@ -136,7 +136,7 @@ OFELIA: Mio padre dice che hai il fiuto per i buoni affari. Peccato che tu non a
     A metà cena l'uomo aspetta una mia mossa. Ofelia, anche.
 
     > Stare al gioco, con stile: baciarle la mano come se fosse mia da sempre
-        OFELIA: ...Non era previsto così bene. Ti avevo scelto/a per fare numero, e invece reciti meglio di lui.
+        OFELIA: Non era previsto così bene. Ti avevo scelto/a per fare numero, e invece reciti meglio di lui.
         L'uomo posa il bicchiere. Per il resto della sera non guarderà più né lei né me.
 
     > Dirlo in faccia, piano: «Mi stai usando, Ofelia. Lo faccio volentieri, ma voglio che tu lo sappia.»
@@ -193,7 +193,7 @@ Il mio è in mezzo. Accanto, una cifra, e una nota: «Resiste più del previsto.
     Ofelia mi guarda leggere. Le braccia conserte, il mento alto.
 
     > Leggere tutto, nota compresa
-        OFELIA: ...«sospetto che le piaccia». Ascadeo sospetta molte cose. Perde la metà delle scommesse.
+        OFELIA: «Sospetto che le piaccia.» Ascadeo sospetta molte cose. Perde la metà delle scommesse.
         OFELIA: L'altra metà, però, la vince sempre. È questo il guaio dei fratelli minori.
 
     > Leggere solo la cifra, e tacere la nota
@@ -285,9 +285,9 @@ OFELIA: Sei un interesse passeggero, <Nome>? Oppure resti anche quando smetto di
     Mi porge le forbici. Il manico verso di me, la lama verso di lei.
 
     > Prendere le forbici: «Resto. Anche senza gentilezza.»
-        OFELIA: ...hai preso il manico. Gli altri afferravano sempre la lama, per farsi vedere coraggiosi.
+        OFELIA: Dal manico. Tullio, l'anno scorso, l'ha presa dalla lama. Si è cucito il palmo da solo.
         OFELIA: Bene. Da stasera la fila è chiusa. Se qualcuno chiede, sei tu il motivo. Fallo valere.
-        Non mi bacia. Mi aggiusta il colletto, lenta, come si sistema un'arma prima di appenderla. E il semestre, da stasera, ha un padrone.
+        Non mi bacia. Mi aggiusta il colletto, lenta, e controlla il risultato da un passo indietro. E il semestre, da stasera, ha un padrone.
 
     > Lasciarle le forbici: «Non ancora, Ofelia.»
         OFELIA: Non ancora. Lo dicono tutti, prima di sparire. Almeno tu l'hai detto in faccia.
@@ -337,7 +337,7 @@ OFELIA: Aede non divide. Io sì. Non farglielo sapere.
     La lanterna trema appena. La sua voce no.
 
     > «Non lo saprà. Da me, mai.»
-        OFELIA: ...mai è una parola che mi piace sentire da chi mente bene. Ricordatelo, quando la guardi negli occhi.
+        OFELIA: Mai è una parola che mi piace sentire da chi mente bene. Ricordatelo, quando la guardi negli occhi.
         OFELIA: Ora va'. Ti aspetta sul ballatoio, credo. Lei fa le domande ad alta voce. Io le faccio al buio.
         Spegne l'ultima lanterna. Esco dalla serra con un segreto in tasca e la sensazione di averlo rubato a qualcuno.
 
@@ -371,8 +371,8 @@ Cado su un ginocchio, la lama alla gola. Sopra di me, il suo respiro regolare.
         Abbassa la lama. Mi tende la mano libera, e noto che trema appena. Per l'attesa, forse. Per qualcos'altro.
 
     > Arrendermi con eleganza: «Hai vinto. Ma ti è costato fatica, ammettilo.»
-        OFELIA: ...Fatica no. Attenzione, sì. È diverso, ma ti concedo il bluff.
-        Ritira la spada. Un filo di sangue mi scende dal collo, e lei lo guarda come si guarda un conto saldato.
+        OFELIA: Fatica no. Attenzione, sì. È diverso, ma ti concedo il bluff.
+        Ritira la spada. Un filo di sangue mi scende dal collo, e lei lo segue con l'indice, a un dito dalla pelle, senza toccarlo.
 
     > Chiedere pietà, ridendo, con le mani in alto
         OFELIA: Pietà. Quanto è umana, la parola. Rialzati. Per oggi basta così.
@@ -384,7 +384,7 @@ Riporto le lame all'armeria. Il custode le pulisce, guarda la mia guancia e scuo
 === OFELIA FIACCOLATA ===
 
 La Calà, trecento gradini di lanterne. La leggenda dice che chi la scende mano nella mano si amerà per sempre.
-Ofelia mi aspetta al primo gradino, in nero. Come se la festa fosse un lutto e lei l'unica ad averlo capito.
+Ofelia mi aspetta al primo gradino, in nero. Intorno a lei la festa è tutta ocra e lanterne. Lei ha scelto il lutto.
 OFELIA: Ogni anno tre pretendenti mi chiedono la mano su questa scala. Ogni anno scendo da sola. È una tradizione anche questa.
 OFELIA: Quest'anno cambio. Non montarti la testa: mi annoio in fretta.
 Tre gradini più su, un pretendente in mantello verde stringe un mazzo di gigli. Ci guarda, guarda i gigli, e li lascia cadere nel fiume.
@@ -395,7 +395,7 @@ OFELIA: Il terzo dell'anno scorso. Ha aspettato dodici mesi per sentirsi dire di
 
     > Prenderle la mano e scendere senza dire niente
         Le sue dita sono fredde. Al decimo gradino non lo sono più.
-        OFELIA: ...niente frasi, niente leggende. Sai che a questo punto gli altri recitavano?
+        OFELIA: Niente frasi. Niente leggende. A questo gradino, di solito, cominciano i sonetti.
         OFELIA: Continua a tacere. Ti dona.
 
     > Baciarle la mano, come vuole il gesto
@@ -405,7 +405,7 @@ OFELIA: Il terzo dell'anno scorso. Ha aspettato dodici mesi per sentirsi dire di
     > «La leggenda vale anche per chi non ci crede?»
         OFELIA: Vuoi garanzie? Va' da un notaio. Le leggende non rilasciano ricevute.
         Scende da sola i primi cento gradini. Al centunesimo mi aspetta, senza voltarsi.
-In fondo alla Calà il fiume si porta via i riflessi delle lanterne. Ofelia li guarda andare come si guardano i pretendenti: senza rimpianti.
+In fondo alla Calà il fiume si porta via i riflessi delle lanterne. Ofelia li lascia andare uno per uno. Non ne trattiene nessuno con lo sguardo.
 OFELIA: Domani mio padre saprà. Aede lo saprà prima di lui, e Ascadeo ci avrà già scommesso sopra.
 OFELIA: Lasciali parlare. Chi parla non sta guardando la mano che stringi.
 
@@ -426,7 +426,7 @@ OFELIA: Decidi tu, <Nome>. Una mano a testa e tu nel mezzo. Lo vedranno tutti, s
     > Prendere entrambe le mani: «Che guardino.»
         CAINO: Annotato: dichiarazione pubblica, testimoni in numero eccessivo. Non revocabile.
         OFELIA: ...nemmeno io la revocherei. Non dirglielo.
-        Trecento gradini, tre ombre lunghe sul fiume. Un'Eparca si fa il segno degli dei; Ofelia le sorride come si sorride a un bersaglio.
+        Trecento gradini, tre ombre lunghe sul fiume. Un'Eparca si fa il segno degli dei; Ofelia le sorride, e la donna accelera il passo.
 
     > Proporre di scendere a turno, per non dare spettacolo
         CAINO: Ragionevole. Contabile. Deludente, ma ragionevole.
@@ -452,7 +452,7 @@ OFELIA: Una scala, due sorelle, una mano sola. Fa' i conti, <Nome>. Io li ho gi�
         In fondo alla Calà, tra la folla, incrocio uno sguardo in nero. Ofelia mi fa un cenno minimo col mento: un applauso che nessun altro deve vedere.
 
     > Prendere la mano di Ofelia
-        OFELIA: ...l'hai presa sotto i suoi occhi. O sei coraggioso/a, o non sai contare.
+        OFELIA: L'hai presa sotto i suoi occhi. O sei coraggioso/a, o non sai contare.
         Scendiamo. Al decimo gradino sento uno sguardo sulla nuca, caldo come una lama lasciata al sole.
         Mi volto. Dall'alto della Calà, Aede ci guarda. Non si muove, non dice niente. Stringe l'elsa finché le nocche diventano bianche.
         OFELIA: Non voltarti più. Domani farà domande, e io avrò le risposte. Tu tieni la bocca chiusa.
@@ -482,7 +482,7 @@ Il vicolo odora di pane e di neve sporca. Una vecchia ci guarda dalla finestra, 
     > Alla luce del sole: toglierle il velo e offrirle il braccio
 
         [VARIANTE]
-        OFELIA: ...davanti al pescivendolo. Hai un senso dello spettacolo spaventoso.
+        OFELIA: Davanti al pescivendolo. Hai un senso dello spettacolo spaventoso.
         Attraversiamo il mercato a braccetto. Le voci tacciono al nostro passaggio e riprendono più forti alle spalle.
 
         [VARIANTE]
@@ -539,18 +539,40 @@ Esco nella neve. Il fiore blu vicino alla porta, quello che non fiorisce mai, ha
 
 Lo studio di Glauco Severo. Silenzio, ordine, una candela sola. Il vino è già versato in due calici.
 GLAUCO SEVERO: Siediti, Figlio/a di Briseide. Mia figlia dice che sei un capriccio. Io conto i capricci: questo dura da troppe Lune.
-Ofelia è in piedi accanto alla finestra, in nero. Non mi guarda. Guarda la candela come si guarda un bersaglio.
+Ofelia è in piedi accanto alla finestra, in nero. Non mi guarda. Tiene gli occhi sulla candela e non sbatte le palpebre.
 GLAUCO SEVERO: Ofelia è la mia figlia imprevedibile. Al punto giusto: l'ho cresciuta così. Ogni anno tre pretendenti, ogni anno nessuno.
 GLAUCO SEVERO: Stanotte firmi la rinuncia e torni da tua madre con un dono del Ceppo. Oppure non firmi, e il dono te lo porto io.
 La pergamena è sul tavolo, la penna accanto, già intinta. Glauco non lascia mai niente a metà.
 GLAUCO SEVERO: Ascadeo ha scommesso su di te, sai? Contro sua sorella. Lo farò frustare per questo, o forse lo farò ricco. Dipende da come esci di qui.
 Sulla parete alle sue spalle, le lame sono trentadue. Tutte affilate, tutte parallele. Glauco non si chiede mai chi le curi.
 Ofelia non si muove. Il silenzio è suo: lo lascia crescere finché diventa una stanza dentro la stanza.
-OFELIA: Padre. Hai dimenticato una clausola.
-Prende la pergamena e la avvicina alla candela, con la grazia con cui si porge un fazzoletto.
+La penna gocciola sul legno. Glauco aspetta me, non lei.
+
+[SCELTA]
+    La pergamena è a un palmo dalla mia mano. La candela, a un palmo da quella di Ofelia.
+
+    > Prendere la pergamena e porgerla a Ofelia, dal lato della candela
+        Prendo la carta. Non la guardo nemmeno: la tendo verso la finestra, con l'angolo già sopra la fiamma.
+        Ofelia chiude due dita sull'altro angolo. Per un istante la teniamo in due.
+        OFELIA: Padre. Hai dimenticato una clausola.
+
+    > Rispondere a Glauco a testa alta: «Non firmo. Resta lei, e resto io.»
+        GLAUCO SEVERO: Coraggio. Il difetto preferito di chi muore giovane.
+        OFELIA: Elegante. Un po' troppo coraggioso/a per i miei gusti. Ma il tono era giusto.
+        OFELIA: Padre. Hai dimenticato una clausola.
+        Prende la pergamena e la avvicina alla candela, senza fretta, tenendola per un angolo.
+
+    > Prendere le sue difese: «Non decidete voi per lei.»
+        OFELIA: Non mi serve un avvocato, <Nome>. Le mie carte le brucio da sola.
+        Mi strappa la pergamena di mano prima che io capisca di averla presa.
 La carta prende fuoco. Ofelia la lascia cadere nel calice di suo padre, e il vino sfrigola.
 OFELIA: Non scelgo pretendenti da un catalogo, padre. Li scelgo come tu scegli le lame: da come reggono il colpo.
-OFELIA: Questo l'ha retto. I tuoi, no.
+
+[VARIANTE]
+    OFELIA: Questo deve ancora imparare a non pararmi i colpi. I tuoi non ci hanno nemmeno provato.
+
+[VARIANTE]
+    OFELIA: Questo l'ha retto. I tuoi, no.
 OFELIA: Me ne hai mandati sei, padre, in sei anni. Il sonetto, il cavallo, l'uomo con l'anello. Tutti col tuo sigillo addosso, come le pecore.
 GLAUCO SEVERO: Erano alleanze. Tu li hai trattati come pretendenti.
 OFELIA: E tu li hai trattati come pegni. Almeno io li guardavo in faccia, quando dicevo di no.
@@ -559,25 +581,18 @@ OFELIA: E tu li hai trattati come pegni. Almeno io li guardavo in faccia, quando
     OFELIA: E sì, c'è un altro contraente. Lo sai già: tieni registri migliori dei suoi. Si firma in tre, o non firma nessuno.
 GLAUCO SEVERO: Mi sfidi. In casa mia. Per lui/lei.
 OFELIA: Ti sorprendo, padre. È diverso. L'hai insegnato tu: un colpo che si vede arrivare non è un colpo.
-Glauco mi guarda. Per la prima volta non come un conto da saldare, ma come una voce che non torna nel bilancio.
-GLAUCO SEVERO: E tu, Figlio/a di Briseide? Lei ha bruciato la carta. Ora dimmi cosa resta sul tavolo.
+Glauco mi guarda. Non più come un conto da saldare: come una voce che non torna nel bilancio.
 
-[SCELTA]
-    Ofelia non si volta. Aspetta, le dita ferme sullo stelo del calice. Sa cosa spera; non lo dirà.
+[VARIANTE]
+    Ofelia sposta il calice di un dito, verso di me. Nel vino galleggia ancora un angolo di carta, annerito dalla parte che tenevo io.
+    GLAUCO SEVERO: L'avete bruciata in due. Il notaio dovrà inventarsi una formula.
 
-    > Mettersi al suo fianco, senza dire niente
-        Mi alzo e vado alla finestra. Le sfioro la mano col dorso della mia. Lei non la ritira.
-        OFELIA: ...di nuovo niente frasi. Cominci a conoscermi. È preoccupante.
-        GLAUCO SEVERO: Il silenzio. Almeno questo l'hai capito prima di me.
+[VARIANTE]
+    GLAUCO SEVERO: Vedremo quanto dura, il tono giusto.
 
-    > Rispondere a Glauco a testa alta: «Resta lei. E resto io.»
-        OFELIA: Elegante. Un po' troppo coraggioso/a per i miei gusti. Ma il tono era giusto.
-        GLAUCO SEVERO: Il coraggio. Il difetto preferito di chi muore giovane. Vedremo.
-
-    > Prendere le sue difese: «Non decidete voi per lei.»
-        OFELIA: Non mi serve un avvocato, <Nome>. La carta l'ho bruciata da sola.
-        OFELIA: Difendimi ancora, e la prossima pergamena la firmo io. Contro di te.
-        GLAUCO SEVERO: Vedi, figlia? Non ti conosce nemmeno lui/lei.
+[VARIANTE]
+    OFELIA: Difendimi ancora, e la prossima pergamena la firmo io. Contro di te.
+    GLAUCO SEVERO: Vedi, figlia? Non ti conosce nemmeno lui/lei.
 
 
 === OFELIA ROUTING ===
@@ -634,7 +649,7 @@ CAINO: ...era il riverbero delle lanterne. Firma, <Nome>. Prima che cambi idea. 
 OFELIA: Aggiungi una clausola, Caino. La quarta. Chi tradisce il contratto, lo dice a me prima che agli altri due.
 CAINO: E poi?
 OFELIA: E poi niente. Lo dice a me. Il resto si vede.
-Firmo. Ofelia firma per ultima, con un ghirigoro che occupa mezza pagina. Caino non protesta: la guarda come si guarda un bilancio in attivo.
+Firmo. Ofelia firma per ultima, con un ghirigoro che occupa mezza pagina. Caino non protesta. Annota l'ora della firma, poi la sottolinea due volte.
 Sotto le firme, in piccolo, Caino aggiunge una data e un'ora. Come se un giorno qualcuno dovesse verificare che è successo davvero.
 ~ IL CONTRATTO A TRE Tre firme, nessuna esclusiva. E nessuna intenzione di rescindere. ~
 
@@ -692,8 +707,8 @@ A Zefiro, dicono, le sorelle Severo non si parlano più. Una scende la Calà da 
 
 GLAUCO SEVERO: Visto, figlia? Un bel gesto, la carta bruciata. Peccato per il pubblico.
 OFELIA: Hai ragione, padre. Per una volta.
-Mi guarda come si guarda un vestito della stagione scorsa: bello, certo. Ma la stagione è finita.
-OFELIA: Hai esitato, <Nome>. Una volta di troppo. Io non aspetto: non per crudeltà, per abitudine.
+Mi guarda dall'alto in basso, con calma, e arriva alle scarpe. Lì si ferma.
+OFELIA: Ti ho dato sei Lune, <Nome>. Ne hai usate metà. Io non aspetto: non per crudeltà, per abitudine.
 Raccoglie la cenere della pergamena dal fondo del calice e la sparge sul tavolo con un dito. Un gesto da bambina annoiata.
 GLAUCO SEVERO: Va', Figlio/a di Briseide. Il dono del Ceppo te lo risparmio. Mia figlia ti ha già fatto il suo.
 Una Luna dopo, la vedo sulla Calà con un pretendente nuovo. Un Asi alto, i capelli in ordine, le frasi pronte.
@@ -702,3 +717,36 @@ OFELIA: Sei stato/a un interesse piacevole, <Nome>. Passeggero, ma piacevole. No
 Il pretendente nuovo mi guarda di sbieco, cercando di capire chi sono. Lei non glielo dice. Non vale la spesa.
 Ai piedi della scala c'è un ragazzo che prende appunti su un libretto. Ascadeo, credo. Accanto al mio nome tira una riga.
 ~ INTERESSE PASSEGGERO Ofelia scende la Calà ogni anno. Quest'anno, con qualcun altro. ~
+
+
+=== OFELIA PASSEGGERO ===
+
+GLAUCO SEVERO: La carta è cenere, il vino è da buttare. Il resto è affar tuo, figlia.
+Glauco esce e lascia la porta aperta. Nel Ceppo le porte chiuse le decide lui.
+Ofelia resta alla finestra. Conta qualcosa sulle dita, senza fretta. Arriva a uno e si ferma.
+OFELIA: Una sera, <Nome>. Ti avevo lasciato una sedia. È rimasta vuota fino a mezzanotte.
+TU: Ero...
+OFELIA: Non mi interessa dov'eri. Mi interessa che io me lo ricordo, e tu no.
+Si sfila un guanto. Lo tiene sospeso sopra il tavolo un momento, poi lo lascia cadere tra noi.
+OFELIA: Raccoglilo, se vuoi. Stavolta non è una prova. È un saluto.
+
+[VARIANTE]
+    Nel corridoio Caino scrive una riga nel registro. Non alza la testa quando passo.
+Il guanto resta nella mia tasca per tutto l'inverno. Sulla Calà Ofelia mi saluta con un cenno preciso: né freddo né caldo. Esatto.
+A fine Luna Ascadeo mi offre da bere. Ha vinto metà della scommessa, dice. Non mi spiega quale metà.
+~ IL GUANTO A TERRA Ofelia non aspetta due volte. Aspetta una volta sola, e se lo ricorda. ~
+
+
+=== OFELIA BAD ===
+
+Ofelia posa il calice. Il vino ha smesso di sfrigolare.
+OFELIA: La carta l'ho bruciata per me, padre. Non per lui/lei. Non confondere i conti.
+GLAUCO SEVERO: Allora i conti li chiudo io.
+Glauco stacca dalla parete una lama che non avevo contato: la trentatreesima, sotto un panno. La avvolge in un drappo col fiocco del Ceppo.
+GLAUCO SEVERO: Il dono che ti avevo promesso, Figlio/a di Briseide. Portalo a tua madre. Dille che il Ceppo ringrazia per la visita.
+GLAUCO SEVERO: E dille che il prossimo lo porto io. Senza drappo.
+Cerco gli occhi di Ofelia. Lei guarda la candela, e la spegne con due dita. Un sibilo. Nessuna smorfia.
+OFELIA: Vai, <Nome>. Prima dell'alba. Mio padre è puntuale solo con le minacce.
+Lascio Zefiro col primo carro. Il drappo sul sedile accanto, il fiocco del Ceppo bene in vista: chi ci ferma sa di chi è il debito.
+Nessuno ci ferma.
+~ IL DONO DEL CEPPO Glauco mantiene sempre le promesse. Soprattutto quelle che nessuno vuole. ~
