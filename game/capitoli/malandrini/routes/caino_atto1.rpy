@@ -70,7 +70,7 @@ label caino_prologo:
 
             caino "Era una prova, [figlio_t] di Briseide. La sala è piena di gente che mi dà ragione per riflesso. Tu no. Interessante."
 
-        "Restare in silenzio e sorridere":
+        "Resta in silenzio e sorridi":
             $ caino_fiducia -= 1
 
             "Sorrido e non rispondo. La via sicura."
@@ -79,7 +79,7 @@ label caino_prologo:
 
             caino "Il silenzio. La risposta di chi non vuole perdere. Prudente. Noioso. Ma prudente."
 
-    caino "Ci rivedremo, [figlio_t] di Briseide. La Proprietà ha sempre bisogno di mani nuove. E io ho sempre bisogno di sapere cosa valgono, le mani nuove."
+    caino "Ci rivedremo, [figlio_t] di Briseide. La Proprietà ha sempre bisogno di mani nuove. E io ho sempre bisogno di sapere cosa valgono."
 
     hide caino with dissolve
 
@@ -111,7 +111,7 @@ label caino_cap1:
 
     caino "Il Figlio che non annuisce. Entra. Ho un problema di aritmetica e tutti i miei scrivani hanno già sbagliato la risposta."
 
-    "Il problema di aritmetica è un registro delle decime di tre Contrade. Lavoriamo un'ora: lui parla, io conto, lui controlla il mio contare fingendo di non farlo."
+    "Il problema consiste in un registro delle decime di tre Contrade. Lavoriamo un'ora: lui parla, io conto, lui controlla il mio contare fingendo di non farlo."
 
     caino "Passabile. Briseide ti presta a buon mercato o devo firmare qualcosa?"
 
@@ -120,7 +120,7 @@ label caino_cap1:
     menu:
         "Vino rosso. Di Glostok, dal sigillo sulla brocca."
 
-        "Fermare il servo: «L'Arconte beve idromele di Rurikstad.»":
+        "Ferma il servo: «L'Arconte beve idromele di Rurikstad.»":
             $ caino_fiducia += 2
             $ caino_memoria += 1
 
@@ -136,7 +136,7 @@ label caino_cap1:
 
             caino "Registro aggiornato. Voce: persone che ricordano ciò che dico quando non minaccio nessuno. Fino a ieri, una: mia madre. Da oggi, due."
 
-        "Prendere la coppa e ringraziare":
+        "Prendi la coppa e ringrazia":
             $ caino_fiducia -= 1
 
             "Prendo la coppa. Caino guarda la sua senza toccarla, poi guarda me, e qualcosa negli occhi gli si spegne di un grado."
@@ -145,12 +145,12 @@ label caino_cap1:
 
             caino "Salute, [figlio_t] di Briseide. Al vino di Glostok e a chi non ascolta."
 
-        "Aspettare di vedere se la beve":
+        "Aspetta di vedere se beve":
             "Aspetto. Caino lascia la coppa dov'è, senza commentare. Il servo la riporta via."
 
             caino "Prudente. Sempre prudente. Prima o poi dovrai scegliere qualcosa, sai."
 
-    caino "Torna domani. La Proprietà ha un lavoro vero per te. Consideralo un acconto: i complimenti si pagano a saldo, e il saldo non è ancora maturato."
+    caino "Torna domani. La Proprietà ha un lavoro vero per te. Consideralo un acconto: i complimenti si pagano con gli interessi, e l'interesse non è ancora maturato."
 
     return
 
@@ -166,7 +166,7 @@ label caino_cap2:
 
     show caino neutro with dissolve
 
-    "Caino è a torso di camicia, al centro del cortile. Ai suoi piedi, due blocchi di marmo bianco con maniglie di ferro incassate."
+    "Caino è a camicia sbottonata al centro del cortile. Ai suoi piedi, due blocchi di marmo bianco con maniglie di ferro incassate."
 
     caino "Ventiquattro chili l'uno. Marmo delle Cimebianche, tagliato male apposta: il peso non è mai dove te lo aspetti. Come la Famiglia."
 
@@ -180,7 +180,7 @@ label caino_cap2:
 
     druso "FRATELLO!"
 
-    "Druso. Più largo di Caino di una spanna, la barba più selvaggia, il sorriso più facile ancora."
+    "Druso. Più largo di Caino di una spanna, la barba più selvaggia, il sorriso ancora più facile del fratello."
 
     druso "TESCHIO!"
 
@@ -192,7 +192,7 @@ label caino_cap2:
 
     caino "Di Lenora. Come te. Quindici."
 
-    "Caino posa i blocchi, e con lo stesso movimento tira un calcio secco all'inguine del fratello. Druso lo blocca con entrambe le mani per un pelo."
+    "Caino posa i blocchi, e con lo stesso movimento tira un pugno secco all'inguine del fratello. Druso lo blocca con entrambe le mani per un pelo."
 
     caino "TESCHIO."
 
@@ -293,7 +293,7 @@ label caino_cap3:
 
     scene bg sala_svelo with fade
 
-    "Festa di mezzo inverno a Rocca Tempesta. La sala grande, le lanterne, e la Famiglia che danza come se non si spiasse a vicenda da cento anni."
+    "Festa di mezzo inverno a Rocca Tempesta. La sala grande, le lanterne, e la Famiglia che danza come se non si spiasse a vicenda da sempre."
 
     show caino neutro with dissolve
 
@@ -310,7 +310,7 @@ label caino_cap3:
     menu:
         "La musica riparte."
 
-        "Accettare e lasciarlo condurre":
+        "Accetta e lascialo condurre":
             $ caino_fiducia += 2
 
             "Accetto. Conduce lui, ovviamente: ogni passo è un contratto, ogni giro una clausola. Ma a metà danza succede una cosa strana — smette di guardare la sala e guarda me."
@@ -323,7 +323,7 @@ label caino_cap3:
 
             "Non risponde. Ma per quattro battute intere, l'Arconte della Proprietà balla senza guardare nessun altro nella sala."
 
-        "Accettare, ma giocare a condurre io":
+        "Accetta, ma punta a condurre tu":
             $ caino_fiducia += 2
 
             "Accetto — e al terzo passo gli rubo la conduzione. Un furto piccolo, tecnico, visibile solo a noi due."
@@ -340,7 +340,7 @@ label caino_cap3:
 
             "Ma non si riprende la conduzione. Per tutta la danza."
 
-        "Rifiutare con un inchino":
+        "Rifiuta con un inchino":
             $ caino_fiducia -= 2
 
             "Mi inchino e rifiuto. La mano di Caino resta tesa nel vuoto per un secondo — un secondo che la sala intera vede."
@@ -358,7 +358,7 @@ label caino_cap3:
     menu:
         "Il boccale è grande quanto un elmo."
 
-        "Accettare la gara":
+        "Accetta la gara":
             $ caino_druso += 1
 
             "Accetto. Perdo. Pago. E la vedova Tersicore, giuro, balla meglio di metà sala."
@@ -367,7 +367,7 @@ label caino_cap3:
 
             "Da quella sera, Druso mi saluta per nome. Tutte le volte. Anche in mezzo alla folla."
 
-        "Declinare con diplomazia":
+        "Declina con diplomazia":
             pc "La Proprietà mi vuole sobri[fin], temo."
 
             druso "«La Proprietà mi vuole sobri[fin]». Parli già come lui. Che gli Asi ci salvino, due Caino."
@@ -399,7 +399,7 @@ label caino_cap3:
 
             show caino neutro with qdiss
 
-            caino "Il drago è Draken, il Mutevole. L'anello era di mio padre. Non compare in nessun inventario della Rocca. Da stasera compare nel tuo."
+            caino "Un drago, esattamente. L'anello è un pegno personale. Non compare in nessun inventario della Rocca, ma da stasera compare nel tuo."
 
             caino "Tre. Siamo in tre, adesso, a ricordare quello che dico. E uno dei tre comincia a preoccuparmi."
 

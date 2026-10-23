@@ -45,7 +45,7 @@ label prologo:
 
     show aede sorpresa with qdiss
 
-    "La lama si stacca. Lei fa mezzo passo indietro, e per un istante — un istante solo — la volpe vacilla."
+    "La lama si stacca. Lei fa mezzo passo indietro, e per un istante — un istante solo — la volpe esita."
 
     aede "[Un_t] novellin[fin] del Ceppo di Briseide. Nel corridoio sbagliato, nella notte sbagliata."
 
@@ -59,7 +59,7 @@ label prologo:
 
     "Il piccolo gioiello dell'Autarca. Quella di cui i miei fratelli di Ceppo parlano solo a voce bassa."
 
-    "E il suo bersaglio sbagliato, stanotte, ero io."
+    "E io sono l'unic[fin], in tutta Rocca Tempesta, ad averla vista sbagliare bersaglio."
 
     menu:
         aede "Allora? Cosa devo fare di te, novellin[fin]?"
@@ -68,24 +68,24 @@ label prologo:
             $ flag_segreto_svelo = True
             $ aede_affinity += 2
 
-            pc "Non lo dico a nessuno. Neanche a Briseide."
+            pc "Il tuo segreto muore con me. Hai la mia parola."
 
             show aede neutra with qdiss
 
             "Mi studia a lungo. Poi rinfodera la lama, di scatto, come se la decisione la irritasse."
 
-            aede "Parola di novellin[fin]. Bah. Per stanotte basta."
+            aede "Le parole dei novellini valgono poco. Ma stanotte mi accontento."
 
         "«Sbagli bersaglio spesso, o sono speciale?»":
             $ aede_affinity += 1
 
-            pc "Ti capita spesso di sbagliare gola, o sono un caso speciale?"
+            pc "Sbagli bersaglio spesso, o sono speciale?"
 
             show aede irritata with qdiss
 
             aede "Continua a parlare e il bersaglio diventa giusto."
 
-            "Ma l'angolo della bocca le si piega, appena. Se ne accorge e lo raddrizza."
+            "Ma c'è una piega minuscola all'angolo della sua bocca. Quasi un sorriso. Quasi."
 
         "«Glauco Severo sarà curioso di saperlo.»":
             $ aede_affinity -= 2
@@ -152,9 +152,9 @@ label cap1:
     aede "Quelli della Malacorte. Se fossero qui per noi, non li avresti visti."
 
     menu:
-        "La cassetta pesa. Le dita mi formicolano. E la curiosità peggio."
+        "La cassetta pesa. Le dita mi formicolano. E la curiosità mi divora."
 
-        "Tenere il passo in silenzio, senza chiedere nulla":
+        "Tieni il passo in silenzio, senza chiedere nulla":
             $ aede_affinity += 2
 
             "Stringo i denti e tengo il suo passo. Un'ora senza una domanda, senza un lamento."
@@ -163,9 +163,9 @@ label cap1:
 
             aede "...Briseide li sceglie meno male del previsto, i suoi Figli."
 
-            "Non si gira a dirmelo. Lo dice alla strada davanti."
+            "Dalla figlia di Glauco, è quasi una cerimonia d'onore."
 
-        "Chiederle cosa c'è dentro la cassetta":
+        "Chiedile cosa c'è dentro la cassetta":
             "Resisto mezz'ora. Poi la lingua vince."
 
             pc "Cosa stiamo trasportando, di preciso?"
@@ -176,7 +176,7 @@ label cap1:
 
             pc "Chiarissimo."
 
-        "Lamentarmi del peso":
+        "Lamentati del peso":
             $ aede_affinity -= 1
 
             pc "Potevamo prendere un carretto. O un mulo."
@@ -207,7 +207,7 @@ label cap1:
 
     "Il gelo mi scende dalla nuca ai talloni. Lo sa. Ovviamente lo sa."
 
-    glauco "Mia figlia non commette errori, [figlio_t] di Briseide. Chi sostiene il contrario commette l'ultimo dei propri."
+    glauco "Mia figlia non commette errori, [figlio_t] di Briseide, chi sostiene il contrario commette l'ultimo dei propri."
 
     pc "Non ho visto nessun errore, Autarca. Solo una lama molto rapida e una notte molto lunga."
 
@@ -258,7 +258,7 @@ label cap2:
     menu:
         "La staffetta si avvicina. Aede è alla linea, in attesa del testimone."
 
-        "Tifare per lei a squarciagola":
+        "Tifa per lei a squarciagola":
             "Quando passa, urlo il suo nome con mezzo stadio."
 
             show aede irritata with qdiss
@@ -267,7 +267,7 @@ label cap2:
 
             "Vince. Ma quando viene premiata non guarda nella mia direzione neanche per sbaglio. Credo di averla imbarazzata davanti al suo Ramo."
 
-        "Aiutarla senza farmi vedere":
+        "Aiutala senza farti vedere":
             $ aede_affinity += 2
 
             "Noto un Figlio del Ramo rivale armeggiare vicino alla corsia di cambio: sparge sabbia fine sulla pietra, dove lei pianterà il piede."
@@ -280,9 +280,9 @@ label cap2:
 
             show aede neutra with qdiss
 
-            "Non un grazie. Un cenno della testa, uno solo, misurato al millimetro."
+            "Non un grazie. Un cenno della testa, misurato al millimetro. Da lei, vale un discorso."
 
-        "Iscrivermi alla corsa aperta e sfidarla":
+        "Iscriviti alla corsa e sfidala":
             $ aede_affinity += 2
 
             "C'è una corsa aperta a tutti i Figli, a fine giornata. Mi iscrivo. Lei pure, per dovere di Ceppo."
@@ -291,15 +291,15 @@ label cap2:
 
             show aede sorriso with dissolve
 
-            aede "Quart[fin]. Per chi ha imparato a correre tre settimane fa, è quasi non umiliante."
+            aede "Quart[fin]. Per chi ha imparato a correre tre settimane fa, non è così umiliante."
 
             pc "L'anno prossimo arrivo terzo."
 
             aede "L'anno prossimo ti doppio."
 
-            "E sorride. Tutta la faccia, denti compresi. Dura un battito, poi se ne accorge e lo fa sparire come refurtiva."
+            "È la prima volta che la vedo sorridere a viso aperto. Dura un battito. Poi se ne accorge e il sorriso sparisce come refurtiva."
 
-        "Ignorare la gara e andarmene presto":
+        "Ignora la gara e vai via presto":
             $ aede_affinity -= 2
 
             "Me ne vado prima della staffetta. Le gare non mi sono mai interessate."
@@ -318,44 +318,44 @@ label cap3:
 
     scene bg vicoli_zefiro with fade
 
-    "Le Bocche Sicofanti. Fessure di pietra sparse per Zefiro dove chiunque può infilare una delazione anonima."
+    "Le Bocche Sicofanti: fessure di pietra sparse per Zefiro dove chiunque può infilare una delazione anonima."
 
     "Qualcuno ne ha infilata una contro il mio Ceppo: un carico di Briseide sparito, e il mio nome — il mio — indicato come complice del furto."
 
     show aede neutra with dissolve
 
-    "E qualcun'altra ha ricevuto l'ordine di indagare in silenzio, prima che la cosa arrivi agli Arconti."
+    "E qualcuna ha ricevuto l'ordine di indagare in silenzio, prima che la cosa arrivi agli Arconti."
 
     aede "Non ti agitare, novellin[fin]. Se ti credessi colpevole, non staremmo parlando."
 
     pc "E cosa staremmo facendo?"
 
-    aede "Tu, da bersaglio, mi fai da esca. Io, da esca, prendo il pesce. Qualcuno vuole colpire Briseide passando da te, e usare il mio Ceppo come mannaia."
+    aede "Tu, da bersaglio, mi fai da esca. Io, invece, prendo chi abboccherà. Qualcuno vuole colpire Briseide passando da te, e usare il mio Ceppo come mannaia."
 
     "Due Rami, una sola trappola. Se la delazione regge, il mio Ceppo perde l'onore e il suo viene usato come arma. Aede l'ha capito prima di tutti."
 
     menu:
-        aede "Il magazzino della Contrada Marcassa. Stanotte. Decidi: vieni come esca viva, o resti a dormire come esca stupida?"
+        aede "Al magazzino della Contrada Marcassa. Stanotte. Decidi: vieni come esca viva, o resti a dormire come esca stupida?"
 
         "«Vengo. Ma se è una trappola per te, chi fa da esca sono io.»":
             $ aede_affinity += 2
 
-            pc "Vengo. E se qualcuno deve prendersi la coltellata, mettimi davanti."
+            pc "Vengo. Ma se è una trappola per te, chi fa da esca sono io."
 
             show aede sorpresa with qdiss
 
             aede "...sei più scem[fin] di quanto sembri."
 
-            "Lo dice piano. Intanto mi stringe la fibbia del mantello, due strattoni secchi."
+            "Lo dice piano. Senza veleno. Quasi con cura."
 
         "«Resto. Delle trappole te ne intendi più tu.»":
             pc "Resto. Delle trappole te ne intendi più tu."
 
             show aede neutra with qdiss
 
-            aede "Buonsenso. Era ora. ...Peccato, però."
+            aede "Finalmente un po' di buonsenso. Peccato. Cominciavo ad abituarmi alla compagnia."
 
-            "Lo dice voltandosi, troppo in fretta perché possa leggerle la faccia."
+            "Lo dice voltandosi, troppo in fretta perché possa vederla in faccia."
 
     scene bg nero with fade
 
@@ -376,7 +376,7 @@ label cap3:
 
     aede "Così, semplicemente. È il vantaggio di essere il gioiello di Glauco Severo: nessuno discute il prezzo."
 
-    "Lo dice con una voce strana. Come se il gioiello fosse un sasso che porta in tasca da troppi anni."
+    "Lo dice con una voce strana, come se il gioiello fosse un sasso che porta in tasca da troppi anni."
 
     "Poi, mentre il delatore geme a terra, Aede ride. Una risata corta, vera, sorpresa di esistere."
 
@@ -388,8 +388,8 @@ label cap3:
 
     aede "Pessima tecnica. Non cambiarla."
 
-    "Rientriamo che è quasi alba. E io capisco due cose: che le devo la reputazione, forse la vita."
+    "Rientriamo che è quasi l'alba. E io capisco due cose: che le devo la reputazione, forse la vita."
 
-    "E che voglio sentirla ridere ancora. Anche a costo di rifare il merluzzo."
+    "E che la risata di Aede, figlia di Glauco, è il suono più raro del Nord. E io voglio sentirla ancora."
 
     return

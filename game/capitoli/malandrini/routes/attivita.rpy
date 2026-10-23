@@ -42,37 +42,37 @@ label att_spada_1:
     "Il cortile d'armi all'alba. Aede è già lì, ovviamente: dicono che il maestro d'armi le abbia ceduto il turno dei novellini per disperazione."
     aede "Guardia alta. No, più alta. Il Nord non colpisce dove guardi: colpisce dove respiri."
     menu:
-        "Il legno della spada da esercizio pesa più del previsto."
-        "Eseguire senza discutere, fino a sbagliare di meno":
+        "La spada da esercizio pesa più del previsto."
+        "Esegui senza discutere, fino a sbagliare di meno":
             $ aede_affinity += 1
             show aede neutra with qdiss
-            aede "Meno peggio. Domani di nuovo, finché «meno peggio» non diventa «passabile»."
+            aede "Meno peggio. Domani di nuovo, finché «meno peggio» non diventerà «passabile»."
             "Da lei, è quasi un encomio solenne."
-        "Chiederle di mostrarmi il colpo, lentamente":
+        "Chiedile di mostrarti il colpo, lentamente":
             show aede irritata with qdiss
             aede "Lentamente? Il nemico non rallenta per cortesia."
             "Ma lo mostra. Due volte. E la seconda, giuro, è più lenta della prima."
-        "Lamentarmi del turno all'alba":
+        "Lamentati del turno all'alba":
             $ aede_affinity -= 1
             show aede irritata with qdiss
-            aede "Il sole non si lamenta di sorgere. E ha più motivi di te."
+            aede "Il sole non si lamenta di sorgere e ha più motivi di te per farlo."
     return
 
 label att_spada_2:
     scene bg palestra with fade
     show aede neutra with dissolve
     "Oggi tocca ai bersagli di paglia. Aede li sistema a distanze irregolari, «come la Famiglia: il peso non è mai dove te lo aspetti»."
-    "A metà esercizio mi accorgo che uno dei bersagli ha una moneta appesa al centro, a filo."
+    "A metà esercizio mi accorgo che uno dei bersagli ha una moneta appesa al centro con un filo."
     menu:
         "La moneta oscilla al vento."
-        "Colpire la moneta, non il bersaglio":
+        "Colpisci la moneta, non il bersaglio":
             $ aede_affinity += 1
             show aede sorpresa with qdiss
             "La manco di un dito. Ma la lama vibra nel punto giusto, e lei lo vede."
             aede "...era una prova per la settimana prossima. Sei in anticipo. Non montarti la testa."
-        "Colpire il bersaglio, come da consegna":
+        "Colpisci il bersaglio, come da consegna":
             show aede neutra with qdiss
-            aede "Preciso e obbediente. Briseide vi fabbrica così. Non è un difetto. Non è neanche un pregio."
+            aede "Preciso e obbediente. Briseide vi alleva così. Non è un difetto. Non è neanche un pregio."
     return
 
 label att_spada_3:
@@ -111,19 +111,19 @@ label att_spada_3:
 label att_scudo_1:
     scene bg palestra with fade
     show druso ghigno at left with easeinleft
-    druso "Novellin[fin]! Guarda guarda. Briseide vi manda ancora in palestra o siete venut[fin] a guardare i veri uomini?"
-    "Druso fa roteare lo scudo come un piatto da taverna. Metà esibizione, metà sfida."
+    druso "Novellin[fin]! Guarda guarda. Briseide ti manda ancora in palestra o sei venut[fin] a guardare i veri uomini?"
+    "Druso batte l'arma sullo scudo come un tamburo. Metà esibizione, metà sfida."
     menu:
         "Il ghigno aspetta una reazione. Qualunque."
         "«Veri uomini? Fammi sapere quando ne arriva uno.»":
             $ druso_affinity += 1
             show druso ghigno with qdiss
             druso "AH! Linguaccia! Mi piace. Prendi uno scudo, linguaccia, vediamo se il braccio vale la bocca."
-        "Ignorarlo e prendere uno scudo in silenzio":
-            druso "Silenzioso. Mh. I silenziosi o sono pericolosi o sono noiosi. Vediamo quale dei due."
-        "Scusarmi e mettermi in fondo alla fila":
+        "Ignoralo e prendi uno scudo in silenzio":
+            druso "Silenzios[fin]. Mh. I silenziosi o sono pericolosi o sono noiosi. Vediamo quale dei due."
+        "Scusati e mettiti in fondo alla fila":
             $ druso_affinity -= 1
-            druso "In fondo alla fila, dove non dai fastidio. Ecco, bravo. Resta lì."
+            druso "In fondo alla fila, dove non dai fastidio. Ecco, brav[fin]. Resta lì."
             "Si volta prima che io arrivi in fondo."
     return
 
@@ -131,19 +131,19 @@ label att_scudo_2:
     scene bg palestra with fade
     show druso ghigno at left with dissolve
     "Lezione di lotta. Druso «insegna» mettendo a terra i novellini uno a uno, con commento poetico annesso."
-    druso "E anche questo giace! Componimento: «Cadde il fiore di Briseide — più lesto a terra che in amore.» Rima baciata, come piace a me."
+    druso "E anche questo giace! Componimento: «Cadde di Briseide il fiore — più lesto a terra che in amore.» Rima baciata, come piace a me."
     menu:
         "Il prossimo sono io."
-        "Attaccare per primo, senza aspettare il segnale":
+        "Attacca in anticipo, senza aspettare il segnale":
             $ druso_affinity += 1
             with vpunch
             "Lo prendo a metà strofa. Finisco a terra lo stesso, ma ci finisce anche lui, e la sabbia non guarda in faccia i figli di Lenora."
             druso "FALLO! Bellissimo! Ecco uno che ha capito la poesia!"
-        "Aspettare il segnale, da regolamento":
+        "Aspetta il segnale, da regolamento":
             with vpunch
-            "Segnale, presa, volo, sabbia. Tutto secondo regolamento, compresa la mia schiena."
-            druso "Regolare e prevedibile. Il mio verso preferito: «cadde con stile»."
-        "Rifiutare la lotta":
+            "Segnale, presa, volo, sabbia. Tutto secondo regolamento."
+            druso "Regolare e prevedibile. Il mio verso preferito: «cadere con stile»."
+        "Rifiuta la lotta":
             $ druso_affinity -= 1
             druso "Si rifiuta! Oh, che peccato. Componimento breve: «No.»"
     return
@@ -161,7 +161,7 @@ label att_scudo_3:
             druso "Non ringraziare, mi rovini la reputazione. Di' in giro che ti ho insultato."
         "«Chi sei e cosa hai fatto a Druso?»":
             show druso ghigno with qdiss
-            druso "L'ho mangiato. Era indigesto. Guardia su, linguaccia."
+            druso "L'ho mangiato, ma era indigesto. Guardia su, linguaccia."
     return
 
 
@@ -187,7 +187,7 @@ label att_studio_3:
     scene bg studio_glauco with fade
     show corrado neutro with dissolve
     "Il Ballo delle Candele Spente. Il libro ne parla per tre righe asciutte; Corrado, a voce bassa, per un'ora."
-    corrado "Lenora spense le candele, e con le candele una congiura intera. Nessun processo. Nessun nome. Capito perché studiamo, [fratello_t]?"
+    corrado "Lenora spense le candele e assieme a loro una congiura intera. Nessun processo. Nessun nome. Capito perché studiamo, [fratello_t]?"
     "Capito. Nel Nord la storia non si studia per sapere com'era: si studia per sapere dove non mettere i piedi."
     return
 
@@ -214,7 +214,7 @@ label att_riti_3:
 label att_citta_1:
     scene bg vicoli_zefiro with fade
     "Consegne per Briseide: lana alla Contrada Lumina, lettere alla Consorteria. Zefiro mi entra nelle gambe, vicolo dopo vicolo."
-    "A fine giro conosco tre scorciatoie nuove e un lanternaio che fa credito ai Figli di Briseide. Capitale, nel Nord."
+    "A fine giro conosco tre scorciatoie nuove e un lanternaio che fa credito a noi figli."
     return
 
 label att_citta_2:
@@ -233,14 +233,14 @@ label att_taverna_1:
     "Il componimento è irripetibile. La taverna applaude, la locandiera minaccia, Druso ringrazia entrambe."
     menu:
         "Alza il boccale verso di me, in attesa di verdetto."
-        "«Metrica zoppa. Il contenuto peggio. Bis.»":
+        "«Metrica zoppa. Il contenuto arranca. BIS!»":
             $ druso_affinity += 1
             druso "ZOPPA?! Questa zoppa ha fatto piangere un Eparca! ...il bis però te lo concedo."
-        "Applaudire educatamente":
+        "Applaudi educatamente":
             druso "Applauso educato. La morte di ogni poeta. Bevi, che è meglio."
     if aede_affinity >= 5:
         druso "A proposito: salutami la volpe rossa. Ancora niente, tra voi? Quando ti taglia la gola, pensami."
-        "Il cascamorto di Rocca Tempesta. Aede lo infilerebbe su uno spiedo. Forse è per questo che ci prova."
+        "Il cascamorto di Rocca Tempesta. Aede lo infilzerebbe su uno spiedo. Forse è per questo che ci prova."
     return
 
 label att_taverna_2:
@@ -250,10 +250,10 @@ label att_taverna_2:
     druso "E tu, novellin[fin]? Reggeresti? Ti vedo tener le mani in grembo come una vergine all'Adunanza."
     menu:
         "La taverna intera aspetta."
-        "«Dichiara pure. Ma stanotte dormi con un occhio aperto.»":
+        "«Parla pure. Ma stanotte dormi con un occhio aperto.»":
             $ druso_affinity += 1
             druso "Minaccia CON stile! Finalmente! Pagherei da bere, ma pago già abbastanza dazi."
-        "Cambiare discorso":
+        "Cambia discorso":
             $ druso_affinity -= 1
             druso "Cambia discorso. Come i diplomatici. E i codardi. A volte è la stessa gilda."
     return
@@ -285,20 +285,20 @@ label att_fumeria_1:
 
 label att_fumeria_2:
     scene bg vicoli_zefiro with fade
-    "Stavolta mi siedo al suo tavolo. Icaro non protesta: un giocatore in più è una tasca in più."
-    "Perdo sette Scudi in quattro mani. Ma guardo. E a un certo punto, sul taglio del mazzo, le sue dita fanno una cosa che le dita non dovrebbero fare."
+    "Stavolta mi siedo al suo tavolo. Icaro non protesta: un giocatore in più è una tasca extra."
+    "Perdo sette Scudi in quattro mani. Ma guardo. E a un certo punto, durante il taglio del mazzo, le sue dita fanno una cosa che le dita non dovrebbero fare."
     menu:
         "Nessuno ha visto niente. Tranne me."
-        "Tacere e perdere l'ottavo Scudo con dignità":
+        "Taci e perdi l'ottavo Scudo con dignità":
             $ icaro_affinity += 1
             "Pago. Icaro intasca. Poi, prima di rimescolare, mi guarda il polso, le mani, di nuovo il polso."
-        "Sussurrare «bel taglio» a voce bassissima":
+        "Sussurra «bel taglio» a voce bassissima":
             $ icaro_affinity += 1
-            icaro "...non so di cosa parli. Ma per la cronaca: era irreprensibile."
+            icaro "...non so di cosa parli. Ma per la cronaca: era regolare."
             "Puntiglioso come un notaio. Interessante."
-        "Gridare al baro":
+        "Grida al baro":
             $ congelate.add("icaro")
-            icaro "Contate le carte, signori. Tutte regolari. Il novellin[fin] ha bevuto."
+            icaro "Contate le carte, signori. Tutto nella norma. Il novellin[fin] ha bevuto."
             "Le carte, ovviamente, sono regolari. Adesso. La saletta ride di me, e Icaro non mi guarderà mai più."
     return
 
@@ -308,10 +308,10 @@ label att_fumeria_3:
     icaro "Tu. Quell[fin] che guarda le mani invece delle carte. Siediti, se proprio devi. Ma non toccare niente di mio."
     menu:
         "Il fumo sa di resina e di quiete."
-        "Sedermi e stare zitt[fin], godendomi la calma":
+        "Mi siedo e sto zitt[fin], godendomi la calma":
             $ icaro_affinity += 1
             icaro "Mh. Sai stare in silenzio. Raro. Costoso, il silenzio: quasi quanto l'erba buona."
-        "Chiedergli quanto ha vinto stasera":
+        "Chiedigli quanto ha vinto stasera":
             icaro "Abbastanza. Le cifre esatte costano tre Scudi l'una."
     if caino_fiducia >= 4:
         icaro "Tu lavori ai registri di mio fratello. Consiglio gratuito, e da me il gratuito è raro: con Caino conta due volte. La prima per lui, la seconda per te."
@@ -326,14 +326,14 @@ label att_spada_4:
     "Giornata di manutenzione: pietra, olio, filo. Aede tratta le lame del Ceppo come Briseide tratta gli orfani: una a una, per nome."
     aede "Questa ha un dente nel filo. Chi la usa così merita di perderla. Tu come tieni la tua?"
     menu:
-        "La mia spada da esercizio è nel portarack. Com'è messa?"
+        "La mia spada da esercizio è sulla rastrelliera. Com'è messa?"
         "Mostrargliela: pulita, affilata, oliata ieri":
             $ aede_affinity += 1
             show aede sorriso with dissolve
-            aede "...mh. Qualcuno ascolta, in questo cortile. Non montarti la testa: la pietra te la presto lo stesso."
-        "Confessare che non la pulisco da una settimana":
+            aede "...mh. Qualcuno ascolta, in questo cortile. Non montarti la testa: la pietra non te la presto lo stesso."
+        "Confessa che non la pulisci da una settimana":
             show aede irritata with qdiss
-            aede "Una settimana. La tua lama ti odia, e io con lei. Siediti: oggi si lucida finché non ti ci specchi."
+            aede "Una settimana. La tua lama ti odia, e io con lei. Siediti: oggi la si lucida finché non ti ci specchi."
     return
 
 label att_scudo_4:
@@ -347,7 +347,7 @@ label att_scudo_4:
 label att_studio_4:
     scene bg studio_glauco with fade
     show corrado neutro with dissolve
-    "Oggi Corrado mi insegna il Margine: il fiume lento che gli Arvali dicono separi i vivi da Drakengrad, la sala del Leone dove ogni storia viene raccontata per sempre."
+    "Oggi Corrado mi insegna il Margine: il fiume lento che gli Arvali dicono separi i vivi dal Drakengrad, la sala dorata del Leone dove ogni storia viene raccontata per sempre."
     corrado "Non è teologia, [fratello_t]: è contabilità. Un Dignitas si comporta bene perché qualcuno, laggiù, prende appunti."
     "Mi segno anche questa. Nel Nord perfino l'aldilà tiene i registri."
     return
@@ -356,14 +356,14 @@ label att_riti_4:
     scene bg corridoio_ceppo with fade
     show briseide neutra with dissolve
     "Giorno di brodo. Tutto il Ceppo in cucina: cinquanta Figli, un pentolone, e Briseide che comanda la brigata come un Consiglio di guerra."
-    briseide "Il segreto non è la ricetta, [player_name]. È che mentre si taglia la cipolla si parla. E chi parla tagliando non mente: è impegnato."
+    briseide "Il segreto non è la ricetta, [player_name]. Mentre si taglia la cipolla si piange. E chi piange tagliando non mente: è irritato e al limite."
     "Taglio cipolle per due ore. Ascolto tre segreti, un litigio e una canzone. Briseide aveva ragione, come sempre."
     return
 
 label att_citta_3:
     scene bg vicoli_zefiro with fade
     "Commissione alla Contrada Eburnea: riportare un libro prestato. La strada passa per la Calà, trecento gradini vuoti in pieno giorno."
-    "Senza lanterne è solo una scala. Eppure rallento lo stesso, al gradino duecento, senza un perché. Le leggende di Zefiro sanno aspettare."
+    "Senza lanterne è solo una scala. Eppure rallento lo stesso, al gradino duecento, senza un perché. Le leggende di Zefiro sanno farsi rispettare."
     return
 
 label att_taverna_4:
@@ -371,17 +371,17 @@ label att_taverna_4:
     show druso ghigno at left with easeinleft
     druso "Sedetevi, gente! Stasera si duella a versi. Chi perde paga il giro. Novellin[fin], tu sei lo sfidante."
     "La taverna ruggisce. La locandiera mette già i boccali in conto a me."
-    druso "Comincio io. «Figli[fin] di Briseide, lana in testa e lana in cuore — ti sposerebbe una pecora, ma ha già un amore.»"
+    druso "Comincio io. «Figli[fin] di Briseide, lana in testa e lana in cuore — ti sposerebbe una pecora, ma hai già un amore.»"
     "Risate. Druso si inchina a metà, sul tavolo, rischiando la vita."
     menu:
         "Tocca a me. Tutti gli occhi sono addosso."
-        "«Druso Lenorio, poeta di taverna: rima con 'cena' e con 'vena', ma mai con 'sostanza'.»":
+        "«Druso Lauro, poeta di taverna: rima con 'cena' e con 'vena', ma mai con denaro.»":
             $ druso_affinity += 1
             with hpunch
             show druso ghigno with qdiss
             druso "OH! Mi ha colpito! Dritto nell'orgoglio! Un altro giro per lo sfidante: e lo paga il perdente. Cioè io."
-            "La taverna batte i boccali. Per una sera, sono dei loro."
-        "Rispondere con un verso sconcio, il più sporco che mi viene":
+            "La taverna sbatte i boccali. Per una sera, sono dei loro."
+        "Rispondi con un verso sconcio, il più sporco che ti viene in mente":
             $ druso_affinity += 1
             with hpunch
             druso "Questa non è poesia, è un'accusa! ...ripetila più piano, che la scrivo."
@@ -392,14 +392,14 @@ label att_taverna_4:
         "«Per favore, basta, non so far versi...»":
             $ druso_affinity -= 1
             show druso ghigno with qdiss
-            druso "Supplica. Il genere meno originale. Ti do un voto: «zero», in rima con «ciao»."
+            druso "Supplica. Il genere meno originale. Ti do un giudizio: «insipido», in rima con «Arido»."
     return
 
 label att_fumeria_4:
     scene bg vicoli_zefiro with fade
     show icaro neutro with dissolve
     "Serata di inventario: Icaro conta le vincite della settimana sul tavolo piccolo. Monete in pile per taglio, per conio, per Lega."
-    icaro "Non toccare. Puoi guardare. Guardare è gratis, stasera: offerta di lancio."
+    icaro "Non toccare. Puoi guardare. Guardare è gratis, stasera: offerta lancio."
     menu:
         "Una pila è più corta delle altre. Lo noto. Lui nota che lo noto."
         "«Manca uno Scudo nella terza pila.»":
@@ -407,7 +407,7 @@ label att_fumeria_4:
             show icaro furbo with qdiss
             icaro "...l'ho messo io da parte, per vedere chi se ne accorgeva. Tre settimane. Sei [il_t] prim[fin]."
             "Lo rimette nella pila con un mezzo sorriso. La terza pila torna pari alle altre."
-        "Guardare e basta, com'è gratis":
+        "Guarda e basta, è gratis":
             icaro "Bravo. Il pubblico migliore è quello che non fa domande."
     return
 

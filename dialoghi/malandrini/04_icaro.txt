@@ -362,7 +362,7 @@ TU: Hai incastrato tuo fratello.
 ICARO: Ho incastrato il suo debito. Lui c'era già dentro. Io l'ho solo messo in ordine.
 Ci allontaniamo per i vicoli. Al secondo angolo si ferma, srotola il sacco e mi mostra l'elsa. Dorata, pacchiana, con una gemma finta.
 ICARO: Brutta. Vale poco. Ma è mia, e nessuno tocca ciò che è mio.
-ICARO: Stanotte sei rimasto, e non hai chiesto la tua parte. Avevo messo da parte dieci Scudi per trattare. Restano in tasca mia.
+ICARO: Stanotte sei rimasto/a, e non hai chiesto la tua parte. Avevo messo da parte dieci Scudi per trattare. Restano in tasca mia.
 Mi passa la pipa, accesa al riparo di un portone. Il cannello verso di me, le dita lontane.
 
 
@@ -580,6 +580,15 @@ Poi slega il nastro del registro. Lo apre alla pagina della riga coperta. Stavol
 Una riga sola, nella sua grafia stretta da notaio. «Voce unica. Non ammortizzabile. Non cedibile.»
 
 [VARIANTE]
+    ICARO: Mi avevi chiesto cosa andava in fondo alla pagina. Il semestre è chiuso. Gli interessi sono maturati.
+
+[VARIANTE]
+    ICARO: Nel totale avevi dimenticato una voce. Apposta. È questa.
+
+[VARIANTE]
+    ICARO: La sera della pipa non sapevo in che colonna metterti. Ne ho aperta una nuova.
+
+[VARIANTE]
     ICARO: Prima di scriverla mi sono fermato mezzo respiro. Ormai sai cosa vuol dire.
 
 [VARIANTE]
@@ -647,6 +656,15 @@ In strada mi frugo le tasche, per abitudine. Manca una moneta. Una sola. L'ultim
         ICARO: Mi hai dato del baro. Lo tollero da un fratello solo, e una volta sola. La tua l'hai spesa.
     Slega il nastro del registro e lo gira verso di me. Una pagina, una riga.
     «Fratello. Nessuna contropartita.» Sotto, la sua firma. E lo spazio per la mia.
+
+    [VARIANTE]
+        È la colonna vuota che teneva coperta col palmo. Adesso ha una risposta.
+
+    [VARIANTE]
+        È la voce che avevo «dimenticato» nel totale. Adesso è scritta, e non si dimentica più.
+
+    [VARIANTE]
+        A margine, a matita, una nota piccola: «accende la pipa senza chiedere». Nessun importo.
     Firmo. Lui soffia sull'inchiostro, chiude il registro e torna a mescolare, come se niente fosse.
     ICARO: Druso pretenderà di firmare anche lui. Gli dirò che la pagina è finita.
     ICARO: Caino lo saprà entro l'alba. Lascialo sapere. Per una volta, è un credito che non può riscuotere.

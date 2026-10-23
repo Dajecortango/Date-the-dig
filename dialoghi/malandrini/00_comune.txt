@@ -37,14 +37,14 @@ LENORA: Il tuo primo semestre dura sei Lune. Ne sono passate due e mezza. Dimmi 
 Apro la bocca. La voce dietro la grata arriva prima della mia.
 
 [VARIANTE]
-    LENORA: No. Lo so già. Mio figlio maggiore ti nomina nei suoi rapporti. Caino non nomina mai nessuno due volte.
+    LENORA: No. Lo so già. Mio figlio ti nomina nei suoi rapporti. Caino non nomina mai nessuno due volte.
     CAINO: Una volta sola, madre. La seconda era una nota a margine.
     LENORA: Le note a margine sono le sole che leggo.
 
 [VARIANTE]
     LENORA: No. Lo so già. Druso ha una rima nuova, e la rima ha il tuo passo.
     DRUSO: Madre! Era una strofa privata!
-    LENORA: In questa famiglia non esiste il privato, Druso. Esiste il non ancora saputo.
+    LENORA: In questa famiglia non esiste il privato, Druso. Esiste il non ancora divulgato.
 
 [VARIANTE]
     LENORA: No. Lo so già. Icaro ha aperto il suo registro a una voce nuova. Non lo fa per meno di cento Scudi.
@@ -77,7 +77,7 @@ Apro la bocca. La voce dietro la grata arriva prima della mia.
         LENORA: Insolenza. Annotata, non punita. Le insolenze punite non insegnano niente a nessuno.
         LENORA: Io non perdono, Figlio/a di Briseide. Riclassifico. Ricordalo, la prossima volta che apri bocca qui dentro.
 
-    > Tacere, e chinare la testa
+    > Taci e china la testa
         Chino la testa. Il silenzio della sala si allunga, una torcia sfrigola. Nessuno respira.
         LENORA: Il silenzio. Il più vecchio dei giuramenti.
         LENORA: Briseide ti ha insegnato bene. O non ti ha insegnato niente, e sei nato/a così. Peggio per chi ti sottovaluta.
@@ -163,7 +163,7 @@ Mano nella mano, dal primo gradino all'ultimo. L'Arconte della Proprietà non la
 
 La Fiaccolata. Scendo la Calà con Vanna e Corrado, un gradino di luce alla volta.
 VANNA: Guardali, i piccioncini della Rocca. E tu niente, fratellino/sorellina? Nemmeno una mano da tenere?
-CORRADO: Lascialo stare. C'è chi scende la Calà per la leggenda, e chi per contare i gradini. Entrambi arrivano al fiume.
+CORRADO: Lascialo/a stare. C'è chi scende la Calà per la leggenda, e chi per contare i gradini. Entrambi arrivano al fiume.
 Arrivo al fiume. Trecento gradini, nessuna mano. La leggenda, quest'anno, parla d'altro.
 
 
@@ -232,11 +232,11 @@ AEDE: Ti ho insegnato a tenere la guardia. Non a usarla sulle mie cose.
         OFELIA: Intendeva tutto. Le capita, quando non pensa. È la sua qualità migliore.
         Ofelia se ne va per prima. Ha vinto lei. Aede non lo sa ancora.
 
-    > Dare ragione ad Aede, a voce bassa
+    > Dai ragione ad Aede, a voce bassa
         AEDE: Visto, Ofelia? Almeno qui si sa da che parte stare.
         OFELIA: Da che parte stare. Che frase da soldato. Ricordatela, quando ti servirà una serra calda.
 
-    > Dare ragione a Ofelia, con un mezzo sorriso
+    > Dai ragione a Ofelia, con un mezzo sorriso
         OFELIA: Visto, sorella? Non tutti scelgono il rosso.
         AEDE: Il rosso non si sceglie. Si porta. Lo vedrai.
         Aede mi passa accanto e mi urta con la spalla. Forte. Apposta. Stasera il livido avrà la forma della sua scapola.
@@ -263,12 +263,12 @@ Caino posa il boccale sul tavolo. Piano. Fa più rumore di un pugno.
         CAINO: Il Codice l'ho scritto io. Per una volta mi pento della clausola.
         Ridono. Insieme. Per mezzo secondo sono solo due fratelli. Poi se ne accorgono, e smettono.
 
-    > Restare seduto/a accanto a Druso
+    > Resta seduto/a accanto a Druso
         DRUSO: Visto? Il pubblico ha scelto. Torna ai tuoi registri, fratello.
         CAINO: Il pubblico cambia idea, Druso. I registri no.
         Esce senza pagare. Lo fa apposta: stasera il conto lo troverò a mio nome.
 
-    > Seguire Caino fuori
+    > Segui Caino fuori
         Fuori, Caino respira il freddo del mattino come se gli servisse. Non mi guarda.
         CAINO: Mio fratello ha un talento. Dice ad alta voce le cose vere nel momento sbagliato.
         CAINO: Non farci l'abitudine. Né a lui, né alle cose vere.
@@ -277,7 +277,7 @@ Caino posa il boccale sul tavolo. Piano. Fa più rumore di un pugno.
 
 === RIVALITA CAINO ICARO ===
 
-La fumeria dietro la Consorteria, di mattina: sedie sui tavoli, il fumo dolce della notte ancora appeso alle travi, Icaro al tavolo piccolo coi conti.
+La fumeria dietro la Consorteria, di mattina: sedie sui tavoli, il fumo dolce della notte ancora si alza verso le travi, Icaro al tavolo piccolo coi conti.
 Caino non ci entra mai. Stamattina c'è. Si siede senza chiedere, e non gioca.
 CAINO: Non sono qui per le carte. Sono qui per vedere chi gioca con cosa.
 ICARO: Con cosa. Hai detto cosa.
@@ -298,11 +298,11 @@ ICARO: Tu chiedi il permesso come gli esattori chiedono «permesso» sulla porta
         CAINO: Corretto. Per ora.
         ICARO: «Per ora.» Parola sua. Io non tratto i «per ora»: hanno scadenze ambigue.
 
-    > Sedermi al tavolo di Icaro, come se niente fosse
+    > Mi siedo al tavolo di Icaro, come se niente fosse
         ICARO: Visto, fratello? Clientela abituale. Il resto della giornata pagalo tu.
         CAINO: Lo pago. E me lo segno. Sai cosa succede alle cose che mi segno.
 
-    > Offrire a Caino la pipa di Icaro
+    > Offri a Caino la pipa di Icaro
         Prendo la pipa dal tavolo e la porgo a Caino. Icaro mi guarda come se avessi venduto il suo magazzino.
         CAINO: ...grazie. Credo. Non fumo da quando avevo sedici anni.
         ICARO: Non hai mai fumato. Ti ho visto provarci e tossire per un'ora.
@@ -325,16 +325,16 @@ DRUSO: Sobria. Hai sentito, linguaccia? Si vanta di essere sobrio. In una tavern
 [SCELTA]
     Mi guardano entrambi. Il tavolo libero è uno. Io pure.
 
-    > Brindare a tutti e due: «Ai figli di Lenora, uno per sera.»
+    > Brinda a tutti e due: «Ai figli di Lenora, uno per sera.»
         DRUSO: Uno per sera! Diplomazia da taverna! Icaro, segnatelo: è più furbo/a di te.
         ICARO: Segnato. Con la data. E l'ora in cui Druso ha ammesso che qualcuno è più furbo di qualcuno.
 
-    > Proporre di giocarsela a carte
+    > Proponi di giocarsela a carte
         ICARO: Accetto. Druso, mischia tu.
         DRUSO: Così bari tu e perdo io? Mai. Mischia lui/lei.
         Mischio io. Nessuno dei due accetta il mazzo. La partita non comincia. Restano lì, col mazzo in mezzo, fino a mezzogiorno.
 
-    > Andarmene, e lasciarli soli col tavolo
+    > Vattene e lasciali soli al tavolo
         Esco. Dietro di me, il Becco Storto resta zitto.
         Poi due voci, insieme, la stessa domanda: «Dov'è andato/a?»
 
@@ -348,15 +348,15 @@ Io sono il metro.
 [SCELTA]
     Tutti e due aspettano di vedere da che parte vado.
 
-    > Fermarmi da <Rivale 1>
+    > Fermati da <Rivale 1>
         Mi fermo. <Rivale 1> non dice niente: non serve.
         Alle mie spalle, <Rivale 2> se ne va senza fretta. Ha preso nota.
 
-    > Fermarmi da <Rivale 2>
+    > Fermati da <Rivale 2>
         Mi fermo. <Rivale 2> non dice niente: non serve.
         Alle mie spalle, <Rivale 1> se ne va senza fretta. Ha preso nota.
 
-    > Passare in mezzo, senza fermarmi
+    > Passa in mezzo, senza fermarti
         Passo in mezzo. Due sguardi mi seguono fino in fondo al corridoio. Non si incrociano mai.
 Vanna, più tardi, mi dice che a Rocca Tempesta lo sanno già tutti. Io non so nemmeno cosa.
 
@@ -374,10 +374,10 @@ Vanna, più tardi, mi dice che a Rocca Tempesta lo sanno già tutti. Io non so n
 ~ LUNA VII ~
 
 [VARIANTE]
-    A Drakengrad, dicono gli Arvali, ogni storia viene raccontata per sempre. Anche quelle che continuano senza di me.
+    Nel Drakengrad, dicono gli Arvali, ogni storia viene raccontata per sempre. Anche quelle che continuano senza di me.
 
 [VARIANTE]
-    Le notizie di Zefiro arrivano tardi, dove sono adesso. Arrivano lo stesso: Rocca Tempesta non lascia andare niente, nemmeno le voci.
+    Le notizie di Zefiro arrivano tardi, dove sono adesso, ma arrivano lo stesso: Rocca Tempesta non lascia andare niente, nemmeno le voci.
 
 [VARIANTE]
     La prima Luna dopo il semestre. Zefiro accende le lanterne come sempre, una per una.
@@ -447,7 +447,7 @@ Vanna, più tardi, mi dice che a Rocca Tempesta lo sanno già tutti. Io non so n
         Ofelia non pronuncia il mio nome. Per lei è un nome tra tanti, e i nomi tra tanti non si pronunciano.
 
     [VARIANTE]
-        Ofelia rifiuta ancora ogni ballo. Uno solo l'ha concesso, quest'anno. Non dice a chi, e Ascadeo non riesce a quotarlo.
+        Ofelia rifiuta ancora ogni ballo. Uno solo l'ha concesso, quest'anno. Non dice a chi, e Ascadeo non riesce a fare una quotazione.
 
     [VARIANTE]
         Ofelia ha una fila nuova di pretendenti. Li congeda col dorso della mano, come allora. Un po' più in fretta.
@@ -473,6 +473,9 @@ Vanna, più tardi, mi dice che a Rocca Tempesta lo sanno già tutti. Io non so n
     Nello studio di Glauco la candela è sempre una. Aede non ci entra più. Lui non la chiama.
 
 [VARIANTE]
+    Una volta a Luna, su un tetto della Consorteria, una sagoma in grigio alza due dita alla fronte. Un saluto da colleghi. Lo ricambio, e la neve se la riprende.
+
+[VARIANTE]
     Nel registro di Caino c'è una riga scritta con un inchiostro diverso. Non la tassa. Non la archivia. La rilegge.
 
 [VARIANTE]
@@ -482,10 +485,16 @@ Vanna, più tardi, mi dice che a Rocca Tempesta lo sanno già tutti. Io non so n
     A Rurikstad l'idromele è buono, d'inverno. Lo bevo a piccoli sorsi, come mi era stato consigliato. Da chi, non lo dico.
 
 [VARIANTE]
+    Lo scrivano nuovo di Caino ride alle sue battute, in Consiglio. Le conosco tutte. Me le aveva dette per prime.
+
+[VARIANTE]
     La chiave del cassetto è ancora sul tavolo, tra me e Caino. Nessuno dei due la prende. Nessuno dei due la sposta.
 
 [VARIANTE]
     Al Becco Storto, a fine serata, Druso recita ancora la sua strofa fuori metrica. La sala, per quella, ha imparato a stare zitta.
+
+[VARIANTE]
+    Al Becco Storto Druso legge versi seri, ogni tanto. Li legge verso il fondo della sala, dove Pandora tiene il registro aperto. Applaudo per primo/a.
 
 [VARIANTE]
     Il posto accanto a Druso, in taverna, è sempre il mio. Il foglio piegato in quattro non l'ho più visto. Non l'ho più chiesto.
@@ -495,6 +504,9 @@ Vanna, più tardi, mi dice che a Rocca Tempesta lo sanno già tutti. Io non so n
 
 [VARIANTE]
     La lampada più brutta del magazzino sta sul mio davanzale. Icaro passa a controllare che ci sia ancora. Dice che è per l'inventario.
+
+[VARIANTE]
+    Nella copia di Caino del registro la mia riga c'è ancora, tirata via col righello. Icaro mi saluta con due dita dal mazzo: in pari.
 
 [VARIANTE]
     Fine Luna: una busta sotto la porta, cifra esatta. Il dieci per cento di Icaro non sbaglia mai un centesimo.
@@ -511,7 +523,12 @@ Vanna, più tardi, mi dice che a Rocca Tempesta lo sanno già tutti. Io non so n
         Al tavolo grande della fumeria c'è un posto libero. Icaro non lo riassegna. Lo tiene a listino, a un prezzo che nessuno paga.
 
 [VARIANTE]
-    Il guanto di Ofelia è ancora nella mia tasca. A cena da Glauco si siede accanto a me, davanti a tutto il Ceppo, e non lo nomina mai.
+
+    [VARIANTE]
+        Il guanto di Ofelia è ancora nella mia tasca. Alle cene di Glauco non ci andiamo, per ora. Ofelia dice che il Ceppo sa aspettare. Lei no, ma ci prova.
+
+    [VARIANTE]
+        Il guanto di Ofelia è ancora nella mia tasca. A cena da Glauco si siede accanto a me, davanti a tutto il Ceppo, e non lo nomina mai.
 
 [VARIANTE]
     Il contratto a tre ha una quinta clausola, scritta in piccolo da Caino. Ofelia finge di non averla letta. L'ha letta tre volte.
@@ -526,7 +543,7 @@ Vanna, più tardi, mi dice che a Rocca Tempesta lo sanno già tutti. Io non so n
     Il guanto di Ofelia è ancora nella mia tasca. Non l'ho restituito. Lei non l'ha chiesto. Lo teniamo così, senza dircelo.
 
 [VARIANTE]
-    Il drappo col fiocco del Ceppo è in fondo a un baule. Mia madre non l'ha aperto. Dice che certi doni si rispettano chiusi.
+    Il drappo col fiocco del Ceppo è in fondo a un baule. Mia madre non l'ha aperto. Dice che certi doni si rispettano da chiusi.
 
 [VARIANTE]
     Ofelia ha un pretendente nuovo. Ascadeo, nel suo libretto, ha già quotato anche quello. Basso.
@@ -555,15 +572,15 @@ Il pugno parte. Icaro salva i genitali al prezzo di tre pile di monete, che rovi
 [SCELTA]
     Caino osserva, già divertito. Tocca a me scegliere da che parte stare.
 
-    > Ridere con Druso, forte
+    > Ridi con Druso, forte
         DRUSO: ECCO! Qualcuno con il senso del teatro!
         ICARO: ...e tu. Tu ridi. Annotato. Con la data.
 
-    > Aiutare Icaro a recuperare le monete, contandole
+    > Aiuta Icaro a recuperare le monete, contandole
         ICARO: ...quarantadue, quarantatré. Tornano. Tutte. Tu sai contare sotto pressione: è la prima qualità utile che vedo stasera.
         DRUSO: Traditore! Due contabili a un tavolo solo!
 
-    > Citare il Codice del Teschio: «si dichiara PRIMA di colpire»
+    > Cita il Codice del Teschio: «si dichiara PRIMA di colpire»
         CAINO: Il/La novellino/a che ricorda i codici altrui meglio dell'autore. Druso: ha ragione. Hai dichiarato a pugno già partito. Penale: paghi tu il giro.
         DRUSO: QUESTO È UN TRIBUNALE FARSA.
 La serata finisce con Druso che declama, Icaro che ricontrolla le pile e Caino che firma il conto del giro col nome di Druso.
@@ -571,7 +588,7 @@ La serata finisce con Druso che declama, Icaro che ricontrolla le pile e Caino c
 
 === INCROCIO PALESTRA ===
 
-Arrivo al cortile che è già pieno: Aede contro Druso, sparring dimostrativo. Lei con la lama da esercizio, lui con lo scudo e la bocca.
+Arrivo nel cortile che è già pieno: Aede contro Druso, sparring dimostrativo. Lei con la lama da esercizio, lui con lo scudo e la bocca.
 DRUSO: Volpe rossa! Se vinco, mi concedi un ballo alla prossima festa. Se perdi, idem! Il sistema è perfetto.
 AEDE: Il sistema ha un difetto.
 Non vedo il colpo. Nessuno lo vede. Druso è a terra, lo scudo a tre metri, la lama di lei ferma a un dito dal naso.
@@ -580,15 +597,15 @@ AEDE: Il difetto sei tu.
 [SCELTA]
     Il cortile trattiene il fiato. Druso, da terra, guarda me.
 
-    > Applaudire lei: «Pulito. Insegnamelo.»
+    > Applaudi lei: «Pulito. Insegnamelo.»
         AEDE: ...domani all'alba. Porta la guardia alta e zero domande.
         DRUSO: E NESSUNO che chieda se mi sono fatto male. Famiglia di serpi.
 
-    > Tendere la mano a Druso con un verso: «Cadde il poeta, ma cadde rimando»
+    > Tendi la mano a Druso con un verso: «Cadde il poeta, ma cadde rimando»
         DRUSO: «Cadde rimando»! BELLISSIMO! Lo metto nel repertorio e non ti pago i diritti!
         Si rialza ridendo. Aede scuote la testa, ma non smentisce il mezzo sorriso.
 
-    > Restare neutrale: qui si rischia la pelle
+    > Resta neutrale: qui si rischia la pelle
         Resto con le mani in tasca. Sugli spalti due ragazzi si stanno già spingendo per chi tifava chi.
 
 
@@ -606,10 +623,10 @@ E io, dal mio posto, l'ho visto: il taglio del mazzo. Quello che le dita non dov
         CAINO: ...ah. Ecco la statistica. Fratello: rigiochiamo con il MIO mazzo, e la Proprietà dimentica l'imposta straordinaria sulle fumerie.
         ICARO: Estorsione. E il/la novellino/a fa la spia. Annotato. Con la data, l'ora e il taglio di capelli.
 
-    > Tacere: al tavolo di Icaro, chi guarda non parla
+    > Taci: al tavolo di Icaro, chi guarda non parla
         Icaro vince la quinta, la sesta, e restituisce tutto a fine serata: «prestito didattico», lo chiama. Uscendo, mi fa scivolare in tasca uno Scudo. Uno solo.
 
-    > Proporre il doppio o niente, mazzo nuovo e mescolo io
+    > Proponi il doppio o niente, mazzo nuovo e mescoli tu
         Mescolo io. Vince comunque Icaro, stavolta pulito. Caino paga, Icaro intasca, e nessuno dei due mi perdona la serata più onesta della storia del tavolo.
 
 
@@ -627,7 +644,7 @@ ICARO: Un poema vale zero Scudi. Un poema su di me vale meno di zero: va a debit
 [SCELTA]
     Druso mi guarda. Icaro pure. Il registro resta aperto in mezzo.
 
-    > Leggere ad alta voce la pagina di Druso, cifra per cifra
+    > Leggi ad alta voce la pagina di Druso, cifra per cifra
         Leggo. La sala, che fingeva di non ascoltare, ascolta. A ogni cifra qualcuno fischia.
         DRUSO: Basta, basta! Così mi rovini la reputazione. Quella da insolvente, che mi sono costruito con fatica.
         ICARO: Il debito letto in pubblico pesa il doppio. Lezione gratuita. A registro comunque: zero Scudi, zero centesimi.
@@ -638,7 +655,7 @@ ICARO: Un poema vale zero Scudi. Un poema su di me vale meno di zero: va a debit
         ICARO: Quattro. Acconto accettato. A matita: sulla tua pagina, quattro non si vedono nemmeno.
         ICARO: Non ci prendete gusto. Nessuno dei due.
 
-    > Chiudere il registro con una mano: «Non stamattina.»
+    > Chiudi il registro con una mano: «Non stamattina.»
         ICARO: Hai chiuso il mio registro. Con la mano. Nessuno tocca il mio registro.
         DRUSO: Mi ha difeso. Qualcuno mi ha difeso da Icaro. Segnatelo, fratellino: data, ora, e il mio stupore.
         Icaro lo segna davvero. Poi riapre il registro più in là, dove la mia mano non arriva.
@@ -650,7 +667,7 @@ Ma bevono allo stesso tavolo, e nessuno dei due se ne va per primo.
 
 Il cortile d'armi all'alba. Aede ha già rotto due bersagli e guarda il terzo come un debitore.
 Al bordo del cortile compare Ofelia. Vestita di nero, i guanti puliti, una lama avvolta in un panno sotto il braccio.
-OFELIA: Sorella. La tua. Ti avevo chiesto di non usarla sui chiodi.
+OFELIA: Sorella. La tua spada. Ti avevo chiesto di non usarla sui chiodi.
 AEDE: Non erano chiodi. Era un elmo.
 OFELIA: Peggio. Il filo era una riga, adesso è una sega. Ci ho messo tre sere.
 Ofelia svolge il panno. La lama brilla come acqua ferma. Aede la prende senza ringraziare. Ofelia non aspetta il grazie: si sta già sfilando i guanti, un dito alla volta.
@@ -661,16 +678,16 @@ Aede apre la bocca per rispondere. Poi la chiude. Si guarda il piede sinistro.
 [SCELTA]
     Le due figlie di Glauco si fronteggiano sopra una lama. Il cortile è vuoto, a parte me.
 
-    > Chiedere a Ofelia come si legge un filo
+    > Chiedi a Ofelia come si legge un filo
         OFELIA: Si passa l'unghia, piano, contro il verso. Se si ferma, il filo è vivo. Se scivola, è morto. Come certi pretendenti.
         Mi porge la lama per provare. Aede la riprende prima che io la tocchi.
         AEDE: La mia lama non la tocca nessuno. Nemmeno per lezione.
 
-    > Dare ragione ad Aede: «Pesa diversa, si vede»
+    > Dai ragione ad Aede: «Pesa diversa, si vede»
         AEDE: Visto? Lo vede anche lui/lei. E lui/lei non vede mai niente.
         OFELIA: Due ciechi d'accordo fanno una maggioranza, non una verità. Il piede sinistro, sorella.
 
-    > Restare in silenzio e guardare il piede di Aede
+    > Resta in silenzio e guarda il piede di Aede
         Guardo il piede. Ofelia ha ragione: il peso cade storto, appena. Da solo/a non l'avrei mai visto.
         AEDE: ...smettetela di guardarmi i piedi. Tutti e due.
         Ofelia sorride. Non a me: alla sorella che arrossisce.
@@ -693,16 +710,16 @@ OFELIA: Abbastanza da scaldare la tua imposta finché non si scioglie.
 [SCELTA]
     Si guardano come due lame che si conoscono. Io sono in fila, due posti più indietro.
 
-    > Contare a voce alta le bocche di calore, per Caino
+    > Conta a voce alta le bocche di calore, per Caino
         Conto. Undici bocche nel pavimento, due per fila, una sotto il fiore blu. Caino annota senza guardarmi.
         CAINO: Undici. La serra di Glauco ha appena trovato un perito. Ofelia, il tuo pretendente lavora per me.
         OFELIA: Il mio pretendente è in fila. Lavora per me. Torna al tuo posto, <Nome>: il quarto da sinistra ti fissa.
 
-    > Prendere le parti di Ofelia: «La primavera non si tassa»
+    > Prendi le parti di Ofelia: «La primavera non si tassa»
         OFELIA: Sentito, Arconte? La primavera non si tassa. Lo faccio scrivere sulla porta.
         CAINO: Tutto si tassa. Anche la primavera, anche le frasi fatte. La tua, <Nome>, la metto a registro gratis.
 
-    > Chiedere a Caino quanto vale, a registro, un fiore che non fiorisce
+    > Chiedi a Caino quanto vale, a registro, un fiore che non fiorisce
         CAINO: ...niente. Una spesa senza rendita. A bilancio, una perdita pura.
         OFELIA: Allora lascialo fuori dal tuo registro. Le perdite pure, qui, le teniamo per ostinazione.
         Caino guarda il fiore blu. Chiude il calamaio. Per una volta, non scrive niente.
@@ -716,34 +733,34 @@ Il cortile d'armi all'alba. Aede è già lì, ovviamente: dicono che il maestro 
 AEDE: Guardia alta. No, più alta. Il Nord non colpisce dove guardi: colpisce dove respiri.
 
 [SCELTA]
-    Il legno della spada da esercizio pesa più del previsto.
+    La spada da esercizio pesa più del previsto.
 
-    > Eseguire senza discutere, fino a sbagliare di meno
-        AEDE: Meno peggio. Domani di nuovo, finché «meno peggio» non diventa «passabile».
+    > Esegui senza discutere, fino a sbagliare di meno
+        AEDE: Meno peggio. Domani di nuovo, finché «meno peggio» non diventerà «passabile».
         Da lei, è quasi un encomio solenne.
 
-    > Chiederle di mostrarmi il colpo, lentamente
+    > Chiedile di mostrarti il colpo, lentamente
         AEDE: Lentamente? Il nemico non rallenta per cortesia.
         Ma lo mostra. Due volte. E la seconda, giuro, è più lenta della prima.
 
-    > Lamentarmi del turno all'alba
-        AEDE: Il sole non si lamenta di sorgere. E ha più motivi di te.
+    > Lamentati del turno all'alba
+        AEDE: Il sole non si lamenta di sorgere e ha più motivi di te per farlo.
 
 
 === ATT SPADA 2 ===
 
 Oggi tocca ai bersagli di paglia. Aede li sistema a distanze irregolari, «come la Famiglia: il peso non è mai dove te lo aspetti».
-A metà esercizio mi accorgo che uno dei bersagli ha una moneta appesa al centro, a filo.
+A metà esercizio mi accorgo che uno dei bersagli ha una moneta appesa al centro con un filo.
 
 [SCELTA]
     La moneta oscilla al vento.
 
-    > Colpire la moneta, non il bersaglio
+    > Colpisci la moneta, non il bersaglio
         La manco di un dito. Ma la lama vibra nel punto giusto, e lei lo vede.
         AEDE: ...era una prova per la settimana prossima. Sei in anticipo. Non montarti la testa.
 
-    > Colpire il bersaglio, come da consegna
-        AEDE: Preciso e obbediente. Briseide vi fabbrica così. Non è un difetto. Non è neanche un pregio.
+    > Colpisci il bersaglio, come da consegna
+        AEDE: Preciso e obbediente. Briseide vi alleva così. Non è un difetto. Non è neanche un pregio.
 
 
 === ATT SPADA 3 ===
@@ -763,13 +780,22 @@ AEDE: Sai perché mi alleno anche con la pioggia? Perché chi mi vorrà morta no
 
 [VARIANTE]
     AEDE: Il figlio di Lenora ti chiama «linguaccia», in giro. Digli che qui la linguaccia impara a parlare con l'acciaio.
-    Non è gelosia. È catalogazione. Credo.
+
+    [SCELTA]
+        Aspetta una risposta. Con la spada ancora alzata.
+
+        > «Druso morde, ma morde per primo chi lo merita.»
+            AEDE: Difendi il poeta. Annotato.
+            Nei cortili della Rocca la pioggia non copre le voci: Druso lo saprà prima di cena. E se ne vanterà.
+
+        > «Glielo dirò. Con l'acciaio, come dici tu.»
+            Aede annuisce una volta, secca. Non è gelosia. È catalogazione. Credo.
 
 
 === ATT SCUDO 1 ===
 
-DRUSO: Novellino/a! Guarda guarda. Briseide vi manda ancora in palestra o siete venuto/a a guardare i veri uomini?
-Druso fa roteare lo scudo come un piatto da taverna. Metà esibizione, metà sfida.
+DRUSO: Novellino/a! Guarda guarda. Briseide ti manda ancora in palestra o sei venuto/a a guardare i veri uomini?
+Druso batte l'arma sullo scudo come un tamburo. Metà esibizione, metà sfida.
 
 [SCELTA]
     Il ghigno aspetta una reazione. Qualunque.
@@ -777,31 +803,31 @@ Druso fa roteare lo scudo come un piatto da taverna. Metà esibizione, metà sfi
     > «Veri uomini? Fammi sapere quando ne arriva uno.»
         DRUSO: AH! Linguaccia! Mi piace. Prendi uno scudo, linguaccia, vediamo se il braccio vale la bocca.
 
-    > Ignorarlo e prendere uno scudo in silenzio
-        DRUSO: Silenzioso. Mh. I silenziosi o sono pericolosi o sono noiosi. Vediamo quale dei due.
+    > Ignoralo e prendi uno scudo in silenzio
+        DRUSO: Silenzioso/a. Mh. I silenziosi o sono pericolosi o sono noiosi. Vediamo quale dei due.
 
-    > Scusarmi e mettermi in fondo alla fila
-        DRUSO: In fondo alla fila, dove non dai fastidio. Ecco, bravo. Resta lì.
+    > Scusati e mettiti in fondo alla fila
+        DRUSO: In fondo alla fila, dove non dai fastidio. Ecco, bravo/a. Resta lì.
         Si volta prima che io arrivi in fondo.
 
 
 === ATT SCUDO 2 ===
 
 Lezione di lotta. Druso «insegna» mettendo a terra i novellini uno a uno, con commento poetico annesso.
-DRUSO: E anche questo giace! Componimento: «Cadde il fiore di Briseide — più lesto a terra che in amore.» Rima baciata, come piace a me.
+DRUSO: E anche questo giace! Componimento: «Cadde di Briseide il fiore — più lesto a terra che in amore.» Rima baciata, come piace a me.
 
 [SCELTA]
     Il prossimo sono io.
 
-    > Attaccare per primo, senza aspettare il segnale
+    > Attacca in anticipo, senza aspettare il segnale
         Lo prendo a metà strofa. Finisco a terra lo stesso, ma ci finisce anche lui, e la sabbia non guarda in faccia i figli di Lenora.
         DRUSO: FALLO! Bellissimo! Ecco uno che ha capito la poesia!
 
-    > Aspettare il segnale, da regolamento
-        Segnale, presa, volo, sabbia. Tutto secondo regolamento, compresa la mia schiena.
-        DRUSO: Regolare e prevedibile. Il mio verso preferito: «cadde con stile».
+    > Aspetta il segnale, da regolamento
+        Segnale, presa, volo, sabbia. Tutto secondo regolamento.
+        DRUSO: Regolare e prevedibile. Il mio verso preferito: «cadere con stile».
 
-    > Rifiutare la lotta
+    > Rifiuta la lotta
         DRUSO: Si rifiuta! Oh, che peccato. Componimento breve: «No.»
 
 
@@ -817,7 +843,7 @@ DRUSO: Cinghia molle, braccio rotto. Te lo dico io che le ho rotte tutte e due, 
         DRUSO: Non ringraziare, mi rovini la reputazione. Di' in giro che ti ho insultato.
 
     > «Chi sei e cosa hai fatto a Druso?»
-        DRUSO: L'ho mangiato. Era indigesto. Guardia su, linguaccia.
+        DRUSO: L'ho mangiato, ma era indigesto. Guardia su, linguaccia.
 
 
 === ATT STUDIO 1 ===
@@ -837,7 +863,7 @@ Me lo scrivo. Ho il sospetto che un giorno mi salverà la vita.
 === ATT STUDIO 3 ===
 
 Il Ballo delle Candele Spente. Il libro ne parla per tre righe asciutte; Corrado, a voce bassa, per un'ora.
-CORRADO: Lenora spense le candele, e con le candele una congiura intera. Nessun processo. Nessun nome. Capito perché studiamo, fratellino/sorellina?
+CORRADO: Lenora spense le candele e assieme a loro una congiura intera. Nessun processo. Nessun nome. Capito perché studiamo, fratellino/sorellina?
 Capito. Nel Nord la storia non si studia per sapere com'era: si studia per sapere dove non mettere i piedi.
 
 
@@ -856,7 +882,7 @@ Capito. Nel Nord la storia non si studia per sapere com'era: si studia per saper
 === ATT CITTA 1 ===
 
 Consegne per Briseide: lana alla Contrada Lumina, lettere alla Consorteria. Zefiro mi entra nelle gambe, vicolo dopo vicolo.
-A fine giro conosco tre scorciatoie nuove e un lanternaio che fa credito ai Figli di Briseide. Capitale, nel Nord.
+A fine giro conosco tre scorciatoie nuove e un lanternaio che fa credito a noi figli.
 
 
 === ATT CITTA 2 ===
@@ -873,15 +899,15 @@ Il componimento è irripetibile. La taverna applaude, la locandiera minaccia, Dr
 [SCELTA]
     Alza il boccale verso di me, in attesa di verdetto.
 
-    > «Metrica zoppa. Il contenuto peggio. Bis.»
+    > «Metrica zoppa. Il contenuto arranca. BIS!»
         DRUSO: ZOPPA?! Questa zoppa ha fatto piangere un Eparca! ...il bis però te lo concedo.
 
-    > Applaudire educatamente
+    > Applaudi educatamente
         DRUSO: Applauso educato. La morte di ogni poeta. Bevi, che è meglio.
 
 [VARIANTE]
     DRUSO: A proposito: salutami la volpe rossa. Ancora niente, tra voi? Quando ti taglia la gola, pensami.
-    Il cascamorto di Rocca Tempesta. Aede lo infilerebbe su uno spiedo. Forse è per questo che ci prova.
+    Il cascamorto di Rocca Tempesta. Aede lo infilzerebbe su uno spiedo. Forse è per questo che ci prova.
 
 
 === ATT TAVERNA 2 ===
@@ -892,10 +918,10 @@ DRUSO: E tu, novellino/a? Reggeresti? Ti vedo tener le mani in grembo come una v
 [SCELTA]
     La taverna intera aspetta.
 
-    > «Dichiara pure. Ma stanotte dormi con un occhio aperto.»
+    > «Parla pure. Ma stanotte dormi con un occhio aperto.»
         DRUSO: Minaccia CON stile! Finalmente! Pagherei da bere, ma pago già abbastanza dazi.
 
-    > Cambiare discorso
+    > Cambia discorso
         DRUSO: Cambia discorso. Come i diplomatici. E i codardi. A volte è la stessa gilda.
 
 
@@ -923,21 +949,21 @@ Mi avvicino. Mi guarda. Decide che non esisto, e torna alle carte.
 
 === ATT FUMERIA 2 ===
 
-Stavolta mi siedo al suo tavolo. Icaro non protesta: un giocatore in più è una tasca in più.
-Perdo sette Scudi in quattro mani. Ma guardo. E a un certo punto, sul taglio del mazzo, le sue dita fanno una cosa che le dita non dovrebbero fare.
+Stavolta mi siedo al suo tavolo. Icaro non protesta: un giocatore in più è una tasca extra.
+Perdo sette Scudi in quattro mani. Ma guardo. E a un certo punto, durante il taglio del mazzo, le sue dita fanno una cosa che le dita non dovrebbero fare.
 
 [SCELTA]
     Nessuno ha visto niente. Tranne me.
 
-    > Tacere e perdere l'ottavo Scudo con dignità
+    > Taci e perdi l'ottavo Scudo con dignità
         Pago. Icaro intasca. Poi, prima di rimescolare, mi guarda il polso, le mani, di nuovo il polso.
 
-    > Sussurrare «bel taglio» a voce bassissima
-        ICARO: ...non so di cosa parli. Ma per la cronaca: era irreprensibile.
+    > Sussurra «bel taglio» a voce bassissima
+        ICARO: ...non so di cosa parli. Ma per la cronaca: era regolare.
         Puntiglioso come un notaio. Interessante.
 
-    > Gridare al baro
-        ICARO: Contate le carte, signori. Tutte regolari. Il novellino/a ha bevuto.
+    > Grida al baro
+        ICARO: Contate le carte, signori. Tutto nella norma. Il novellino/a ha bevuto.
         Le carte, ovviamente, sono regolari. Adesso. La saletta ride di me, e Icaro non mi guarderà mai più.
 
 
@@ -949,10 +975,10 @@ ICARO: Tu. Quello/a che guarda le mani invece delle carte. Siediti, se proprio d
 [SCELTA]
     Il fumo sa di resina e di quiete.
 
-    > Sedermi e stare zitto/a, godendomi la calma
+    > Mi siedo e sto zitto/a, godendomi la calma
         ICARO: Mh. Sai stare in silenzio. Raro. Costoso, il silenzio: quasi quanto l'erba buona.
 
-    > Chiedergli quanto ha vinto stasera
+    > Chiedigli quanto ha vinto stasera
         ICARO: Abbastanza. Le cifre esatte costano tre Scudi l'una.
 
 [VARIANTE]
@@ -965,13 +991,13 @@ Giornata di manutenzione: pietra, olio, filo. Aede tratta le lame del Ceppo come
 AEDE: Questa ha un dente nel filo. Chi la usa così merita di perderla. Tu come tieni la tua?
 
 [SCELTA]
-    La mia spada da esercizio è nel portarack. Com'è messa?
+    La mia spada da esercizio è sulla rastrelliera. Com'è messa?
 
     > Mostrargliela: pulita, affilata, oliata ieri
-        AEDE: ...mh. Qualcuno ascolta, in questo cortile. Non montarti la testa: la pietra te la presto lo stesso.
+        AEDE: ...mh. Qualcuno ascolta, in questo cortile. Non montarti la testa: la pietra non te la presto lo stesso.
 
-    > Confessare che non la pulisco da una settimana
-        AEDE: Una settimana. La tua lama ti odia, e io con lei. Siediti: oggi si lucida finché non ti ci specchi.
+    > Confessa che non la pulisci da una settimana
+        AEDE: Una settimana. La tua lama ti odia, e io con lei. Siediti: oggi la si lucida finché non ti ci specchi.
 
 
 === ATT SCUDO 4 ===
@@ -983,7 +1009,7 @@ DRUSO: Promosso/a con riserva. La riserva è che domani si fa sul serio.
 
 === ATT STUDIO 4 ===
 
-Oggi Corrado mi insegna il Margine: il fiume lento che gli Arvali dicono separi i vivi da Drakengrad, la sala del Leone dove ogni storia viene raccontata per sempre.
+Oggi Corrado mi insegna il Margine: il fiume lento che gli Arvali dicono separi i vivi dal Drakengrad, la sala dorata del Leone dove ogni storia viene raccontata per sempre.
 CORRADO: Non è teologia, fratellino/sorellina: è contabilità. Un Dignitas si comporta bene perché qualcuno, laggiù, prende appunti.
 Mi segno anche questa. Nel Nord perfino l'aldilà tiene i registri.
 
@@ -991,31 +1017,31 @@ Mi segno anche questa. Nel Nord perfino l'aldilà tiene i registri.
 === ATT RITI 4 ===
 
 Giorno di brodo. Tutto il Ceppo in cucina: cinquanta Figli, un pentolone, e Briseide che comanda la brigata come un Consiglio di guerra.
-BRISEIDE IPPODAMIA: Il segreto non è la ricetta, <Nome>. È che mentre si taglia la cipolla si parla. E chi parla tagliando non mente: è impegnato.
+BRISEIDE IPPODAMIA: Il segreto non è la ricetta, <Nome>. Mentre si taglia la cipolla si piange. E chi piange tagliando non mente: è irritato e al limite.
 Taglio cipolle per due ore. Ascolto tre segreti, un litigio e una canzone. Briseide aveva ragione, come sempre.
 
 
 === ATT CITTA 3 ===
 
 Commissione alla Contrada Eburnea: riportare un libro prestato. La strada passa per la Calà, trecento gradini vuoti in pieno giorno.
-Senza lanterne è solo una scala. Eppure rallento lo stesso, al gradino duecento, senza un perché. Le leggende di Zefiro sanno aspettare.
+Senza lanterne è solo una scala. Eppure rallento lo stesso, al gradino duecento, senza un perché. Le leggende di Zefiro sanno farsi rispettare.
 
 
 === ATT TAVERNA 4 ===
 
 DRUSO: Sedetevi, gente! Stasera si duella a versi. Chi perde paga il giro. Novellino/a, tu sei lo sfidante.
 La taverna ruggisce. La locandiera mette già i boccali in conto a me.
-DRUSO: Comincio io. «Figlio/a di Briseide, lana in testa e lana in cuore — ti sposerebbe una pecora, ma ha già un amore.»
+DRUSO: Comincio io. «Figlio/a di Briseide, lana in testa e lana in cuore — ti sposerebbe una pecora, ma hai già un amore.»
 Risate. Druso si inchina a metà, sul tavolo, rischiando la vita.
 
 [SCELTA]
     Tocca a me. Tutti gli occhi sono addosso.
 
-    > «Druso Lenorio, poeta di taverna: rima con 'cena' e con 'vena', ma mai con 'sostanza'.»
+    > «Druso Lauro, poeta di taverna: rima con 'cena' e con 'vena', ma mai con denaro.»
         DRUSO: OH! Mi ha colpito! Dritto nell'orgoglio! Un altro giro per lo sfidante: e lo paga il perdente. Cioè io.
-        La taverna batte i boccali. Per una sera, sono dei loro.
+        La taverna sbatte i boccali. Per una sera, sono dei loro.
 
-    > Rispondere con un verso sconcio, il più sporco che mi viene
+    > Rispondi con un verso sconcio, il più sporco che ti viene in mente
         DRUSO: Questa non è poesia, è un'accusa! ...ripetila più piano, che la scrivo.
         Druso ride fino alle lacrime. La locandiera no.
 
@@ -1023,13 +1049,13 @@ Risate. Druso si inchina a metà, sul tavolo, rischiando la vita.
         DRUSO: Ritirata con onore: la peggior poesia che esista. Siediti, almeno bevi.
 
     > «Per favore, basta, non so far versi...»
-        DRUSO: Supplica. Il genere meno originale. Ti do un voto: «zero», in rima con «ciao».
+        DRUSO: Supplica. Il genere meno originale. Ti do un giudizio: «insipido», in rima con «Arido».
 
 
 === ATT FUMERIA 4 ===
 
 Serata di inventario: Icaro conta le vincite della settimana sul tavolo piccolo. Monete in pile per taglio, per conio, per Lega.
-ICARO: Non toccare. Puoi guardare. Guardare è gratis, stasera: offerta di lancio.
+ICARO: Non toccare. Puoi guardare. Guardare è gratis, stasera: offerta lancio.
 
 [SCELTA]
     Una pila è più corta delle altre. Lo noto. Lui nota che lo noto.
@@ -1038,8 +1064,75 @@ ICARO: Non toccare. Puoi guardare. Guardare è gratis, stasera: offerta di lanci
         ICARO: ...l'ho messo io da parte, per vedere chi se ne accorgeva. Tre settimane. Sei il/la primo/a.
         Lo rimette nella pila con un mezzo sorriso. La terza pila torna pari alle altre.
 
-    > Guardare e basta, com'è gratis
+    > Guarda e basta, è gratis
         ICARO: Bravo. Il pubblico migliore è quello che non fa domande.
+
+
+=== ATT CEPPO 1 ===
+
+Dopo cena il Ceppo si stringe attorno al focolare. Vanna ha già occupato il posto migliore e tiene banco.
+VANNA: Gioco nuovo, fratellino/sorellina: indovino chi guardi. Tre tentativi. Se sbaglio, lavo io le scodelle.
+
+[VARIANTE]
+    VANNA: Anzi, niente tentativi. [ceppo_nome]. Lo sa tutto il Ceppo, lo sa perfino il gatto.
+
+[SCELTA]
+    Mezza tavolata si gira ad ascoltare.
+
+    > Darle un nome falso, a caso
+        VANNA: Bugio/a! Ti si allarga il naso quando menti. Come a Corrado quando dice che ha letto un libro intero.
+        Corrado, dall'altro capo della stanza, alza il libro senza alzare gli occhi. Le scodelle restano a me.
+
+    > «Nessuno. Guardo il fuoco.»
+        VANNA: Il fuoco. Certo. E il fuoco ha i capelli di che colore?
+        Ride così forte che il più piccolo dei Figli si sveglia e ride anche lui, senza sapere perché.
+
+    > «E tu, Vanna? Chi guardi tu?»
+        Per la prima volta in tre Lune, Vanna non ha una risposta pronta. Si alza a lavare le scodelle. Tutte.
+
+
+=== ATT CEPPO 2 ===
+
+Sera di racconti. Corrado racconta ai Figli piccoli la storia del Ceppo, con la voce che usa per le cose importanti.
+CORRADO: ...e in trent'anni nostra madre ha raccolto quaranta Figli. Quaranta, e di ognuno ricorda il nome.
+Fa una pausa di troppo. Mi guarda di sbieco, sopra il libro: sta controllando chi ascolta.
+
+[SCELTA]
+    Il numero è sbagliato. Lo so io, e lo sa lui.
+
+    > «Cinquanta, Corrado. Non quaranta.»
+        CORRADO: Bene. Qualcuno studia, in questo Ceppo.
+        Sorride, piccolo e soddisfatto. I bambini contano sulle dita e si perdono a dodici.
+
+    > Lasciar correre
+        Lascio correre. Corrado sospira, delude solo un po' se stesso, e va avanti fino alla fine.
+
+    > Aggiungere un drago, per i bambini
+        TU: E c'era un drago. Grande come il Consiglio. Con la barba di Druso.
+        I Figli piccoli urlano di gioia. Corrado chiude gli occhi come chi conta fino a dieci in tre lingue.
+        CORRADO: Nessun drago. ...va bene. Un drago piccolo.
+
+
+=== ATT CEPPO 3 ===
+
+Coprifuoco. Briseide passa tra le brande con la candela, contando teste come si contano gli Scudi a fine mese.
+BRISEIDE IPPODAMIA: <Nome>. Sveglia, a quest'ora? Allora rendi qualcosa al Ceppo.
+BRISEIDE IPPODAMIA: Il più piccolo non dorme. Vuole sentire dello Svelo. Da chi c'era.
+
+[SCELTA]
+    Il bambino mi fissa dalla branda, con gli occhi grandi come scodelle.
+
+    > Raccontarlo com'è andato
+        Le maschere, il buio, la paura. Lo racconto senza togliere niente. Il bambino ascolta serio, poi si addormenta a metà.
+        BRISEIDE IPPODAMIA: Hai detto la verità a un bambino. È più difficile che dirla all'Autarca.
+
+    > Raccontarlo meglio di com'è andato
+        Nella mia versione ci sono tre lame, un salto dal tetto e nessuna paura. Il bambino non chiude occhio fino all'alba.
+        BRISEIDE IPPODAMIA: Domani lo metti a letto tu. E pure dopodomani.
+
+    > «Domani, se dormi adesso.»
+        Il patto regge: il bambino si gira dall'altra parte e dorme in tre respiri.
+        BRISEIDE IPPODAMIA: Promesse a scadenza. Le fanno le madri e gli Arconti. Impari in fretta, <Nome>.
 
 
 === ECHI CAINO OTTONE ===
@@ -1067,7 +1160,7 @@ Lo dice serio. Poi, voltandosi, gli scappa mezzo sorriso: Corrado non ha mai ris
 
 === ECHI ICARO MERCANTE ===
 
-Al mercato coperto un banco mi chiude la tenda in faccia. Lo riconosco: è il mercante del tavolo grande di Icaro. Quello in perdita secca.
+Al mercato un banco mi chiude la tenda in faccia. Lo riconosco: è il mercante del tavolo grande di Icaro. Quello in perdita secca.
 «Il/La Figlio/a di Briseide che conta bene», dice alla vicina. Abbastanza forte perché io senta.
 Il banco accanto abbassa la tenda anche lui. Poi quello dopo.
 
@@ -1090,7 +1183,7 @@ DRUSO: Bugia. Stai dalla parte del boccale. Che è la mia.
 === ECHI AEDE MARCASSA ===
 
 VANNA: Hai sentito? Un cambiavalute, nella Contrada Marcassa. L'hanno trovato tra le casse, con l'anello d'oro ancora al dito.
-VANNA: Dicono un regolamento di conti tra usurai. Debiti, Rundeberg, la solita storia.
+VANNA: Dicono un regolamento di conti tra usurai. Debiti, suppliche, la solita storia.
 Taglio il pane per il brodo. Le mani non mi tremano. Ho detto che non avevo visto niente, e a quanto pare so mantenere la parola.
 
 
@@ -1188,6 +1281,14 @@ Al mercato una donna con le mani viola fino ai polsi mi ferma per la manica. La 
     VANNA: Al ballo di Glauco qualcuno ha detto no a Ofelia. Davanti a tutti. Mezza serra non parla d'altro, l'altra metà ne scrive.
 
 
+=== ECHI DRUSO MECENATE ===
+
+DRUSO: Eccolo/a, il mio mecenate! Il Becco Storto ti ha dedicato uno sgabello. Ci ha inciso il tuo nome. Sbagliato, ma con affetto.
+Lo sgabello c'è davvero. Il nome no: c'è scritto «MECENATE», a coltello, e storto.
+TU: È un onore o un conto aperto?
+DRUSO: Nel Nord è la stessa cosa. Siediti: stasera i versi li dedico a chi li finanzia.
+
+
 === ORIG CAINO DRUSO ===
 
 
@@ -1195,7 +1296,7 @@ Al mercato una donna con le mani viola fino ai polsi mi ferma per la manica. La 
 Fine turno in archivio. Sono in fondo, dietro il terzo scaffale, a rimettere a posto un registro che pesa come un vitello.
 La porta dell'ufficio della Proprietà si apre. Due voci. Una precisa come un timbro, l'altra troppo alta per una stanza chiusa.
 Uscire adesso vorrebbe dire spiegare perché ero lì, zitto/a, al buio. Resto dove sono.
-CAINO: Siediti. No, non lì: quello è il registro di Aulo. Ci sei seduto sopra da un minuto.
+CAINO: Siediti. No, non lì: quello è il registro di Eumene. Ci sei seduto sopra da un minuto.
 DRUSO: È comodo. I crimini dei potenti hanno sempre una rilegatura migliore.
 DRUSO: Allora. Il tuo scrivano nuovo. Quello/a di Briseide.
 
@@ -1238,7 +1339,7 @@ Caino, con una pergamena in mano. Ofelia, seduta sul bordo di una vasca, che fa 
 [SCELTA]
     Basta avvicinarsi di tre passi, dietro i limoni, per sentire tutto.
 
-    > Avvicinarmi, piano
+    > Mi avvicino, piano
 
         [VARIANTE]
 
@@ -1261,12 +1362,12 @@ Caino, con una pergamena in mano. Ofelia, seduta sul bordo di una vasca, che fa 
         [VARIANTE]
             Un ramo di limone mi graffia il collo. Mi scappa un fiato. Due teste si girano verso la vetrata.
             CAINO: La prossima volta, scrivano/a, porta una lanterna. Così almeno ti vediamo arrivare.
-            OFELIA: Lascialo. Chi ascolta dietro i limoni sente sempre la parte peggiore. È una punizione che si dà da solo/a.
+            OFELIA: Lascialo/a stare. Chi ascolta dietro i limoni sente sempre la parte peggiore. È una punizione che si dà da solo/a.
 
         [VARIANTE]
             Si alzano. Passano accanto ai limoni senza vedermi. Ofelia ride di qualcosa che Caino non ha detto.
 
-    > Andarmene. Quello che dicono di me, se lo tengano
+    > Me ne vado. Quello che dicono di me, se lo tengano
         Giro sui tacchi. Il vialetto è lungo, e le voci mi seguono per un tratto, senza parole, come una musica da un'altra stanza.
         Dalla vetrata, credo, qualcuno mi vede andare via. Non mi volto a controllare.
 
@@ -1299,8 +1400,8 @@ VANNA: Una parte è vera. Quale, non te lo dico. Una sorella deve pur avere dei 
 
 === ECHI ORIG OTTONE ===
 
-OTTONE: Il terzo scaffale. Quello dei registri di Aulo. È un buon posto per non farsi vedere.
-OTTONE: Io ci stavo, trent'anni fa. Si sentono cose che poi non si possono dimenticare. Ma non si possono nemmeno dire.
+OTTONE: Il terzo scaffale. Quello dei registri di Porzio. È un buon posto per non farsi vedere.
+OTTONE: Io ci stavo, dieci anni fa. Si sentono cose che poi non si possono dimenticare. Ma non si possono nemmeno dire.
 Torna alle sue colonne. La penna riprende a grattare, più lenta.
 
 

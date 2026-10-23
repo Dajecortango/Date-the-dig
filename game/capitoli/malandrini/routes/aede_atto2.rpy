@@ -10,7 +10,7 @@ label cap4:
 
     "Contrada Marcassa, dopo il tramonto. Briseide mi ha mandato a ritirare un pagamento da un mercante di lane. Strade sbagliate, ora sbagliata."
 
-    "Sento le voci prima di vedere niente: un uomo che supplica, a bassa voce, come chi sa che urlare è inutile."
+    "Sento le voci prima di vedere la scena davanti a me: un uomo che supplica a bassa voce, come chi sa che urlare è inutile."
 
     "Mi affaccio al vicolo. E la vedo."
 
@@ -32,7 +32,7 @@ label cap4:
 
     "Aede pulisce l'acciaio con un gesto che ha fatto mille volte. Poi alza gli occhi. E mi vede."
 
-    "Non trasalisce. Non si giustifica. Mi guarda e basta, e nel suo sguardo c'è una domanda fredda: e adesso?"
+    "Non si scompone. Non si giustifica. Mi guarda e basta, e nel suo sguardo c'è una domanda fredda: e adesso?"
 
     menu:
         aede "Di' qualcosa, novellin[fin]. Qualunque cosa. Ma pensala bene."
@@ -49,17 +49,17 @@ label cap4:
 
             aede "Credevi di passeggiare con cosa, esattamente? Con una ricamatrice?"
 
-            "La voce le si incrina sull'ultima parola. Stringe l'elsa finché le nocche sbiancano."
+            "La voce le si incrina sull'ultima parola. Di rabbia, mi dico. Ma non è solo rabbia."
 
             aede "Torna dal tuo mercante di lane, [figlio_t] di Briseide. E dimentica il vicolo."
 
-            "Mi volta le spalle. Il passo è troppo svelto, per lei."
+            "Mi volta le spalle. E per la prima volta da quando la conosco, sembra avere fretta."
 
-        "«Il tuo Ceppo salda. Ho capito. Non ho visto niente.»":
+        "«Il tuo Ceppo salda, ho capito. Non ho visto niente.»":
             $ aede_affinity += 1
             $ flag_accetta_lavoro = True
 
-            pc "Salda. Ho capito. Io qui non c'ero."
+            pc "Il tuo Ceppo salda. Ho capito. Non ho visto niente."
 
             show aede neutra with qdiss
 
@@ -67,23 +67,23 @@ label cap4:
 
             "Lo dice piatta. Ma mentre mi passa accanto rallenta di mezzo passo. Aspetta. Non dico niente, e lei riparte."
 
-        "«Chi era per te, quest'uomo? Cosa ti costa, questo lavoro?»":
+        "«Chi era per te quest'uomo? Quanto ti costa questo lavoro?»":
             $ aede_affinity += 3
             $ flag_accetta_lavoro = True
 
-            pc "Chi era, per te? E a te quanto costa?"
+            pc "Chi era per te, quest'uomo? Cosa ti costa, questo lavoro?"
 
             show aede sorpresa with qdiss
 
-            "Si blocca. La lama, a metà del fodero, resta lì."
+            "Si blocca. Nessuno, capisco in quell'istante, le ha mai fatto quella domanda. Né il padre, né Ofelia, né Ascadeo, né i morti."
 
             show aede neutra with qdiss
 
             aede "Per me non era nessuno. È questo che lo rende un lavoro."
 
-            aede "Quanto costa. Col primo non dormi per una Luna. Poi dormi. È peggio."
+            aede "Quanto costa... Il primo costa tutto. Gli altri costano il ricordo del primo."
 
-            "Si siede su una cassa. Io mi siedo su quella accanto, a distanza di rispetto. Restiamo così finché le lanterne della Contrada non si spengono."
+            "Si siede su una cassa. Io mi siedo su quella accanto, rispettando i suoi spazi. Restiamo così finché le lanterne della Contrada non si spengono."
 
             aede "Se lo racconti a qualcuno, ti ammazzo."
 
@@ -105,7 +105,7 @@ label cap5:
 
     "La Calà: la scalinata vecchia che scende dalla Contrada Eburnea al fiume, trecento gradini consumati."
 
-    "Una notte all'anno, la Fiaccolata. Lanterne su ogni gradino, e la leggenda che tutta Zefiro finge di non prendere sul serio prendendola malissimo sul serio:"
+    "Una notte all'anno, arriva l'evento della Fiaccolata. Lanterne in ogni gradino e la leggenda che tutta Zefiro finge di non prendere sul serio, che inaspettatamente invece rispetta davvero:"
 
     "chi percorre la Calà mano nella mano, si amerà per sempre."
 
@@ -126,11 +126,11 @@ label cap5:
     menu:
         "Al trentesimo gradino, la sua mano è vicina alla mia. Non si sposta."
 
-        "Prenderle la mano" if aede_affinity >= 8:
+        "Prendile la mano" if aede_affinity >= 8:
             $ aede_affinity += 3
             $ aede_mano_cala = "presa"
 
-            "Non chiedo il permesso. Se lo chiedessi, direbbe no per principio."
+            "Non chiedo il permesso, se lo facessi direbbe no per principio."
 
             "Le prendo la mano. Le sue dita si irrigidiscono — un istante — poi, piano, si intrecciano alle mie."
 
@@ -144,7 +144,7 @@ label cap5:
 
             "Ma non lascia la presa. Non la lascia per duecentosettanta gradini."
 
-            "Al fondo della Calà, col fiume davanti e le lanterne alle spalle, si volta verso di me. E per un momento né la figlia di Glauco né l'assassina: solo Aede, con gli occhi pieni di luci."
+            "Al fondo della Calà, col fiume davanti e le lanterne alle spalle, si volta verso di me. E per un momento lei non è né la figlia di Glauco, né l'assassina: solo Aede, con gli occhi pieni di luci."
 
             aede "[player_name]. Io—"
 
@@ -156,7 +156,7 @@ label cap5:
 
             "Sale i gradini a due a due. A metà scala si ferma, un solo istante, e si volta. Poi la notte se la riprende."
 
-        "Prenderle la mano" if aede_affinity < 8:
+        "Prendile la mano" if aede_affinity < 8:
             $ aede_mano_cala = "rifiutata"
 
             "Non chiedo il permesso. Allungo la mano verso la sua."
@@ -165,11 +165,11 @@ label cap5:
 
             "Lei la ritira con naturalezza perfetta, come se dovesse sistemarsi i capelli proprio in quell'istante."
 
-            aede "Giù le mani, novellin[fin]. Su questa scala una mano vuol dire una cosa. E noi due quella cosa non siamo."
+            aede "Attent[fin], novellin[fin]. Su questa scala i gesti hanno un significato. E tu e io non ci conosciamo abbastanza perché ne abbiano."
 
-            "Senza cattiveria. Un taglio pulito, di quelli che bruciano dopo."
+            "Non è crudele. È esatta. Fa più male così."
 
-        "Camminarle accanto, senza toccarla":
+        "Camminale accanto, senza toccarla":
             $ aede_affinity += 1
             $ aede_mano_cala = "accanto"
 
@@ -187,7 +187,7 @@ label cap5:
 
             "Ma al fondo della scala c'è il cambio turno del suo Ceppo, e la domanda resta sui gradini, insieme alle lanterne."
 
-        "Restare qualche gradino indietro":
+        "Resta qualche gradino indietro":
             $ aede_affinity -= 2
             $ aede_mano_cala = "indietro"
 
@@ -209,7 +209,7 @@ label cap6:
 
     scene bg corridoio_ceppo with fade
 
-    "Mi trova lei, stavolta. Alla tenuta del mio Ceppo, su un ballatoio che guarda i tetti di Zefiro, un'ora prima dell'alba."
+    "Mi trova lei, stavolta. Alla tenuta del mio Ceppo su un ballatoio che guarda i tetti di Zefiro, un'ora prima dell'alba."
 
     show aede neutra with dissolve
 
@@ -217,9 +217,9 @@ label cap6:
 
     pc "Lo riferirò a Briseide."
 
-    aede "Non lo riferirai."
+    aede "No che non lo farai."
 
-    "Si appoggia alla balaustra accanto a me. Per un po' guardiamo i tetti scurirsi e poi accendersi di brace, a oriente."
+    "Si appoggia alla balaustra accanto a me. Per un po' guardiamo i tetti scurirsi e poi accendersi col rosso dell'alba, a oriente."
 
     aede "Questa notte, vent'anni fa, io avevo un altro nome."
 
@@ -232,9 +232,9 @@ label cap6:
     aede "E io stanotte avrei voglia di darlo via. A te. Capisci cosa ti sto offrendo, [player_name]?"
 
     menu:
-        "Ha le mani strette sulla balaustra. Le nocche bianche."
+        "La capisco. Sta offrendo l'unica cosa che il giuramento le ha lasciato da offrire."
 
-        "Fermarla. «Il tuo nome di prima è morto. Io voglio quella viva.»":
+        "Fermala. «Il tuo nome di prima è morto. Io voglio quella viva.»":
             $ flag_giuramento = True
             $ aede_affinity += 2
 
@@ -250,7 +250,7 @@ label cap6:
 
             show aede sorriso with dissolve
 
-            aede "Rifiuti il tesoro e ti prendi la cassaforte. Che razza di ladr[fin]..."
+            aede "Sei l'unic[fin] [uomo_t] del Nord che rifiuta un tesoro per prendersi la cassaforte."
 
             pc "La cassaforte mi è sempre piaciuta più del tesoro."
 
@@ -258,7 +258,7 @@ label cap6:
 
             "Ma lo dice con la fronte appoggiata alla mia spalla. E il sole, quando sorge, ci trova così."
 
-        "Ascoltarla fino in fondo":
+        "Ascoltala fino in fondo":
             $ flag_giuramento = False
             $ flag_aede_rivelato = True
             $ aede_affinity += 1
@@ -280,7 +280,7 @@ label cap6:
 
             "Quando riguardo il cortile, non c'è più nessuno. Aede non l'ha visto. Io non dormirò mai più."
 
-        "Fermarla e offrirle il mio, di passato":
+        "Fermala e offrile il tuo passato":
             $ flag_giuramento = False
             $ aede_affinity -= 1
 
@@ -292,7 +292,7 @@ label cap6:
 
             aede "No. No, tu non capisci niente. Io posso buttare via il mio giuramento: è mio. Ma non ti lascerò buttare il tuo per pareggiare un conto."
 
-            aede "Senza giuramento siamo ladri col mantello, [player_name]. Se lo rompi per me, un giorno mi odierai. E io—"
+            aede "Il giuramento è l'unica cosa che ci rende Dignitas, [player_name]. Se lo rompi per me, un giorno mi odierai. E io—"
 
             "Non finisce la frase. Se ne va com'è venuta, dalle serrature peggiori del Nord."
 

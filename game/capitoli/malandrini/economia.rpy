@@ -399,7 +399,7 @@ label caso_campane:
 
 label caso_lanternaio:
     scene bg vicoli_zefiro with fade
-    "Il lanternaio che fa credito ai Figli di Briseide è in cima alla scala, una lanterna in mano e la scala che balla."
+    "Il lanternaio che fa credito a noi figli di Briseide è in cima alla scala, una lanterna in mano e la scala che balla."
     menu:
         "Sotto, nessuno tiene la scala."
         "Tenergliela finché non scende":

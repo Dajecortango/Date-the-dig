@@ -12,18 +12,18 @@ label caino_cap4:
 
     show caino neutro with dissolve
 
-    "Davanti a noi siede un uomo con lo stemma del Ceppo di Cardia: Aulo, Filius Maior, alleato di Caino da sei anni. Lo so perché me l'ha detto Caino stesso: «Aulo è la mia mano sinistra nel Consiglio»."
+    "Davanti a noi siede un uomo con lo stemma del Ceppo di Cardia: Eumene, Filius Maior, alleato di Caino da sei anni. Lo so perché me l'ha detto Caino stesso: «Eumene è la mia mano sinistra»."
 
     $ muovi("caino", "trema")
     "Oggi la mano sinistra trema."
 
-    caino "Aulo. I registri della tua Contrada hanno tre buchi. Tre. Li ho trovati io, il che è un bene. Se li avesse trovati l'Arconte della Verità, saresti già nelle Segrete Silenti."
+    caino "Eumene. I registri della tua Contrada hanno tre buchi. Tre. Li ho trovati io, il che è un bene. Se li avesse trovati l'Arconte della Verità, saresti già nelle Segrete Silenti."
 
-    "Aulo balbetta. Spiega. Erano prestiti, dice. Li avrebbe ricoperti, dice. Caino ascolta col mento sulla mano, paziente come un gatto sazio."
+    "Eumene balbetta. Spiega. Erano prestiti, dice. Li avrebbe ricoperti, dice. Caino ascolta col mento sulla mano, paziente come un gatto sazio."
 
     caino "Ti credo. Davvero. Ed è per questo che mi fa male quello che devo fare."
 
-    "E lo fa: consegna i registri al Consiglio quella sera stessa. Aulo perde il titolo, il seggio e il nome. La carica di Sovrintendente delle Contrade — quella che Aulo custodiva — passa alla Proprietà. A Caino."
+    "E lo fa: consegna i registri al Consiglio quella sera stessa. Eumene perde il titolo, lo status e l'incarico. La carica di Sovrintendente delle Contrade — quella che Eumene custodiva — passa alla Proprietà. A Caino."
 
     "Sei anni di alleanza, spesi in una sera, per una carica."
 
@@ -55,16 +55,16 @@ label caino_cap4:
 
             "Caino posa il corno. Lo sposta di un dito a sinistra. Poi di nuovo a destra."
 
-            caino "Chiunque altro, con quella frase, sarebbe già rotolato giù dalle scale della Rocca. Tu invece resti a bere. Dovresti chiederti perché."
+            caino "Chiunque altro, con quella frase, sarebbe già rotolato giù dalle scale della Rocca. Tu invece sei qui a bere. Dovresti chiederti perché."
 
             pc "Me lo sto chiedendo."
 
             caino "Anche io."
 
-        "«Hai fatto bene. Aulo era un peso.»":
+        "«Hai fatto bene. Eumene era un peso.»":
             $ caino_fiducia -= 2
 
-            pc "Hai fatto bene. Aulo era un peso. La Famiglia non ha posto per i deboli."
+            pc "Hai fatto bene. Eumene era un peso. La Famiglia non ha posto per i deboli."
 
             show caino sarcastico with qdiss
 
@@ -74,7 +74,7 @@ label caino_cap4:
 
             caino "Chi mi dà sempre ragione, [figlio_t] di Briseide, è una voce doppia in bilancio. La mia ragione ce l'ho già a registro, e non la pago due volte."
 
-        "Tacere e bere":
+        "Taci e bevi":
             "Bevo e non dico niente. Con Caino, ogni parola finisce a verbale."
 
             show caino neutro with qdiss
@@ -101,7 +101,7 @@ label caino_cap5:
 
     caino "Mi disturba che sia vero."
 
-    "Si appoggia al merlo. Sotto di noi, Zefiro brilla come un registro pieno di voci."
+    "Si appoggia al merlo. Sotto di noi, Zefiro brulica di persone come un registro pieno di voci."
 
     "Ha la neve tra i capelli e non la scuote. Gli si scioglie sul colletto, goccia a goccia."
 
@@ -111,9 +111,9 @@ label caino_cap5:
 
     caino "Sempre. Una morte, un debito, una fuga. Ogni lanterna spenta era una voce chiusa. Ho imparato a leggere la città prima delle lettere."
 
-    caino "Io non ci credo, [player_name]. Ai sentimenti. Sono la moneta più falsa del Nord: tutti la spendono, nessuno la conia. Mia madre regna da prima che io nascessi, e non l'ho mai vista amare niente che non le servisse."
+    caino "Io non ci credo, [player_name]. Ai sentimenti. Sono la moneta più falsa del Nord: tutti la spendono, nessuno la conia. Mia madre regna dai primi anni della fondazione della famiglia, e non l'ho mai vista amare niente che non le servisse."
 
-    caino "Quindi spiegami tu. Cosa vuoi da me? Tutti vogliono qualcosa. La carica, il favore, il seggio, la spada. Tu quale vuoi? Dimmelo e risparmiamo entrambi un inverno di finzioni."
+    caino "Quindi spiegami: cosa vuoi da me? Tutti vogliono qualcosa. La carica, il favore, il seggio, la spada. Tu quale vuoi? Dimmelo e ci risparmiamo entrambi un inverno di finzioni."
 
     menu:
         "La domanda è una lama ben tenuta. E la risposta sbagliata taglia."
@@ -179,7 +179,7 @@ label caino_cap5:
         "«Questa era la peggiore delle tue trappole. Riprova quando fai sul serio.»":
             $ caino_fiducia += 2
 
-            pc "Questa era la peggiore delle tue trappole, Caino. La voce era quella del Ballo delle Candele Spente: troppo liscia. Riprova quando fai sul serio. Se mai saprai farlo."
+            pc "Questa era la peggiore delle tue trappole, Caino. La voce era quella del Ballo delle Candele Spente: troppo liscia. Riprova quando fai sul serio... Semmai saprai farlo."
 
             show caino sorpreso with qdiss
 
@@ -187,7 +187,7 @@ label caino_cap5:
 
             show caino neutro with qdiss
 
-            caino "«Se mai saprai farlo». Ecco il problema, [player_name]. Comincio a volerlo imparare. E non c'è registro, carica o spada che mi abbia mai spaventato quanto questa frase."
+            caino "«Semmai saprai farlo». Ecco il problema, [player_name]. Comincio a volerlo imparare. E non c'è registro, carica o spada che mi abbia mai spaventato quanto questa frase."
 
     return
 
@@ -222,7 +222,7 @@ label caino_cap6:
 
     "La porta si apre senza bussare. Druso. Niente sorriso, stavolta."
 
-    druso "Fratello. Il Consiglio. Qualcuno ha parlato a madre dei registri di Aulo. Dicono che li hai tenuti sei mesi per tempistica politica. Chiedono una testa."
+    druso "Fratello. Il Consiglio. Qualcuno ha parlato a madre dei registri di Eumene. Dicono che li hai tenuti sei mesi per tempistica politica. Chiedono una testa."
 
     "Caino non risponde. Druso si volta verso di me, e per una volta il gigante parla piano."
 
@@ -245,7 +245,7 @@ label caino_cap6:
 
             "Alla postierla, prima di lasciarmi andare, Druso mi tiene la spalla un istante più del necessario."
 
-            druso "Qualunque cosa succeda domani... tu un fratello ce l'hai già, in questa Rocca. Ricordatelo."
+            druso "Qualunque cosa succeda domani... tu un alleato ce l'hai già, in questa Rocca. Ricordatelo."
 
     hide druso with dissolve
 
@@ -296,12 +296,12 @@ label caino_cap6:
 
     "Caino si alza. Prende entrambe le pergamene, le piega, le infila nel farsetto."
 
-    caino "Il Consiglio mi aspetta. La tua risposta — quella vera, sinistra o destra — me la darai dopo. Se dopo esisto ancora."
+    caino "Il Consiglio mi aspetta. La tua risposta — quella vera, sinistra o destra — me la darai dopo. Se un dopo ancora esisterà."
 
     "Sulla soglia si ferma. Non si volta."
 
     caino "Se domani qualcuno ti chiede di me, di' la verità. Tutta, senza omissioni. Ti sciolgo da ogni obbligo di riservatezza nei miei confronti."
 
-    "La porta si chiude. Resto sol[fin] con il calamaio, il fuoco e due solchi sul tavolo, dove prima c'erano le pergamene."
+    "La porta si chiude. Resto sol[fin] con il calamaio, il fuoco e un ampio spazio sul tavolo, dove prima c'erano le pergamene."
 
     return

@@ -71,14 +71,14 @@ label impegno_aede:
         "«Ha un nome. Il tuo.»" (peso=True):
             $ impegno_esito = True
             show aede sorriso with dissolve
-            aede "...risposta accettabile. Con le altre volavi di sotto."
+            aede "...risposta accettabile. L'unica, per la cronaca."
             show aede irritata with qdiss
             aede "E sia chiaro: io non divido. Né le lame, né il posto agli allenamenti, né te. Chi ti ronza intorno, da stanotte, parla con me."
             "Non mi butta dal ballatoio. Resta, invece. E il resto del semestre, da stanotte, ha una direzione sola."
-        "«Non ancora. Non così.»" (peso=True):
+        "«Non ancora. Non sono sicur[fin] di essere pront[fin].»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("aede")
             show aede neutra with qdiss
-            aede "Capito. Ritiro la domanda. Mai fatta. Guardia alta, novellin[fin]: l'addestramento resta, il resto no."
+            aede "Capito. Ritiro la domanda. Mai fatta. Guardia alta, novellin[fin]: l'addestramento continua, il resto no."
             "Se ne va dritta come una lama. E la piega all'angolo della bocca, stavolta, non c'è."
     return

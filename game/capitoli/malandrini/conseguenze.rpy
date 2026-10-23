@@ -148,7 +148,7 @@ init -5 python:
         {"id": "lenora_silenzio", "char": None,
          "testo": "Alla grata di Lenora hai taciuto e chinato la testa.",
          "avviso": None,
-         "cond": lambda v: _scelto(v, "udienza_lenora", "Tacere")},
+         "cond": lambda v: _scelto(v, "udienza_lenora", "Taci")},
     ]
 
     # Echi: il fatto torna in un'altra scena, raccontato da chi puo' saperlo.

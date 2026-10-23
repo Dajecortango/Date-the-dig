@@ -259,7 +259,7 @@ label eco_ottone(att_id):
     scene bg vicoli_zefiro with dissolve
     "All'uscita della Proprietà, Ottone si stringe il mantello e guarda la taverna di fronte come un registro in passivo."
     menu:
-        "Trentun anni di colonne. Un boccale non gliel'ha mai offerto nessuno, si vede."
+        "Dieci anni di colonne. Un boccale non gliel'ha mai offerto nessuno, si vede."
         "Offrirgli un boccale al Becco Storto (2 Scudi)":
             $ eco_spendi(ecl.OTTONE_COSTO)
             $ eco_ottone = True

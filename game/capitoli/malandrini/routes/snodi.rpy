@@ -171,7 +171,7 @@ label fiaccolata_neutra:
     show corrado neutro at right with dissolve
     "La Fiaccolata. Scendo la Calà con Vanna e Corrado, un gradino di luce alla volta."
     vanna "Guardali, i piccioncini della Rocca. E tu niente, [fratello_t]? Nemmeno una mano da tenere?"
-    corrado "Lascialo stare. C'è chi scende la Calà per la leggenda, e chi per contare i gradini. Entrambi arrivano al fiume."
+    corrado "Lascial[fin] stare. C'è chi scende la Calà per la leggenda, e chi per contare i gradini. Entrambi arrivano al fiume."
     "Arrivo al fiume. Trecento gradini, nessuna mano. La leggenda, quest'anno, parla d'altro."
     return
 
@@ -271,14 +271,14 @@ label rivalita_sorelle:
             aede "...non intendevo. Lascia stare. Non intendevo niente."
             ofelia "Intendeva tutto. Le capita, quando non pensa. È la sua qualità migliore."
             "Ofelia se ne va per prima. Ha vinto lei. Aede non lo sa ancora."
-        "Dare ragione ad Aede, a voce bassa":
+        "Dai ragione ad Aede, a voce bassa":
             $ aede_affinity += 1
             $ ofelia_affinity -= 1
             show aede neutra with qdiss
             aede "Visto, Ofelia? Almeno qui si sa da che parte stare."
             show ofelia rabbia at left with qdiss
             ofelia "Da che parte stare. Che frase da soldato. Ricordatela, quando ti servirà una serra calda."
-        "Dare ragione a Ofelia, con un mezzo sorriso":
+        "Dai ragione a Ofelia, con un mezzo sorriso":
             $ ofelia_affinity += 1
             $ aede_affinity -= 1
             ofelia "Visto, sorella? Non tutti scelgono il rosso."
@@ -312,7 +312,7 @@ label rivalita_caino_druso:
             show caino neutro with qdiss
             caino "Il Codice l'ho scritto io. Per una volta mi pento della clausola."
             "Ridono. Insieme. Per mezzo secondo sono solo due fratelli. Poi se ne accorgono, e smettono."
-        "Restare sedut[fin] accanto a Druso":
+        "Resta sedut[fin] accanto a Druso":
             $ druso_affinity += 1
             $ caino_fiducia -= 1
             show druso ghigno at left with qdiss
@@ -320,7 +320,7 @@ label rivalita_caino_druso:
             show caino freddo with qdiss
             caino "Il pubblico cambia idea, Druso. I registri no."
             "Esce senza pagare. Lo fa apposta: stasera il conto lo troverò a mio nome."
-        "Seguire Caino fuori":
+        "Segui Caino fuori":
             $ caino_fiducia += 1
             $ druso_affinity -= 1
             hide druso with dissolve
@@ -334,7 +334,7 @@ label rivalita_caino_druso:
 label rivalita_caino_icaro:
     scene bg vicoli_zefiro with fade
     show icaro neutro with dissolve
-    "La fumeria dietro la Consorteria, di mattina: sedie sui tavoli, il fumo dolce della notte ancora appeso alle travi, Icaro al tavolo piccolo coi conti."
+    "La fumeria dietro la Consorteria, di mattina: sedie sui tavoli, il fumo dolce della notte ancora si alza verso le travi, Icaro al tavolo piccolo coi conti."
     show caino neutro at left with dissolve
     "Caino non ci entra mai. Stamattina c'è. Si siede senza chiedere, e non gioca."
     caino "Non sono qui per le carte. Sono qui per vedere chi gioca con cosa."
@@ -354,14 +354,14 @@ label rivalita_caino_icaro:
             show caino neutro at left with qdiss
             caino "Corretto. Per ora."
             icaro "«Per ora.» Parola sua. Io non tratto i «per ora»: hanno scadenze ambigue."
-        "Sedermi al tavolo di Icaro, come se niente fosse":
+        "Mi siedo al tavolo di Icaro, come se niente fosse":
             $ icaro_affinity += 1
             $ caino_fiducia -= 1
             show icaro furbo with qdiss
             icaro "Visto, fratello? Clientela abituale. Il resto della giornata pagalo tu."
             show caino freddo at left with qdiss
             caino "Lo pago. E me lo segno. Sai cosa succede alle cose che mi segno."
-        "Offrire a Caino la pipa di Icaro":
+        "Offri a Caino la pipa di Icaro":
             $ caino_fiducia += 1
             $ icaro_affinity -= 1
             "Prendo la pipa dal tavolo e la porgo a Caino. Icaro mi guarda come se avessi venduto il suo magazzino."
@@ -388,18 +388,18 @@ label rivalita_druso_icaro:
     druso "Sobria. Hai sentito, linguaccia? Si vanta di essere sobrio. In una taverna. È la cosa più triste che abbia mai sentito."
     menu:
         "Mi guardano entrambi. Il tavolo libero è uno. Io pure."
-        "Brindare a tutti e due: «Ai figli di Lenora, uno per sera.»":
+        "Brinda a tutti e due: «Ai figli di Lenora, uno per sera.»":
             $ druso_affinity += 1
             show druso ghigno at left with qdiss
             druso "Uno per sera! Diplomazia da taverna! Icaro, segnatelo: è più furb[fin] di te."
             icaro "Segnato. Con la data. E l'ora in cui Druso ha ammesso che qualcuno è più furbo di qualcuno."
-        "Proporre di giocarsela a carte":
+        "Proponi di giocarsela a carte":
             $ icaro_affinity += 1
             show icaro furbo with qdiss
             icaro "Accetto. Druso, mischia tu."
             druso "Così bari tu e perdo io? Mai. Mischia [lui_t]."
             "Mischio io. Nessuno dei due accetta il mazzo. La partita non comincia. Restano lì, col mazzo in mezzo, fino a mezzogiorno."
-        "Andarmene, e lasciarli soli col tavolo":
+        "Vattene e lasciali soli al tavolo":
             hide druso
             hide icaro
             with dissolve
@@ -417,15 +417,15 @@ label rivalita_generica:
     "Io sono il metro."
     menu:
         "Tutti e due aspettano di vedere da che parte vado."
-        "Fermarmi da [rivali_a_nome]":
+        "Fermati da [rivali_a_nome]":
             $ rivali_sposta(rivali[0], rivali[1])
             "Mi fermo. [rivali_a_nome] non dice niente: non serve."
             "Alle mie spalle, [rivali_b_nome] se ne va senza fretta. Ha preso nota."
-        "Fermarmi da [rivali_b_nome]":
+        "Fermati da [rivali_b_nome]":
             $ rivali_sposta(rivali[1], rivali[0])
             "Mi fermo. [rivali_b_nome] non dice niente: non serve."
             "Alle mie spalle, [rivali_a_nome] se ne va senza fretta. Ha preso nota."
-        "Passare in mezzo, senza fermarmi":
+        "Passa in mezzo, senza fermarti":
             "Passo in mezzo. Due sguardi mi seguono fino in fondo al corridoio. Non si incrociano mai."
     "Vanna, più tardi, mi dice che a Rocca Tempesta lo sanno già tutti. Io non so nemmeno cosa."
     return
@@ -455,10 +455,10 @@ label epilogo_semestre:
     scene bg nero with fade
     centered "{cps=20}{size=+10}LUNA VII{/size}{/cps}"
     if epilogo_modo == "morto":
-        "A Drakengrad, dicono gli Arvali, ogni storia viene raccontata per sempre. Anche quelle che continuano senza di me."
+        "Nel Drakengrad, dicono gli Arvali, ogni storia viene raccontata per sempre. Anche quelle che continuano senza di me."
     elif epilogo_modo == "lontano":
         scene bg esterno_neve with fade
-        "Le notizie di Zefiro arrivano tardi, dove sono adesso. Arrivano lo stesso: Rocca Tempesta non lascia andare niente, nemmeno le voci."
+        "Le notizie di Zefiro arrivano tardi, dove sono adesso, ma arrivano lo stesso: Rocca Tempesta non lascia andare niente, nemmeno le voci."
     else:
         scene bg vicoli_zefiro with fade
         "La prima Luna dopo il semestre. Zefiro accende le lanterne come sempre, una per una."
@@ -506,7 +506,7 @@ label epilogo_semestre:
         if "ofelia" in congelate:
             "Ofelia non pronuncia il mio nome. Per lei è un nome tra tanti, e i nomi tra tanti non si pronunciano."
         elif ofelia_affinity >= ep_soglie["ofelia"]:
-            "Ofelia rifiuta ancora ogni ballo. Uno solo l'ha concesso, quest'anno. Non dice a chi, e Ascadeo non riesce a quotarlo."
+            "Ofelia rifiuta ancora ogni ballo. Uno solo l'ha concesso, quest'anno. Non dice a chi, e Ascadeo non riesce a fare una quotazione."
         elif ofelia_affinity >= ep_media["ofelia"]:
             "Ofelia ha una fila nuova di pretendenti. Li congeda col dorso della mano, come allora. Un po' più in fretta."
         else:
@@ -576,7 +576,7 @@ label epilogo_route:
     elif epilogo_finale == "ofelia_passeggero":
         "Il guanto di Ofelia è ancora nella mia tasca. Non l'ho restituito. Lei non l'ha chiesto. Lo teniamo così, senza dircelo."
     elif epilogo_finale == "ofelia_bad":
-        "Il drappo col fiocco del Ceppo è in fondo a un baule. Mia madre non l'ha aperto. Dice che certi doni si rispettano chiusi."
+        "Il drappo col fiocco del Ceppo è in fondo a un baule. Mia madre non l'ha aperto. Dice che certi doni si rispettano da chiusi."
     elif epilogo_finale == "ofelia_neutral":
         "Ofelia ha un pretendente nuovo. Ascadeo, nel suo libretto, ha già quotato anche quello. Basso."
     elif epilogo_finale == "finale_neutro_semestre":

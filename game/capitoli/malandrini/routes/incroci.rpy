@@ -37,15 +37,15 @@ label trio_lenora:
     "Il pugno parte. Icaro salva i genitali al prezzo di tre pile di monete, che rovinano sul pavimento. La taverna si tuffa a raccoglierle. Icaro emette un suono che non ha nome."
     menu:
         "Caino osserva, già divertito. Tocca a me scegliere da che parte stare."
-        "Ridere con Druso, forte":
+        "Ridi con Druso, forte":
             $ icaro_affinity -= 1
             druso "ECCO! Qualcuno con il senso del teatro!"
             icaro "...e tu. Tu ridi. Annotato. Con la data."
-        "Aiutare Icaro a recuperare le monete, contandole":
+        "Aiuta Icaro a recuperare le monete, contandole":
             $ icaro_affinity += 1
             icaro "...quarantadue, quarantatré. Tornano. Tutte. Tu sai contare sotto pressione: è la prima qualità utile che vedo stasera."
             druso "Traditore! Due contabili a un tavolo solo!"
-        "Citare il Codice del Teschio: «si dichiara PRIMA di colpire»":
+        "Cita il Codice del Teschio: «si dichiara PRIMA di colpire»":
             $ caino_fiducia += 1
             caino "[Il_t] novellin[fin] che ricorda i codici altrui meglio dell'autore. Druso: ha ragione. Hai dichiarato a pugno già partito. Penale: paghi tu il giro."
             druso "QUESTO È UN TRIBUNALE FARSA."
@@ -59,7 +59,7 @@ label incrocio_palestra:
     scene bg palestra with fade
     show aede neutra with dissolve
     show druso ghigno at left with easeinleft
-    "Arrivo al cortile che è già pieno: Aede contro Druso, sparring dimostrativo. Lei con la lama da esercizio, lui con lo scudo e la bocca."
+    "Arrivo nel cortile che è già pieno: Aede contro Druso, sparring dimostrativo. Lei con la lama da esercizio, lui con lo scudo e la bocca."
     druso "Volpe rossa! Se vinco, mi concedi un ballo alla prossima festa. Se perdi, idem! Il sistema è perfetto."
     aede "Il sistema ha un difetto."
     with lampo
@@ -68,18 +68,18 @@ label incrocio_palestra:
     aede "Il difetto sei tu."
     menu:
         "Il cortile trattiene il fiato. Druso, da terra, guarda me."
-        "Applaudire lei: «Pulito. Insegnamelo.»":
+        "Applaudi lei: «Pulito. Insegnamelo.»":
             $ aede_affinity += 1
             show aede sorriso with dissolve
             aede "...domani all'alba. Porta la guardia alta e zero domande."
             show druso irritato with qdiss
             druso "E NESSUNO che chieda se mi sono fatto male. Famiglia di serpi."
-        "Tendere la mano a Druso con un verso: «Cadde il poeta, ma cadde rimando»":
+        "Tendi la mano a Druso con un verso: «Cadde il poeta, ma cadde rimando»":
             $ druso_affinity += 1
             show druso ghigno with qdiss
             druso "«Cadde rimando»! BELLISSIMO! Lo metto nel repertorio e non ti pago i diritti!"
             "Si rialza ridendo. Aede scuote la testa, ma non smentisce il mezzo sorriso."
-        "Restare neutrale: qui si rischia la pelle":
+        "Resta neutrale: qui si rischia la pelle":
             "Resto con le mani in tasca. Sugli spalti due ragazzi si stanno già spingendo per chi tifava chi."
     return
 
@@ -104,10 +104,10 @@ label incrocio_carte:
             caino "...ah. Ecco la statistica. Fratello: rigiochiamo con il MIO mazzo, e la Proprietà dimentica l'imposta straordinaria sulle fumerie."
             show icaro irritato with qdiss
             icaro "Estorsione. E [il_t] novellin[fin] fa la spia. Annotato. Con la data, l'ora e il taglio di capelli."
-        "Tacere: al tavolo di Icaro, chi guarda non parla":
+        "Taci: al tavolo di Icaro, chi guarda non parla":
             $ icaro_affinity += 1
             "Icaro vince la quinta, la sesta, e restituisce tutto a fine serata: «prestito didattico», lo chiama. Uscendo, mi fa scivolare in tasca uno Scudo. Uno solo."
-        "Proporre il doppio o niente, mazzo nuovo e mescolo io":
+        "Proponi il doppio o niente, mazzo nuovo e mescoli tu":
             "Mescolo io. Vince comunque Icaro, stavolta pulito. Caino paga, Icaro intasca, e nessuno dei due mi perdona la serata più onesta della storia del tavolo."
     return
 
@@ -129,7 +129,7 @@ label incrocio_debiti:
     icaro "Un poema vale zero Scudi. Un poema su di me vale meno di zero: va a debito."
     menu:
         "Druso mi guarda. Icaro pure. Il registro resta aperto in mezzo."
-        "Leggere ad alta voce la pagina di Druso, cifra per cifra":
+        "Leggi ad alta voce la pagina di Druso, cifra per cifra":
             "Leggo. La sala, che fingeva di non ascoltare, ascolta. A ogni cifra qualcuno fischia."
             show druso imbarazzato at left with qdiss
             druso "Basta, basta! Così mi rovini la reputazione. Quella da insolvente, che mi sono costruito con fatica."
@@ -142,7 +142,7 @@ label incrocio_debiti:
             show icaro neutro with qdiss
             icaro "Quattro. Acconto accettato. A matita: sulla tua pagina, quattro non si vedono nemmeno."
             icaro "Non ci prendete gusto. Nessuno dei due."
-        "Chiudere il registro con una mano: «Non stamattina.»":
+        "Chiudi il registro con una mano: «Non stamattina.»":
             icaro "Hai chiuso il mio registro. Con la mano. Nessuno tocca il mio registro."
             show druso sorpreso at left with qdiss
             druso "Mi ha difeso. Qualcuno mi ha difeso da Icaro. Segnatelo, fratellino: data, ora, e il mio stupore."
@@ -160,7 +160,7 @@ label incrocio_sorelle:
     "Il cortile d'armi all'alba. Aede ha già rotto due bersagli e guarda il terzo come un debitore."
     show ofelia neutra at left with dissolve
     "Al bordo del cortile compare Ofelia. Vestita di nero, i guanti puliti, una lama avvolta in un panno sotto il braccio."
-    ofelia "Sorella. La tua. Ti avevo chiesto di non usarla sui chiodi."
+    ofelia "Sorella. La tua spada. Ti avevo chiesto di non usarla sui chiodi."
     aede "Non erano chiodi. Era un elmo."
     ofelia "Peggio. Il filo era una riga, adesso è una sega. Ci ho messo tre sere."
     "Ofelia svolge il panno. La lama brilla come acqua ferma. Aede la prende senza ringraziare. Ofelia non aspetta il grazie: si sta già sfilando i guanti, un dito alla volta."
@@ -170,17 +170,17 @@ label incrocio_sorelle:
     "Aede apre la bocca per rispondere. Poi la chiude. Si guarda il piede sinistro."
     menu:
         "Le due figlie di Glauco si fronteggiano sopra una lama. Il cortile è vuoto, a parte me."
-        "Chiedere a Ofelia come si legge un filo":
+        "Chiedi a Ofelia come si legge un filo":
             show ofelia compiaciuta at left with qdiss
             ofelia "Si passa l'unghia, piano, contro il verso. Se si ferma, il filo è vivo. Se scivola, è morto. Come certi pretendenti."
             "Mi porge la lama per provare. Aede la riprende prima che io la tocchi."
             aede "La mia lama non la tocca nessuno. Nemmeno per lezione."
-        "Dare ragione ad Aede: «Pesa diversa, si vede»":
+        "Dai ragione ad Aede: «Pesa diversa, si vede»":
             show aede neutra with qdiss
             aede "Visto? Lo vede anche [lui_t]. E [lui_t] non vede mai niente."
             show ofelia rabbia at left with qdiss
             ofelia "Due ciechi d'accordo fanno una maggioranza, non una verità. Il piede sinistro, sorella."
-        "Restare in silenzio e guardare il piede di Aede":
+        "Resta in silenzio e guarda il piede di Aede":
             "Guardo il piede. Ofelia ha ragione: il peso cade storto, appena. Da sol[fin] non l'avrei mai visto."
             show aede imbarazzata with qdiss
             aede "...smettetela di guardarmi i piedi. Tutti e due."
@@ -209,7 +209,7 @@ label incrocio_serra:
     ofelia "Abbastanza da scaldare la tua imposta finché non si scioglie."
     menu:
         "Si guardano come due lame che si conoscono. Io sono in fila, due posti più indietro."
-        "Contare a voce alta le bocche di calore, per Caino":
+        "Conta a voce alta le bocche di calore, per Caino":
             $ caino_fiducia += 1
             $ ofelia_affinity -= 1
             "Conto. Undici bocche nel pavimento, due per fila, una sotto il fiore blu. Caino annota senza guardarmi."
@@ -217,12 +217,12 @@ label incrocio_serra:
             caino "Undici. La serra di Glauco ha appena trovato un perito. Ofelia, il tuo pretendente lavora per me."
             show ofelia rabbia with qdiss
             ofelia "Il mio pretendente è in fila. Lavora per me. Torna al tuo posto, [player_name]: il quarto da sinistra ti fissa."
-        "Prendere le parti di Ofelia: «La primavera non si tassa»":
+        "Prendi le parti di Ofelia: «La primavera non si tassa»":
             $ ofelia_affinity += 1
             ofelia "Sentito, Arconte? La primavera non si tassa. Lo faccio scrivere sulla porta."
             show caino freddo at left with qdiss
             caino "Tutto si tassa. Anche la primavera, anche le frasi fatte. La tua, [player_name], la metto a registro gratis."
-        "Chiedere a Caino quanto vale, a registro, un fiore che non fiorisce":
+        "Chiedi a Caino quanto vale, a registro, un fiore che non fiorisce":
             $ caino_fiducia += 1
             show caino sorpreso at left with qdiss
             caino "...niente. Una spesa senza rendita. A bilancio, una perdita pura."
@@ -241,7 +241,7 @@ init python:
         {"id": "fx_debiti_letti", "char": "druso",
          "testo": "Al Becco Storto hai letto ad alta voce i debiti di Druso, cifra per cifra. La sala ha fischiato a ogni riga.",
          "avviso": None,
-         "cond": lambda v: _scelto(v, "incrocio_debiti", "Leggere ad alta voce")},
+         "cond": lambda v: _scelto(v, "incrocio_debiti", "Leggi ad alta voce")},
         {"id": "fx_debiti_versi", "char": "druso",
          "testo": "Hai inventato il mercato dei versi: Druso ha pagato Icaro con una strofa sulla locandiera.",
          "avviso": None,
@@ -249,17 +249,17 @@ init python:
         {"id": "fx_debiti_registro", "char": "icaro",
          "testo": "Hai chiuso il registro di Icaro con la mano, per difendere Druso. Icaro ha segnato data e ora.",
          "avviso": None,
-         "cond": lambda v: _scelto(v, "incrocio_debiti", "Chiudere il registro")},
+         "cond": lambda v: _scelto(v, "incrocio_debiti", "Chiudi il registro")},
         {"id": "fx_sorelle_filo", "char": "ofelia",
          "testo": "Hai chiesto a Ofelia come si legge un filo. Aede ti ha ripreso la lama prima che la toccassi.",
          "avviso": None,
-         "cond": lambda v: _scelto(v, "incrocio_sorelle", "Chiedere a Ofelia")},
+         "cond": lambda v: _scelto(v, "incrocio_sorelle", "Chiedi a Ofelia")},
         {"id": "fx_sorelle_aede", "char": "aede",
          "testo": "Hai dato ragione ad Aede contro sua sorella: la lama pesa diversa. Per Ofelia è una maggioranza, non una verità.",
          "avviso": None,
-         "cond": lambda v: _scelto(v, "incrocio_sorelle", "Dare ragione ad Aede")},
+         "cond": lambda v: _scelto(v, "incrocio_sorelle", "Dai ragione ad Aede")},
         {"id": "fx_sorelle_piede", "char": "aede",
          "testo": "Hai visto il piede sinistro di Aede caricare storto. E lei, senza dirlo, ha cambiato guardia.",
          "avviso": None,
-         "cond": lambda v: _scelto(v, "incrocio_sorelle", "Restare in silenzio e guardare il piede")},
+         "cond": lambda v: _scelto(v, "incrocio_sorelle", "Resta in silenzio e guarda il piede")},
     ])

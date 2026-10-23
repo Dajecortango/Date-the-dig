@@ -17,7 +17,12 @@ L'aria sa di terra umida e di brace. Sotto il pavimento corrono i tubi caldi di 
 OFELIA: Il quarto da sinistra mi ha dedicato un sonetto. Il terzo, un cavallo. Il cavallo era più eloquente.
 Il primo della fila fa un passo avanti e si inchina troppo. Lei aspetta che si rialzi, poi gli porge il dorso della mano. Non per il bacio: per congedarlo.
 OFELIA: Grazie. Il prossimo.
-Il prossimo sono io. Mi accorgo che i pretendenti dietro di me trattengono il fiato, curiosi di vedermi cadere.
+
+[VARIANTE]
+    Mi rimetto in fila, per abitudine. Ofelia finge di non avermi visto. I pretendenti dietro di me non capiscono perché le trema un angolo della bocca.
+
+[VARIANTE]
+    Il prossimo sono io. Mi accorgo che i pretendenti dietro di me trattengono il fiato, curiosi di vedermi cadere.
 
 [SCELTA]
     Mi tocca il turno: mi guarda, e aspetta.
@@ -618,12 +623,21 @@ OFELIA: Sai cosa dicono di me a Zefiro? Che sono bella. Sbagliano l'ordine: prim
 TU: Allora ho corso un rischio.
 OFELIA: Il più grosso della tua vita. Te lo ricorderò ogni giorno. È il mio modo di essere affettuosa.
 Mi tende la mano. Non col palmo in giù, stavolta: aperta, alla pari.
-OFELIA: Niente di sdolcinato, non chiederlo. Ma domani a cena da mio padre mi siedo accanto a te.
-OFELIA: Davanti a tutto il Ceppo. Per me è come scriverlo sulle mura.
+
+[VARIANTE]
+    OFELIA: Niente di sdolcinato, non chiederlo. E niente cene da mio padre, per un po'.
+    OFELIA: Mia sorella ha rinfoderato, stanotte. Le devo almeno questo: non sedermi accanto a te davanti a lei. Il Ceppo aspetterà.
+
+[VARIANTE]
+    OFELIA: Niente di sdolcinato, non chiederlo. Ma domani a cena da mio padre mi siedo accanto a te.
+    OFELIA: Davanti a tutto il Ceppo. Per me è come scriverlo sulle mura.
 OFELIA: Ascadeo ha vinto la sua scommessa più grossa, comunque. Non dirgli niente: voglio che me lo chieda lui. Voglio vederlo pagare il disturbo.
 Scendiamo al buio, mano nella mano. Al centesimo gradino lei ride piano, una volta sola. Non lo ammetterà mai.
 A metà della scala si ferma. Si toglie un guanto e me lo mette in tasca, senza spiegare. È lo stesso che faceva raccogliere ai pretendenti.
 OFELIA: Non lo lascerò cadere più. Non ce n'è bisogno.
+Poi fa la cosa che la sera delle forbici non ha fatto. Mi bacia: breve, a occhi aperti, come chi vuole vedere cosa succede.
+OFELIA: Quella sera ti ho fatto aspettare. Volevo sapere se aspettavi.
+OFELIA: Hai aspettato. Non abituarti.
 
 [VARIANTE]
     Qualche notte dopo, sulle mura, vedo una sagoma col fiocco del Ceppo. Ferma nella neve, a guardare la città.

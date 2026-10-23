@@ -168,7 +168,7 @@ Si ferma a metà della sala. Guarda il quaderno, poi me, poi di nuovo il quadern
 
     > Chiuderlo e porgerglielo. Senza una parola
         Lo chiudo, ci passo sopra il palmo, glielo tendo. Lui lo prende per un angolo, con due dita, e se lo ficca sotto la camicia.
-        DRUSO: Nessuno restituisce chiuso un quaderno aperto. O sei un santo o sei un bugiardo.
+        DRUSO: Nessuno restituisce chiuso un quaderno aperto. O hai l'anima di un santo o la lingua di un bugiardo.
         DRUSO: Non dirmi quale. Santo fa rima con pianto, bugiardo con lardo, e stasera non ho fame né dell'uno né dell'altro.
 
     > Rimetterlo sotto la panca prima che si avvicini
@@ -192,7 +192,7 @@ Il foglio trema appena. Se ne accorge, lo stringe più forte, e adesso trema la 
     > Prendere il foglio senza ridere
         Lo leggo. Non c'è una parolaccia. C'è una strada di neve fatta in due, e nessuno che spinge l'altro nel fosso. Rima baciata, naturalmente.
         Ci sono la taverna, le mura di Zefiro, il ponte sul canale. E ci sono io, senza nome, in ogni strofa.
-        DRUSO: Allora? Metrica zoppa? Contenuto peggio? Di' qualcosa o DICHIARO.
+        DRUSO: Allora? Metrica zoppa? Contenuto che arranca? Di' qualcosa o DICHIARO.
         TU: Bis.
         DRUSO: ...bis concesso. A vita, se serve.
         Dentro, la taverna continua a chiamarlo. Lui le volta le spalle e mi offre il braccio, con un inchino ridicolo.
@@ -204,7 +204,7 @@ Il foglio trema appena. Se ne accorge, lo stringe più forte, e adesso trema la 
 
 === DRUSO EV3 ===
 
-Mi trascina «a vedere una cosa» nei vicoli bassi di Zefiro. La cosa è un esattore della Malacorte che spreme un lanternaio — il mio lanternaio, quello che fa credito ai Figli di Briseide.
+Mi trascina «a vedere una cosa» nei vicoli bassi di Zefiro. La cosa è un esattore della Malacorte che spreme un lanternaio — il mio lanternaio, quello che fa credito a noi figli di Briseide.
 Pomeriggio grigio. I balconi gocciolano neve sciolta. Nessuno guarda, perché a Zefiro guardare costa.
 DRUSO: Brutto affare. Andiamocene. Non è il nostro Ceppo, non è il nostro problema, e io ci tengo ai miei denti.
 DRUSO: Te li ho mostrati, i miei denti. Sono tutti lì. È un patrimonio di famiglia.
@@ -352,6 +352,16 @@ Ma la mano la tende lui. Per trecento gradini non dice una sola porcheria: cammi
 Al gradino cento passa Caino, solo. Vede le nostre mani. Alza un sopracciglio, uno solo, e prosegue.
 DRUSO: Domani lo saprà tutta la Rocca. Caino non parla, ma il suo sopracciglio è un banditore.
 DRUSO: Se lo racconti in taverna, nego. Ho una reputazione. ...al gradino duecento puoi raccontare quello che vuoi.
+
+[SCELTA]
+    Mi stringe la mano più forte, come se la risposta passasse da lì.
+
+    > «Lo racconto eccome. In rima. Peggio delle tue.»
+        DRUSO: Peggio delle mie è impossibile. Ma ti concedo il tentativo. E i diritti.
+
+    > «Non lo saprà nessuno. Promesso.»
+        DRUSO: Promesso. Che parola noiosa. ...tienila lo stesso.
+        Il resto della salita lo fa in silenzio. Non so se l'ho deluso o l'ho calmato. Con Druso, a volte, è uguale.
 In cima, la lanterna nostra è l'unica storta. Druso dice che è voluto. Che è arte.
 
 
@@ -442,6 +452,15 @@ Il secondogenito della Capofamiglia «frequenta un/una Figlio/a di Briseide oltr
     E ha perso una sfida di versi contro Iperione. O l'ha vinta male, che per il Ramo è peggio.
 Sul banco dei familiari, Caino siede immobile. Icaro, accanto, si studia le unghie con grande attenzione.
 Druso è in piedi al centro. Niente boccale, niente pubblico amico.
+
+[VARIANTE]
+    Dalla tasca gli spunta un foglio piegato: la difesa riscritta in due al Becco Storto. Non lo tira fuori.
+
+[VARIANTE]
+    Non ha fogli in mano. Nessuna poesia: si è portato se stesso, come gli ho detto. Adesso non sa dove metterlo.
+
+[VARIANTE]
+    La convocazione che ho bruciato gliel'hanno rimandata in copia. Sa ancora di fumo, giura lui.
 Lenora non si vede. Siede dietro la grata in fondo alla sala, e la sala intera respira al suo ritmo.
 Una voce, da dietro la grata. Bassa, senza fretta.
 «Druso. Ti ascolto.»
@@ -486,6 +505,15 @@ DRUSO: Confermo tutto, madre. Il decoro, la rissa, il/la Figlio/a di Briseide. E
 Un Eparca si alza per protestare. Caino, senza voltarsi, gli posa una mano sul braccio. L'Eparca si risiede.
 Lo recita. Davanti a Lenora, agli Arconti, al Nord intero. Il poema non osceno. Il mio.
 Dentro ci sono cose che sappiamo solo noi due. Nessuno in sala capisce. Io sì.
+
+[VARIANTE]
+    Riconosco i miei versi. Ognuno con una parola cambiata, perché possa dire che è suo.
+
+[VARIANTE]
+    Niente strofe sul decoro. Cento chili di debiti, versi e paura, tutti in piedi, tutti in rima.
+
+[VARIANTE]
+    Nemmeno una parola sulla convocazione. Recita come uno che non deve più niente a nessuna lettera.
 La sala non ride. La sala — che gli Asi la conservino — applaude.
 Da dietro la grata, una sola parola: «Bis.»
 Druso resta a bocca aperta. Si gira verso di me e muove le labbra, senza voce: «e adesso?»
@@ -503,6 +531,8 @@ TU: Ovviamente.
     DRUSO: Sei rimasto/a seduto/a. Tutto il tempo. Sai quanto costa, a uno come me, sapere che qualcuno aspetta e basta?
 Scendiamo i gradini della Calà a passo lento. Al duecentesimo si ferma.
 DRUSO: ...e a te. Ma questo è fuori metrica.
+Poi mi bacia. Fuori metrica anche quello: troppo lungo, senza ritmo, la barba che punge.
+DRUSO: Non abituarti. Il prossimo lo faccio in endecasillabi.
 Da quella sera Zefiro ha un poeta nuovo. Stesso uomo, stessa barba. Le rime oscene restano.
 Ma alla fine di ogni serata, a voce bassa, ce n'è una che non lo è. Ed è per me.
 ~ IL CUORE PROVOCATORE Il poema più bello non nasce dall'immaginazione. Si ispira alla realtà. ~

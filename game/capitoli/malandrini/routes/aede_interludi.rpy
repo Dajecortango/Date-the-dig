@@ -8,7 +8,7 @@ label interludio1:
 
     scene bg corridoio_ceppo with fade
 
-    "La tenuta del Ceppo di Briseide non somiglia a una caserma, né a un palazzo. Somiglia a una cucina troppo grande dove vivono troppe persone che si vogliono bene urlando."
+    "La tenuta del Ceppo di Briseide non somiglia a una caserma, né a un palazzo, somiglia a una cucina troppo grande dove vivono troppe persone che si vogliono bene urlando."
 
     show briseide neutra with dissolve
 
@@ -22,27 +22,27 @@ label interludio1:
 
     "Non rispondo. Lei sorride come chi ha già vinto."
 
-    briseide "Entrambe, dunque. Siediti, che ti racconto una cosa sui Ceppi di questa Famiglia."
+    briseide "Entrambe, dunque. Siediti, che ti insegnerò qualcosa sui Ceppi di questa Famiglia."
 
     hide briseide with dissolve
 
-    "Mi racconta. Dei 63 Ceppi e dei 9 Rami, uno per Primarca. Delle correnti del Consiglio, che si muovono come fiumi sotto il ghiaccio: in superficie fermi, sotto una corrente che ti porta via le gambe."
+    "Mi parla dei 63 Ceppi e dei 9 Rami, uno per Primarca. Delle correnti del Consiglio, che si muovono come fiumi sotto il ghiaccio: in superficie fermi, ma sotto nascondono una corrente che ti porta via le gambe."
 
-    "E del Ceppo di Glauco Severo, che nel Ramo fa il lavoro di cui nessuno parla all'Adunanza."
+    "Mi parla del Ceppo di Glauco Severo, che nel Ramo fa il lavoro di cui nessuno parla all'Adunanza."
 
     show vanna neutra at left with easeinleft
 
     vanna "Ooh, [il_fratello_t] ha conosciuto la volpe rossa!"
 
-    "Vanna. Sorella maggiore di Ceppo, orecchie ovunque, discrezione da ariete."
+    "Vanna. Sorella maggiore di Ceppo, orecchie ovunque, discrezione di un ariete."
 
     show corrado neutro at right with easeinright
 
-    corrado "Fa' respirare [il_fratello_t], Vanna. E tu, [fratello_t]: da quella, distanza. È la figlia di Glauco. Il {i}gioiello{/i}. Sai cosa fanno ai ladri di gioielli, da queste parti?"
+    corrado "Fa' respirare [il_fratello_t], Vanna. E tu, [fratello_t]: stai lontan[fin] da una come quella. È la figlia di Glauco. Il {i}gioiello{/i}. Sai cosa fanno ai ladri di gioielli, da queste parti?"
 
     vanna "Non è rubare se il gioiello ti segue a casa, Corrado."
 
-    corrado "È rubare peggio."
+    corrado "È fare anche di peggio."
 
     "Litigano su di me per un'ora. Nessuno dei due ha torto. È questo il problema."
 
@@ -63,13 +63,13 @@ label interludio2:
 
     vanna "E allora io [gli_t] dico: [fratello_t], o le parli o la smetti di fissarla come un merluzzo. E [lui_t] che fa? Entrambe le cose!"
 
-    "Risate del tavolo. Io studio il fondo del boccale."
+    "Risate dal tavolo. Io studio il fondo del boccale."
 
-    corrado "Ridete, ridete. Io ho chiesto in giro, invece. Del Ceppo di Glauco. Volete sapere cosa si dice?"
+    corrado "Ridete, ridete. Io ho chiesto in giro, invece. Volete sapere cosa si dice del Ceppo di Glauco?"
 
     "Il tavolo si zittisce. Corrado ha il talento di guastare le feste con la verità."
 
-    corrado "Si dice che chi entra in quel Ceppo da bambino non sceglie mai. Che il vecchio raccoglie orfani come Briseide — ma dove nostra madre cresce Figli, lui forgia attrezzi."
+    corrado "Si dice che chi entra in quel Ceppo da bambino, non sceglie mai. Che il vecchio raccoglie orfani come Briseide — ma dove nostra madre cresce Figli, lui forgia attrezzi."
 
     corrado "E si dice che la figlia prediletta avesse sette anni al primo addestramento. Sette. Con le lame vere, perché «quelle finte insegnano bugie»."
 
@@ -77,7 +77,7 @@ label interludio2:
 
     vanna "...e la madre? Nel Ceppo di Glauco c'è una madre?"
 
-    corrado "C'era una Filius Maior che faceva da madre a tutti. Morta quando la ragazzina ne aveva dodici. Un lavoro andato male. Da allora, dicono, Glauco raddoppiò gli addestramenti. Il lutto, nel suo Ceppo, si lavora."
+    corrado "C'era una Filius Maior che faceva da madre a tutti. Morta quando la ragazzina ne aveva dodici. Un lavoro andato male. Da allora, dicono, Glauco raddoppiò gli addestramenti. Non c'è tempo per il lutto nel suo Ceppo, si lavora e si migliora."
 
     "Il boccale mi si ferma a mezz'aria."
 
@@ -111,7 +111,7 @@ label interludio3:
 
     show briseide neutra with dissolve
 
-    "Briseide mi ci trova pure lei. Con due tazze di brodo caldo, perché Briseide a tutto risponde col brodo."
+    "Briseide mi trova lì. Ha portato due tazze di brodo caldo, perché Briseide a tutto risponde col brodo."
 
     briseide "I miei Figli insonni vengono in due specie: quelli che hanno fatto qualcosa, e quelli che hanno visto qualcosa. Tu che specie sei, stanotte?"
 

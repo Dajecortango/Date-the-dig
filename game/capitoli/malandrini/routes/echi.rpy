@@ -34,7 +34,7 @@ label echi_lenora_corrado:
 # Icaro: la bugia al tavolo grande (città).
 label echi_icaro_mercante:
     scene bg vicoli_zefiro with dissolve
-    "Al mercato coperto un banco mi chiude la tenda in faccia. Lo riconosco: è il mercante del tavolo grande di Icaro. Quello in perdita secca."
+    "Al mercato un banco mi chiude la tenda in faccia. Lo riconosco: è il mercante del tavolo grande di Icaro. Quello in perdita secca."
     "«[Il_t] [figlio_t] di Briseide che conta bene», dice alla vicina. Abbastanza forte perché io senta."
     "Il banco accanto abbassa la tenda anche lui. Poi quello dopo."
     return
@@ -63,7 +63,7 @@ label echi_aede_marcassa:
     scene bg corridoio_ceppo with dissolve
     show vanna neutra with dissolve
     vanna "Hai sentito? Un cambiavalute, nella Contrada Marcassa. L'hanno trovato tra le casse, con l'anello d'oro ancora al dito."
-    vanna "Dicono un regolamento di conti tra usurai. Debiti, Rundeberg, la solita storia."
+    vanna "Dicono un regolamento di conti tra usurai. Debiti, suppliche, la solita storia."
     "Taglio il pane per il brodo. Le mani non mi tremano. Ho detto che non avevo visto niente, e a quanto pare so mantenere la parola."
     return
 

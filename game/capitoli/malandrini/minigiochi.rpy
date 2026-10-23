@@ -288,7 +288,7 @@ label att_fumeria_carte:
             scene bg vicoli_zefiro with fade
             show icaro irritato with dissolve
             pc "La [mg_giusta_txt] mano. Le tue dita, sul mazzo."
-            icaro "Era irreprensibile."
+            icaro "Era regolare."
             "Un silenzio lungo. Il fumo della pipa gli sale storto."
             show icaro imbarazzato with qdiss
             icaro "...la sistemo. Non perché l'hai vista tu. Perché qualcun altro, prima o poi, ha i tuoi occhi."

@@ -5,7 +5,7 @@
 label druso_ev3:
     scene bg vicoli_zefiro with fade
     show druso neutro at left with dissolve
-    "Mi trascina «a vedere una cosa» nei vicoli bassi di Zefiro. La cosa è un esattore della Malacorte che spreme un lanternaio — il mio lanternaio, quello che fa credito ai Figli di Briseide."
+    "Mi trascina «a vedere una cosa» nei vicoli bassi di Zefiro. La cosa è un esattore della Malacorte che spreme un lanternaio — il mio lanternaio, quello che fa credito a noi figli di Briseide."
     "Pomeriggio grigio. I balconi gocciolano neve sciolta. Nessuno guarda, perché a Zefiro guardare costa."
     druso "Brutto affare. Andiamocene. Non è il nostro Ceppo, non è il nostro problema, e io ci tengo ai miei denti."
     druso "Te li ho mostrati, i miei denti. Sono tutti lì. È un patrimonio di famiglia."

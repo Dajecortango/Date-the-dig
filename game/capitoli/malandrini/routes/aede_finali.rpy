@@ -29,7 +29,7 @@ label climax:
 
     glauco "Una lama che si fa domande è una lama rotta. E le lame rotte, nel mio Ceppo, si rifondono."
 
-    glauco "Perciò ho dato a mia figlia un ordine semplice. Il bersaglio sei tu. Stanotte, sotto le mura, lei salda il conto. Oppure non lo salda — e allora il conto lo saldo io, con entrambi."
+    glauco "Perciò ho dato a mia figlia un ordine semplice. Il bersaglio sei tu. Stanotte, sotto le mura, lei salda il conto. Oppure non lo salda — e allora il conto lo saldo io per entrambi."
 
     glauco "Vai pure, [figlio_t] di Briseide. La neve stanotte è ottima per morire. O per vivere. Dipende interamente da ciò che avete costruito, tu e lei."
 
@@ -60,7 +60,7 @@ label climax:
     menu:
         "La neve cade. Lei aspetta. Tutto quello che siamo stati si decide adesso."
 
-        "Parlarle, un'ultima volta" (peso=True):
+        "Parlale un'ultima volta" (peso=True):
             $ aede_climax_gesto = "parla"
             if ofelia_mano_cala:
                 pc "Sulla Calà ho preso la mano di tua sorella, sotto i tuoi occhi. Non ti chiedo di dimenticarlo. Ti chiedo di guardarmi adesso."
@@ -73,11 +73,11 @@ label climax:
             else:
                 pc "Qualunque cosa accada adesso, Aede: non me ne vado. Non da te."
 
-        "Restare in silenzio e guardarla negli occhi" (peso=True):
+        "Resta in silenzio e guardala negli occhi" (peso=True):
             $ aede_climax_gesto = "silenzio"
             "Non dico niente. Le parole, con lei, sono sempre state la moneta sbagliata. La guardo e basta, come al fondo della scala."
 
-        "Tendere la mano, aperta" (peso=True):
+        "Tendi la mano, aperta" (peso=True):
             $ aede_climax_gesto = "mano"
             if ofelia_mano_cala:
                 "Tendo la mano. Aperta, vuota, ferma nella neve. Sulla Calà l'ha vista stringere quella di sua sorella. Gliela tendo lo stesso."
@@ -111,7 +111,7 @@ label good_end:
 
     show aede neutra with dissolve
 
-    "Aede abbassa gli occhi sulla lama. La gira una volta, piatto e filo. Le trema il polso."
+    "Aede guarda la lama nella propria mano come se la vedesse per la prima volta."
 
     aede "Vent'anni di ordini eseguiti. Sai quante volte ho sbagliato un bersaglio, [player_name]?"
 
@@ -139,7 +139,7 @@ label good_end:
 
     glauco "Disobbedienza."
 
-    aede "No, padre. Mi hai insegnato a scegliere il bersaglio. Ho scelto."
+    aede "Verità, padre. La tua lama perfetta sceglie il suo bersaglio: è questo che l'hai addestrata a fare, a scegliere meglio di chiunque."
 
     aede "E io scelgo [lui_t]. Davanti a te, davanti al Groviglio, davanti a ogni Asi che vorrà guardare. Se il Ceppo deve rifondermi, cominci stanotte."
 
@@ -147,7 +147,7 @@ label good_end:
 
     show glauco neutro at left with qdiss
 
-    glauco "Vent'anni perché imparasse a disobbedirmi per qualcosa che vale. Era l'ultima lezione, figlia. L'unica che non potevo insegnarti io."
+    glauco "Vent'anni perché imparassi a disobbedirmi per qualcosa che vale. Era l'ultima lezione, figlia. L'unica che non potevo insegnarti io."
 
     glauco "[figlio_t] di Briseide: la cena è al tramonto, alla tenuta del Ceppo. Non si rifiuta l'invito di Glauco Severo due volte."
 
@@ -270,7 +270,7 @@ label bad_end_aede:
 
     scene bg nero with lampo
 
-    "Il Margine, dicono gli Arvali, è un fiume lento. I Dignitas meritevoli lo attraversano verso Drakengrad, la sala del Leone, dove ogni storia viene raccontata per sempre."
+    "Il Margine, dicono gli Arvali, è un fiume lento. I Dignitas meritevoli lo attraversano verso il Drakengrad, la sala del Leone, dove ogni storia viene raccontata per sempre."
 
     "Chissà se qualcuno, laggiù, racconterà la mia: la storia di chi amò la lama, e la lama saldò il conto."
 
@@ -303,11 +303,11 @@ label bad_end_glauco:
 
     scene bg nero with lampo
 
-    "L'ultima cosa che sento è la voce di lei che urla il mio nome — il mio Primo Nome, quello vero, quello che mi resta."
+    "L'ultima cosa che sento è la voce di lei che urla il mio nome — il mio Primo Nome, quello vero, l'unico che ho."
 
     "Gli Arvali dicono che chi muore nella neve attraversa il Margine senza freddo. Mentono. Ma è un freddo breve."
 
-    "E a Drakengrad, nella sala del Leone, c'è un posto anche per le storie finite male. Il Nord le preferisce: insegnano meglio."
+    "E nel Drakengrad, nella sala del Leone, c'è un posto anche per le storie finite male. Il Nord le preferisce: insegnano meglio."
 
     $ sblocca_finale("bad_end_glauco")
     centered "{cps=20}{size=+10}FINE{/size}\n\n«Chi minaccia me, parla con lui.\nE nessuno parla con lui due volte.»{/cps}"

@@ -14,15 +14,15 @@ label caino_climax:
 
     show caino neutro with dissolve
 
-    "L'accusa è semplice: l'Arconte della Proprietà ha trattenuto le prove contro Aulo per sei mesi, usandole quando conveniva a lui. Abuso della Virtù dell'Operosità. Qualcuno deve pagare."
+    "L'accusa è semplice: l'Arconte della Proprietà ha trattenuto le prove contro Eumene per sei mesi, usandole quando conveniva a lui. Abuso della Virtù dell'Operosità. Qualcuno deve pagare."
 
-    "E io so — perché i registri li tengo io — che esiste una via d'uscita perfetta: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino, e il ritardo diventa colpa mia. L'ultim[fin] arrivat[fin] agli scrittoi, inespert[fin], del Ceppo di Briseide. Il capro perfetto."
+    "E io so — perché i registri li tengo io — che esiste una via d'uscita perfetta: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino, e il ritardo diventa colpa mia. L'ultim[fin] arrivat[fin] agli scrittoi, inespert[fin], del Ceppo di Briseide. Il capro espiatorio perfetto."
 
     "Il Primo Arconte legge l'accusa con voce piatta, da notaio. Ogni data cade nella sala come una moneta sul tavolo."
 
     "Lenora non guarda né l'accusatore né l'accusato. Si osserva le mani. Le dita intrecciate, immobili, come chi ha già fatto il conto e aspetta solo il totale."
 
-    "Al terzo banco a sinistra, Druso. Ha le braccia incrociate e la mascella serrata. Per una volta, niente TESCHIO."
+    "Al terzo banco a sinistra, Druso. Ha le braccia incrociate e la mascella serrata. Per una volta, niente battutine o punzecchiature."
 
     if caino_ottone == "parla":
         "Fra i testimoni, in fondo, c'è Ottone. Ha dato il leone d'oro all'indice, in Luna V. Oggi tiene gli occhi sulle scarpe, e le scarpe sono pulite."
@@ -82,7 +82,7 @@ label caino_good_end:
 
     show caino neutro with dissolve
 
-    caino "Arconti. La tempistica dei registri di Aulo ha un solo responsabile."
+    caino "Arconti. La tempistica dei registri di Eumene ha un solo responsabile."
 
     "Il silenzio della sala è un animale affamato. Caino mi guarda un'ultima volta. E sorride — non il sorriso facile. L'altro. Quello che siamo in tre a conoscere."
 
@@ -104,7 +104,7 @@ label caino_good_end:
 
     "Sugli spalti, dopo. Caino guarda Zefiro con l'aria di chi ha perso una carica e non riesce a smettere di sorridere."
 
-    caino "Vent'anni di scalata. Bruciati in una frase. Dovrei odiarti."
+    caino "Dieci anni di scalata. Bruciati in una frase. Dovrei odiarti."
 
     if caino_climax_scelta == "colpa":
         caino "Ti sei alzat[fin]. Davanti al Primo Arconte, per una colpa mia. Nessuno mi ha mai prestato niente senza interessi."
@@ -197,7 +197,7 @@ label caino_secret_end:
 
     pc "Tuo fratello è l'uomo più intelligente di Rocca Tempesta."
 
-    druso "Le due cose convivono benissimo, fidati, li conosco da quando è nato. Ha davanti una cosa VERA, e che fa? La chiude in un cassetto con l'etichetta «conto pari». Che spreco, che strazio, che fratello."
+    druso "Le due cose convivono benissimo, fidati, lo conosco bene. Ha davanti una cosa VERA, e che fa? La chiude in un cassetto con l'etichetta «conto pari». Che spreco, che strazio, che fratello."
 
     "Druso beve metà corno in un sorso, poi mi guarda. Senza sorriso, per la terza volta da che lo conosco."
 
@@ -221,7 +221,7 @@ label caino_secret_end:
 
             druso "Dichiarazione accettata. Da domani, novellin[fin], ti insegno il Codice intero. Articolo primo: il cuore si difende come i genitali. Sempre in guardia, e mai da solo."
 
-        "Bere in silenzio e restare":
+        "Bevi in silenzio e resta con Druso":
             "Non dico niente. Resto, e gli tengo il corno mentre si riallaccia uno stivale."
 
             show druso ghigno with qdiss

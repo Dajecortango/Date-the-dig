@@ -71,8 +71,8 @@ label att_registri_1:
     "Imparo più della Famiglia da tre registri che da dieci lezioni: chi paga tardi, chi paga troppo, chi non paga e non viene mai segnato."
     "Il Ceppo di Cardia, per esempio, paga sempre il giorno prima della scadenza. Sempre. Nessuno è così puntuale, se non ha qualcosa da far dimenticare."
     "A metà pomeriggio uno scrivano anziano, Ottone, mi passa accanto e mi gira il calamaio dall'altra parte. Senza una parola."
-    ottone "Mancino, vero? Si vede dalle macchie sul polsino. Qui dentro, ragazz[fin], le macchie parlano prima di te."
-    "Lo ringrazio. Lui ha già ripreso a scrivere, e la sua penna non ha mai smesso di grattare."
+    ottone "Mancin[fin], vero? Si vede dalle macchie sul polsino. Qui dentro, ragazz[fin], le macchie parlano prima di te."
+    "Lo ringrazio. Lui ha già ripreso a scrivere, e la sua penna non si è mai fermata."
     "Al tramonto chiudo l'ultima colonna. Quadra. Nessuno me lo dice, ma il giorno dopo trovo sul banco un registro più grosso: alla Proprietà, il premio è il lavoro."
     return
 
@@ -98,7 +98,7 @@ label att_registri_3:
     "La pagina prima porta una firma che conosco: un sigillo col drago, inchiostro verde. Lo stesso drago dell'anello di Caino."
     "La pagina dopo riprende a metà di una frase. «...e pertanto la Proprietà del defunto passa alla Capofamiglia, per intero.»"
     "Del defunto. Dieci anni fa. Non c'è scritto chi."
-    "Rimetto il volume dov'era, con il dorso storto come l'ho trovato, e soffio sulla polvere finché non torna uguale."
+    "Rimetto il volume dov'era, con il dorso storto come l'ho trovato, e faccio finta di niente."
     return
 
 # Mini-scena di impegno (scelta del cuore, fine Luna IV).
@@ -107,13 +107,13 @@ label impegno_caino:
     scene bg studio_glauco with fade
     $ lento()
     show caino neutro with dissolve
-    "Lo studio, a tarda sera. Sul tavolo, non i registri: due corni di idromele. Entrambi pieni."
+    "Lo studio, a tarda sera. Sul tavolo, non i registri ma due corni di idromele, entrambi pieni."
     "Le candele sono consumate fino al piattino. Non ha dormito, e non ha nemmeno finto di provarci."
     caino "Siediti. Ho fatto un inventario, stanotte. Cariche: in ordine. Scudi: in ordine."
     caino "Tu: fuori inventario. E le cose fuori inventario, [player_name], mi tolgono il sonno."
     pc "Mi hai chiamat[fin] per dirmi che non dormi?"
     show caino sarcastico with qdiss
-    caino "Ti ho chiamat[fin] per smettere di non dormire. È diverso. Le domande chiuse si archiviano; quelle aperte maturano interessi."
+    caino "Ti ho chiamat[fin] per smettere di dormire. È diverso. Le domande chiuse si archiviano; quelle aperte maturano interessi."
     "Fa ruotare il corno tra le dita, senza bere. Al mignolo, stasera, c'è di nuovo il sigillo col drago."
     show caino neutro with qdiss
     caino "Mia madre direbbe che sto per fare un investimento sbagliato. Mia madre non ha mai sbagliato un investimento. Né ne ha mai fatto uno che le piacesse."
@@ -126,7 +126,7 @@ label impegno_caino:
             caino "Indelebile. Parola grossa, nei registri. ...la parola giusta."
             "Beve. Bevo. E da stanotte il semestre ha un contraente solo."
             caino "Una clausola, però. Una sola. Se mi menti, lo saprò. Se mi dici la verità, lo saprò lo stesso: è peggio, ma mi abituerò."
-            "Spegne l'ultima candela con due dita. Il registro resta aperto sul tavolo, al buio, e nessuno dei due lo chiude."
+            "Spegne l'ultima candela con due dita. Il registro resta aperto sul tavolo al buio, e nessuno dei due lo chiude."
         "«Non firmo contratti che non so leggere.»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("caino")
@@ -146,17 +146,17 @@ label caino_luna5:
     show caino freddo with dissolve
     "Caino non è alla scrivania. È in piedi accanto al camino, e nel camino non brucia legna: brucia carta."
     caino "Siediti. Non tu, [player_name]. Lui."
-    "Dietro di me, scortato da due guardie del Ramo di Lenora, entra Ottone. Lo scrivano del calamaio. Le mani gli tremano; le nasconde nelle maniche, e tremano le maniche."
-    caino "Ottone. Trentun anni alla Proprietà. Mio padre ti assunse. Io ti ho confermato. Due firme, due generazioni."
-    caino "Stamattina il Primo Arconte aveva sul tavolo le copie dei registri di Aulo. Con le date di consultazione. Scritte con la tua mano."
+    "Dietro di me, scortato da due Fenrirkard del Ramo di Lenora, entra Ottone. Lo scrivano del calamaio. Le mani gli tremano; le nasconde nelle maniche, che tremano anch'esse."
+    caino "Ottone. Dieci anni alla Proprietà. Mia madre ti assunse. Io ti ho confermato. Due firme, due generazioni."
+    caino "Stamattina il Primo Arconte aveva sul tavolo le copie dei nostri registri, con le date di consultazione e rapporti con errori non ancora corretti. Scritti con la tua mano."
     if "caino_cap4" not in eventi_visti:
-        "Aulo. Il Filius Maior del Ceppo di Cardia, la «mano sinistra» di Caino in Consiglio. In Luna III Caino l'ha consegnato con tre buchi nei registri, e si è preso la sua carica."
+        "Eumene. Il Filius Maior del Ceppo di Cardia, la «mano sinistra» di Caino in Consiglio. In Luna III Caino l'ha consegnato con tre buchi nei registri, e si è preso la sua carica."
         "Io ero agli scrittoi delle decime, quella sera. Le date di consultazione, però, le ho ricopiate io: le copie passano tutte dalla mia mano."
     ottone "Arconte, io... mi hanno detto che era per l'ordine della Famiglia. Che la Verità voleva solo controllare."
     show caino furioso with vpunch
     caino "LA VERITÀ NON PAGA IN SCUDI D'ORO, OTTONE."
     "Il pugno sul tavolo fa saltare il calamaio. L'inchiostro si allarga sul legno come una macchia di sangue scuro."
-    "Non l'ho mai sentito alzare la voce. Nemmeno contro Druso. Le guardie guardano il soffitto."
+    "Non l'ho mai sentito alzare la voce, nemmeno contro Druso. Le guardie guardano il soffitto."
     show caino freddo with qdiss
     caino "Perdonami. Ho alzato la voce. È un lusso che concedo a chi non deve più niente alla Proprietà."
     caino "Ottone, sai qual è la differenza tra un errore e un tradimento? L'errore si corregge a margine. Il tradimento si cancella dal registro. Con tutto il nome."
@@ -173,22 +173,22 @@ label caino_luna5:
             ottone "Un servitore dell'Arconte della Verità. Senza stemma. Ma aveva un anello col leone d'oro, all'indice."
             "Caino e io ci guardiamo. Un leone d'oro all'indice: l'anello di tutti, a Rocca Tempesta. L'anello di chi vuole sembrare chiunque."
             caino "Un leone qualsiasi. Quindi qualcuno che sa che io guardo gli anelli. La lista dei sospetti si accorcia, e i nomi rimasti sono tutti di famiglia."
-        "«Trentun anni. Concedigli l'esilio, non le Segrete.»":
+        "«Dieci anni. Concedigli l'esilio, non le Segrete.»":
             $ caino_fiducia -= 2
             $ caino_ottone = "esilio"
-            pc "Trentun anni di servizio, Caino. Una sola riga sbagliata. Concedigli l'esilio, non le Segrete."
+            pc "Dieci anni di servizio, Caino. Una sola riga sbagliata. Concedigli l'esilio, non le Segrete."
             show caino sarcastico with qdiss
             caino "Clemenza. Una moneta rara, nella Rocca. E come tutte le monete rare, qualcuno ne approfitta."
             caino "Rurikstad, Ottone. Stanotte. Se torni, non ci sarà un secondo margine."
             "Ottone esce senza voltarsi. Sulla soglia si ferma un istante, e mi fa un cenno minimo. Un grazie da tre Scudi."
-        "Tacere e lasciare decidere l'Arconte":
+        "Taci e lascia decidere l'Arconte":
             $ caino_ottone = "tace"
             "Taccio. È la sua Proprietà, il suo traditore, la sua legge."
             show caino freddo with qdiss
-            caino "Il silenzio. Saggio, oggi. Le guardie sanno cosa fare."
+            caino "Il silenzio. Saggio, oggi. Le Fenrirkard sanno cosa fare."
             "Portano via Ottone. Lui non protesta: sa leggere un registro chiuso meglio di me."
     hide caino with dissolve
-    "Restiamo soli. Caino prende il mio registro e lo sfoglia fino alle date di consultazione. Le mie date. La mia mano."
+    "Restiamo soli. Caino prende il mio registro e lo sfoglia fino alle date incriminate. Le mie date. La mia mano."
     show caino neutro with dissolve
     caino "Lo vedi, adesso, il disegno? Le copie dicono sei mesi. Le date le hai scritte tu. Al Consiglio basterà un nome nuovo da sacrificare."
     pc "E tu lo darai, quel nome?"

@@ -79,7 +79,7 @@ label impegno_druso:
             "Lo leggo. Non c'è una parolaccia. C'è una strada di neve fatta in due, e nessuno che spinge l'altro nel fosso. Rima baciata, naturalmente."
             "Ci sono la taverna, le mura di Zefiro, il ponte sul canale. E ci sono io, senza nome, in ogni strofa."
             show druso ghigno with qdiss
-            druso "Allora? Metrica zoppa? Contenuto peggio? Di' qualcosa o DICHIARO."
+            druso "Allora? Metrica zoppa? Contenuto che arranca? Di' qualcosa o DICHIARO."
             pc "Bis."
             druso "...bis concesso. A vita, se serve."
             "Dentro, la taverna continua a chiamarlo. Lui le volta le spalle e mi offre il braccio, con un inchino ridicolo."

@@ -82,7 +82,7 @@ label orig_caino_druso(att_id):
     "Fine turno in archivio. Sono in fondo, dietro il terzo scaffale, a rimettere a posto un registro che pesa come un vitello."
     "La porta dell'ufficio della Proprietà si apre. Due voci. Una precisa come un timbro, l'altra troppo alta per una stanza chiusa."
     "Uscire adesso vorrebbe dire spiegare perché ero lì, zitt[fin], al buio. Resto dove sono."
-    caino "Siediti. No, non lì: quello è il registro di Aulo. Ci sei seduto sopra da un minuto."
+    caino "Siediti. No, non lì: quello è il registro di Eumene. Ci sei seduto sopra da un minuto."
     druso "È comodo. I crimini dei potenti hanno sempre una rilegatura migliore."
     druso "Allora. Il tuo scrivano nuovo. Quell[fin] di Briseide."
     if "caino" in congelate:
@@ -120,7 +120,7 @@ label orig_caino_ofelia(att_id):
     "Caino, con una pergamena in mano. Ofelia, seduta sul bordo di una vasca, che fa finta di non ascoltarlo. Il mio nome passa tra loro come una moneta."
     menu:
         "Basta avvicinarsi di tre passi, dietro i limoni, per sentire tutto."
-        "Avvicinarmi, piano":
+        "Mi avvicino, piano":
             if caino_trappole >= 2 or ofelia_mancati >= 1:
                 $ orig_caino_ofelia_esito = "scoperto"
             else:
@@ -141,10 +141,10 @@ label orig_caino_ofelia(att_id):
                 show caino sarcastico at left with dissolve
                 caino "La prossima volta, scrivan[fin], porta una lanterna. Così almeno ti vediamo arrivare."
                 show ofelia compiaciuta with dissolve
-                ofelia "Lascialo. Chi ascolta dietro i limoni sente sempre la parte peggiore. È una punizione che si dà da sol[fin]."
+                ofelia "Lascial[fin] stare. Chi ascolta dietro i limoni sente sempre la parte peggiore. È una punizione che si dà da sol[fin]."
             else:
                 "Si alzano. Passano accanto ai limoni senza vedermi. Ofelia ride di qualcosa che Caino non ha detto."
-        "Andarmene. Quello che dicono di me, se lo tengano":
+        "Me ne vado. Quello che dicono di me, se lo tengano":
             $ orig_caino_ofelia_esito = "via"
             "Giro sui tacchi. Il vialetto è lungo, e le voci mi seguono per un tratto, senza parole, come una musica da un'altra stanza."
             "Dalla vetrata, credo, qualcuno mi vede andare via. Non mi volto a controllare."
@@ -183,8 +183,8 @@ label orig_druso_ofelia:
 # Ottone ti ha visto uscire dagli scaffali (registri).
 label echi_orig_ottone:
     scene bg studio_glauco with dissolve
-    ottone "Il terzo scaffale. Quello dei registri di Aulo. È un buon posto per non farsi vedere."
-    ottone "Io ci stavo, trent'anni fa. Si sentono cose che poi non si possono dimenticare. Ma non si possono nemmeno dire."
+    ottone "Il terzo scaffale. Quello dei registri di Porzio. È un buon posto per non farsi vedere."
+    ottone "Io ci stavo, dieci anni fa. Si sentono cose che poi non si possono dimenticare. Ma non si possono nemmeno dire."
     "Torna alle sue colonne. La penna riprende a grattare, più lenta."
     return
 

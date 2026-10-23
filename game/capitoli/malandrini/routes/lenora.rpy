@@ -44,7 +44,7 @@ label udienza_lenora:
     lenora "Il tuo primo semestre dura sei Lune. Ne sono passate due e mezza. Dimmi come le hai spese."
     "Apro la bocca. La voce dietro la grata arriva prima della mia."
     if lenora_pref == "caino":
-        lenora "No. Lo so già. Mio figlio maggiore ti nomina nei suoi rapporti. Caino non nomina mai nessuno due volte."
+        lenora "No. Lo so già. Mio figlio ti nomina nei suoi rapporti. Caino non nomina mai nessuno due volte."
         show caino freddo at left with qdiss
         caino "Una volta sola, madre. La seconda era una nota a margine."
         lenora "Le note a margine sono le sole che leggo."
@@ -52,7 +52,7 @@ label udienza_lenora:
         lenora "No. Lo so già. Druso ha una rima nuova, e la rima ha il tuo passo."
         show druso imbarazzato at right with qdiss
         druso "Madre! Era una strofa privata!"
-        lenora "In questa famiglia non esiste il privato, Druso. Esiste il non ancora saputo."
+        lenora "In questa famiglia non esiste il privato, Druso. Esiste il non ancora divulgato."
     elif lenora_pref == "icaro":
         lenora "No. Lo so già. Icaro ha aperto il suo registro a una voce nuova. Non lo fa per meno di cento Scudi."
         show icaro sorpreso with qdiss
@@ -80,7 +80,7 @@ label udienza_lenora:
             druso "Oh, no."
             lenora "Insolenza. Annotata, non punita. Le insolenze punite non insegnano niente a nessuno."
             lenora "Io non perdono, [figlio_t] di Briseide. Riclassifico. Ricordalo, la prossima volta che apri bocca qui dentro."
-        "Tacere, e chinare la testa":
+        "Taci e china la testa":
             "Chino la testa. Il silenzio della sala si allunga, una torcia sfrigola. Nessuno respira."
             lenora "Il silenzio. Il più vecchio dei giuramenti."
             lenora "Briseide ti ha insegnato bene. O non ti ha insegnato niente, e sei nat[fin] così. Peggio per chi ti sottovaluta."
