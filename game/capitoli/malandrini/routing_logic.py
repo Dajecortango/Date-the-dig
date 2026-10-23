@@ -12,7 +12,7 @@ CUORE_VAR = {"aede": "aede_affinity", "caino": "caino_fiducia",
              "druso": "druso_affinity", "icaro": "icaro_affinity",
              "ofelia": "ofelia_affinity"}
 
-# Good end (alzati di 1 per il dono preferito, game/economia.rpy).
+# Good end (alzati di 1 per il dono preferito, economia.rpy).
 GOOD = {"aede": 13, "caino": 13, "druso": 15, "icaro": 13, "ofelia": 12}
 
 # Altre soglie dei finali.

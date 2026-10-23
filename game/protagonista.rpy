@@ -1,6 +1,4 @@
-# Route Aede — "Tempesta d'amore". Personaggi, variabili, utilità.
-# Aede: figlia di Glauco, sorella di Ofelia e Ascadeo. Difficoltà 3/5.
-# Niente poliamore: la scelta del cuore chiude le altre route.
+# Protagonista comune a tutti i capitoli: genere, nome e varianti di testo.
 
 init python:
     def set_gender(g):
@@ -30,19 +28,6 @@ init python:
             raw = "Elio"
         return raw
 
-## Personaggi #################################################################
-
-define aede = Character("Aede", color="#c0392b", image="aede")
-define glauco = Character("Glauco Severo", color="#6b6b6b", image="glauco")
-define briseide = Character("Briseide Ippodamia", color="#b8860b", image="briseide")
-define pc = Character("[player_name]", color="#f0e6d2")
-
-# Fratelli di Ceppo del protagonista (Ceppo di Briseide Ippodamia).
-define vanna = Character("Vanna", color="#8fbc8f", image="vanna")
-define corrado = Character("Corrado", color="#87a7c7", image="corrado")
-
-## Variabili di route #########################################################
-
 default player_name = "Elio"
 default player_gender = "m"
 default fin = "o"
@@ -57,8 +42,3 @@ default Il_t = "Il"
 default al_t = "al"
 default gli_t = "gli"
 default lui_t = "lui"
-default aede_affinity = 0
-default flag_segreto_svelo = False
-default flag_accetta_lavoro = False
-default flag_giuramento = False
-default flag_aede_rivelato = False

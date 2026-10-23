@@ -5,7 +5,7 @@
 #   gioco resta com'e', al menu principale si spegne.
 # - Effetti: lama sul "with lampo", colpo su vpunch/hpunch
 #   (config.with_callback), monete quando cambiano gli Scudi (borsa.rpy),
-#   campane all'arrivo sulla Calà.
+#   il suono d'arrivo di un ambiente (capitolo().ambiente_arrivo).
 # File in game/audio/, generati da make_audio.py (segnaposto sostituibili
 # tenendo gli stessi nomi).
 
@@ -13,19 +13,10 @@ init python:
     renpy.music.register_channel("ambiente", mixer="ambiente", loop=True,
                                  tight=True)
 
-    # Sfondo -> loop d'ambiente (None = silenzio).
-    AMBIENTI = {
-        "corridoio_ceppo": "audio/amb_camino.ogg",
-        "studio_glauco": "audio/amb_camino.ogg",
-        "esterno_neve": "audio/amb_vento.ogg",
-        "cala_notte": "audio/amb_cala.ogg",
-        "vicoli_zefiro": "audio/amb_strada.ogg",
-        "palestra": "audio/amb_sala.ogg",
-        "consiglio": "audio/amb_sala.ogg",
-        "sala_svelo": "audio/amb_sala.ogg",
-        "arena_athlion": "audio/amb_folla.ogg",
-        "nero": None,
-    }
+    # Le tabelle sono del capitolo (capitolo()):
+    #   ambienti         sfondo -> loop d'ambiente (None = silenzio);
+    #   ambiente_pioggia sfondo -> loop nei giorni di pioggia (effetti.rpy);
+    #   ambiente_arrivo  loop -> suono che parte quando ci si arriva.
     AMBIENTE_VOLUME = 0.7
 
     def audio_ambiente_aggiorna():
@@ -34,11 +25,15 @@ init python:
         if store.main_menu:
             renpy.music.stop(channel="ambiente", fadeout=1.0)
             return
+        cap = capitolo()
         attr = renpy.get_attributes("bg", layer="master") or ()
-        voluto = AMBIENTI.get(attr[0]) if attr else None
-        # Vicoli nei giorni di pioggia (effetti.rpy): la pioggia copre la strada.
-        if attr and attr[0] == "vicoli_zefiro" and piove_ora():
-            voluto = "audio/amb_pioggia.ogg"
+        bg = attr[0] if attr else None
+        voluto = None
+        if cap is not None and bg is not None:
+            voluto = cap.ambienti.get(bg)
+            # Nei giorni di pioggia la pioggia copre l'ambiente di sempre.
+            if bg in cap.ambiente_pioggia and piove_ora():
+                voluto = cap.ambiente_pioggia[bg]
         attuale = renpy.music.get_playing(channel="ambiente")
         if voluto == attuale:
             return
@@ -48,9 +43,9 @@ init python:
             renpy.music.play(voluto, channel="ambiente", loop=True,
                              fadeout=1.5, fadein=1.5,
                              relative_volume=AMBIENTE_VOLUME)
-            # La Calà: le campane suonano quando ci si arriva.
-            if voluto == "audio/amb_cala.ogg" and not renpy.is_skipping():
-                renpy.play("audio/campana.ogg", channel="sound")
+            arrivo = cap.ambiente_arrivo.get(voluto)
+            if arrivo and not renpy.is_skipping():
+                renpy.play(arrivo, channel="sound")
 
     config.start_interact_callbacks.append(audio_ambiente_aggiorna)
 

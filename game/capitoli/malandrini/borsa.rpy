@@ -78,7 +78,7 @@ init python:
 
     def _bo_controlla():
         """start_interact_callback: Scudi o dono cambiati -> mostra."""
-        if store.main_menu or store._in_replay:
+        if store.main_menu or store._in_replay or not capitolo_ha("borsa"):
             _bo_reset()
             return
         cur = (store.scudi, store.dono_tenuto)
@@ -123,7 +123,7 @@ init python:
             renpy.restart_interaction()
 
     def borsa_hud_visibile():
-        if store.main_menu or not store.quick_menu or _windows_hidden:
+        if not capitolo_ha("borsa") or store.main_menu or not store.quick_menu or _windows_hidden:
             return False
         if renpy.get_screen("cartello_data") or renpy.get_screen("input"):
             return False
@@ -135,7 +135,7 @@ init python:
     config.overlay_screens.append("borsa_monete")
 
     def _bo_volo_attivo():
-        if _bo.volo is None:
+        if not capitolo_ha("borsa") or _bo.volo is None:
             return False
         n, _verso, t = _bo.volo
         if _bo_time.time() > t + MONETA_VOLO + n * MONETA_PASSO + 0.3:
@@ -173,7 +173,7 @@ screen borsa_hud():
     if _bo.fino:
         timer 0.25 repeat True action Function(_bo_scadi)
 
-    if borsa_hud_visibile():
+    if capitolo_ha("borsa") and borsa_hud_visibile():
         button at borsa_comparsa:
             style "borsa_pillola"
             xalign 1.0 xoffset -28 ypos 24
@@ -185,11 +185,11 @@ screen borsa_hud():
                     fixed:
                         fit_first True
                         yalign 0.5
-                        add "gui/scudo.png" zoom 0.7
-                        add AlphaMask(At("gui/scudo_luccichio.png", borsa_luccica), "gui/scudo.png") zoom 0.7
+                        add "gui/malandrini/scudo.png" zoom 0.7
+                        add AlphaMask(At("gui/malandrini/scudo_luccichio.png", borsa_luccica), "gui/malandrini/scudo.png") zoom 0.7
                     add DynamicDisplayable(_bo_numero) yalign 0.5
                 else:
-                    add "gui/scudo.png" zoom 0.7 yalign 0.5
+                    add "gui/malandrini/scudo.png" zoom 0.7 yalign 0.5
                     text "[scudi]" style "borsa_pillola_text"
                 if dono_tenuto is not None:
                     text "· 1 dono" style "borsa_pillola_nota"
@@ -198,8 +198,8 @@ screen borsa_hud():
 
 style borsa_pillola is button
 style borsa_pillola:
-    background Frame("gui/borsa_pillola.png", 21, 21)
-    hover_background Frame("gui/borsa_pillola.png", 21, 21)
+    background Frame("gui/malandrini/borsa_pillola.png", 21, 21)
+    hover_background Frame("gui/malandrini/borsa_pillola.png", 21, 21)
     ## Su telefono e' anche l'unico accesso rapido alla Borsa: bersaglio
     ## da ~4 mm.
     padding ((20, 16, 26, 16) if renpy.variant("small") else (14, 6, 20, 6))
@@ -236,7 +236,7 @@ screen inventario():
 
             hbox:
                 spacing 16
-                add "gui/scudo.png" yalign 0.5
+                add "gui/malandrini/scudo.png" yalign 0.5
                 text "[scudi] Scudi" style "cronache_titolo" yalign 0.5
             text "Paghe dei registri, commissioni del Ceppo, qualche colpo di fortuna. Al mercato coperto diventano doni." size TESTO_NOTA italic True color "#8f7f5c"
 
@@ -340,11 +340,11 @@ transform moneta_cade(ritardo, chiave):
 screen borsa_monete():
     zorder 56
 
-    if _bo_volo_attivo():
+    if capitolo_ha("borsa") and _bo_volo_attivo():
         timer 0.2 repeat True action Function(_bo_fine_volo)
         $ _bo_n, _bo_verso, _bo_chiave = _bo.volo
         for _bo_i in range(_bo_n):
             if _bo_verso > 0:
-                add "gui/scudo.png" at moneta_vola(_bo_i * MONETA_PASSO, _bo_chiave)
+                add "gui/malandrini/scudo.png" at moneta_vola(_bo_i * MONETA_PASSO, _bo_chiave)
             else:
-                add "gui/scudo.png" at moneta_cade(_bo_i * 0.08, _bo_chiave)
+                add "gui/malandrini/scudo.png" at moneta_cade(_bo_i * 0.08, _bo_chiave)

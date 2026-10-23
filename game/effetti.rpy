@@ -21,7 +21,8 @@ init python:
     config.overlay_screens.append("effetti_scena")
 
     # Regole (sfondo, contesto del calendario, pioggia, tempesta) in
-    # regia_logic: EFFETTI_SFONDI, EFFETTI_CONTESTO, effetti_per.
+    # regia_logic.effetti_per; le tabelle (EFFETTI_SFONDI, EFFETTI_ASCIUTTO,
+    # EFFETTI_CONTESTO) sono del capitolo: capitolo_regia().
 
     def piove_ora():
         if getattr(store, "cal_slot", None) == "sera":
@@ -37,7 +38,8 @@ init python:
         bg = attr[0] if attr else None
         return rgl.effetti_per(bg, getattr(store, "cal_slot", None),
                                getattr(store, "cal_contesto", None), piove_ora(),
-                               getattr(store, "regia_tempesta", False))
+                               getattr(store, "regia_tempesta", False),
+                               capitolo_regia())
 
     # Le particelle si costruiscono fresche a ogni cambio d'effetto, avvolte
     # in un orologio proprio (FxOrologio): SnowBlossom sparge le particelle

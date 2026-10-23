@@ -1,12 +1,12 @@
 # Calendario dei Malandrini — integrazione Ren'Py del motore puro
-# (game/calendario_logic.py). Qui vivono: il calendario concreto, il registry
+# (calendario_logic.py, accanto). Qui vivono: il calendario concreto, il registry
 # EVENTI (gli altri file vi aggiungono voci in init python), le attività,
 # il loop del semestre e la screen di pianificazione.
 
 init -10 python:
-    import calendario_logic as cl
-    import routing_logic as rl
-    import relazioni_logic as rlz
+    from capitoli.malandrini import calendario_logic as cl
+    from capitoli.malandrini import routing_logic as rl
+    from capitoli.malandrini import relazioni_logic as rlz
 
     # 6 Lune; esistono solo i giorni/slot salienti (il resto si salta).
     # Le date fisse della spec cadono su questi giorni:
@@ -268,8 +268,8 @@ init -10 python:
         return p if p and renpy.loadable(p) else cal_portrait(char)
 
     def cal_portrait(char):
-        p = "gui/portrait_%s.png" % char if char else "gui/portrait_locked.png"
-        return p if renpy.loadable(p) else "gui/portrait_locked.png"
+        p = "gui/malandrini/portrait_%s.png" % char if char else "gui/malandrini/portrait_locked.png"
+        return p if renpy.loadable(p) else "gui/malandrini/portrait_locked.png"
 
     def cal_azione(touch, sel, info, ritorno):
         """Azione di una voce del pianificatore. Col mouse sceglie subito
@@ -539,7 +539,7 @@ screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None
     fixed:
         xysize (760, 210)
         at (cartello_fermo if mm_movimento_ridotto() else cartello_srotola)
-        add "gui/cartello_data.png"
+        add "gui/malandrini/cartello_data.png"
         vbox:
             align (0.5, 0.5)
             spacing 2
@@ -570,11 +570,11 @@ screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None
                     text "◆" size 22 color "#c0392b" yalign 0.5
         if luna_prec is not None and luna_prec != luna:
             if cartello_anim:
-                add ("gui/luna_%d.png" % luna_prec) at luna_esce
-                add ("gui/luna_%d.png" % luna) at luna_entra
+                add ("gui/malandrini/luna_%d.png" % luna_prec) at luna_esce
+                add ("gui/malandrini/luna_%d.png" % luna) at luna_entra
             else:
-                add ("gui/luna_%d.png" % luna) at luna_ferma
-        add ("gui/ceralacca_festa.png" if festa else "gui/ceralacca.png"):
+                add ("gui/malandrini/luna_%d.png" % luna) at luna_ferma
+        add ("gui/malandrini/ceralacca_festa.png" if festa else "gui/ceralacca.png"):
             at (cartello_sigillo_fermo if (mm_movimento_ridotto() or config.skipping) else cartello_sigillo)
 
 
@@ -609,7 +609,7 @@ screen pianificazione(momento, inviti, attivita):
         hbox:
             xalign 0.5
             spacing 18
-            add ("gui/luna_%d.png" % momento[0]) yalign 0.5 zoom 0.7
+            add ("gui/malandrini/luna_%d.png" % momento[0]) yalign 0.5 zoom 0.7
             label LUNE_NOMI[momento[0]] text_size 42 text_color gui.accent_color yalign 0.5
 
         # Striscia dei giorni salienti della Luna: ◆ = festa o evento segnato.
@@ -682,7 +682,7 @@ screen pianificazione(momento, inviti, attivita):
                                         fixed:
                                             xysize (26, 26)
                                             yalign 0.5
-                                            add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
+                                            add "gui/malandrini/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
                                         text ("Solo adesso" if inv["avviso"] == "scade" else "Fino al cuore") size TESTO_MINUTO color "#d9a441" yalign 0.5
                             else:
                                 vbox:
@@ -694,7 +694,7 @@ screen pianificazione(momento, inviti, attivita):
                                           fixed:
                                               xysize (26, 26)
                                               yalign 0.5
-                                              add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
+                                              add "gui/malandrini/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
                                           text ("Solo adesso" if inv["avviso"] == "scade" else "Fino alla scelta del cuore") size TESTO_MINUTO color "#d9a441" yalign 0.5
 
                 for k, (aid, etichetta, char, _pool) in enumerate(attivita):
@@ -755,7 +755,7 @@ screen pianificazione(momento, inviti, attivita):
                             align (0.5, 1.0)
                     else:
                         ## Attività senza personaggio: la luna del mese.
-                        add ("gui/luna_%d.png" % momento[0]) align (0.5, 0.6) zoom 1.5
+                        add ("gui/malandrini/luna_%d.png" % momento[0]) align (0.5, 0.6) zoom 1.5
                 text CAL_NOMI.get(cal_chr, CAL_NOMI_COMPRIMARI.get(cal_chr, "Il semestre")) style "cal_pannello_nome"
                 text cal_titolo style "cal_pannello_titolo"
                 if cal_tipo == "invito":
@@ -766,7 +766,7 @@ screen pianificazione(momento, inviti, attivita):
                             fixed:
                                 xysize (30, 30)
                                 yalign 0.5
-                                add "gui/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
+                                add "gui/malandrini/clessidra.png" at (clessidra_ferma if mm_movimento_ridotto() else clessidra_gira)
                             text ("Solo adesso: se scegli altro, l'invito cade." if cal_extra == "scade" else "Dopo la scelta del cuore, forse non tornerà.") style "cal_pannello_avviso" yalign 0.5
                 else:
                     text ATTIVITA_DESC.get(cal_extra, "") style "cal_pannello_testo"
@@ -779,7 +779,7 @@ screen pianificazione(momento, inviti, attivita):
             vbox:
                 align (0.5, 0.5)
                 spacing 16
-                add ("gui/luna_%d.png" % momento[0]) xalign 0.5
+                add ("gui/malandrini/luna_%d.png" % momento[0]) xalign 0.5
                 text "Come spendi questo tempo?" style "cal_pannello_titolo" xalign 0.5 textalign 0.5
                 if cal_touch:
                     text "Tocca una voce per leggerla, toccala di nuovo per sceglierla." style "cal_pannello_testo" xalign 0.5 textalign 0.5

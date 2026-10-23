@@ -1,11 +1,13 @@
 # Capitolo I — "Malandrini".
 # Dating sim a calendario: ~6 mesi nel Ceppo di Briseide, giornate in slot
 # (mattina/pomeriggio/sera), attività che decidono chi frequenti. Il motore
-# vive in game/calendario.rpy + game/calendario_logic.py; gli eventi delle
-# route in game/routes/*_eventi.rpy e *_route.rpy; gli snodi comuni in
-# game/routes/snodi.rpy.
+# vive in game/capitoli/malandrini/calendario.rpy + calendario_logic.py; gli
+# eventi delle route in routes/*_eventi.rpy e *_atto*.rpy; gli snodi comuni
+# in routes/snodi.rpy (tutto sotto game/capitoli/malandrini/).
 
 label capitolo1:
+
+    $ entra_capitolo("malandrini")
 
     scene bg nero with fade
 

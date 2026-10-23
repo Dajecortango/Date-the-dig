@@ -1,13 +1,13 @@
 """Genera sprite e sfondi placeholder per Date the Dig.
 
 Uso: python make_placeholders.py
-Output: PNG in game/images/ con i nomi esatti usati dalle scene.
+Output: PNG in game/images/malandrini/ con i nomi esatti usati dalle scene.
 """
 import os
 from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "game", "images")
+OUT = os.path.join(HERE, "game", "images", "malandrini")
 
 SPRITE_SIZE = (600, 1050)
 BG_SIZE = (1920, 1080)

@@ -1,5 +1,5 @@
-"""Verifica il motore delle conseguenze (game/conseguenze_logic.py) e la
-coerenza dei registry FATTI/ECHI in game/conseguenze.rpy.
+"""Verifica il motore delle conseguenze (conseguenze_logic.py) e la
+coerenza dei registry FATTI/ECHI in conseguenze.rpy (game/capitoli/malandrini/).
 
 Uso: py -3 -I tests/test_conseguenze.py
 """
@@ -9,7 +9,11 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 GAME = os.path.join(HERE, "..", "game")
-sys.path.insert(0, GAME)
+# Cartella del capitolo Malandrini, relativa a GAME.
+MAL_REL = os.path.join("capitoli", "malandrini")
+sys.path.insert(0, HERE)
+from percorsi import prepara_import  # noqa: E402
+prepara_import()
 
 import conseguenze_logic as csl  # noqa: E402
 
@@ -108,7 +112,7 @@ def test_albero():
 # --- Coerenza dei registry -----------------------------------------------
 
 def check_registry():
-    src = leggi("conseguenze.rpy")
+    src = leggi(os.path.join(MAL_REL, "conseguenze.rpy"))
     rpy = tutti_rpy()
     tutto = "\n".join(rpy.values())
 
@@ -142,7 +146,7 @@ def check_registry():
               re.search(r"^label %s:" % label, tutto, re.M) is not None, True)
         for l in re.findall(r'"(\w+)"', luoghi):
             check(f"eco {eid}: luogo {l} e' un'attivita'", l in attivita, True)
-    echi_src = rpy[os.path.join("routes", "echi.rpy")]
+    echi_src = rpy[os.path.join(MAL_REL, "routes", "echi.rpy")]
     for label in re.findall(r"^label (echi_\w+):", tutto, re.M):
         check(f"label {label} registrata in ECHI", label in [e[3] for e in echi], True)
 

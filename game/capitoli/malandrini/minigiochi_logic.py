@@ -2,7 +2,7 @@
 
 Generazione con un rng passato da fuori (renpy.random nel gioco,
 random.Random(seed) nei test) e valutazione degli esiti.
-Integrazione e scene: game/minigiochi.rpy. Test: tests/test_minigiochi.py.
+Integrazione e scene: minigiochi.rpy (accanto). Test: tests/test_minigiochi.py.
 """
 
 ## Duello con Aede ###########################################################

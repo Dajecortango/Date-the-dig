@@ -4,6 +4,10 @@ hook del calendario) non cambi quando i file delle route vengono spostati.
 Ren'Py esegue i blocchi init a pari priorita' nell'ordine dei file (percorso
 relativo a game/, ordinato) e poi delle righe: lo stesso ordine qui.
 
+Secondo controllo (usi_prematuri): i file sotto game/capitoli/ si ordinano
+prima di effetti/feedback/.../screens, quindi il loro codice a init 0 non
+deve usare nomi che quei file definiscono a init 0 (serve init 1 o piu').
+
 Uso: py -3 -I tests/test_ordine_init.py
 """
 import os
@@ -148,6 +152,67 @@ BASELINE = [
 ]
 
 
+# File comuni che, a pari priorita', si ordinano dopo game/capitoli/.
+COMUNI_DOPO = ("effetti.rpy", "feedback.rpy", "finali_galleria.rpy", "gui.rpy",
+               "luce.rpy", "menu_cast.rpy", "regia.rpy", "screens.rpy")
+RE_INIT0 = re.compile(r"^init\s+python\s*:")
+RE_NOME_DEF = re.compile(r"^    (?:def|class)\s+(\w+)|^    (\w+)\s*=[^=]")
+RE_DEFINE = re.compile(r"^(?:define|transform|default)\s+([\w.]+)")
+RE_NOME = re.compile(r"\b([A-Za-z_]\w*)\b")
+
+
+def _nomi_init0(rel):
+    """Nomi definiti a priorita' 0 (init python, define, transform) in rel."""
+    nomi = set()
+    in_init0 = False
+    with open(os.path.join(GAME, rel), encoding="utf-8") as f:
+        for r in f.read().split("\n"):
+            if r and not r[0].isspace():
+                in_init0 = bool(RE_INIT0.match(r))
+                m = RE_DEFINE.match(r)
+                # gui.x, persistent.x: attributi, non nomi dello store.
+                if m and "." not in m.group(1):
+                    nomi.add(m.group(1))
+            elif in_init0:
+                m = RE_NOME_DEF.match(r)
+                if m:
+                    nomi.add(m.group(1) or m.group(2))
+    return nomi
+
+
+def usi_prematuri():
+    """(file, riga, nome): codice dei capitoli eseguito a init 0 (righe di
+    primo livello di un init python, define, image) che usa un nome definito
+    a init 0 in un file comune che si ordina dopo: sarebbe un NameError.
+    I corpi di def/class e le screen girano dopo, a runtime."""
+    comuni = set()
+    for rel in COMUNI_DOPO:
+        comuni |= _nomi_init0(rel)
+    out = []
+    for rel in _file_rpy():
+        if not rel.startswith("capitoli/"):
+            continue
+        in_init0 = False
+        with open(os.path.join(GAME, rel), encoding="utf-8") as f:
+            righe = f.read().split("\n")
+        for n, r in enumerate(righe, 1):
+            codice = r.split("#", 1)[0]
+            if r and not r[0].isspace():
+                in_init0 = bool(RE_INIT0.match(r))
+                if not (r.startswith("define ") or r.startswith("image ")):
+                    continue
+                codice = codice.split("=", 1)[-1]
+            elif not (in_init0 and r.startswith("    ") and not r[4:5].isspace()):
+                continue
+            elif re.match(r"\s*(def|class|@)", codice):
+                continue
+            codice = re.sub(r'"[^"]*"|\'[^\']*\'', "", codice)
+            for m in RE_NOME.finditer(codice):
+                if m.group(1) in comuni:
+                    out.append((rel, n, m.group(1)))
+    return out
+
+
 def main():
     got = ordine_init()
     if BASELINE is None or "--stampa" in sys.argv:
@@ -155,9 +220,12 @@ def main():
         if BASELINE is None:
             print("BASELINE mancante")
             return 1
+    prematuri = usi_prematuri()
+    for rel, n, nome in prematuri:
+        print("FAIL %s:%d usa %s a init 0 prima che sia definito" % (rel, n, nome))
     if got == BASELINE:
         print("ordine init ok")
-        return 0
+        return 1 if prematuri else 0
     for i, (a, b) in enumerate(zip(got, BASELINE)):
         if a != b:
             print("FAIL indice %d: trovato %s, atteso %s" % (i, a, b))

@@ -4,17 +4,10 @@ Borsa. Nessuna dipendenza da Ren'Py.
 Test: py -3 -I tests/test_regia.py
 """
 
-# Sfondo -> tinta degli sprite (solo sprite: gli sfondi restano come sono).
-TINTE = {
-    "esterno_neve": "#9fb8ff",
-    "cala_notte": "#ffb066",
-    "vicoli_zefiro": "#5a6fa8",   # solo di sera
-    "studio_glauco": "#ffc078",
-    "corridoio_ceppo": "#ffc078",
-    "arena_athlion": "#ffd9a0",
-    "sala_svelo": "#f5d27a",
-}
-TINTE_SOLO_SERA = ("vicoli_zefiro",)
+# Le tabelle di regia (tinte, fuoco, effetti, fondi del menu) sono del
+# capitolo: le funzioni le ricevono come ultimo parametro `tab` (modulo o
+# oggetto con quegli attributi). Con tab=None: nessuna corrispondenza.
+
 TINTA_FORZA = 0.18
 
 LUCE_OSCURATA = 0.75
@@ -28,22 +21,21 @@ MOVIMENTI = {
 }
 MOVIMENTO_PAUSA = 3  # interazioni prima che lo stesso sprite si muova ancora
 
-FONDI_ROUTE = {
-    "Aede": "cala_notte",
-    "Caino": "corridoio_ceppo",
-    "Druso": "palestra",
-    "Icaro": "vicoli_zefiro",
-    "Ofelia": "consiglio",
-}
-FONDO_SEMESTRE = "esterno_neve"
+
+def _t(tab, nome, vuoto):
+    """Attributo `nome` delle tabelle del capitolo, o `vuoto`."""
+    if tab is None:
+        return vuoto
+    return getattr(tab, nome, vuoto)
 
 
-def tinta_per(bg, slot):
-    if bg not in TINTE:
+def tinta_per(bg, slot, tab):
+    tinte = _t(tab, "TINTE", {})
+    if bg not in tinte:
         return None
-    if bg in TINTE_SOLO_SERA and slot != "sera":
+    if bg in _t(tab, "TINTE_SOLO_SERA", ()) and slot != "sera":
         return None
-    return TINTE[bg]
+    return tinte[bg]
 
 
 def oscurato(tag, parlante, in_scena):
@@ -70,13 +62,14 @@ def transizione_scene(bg_prec, bg_nuovo, trans):
     return "salto_tempo"
 
 
-def fondo_menu(ultimo, finali):
+def fondo_menu(ultimo, finali, tab):
     """(sfondo, chiave del cast) per il menu dopo il finale `ultimo`."""
-    if ultimo == "finale_neutro_semestre":
-        return (FONDO_SEMESTRE, None)
+    if ultimo is not None and ultimo == _t(tab, "FINALE_SEMESTRE", None):
+        return (_t(tab, "FONDO_SEMESTRE", None), None)
+    fondi = _t(tab, "FONDI_ROUTE", {})
     for fid, _titolo, route, _ind in finali:
-        if fid == ultimo and route in FONDI_ROUTE:
-            return (FONDI_ROUTE[route], route.lower())
+        if fid == ultimo and route in fondi:
+            return (fondi[route], route.lower())
     return (None, None)
 
 
@@ -111,15 +104,12 @@ def fase_per(tag):
     return (h % 97) / 97.0
 
 
-# Luce del fuoco: sfondi con candele, camino, lanterne.
-FUOCO = ("studio_glauco", "corridoio_ceppo", "cala_notte")
-FUOCO_SOLO_SERA = ("vicoli_zefiro",)
-
-
-def fuoco_per(bg, slot):
-    if bg in FUOCO:
+# Luce del fuoco: sfondi con candele, camino, lanterne (tab.FUOCO e
+# tab.FUOCO_SOLO_SERA).
+def fuoco_per(bg, slot, tab):
+    if bg in _t(tab, "FUOCO", ()):
         return True
-    return bg in FUOCO_SOLO_SERA and slot == "sera"
+    return bg in _t(tab, "FUOCO_SOLO_SERA", ()) and slot == "sera"
 
 
 def _rumore(t):
@@ -139,44 +129,19 @@ def velo_fuoco(t):
     return 0.04 + 0.02 * _rumore(t)
 
 
-# Effetti di scena (effetti.rpy). (sfondo, effetto, quando): quando = None
-# (sempre), "sera" (solo di sera) o "pioggia" (nei giorni di pioggia, mai di
-# sera). Vale la prima riga che corrisponde.
-EFFETTI_SFONDI = (
-    ("esterno_neve", "neve", None),
-    ("cala_notte", "lanterne", None),
-    ("vicoli_zefiro", "fumo", "sera"),
-    ("vicoli_zefiro", "pioggia", "pioggia"),
-    ("sala_svelo", "polvere", None),
-    ("studio_glauco", "braci", None),
-    ("corridoio_ceppo", "braci", None),
-    ("arena_athlion", "nevischio", None),
-)
-
-# (contesto del calendario, sfondo, effetto, modo): vale solo se anche lo
-# sfondo corrisponde. modo "sostituisci" o "aggiungi".
-EFFETTI_CONTESTO = (
-    # La serra di Glauco (corte di Ofelia e sue scene in serra).
-    ("corte", "sala_svelo", "foglie", "sostituisci"),
-    ("ofelia_ev1", "sala_svelo", "foglie", "sostituisci"),
-    ("specchio_ofelia", "sala_svelo", "foglie", "sostituisci"),
-    ("ballo_pretendenti", "sala_svelo", "foglie", "sostituisci"),
-    ("incrocio_serra", "sala_svelo", "foglie", "sostituisci"),
-    # La fumeria di Icaro.
-    ("fumeria", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
-    ("icaro_ev1", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
-    ("icaro_int1", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
-    ("icaro_luna5", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
-    ("icaro_febbre", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
-    ("athlion", "arena_athlion", "scintille", "aggiungi"),
-    ("ofelia_ev3", "arena_athlion", "scintille", "aggiungi"),
-)
+# Effetti di scena (effetti.rpy), dalle tabelle del capitolo:
+# tab.EFFETTI_SFONDI (sfondo, effetto, quando): quando = None (sempre), "sera"
+# (solo di sera) o "pioggia" (nei giorni di pioggia, mai di sera); vale la
+# prima riga che corrisponde. tab.EFFETTI_ASCIUTTO (sfondo, effetto): in
+# aggiunta quando non piove. tab.EFFETTI_CONTESTO (contesto del calendario,
+# sfondo, effetto, modo): vale solo se anche lo sfondo corrisponde; modo
+# "sostituisci" o "aggiungi".
 
 
-def effetti_per(bg, slot, contesto, piove, tempesta):
+def effetti_per(bg, slot, contesto, piove, tempesta, tab):
     """Effetti da mostrare, nell'ordine di disegno."""
     base = None
-    for sfondo, fx, quando in EFFETTI_SFONDI:
+    for sfondo, fx, quando in _t(tab, "EFFETTI_SFONDI", ()):
         if sfondo != bg:
             continue
         if quando == "sera" and slot != "sera":
@@ -188,9 +153,11 @@ def effetti_per(bg, slot, contesto, piove, tempesta):
     if base == "neve" and tempesta:
         base = "neve_fitta"
     effetti = [base] if base else []
-    if bg == "vicoli_zefiro" and not piove:
-        effetti.append("luccichii")
-    for ctx, sfondo, fx, modo in EFFETTI_CONTESTO:
+    if not piove:
+        for sfondo, fx in _t(tab, "EFFETTI_ASCIUTTO", ()):
+            if sfondo == bg:
+                effetti.append(fx)
+    for ctx, sfondo, fx, modo in _t(tab, "EFFETTI_CONTESTO", ()):
         if ctx == contesto and sfondo == bg:
             if modo == "sostituisci" and base:
                 effetti[0] = fx

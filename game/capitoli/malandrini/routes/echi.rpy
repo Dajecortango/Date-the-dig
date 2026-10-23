@@ -1,5 +1,5 @@
 # Echi: scelte passate che tornano in un'altra scena (registry ECHI in
-# game/conseguenze.rpy). Le gioca cal_attivita a fine attivita', una volta
+# ../conseguenze.rpy). Le gioca cal_attivita a fine attivita', una volta
 # sola per partita. Chi parla deve poter sapere: chi c'era, chi frequenta il
 # luogo, o chi raccoglie pettegolezzi per mestiere (Vanna, Corrado, Ottone).
 

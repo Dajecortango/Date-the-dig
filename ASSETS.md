@@ -1,6 +1,16 @@
 # Kit asset — Date the Dig, route di Aede
 
-17 immagini obbligatorie. Sovrascrivi i PNG in `game/images/` con lo STESSO nome file; al riavvio il gioco le usa. Stile consigliato per tutti i prompt: anime/visual novel, illuminazione cinematografica, ambientazione medieval-norrena.
+## Struttura per capitolo
+
+Gli asset vivono in una sottocartella per capitolo:
+
+- `game/images/<capitolo>/`: sprite e sfondi del capitolo (oggi `game/images/malandrini/`). `game/images/comune/` per quelli condivisi (`bg nero.webp`).
+- `game/gui/<capitolo>/` e `game/audio/<capitolo>/`: i file usati solo dal codice di quel capitolo (ritratti, lune, scudo, ambienti, campana...).
+- Regola: un file citato anche da UN SOLO file di codice comune (`game/*.rpy`) resta in `game/gui/` o `game/audio/` (es. `cast_*`, `ceralacca.png`, `divisore.png`, `moneta.ogg`).
+- Nomi unici: Ren'Py ignora la cartella nel nome dell'immagine, quindi due file con lo stesso nome in sottocartelle diverse sono lo stesso nome immagine. `tests/test_capitoli.py` fallisce se succede; i capitoli nuovi usano il prefisso `<id>_`.
+- Tutti i percorsi sotto sono relativi alla cartella del capitolo: `game/images/malandrini/aede neutra.webp`, ecc.
+
+17 immagini obbligatorie. Sovrascrivi i file in `game/images/malandrini/` con lo STESSO nome file; al riavvio il gioco le usa. Stile consigliato per tutti i prompt: anime/visual novel, illuminazione cinematografica, ambientazione medieval-norrena.
 
 Prompt base stile (da premettere a ogni prompt): 
 `anime visual novel style, clean lineart, cinematic lighting, medieval norse fantasy setting`
@@ -42,7 +52,7 @@ Consiglio coerenza: genera prima `aede neutra`, poi usa img2img / reference sull
 ## Facoltativi (il gioco funziona senza)
 
 - `game/gui/main_menu.png` 1920×1080 — se vuoi un menu illustrato: in `game/gui.rpy` rimetti `define gui.main_menu_background = "gui/main_menu.png"`. Prompt: paesaggio del Nord con leone dorato in cielo.
-- Audio in `game/audio/` (ogg/opus): 1 tema menu, 1 tema quotidiano, 1 tema Aede/romantico, 1 tema tensione/Glauco, 1 tema finale. Vanno poi agganciati con `play music` negli script (chiedimelo e lo faccio).
+- Audio in `game/audio/` (ogg/opus; gli ambienti del capitolo in `game/audio/<capitolo>/`): 1 tema menu, 1 tema quotidiano, 1 tema Aede/romantico, 1 tema tensione/Glauco, 1 tema finale. Vanno poi agganciati con `play music` negli script (chiedimelo e lo faccio).
 
 ## Checklist dopo la sostituzione
 

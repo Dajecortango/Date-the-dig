@@ -1,4 +1,4 @@
-"""Verifica sanitize_name estraendo la funzione reale da aede_core.rpy.
+"""Verifica sanitize_name estraendo la funzione reale da protagonista.rpy.
 
 Uso: python -I tests/test_sanitize.py
 """
@@ -7,14 +7,14 @@ import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CORE = os.path.join(HERE, "..", "game", "routes", "aede_core.rpy")
+CORE = os.path.join(HERE, "..", "game", "protagonista.rpy")
 
 
 def load_sanitize():
     with open(CORE, encoding="utf-8") as f:
         src = f.read()
     m = re.search(r"(    def sanitize_name.*?return raw\n)", src, re.S)
-    assert m, "sanitize_name non trovata in aede_core.rpy"
+    assert m, "sanitize_name non trovata in protagonista.rpy"
     code = "\n".join(line[4:] for line in m.group(1).splitlines())
     ns = {}
     exec(code, ns)  # codice nostro dal .rpy, non input esterno
@@ -33,7 +33,7 @@ CASI = [
 
 def check_wiring():
     """chapter1.rpy deve davvero passare l'input per sanitize_name."""
-    script = os.path.join(HERE, "..", "game", "routes", "chapter1.rpy")
+    script = os.path.join(HERE, "..", "game", "capitoli", "malandrini", "routes", "chapter1.rpy")
     with open(script, encoding="utf-8") as f:
         src = f.read()
     i_input = src.find("renpy.input")

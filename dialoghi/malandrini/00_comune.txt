@@ -6,10 +6,6 @@ NOME: battuta · testo semplice = narrazione · ~ testo ~ = cartello a schermo
 <Nome> = nome scelto dal giocatore
 
 
-=== START ===
-
-
-
 === CAPITOLO1 ===
 
 ~ CAPITOLO I Malandrini ~

@@ -16,16 +16,13 @@ init python:
     MM_MARGINE = 40
     MM_ALTEZZA = 860
 
-    # (chiave, fase del respiro, profondità della parallasse in px), nell'ordine
-    # del giro. Stesso ordine di make_gui.MM_CAST.
-    MM_CAST = [
-        ("aede", 0.0, 6),
-        ("ofelia", 1.3, 6),
-        ("caino", 0.6, 6),
-        ("icaro", 2.1, 6),
-        ("druso", 1.7, 6),
-    ]
-    MM_N = len(MM_CAST)
+    def mm_cast():
+        """Cast del carosello: (chiave, fase del respiro, profondità della
+        parallasse in px), nell'ordine del giro. Lo dà il capitolo del menu
+        (cast_menu= nella registrazione, es. capitoli/malandrini/capitolo.rpy);
+        [] se non ne ha."""
+        c = rcap.capitolo_menu(persistent.ultimo_capitolo)
+        return (c.cast_menu if c is not None else None) or []
 
     MM_CENTRO_X = 1260      # centro dell'area a destra del pannello (600-1920)
     MM_GIRO = 0.8           # durata della rotazione animata
@@ -40,29 +37,41 @@ init python:
 
     def mm_rel(i, centro):
         """Posto del personaggio i quando al centro c'è centro: -2..2."""
-        return (i - centro + MM_N // 2) % MM_N - MM_N // 2
+        n = len(mm_cast())
+        if not n:
+            return 0
+        return (i - centro + n // 2) % n - n // 2
 
     def mm_posto(rel):
         dx, z, a, sat, lum = MM_POSTI[abs(rel)]
         return (MM_CENTRO_X + (dx if rel >= 0 else -dx), z, a, sat, lum)
 
     def mm_ordine(centro):
-        """(i, voce di MM_CAST) dal fondo (bordi) al primo piano (centro)."""
-        return sorted(enumerate(MM_CAST), key=lambda e: -abs(mm_rel(e[0], centro)))
+        """(i, voce del cast) dal fondo (bordi) al primo piano (centro)."""
+        return sorted(enumerate(mm_cast()), key=lambda e: -abs(mm_rel(e[0], centro)))
 
     def mm_centro_iniziale():
         # Prima apertura della sessione: al centro il personaggio dell'ultimo
         # finale raggiunto, se ce n'e' uno.
         if "mm_carosello" not in renpy.session:
-            chiave = rgl.fondo_menu(persistent.ultimo_finale, FINALI)[1]
-            for i, (k, _fase, _prof) in enumerate(MM_CAST):
+            chiave = mm_fondo_finale()[1]
+            for i, (k, _fase, _prof) in enumerate(mm_cast()):
                 if k == chiave:
                     return i
-        return renpy.session.get("mm_carosello", 0) % MM_N
+        return renpy.session.get("mm_carosello", 0) % (len(mm_cast()) or 1)
+
+    def mm_fondo_finale():
+        """(sfondo, chiave del cast) dell'ultimo finale, con le tabelle del
+        capitolo a cui quel finale appartiene; (None, None) se non c'e'."""
+        ultimo = persistent.ultimo_finale
+        c = rcap.capitolo_di_finale(ultimo)
+        if c is None:
+            return (None, None)
+        return rgl.fondo_menu(ultimo, c.finali, c.regia)
 
     def mm_fondo():
         """Sfondo della route dell'ultimo finale, sfocato e scurito, o None."""
-        bg = rgl.fondo_menu(persistent.ultimo_finale, FINALI)[0]
+        bg = mm_fondo_finale()[0]
         if bg is None:
             return None
         return Transform("bg " + bg, blur=12, matrixcolor=BrightnessMatrix(-0.45))
@@ -96,83 +105,10 @@ init python:
         dizionario delle variabili di menu_cast (locals() nella screen): la
         screen e' inclusa con use, quindi SetScreenVariable scriverebbe in
         main_menu."""
-        nuovo %= MM_N
+        nuovo %= (len(mm_cast()) or 1)
         return [SetDict(scope, "mm_prima", centro),
                 SetDict(scope, "mm_centro", nuovo),
                 Function(mm_ricorda, nuovo)]
-
-    SCHEDE = {
-        "aede": dict(
-            nome="Aede",
-            route="Tempesta d'amore",
-            difficolta="3/5",
-            nota="Nessuna possibilità di poliamore.",
-            battuta="«Non siamo niente. Tu non hai visto niente.»",
-            profilo=(
-                "Una tempesta in una tazzina: la fierezza di una veterana e una "
-                "personalità scoppiettante come un fuoco d'artificio. Scontrosa e "
-                "pungente con chi non conosce, tiene i sentimenti sepolti sotto "
-                "strati di finta sicurezza, e detesta quando qualcuno li intravede."
-            ),
-            galleria="Aede",
-        ),
-        "ofelia": dict(
-            nome="Ofelia",
-            route="Tanto bella quanto letale",
-            difficolta="4/5",
-            nota="Poliamore possibile, solo con Aede e con Caino.",
-            battuta="«Quest'anno cambio. Non montarti la testa: mi annoio in fretta.»",
-            profilo=(
-                "Letale, elegante, sarcastica quando serve e spietata con i "
-                "sentimenti altrui. Corteggiatissima e dagli standard altissimi, "
-                "difficilmente prende sul serio un pretendente: dovrai dimostrarle "
-                "di essere più di un interesse passeggero."
-            ),
-            galleria="Ofelia",
-        ),
-        "caino": dict(
-            nome="Caino",
-            route="La legge del cuore",
-            difficolta="4/5",
-            nota="Attento ai dettagli: mette alla prova la tua memoria.",
-            battuta="«Era una prova. La sala è piena di gente che mi dà ragione per riflesso. Tu no.»",
-            profilo=(
-                "Arconte della Proprietà, spadaccino e grande ballerino: farebbe di "
-                "tutto per il potere. Calcolatore dal sorriso facile, vince ogni "
-                "scontro verbale anche quando ha torto. Conquistata la sua fiducia, "
-                "è un amante presente e totale."
-            ),
-            galleria="Caino",
-        ),
-        "druso": dict(
-            nome="Druso",
-            route="Il cuore provocatore",
-            difficolta="4/5 (5/5 da uomo)",
-            nota="Tienigli testa: le minacce lo esaltano.",
-            battuta="«Prendi uno scudo, linguaccia, vediamo se il braccio vale la bocca.»",
-            profilo=(
-                "Un provocatore nato: sbraita, punzecchia e ti farà pesare ogni "
-                "errore. Ma è anche un fine poeta, e nel momento del bisogno trova "
-                "un coraggio che stupisce persino lui. Cerca un alleato sincero, "
-                "non un cane che abbaia."
-            ),
-            galleria="Druso",
-        ),
-        "icaro": dict(
-            nome="Icaro",
-            route="Untouchable",
-            difficolta="5/5",
-            nota="Romance solo per protagonista donna; per gli uomini, la linea «Bro».",
-            battuta="«Non toccare. Puoi guardare. Guardare è gratis, stasera.»",
-            profilo=(
-                "Nonchalant, logico, schietto fino alla mancanza di tatto. Ama i "
-                "soldi e gli averi più del potere, bara a carte da maestro e guai a "
-                "farglielo notare. La route più difficile del gioco: diventa "
-                "l'eccezione a ogni sua regola."
-            ),
-            galleria="Icaro",
-        ),
-    }
 
     def mm_movimento_ridotto():
         # Preferenza "Animazioni" (screen preferences); se Ren'Py
@@ -195,9 +131,16 @@ init python:
             return 0
         return f
 
+    def mm_schede():
+        """Schede dei personaggi del capitolo del menu ({} se non ce ne sono)."""
+        c = rcap.capitolo_menu(persistent.ultimo_capitolo)
+        return c.schede if c is not None else {}
+
     def mm_finali_di(route):
         visti = persistent.finali_visti or set()
-        return [(titolo, fid in visti) for fid, titolo, r, _ind in FINALI if r == route]
+        c = rcap.capitolo_menu(persistent.ultimo_capitolo)
+        finali = c.finali if c is not None else []
+        return [(titolo, fid in visti) for fid, titolo, r, _ind in finali if r == route]
 
 
 ## Posto nel carosello. mm_slot_fermo: subito; mm_slot: ease dal posto di
@@ -337,7 +280,7 @@ screen menu_cast():
             ## Il pallino e' 22 px: il padding allarga la parte toccabile
             ## senza cambiare il disegno (su touch ~3 mm per lato in piu').
             spacing 0
-            for i, (chiave, fase, prof) in enumerate(MM_CAST):
+            for i, (chiave, fase, prof) in enumerate(mm_cast()):
                 imagebutton:
                     idle ("gui/mm_punto_on.png" if i == mm_centro else "gui/mm_punto.png")
                     hover "gui/mm_punto_on.png"
@@ -345,9 +288,9 @@ screen menu_cast():
                     action mm_ruota(locals(), mm_centro, i)
 
     ## Fumetto sopra la testa del personaggio sotto il mouse.
-    for i, (chiave, fase, prof) in enumerate(MM_CAST):
+    for i, (chiave, fase, prof) in enumerate(mm_cast()):
         if sotto == chiave:
-            $ s = SCHEDE[chiave]
+            $ s = mm_schede()[chiave]
             $ px, pz, pa, psat, plum = mm_posto(mm_rel(i, mm_centro))
             frame:
                 style "mm_fumetto"
@@ -397,7 +340,7 @@ screen scheda_personaggio(chiave):
 
     tag menu
 
-    $ s = SCHEDE[chiave]
+    $ s = mm_schede()[chiave]
 
     use game_menu(s["nome"]):
 

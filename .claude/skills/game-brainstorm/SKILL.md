@@ -8,10 +8,12 @@ description: Use when ideating new game content for Date the Dignitas — a new 
 ## Principio
 Niente idee a ruota libera: ogni proposta nasce già vincolata a lore, struttura del semestre ed economia dei punti. Un'idea che ignora i vincoli è lavoro da rifare.
 
+> Queste regole valgono per Malandrini. Per un capitolo nuovo parti da `modelli/capitolo/LEGGIMI.md` (e `nuovo_capitolo.py`).
+
 ## Leggi PRIMA di proporre
 1. `docs/superpowers/specs/2026-10-20-malandrini-calendario-design.md` — struttura: Lune, date fisse, scelta del cuore, snodi
 2. `docs/profili/*.md` — personaggi canonici (e menzioni: Pandora, Lenora, Ascadeo)
-3. `game/routes/snodi.rpy` + `calendario.rpy` — cosa è fisso vs a soglia
+3. `game/capitoli/malandrini/routes/snodi.rpy` + `game/capitoli/malandrini/calendario.rpy` — cosa è fisso vs a soglia
 4. Lore: Famiglia Dignitas, Nord di Yr, Rocca Tempesta, Ceppi/Rami/Autarchi/Arconti, le Virtù, il giuramento (il nome di prima è tabù), TESCHIO
 
 ## Vincoli strutturali (chi li viola riprogetta)
@@ -26,7 +28,7 @@ Niente idee a ruota libera: ogni proposta nasce già vincolata a lore, struttura
 4. **Eventi** — 3, mappati su Lune I-IV, con soglie
 5. **Economia** — tabella punti: massimo ottenibile per Luna vs soglie. Le soglie DEVONO essere raggiungibili (territorio ±1 una-tantum, eventi +1/+2); il 5/5 è "zero errori", mai "matematicamente impossibile"
 6. **Finali** — condizioni in termini di variabili reali
-7. **Budget** — scene da scrivere + asset mancanti (sprite, bg) con nomi file. Prima di dichiarare un asset "mancante", verifica con `ls "game/images"` e `ls "game/gui"`: elenca solo ciò che manca davvero
+7. **Budget** — scene da scrivere + asset mancanti (sprite, bg) con nomi file. Prima di dichiarare un asset "mancante", verifica con `ls "game/images/malandrini"` e `ls "game/gui/malandrini"`: elenca solo ciò che manca davvero
 
 ## Anti-cliché
 - Il difetto del personaggio deve costare qualcosa al giocatore, non essere decorativo

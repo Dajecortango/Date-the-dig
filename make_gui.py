@@ -9,6 +9,12 @@ from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 GUI = os.path.join(HERE, "game", "gui")
+GUI_MAL = os.path.join(GUI, "malandrini")
+IMG_MAL = os.path.join(HERE, "game", "images", "malandrini")
+# File usati solo dal codice di Malandrini: vanno in gui/malandrini/ (gli altri
+# restano in gui/, perche' li usa anche il codice comune).
+PREFISSI_MAL = ("portrait_", "luna_", "scudo", "borsa_pillola",
+                "ceralacca_festa", "cartello_data", "clessidra")
 
 ROSSO = (192, 57, 43)         # primario
 ROSSO_SCURO = (74, 16, 16)
@@ -111,7 +117,9 @@ def pattern(size):
 
 
 def save(img, *path):
-    img.save(os.path.join(GUI, *path))
+    cartella = GUI_MAL if path[0].startswith(PREFISSI_MAL) else GUI
+    os.makedirs(cartella, exist_ok=True)
+    img.save(os.path.join(cartella, *path))
 
 
 PORTRAIT = 160
@@ -143,7 +151,7 @@ def portrait_rings(img):
 def portrait(sprite_name, out_name, top_f=0.0, side_f=0.42, cx_f=0.5):
     """Ritaglia la testa dallo sprite e la monta nel tondo bordato oro.
     top_f/side_f/cx_f: frazioni del bounding box (verticale, lato, centro x)."""
-    path = os.path.join(HERE, "game", "images", sprite_name)
+    path = os.path.join(IMG_MAL, sprite_name)
     spr = Image.open(path).convert("RGBA")
     bb = spr.getbbox()
     bh = bb[3] - bb[1]
@@ -187,7 +195,8 @@ def menu_front():
     return f
 
 
-# Cast del menu (carosello, game/menu_cast.rpy): (chiave, sprite), nell'ordine
+# Cast del menu (carosello, game/menu_cast.rpy; l'ordine sta in MM_CAST di
+# game/capitoli/malandrini/capitolo.rpy): (chiave, sprite), nell'ordine
 # del giro. Tutti alla stessa altezza MM_ALTEZZA, cosi' a scala piena (il
 # personaggio al centro) hanno lo stesso ingombro; le dimensioni ai lati le
 # decide la screen con zoom.
@@ -209,7 +218,7 @@ def menu_cast():
     per lato), cosi' si sovrappongono allineati. Poi frecce e pallini."""
     M = MM_MARGINE
     for key, nome in MM_CAST:
-        spr = Image.open(os.path.join(HERE, "game", "images", nome)).convert("RGBA")
+        spr = Image.open(os.path.join(IMG_MAL, nome)).convert("RGBA")
         scala = MM_ALTEZZA / float(spr.height)
         spr = spr.resize((int(round(spr.width * scala)), MM_ALTEZZA), Image.LANCZOS)
         size = (spr.width + 2 * M, spr.height + 2 * M)
@@ -308,7 +317,7 @@ LUNE_FASI = {1: 0.18, 2: 0.33, 3: 0.5, 4: 0.66, 5: 0.82, 6: 1.0}
 
 
 def lune():
-    """gui/luna_<n>.png: disco oro con la parte in ombra scura, bordo oro."""
+    """gui/malandrini/luna_<n>.png: disco oro con la parte in ombra scura, bordo oro."""
     import math
     S, D = 4, 72
     N = D * S
@@ -1282,7 +1291,7 @@ def sigilli_quick():
 
 
 def borsa_hud():
-    """Moneta dello Scudo e fondo della borsa a schermo (game/borsa.rpy):
+    """Moneta dello Scudo e fondo della borsa a schermo (game/capitoli/malandrini/borsa.rpy):
     leggeri, senza cornice miniata."""
     D = 44
     t = Tela(D, D)
@@ -1458,7 +1467,7 @@ def ombre_sprite():
     """Ombra della sagoma di ogni sprite (game/luce.rpy): l'alfa dello sprite,
     sfocata e scurita, a meta' risoluzione (in gioco zoom 2). Pre-calcolata:
     il blur di Ren'Py su questi sprite non si vedeva."""
-    src = os.path.join(HERE, "game", "images")
+    src = IMG_MAL
     out = os.path.join(GUI, "ombre")
     os.makedirs(out, exist_ok=True)
     dimensioni = {}

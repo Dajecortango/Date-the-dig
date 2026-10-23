@@ -3,7 +3,7 @@ grading unificato (dominante calda, leggero contrasto, vignetta scura) per
 legare sfondi AI di batch diversi alla palette rosso-oro-nero.
 
 Uso:
-  py -3 make_bg.py <cartella_sorgenti>     installa i sorgenti in game/images
+  py -3 make_bg.py <cartella_sorgenti>     installa i sorgenti in game/images/malandrini
   py -3 make_bg.py --grade-only <file>...  gradua in place file gia' installati
   py -3 make_bg.py --nero                  rigenera solo "bg nero.webp"
 
@@ -16,7 +16,8 @@ import sys
 from PIL import Image, ImageDraw, ImageEnhance
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-IMAGES = os.path.join(HERE, "game", "images")
+IMAGES = os.path.join(HERE, "game", "images", "malandrini")
+IMAGES_COMUNE = os.path.join(HERE, "game", "images", "comune")
 W, H = 1920, 1080
 
 # Sorgenti con nomi che la normalizzazione generica non copre.
@@ -74,7 +75,7 @@ def make_nero():
     base = Image.new("RGB", (W, H), (24, 10, 9))
     dark = Image.new("RGB", (W, H), (8, 6, 6))
     img = Image.composite(dark, base, vignette_mask(255))
-    out = os.path.join(IMAGES, "bg nero.webp")
+    out = os.path.join(IMAGES_COMUNE, "bg nero.webp")
     img.save(out, quality=90, method=6)
     print("rigenerato", out)
 

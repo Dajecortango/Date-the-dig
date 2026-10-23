@@ -9,9 +9,14 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 GAME = os.path.join(HERE, "..", "game")
-sys.path.insert(0, GAME)
+# Cartella del capitolo Malandrini, relativa a GAME.
+MAL_REL = os.path.join("capitoli", "malandrini")
+sys.path.insert(0, HERE)
+from percorsi import prepara_import  # noqa: E402
+prepara_import()
 
 import regia_logic as rl  # noqa: E402
+import regia_tabelle as tab  # noqa: E402
 
 FAILURES = []
 
@@ -37,11 +42,12 @@ FINALI_FINTI = [
 
 
 def test_tinte():
-    check("tinta neve", rl.tinta_per("esterno_neve", "mattina"), "#9fb8ff")
-    check("tinta vicoli sera", rl.tinta_per("vicoli_zefiro", "sera"), "#5a6fa8")
-    check("tinta vicoli mattina", rl.tinta_per("vicoli_zefiro", "mattina"), None)
-    check("tinta sconosciuto", rl.tinta_per("palestra", "sera"), None)
-    check("tinta None", rl.tinta_per(None, None), None)
+    check("tinta neve", rl.tinta_per("esterno_neve", "mattina", tab), "#9fb8ff")
+    check("tinta vicoli sera", rl.tinta_per("vicoli_zefiro", "sera", tab), "#5a6fa8")
+    check("tinta vicoli mattina", rl.tinta_per("vicoli_zefiro", "mattina", tab), None)
+    check("tinta sconosciuto", rl.tinta_per("palestra", "sera", tab), None)
+    check("tinta None", rl.tinta_per(None, None, tab), None)
+    check("tinta senza tabelle", rl.tinta_per("vicoli_zefiro", "sera", None), None)
     check("forza", rl.TINTA_FORZA, 0.18)
 
 
@@ -81,11 +87,14 @@ def test_transizioni():
 
 
 def test_fondo_menu():
-    check("neutro route", rl.fondo_menu("druso_neutral", FINALI_FINTI), ("palestra", "druso"))
-    check("caino", rl.fondo_menu("caino_good_end", FINALI_FINTI), ("corridoio_ceppo", "caino"))
-    check("semestre", rl.fondo_menu("finale_neutro_semestre", FINALI_FINTI), ("esterno_neve", None))
-    check("nessuno", rl.fondo_menu(None, FINALI_FINTI), (None, None))
-    check("ignoto", rl.fondo_menu("boh", FINALI_FINTI), (None, None))
+    fm = rl.fondo_menu
+    check("neutro route", fm("druso_neutral", FINALI_FINTI, tab), ("palestra", "druso"))
+    check("caino", fm("caino_good_end", FINALI_FINTI, tab), ("corridoio_ceppo", "caino"))
+    check("semestre", fm("finale_neutro_semestre", FINALI_FINTI, tab), ("esterno_neve", None))
+    check("nessuno", fm(None, FINALI_FINTI, tab), (None, None))
+    check("ignoto", fm("boh", FINALI_FINTI, tab), (None, None))
+    check("fondo senza tabelle", fm("druso_neutral", FINALI_FINTI, None), (None, None))
+    check("semestre senza tabelle", fm("finale_neutro_semestre", FINALI_FINTI, None), (None, None))
 
 
 def test_conteggio():
@@ -104,7 +113,7 @@ def check_luce():
     for pezzo in ("get_say_image_tag", "NoRollback", "after_load_callbacks",
                   "rgl.tinta_per", "rgl.oscurato", "rgl.movimento_per"):
         check("luce.rpy usa " + pezzo, pezzo in luce, True)
-    aede = leggi(os.path.join("routes", "aede_core.rpy"))
+    aede = leggi(os.path.join(MAL_REL, "routes", "aede_core.rpy"))
     check("glauco ha image=",
           bool(re.search(r'Character\("Glauco Severo"[^)]*image="glauco"', aede)), True)
     regia = leggi("regia.rpy")
@@ -135,7 +144,7 @@ def check_scelte():
 
 
 def check_calendario():
-    cal = leggi("calendario.rpy")
+    cal = leggi(os.path.join(MAL_REL, "calendario.rpy"))
     check("pianificatore si srotola", "at (pian_fisso if pian_fermo else pian_srotola)" in cal, True)
     check("voci in cascata", "pian_voce(" in cal, True)
     check("suono carta", "audio/carta.ogg" in cal, True)
@@ -144,9 +153,9 @@ def check_calendario():
 
 
 def check_borsa():
-    b = leggi("borsa.rpy")
+    b = leggi(os.path.join(MAL_REL, "borsa.rpy"))
     check("borsa usa conteggio", "rgl.conteggio(" in b, True)
-    check("borsa luccichio", "gui/scudo_luccichio.png" in b, True)
+    check("borsa luccichio", "gui/malandrini/scudo_luccichio.png" in b, True)
     check("borsa contatore istantaneo dopo rollback", "_bo.t0 = 0.0" in b, True)
 
 
@@ -164,13 +173,13 @@ def check_menu():
 
 def check_particelle():
     fx = leggi("effetti.rpy")
-    righe = {(b, n) for b, n, _q in rl.EFFETTI_SFONDI}
+    righe = {(b, n) for b, n, _q in tab.EFFETTI_SFONDI}
     for bg, nome in (("studio_glauco", "braci"), ("corridoio_ceppo", "braci"),
                      ("arena_athlion", "nevischio"), ("vicoli_zefiro", "pioggia")):
         check("particelle %s su %s" % (nome, bg), (bg, nome) in righe, True)
     check("pioggia usa rgl.piove", "rgl.piove(" in fx, True)
-    au = leggi("audio.rpy")
-    check("ambiente pioggia", "audio/amb_pioggia.ogg" in au, True)
+    mal = leggi(os.path.join("capitoli", "malandrini", "capitolo.rpy"))
+    check("ambiente pioggia", "audio/malandrini/amb_pioggia.ogg" in mal, True)
 
 
 def check_regia_primitive():
@@ -212,12 +221,19 @@ def test_estetica2_regole():
           max(abs(a - b) for a, b in zip(fiamme, fiamme[1:])) < 0.01, True)
     veli = [rl.velo_fuoco(i * 0.05) for i in range(600)]
     check("velo nei limiti", all(0.02 <= v <= 0.06 for v in veli), True)
-    check("fuoco vicoli sera", rl.fuoco_per("vicoli_zefiro", "sera"), True)
-    check("niente fuoco vicoli mattina", rl.fuoco_per("vicoli_zefiro", "mattina"), False)
-    check("fuoco studio", rl.fuoco_per("studio_glauco", "mattina"), True)
-    check("niente fuoco palestra", rl.fuoco_per("palestra", "sera"), False)
+    check("fuoco vicoli sera", rl.fuoco_per("vicoli_zefiro", "sera", tab), True)
+    check("niente fuoco vicoli mattina", rl.fuoco_per("vicoli_zefiro", "mattina", tab), False)
+    check("fuoco studio", rl.fuoco_per("studio_glauco", "mattina", tab), True)
+    check("niente fuoco palestra", rl.fuoco_per("palestra", "sera", tab), False)
+    check("niente fuoco senza tabelle", rl.fuoco_per("studio_glauco", "sera", None), False)
 
-    ep = rl.effetti_per
+    def ep(bg, slot, ctx, piove, tempesta):
+        return rl.effetti_per(bg, slot, ctx, piove, tempesta, tab)
+    check("asciutto da tabella", tab.EFFETTI_ASCIUTTO, (("vicoli_zefiro", "luccichii"),))
+    check("effetti senza tabelle",
+          rl.effetti_per("esterno_neve", None, None, False, False, None), ())
+    check("effetti vicoli senza tabelle",
+          rl.effetti_per("vicoli_zefiro", "sera", "fumeria", False, False, None), ())
     check("neve fitta in tempesta", ep("esterno_neve", "sera", "luna6_climax", False, True), ("neve_fitta",))
     check("neve normale", ep("esterno_neve", "sera", "luna6_climax", False, False), ("neve",))
     check("vicoli sera", ep("vicoli_zefiro", "sera", None, False, False), ("fumo", "luccichii"))
@@ -249,7 +265,11 @@ def check_estetica2_sprite():
     mg = open(os.path.join(HERE, "..", "make_gui.py"), encoding="utf-8").read()
     check("make_gui genera le ombre", "def ombre_sprite" in mg and "ombre_sprite()" in mg, True)
     check("ombre generate", os.path.exists(os.path.join(GAME, "gui", "ombre", "ofelia_neutra.webp")), True)
-    check("tonfo di Druso all'entrata", '("tonfo"' in luce and '"druso"' in luce, True)
+    mal = leggi(os.path.join("capitoli", "malandrini", "capitolo.rpy"))
+    check("tonfo di Druso all'entrata",
+          'entrate={"druso": ("tonfo", 0.3)}' in mal, True)
+    check("entrate generiche in luce.rpy",
+          "for tag, (mov, ritardo) in" in luce and "entrate.items()" in luce, True)
 
 
 def check_estetica2_particelle():
@@ -262,7 +282,7 @@ def check_estetica2_particelle():
     check("default regia_tempesta", "default regia_tempesta = False" in regia, True)
     scena = regia.split("def _regia_scene", 1)[1].split("def ", 1)[0]
     check("scene spegne la tempesta", "regia_tempesta = False" in scena, True)
-    climax = leggi(os.path.join("routes", "aede_finali.rpy")).split("label climax:", 1)[1].split("\nlabel ", 1)[0]
+    climax = leggi(os.path.join(MAL_REL, "routes", "aede_finali.rpy")).split("label climax:", 1)[1].split("\nlabel ", 1)[0]
     check("tempesta nel climax di Aede", "$ tempesta()" in climax, True)
     mg = open(os.path.join(HERE, "..", "make_gui.py"), encoding="utf-8").read()
     for img in ("fx_foglia.png", "fx_scintilla.png", "fx_luccichio.png"):
@@ -281,7 +301,7 @@ def check_estetica2_lento():
 
 
 def check_estetica2_cartello():
-    cal = leggi("calendario.rpy")
+    cal = leggi(os.path.join(MAL_REL, "calendario.rpy"))
     check("cartello con giorno e luna precedenti",
           "screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None)" in cal, True)
     for t in ("giorno_esce", "giorno_entra", "luna_esce", "luna_entra"):
@@ -291,7 +311,7 @@ def check_estetica2_cartello():
 
 
 def check_estetica2_monete():
-    bo = leggi("borsa.rpy")
+    bo = leggi(os.path.join(MAL_REL, "borsa.rpy"))
     check("numero di monete da rgl", "rgl.monete_per(" in bo, True)
     check("screen delle monete", "screen borsa_monete():" in bo, True)
     check("overlay delle monete", 'config.overlay_screens.append("borsa_monete")' in bo, True)
@@ -307,7 +327,7 @@ MUOVI_NOMI = ("sobbalzo", "arretra", "avanza", "trema", "tonfo")
 def _labels_route():
     """(file, label, corpo) di ogni label nelle route."""
     out = []
-    cartella = os.path.join(GAME, "routes")
+    cartella = os.path.join(GAME, MAL_REL, "routes")
     for f in sorted(os.listdir(cartella)):
         if not f.endswith(".rpy"):
             continue
@@ -355,7 +375,83 @@ def check_estetica2_revisione():
     check("particelle ferme in skip", "renpy.is_skipping()" in corpo, True)
 
 
+# --- Capitoli scalabili: codice comune senza nomi di Malandrini ----------
+
+FILE_COMUNI = ("regia_logic.py", "effetti.rpy", "luce.rpy", "audio.rpy",
+               "feedback.rpy", "regia.rpy", "capitoli.rpy", "screens.rpy",
+               "menu_cast.rpy", "finali_galleria.rpy", "protagonista.rpy")
+NOMI_MALANDRINI = ("aede", "caino", "druso", "icaro", "ofelia",
+                   "vicoli_zefiro", "cala_notte", "esterno_neve")
+
+
+def _senza_commento(riga):
+    """La riga senza il commento (un # fuori dalle stringhe)."""
+    quote = None
+    i = 0
+    while i < len(riga):
+        c = riga[i]
+        if quote:
+            if c == "\\":
+                i += 1
+            elif c == quote:
+                quote = None
+        elif c in "\"'":
+            quote = c
+        elif c == "#":
+            return riga[:i]
+        i += 1
+    return riga
+
+
+def check_codice_comune_pulito():
+    check("senza commento", _senza_commento('x = "#abc"  # aede'), 'x = "#abc"  ')
+    nomi = re.compile(r"\b(%s)\b" % "|".join(NOMI_MALANDRINI), re.I)
+    for rel in FILE_COMUNI:
+        trovati = []
+        for n, riga in enumerate(leggi(rel).splitlines(), 1):
+            for m in nomi.finditer(_senza_commento(riga)):
+                trovati.append("%d:%s" % (n, m.group(1)))
+        check("codice comune pulito: " + rel, trovati, [])
+
+
+def check_capitolo_regia():
+    check("capitolo_regia definita", "def capitolo_regia(" in leggi("capitoli.rpy"), True)
+    for rel, pezzi in (("effetti.rpy", ("rgl.effetti_per(",)),
+                       ("luce.rpy", ("rgl.tinta_per(", "rgl.fuoco_per(")),
+                       ("menu_cast.rpy", ("rgl.fondo_menu(",))):
+        src = leggi(rel)
+        for p in pezzi:
+            # La chiamata con le sue righe di continuazione: le tabelle sono
+            # capitolo_regia(), diretta o passata da "tab = capitolo_regia()".
+            chiamate = re.findall(re.escape(p) + r"[^\n]*(?:\n[^\n]*){0,3}", src)
+            # Fondo del menu: le tabelle del capitolo dell'ultimo finale
+            # (rcap.capitolo_di_finale, Task 7).
+            buona = lambda c: ("capitolo_regia()" in c
+                               or (", tab)" in c and "tab = capitolo_regia()" in src)
+                               or (", c.regia)" in c and "c = rcap.capitolo_di_finale(" in src))
+            check("%s: %s con capitolo_regia()" % (rel, p),
+                  bool(chiamate) and all(buona(c) for c in chiamate), True)
+    fb = leggi("feedback.rpy")
+    check("feedback dal capitolo", "FEEDBACK_AFFINITA" not in fb and ".affinita" in fb, True)
+    check("niente side image in feedback.rpy",
+          bool(re.search(r"^image side ", fb, re.M)), False)
+    rit = os.path.join(GAME, "capitoli", "malandrini", "ritratti.rpy")
+    rit_src = open(rit, encoding="utf-8").read() if os.path.exists(rit) else ""
+    for c in ("aede", "caino", "ofelia", "druso", "icaro", "briseide", "vanna", "corrado"):
+        check("ritratto " + c, 'image side %s = "gui/malandrini/portrait_%s.png"' % (c, c) in rit_src, True)
+    mal = leggi(os.path.join("capitoli", "malandrini", "capitolo.rpy"))
+    for p in ("regia=regia_tabelle", "ambienti=", "ambiente_pioggia=",
+              "ambiente_arrivo=", "entrate=", "affinita="):
+        check("registrazione Malandrini: " + p, p in mal, True)
+    au = leggi("audio.rpy")
+    check("audio senza AMBIENTI fissi", "AMBIENTI = {" in au, False)
+    for p in (".ambienti", ".ambiente_pioggia", ".ambiente_arrivo"):
+        check("audio legge " + p, p in au, True)
+
+
 def main():
+    check_codice_comune_pulito()
+    check_capitolo_regia()
     check_luce()
     check_regia_primitive()
     check_particelle()

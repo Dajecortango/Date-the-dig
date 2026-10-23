@@ -8,7 +8,7 @@ import os
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-IMAGES = os.path.join(HERE, "game", "images")
+IMAGES = os.path.join(HERE, "game", "images", "malandrini")
 FONTS = os.path.join(HERE, "game", "fonts")
 
 ROSSO_SCURO = (74, 16, 16)

@@ -1,10 +1,10 @@
-"""Esporta i dialoghi del gioco in forma di copione, un file per route.
+"""Esporta i dialoghi del gioco in forma di copione, un file per route, in una cartella per capitolo.
 
 Legge gli script .rpy di game/ e tiene solo cio che il giocatore legge:
 battute, narrazione, cartelli `centered` e le risposte dei menu.
 Niente comandi, condizioni o riferimenti al codice.
 
-Uso: py -3 esporta_dialoghi.py   (scrive in dialoghi/)
+Uso: py -3 esporta_dialoghi.py   (scrive in dialoghi/<capitolo>/)
 """
 
 import re
@@ -14,22 +14,31 @@ RADICE = Path(__file__).parent
 GIOCO = RADICE / "game"
 USCITA = RADICE / "dialoghi"
 
-# Un copione per route, coi file nell'ordine di lettura.
-ROUTE = {
-    "00_comune": ["script.rpy", "routes/chapter1.rpy", "routes/lenora.rpy",
-                  "routes/snodi.rpy", "routes/incroci.rpy", "routes/attivita.rpy",
-                  "routes/echi.rpy", "routes/origliati.rpy"],
-    "01_aede": ["routes/aede_core.rpy", "routes/aede_atto1.rpy", "routes/aede_interludi.rpy",
-                "routes/aede_eventi.rpy", "routes/aede_atto2.rpy", "routes/aede_finali.rpy"],
-    "02_caino": ["routes/caino_core.rpy", "routes/caino_atto1.rpy", "routes/caino_eventi.rpy",
-                 "routes/caino_atto2.rpy", "routes/caino_finali.rpy"],
-    "03_druso": ["routes/druso_core.rpy", "routes/druso_atto1.rpy", "routes/druso_eventi.rpy",
-                 "routes/druso_atto2.rpy", "routes/druso_finali.rpy"],
-    "04_icaro": ["routes/icaro_core.rpy", "routes/icaro_atto1.rpy", "routes/icaro_eventi.rpy",
-                 "routes/icaro_atto2.rpy", "routes/icaro_finali.rpy"],
-    "05_ofelia": ["routes/ofelia_core.rpy", "routes/ofelia_atto1.rpy", "routes/ofelia_eventi.rpy",
-                  "routes/ofelia_atto2.rpy", "routes/ofelia_finali.rpy"],
-}
+# Route del capitolo I, "Malandrini" (relative a game/).
+MAL = "capitoli/malandrini/routes/"
+
+# Un capitolo nuovo si aggiunge con una voce: id -> {copione: [file in ordine di lettura]}.
+# I copioni finiscono in dialoghi/<id>/.
+CAPITOLI = {"malandrini": {
+    "00_comune": [MAL + f for f in (
+        "chapter1.rpy", "lenora.rpy", "snodi.rpy", "incroci.rpy", "attivita.rpy",
+        "echi.rpy", "origliati.rpy")],
+    "01_aede": [MAL + f for f in (
+        "aede_core.rpy", "aede_atto1.rpy", "aede_interludi.rpy", "aede_eventi.rpy",
+        "aede_atto2.rpy", "aede_finali.rpy")],
+    "02_caino": [MAL + f for f in (
+        "caino_core.rpy", "caino_atto1.rpy", "caino_eventi.rpy", "caino_atto2.rpy",
+        "caino_finali.rpy")],
+    "03_druso": [MAL + f for f in (
+        "druso_core.rpy", "druso_atto1.rpy", "druso_eventi.rpy", "druso_atto2.rpy",
+        "druso_finali.rpy")],
+    "04_icaro": [MAL + f for f in (
+        "icaro_core.rpy", "icaro_atto1.rpy", "icaro_eventi.rpy", "icaro_atto2.rpy",
+        "icaro_finali.rpy")],
+    "05_ofelia": [MAL + f for f in (
+        "ofelia_core.rpy", "ofelia_atto1.rpy", "ofelia_eventi.rpy", "ofelia_atto2.rpy",
+        "ofelia_finali.rpy")],
+}}
 
 RE_CHAR = re.compile(r'^define\s+(\w+)\s*=\s*Character\(\s*"([^"]*)"')
 RE_LABEL = re.compile(r"^label\s+([\w.]+)")
@@ -38,7 +47,7 @@ RE_IF = re.compile(r"^(if|elif|else)\b\s*(.*?):$")
 RE_SAY = re.compile(r'^(?:(\w+)(?:\s+[\w-]+)*\s+)?"((?:[^"\\]|\\.)*)"(.*)$')
 RE_TAG = re.compile(r"\{[^}]*\}")
 RE_VAR = re.compile(r"\[(\w+)\]")
-# Testi che cambiano col genere scelto: maschile/femminile, come in aede_core.rpy.
+# Testi che cambiano col genere scelto: maschile/femminile, come in protagonista.rpy.
 VARIABILI = {
     "player_name": "<Nome>", "fin": "o/a", "figlio_t": "Figlio/a",
     "fratello_t": "fratellino/sorellina", "il_fratello_t": "il fratellino/la sorellina",
@@ -120,24 +129,26 @@ def copione(f, nomi):
 
 
 def main():
-    USCITA.mkdir(exist_ok=True)
     nomi = personaggi()
-    for route, files in ROUTE.items():
-        righe = []
-        for f in files:
-            if (GIOCO / f).exists():
-                righe += copione(f, nomi)
-        titolo = "PARTI COMUNI" if route == "00_comune" else "ROUTE " + route[3:].upper()
-        testa = [
-            f"DATE THE DIGNITAS — {titolo}",
-            "",
-            "NOME: battuta · testo semplice = narrazione · ~ testo ~ = cartello a schermo",
-            "[SCELTA] seguita dalle risposte > possibili, con sotto cosa succede",
-            "[VARIANTE] = testo che cambia in base alle scelte fatte prima",
-            "<Nome> = nome scelto dal giocatore",
-        ]
-        (USCITA / f"{route}.txt").write_text("\n".join(testa + righe) + "\n", encoding="utf-8")
-        print(f"{route}.txt: {len(righe)} righe")
+    for capitolo, copioni in CAPITOLI.items():
+        cartella = USCITA / capitolo
+        cartella.mkdir(parents=True, exist_ok=True)
+        for route, files in copioni.items():
+            righe = []
+            for f in files:
+                if (GIOCO / f).exists():
+                    righe += copione(f, nomi)
+            titolo = "PARTI COMUNI" if route == "00_comune" else "ROUTE " + route[3:].upper()
+            testa = [
+                f"DATE THE DIGNITAS — {titolo}",
+                "",
+                "NOME: battuta · testo semplice = narrazione · ~ testo ~ = cartello a schermo",
+                "[SCELTA] seguita dalle risposte > possibili, con sotto cosa succede",
+                "[VARIANTE] = testo che cambia in base alle scelte fatte prima",
+                "<Nome> = nome scelto dal giocatore",
+            ]
+            (cartella / f"{route}.txt").write_text("\n".join(testa + righe) + "\n", encoding="utf-8")
+            print(f"{capitolo}/{route}.txt: {len(righe)} righe")
 
 
 if __name__ == "__main__":

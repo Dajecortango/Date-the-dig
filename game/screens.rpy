@@ -129,13 +129,8 @@ transform box_entra:
 
 ## Colori dei personaggi per il diamante del namebox.
 init python:
-    CHAR_COLORS = {
-        "Aede": "#c0392b", "Caino": "#c87a30", "Druso": "#8a9bb0",
-        "Icaro": "#7fa06a", "Glauco Severo": "#6b6b6b",
-        "Briseide Ippodamia": "#b8860b", "Vanna": "#8fbc8f",
-        "Corrado": "#87a7c7", "Ofelia": "#7d3c98",
-        "Lenora": "#a8a8c0", "Pandora": "#c98fa0",
-    }
+    # Riempito dai capitoli alla registrazione (capitolo.rpy).
+    CHAR_COLORS = {}
 
     def char_color(who):
         return CHAR_COLORS.get(who, "#d4af37")
@@ -365,7 +360,7 @@ style choice_button_text is default:
 
 init python:
     # (immagine in gui/quick/, tooltip)
-    QUICK_SIGILLI = [
+    QUICK_SIGILLI_TUTTI = [
         ("indietro", _("Indietro")),
         ("memorie", _("Memorie")),
         ("salta", _("Salta")),
@@ -380,8 +375,8 @@ init python:
     # salvataggi rapidi restano nel menu Salva/Carica, la Borsa si apre dalla
     # pillola degli Scudi in alto a destra.
     if renpy.variant("small"):
-        QUICK_SIGILLI = [q for q in QUICK_SIGILLI
-                         if q[0] not in ("qsalva", "qcarica", "borsa")]
+        QUICK_SIGILLI_TUTTI = [q for q in QUICK_SIGILLI_TUTTI
+                               if q[0] not in ("qsalva", "qcarica", "borsa")]
     # Su touch non c'e' tooltip: sopra ogni sigillo un'etichetta corta (i
     # tooltip interi non ci stanno nei 96 px del sigillo).
     QUICK_ETICHETTE = {
@@ -400,6 +395,12 @@ init python:
     QUICK_LATO = 112 if renpy.variant("small") else 60
     QUICK_SPAZIO = 14 if renpy.variant("small") else 10
     QUICK_ETICHETTA_H = 32 if renpy.variant("small") else 26
+
+    def quick_sigilli():
+        """I sigilli del menu rapido: la Borsa solo nei capitoli che l'hanno."""
+        if capitolo_ha("borsa"):
+            return QUICK_SIGILLI_TUTTI
+        return [q for q in QUICK_SIGILLI_TUTTI if q[0] != "borsa"]
 
     def quick_azione(chiave):
         return {
@@ -431,7 +432,7 @@ init python:
                 1080 - gui.textbox_height + 14 - QUICK_LATO // 2)
 
     def quick_larghezza():
-        n = len(QUICK_SIGILLI)
+        n = len(quick_sigilli())
         return n * QUICK_LATO + (n - 1) * QUICK_SPAZIO
 
 screen quick_menu():
@@ -448,7 +449,7 @@ screen quick_menu():
             pos qpos
             spacing QUICK_SPAZIO
 
-            for chiave, suggerimento in QUICK_SIGILLI:
+            for chiave, suggerimento in quick_sigilli():
                 imagebutton:
                     auto "gui/quick/" + chiave + "_%s.png"
                     action quick_azione(chiave)
@@ -460,13 +461,13 @@ screen quick_menu():
             hbox:
                 pos (qpos[0], qpos[1] - QUICK_ETICHETTA_H)
                 spacing QUICK_SPAZIO
-                for chiave, _s in QUICK_SIGILLI:
+                for chiave, _s in quick_sigilli():
                     fixed:
                         xysize (QUICK_LATO, QUICK_ETICHETTA_H)
                         text QUICK_ETICHETTE[chiave] style "quick_etichetta_text"
 
         $ qtt = GetTooltip("quick_menu")
-        $ qtesti = [s for _c, s in QUICK_SIGILLI]
+        $ qtesti = [s for _c, s in quick_sigilli()]
         if qtt in qtesti:
             $ qidx = qtesti.index(qtt)
             frame:
@@ -564,17 +565,22 @@ screen navigation():
             if ultimo_slot is not None:
                 textbutton _("Continua") action FileLoad(ultimo_slot, slot=True, confirm=False)
 
-            textbutton _("Start") action Start()
+            ## Scelta del capitolo (capitoli.rpy).
+            textbutton _("Start") action ShowMenu("scegli_capitolo")
 
         else:
 
-            textbutton _("Diario") action ShowMenu("diario")
+            if capitolo_ha("diario"):
+                textbutton _("Diario") action ShowMenu("diario")
 
-            textbutton _("Cronache") action ShowMenu("cronache")
+            if capitolo_ha("cronache"):
+                textbutton _("Cronache") action ShowMenu("cronache")
 
-            textbutton _("Trama") action ShowMenu("trama")
+            if capitolo_ha("trama"):
+                textbutton _("Trama") action ShowMenu("trama")
 
-            textbutton _("Borsa") action ShowMenu("inventario")
+            if capitolo_ha("borsa"):
+                textbutton _("Borsa") action ShowMenu("inventario")
 
             textbutton _("History") action ShowMenu("history")
 
@@ -662,8 +668,10 @@ screen main_menu():
     frame:
         style "main_menu_frame"
 
-    ## Cast cliccabile e vivo (game/menu_cast.rpy).
-    use menu_cast
+    ## Cast cliccabile e vivo (game/menu_cast.rpy), se il capitolo del menu
+    ## ne ha uno: altrimenti solo il fondo.
+    if mm_cast():
+        use menu_cast
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
@@ -1036,9 +1044,11 @@ screen file_slots(title):
                             xalign 0.5
                             add FileScreenshot(slot)
                             ## Ritratto della route attiva al momento del salvataggio.
+                            ## Il ritratto lo da' il capitolo del salvataggio (ignoto o senza ritratto: nessuno).
                             $ slot_route = FileJson(slot, "route")
-                            if slot_route:
-                                add Transform(cal_portrait(slot_route), zoom=0.36) align (1.0, 1.0) offset (6, 6)
+                            $ slot_cap = rcap.ottieni(FileJson(slot, "capitolo") or "malandrini") if slot_route else None
+                            if slot_route and slot_cap is not None and slot_cap.ritratto is not None:
+                                add Transform(slot_cap.ritratto(slot_route), zoom=0.36) align (1.0, 1.0) offset (6, 6)
 
                         text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
                             style "slot_time_text"

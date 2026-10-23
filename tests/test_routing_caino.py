@@ -7,8 +7,11 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-FINALI = os.path.join(HERE, "..", "game", "routes", "caino_finali.rpy")
-sys.path.insert(0, os.path.join(HERE, "..", "game"))
+FINALI = os.path.join(HERE, "..", "game", "capitoli", "malandrini", "routes",
+                      "caino_finali.rpy")
+sys.path.insert(0, HERE)
+from percorsi import prepara_import  # noqa: E402
+prepara_import()
 
 import routing_logic as rl  # noqa: E402
 

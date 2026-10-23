@@ -1,6 +1,6 @@
 """Verifica il routing dei finali: chiama le funzioni pure di
-game/routing_logic.py (le stesse che i .rpy usano con `jump expression`) e
-controlla che ogni climax le usi davvero.
+game/capitoli/malandrini/routing_logic.py (le stesse che i .rpy usano con
+`jump expression`) e controlla che ogni climax le usi davvero.
 
 Uso: py -3 -I tests/test_routing.py
 """
@@ -8,8 +8,10 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROUTES = os.path.join(HERE, "..", "game", "routes")
-sys.path.insert(0, os.path.join(HERE, "..", "game"))
+ROUTES = os.path.join(HERE, "..", "game", "capitoli", "malandrini", "routes")
+sys.path.insert(0, HERE)
+from percorsi import prepara_import  # noqa: E402
+prepara_import()
 
 import routing_logic as rl  # noqa: E402
 

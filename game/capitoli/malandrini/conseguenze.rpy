@@ -1,11 +1,11 @@
-# Conseguenze — integrazione Ren'Py del motore puro (game/conseguenze_logic.py).
+# Conseguenze — integrazione Ren'Py del motore puro (conseguenze_logic.py).
 # Qui vivono: il registro automatico delle scelte (wrapper di menu), il
 # registry FATTI, il registry ECHI (scene in routes/echi.rpy), gli avvisi e
 # la screen "Trama" con l'albero delle conseguenze.
 # Spec: docs/superpowers/specs/2026-10-22-conseguenze-design.md
 
 init -5 python:
-    import conseguenze_logic as csl
+    from capitoli.malandrini import conseguenze_logic as csl
 
     # Ogni menu del gioco passa di qui (define menu sotto): la scena non
     # cambia, la scelta finisce in scelte_partita e nelle opzioni storiche.
@@ -405,4 +405,3 @@ init 999 python:
         csl.migra_storico(store.scelte_partita, {}, set(),
                           csl.OPZIONI_RINOMINATE)
 
-    config.after_load_callbacks.append(_conseguenze_migra_salvataggio)

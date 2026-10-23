@@ -6,11 +6,11 @@
 #   att_taverna_botta  (taverna)         botta e risposta a tempo con Druso
 # Sempre saltabili ("Lascia andare": esito neutro, nessun punto).
 # Esito = fatto (FATTI) + al massimo +-1 una tantum (la scena sta nel pool).
-# Logica pura: game/minigiochi_logic.py (tests/test_minigiochi.py).
+# Logica pura: minigiochi_logic.py (tests/test_minigiochi.py).
 # Spec: docs/superpowers/specs/2026-10-22-pacchetto-40-consigli-design.md
 
 init python:
-    import minigiochi_logic as mgl
+    from capitoli.malandrini import minigiochi_logic as mgl
 
     CONSEGUENZE_VARS.extend(["mg_duello", "mg_carte", "mg_registri", "mg_botta"])
 

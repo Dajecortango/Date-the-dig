@@ -1,5 +1,5 @@
-"""Verifica la logica dei minigiochi (game/minigiochi_logic.py) e il
-cablaggio in game/minigiochi.rpy.
+"""Verifica la logica dei minigiochi (minigiochi_logic.py) e il
+cablaggio in minigiochi.rpy (game/capitoli/malandrini/).
 
 Uso: py -3 -I tests/test_minigiochi.py
 """
@@ -10,7 +10,9 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 GAME = os.path.join(HERE, "..", "game")
-sys.path.insert(0, GAME)
+sys.path.insert(0, HERE)
+from percorsi import prepara_import  # noqa: E402
+prepara_import()
 
 import minigiochi_logic as mgl  # noqa: E402
 
@@ -107,7 +109,7 @@ def test_delta():
 
 
 def test_cablaggio():
-    with open(os.path.join(GAME, "minigiochi.rpy"), encoding="utf-8") as f:
+    with open(os.path.join(GAME, "capitoli", "malandrini", "minigiochi.rpy"), encoding="utf-8") as f:
         src = f.read()
     for label in ("att_spada_duello", "att_fumeria_carte", "att_registri_conti",
                   "att_taverna_botta"):

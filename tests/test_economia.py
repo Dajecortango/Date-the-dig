@@ -1,5 +1,6 @@
-"""Verifica gli usi degli Scudi (game/economia_logic.py) e la coerenza di
-game/economia_extra.rpy (reazioni ai doni, label registrate, sprite).
+"""Verifica gli usi degli Scudi (economia_logic.py) e la coerenza di
+economia_extra.rpy (reazioni ai doni, label registrate, sprite), in
+game/capitoli/malandrini/.
 
 Uso: py -3 -I tests/test_economia.py
 """
@@ -9,7 +10,11 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 GAME = os.path.join(HERE, "..", "game")
-sys.path.insert(0, GAME)
+# Cartella del capitolo Malandrini, relativa a GAME.
+MAL_REL = os.path.join("capitoli", "malandrini")
+sys.path.insert(0, HERE)
+from percorsi import prepara_import  # noqa: E402
+prepara_import()
 
 import economia_logic as ecl  # noqa: E402
 
@@ -82,9 +87,9 @@ def test_scommessa():
 
 
 def test_rpy():
-    src = leggi("economia_extra.rpy")
-    eco = leggi("economia.rpy")
-    imgs = os.listdir(os.path.join(GAME, "images"))
+    src = leggi(os.path.join(MAL_REL, "economia_extra.rpy"))
+    eco = leggi(os.path.join(MAL_REL, "economia.rpy"))
+    imgs = os.listdir(os.path.join(GAME, "images", "malandrini"))
     reaz = re.findall(r'\("(\w+)", "(\w+)"\): \("(\w+)", \[', src)
     attese = {(c, d) for c, g in GUSTI.items() for d in DONI if d not in g}
     check("doni: 35 reazioni neutre", len(attese), 35)
@@ -97,7 +102,7 @@ def test_rpy():
     for c, g in GUSTI.items():
         check(f"doni: gusti {c} allineati a economia.rpy",
               '"%s": ("%s", "%s")' % (c, g[0], g[1]) in eco, True)
-    tutto = src + leggi(os.path.join("routes", "ricordi.rpy"))
+    tutto = src + leggi(os.path.join(MAL_REL, "routes", "ricordi.rpy"))
     for att, lbl in re.findall(r'ECO_DOPO_LABELS\.append\(\((None|"\w+"), "(\w+)"\)\)', tutto):
         check(f"eco dopo: label {lbl}(att_id) esiste",
               re.search(r"^label %s\(att_id\):" % lbl, tutto, re.M) is not None, True)

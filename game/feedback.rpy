@@ -1,10 +1,11 @@
 # Feedback sulle scelte e ritratti accanto al box.
 #
-# - Side image: "image side <char>" per i cinque personaggi datable e per
-#   Briseide, Vanna e Corrado; le Character relative hanno image="<char>"
-#   (nessun ritratto per gli altri).
+# - Side image: le righe "image side <char>" sono del capitolo (per
+#   Malandrini in game/capitoli/malandrini/ritratti.rpy); le Character
+#   relative hanno image="<char>" (nessun ritratto per gli altri).
 # - Overlay "feedback_overlay": a ogni interazione confronta le affinità di
-#   store con l'ultimo valore visto; se cambiano, il ritratto del personaggio
+#   store (capitolo().affinita: variabile di store, ritratto, nome) con
+#   l'ultimo valore visto; se cambiano, il ritratto del personaggio
 #   pulsa in un angolo con una riga breve (▲/▼), ~3.5 s, copiata anche
 #   nelle Memorie. Nessun numero.
 #   Lo snapshot vive in un oggetto non-store (NoRollback, mai riassegnato):
@@ -13,31 +14,25 @@
 #   durante/dopo un rollback (svuotando anche i popup in corso).
 #   Con "Animazioni: No" il ritratto resta fermo.
 
-image side aede = "gui/portrait_aede.png"
-image side caino = "gui/portrait_caino.png"
-image side ofelia = "gui/portrait_ofelia.png"
-image side druso = "gui/portrait_druso.png"
-image side icaro = "gui/portrait_icaro.png"
-# Comprimari del Ceppo di Briseide: solo ritratto, niente feedback affinita'.
-image side briseide = "gui/portrait_briseide.png"
-image side vanna = "gui/portrait_vanna.png"
-image side corrado = "gui/portrait_corrado.png"
-
 ## Il ritratto accanto al box solo se lo sprite di chi parla non è in scena.
 define config.side_image_only_not_showing = True
 
 init python:
     import time as _fb_time
 
-    # (variabile di store, ritratto, nome)
-    FEEDBACK_AFFINITA = [
-        ("aede_affinity", "aede", "Aede"),
-        ("caino_fiducia", "caino", "Caino"),
-        ("druso_affinity", "druso", "Druso"),
-        ("icaro_affinity", "icaro", "Icaro"),
-        ("ofelia_affinity", "ofelia", "Ofelia"),
-    ]
     FEEDBACK_DURATA = 3.5
+
+    def _fb_affinita():
+        """(variabile di store, ritratto, nome) del capitolo corrente."""
+        cap = capitolo()
+        return cap.affinita if cap is not None else []
+
+    def fb_ritratto(char):
+        """Ritratto di char dal capitolo corrente; senza ritratto, niente."""
+        cap = capitolo()
+        if cap is None or cap.ritratto is None:
+            return Null()
+        return cap.ritratto(char)
 
     class _FeedbackStato(NoRollback):
         """Stato del feedback, fuori dallo store: niente save, niente rollback."""
@@ -50,7 +45,7 @@ init python:
     _fb = _FeedbackStato()
 
     def _fb_leggi():
-        return dict((v, getattr(store, v, None)) for v, _c, _n in FEEDBACK_AFFINITA)
+        return dict((v, rcap.leggi_variabile(store, v)) for v, _c, _n in _fb_affinita())
 
     def _fb_reset():
         _fb.snap = None
@@ -79,7 +74,7 @@ init python:
         nuovi_char = set()
         if cur == _fb.snap and not _fb.pendenti:
             return
-        for v, char, nome in FEEDBACK_AFFINITA:
+        for v, char, nome in _fb_affinita():
             a, b = _fb.snap.get(v), cur.get(v)
             if a is None or b is None or a == b:
                 continue
@@ -152,7 +147,7 @@ screen feedback_overlay():
                         fixed:
                             xysize (100, 100)
                             if char:
-                                add cal_portrait(char) at (fb_fermo if mm_movimento_ridotto() else fb_pulsa) align (0.5, 0.5)
+                                add fb_ritratto(char) at (fb_fermo if mm_movimento_ridotto() else fb_pulsa) align (0.5, 0.5)
                             else:
                                 text "◆" size 44 color "#c0392b" align (0.5, 0.5)
                         if su is None:

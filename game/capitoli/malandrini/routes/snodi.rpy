@@ -43,7 +43,7 @@ init python:
                   "druso": "Druso", "icaro": "Icaro", "ofelia": "Ofelia"}
 
     # Soglie e logica della scelta del cuore: UNICA fonte in
-    # game/routing_logic.py (rl), usata da scelta, rivalita', udienza di
+    # game/capitoli/malandrini/routing_logic.py (rl), usata da scelta, rivalita', udienza di
     # Lenora ed epilogo, e verificata dai test.
     CUORE_VAR = rl.CUORE_VAR
     cuore_soglie = rl.cuore_soglie

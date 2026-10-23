@@ -1,4 +1,4 @@
-"""Verifica il motore puro del calendario (game/calendario_logic.py).
+"""Verifica il motore puro del calendario (game/capitoli/malandrini/calendario_logic.py).
 
 Uso: py -3 -I tests/test_calendario.py
 """
@@ -7,7 +7,9 @@ import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", "game"))
+sys.path.insert(0, HERE)
+from percorsi import MAL, prepara_import  # noqa: E402
+prepara_import()
 
 import calendario_logic as cl  # noqa: E402
 import relazioni_logic as rlz  # noqa: E402
@@ -71,7 +73,7 @@ def test_pool():
 
 def check_wiring():
     """calendario.rpy deve contenere loop, screen e import del motore."""
-    rpy = os.path.join(HERE, "..", "game", "calendario.rpy")
+    rpy = os.path.join(MAL, "calendario.rpy")
     with open(rpy, encoding="utf-8") as f:
         src = f.read()
     for frammento in ("label cal_loop", "screen pianificazione",
@@ -87,14 +89,14 @@ def check_wiring():
 
 def check_eventi_aede():
     """aede_eventi.rpy registra gli id attesi; niente jump di catena residui."""
-    ev = open(os.path.join(HERE, "..", "game", "routes", "aede_eventi.rpy"),
+    ev = open(os.path.join(MAL, "routes", "aede_eventi.rpy"),
               encoding="utf-8").read()
     for eid in ('"svelo"', '"athlion"', '"aede_cap1"', '"aede_cap3"',
                 '"aede_cap4"'):
         check("evento aede " + eid, eid in ev, True)
     check("impegno_aede esiste", "label impegno_aede" in ev, True)
     for f in ("aede_atto1.rpy", "aede_atto2.rpy", "aede_interludi.rpy"):
-        src = open(os.path.join(HERE, "..", "game", "routes", f),
+        src = open(os.path.join(MAL, "routes", f),
                    encoding="utf-8").read()
         check("niente jump di catena in " + f,
               any(x in src for x in ("jump cap", "jump interludio", "jump climax")),
@@ -102,14 +104,14 @@ def check_eventi_aede():
 
 
 def check_eventi_caino():
-    ev = open(os.path.join(HERE, "..", "game", "routes", "caino_eventi.rpy"),
+    ev = open(os.path.join(MAL, "routes", "caino_eventi.rpy"),
               encoding="utf-8").read()
     for eid in ('"adunanza"', '"caino_cap1"', '"caino_cap2"', '"caino_cap3"',
                 '"caino_cap4"', '"caino_cap5"', '"caino_cap6"'):
         check("evento caino " + eid, eid in ev, True)
     check("impegno_caino esiste", "label impegno_caino" in ev, True)
     for f in ("caino_atto1.rpy", "caino_atto2.rpy"):
-        src = open(os.path.join(HERE, "..", "game", "routes", f),
+        src = open(os.path.join(MAL, "routes", f),
                    encoding="utf-8").read()
         check("niente jump di catena in " + f, "jump caino_cap" in src
               or "jump caino_climax" in src, False)
@@ -117,7 +119,7 @@ def check_eventi_caino():
 
 def _route(nome):
     """Tutti i file di una route (nome_*.rpy) concatenati."""
-    cartella = os.path.join(HERE, "..", "game", "routes")
+    cartella = os.path.join(MAL, "routes")
     return "\n".join(
         open(os.path.join(cartella, f), encoding="utf-8").read()
         for f in sorted(os.listdir(cartella))
@@ -156,7 +158,7 @@ def check_eventi_icaro():
 
 
 def check_snodi():
-    ev = open(os.path.join(HERE, "..", "game", "routes", "snodi.rpy"),
+    ev = open(os.path.join(MAL, "routes", "snodi.rpy"),
               encoding="utf-8").read()
     for eid in ('"scelta_cuore"', '"fiaccolata"', '"aede_cap6"',
                 '"luna6_climax"'):
@@ -183,7 +185,7 @@ def check_snodi():
     check("aede_cap6 anche da seconda", 'v["route_seconda"] == "aede"' in ev, True)
     cap6 = ev.split('"id": "aede_cap6"')[1].split("},")[0]
     check("aede_cap6 salta se sospetto", 'v["aede_sospetto"] < 2' in cap6, True)
-    cal = _leggi("calendario.rpy")
+    cal = _mal("calendario.rpy")
     check("cal_vars aede_sospetto", '"aede_sospetto": store.aede_sospetto' in cal, True)
     check("dispatch ofelia", ev.count('cal_route == "ofelia"') >= 2, True)
     import re
@@ -219,10 +221,15 @@ def _leggi(nome):
     return open(os.path.join(HERE, "..", "game", nome), encoding="utf-8").read()
 
 
+def _mal(nome):
+    """File del capitolo Malandrini (game/capitoli/malandrini/)."""
+    return open(os.path.join(MAL, nome), encoding="utf-8").read()
+
+
 def check_store_picklabile():
     """C1: nessun dict evento (con lambda) deve finire nello store o in
     _return: la screen ritorna id, il loop maneggia solo id/label."""
-    cal = _leggi("calendario.rpy")
+    cal = _mal("calendario.rpy")
     # Il ritorno passa da cal_azione (selezione su touch), ma resta la tupla
     # ("evento", id): mai il dict inv.
     check("screen ritorna id non dict",
@@ -323,7 +330,7 @@ def check_economia_punti():
 def check_economia_scudi():
     """Blocco C: Scudi, mercato, doni (un += 1 per personaggio), casuali."""
     import re
-    eco = _leggi("economia.rpy")
+    eco = _mal("economia.rpy")
     check("scudi iniziali 5", "default scudi = 5" in eco, True)
     check("registri +2", "scudi += 2" in eco.split("label eco_dopo_attivita")[1]
           .split('"citta"')[0], True)
@@ -346,8 +353,8 @@ def check_economia_scudi():
           and "renpy.random)" in eco, True)
     check("doni via relazioni_logic",
           "rlz.dono_offribile(" in eco and "rlz.dono_consegna(" in eco, True)
-    cal = _leggi("calendario.rpy")
-    borsa = _leggi("borsa.rpy")
+    cal = _mal("calendario.rpy")
+    borsa = _mal("borsa.rpy")
     check("borsa a schermo nel pianificatore",
           'renpy.get_screen("pianificazione")' in borsa
           and 'config.overlay_screens.append("borsa_hud")' in borsa, True)
@@ -360,8 +367,8 @@ def check_economia_scudi():
 def check_prerequisiti_sequenza():
     """I1/I3: i capitoli alti richiedono il precedente visto; le scene di
     livello impegno muoiono dopo la scelta del cuore."""
-    ae = _leggi(os.path.join("routes", "aede_eventi.rpy"))
-    ca = _leggi(os.path.join("routes", "caino_eventi.rpy"))
+    ae = _mal(os.path.join("routes", "aede_eventi.rpy"))
+    ca = _mal(os.path.join("routes", "caino_eventi.rpy"))
     check("aede_cap3 richiede cap1", '"aede_cap1" in v["visti"]' in ae, True)
     check("aede_cap4 richiede cap3", '"aede_cap3" in v["visti"]' in ae, True)
     for prev, testo in [("caino_cap1", ca), ("caino_cap2", ca),
@@ -383,17 +390,17 @@ def check_prerequisiti_sequenza():
 
 def check_congelamento_route_attiva():
     """I2: route attiva ma congelata -> niente giuramento ne' climax romance."""
-    sn = _leggi(os.path.join("routes", "snodi.rpy"))
+    sn = _mal(os.path.join("routes", "snodi.rpy"))
     check("dispatch usa route_viva", "route_viva()" in sn, True)
     check("aede_cap6 esclude congelata",
           '"aede" not in v["congelate"]' in sn, True)
     check("seconda viva esclude congelata", "def route_seconda_viva" in sn, True)
-    cal = _leggi("calendario.rpy")
+    cal = _mal("calendario.rpy")
     check("filtro inviti con seconda", "store.route_seconda" in cal, True)
 
 
 def check_incroci():
-    ev = _leggi(os.path.join("routes", "incroci.rpy"))
+    ev = _mal(os.path.join("routes", "incroci.rpy"))
     for eid in ('"trio_lenora"', '"incrocio_palestra"', '"incrocio_carte"'):
         check("evento incrocio " + eid, eid in ev, True)
 
@@ -401,7 +408,7 @@ def check_incroci():
 def _cal_giorni():
     """CAL_GIORNI letto da calendario.rpy (literal Python)."""
     import ast
-    cal = _leggi("calendario.rpy")
+    cal = _mal("calendario.rpy")
     testo = cal.split("CAL_GIORNI = ")[1].split("\n    CAL_SEQUENZA")[0]
     return ast.literal_eval(testo)
 
@@ -619,11 +626,11 @@ def test_doni():
     check("dono: borsa liberata, niente punti", (tenuto, esito, segna),
           (None, "neutro", False))
     check("dono: mercato di nuovo visibile",
-          '"scudi"] >= 2 and v["dono_tenuto"] is None' in _leggi("economia.rpy")
+          '"scudi"] >= 2 and v["dono_tenuto"] is None' in _mal("economia.rpy")
           and tenuto is None, True)
     check("dono: il gioco passa doni_dati alla consegna",
-          "dono_tenuto,\n" in _leggi("economia.rpy")
-          and "doni_dati)" in _leggi("economia.rpy"), True)
+          "dono_tenuto,\n" in _mal("economia.rpy")
+          and "doni_dati)" in _mal("economia.rpy"), True)
     check("dono: altri ancora liberi",
           rlz.dono_offribile("pietra", "druso", {"aede"}, set()), True)
     check("dono: congelato", rlz.dono_offribile("pietra", "aede", set(),
@@ -639,7 +646,7 @@ def test_doni():
     check("dono: limite +1 a semestre", punti, 1)
     # Il catalogo del gioco: ogni personaggio ha un preferito e un detestato
     # che esistono e sono diversi.
-    eco = _leggi("economia.rpy")
+    eco = _mal("economia.rpy")
     for ch in ("aede", "caino", "druso", "icaro", "ofelia"):
         check("dono %s gusti nel catalogo" % ch,
               '"%s": (' % ch in eco, True)
@@ -700,7 +707,7 @@ def check_eventi_ofelia():
     for eid in ('"ofelia_ev1"', '"ofelia_ev2"', '"ofelia_ev3"'):
         check("evento ofelia " + eid, eid in ev, True)
     check("inviti ofelia a scadenza", ev.count('"scade": True') >= 3, True)
-    cal = _leggi("calendario.rpy")
+    cal = _mal("calendario.rpy")
     check("Prossimamente rimosso", "Prossimamente" in cal, False)
     check("cal_vars ofelia", '"ofelia_affinity": store.ofelia_affinity' in cal, True)
     for lbl in ("impegno_ofelia", "impegno_ofelia_aede", "impegno_ofelia_caino"):
@@ -728,7 +735,7 @@ def check_eventi_ofelia():
           "jump expression cal_finale" in poly
           and rl.finale_ofelia_poly_aede(0, 5, 0, 13, True, True, True)
           == "good_end", True)
-    ae = _leggi(os.path.join("routes", "aede_finali.rpy"))
+    ae = _mal(os.path.join("routes", "aede_finali.rpy"))
     check("innesto poly nel climax Aede", 'route_seconda == "aede"' in ae, True)
 
 
@@ -736,7 +743,7 @@ def check_galleria_finali():
     """Galleria: ogni finale registrato e' sbloccato in un solo punto."""
     import glob
     import re
-    gal = _leggi("finali_galleria.rpy")
+    gal = _mal("finali.rpy")
     ids = re.findall(r'^\s*\("(\w+)",\s*"[^"]+",\s*"\w+",\s*"[^"]+"\),?$',
                      gal, re.M)
     check("FINALI ha 28 voci", len(ids), 28)
@@ -744,7 +751,7 @@ def check_galleria_finali():
     tutto = ""
     for f in glob.glob(os.path.join(HERE, "..", "game", "**", "*.rpy"),
                        recursive=True):
-        if os.path.basename(f) == "finali_galleria.rpy":
+        if os.path.basename(f) == "finali.rpy":
             continue
         tutto += open(f, encoding="utf-8").read() + "\n"
     for fid in ids:
@@ -757,9 +764,10 @@ def check_galleria_finali():
             corpo = parte.split("\nlabel ")[0]
         check(f"sblocca_finale({fid}) nel label {lab}",
               f'sblocca_finale("{fid}")' in corpo, True)
-    check("screen galleria_finali", "screen galleria_finali" in gal, True)
+    comune = _leggi("finali_galleria.rpy")
+    check("screen galleria_finali", "screen galleria_finali" in comune, True)
     check("persistent.finali_visti",
-          "default persistent.finali_visti = set()" in gal, True)
+          "default persistent.finali_visti = set()" in comune, True)
     check("bottone Finali nel main menu",
           'ShowMenu("galleria_finali")' in _leggi("screens.rpy"), True)
 
@@ -779,7 +787,7 @@ def check_segnali():
           and 'esito == "prima"' in of
           and rlz.ofelia_esiti_scadenza(["ofelia_ev1"], 0, False) == ["prima"],
           True)
-    cal = _leggi("calendario.rpy")
+    cal = _mal("calendario.rpy")
     for t in ("Ti guarda come si guarda un conto che non torna.",
               "Ha aspettato una volta. Non aspetterà la seconda.",
               "Ti ha segnato nel registro delle cose che non perdona. "
@@ -817,7 +825,7 @@ def check_deviazioni():
                        recursive=True):
         tutto += open(f, encoding="utf-8").read()
     for route, eid, prima, luna in DEVIAZIONI:
-        ev = _leggi(os.path.join("routes", route + "_eventi.rpy"))
+        ev = _mal(os.path.join("routes", route + "_eventi.rpy"))
         voce = _voce_registry(ev, eid)
         check("deviazione %s nel registry" % eid, voce is not None, True)
         if voce is None:
@@ -843,7 +851,7 @@ def _corpo_label(src, label):
 
 def check_revisione_finale():
     """Correzioni della revisione finale (route-finali-origliati)."""
-    orig = _leggi(os.path.join("routes", "origliati.rpy"))
+    orig = _mal(os.path.join("routes", "origliati.rpy"))
     for lbl in ("orig_caino_druso", "orig_caino_ofelia"):
         check(lbl + " registra i fatti",
               "conseguenze_aggiorna()" in _corpo_label(orig, lbl), True)
@@ -851,14 +859,14 @@ def check_revisione_finale():
     check("druso_passeggero: accordo di genere",
           "mi è car[fin]" in _corpo_label(dru, "druso_passeggero"), True)
     check("niente trent'anni di Druso", "trent'anni di rime" in dru, False)
-    cai = _leggi(os.path.join("routes", "caino_finali.rpy"))
+    cai = _mal(os.path.join("routes", "caino_finali.rpy"))
     check("caino_passeggero: niente promozione dopo la sospensione",
           "più in alto" in _corpo_label(cai, "caino_passeggero"), False)
-    gal = _leggi("finali_galleria.rpy")
+    gal = _mal("finali.rpy")
     riga = gal.split('"icaro_passeggero"', 1)[1].split(")", 1)[0]
     check("indizio icaro_passeggero raggiungibile",
           "invito di un altro" in riga, False)
-    eco = _corpo_label(_leggi(os.path.join("routes", "echi.rpy")),
+    eco = _corpo_label(_mal(os.path.join("routes", "echi.rpy")),
                        "echi_druso_quaderno")
     i = eco.find("sfida dei versi")
     check("eco quaderno: sfida dei versi solo se vista",
@@ -867,14 +875,14 @@ def check_revisione_finale():
 
 def check_bugfix_minori():
     """Bugfix dopo la revisione finale (problemi minori)."""
-    orig = _leggi(os.path.join("routes", "origliati.rpy"))
+    orig = _mal(os.path.join("routes", "origliati.rpy"))
     blocco = orig.split("ECO_DOPO_LABELS.append", 1)[0].rsplit("init", 1)[1]
     m = re.match(r"\s*(-?\d+)?\s*python", blocco)
     prio = int(m.group(1) or 0) if m else 0
     check("origliati dopo l'esattore (init > 1)", prio > 1, True)
     tutto = "\n".join(
-        open(os.path.join(HERE, "..", "game", "routes", f), encoding="utf-8").read()
-        for f in os.listdir(os.path.join(HERE, "..", "game", "routes"))
+        open(os.path.join(MAL, "routes", f), encoding="utf-8").read()
+        for f in os.listdir(os.path.join(MAL, "routes"))
         if f.endswith(".rpy"))
     for eid, char in (("echi_druso_quaderno", "druso"),
                       ("echi_druso_udienza", "druso"),
@@ -888,20 +896,20 @@ def check_bugfix_minori():
         voce = tutto.split('"id": "%s"' % eid, 1)[1].split("},", 1)[0]
         check("eco %s tace se %s ti ha chiuso" % (eid, char),
               '"%s" not in v["congelate"]' % char in voce, True)
-    ic = _leggi(os.path.join("routes", "icaro_finali.rpy"))
+    ic = _mal(os.path.join("routes", "icaro_finali.rpy"))
     check("icaro_passeggero senza ramo morto",
           '"icaro" in congelate' in _corpo_label(ic, "icaro_passeggero"), False)
     for f, lbl in (("aede_finali.rpy", "climax"),
                    ("caino_finali.rpy", "caino_climax"),
                    ("druso_finali.rpy", "druso_climax"),
                    ("icaro_finali.rpy", "icaro_climax")):
-        corpo = _corpo_label(_leggi(os.path.join("routes", f)), lbl)
+        corpo = _corpo_label(_mal(os.path.join("routes", f)), lbl)
         check("commento routing aggiornato in " + f, "passeggero" in corpo, True)
     readme = open(os.path.join(HERE, "..", "README.md"), encoding="utf-8").read()
     check("README: cancellare i vecchi _route.rpyc", "_route.rpyc" in readme, True)
     check("niente splashscreen di test in game/",
           os.path.exists(os.path.join(HERE, "..", "game", "zz_rea.rpy")), False)
-    cons = _leggi("conseguenze.rpy")
+    cons = _mal("conseguenze.rpy")
     check("Trama migra lo storico anche dopo un rollback",
           "migra_storico" in cons.split("def trama_albero", 1)[1].split("def ", 1)[0],
           True)

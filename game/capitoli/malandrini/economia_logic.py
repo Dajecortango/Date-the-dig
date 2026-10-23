@@ -1,4 +1,4 @@
-"""Logica pura degli usi degli Scudi (game/economia_extra.rpy): soffiate,
+"""Logica pura degli usi degli Scudi (economia_extra.rpy): soffiate,
 debito con Icaro, scommessa in palestra. Nessuna dipendenza da Ren'Py.
 Test: py -3 -I tests/test_economia.py
 """

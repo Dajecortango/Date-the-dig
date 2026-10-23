@@ -23,7 +23,6 @@ init 1 python:
 
     LUCE_PASSAGGIO = 0.2     # secondi per scurire/schiarire
     MOVIMENTO_DURATA = 0.35
-    DRUSO_RITARDO = 0.3      # il tonfo parte quando finisce la scivolata
 
     class _LuceStato(NoRollback):
         def __init__(self):
@@ -56,12 +55,17 @@ init 1 python:
         for tag in list(_lu.attr):
             if tag not in presenti:
                 del _lu.attr[tag]
-        # Druso entra col suo tonfo, a fine scivolata (mai dopo un caricamento).
-        if (_lu.presenti is not None and "druso" in presenti
-                and "druso" not in _lu.presenti
+        # Entrate del capitolo (capitolo().entrate, tag -> (movimento,
+        # ritardo)): chi entra in scena fa il suo movimento, a fine
+        # scivolata (mai dopo un caricamento).
+        cap = capitolo()
+        entrate = cap.entrate if cap is not None else {}
+        if (_lu.presenti is not None and entrate
                 and not mm_movimento_ridotto() and not renpy.is_skipping()):
-            _lu.mov["druso"] = ("tonfo", _lu_time.time() + DRUSO_RITARDO)
-            _lu.ultimo["druso"] = _lu.n
+            for tag, (mov, ritardo) in entrate.items():
+                if tag in presenti and tag not in _lu.presenti:
+                    _lu.mov[tag] = (mov, _lu_time.time() + ritardo)
+                    _lu.ultimo[tag] = _lu.n
         _lu.presenti = presenti
 
     config.start_interact_callbacks.append(_lu_interazione)
@@ -139,9 +143,10 @@ init 1 python:
             luce, luce_viva = _lu_luce(tag, ora, fermo)
             slot = getattr(store, "cal_slot", None)
             bg = _lu_bg()
-            r, g, b = _lu_moltiplicatore(rgl.tinta_per(bg, slot), luce)
+            tab = capitolo_regia()
+            r, g, b = _lu_moltiplicatore(rgl.tinta_per(bg, slot, tab), luce)
             vivo = not fermo and not renpy.is_skipping()
-            fuoco = vivo and rgl.fuoco_per(bg, slot)
+            fuoco = vivo and rgl.fuoco_per(bg, slot, tab)
             if fuoco:
                 fl = rgl.fiamma(ora)
                 r, g, b = r * fl, g * fl, b * fl
@@ -219,7 +224,7 @@ init 1 python:
             # Velo caldo del fuoco (dietro gli sprite: e' lo sfondo).
             slot = getattr(store, "cal_slot", None)
             fuoco = (not mm_movimento_ridotto() and not renpy.is_skipping()
-                     and rgl.fuoco_per(_lu_bg(), slot))
+                     and rgl.fuoco_per(_lu_bg(), slot, capitolo_regia()))
             if fuoco:
                 a = rgl.velo_fuoco(ora)
                 trans.matrixcolor = TintMatrix(Color(rgb=(1.0, 1.0 - a * 0.31, 1.0 - a * 0.6)))

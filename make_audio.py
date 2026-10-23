@@ -18,6 +18,8 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "game", "audio")
+# Ambienti e campana sono di Malandrini: audio/malandrini/. Il resto e' comune.
+OUT_MAL = os.path.join(OUT, "malandrini")
 SR = 32000
 rng = np.random.default_rng(1792)
 
@@ -82,7 +84,8 @@ def normalizza(x, picco):
 
 
 def salva(nome, x):
-    os.makedirs(OUT, exist_ok=True)
+    cartella = OUT_MAL if nome.startswith("amb_") or nome == "campana" else OUT
+    os.makedirs(cartella, exist_ok=True)
     pcm = (np.clip(x, -1, 1) * 32767).astype(np.int16)
     with tempfile.TemporaryDirectory() as tmp:
         wav = os.path.join(tmp, nome + ".wav")
@@ -93,8 +96,8 @@ def salva(nome, x):
             w.writeframes(pcm.tobytes())
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", wav,
                         "-c:a", "libvorbis", "-q:a", "3",
-                        os.path.join(OUT, nome + ".ogg")], check=True)
-    print("audio/%s.ogg" % nome)
+                        os.path.join(cartella, nome + ".ogg")], check=True)
+    print(os.path.relpath(os.path.join(cartella, nome + ".ogg"), OUT))
 
 
 # --- Effetti ----------------------------------------------------------------

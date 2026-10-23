@@ -20,7 +20,7 @@ default debito_scadenza = 0
 default debito_esito = None       # None | "saldato" | "insoluto"
 
 init 1 python:
-    import economia_logic as ecl
+    from capitoli.malandrini import economia_logic as ecl
 
     # Riscossione prima di tutto: se il debito e' scaduto, l'esattore arriva
     # anche in fumeria, prima che Icaro possa proporre il saldo.
