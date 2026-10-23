@@ -18,7 +18,7 @@ label caino_prologo:
 
     "E a un certo punto — non so come, non so perché — quella lingua punta me."
 
-    caino "Tu. Figlio di Briseide. Sì, tu, quello che da mezz'ora studia la sala come se dovesse comprarla."
+    caino "Tu. [figlio_t] di Briseide. Sì, tu, quell[fin] che da mezz'ora studia la sala come se dovesse comprarla."
 
     pc "Osservavo, Arconte. Niente di più."
 
@@ -28,7 +28,7 @@ label caino_prologo:
 
     "Un servo passa col vassoio. Caino scarta il vino con un gesto che è quasi un insulto."
 
-    caino "Vino di Glostok. Lo bevono i cambiavalute e i pentiti. Io bevo idromele di Rurikstad, e chi mi conosce lo sa. Ricordatelo, Figlio di Briseide: nella Famiglia, chi ricorda i dettagli possiede le persone."
+    caino "Vino di Glostok. Lo bevono i cambiavalute e i pentiti. Io bevo idromele di Rurikstad, e chi mi conosce lo sa. Ricordatelo, [figlio_t] di Briseide: nella Famiglia, chi ricorda i dettagli possiede le persone."
 
     "Prende invece un corno di idromele. Al mignolo destro gli brilla un anello: un sigillo con un drago, non un leone. Un dettaglio che stona, su un uomo che non lascia nulla al caso."
 
@@ -68,7 +68,7 @@ label caino_prologo:
 
             caino "...Briseide vi fabbrica meglio di quanto dicessi."
 
-            caino "Era una prova, Figlio di Briseide. La sala è piena di gente che mi dà ragione per riflesso. Tu no. Interessante."
+            caino "Era una prova, [figlio_t] di Briseide. La sala è piena di gente che mi dà ragione per riflesso. Tu no. Interessante."
 
         "Restare in silenzio e sorridere":
             $ caino_fiducia -= 1
@@ -79,7 +79,7 @@ label caino_prologo:
 
             caino "Il silenzio. La risposta di chi non vuole perdere. Prudente. Noioso. Ma prudente."
 
-    caino "Ci rivedremo, Figlio di Briseide. La Proprietà ha sempre bisogno di mani nuove. E io ho sempre bisogno di sapere cosa valgono, le mani nuove."
+    caino "Ci rivedremo, [figlio_t] di Briseide. La Proprietà ha sempre bisogno di mani nuove. E io ho sempre bisogno di sapere cosa valgono, le mani nuove."
 
     hide caino with dissolve
 
@@ -128,13 +128,13 @@ label caino_cap1:
 
             show caino sorpreso with qdiss
 
-            "Caino si volta lentamente. Mi guarda come si guarda una moneta trovata per terra: con sospetto, e con interesse."
+            "Caino si volta lentamente. Mi squadra dal mento alle scarpe e di nuovo al mento: l'esattore davanti a una moneta che potrebbe essere falsa."
 
             show caino neutro with qdiss
 
             caino "...hai ricordato. Parola per parola."
 
-            caino "Sai quanti, in questa Rocca, ricordano quello che dico quando non sto minacciando nessuno? Due. Mia madre. E adesso tu."
+            caino "Registro aggiornato. Voce: persone che ricordano ciò che dico quando non minaccio nessuno. Fino a ieri, una: mia madre. Da oggi, due."
 
         "Prendere la coppa e ringraziare":
             $ caino_fiducia -= 1
@@ -143,14 +143,14 @@ label caino_cap1:
 
             show caino freddo with qdiss
 
-            caino "Salute, Figlio di Briseide. Al vino di Glostok e a chi non ascolta."
+            caino "Salute, [figlio_t] di Briseide. Al vino di Glostok e a chi non ascolta."
 
         "Aspettare di vedere se la beve":
             "Aspetto. Caino lascia la coppa dov'è, senza commentare. Il servo la riporta via."
 
             caino "Prudente. Sempre prudente. Prima o poi dovrai scegliere qualcosa, sai."
 
-    caino "Torna domani. La Proprietà ha un lavoro vero per te. E il lavoro vero, qui dentro, è l'unico complimento che faccio."
+    caino "Torna domani. La Proprietà ha un lavoro vero per te. Consideralo un acconto: i complimenti si pagano a saldo, e il saldo non è ancora maturato."
 
     return
 
@@ -172,7 +172,7 @@ label caino_cap2:
 
     "Li solleva. E comincia — che gli Asi mi fulminino — a fare alzate laterali. Le braccia dritte, il marmo che sale fino alla linea delle spalle, scende, risale. Il respiro regolare come un conto."
 
-    caino "Dodici... tredici... il potere, Figlio di Briseide, è questo... quattordici... peso morto che impari a sollevare... con grazia..."
+    caino "Dodici... tredici... il potere, [figlio_t] di Briseide, è questo... quattordici... peso morto che impari a sollevare... con grazia..."
 
     show druso ghigno at left with easeinleft
 
@@ -202,7 +202,7 @@ label caino_cap2:
 
     "I due si abbracciano ridendo come due orsi. Io resto sulla soglia, con la precisa sensazione di aver visto un rito più antico e più sacro dell'Adunanza."
 
-    druso "E questo chi è? Il famoso Figlio di Briseide che non annuisce?"
+    druso "E quest[fin] chi è? [Il_t] famos[fin] [figlio_t] di Briseide che non annuisce?"
 
     druso "Quaranta Scudi, fratello. Me li devi da tre lune: hai scommesso che il Ciambellano di Glostok non sarebbe durato un anno, ed è ancora lì."
 
@@ -279,7 +279,7 @@ label caino_cap2:
 
             show caino neutro with qdiss
 
-            caino "...Druso. Il Figlio di Briseide resta a pranzo."
+            caino "...Druso. [Il_t] [figlio_t] di Briseide resta a pranzo."
 
             druso "Lo so, fratello. L'ho capito prima di te."
 
@@ -299,7 +299,7 @@ label caino_cap3:
 
     "Caino balla come combatte: in anticipo su tutti. Tre dame di tre Ceppi diversi si sono già alternate al suo braccio, e ognuna è tornata al suo posto convinta di avergli strappato un segreto."
 
-    caino "Figlio di Briseide. Sai ballare o Briseide vi insegna solo l'aritmetica?"
+    caino "[figlio_t] di Briseide. Sai ballare o Briseide vi insegna solo l'aritmetica?"
 
     pc "L'aritmetica è una danza, Arconte. Solo più lenta."
 
@@ -336,7 +336,7 @@ label caino_cap3:
 
             show caino sarcastico with qdiss
 
-            caino "Rubare le mie massime per usarle contro di me. C'è della Proprietà in te, Figlio di Briseide. Forse troppa."
+            caino "Rubare le mie massime per usarle contro di me. C'è della Proprietà in te, [figlio_t] di Briseide. Forse troppa."
 
             "Ma non si riprende la conduzione. Per tutta la danza."
 
@@ -347,7 +347,7 @@ label caino_cap3:
 
             show caino freddo with qdiss
 
-            caino "Prudenza, di nuovo. Un giorno, Figlio di Briseide, la prudenza ti salverà la vita. E sarà l'unica cosa che avrai salvato."
+            caino "Prudenza, di nuovo. Te la metto a verbale: nessun rischio, nessuna perdita, nessun utile. Bilancio perfetto, [figlio_t] di Briseide. Da conto chiuso."
 
     show druso ghigno at left with easeinleft
 
@@ -399,7 +399,7 @@ label caino_cap3:
 
             show caino neutro with qdiss
 
-            caino "Il drago è Draken, il Mutevole. L'anello era di mio padre. Non lo sa nessuno, perché nessuno guarda davvero."
+            caino "Il drago è Draken, il Mutevole. L'anello era di mio padre. Non compare in nessun inventario della Rocca. Da stasera compare nel tuo."
 
             caino "Tre. Siamo in tre, adesso, a ricordare quello che dico. E uno dei tre comincia a preoccuparmi."
 
@@ -410,7 +410,7 @@ label caino_cap3:
 
             show caino sarcastico with qdiss
 
-            caino "Un leone. Certo. Come tutti, ovvio, prevedibile. Hai guardato senza vedere, Figlio di Briseide."
+            caino "Un leone. Certo. Come tutti, ovvio, prevedibile. Hai guardato senza vedere, [figlio_t] di Briseide."
 
             "Si riprende il corno e lo beve lui, fino in fondo, guardandomi negli occhi. Archiviato."
 
@@ -421,6 +421,6 @@ label caino_cap3:
 
             show caino sarcastico with qdiss
 
-            caino "Poetico. E sbagliato. La poesia è l'ultima difesa di chi non ricorda."
+            caino "Poetico. E sbagliato. Lascia la poesia a Druso: lui almeno se la fa pagare."
 
     return

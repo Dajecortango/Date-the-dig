@@ -283,6 +283,7 @@ screen cronache():
                             scrollbars "vertical"
                             vscrollbar_unscrollable "hide"
                             mousewheel True
+                            draggable True
                             vbox:
                                 spacing 16
                                 xfill True

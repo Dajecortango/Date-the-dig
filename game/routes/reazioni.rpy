@@ -166,7 +166,7 @@ label rea_caino_conto:
             caino "...La verità. Gratis. Non succede spesso, in questa stanza."
             show caino freddo with qdiss
             caino "La terrò in un cassetto. Un giorno mio fratello avrà bisogno di ricordarsi chi tiene i cassetti."
-            "Esco sapendo di aver dato a Caino una cosa che non era mia. Era di Icaro."
+            "Esco. Dietro di me, un cassetto si chiude con uno scatto di chiave."
         "«Lo chieda a Icaro, Arconte. La querela è contro di lui.»":
             show caino sarcastico with qdiss
             caino "Rimandare la palla al Ramo. Elegante. Lo faccio anch'io, nei giorni in cui non ho voglia di lavorare."
@@ -244,7 +244,7 @@ label echi_rea_icaro_due_volte:
     icaro "Mio fratello mi ha mandato una querela archiviata. Senza biglietto. Con una riga sola sottolineata: «tutto regolare»."
     icaro "La stessa bugia, due volte, a due tavoli diversi. Al secondo sedeva Caino."
     show icaro sereno with qdiss
-    "Sposta il posacenere per farmi spazio al tavolo grande. Non dice altro. Da lui, è un bilancio in attivo."
+    "Sposta il posacenere per farmi spazio al tavolo grande. Poi spinge il mazzo verso di me, da tagliare."
     return
 
 # Icaro: Caino ha usato la verita' a cena (fumeria).
@@ -291,7 +291,7 @@ label echi_rea_corrado_consegna:
 # Caino: il posto da scrivano che l'Arconte ti aveva offerto (registri).
 label echi_rea_ottone_scrivano:
     scene bg studio_glauco with dissolve
-    "Ottone mi gira il calamaio dalla parte giusta senza alzare gli occhi. Poi parla piano, come si legge una nota a margine."
+    "Ottone mi gira il calamaio dalla parte giusta senza alzare gli occhi. Poi parla piano, senza smettere di scrivere."
     ottone "A inizio semestre l'Arconte aveva chiesto di te. Per nome. Non sei venut[fin]."
     ottone "Ha preso il nipote di un Eparca. Il primo giorno gli ha versato il vino di Glostok. Adesso copia decime in cantina."
     ottone "Era il tuo posto, ragazz[fin]. Qui dentro i posti vuoti non restano vuoti. Restano di qualcun altro."

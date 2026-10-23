@@ -19,6 +19,8 @@ default ofelia_in_pubblico = False
 # Deviazioni: "rosso" | "tutti" | "specchio"; "rifiuto" | "biondo" | "me".
 default ofelia_specchio_esito = None
 default ofelia_ballo_esito = None
+# Climax: come brucia la rinuncia ("insieme" | "accanto" | "contro").
+default ofelia_climax_gesto = None
 
 init python:
     ATTIVITA["pomeriggio"].append(

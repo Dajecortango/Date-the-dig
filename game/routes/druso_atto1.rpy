@@ -29,7 +29,7 @@ label druso_ev1:
         "Arrossire e pregarlo di smettere":
             $ druso_passo_falso()
             druso "Oh, supplica! Che noia. Le suppliche funzionano solo in chiesa, e il Nord non ne ha."
-            "Recita lo stesso. Più lento, apposta, guardandomi a ogni rima come si guarda un topo in trappola."
+            "Recita lo stesso. Più lento, apposta, e a ogni rima mi punta il boccale in faccia."
             druso "Applausi per la musa! Muta, rossa e inutile. Come una barbabietola."
         "Rovesciargli il boccale addosso":
             $ druso_affinity += 1
@@ -95,7 +95,7 @@ label druso_ev2:
     "Srotola la pergamena sulla botte. Nomi, cifre, frecce. Una calligrafia minuta, ordinata, sorprendente."
     druso "Tu credi che io passi le serate a bere. Io passo le serate ad ascoltare chi beve. È diverso. Costa uguale."
     druso "Senti qua. Un Eparca della Consorteria paga bene per sapere chi, nel tuo Ceppo, firma le lettere di Briseide quando lei è fuori città. Io lo so che lo sai. E tu sai che pagherei."
-    "Eccolo: il test delle acque. Vuole vedere se sono una leva su cui fare forza."
+    "Fa girare una moneta sulla botte. Non la guarda: guarda me."
     druso "Pensaci. Soldi veri, niente sangue. Un nome solo, e domani ti offro io da bere per una Luna intera."
     menu:
         "Il ghigno è a mezza via tra scherzo e agguato."
@@ -154,13 +154,13 @@ label druso_int2:
         "Mangiare in silenzio e lasciarli scannare":
             "Lo stufato è buono. I fratelli si insultano per mezz'ora, a turno, con la precisione di chi si allena da sempre."
             show caino neutro with qdiss
-            caino "Sei la prima persona che porta qui e che resta fino al dolce."
+            caino "Annoto: arrivat[fin] al dolce. Nel registro delle tue cene, Druso, non risultano precedenti."
             druso "Zitto, tu. Non dar[gli_t] idee."
     hide caino with dissolve
     "Caino se ne va per primo, dopo aver pagato tutto senza dirlo. Druso se ne accorge solo all'uscita."
     show druso serio with qdiss
     druso "Ha pagato lui. Lo fa sempre. Così io resto quello che deve ringraziare."
-    druso "Madre lo guarda come si guarda una spada. Me, come si guarda un debito."
+    druso "Madre a lui lo LUCIDA, come una spada. A me mi CONTA, come un debito. Uno in vetrina, l'altro in cantina."
     show druso ghigno with qdiss
     druso "Questo non è un verso. Non annotarlo. Se finisce in un poema, ti querelo per plagio."
     return
@@ -177,7 +177,7 @@ label druso_quaderno:
     "Chiudo. Riapro. È scritto bene. È scritto meglio di qualunque cosa abbia mai sentito in questa taverna."
     show druso sorpreso at left with easeinleft
     druso "Oste! Hai visto un... ah."
-    "Si ferma a metà della sala. Guarda il quaderno, poi me. Per la prima volta da quando lo conosco, non sa che faccia fare."
+    "Si ferma a metà della sala. Guarda il quaderno, poi me, poi di nuovo il quaderno. Si gratta la barba con tutte e due le mani."
     menu:
         "Il quaderno è aperto sulle mie ginocchia. Lui non si avvicina."
         "«Pagina sette: la rima con \"tempesta\" zoppica. Il resto è bello da far schifo.»":
@@ -191,10 +191,10 @@ label druso_quaderno:
             druso "Bene. Adesso sei complice. I complici leggono le bozze. Le bozze fanno schifo. È una condanna, non un onore."
         "Chiuderlo e porgerglielo. Senza una parola":
             $ druso_quaderno_esito = "chiuso"
-            "Lo chiudo, ci passo sopra il palmo, glielo tendo. Lui lo prende come si prende una lama dal lato del filo."
+            "Lo chiudo, ci passo sopra il palmo, glielo tendo. Lui lo prende per un angolo, con due dita, e se lo ficca sotto la camicia."
             show druso serio with qdiss
             druso "Nessuno restituisce chiuso un quaderno aperto. O sei un santo o sei un bugiardo."
-            druso "Non dirmi quale. Preferisco il dubbio. Col dubbio si scrive meglio."
+            druso "Non dirmi quale. Santo fa rima con pianto, bugiardo con lardo, e stasera non ho fame né dell'uno né dell'altro."
         "Rimetterlo sotto la panca prima che si avvicini":
             $ druso_quaderno_esito = "nascosto"
             "Lo infilo di nuovo tra le assi con un colpo di tallone. Lui non ha visto. Credo."

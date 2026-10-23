@@ -36,7 +36,7 @@ label echi_icaro_mercante:
     scene bg vicoli_zefiro with dissolve
     "Al mercato coperto un banco mi chiude la tenda in faccia. Lo riconosco: è il mercante del tavolo grande di Icaro. Quello in perdita secca."
     "«[Il_t] [figlio_t] di Briseide che conta bene», dice alla vicina. Abbastanza forte perché io senta."
-    "A Zefiro una bugia costa poco. Ma la paghi a rate, e ogni banco del mercato tiene il conto."
+    "Il banco accanto abbassa la tenda anche lui. Poi quello dopo."
     return
 
 # Druso: il lanternaio dei vicoli bassi (città).
@@ -51,7 +51,7 @@ label echi_druso_lanternaio:
 label echi_teschio_taverna:
     scene bg vicoli_zefiro with dissolve
     show druso ghigno at left with easeinleft
-    druso "Silenzio, plebe! Un brindisi al mio testimone del Teschio: l'unic[fin] in tutta Rocca Tempesta che sta dalla mia parte contro mio fratello!"
+    druso "Silenzio, plebe! Un brindisi al mio testimone del Teschio! UNA persona in tutta Rocca Tempesta sta con me contro mio fratello, ed è QUESTA!"
     "Tutta la taverna alza i boccali. Nessuno sa cosa sia il Teschio. Tutti lo temono lo stesso."
     pc "Non sto dalla parte di nessuno, Druso."
     show druso neutro at left with qdiss
@@ -129,7 +129,7 @@ label echi_icaro_febbre:
     if icaro_febbre_esito == "conta":
         icaro "Il servizio da tè: sette tazze. L'inventario l'hai chiuso tu, quella sera. Nessuno mi ha mai corretto un totale. Lo tengo così."
     elif icaro_febbre_esito == "aiuto":
-        icaro "Corrado mi ha mandato il conto dell'infuso. L'ho pagato. È la prima volta che pago una cosa che non volevo."
+        icaro "Corrado mi ha mandato il conto dell'infuso. Quattro soldi e mezzo, per una cosa che non avevo ordinato. Pagati. Segnati sotto «spese mediche», non sotto «perdite»."
     else:
         icaro "Il biglietto «Non bussare» l'ho tolto dalla porta. Nessuno lo leggeva comunque. Tranne te."
     return

@@ -94,10 +94,10 @@ label impegno_ofelia:
         "Prendere le forbici: «Resto. Anche senza gentilezza.»" (peso=True):
             $ impegno_esito = True
             show ofelia imbarazzata with dissolve
-            ofelia "...hai preso il manico. Gli altri afferravano sempre la lama, per farsi vedere coraggiosi."
+            ofelia "Dal manico. Tullio, l'anno scorso, l'ha presa dalla lama. Si è cucito il palmo da solo."
             show ofelia neutra with qdiss
             ofelia "Bene. Da stasera la fila è chiusa. Se qualcuno chiede, sei tu il motivo. Fallo valere."
-            "Non mi bacia. Mi aggiusta il colletto, lenta, come si sistema un'arma prima di appenderla. E il semestre, da stasera, ha un padrone."
+            "Non mi bacia. Mi aggiusta il colletto, lenta, e controlla il risultato da un passo indietro. E il semestre, da stasera, ha un padrone."
         "Lasciarle le forbici: «Non ancora, Ofelia.»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("ofelia")
@@ -176,8 +176,8 @@ label impegno_ofelia_aede:
         "La lanterna trema appena. La sua voce no."
         "«Non lo saprà. Da me, mai.»" (peso=True):
             $ impegno_of = True
-            show ofelia imbarazzata with dissolve
-            ofelia "...mai è una parola che mi piace sentire da chi mente bene. Ricordatelo, quando la guardi negli occhi."
+            show ofelia neutra with qdiss
+            ofelia "Mai è una parola che mi piace sentire da chi mente bene. Ricordatelo, quando la guardi negli occhi."
             show ofelia neutra with qdiss
             ofelia "Ora va'. Ti aspetta sul ballatoio, credo. Lei fa le domande ad alta voce. Io le faccio al buio."
             "Spegne l'ultima lanterna. Esco dalla serra con un segreto in tasca e la sensazione di averlo rubato a qualcuno."

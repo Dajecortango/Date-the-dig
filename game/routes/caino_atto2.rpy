@@ -53,7 +53,7 @@ label caino_cap4:
 
             show caino neutro with qdiss
 
-            "Caino posa il corno. E per la prima volta da quando lo conosco, impiega più di un secondo a scegliere le parole."
+            "Caino posa il corno. Lo sposta di un dito a sinistra. Poi di nuovo a destra."
 
             caino "Chiunque altro, con quella frase, sarebbe già rotolato giù dalle scale della Rocca. Tu invece resti a bere. Dovresti chiederti perché."
 
@@ -70,12 +70,12 @@ label caino_cap4:
 
             caino "Che discorso ammirevole. Sembro io, senza il talento."
 
-            "Mi guarda come si guarda uno specchio sporco: con fastidio, e con il sospetto che lo sporco non sia dello specchio."
+            "Mi fissa a lungo. Poi beve un sorso, come per sciacquarsi la bocca."
 
-            caino "Il problema di chi mi dà sempre ragione, Figlio di Briseide, è che non mi serve: ho già me stesso per quello."
+            caino "Chi mi dà sempre ragione, [figlio_t] di Briseide, è una voce doppia in bilancio. La mia ragione ce l'ho già a registro, e non la pago due volte."
 
         "Tacere e bere":
-            "Bevo. Il silenzio, con Caino, è l'unica frase che non può rivoltarti contro."
+            "Bevo e non dico niente. Con Caino, ogni parola finisce a verbale."
 
             show caino neutro with qdiss
 
@@ -95,7 +95,7 @@ label caino_cap5:
 
     show caino neutro with dissolve
 
-    caino "Lo sai cosa si dice di te, nei corridoi? Che il Figlio di Briseide ha stregato l'Arconte della Proprietà. Che ceno con te più spesso che con i miei scrivani. Che ti ho fatto ballare."
+    caino "Lo sai cosa si dice di te, nei corridoi? Che [il_t] [figlio_t] di Briseide ha stregato l'Arconte della Proprietà. Che ceno con te più spesso che con i miei scrivani. Che ti ho fatto ballare."
 
     pc "E ti disturba?"
 
@@ -103,7 +103,7 @@ label caino_cap5:
 
     "Si appoggia al merlo. Sotto di noi, Zefiro brilla come un registro pieno di voci."
 
-    "Ha la neve tra i capelli e non la scuote. L'Arconte che non lascia nulla al caso, stanotte, lascia cadere la neve."
+    "Ha la neve tra i capelli e non la scuote. Gli si scioglie sul colletto, goccia a goccia."
 
     caino "Da bambino salivo qui a contare le lanterne. Ogni sera. Se il numero cambiava, volevo sapere perché."
 
@@ -129,9 +129,9 @@ label caino_cap5:
 
             show caino neutro with qdiss
 
-            caino "...tutti hanno un prezzo. Tutti. Se tu non ce l'hai, sei la cosa più pericolosa che sia mai entrata nella mia Proprietà."
+            caino "...tutti hanno un prezzo. Tutti. Se tu non ce l'hai, non so in che colonna metterti. E quello che non so mettere in colonna, di solito, lo faccio sparire."
 
-            pc "O la prima che non ne fa parte."
+            pc "Oppure apri una colonna nuova."
 
         "«Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto.»":
             pc "Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto."
@@ -140,7 +140,7 @@ label caino_cap5:
 
             caino "Onesto. Sì. E deludente, il che è peggio."
 
-            "Annuisce piano, come chi ritrova una moneta conosciuta. Comoda, la moneta conosciuta. Ma non vale niente di nuovo."
+            "Annuisce piano. Con un dito traccia una riga sulla neve del merlo, e la cancella col palmo."
 
         "«Non lo so ancora. E non te lo dirò prima di saperlo.»":
             $ caino_fiducia += 1
@@ -172,7 +172,7 @@ label caino_cap5:
 
             "Il viso gli si chiude come un registro a fine mese."
 
-            caino "...già. Certo. È tardi, Figlio di Briseide. La Rocca si alza presto."
+            caino "...già. Certo. È tardi, [figlio_t] di Briseide. La Rocca si alza presto."
 
             "E capisco, troppo tardi, che era l'ultima prova: voleva vedere se abboccavo alla moneta falsa. Ho abboccato."
 
@@ -293,7 +293,7 @@ label caino_cap6:
 
     "Sulla soglia si ferma. Non si volta."
 
-    caino "Se domani qualcuno ti chiede di me, di' la verità. È l'unica moneta che non riescono a falsificare. Nemmeno io."
+    caino "Se domani qualcuno ti chiede di me, di' la verità. Tutta, senza omissioni. Ti sciolgo da ogni obbligo di riservatezza nei miei confronti."
 
     "La porta si chiude. Resto sol[fin] con il calamaio, il fuoco e due solchi sul tavolo, dove prima c'erano le pergamene."
 

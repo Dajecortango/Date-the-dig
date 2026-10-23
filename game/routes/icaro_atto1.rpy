@@ -28,11 +28,11 @@ label icaro_ev1:
             show icaro furbo with qdiss
             icaro "Non è un regalo. È un dividendo. I soci si pagano."
             pc "E se li rifiutassi?"
-            icaro "Saresti [il_t] prim[fin]. E io non investo sulle prime volte."
+            icaro "Li rimetterei a bilancio, col dieci per cento d'interessi a tuo carico. Prendili: ti conviene."
         "Tacere e guardare altrove":
             $ icaro_affinity += 1
             "Non dico nulla. Il mercante sbollisce da solo. Icaro annota il mio silenzio come annota tutto: alla voce «utile»."
-            icaro "Il silenzio è una moneta che pochi sanno spendere. L'hai spesa bene. Non benissimo."
+            icaro "Silenzio: buono. Hai distolto gli occhi un secondo tardi, e il mercante l'ha notato. La prossima volta, mezzo secondo prima."
         "Dare ragione al mercante":
             $ congelate.add("icaro")
             icaro "Contate pure. Tutto regolare, come sempre."
@@ -141,7 +141,7 @@ label icaro_int2:
     pc "Quando...?"
     icaro "Mentre guardavi la lanterna che ti ho indicato. Si indica sempre qualcosa. La gente guarda il dito, mai l'altra mano."
     "Me lo rende. Non direttamente: lo lascia cadere nella mia tasca mentre mi passa accanto. Non lo sento entrare."
-    icaro "Il trucco non sta nelle dita. Sta nell'attenzione degli altri. È una moneta, e tutti la spendono male."
+    icaro "Le dita fanno il dieci per cento. Il resto è dove guarda l'altro. Tu hai fissato la lanterna quattro secondi. Ne bastavano due."
     "Mi mostra tre cose: il passo di fianco, la spinta che sembra una scusa, la domanda che occupa la testa."
     icaro "L'ho imparato a otto anni. A nove ho smesso di farmi prendere."
     pc "E chi ti ha preso, a otto?"
@@ -158,11 +158,11 @@ label icaro_int2:
             show icaro sorpreso with qdiss
             "Ci pensa. Davvero. E per un istante, mentre pensa, la mano si apre."
             "La moneta è mia. Lui se ne accorge tre respiri dopo."
-            icaro "...domanda sleale. Ottima. Tienila: l'hai pagata con l'unica valuta che non accetto mai."
+            icaro "...domanda sleale. Ottima. Tienila. Tre respiri: devo lavorarci."
         "Rifiutare: «Non rubo ai soci.»":
             show icaro irritato with qdiss
             icaro "I soci sono quelli a cui conviene di più rubare. Si fidano."
-            "Ma intasca la moneta con un mezzo sorriso, come chi ha appena sentito una regola che non conosceva."
+            "Ma intasca la moneta con un mezzo sorriso. Dieci passi dopo la tira fuori e la guarda di nuovo."
     "Le bancarelle sono chiuse. Icaro si incammina senza salutare, le mani in tasca. Le sue, credo."
     "A casa, nel mio borsello, trovo un bottone d'osso che non è mio. E un biglietto: «Interessi.»"
     return
@@ -193,12 +193,12 @@ label icaro_debito_altrui:
             show icaro sorpreso with qdiss
             icaro "...hai guardato i denti del pettine."
             show icaro furbo with qdiss
-            icaro "Allora sai anche che ho barato contro me stesso. Tienilo per te. Il mio nome vale più della mia reputazione, e la mia reputazione vale moltissimo."
+            icaro "Allora sai anche che ho barato contro me stesso. Tredici Scudi di perdita, volontaria. Tienilo per te."
         "Restare in silenzio e passargli la lanterna":
             $ icaro_debito_esito = "silenzio"
             "Gli porgo la lanterna. Lui la prende. Le nostre dita non si toccano: Icaro non sbaglia mai le distanze."
             show icaro sereno with qdiss
-            icaro "Bene. Il silenzio, da te, non devo nemmeno comprarlo. È una tariffa che non ho mai visto."
+            icaro "Bene. Silenzio senza fattura. Lo annoto."
         "«Lo racconterò a Druso. Gli farà bene sapere che hai un cuore.»":
             $ icaro_debito_esito = "minaccia"
             show icaro irritato with qdiss

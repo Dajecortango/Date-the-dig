@@ -93,7 +93,7 @@ label druso_ev4:
     "Il vento arriva dai ghiacciai senza niente in mezzo. Sotto di noi, i tetti di Zefiro fumano come pentole."
     druso "Zitto, il vento ascolta. Notte lunga, lanterna corta. Si fa un patto: chi si addormenta paga il giro. O recita."
     druso "Per scaldarci, una cosa leggera. «Sulle mura di Zefiro c'è una guardia sola: ha freddo ai piedi e altro alla...» No. Non stanotte."
-    "Per due ore il provocatore non provoca. Conta le torce sulla Calà, nomina le stelle sbagliate, e ogni tanto si zittisce a metà frase."
+    "Per due ore, nemmeno una strofa sconcia. Conta le torce sulla Calà, nomina le stelle sbagliate, e ogni tanto si zittisce a metà frase."
     druso "Quella è la Lepre. No, il Carro. È il Carro che insegue la Lepre. Icaro le sa tutte, io le invento. Vengono meglio."
     $ muovi("druso", "sobbalzo")
     "Una civetta si alza dal cornicione. Druso trasale così forte che la lanterna oscilla."
@@ -143,7 +143,7 @@ label druso_luna5:
     "Druso apre la bocca. Non esce niente."
     show druso irritato with qdiss
     druso "Io... la metrica, è zoppa. La terza strofa, zoppa..."
-    "Nessuno lo sente. Per la prima volta da che lo conosco, il pubblico non è suo."
+    "Nessuno lo sente. Al tavolo accanto, due carrettieri ripetono già la strofa di Lisandro, per impararla."
     menu:
         "Lisandro alza il boccale verso di me. «La sua spalla vuole dire qualcosa?»"
         "«Sì. Due versi. Poi la parola torna a lui.»":
@@ -185,7 +185,7 @@ label druso_fiaccolata:
     "Coppie ovunque, mani intrecciate, sciarpe. Qualche Figlio di Glauco finge di essere lì per caso."
     druso "Guarda quanta gente innamorata. Mi viene un'ode. Si intitola «Trecento gradini per arrivare a letto stanchi»."
     druso "La leggenda dice mano nella mano. Io dico che la leggenda non ha mai visto le TUE mani: ruvide come la mia poesia."
-    "Ma la mano la tende lui. E per trecento gradini il provocatore più insopportabile del Nord non provoca nessuno: cammina, stringe, e ogni venti gradini controlla che io ci sia ancora."
+    "Ma la mano la tende lui. Per trecento gradini non dice una sola porcheria: cammina, stringe, e ogni venti gradini si gira a controllare che io ci sia ancora."
     "Al gradino cento passa Caino, solo. Vede le nostre mani. Alza un sopracciglio, uno solo, e prosegue."
     druso "Domani lo saprà tutta la Rocca. Caino non parla, ma il suo sopracciglio è un banditore."
     show druso imbarazzato with dissolve
@@ -208,7 +208,7 @@ label druso_luna6:
     druso "Madre non scrive mai. Fa scrivere un Eparca. Questa però l'ha firmata lei. Guarda: la L con la coda lunga."
     pc "È un buon segno o un cattivo segno?"
     druso "Con madre non ci sono segni. Ci sono solo verdetti, e i verdetti li capisci dopo."
-    "Beve. Posa il bicchiere senza finirlo. È la prima volta che glielo vedo fare."
+    "Beve. Posa il bicchiere a metà e lo spinge lontano col dorso della mano."
     show druso ghigno with qdiss
     druso "Ho già pronta la difesa, comunque. In rima. Undici strofe sul decoro. Vuoi sentire l'attacco?"
     druso "«Decoro, decoro, sei come l'alloro: ti mettono in testa e ti seccano in coro.»"
@@ -224,7 +224,7 @@ label druso_luna6:
             show druso irritato with qdiss
             druso "Me stesso? Hai visto me stesso? Cento chili di debiti, versi e paura. Non è una difesa: è una confessione."
             show druso serio with qdiss
-            druso "...però è vero. È l'unica cosa che non si può fischiare. Al massimo la si condanna."
+            druso "...però è vero, maledizione. Una poesia la FISCHIANO. Uno in carne e ossa, al massimo lo impiccano."
         "Strappargli la lettera e bruciarla sulla candela":
             with hpunch
             "La cera nera sfrigola. L'odore di carta bruciata riempie la taverna vuota."
@@ -233,7 +233,7 @@ label druso_luna6:
             show druso ghigno with qdiss
             druso "È la cosa più maleducata che abbia mai visto fare. Ci vado lo stesso, ovvio. Ma ci vado di umore migliore."
     show druso neutro with qdiss
-    druso "Caino mi ha detto di stare zitto. Icaro mi ha detto di scappare. Hanno ragione tutti e due, ed è per questo che non li ascolto."
+    druso "Caino dice: sta' zitto. Icaro dice: scappa. Un notaio e un topo, e io dovrei dar retta a QUESTI DUE? Piuttosto mi faccio frate."
     druso "Tu verrai? Non per difendermi. Per esserci. In fondo alla sala, dove mettono i Figli che non contano."
     pc "In fondo alla sala. Dove ti vedo."
     show druso imbarazzato with dissolve
@@ -253,7 +253,7 @@ label druso_udienza:
     show druso serio at left with dissolve
     "Esce senza boccale e senza ghigno. Cammina dritto, troppo dritto, come chi ha bevuto e non vuole farlo vedere. Solo che non ha bevuto."
     druso "Eccoti. Bene. Hai le mani fredde? Le mie sono di qualcun altro, al momento."
-    "Si siede su un timone di carro. Guarda la Rocca come si guarda un'onda che sta per arrivare."
+    "Si siede su un timone di carro, di spalle alla Rocca. Ogni tanto si volta a controllare che sia ancora lì."
     menu:
         "Druso non parla. Per lui, è un sintomo grave."
         "Raccogliere una palla di neve e tirargliela in faccia":

@@ -82,9 +82,9 @@ label echi_ricordo_tazza:
         "In tasca, la tazza senza crepe pesa poco. Lui no: lui mi riconosce."
         "Posare la tazza sul suo banco, accanto alle altre":
             $ ricordi_usati["tazza"] = "mostrato"
-            "La poso tra le sue. La mia è l'unica senza crepe. Lui la guarda come si guarda una lettera di un creditore."
+            "La poso tra le sue, scheggiate sul bordo. Lui la gira con due dita e cerca il marchio sotto il piede."
             "«Il socio del magro con la pipa», dice piano. «Ditegli che non vendo più niente a Zefiro. Ditegli che ho capito.»"
-            "Riprendo la tazza. Non ho detto una parola. Icaro aveva ragione: parlava la mia faccia, e adesso parla anche la porcellana."
+            "Riprendo la tazza. Non ho detto una parola."
         "Tenerla in tasca e passare oltre":
             $ ricordi_usati["tazza"] = "tenuto"
             "Tiro dritto. Lui si lamenta con la vicina del «magro con la pipa», e di un ragazzo con la faccia seria che non diceva niente."
@@ -109,7 +109,7 @@ label echi_ricordo_bicchiere:
         "Lasciarlo nel panno":
             $ ricordi_usati["bicchiere"] = "tenuto"
             icaro "Il vino di stasera si beve a canna. Come i debiti pari: senza testimoni."
-            "Beve dalla bottiglia. Il bicchiere resta nel panno, e lui non chiede dove sia. Lo sa, e gli basta."
+            "Beve dalla bottiglia. Il bicchiere resta nel panno. Lui guarda il panno una volta, poi la strada."
     $ conseguenze_aggiorna()
     return
 

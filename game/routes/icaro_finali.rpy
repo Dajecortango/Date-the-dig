@@ -30,14 +30,14 @@ label icaro_climax:
             show icaro sorpreso with qdiss
             icaro "..."
             "Si guarda le mani, come se fossero di un altro."
-            icaro "Mezzo respiro. Nessuno ha mai misurato mezzo respiro. Nemmeno io."
+            icaro "Mezzo respiro. Lo misuro adesso, mentre parlo. ...Esatto. Fastidioso."
             "Ride, piano. È la seconda volta in un semestre. Stavolta non smette subito."
         "Prendergli la pipa, tirare una boccata, rendergliela. Senza una parola" (peso=True):
             $ icaro_climax_scelta = "silenzio"
             "Mi guarda fare. Non protesta, non conta, non si scosta."
             show icaro sereno with qdiss
             icaro "Il silenzio l'ho già comprato, settimane fa. Stanotte volevo il resto."
-            icaro "Ma lo prendo lo stesso. Il silenzio non si svaluta."
+            icaro "Ma lo prendo lo stesso. Al prezzo di allora: non lo rivaluto."
             "Si riprende la pipa. Il cannello è ancora caldo. Non lo pulisce."
         "«Che bari anche quando giochi da solo.»" (peso=True):
             $ icaro_climax_scelta = "accusa"
@@ -66,7 +66,7 @@ label icaro_good:
     pc "Ho visto la carta scivolarti nel polsino. All'incontrario: dentro, non fuori."
     show icaro sorpreso with qdiss
     icaro "...hai visto."
-    "Non nega. In un semestre, è la prima volta che Icaro non nega."
+    "Non nega. Raccoglie il mazzo e lo squadra due volte, anche se è già squadrato."
     show icaro imbarazzato with dissolve
     "Poi slega il nastro del registro. Lo apre alla pagina della riga coperta. Stavolta la mano resta ferma."
     "Una riga sola, nella sua grafia stretta da notaio. «Voce unica. Non ammortizzabile. Non cedibile.»"
@@ -75,8 +75,8 @@ label icaro_good:
     else:
         icaro "L'ho scritta in silenzio. Mi sembrava la lingua giusta, con te."
     pc "E il prezzo?"
-    icaro "Fuori listino. Le cose che non si vendono non hanno un prezzo. Hanno un proprietario."
-    "Non mi tocca. Sposta il mazzo di un dito verso di me, sul panno. Da Icaro, è una mano tesa."
+    icaro "Fuori listino. L'ho stimata tre volte. Tre cifre diverse. Ho smesso."
+    "Non mi tocca. Sposta il mazzo di un dito verso di me, sul panno. Poi di un altro."
     scene bg cala_notte with fade
     $ lento()
     show icaro sereno with dissolve
@@ -105,7 +105,7 @@ label icaro_neutral:
     show icaro neutro with qdiss
     "Da allora, ogni fine Luna, una busta sotto la mia porta. Cifra esatta al centesimo, mai un biglietto."
     "Una volta, dentro, c'è una moneta in più. La riporto. La riprende senza commentare."
-    "Qualche volta, a fine mano, mi guarda come si guarda una carta scartata troppo presto. Poi rimescola."
+    "Qualche volta, a fine mano, i suoi occhi restano sulla mia sedia un secondo di troppo. Poi rimescola."
     "Al tavolo grande ho un posto. Il tavolo piccolo, quello dove conta, resta suo."
     scene bg nero with fade
     $ sblocca_finale("icaro_neutral")
@@ -135,7 +135,7 @@ label icaro_bro_end:
         if icaro_climax_scelta == "dettaglio":
             icaro "Mezzo respiro. Nemmeno Caino se n'è accorto, e Caino conta i respiri della gente per mestiere."
         elif icaro_climax_scelta == "silenzio":
-            icaro "E la pipa me l'hai resa intera. In questa famiglia nessuno restituisce quello che prende. Nessuno."
+            icaro "E la pipa me l'hai resa intera. Druso me ne ha rotte due. Caino una non me l'ha mai resa."
         else:
             icaro "Mi hai dato del baro. Lo tollero da un fratello solo, e una volta sola. La tua l'hai spesa."
         show icaro sereno with dissolve
@@ -145,7 +145,7 @@ label icaro_bro_end:
         icaro "Druso pretenderà di firmare anche lui. Gli dirò che la pagina è finita."
         icaro "Caino lo saprà entro l'alba. Lascialo sapere. Per una volta, è un credito che non può riscuotere."
         icaro "Domani sera, stesso tavolo. Tu guardi le mani degli altri. Le mie no: sono di famiglia."
-        "La chiave del magazzino resta nella mia tasca. Il gradino accanto al suo resta mio. Nel Nord, è più di quanto ottenga chiunque."
+        "La chiave del magazzino resta nella mia tasca. Il gradino accanto al suo resta mio."
         scene bg nero with fade
         $ sblocca_finale("icaro_bro_listino")
         centered "{cps=20}{size=+10}LISTINO CHIUSO{/size}\n\n{i}Finale Bro{/i}\n\nNon tutto ciò che è prezioso si tocca.{/cps}"
@@ -157,7 +157,7 @@ label icaro_bro_end:
         "Spinge la mia sedia sotto il tavolo con la punta dello stivale. Posto libero. Rientra a listino."
         "Alla porta si ferma, la pipa tra i denti. Non si volta."
         icaro "Niente di personale. Il personale è un lusso, e io i lussi li compro solo a prezzo di saldo."
-        "Esce. Sul panno ha lasciato il mazzo, tagliato perfetto. Da Icaro, vuol dire che non c'è altro da aggiungere."
+        "Esce. Sul panno ha lasciato il mazzo, tagliato perfetto."
         scene bg nero with fade
         $ sblocca_finale("icaro_bro_conti")
         centered "{cps=20}{size=+10}CONTI APERTI{/size}\n\nIl tavolo grande resta dov'era.\nTu no.{/cps}"

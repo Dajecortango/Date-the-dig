@@ -200,7 +200,9 @@ style borsa_pillola is button
 style borsa_pillola:
     background Frame("gui/borsa_pillola.png", 21, 21)
     hover_background Frame("gui/borsa_pillola.png", 21, 21)
-    padding (14, 6, 20, 6)
+    ## Su telefono e' anche l'unico accesso rapido alla Borsa: bersaglio
+    ## da ~4 mm.
+    padding ((20, 16, 26, 16) if renpy.variant("small") else (14, 6, 20, 6))
 
 style borsa_pillola_text is text
 style borsa_pillola_text:
@@ -314,16 +316,16 @@ style inventario_desc:
 
 ## Monete che volano: dal centro basso alla pillola della Borsa quando gli
 ## Scudi salgono (arco: x accelera, y frena), o cadono dalla Borsa quando
-## scendono. La chiave (istante del volo) fa ripartire le animazioni.
+## scendono (in ATL easeout accelera, easein frena). La chiave (istante del volo) fa ripartire le animazioni.
 
 transform moneta_vola(ritardo, chiave):
     xanchor 0.5 yanchor 0.5 xpos 960 ypos 880 zoom 0.8 alpha 0.0
     pause ritardo
     alpha 1.0
     parallel:
-        easein 0.55 xpos 1790
+        easeout 0.55 xpos 1790
     parallel:
-        easeout 0.55 ypos 44
+        easein 0.55 ypos 44
     linear 0.1 alpha 0.0
 
 transform moneta_cade(ritardo, chiave):
@@ -331,7 +333,7 @@ transform moneta_cade(ritardo, chiave):
     pause ritardo
     alpha 1.0
     parallel:
-        easein 0.5 ypos 170
+        easeout 0.5 ypos 170
     parallel:
         linear 0.5 alpha 0.0
 

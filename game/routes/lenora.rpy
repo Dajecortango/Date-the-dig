@@ -57,7 +57,7 @@ label udienza_lenora:
         lenora "No. Lo so già. Icaro ha aperto il suo registro a una voce nuova. Non lo fa per meno di cento Scudi."
         show icaro sorpreso with qdiss
         icaro "Non ho aperto niente."
-        lenora "Lo dici in fretta, Icaro. È l'unica cosa che fai in fretta."
+        lenora "Lo dici in fretta, Icaro. I conti, tu, li fai piano."
     elif lenora_pref == "aede":
         lenora "No. Lo so già. Le tue albe le passi nel cortile d'armi, con la figlia di Glauco. Quella rossa."
         lenora "Le figlie di Glauco non si frequentano. Si sopravvivono. Vedremo."

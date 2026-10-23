@@ -49,39 +49,39 @@ label cap4:
 
             aede "Credevi di passeggiare con cosa, esattamente? Con una ricamatrice?"
 
-            "La voce le si incrina sull'ultima parola. Di rabbia, mi dico. Ma non è solo rabbia."
+            "La voce le si incrina sull'ultima parola. Stringe l'elsa finché le nocche sbiancano."
 
             aede "Torna dal tuo mercante di lane, [figlio_t] di Briseide. E dimentica il vicolo."
 
-            "Mi volta le spalle. E per la prima volta da quando la conosco, sembra avere fretta."
+            "Mi volta le spalle. Il passo è troppo svelto, per lei."
 
         "«Il tuo Ceppo salda. Ho capito. Non ho visto niente.»":
             $ aede_affinity += 1
             $ flag_accetta_lavoro = True
 
-            pc "Il tuo Ceppo salda. Ho capito. Non ho visto niente."
+            pc "Salda. Ho capito. Io qui non c'ero."
 
             show aede neutra with qdiss
 
             aede "Impari in fretta le regole."
 
-            "Lo dice piatta. Ma mentre mi passa accanto rallenta di mezzo passo, come se si aspettasse altro da me. Come se le regole, stanotte, non le bastassero."
+            "Lo dice piatta. Ma mentre mi passa accanto rallenta di mezzo passo. Aspetta. Non dico niente, e lei riparte."
 
         "«Chi era per te, quest'uomo? Cosa ti costa, questo lavoro?»":
             $ aede_affinity += 3
             $ flag_accetta_lavoro = True
 
-            pc "Chi era per te, quest'uomo? Cosa ti costa, questo lavoro?"
+            pc "Chi era, per te? E a te quanto costa?"
 
             show aede sorpresa with qdiss
 
-            "Si blocca. Nessuno, capisco in quell'istante, le ha mai fatto quella domanda. Né il padre, né Ofelia, né Ascadeo, né i morti."
+            "Si blocca. La lama, a metà del fodero, resta lì."
 
             show aede neutra with qdiss
 
             aede "Per me non era nessuno. È questo che lo rende un lavoro."
 
-            aede "Quanto costa... Il primo costa tutto. Gli altri costano il ricordo del primo."
+            aede "Quanto costa. Col primo non dormi per una Luna. Poi dormi. È peggio."
 
             "Si siede su una cassa. Io mi siedo su quella accanto, a distanza di rispetto. Restiamo così finché le lanterne della Contrada non si spengono."
 
@@ -163,9 +163,9 @@ label cap5:
 
             "Lei la ritira con naturalezza perfetta, come se dovesse sistemarsi i capelli proprio in quell'istante."
 
-            aede "Attent[fin], novellin[fin]. Su questa scala i gesti hanno un significato. E tu e io non ci conosciamo abbastanza perché ne abbiano."
+            aede "Giù le mani, novellin[fin]. Su questa scala una mano vuol dire una cosa. E noi due quella cosa non siamo."
 
-            "Non è crudele. È esatta. Fa più male così."
+            "Senza cattiveria. Un taglio pulito, di quelli che bruciano dopo."
 
         "Camminarle accanto, senza toccarla":
             $ aede_affinity += 1
@@ -228,7 +228,7 @@ label cap6:
     aede "E io stanotte avrei voglia di darlo via. A te. Capisci cosa ti sto offrendo, [player_name]?"
 
     menu:
-        "La capisco. Sta offrendo l'unica cosa che il giuramento le ha lasciato da offrire."
+        "Ha le mani strette sulla balaustra. Le nocche bianche."
 
         "Fermarla. «Il tuo nome di prima è morto. Io voglio quella viva.»":
             $ flag_giuramento = True
@@ -246,7 +246,7 @@ label cap6:
 
             show aede sorriso with dissolve
 
-            aede "Sei l'unic[fin] [uomo_t] del Nord che rifiuta un tesoro per prendersi la cassaforte."
+            aede "Rifiuti il tesoro e ti prendi la cassaforte. Che razza di ladr[fin]..."
 
             pc "La cassaforte mi è sempre piaciuta più del tesoro."
 
@@ -288,7 +288,7 @@ label cap6:
 
             aede "No. No, tu non capisci niente. Io posso buttare via il mio giuramento: è mio. Ma non ti lascerò buttare il tuo per pareggiare un conto."
 
-            aede "Il giuramento è l'unica cosa che ci rende Dignitas, [player_name]. Se lo rompi per me, un giorno mi odierai. E io—"
+            aede "Senza giuramento siamo ladri col mantello, [player_name]. Se lo rompi per me, un giorno mi odierai. E io—"
 
             "Non finisce la frase. Se ne va com'è venuta, dalle serrature peggiori del Nord."
 

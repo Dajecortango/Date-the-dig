@@ -59,7 +59,7 @@ label prologo:
 
     "Il piccolo gioiello dell'Autarca. Quella di cui i miei fratelli di Ceppo parlano solo a voce bassa."
 
-    "E io sono l'unic[fin], in tutta Rocca Tempesta, ad averla vista sbagliare bersaglio."
+    "E il suo bersaglio sbagliato, stanotte, ero io."
 
     menu:
         aede "Allora? Cosa devo fare di te, novellin[fin]?"
@@ -68,24 +68,24 @@ label prologo:
             $ flag_segreto_svelo = True
             $ aede_affinity += 2
 
-            pc "Il tuo segreto muore con me. Hai la mia parola."
+            pc "Non lo dico a nessuno. Neanche a Briseide."
 
             show aede neutra with qdiss
 
             "Mi studia a lungo. Poi rinfodera la lama, di scatto, come se la decisione la irritasse."
 
-            aede "Le parole dei novellini valgono poco. Ma stanotte mi accontento."
+            aede "Parola di novellin[fin]. Bah. Per stanotte basta."
 
         "«Sbagli bersaglio spesso, o sono speciale?»":
             $ aede_affinity += 1
 
-            pc "Sbagli bersaglio spesso, o sono speciale?"
+            pc "Ti capita spesso di sbagliare gola, o sono un caso speciale?"
 
             show aede irritata with qdiss
 
             aede "Continua a parlare e il bersaglio diventa giusto."
 
-            "Ma c'è una piega minuscola all'angolo della sua bocca. Quasi un sorriso. Quasi."
+            "Ma l'angolo della bocca le si piega, appena. Se ne accorge e lo raddrizza."
 
         "«Glauco Severo sarà curioso di saperlo.»":
             $ aede_affinity -= 2
@@ -163,7 +163,7 @@ label cap1:
 
             aede "...Briseide li sceglie meno male del previsto, i suoi Figli."
 
-            "Dalla figlia di Glauco, è quasi una cerimonia d'onore."
+            "Non si gira a dirmelo. Lo dice alla strada davanti."
 
         "Chiederle cosa c'è dentro la cassetta":
             "Resisto mezz'ora. Poi la lingua vince."
@@ -280,7 +280,7 @@ label cap2:
 
             show aede neutra with qdiss
 
-            "Non un grazie. Un cenno della testa, misurato al millimetro. Da lei, vale un discorso."
+            "Non un grazie. Un cenno della testa, uno solo, misurato al millimetro."
 
         "Iscrivermi alla corsa aperta e sfidarla":
             $ aede_affinity += 2
@@ -297,7 +297,7 @@ label cap2:
 
             aede "L'anno prossimo ti doppio."
 
-            "È la prima volta che la vedo sorridere a viso aperto. Dura un battito. Poi se ne accorge e il sorriso sparisce come refurtiva."
+            "E sorride. Tutta la faccia, denti compresi. Dura un battito, poi se ne accorge e lo fa sparire come refurtiva."
 
         "Ignorare la gara e andarmene presto":
             $ aede_affinity -= 2
@@ -340,20 +340,20 @@ label cap3:
         "«Vengo. Ma se è una trappola per te, chi fa da esca sono io.»":
             $ aede_affinity += 2
 
-            pc "Vengo. Ma se è una trappola per te, chi fa da esca sono io."
+            pc "Vengo. E se qualcuno deve prendersi la coltellata, mettimi davanti."
 
             show aede sorpresa with qdiss
 
             aede "...sei più scem[fin] di quanto sembri."
 
-            "Lo dice piano. Senza veleno. Quasi con cura."
+            "Lo dice piano. Intanto mi stringe la fibbia del mantello, due strattoni secchi."
 
         "«Resto. Delle trappole te ne intendi più tu.»":
             pc "Resto. Delle trappole te ne intendi più tu."
 
             show aede neutra with qdiss
 
-            aede "Finalmente un po' di buonsenso. Peccato. Cominciavo ad abituarmi alla compagnia."
+            aede "Buonsenso. Era ora. ...Peccato, però."
 
             "Lo dice voltandosi, troppo in fretta perché possa leggerle la faccia."
 
@@ -390,6 +390,6 @@ label cap3:
 
     "Rientriamo che è quasi alba. E io capisco due cose: che le devo la reputazione, forse la vita."
 
-    "E che la risata di Aede, figlia di Glauco, è il suono più raro del Nord. E io voglio sentirla ancora."
+    "E che voglio sentirla ridere ancora. Anche a costo di rifare il merluzzo."
 
     return

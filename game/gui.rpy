@@ -79,7 +79,7 @@ define gui.interface_text_size = gui.scale(22)
 define gui.label_text_size = gui.scale(24)
 
 ## The size of text on the notify screen.
-define gui.notify_text_size = gui.scale(16)
+define gui.notify_text_size = gui.scale(19)
 
 ## The size of the game's title.
 define gui.title_text_size = gui.scale(54)
@@ -240,7 +240,7 @@ define gui.choice_button_text_insensitive_color = "#444444"
 define gui.slot_button_width = gui.scale(276)
 define gui.slot_button_height = gui.scale(234)
 define gui.slot_button_borders = Borders(gui.scale(10), gui.scale(10), gui.scale(10), gui.scale(10))
-define gui.slot_button_text_size = gui.scale(14)
+define gui.slot_button_text_size = gui.scale(16)
 define gui.slot_button_text_xalign = 0.5
 define gui.slot_button_text_idle_color = gui.idle_small_color
 define gui.slot_button_text_selected_idle_color = gui.selected_color
@@ -358,7 +358,9 @@ define config.history_length = 250
 
 ## The height of a history screen entry, or None to make the height variable
 ## at the cost of performance.
-define gui.history_height = gui.scale(170)
+## Altezza variabile: le battute lunghe (e il testo ingrandito su telefono)
+## non vengono tagliate.
+define gui.history_height = None
 
 ## Additional space to add between history screen entries.
 define gui.history_spacing = 0
@@ -373,7 +375,8 @@ define gui.history_name_xalign = 1.0
 ## The position, width, and alignment of the dialogue text.
 define gui.history_text_xpos = gui.scale(255)
 define gui.history_text_ypos = gui.scale(2)
-define gui.history_text_width = gui.scale(1450)
+## Il riquadro dei menu di gioco e' largo ~1374: 255 + 1080 ci sta.
+define gui.history_text_width = gui.scale(1080)
 define gui.history_text_xalign = 0.0
 
 
@@ -439,7 +442,7 @@ define MOBILE_SCALA_INTERFACCIA = 1.12
 
 ## Testi minuti delle screen custom (sottotitoli, note, "Solo adesso"): su
 ## telefono restano sotto la soglia di lettura anche scalati.
-define TESTO_MINUTO = (20 if renpy.variant("small") else 17)
+define TESTO_MINUTO = (22 if renpy.variant("small") else 19)
 define TESTO_NOTA = (23 if renpy.variant("small") else 20)
 
 init python:
@@ -475,5 +478,14 @@ init python:
 
         ## Le didascalie degli slot di salvataggio sono minuscole anche
         ## scalate.
-        gui.slot_button_text_size = gui.scale(18)
-        gui.notify_text_size = gui.scale(20)
+        gui.slot_button_text_size = gui.scale(20)
+        gui.notify_text_size = gui.scale(22)
+
+        ## Bersagli per il dito: su un 6" 1 px virtuale ~0,063 mm, quindi
+        ## slider da 36 e caselle da 46 sono 2-3 mm. Si portano a ~4-5 mm
+        ## (la parte attiva e' l'altezza, il disegno si allarga poco).
+        gui.slider_size = gui.scale(60)
+        gui.scrollbar_size = gui.scale(30)
+        gui.radio_button_height = gui.scale(72)
+        gui.check_button_height = gui.scale(72)
+        gui.page_button_borders = Borders(gui.scale(28), gui.scale(14), gui.scale(28), gui.scale(14))

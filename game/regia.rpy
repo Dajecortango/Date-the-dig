@@ -10,6 +10,10 @@
 
 define qdiss = Dissolve(0.15)
 
+# Curva delle entrate UI: easein_quart (parte veloce e frena forte).
+# Attenzione: in ATL "easein" frena e "easeout" accelera, al contrario del
+# CSS (easein_quart di Ren'Py = easeOutQuart di easings.net).
+
 # Lampo bianco brevissimo: colpo di lama, rivelazione improvvisa.
 define lampo = Fade(0.08, 0.0, 0.25, color="#fff")
 
@@ -193,13 +197,18 @@ init python:
 
     config.scene = _regia_scene
 
-    # shock / ricordo con "Animazioni: No": dissolvenza breve. Si concatena
-    # con l'effetto audio (audio.rpy).
+    # shock / ricordo / scosse / lampi con "Animazioni: No": dissolvenza
+    # breve. Il suono resta: audio.rpy avvolge questo callback e vede la
+    # transizione originale.
     _regia_with_prec = config.with_callback
 
     def _regia_con_transizione(trans, paired):
-        if mm_movimento_ridotto() and (trans is store.shock or trans is store.ricordo):
-            trans = Dissolve(0.2)
+        if mm_movimento_ridotto():
+            if (trans is store.shock or trans is store.ricordo
+                    or trans is store.vpunch or trans is store.hpunch):
+                trans = Dissolve(0.2)
+            elif trans is store.lampo or trans is store.lampo_oro:
+                trans = Dissolve(0.3)
         if _regia_with_prec is not None:
             trans = _regia_with_prec(trans, paired)
         return trans

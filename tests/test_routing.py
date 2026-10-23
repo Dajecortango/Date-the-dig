@@ -55,11 +55,16 @@ SCENARI = [
     ("aede: vecchia soglia 12 con tutti i flag non basta",
      _aede(12, True, True, True), "neutral_end"),
 
-    # Ofelia (good >= 12 e mancati <= 1; poly Caino solo con Caino >= 13)
+    # Ofelia (good >= 12 e nessun mancato; passeggero >= 12 con un mancato;
+    # bad sotto 8; poly Caino solo con Caino >= 13)
     ("ofelia sola: good a soglia esatta", _ofelia(12, 0), "ofelia_good"),
-    ("ofelia sola: un mancato tollerato", _ofelia(14, 1), "ofelia_good"),
-    ("ofelia sola: due mancati, niente good", _ofelia(14, 2), "ofelia_neutral"),
+    ("ofelia sola: un mancato -> passeggero", _ofelia(14, 1),
+     "ofelia_passeggero"),
     ("ofelia sola: 11 non basta", _ofelia(11, 0), "ofelia_neutral"),
+    ("ofelia sola: neutral a soglia bad", _ofelia(8, 1), "ofelia_neutral"),
+    ("ofelia sola: sotto 8 -> bad", _ofelia(7, 0), "ofelia_bad"),
+    ("ofelia + Caino: un mancato -> passeggero", _ofelia(14, 1, "caino", 20),
+     "ofelia_passeggero"),
     ("ofelia + Caino: good a tre", _ofelia(12, 0, "caino", 13),
      "ofelia_good_caino"),
     ("ofelia + Caino: Caino a 12 -> good sola", _ofelia(12, 0, "caino", 12),
@@ -79,6 +84,8 @@ SCENARI = [
      _poly_aede(of=11), "good_end"),
     ("ofelia + Aede: due mancati, fallback good Aede",
      _poly_aede(mancati=2), "good_end"),
+    ("ofelia + Aede: un mancato, fallback good Aede",
+     _poly_aede(mancati=1), "good_end"),
     ("ofelia + Aede: fallback neutral", _poly_aede(of=5, aede=9),
      "neutral_end"),
     ("ofelia + Aede: fallback bad Glauco",
@@ -86,13 +93,13 @@ SCENARI = [
     ("ofelia + Aede: fallback bad Aede", _poly_aede(of=5, aede=2),
      "bad_end_aede"),
 
-    # Druso (good: coraggio e >= 16; neutral >= 8)
-    ("druso: good a soglia esatta", rl.finale_druso(16, True), "druso_good"),
-    ("druso: 16 senza coraggio -> passeggero", rl.finale_druso(16, False),
+    # Druso (good: coraggio e >= 15; neutral >= 8)
+    ("druso: good a soglia esatta", rl.finale_druso(15, True), "druso_good"),
+    ("druso: 15 senza coraggio -> passeggero", rl.finale_druso(15, False),
      "druso_passeggero"),
-    ("druso: 15 senza coraggio -> neutral", rl.finale_druso(15, False),
+    ("druso: 14 senza coraggio -> neutral", rl.finale_druso(14, False),
      "druso_neutral"),
-    ("druso: coraggio a 15 -> neutral", rl.finale_druso(15, True),
+    ("druso: coraggio a 14 -> neutral", rl.finale_druso(14, True),
      "druso_neutral"),
     ("druso: neutral a soglia esatta", rl.finale_druso(8, False),
      "druso_neutral"),

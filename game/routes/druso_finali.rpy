@@ -71,7 +71,7 @@ label druso_good:
     "La sala non ride. La sala — che gli Asi la conservino — applaude."
     "Da dietro la grata, una sola parola: «Bis.»"
     show druso sorpreso with qdiss
-    "Druso resta a bocca aperta. Per la prima volta in vita sua, non ha la chiusa pronta."
+    "Druso resta a bocca aperta. Si gira verso di me e muove le labbra, senza voce: «e adesso?»"
     "Icaro, accanto a Caino, mormora qualcosa. Dal labiale sembra «ho perso un'altra scommessa». Sembra felice."
     scene bg cala_notte with fade
     $ lento()
@@ -98,7 +98,7 @@ label druso_good:
 label druso_neutral:
     show druso ghigno at left with qdiss
     druso "Frequentazione? Madre, io frequento TUTTI. È il mio pubblico. [Il_t] Figli[fin] di Briseide regge bene le mie rime, tutto qui."
-    "Ne esce con una battuta, come sempre. E come sempre, la battuta è un muro."
+    "Ne esce con una battuta, come sempre. Mentre la dice, non mi guarda nemmeno una volta."
     "Gli Arconti sorridono, sollevati. Un figlio che scherza è un figlio che non morde."
     if druso_consiglio == "parla":
         "Della mia difesa non dice niente. Mi passa accanto all'uscita e mi sistema il mantello, senza guardarmi."
@@ -157,7 +157,7 @@ label druso_passeggero:
         druso "Ma quando c'era da rischiare sul serio, tu eri sempre un passo indietro. A guardare. Mi è piaciuto, il tuo sguardo. Non mi è bastato."
     if druso_consiglio == "parla":
         druso "E stanotte ti sei alzat[fin] a parlare per me. Proprio quando, per una volta, toccava a me."
-    druso "Io ho bisogno di qualcuno che salti nel fosso prima che io finisca la strofa. Tu aspetti la chiusa. È un talento. Non è il mio."
+    druso "A me serve uno che si butta nel FOSSO prima che io arrivi alla rima. Tu aspetti la chiusa, col fazzoletto in mano. Brav[fin]. Noios[fin]. Car[fin]."
     "Ride, per non lasciare la frase nuda. Mi dà una pacca sulla spalla. Pesa come tutte le sue pacche, e non di più."
     scene bg vicoli_zefiro with fade
     $ lento()

@@ -65,6 +65,9 @@ init 5 python:
 
 # Esiti: None = mai giocato; "lasciato" = Lascia andare.
 default mg_duello = None
+# Costumanze > "Scelte a tempo": No toglie la clessidra alla sfida di Druso
+# (accessibilita': chi legge lento o gioca su telefono).
+default persistent.scelte_a_tempo = True
 default mg_carte = None
 default mg_registri = None
 default mg_botta = None
@@ -359,7 +362,8 @@ label att_taverna_botta:
         $ mg_b = mg_battute[mg_i]
         $ mg_titolo = "Colpo %d di 3" % (mg_i + 1)
         $ mg_opz = [(t, k) for t, k in mg_b["risposte"]]
-        call screen mg_prova(mg_titolo, "Druso: " + mg_b["battuta"], mg_opz, tempo=mgl.DRUSO_TEMPO)
+        call screen mg_prova(mg_titolo, "Druso: " + mg_b["battuta"], mg_opz,
+                             tempo=(mgl.DRUSO_TEMPO if persistent.scelte_a_tempo else None))
         if _return == "lascia":
             $ mg_lascia = True
             $ mg_i = 3

@@ -99,7 +99,7 @@ label impegno_icaro:
     icaro "Ho fatto i conti tre volte. Una compagna è un passivo: tempo, attenzioni, rischio. Ogni logica dice di non firmare."
     icaro "Ma ho un buco nel bilancio da tre Lune, e il buco ha la tua faccia. Quindi: o sei l'eccezione che conferma ogni mia regola, o sei l'errore più costoso della mia vita. Scegli tu la voce."
     pc "E se fossi l'errore?"
-    icaro "Allora l'avrò scelto io. È già più di quanto concedo agli errori degli altri."
+    icaro "Allora l'avrò scelto io. A prezzo pieno, senza trattare."
     menu:
         "La pagina bianca aspetta. Icaro non firma mai per primo."
         "«Eccezione. E sono irrevocabile, come le tue regole.»" (peso=True):
@@ -109,12 +109,12 @@ label impegno_icaro:
             icaro "Irrevocabile. Parola da contratto serio. ...venduto."
             "Scrive una riga sola sulla pagina bianca, e la copre con la mano prima che io possa leggerla. Sua. Come tutto ciò che conta."
             icaro "Non chiedere cosa c'è scritto. Te lo dirò quando avrà maturato gli interessi."
-            "Restiamo al buio, la pipa accesa tra noi. Non mi tocca. Ma per la prima volta non si scosta, quando la mia spalla sfiora la sua."
+            "Restiamo al buio, la pipa accesa tra noi. Non mi tocca. La mia spalla sfiora la sua, e aspetto che si scosti. Non si scosta."
         "«Non sono una voce del tuo inventario.»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("icaro")
             icaro "Allora il bilancio torna come prima. Perfetto. Era l'ipotesi più probabile, l'avevo già scontata."
-            "Lo dice piatto, senza una piega. Solo che per la prima volta da che lo conosco, sbaglia il taglio del mazzo."
+            "Lo dice piatto, senza una piega. Poi taglia il mazzo, e una carta gli scivola sul pavimento."
             "Chiude il registro. Prima di alzarsi, però, ci passa sopra il palmo, piano. Come per lisciare una pagina che nessuno scriverà."
     return
 
@@ -136,7 +136,7 @@ label impegno_bro:
             pc "La tengo. E non la conto: la custodisco."
             show icaro sereno with dissolve
             icaro "...custodire. Verbo accettabile. Fratello."
-            "Accenna a tendermi la mano. Ci ripensa a metà strada e mi passa la pipa. Con lui, tra uomini, è la stessa cosa. Forse di più."
+            "Accenna a tendermi la mano. Ci ripensa a metà strada e mi passa la pipa, il cannello già pulito."
         "Lasciargli la chiave" (peso=True):
             $ impegno_esito = False
             $ congelate.add("icaro")

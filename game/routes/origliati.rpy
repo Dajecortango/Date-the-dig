@@ -185,7 +185,7 @@ label echi_orig_ottone:
     scene bg studio_glauco with dissolve
     ottone "Il terzo scaffale. Quello dei registri di Aulo. È un buon posto per non farsi vedere."
     ottone "Io ci stavo, trent'anni fa. Si sentono cose che poi non si possono dimenticare. Ma non si possono nemmeno dire."
-    "Torna alle sue colonne. Non aggiunge altro, e non serve."
+    "Torna alle sue colonne. La penna riprende a grattare, più lenta."
     return
 
 # Caino ti ha visto andar via dalla serra (registri).

@@ -51,7 +51,7 @@ label impegno_aede:
         "«Ha un nome. Il tuo.»" (peso=True):
             $ impegno_esito = True
             show aede sorriso with dissolve
-            aede "...risposta accettabile. L'unica, per la cronaca."
+            aede "...risposta accettabile. Con le altre volavi di sotto."
             show aede irritata with qdiss
             aede "E sia chiaro: io non divido. Né le lame, né il posto agli allenamenti, né te. Chi ti ronza intorno, da stanotte, parla con me."
             "Non mi butta dal ballatoio. Resta, invece. E il resto del semestre, da stanotte, ha una direzione sola."

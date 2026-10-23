@@ -57,8 +57,12 @@ init python:
          "Due sorelle, un solo bersaglio: guadagna Aede, senza destare sospetti."),
         ("ofelia_bad_tempesta", "LA TEMPESTA", "Ofelia",
          "Amare due figlie di Glauco di nascosto ha un prezzo, e arriva presto."),
+        ("ofelia_passeggero", "IL GUANTO A TERRA", "Ofelia",
+         "Conquistala davvero, ma lascia vuota una sola delle sue sedie."),
         ("ofelia_neutral", "INTERESSE PASSEGGERO", "Ofelia",
-         "Ofelia non aspetta chi manca spesso o non la prende sul serio."),
+         "Ofelia non aspetta chi non la prende abbastanza sul serio."),
+        ("ofelia_bad", "IL DONO DEL CEPPO", "Ofelia",
+         "Arriva davanti a Glauco con meno di quanto avevi quando l'hai scelta."),
         ("finale_neutro_semestre", "IL SEMESTRE DEL NOVELLINO", "Semestre",
          "Attraversa il semestre senza legarti a nessuno, guardando e basta."),
     ]

@@ -354,7 +354,7 @@ screen trama(scheda="comune"):
                                 else:
                                     text ("◆" if stato == "vissuto" else "◇") size 22 color ("#c0392b" if stato == "vissuto" else "#8f7f5c") yoffset 6
                                     text titolo style "trama_nodo" color ("#f0c75e" if stato == "vissuto" else "#a89468")
-                                text luna size TESTO_NOTA italic True color "#6b5f4a" yalign 0.5
+                                text luna size TESTO_NOTA italic True color "#8a7a5a" yalign 0.5
                             for didascalia, righe in menu_nodo:
                                 vbox:
                                     xoffset 38

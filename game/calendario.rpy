@@ -463,7 +463,7 @@ transform cartello_srotola:
     align (0.5, 0.42)
     alpha 0.0 xzoom 0.06
     easein 0.15 alpha 1.0
-    easeout 0.55 xzoom 1.0
+    easein_quart 0.45 xzoom 1.0
 
 transform cartello_fermo:
     align (0.5, 0.42)
@@ -477,13 +477,14 @@ transform cartello_testo:
     linear 0.35 alpha 1.0
 
 # Sigillo di ceralacca: cade sul bordo basso dopo il testo (~0.9 s), con un
-# piccolo rimbalzo; rosso nei giorni segnati, bruno negli altri.
+# piccolo rimbalzo; rosso nei giorni segnati, bruno negli altri. Cade
+# accelerando (easeout, in ATL) e rimbalza frenando (easein).
 transform cartello_sigillo:
     align (0.5, 1.0) yoffset 78
     alpha 0.0 zoom 1.12
     pause 0.9
-    easein 0.18 alpha 1.0 zoom 0.66
-    easeout 0.08 zoom 0.7
+    easeout 0.18 alpha 1.0 zoom 0.66
+    easein 0.1 zoom 0.7
 
 # Numero del giorno che gira: il vecchio sale e sparisce, il nuovo sale dal
 # basso, mentre il testo compare (pause 0.5 come cartello_testo).
@@ -495,7 +496,7 @@ transform giorno_esce:
 transform giorno_entra:
     alpha 0.0 yoffset 24
     pause 0.55
-    easeout 0.35 alpha 1.0 yoffset 0
+    easein_quart 0.3 alpha 1.0 yoffset 0
 
 # Primo giorno di una Luna nuova: la luna di prima sfuma nella nuova, con un
 # piccolo bagliore oro.
@@ -509,7 +510,7 @@ transform luna_entra:
     align (0.5, 0.0) yoffset -64
     alpha 0.0 zoom 0.9
     pause 0.5
-    easeout 0.6 alpha 1.0 zoom 1.0
+    easein_quart 0.5 alpha 1.0 zoom 1.0
     matrixcolor BrightnessMatrix(0.25)
     linear 0.5 matrixcolor BrightnessMatrix(0.0)
 
@@ -620,7 +621,7 @@ screen pianificazione(momento, inviti, attivita):
                     spacing 0
                     xminimum 46
                     text ("◆" if fisso else " ") size 14 xalign 0.5 color "#f0c75e"
-                    text str(num) size 26 xalign 0.5 bold (stato == "oggi") color ("#f0c75e" if stato == "oggi" else "#6b5f4a" if stato == "passato" else "#c9b78a")
+                    text str(num) size 26 xalign 0.5 bold (stato == "oggi") color ("#f0c75e" if stato == "oggi" else "#8a7a5a" if stato == "passato" else "#c9b78a")
 
         # Slot del giorno (dove siamo arrivati). Gli Scudi stanno nella borsa
         # a schermo (borsa.rpy).
@@ -628,7 +629,7 @@ screen pianificazione(momento, inviti, attivita):
             xalign 0.5
             spacing 24
             for nome_s, stato_s in cal_slot_stati(momento):
-                text nome_s.capitalize() size 22 italic (stato_s == "corrente") color ("#f0e6d2" if stato_s == "corrente" else "#6b5f4a" if stato_s == "passato" else "#a89468") yalign 0.5
+                text nome_s.capitalize() size 22 italic (stato_s == "corrente") color ("#f0e6d2" if stato_s == "corrente" else "#8a7a5a" if stato_s == "passato" else "#a89468") yalign 0.5
 
         add "gui/divisore.png" xalign 0.5
 

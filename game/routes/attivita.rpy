@@ -85,7 +85,7 @@ label att_spada_3:
         "«Nessuno ti vuole morta, Aede.»":
             show aede irritata with qdiss
             aede "Che ne sai tu. Guardia alta."
-            "La lezione dura il doppio. Credo sia il suo modo di cambiare argomento."
+            "La lezione dura il doppio. Aede apre bocca solo per contare le riprese."
     if druso_affinity >= 5:
         show aede irritata with qdiss
         aede "Il figlio di Lenora ti chiama «linguaccia», in giro. Digli che qui la linguaccia impara a parlare con l'acciaio."
@@ -111,7 +111,7 @@ label att_scudo_1:
         "Scusarmi e mettermi in fondo alla fila":
             $ druso_affinity -= 1
             druso "In fondo alla fila, dove non dai fastidio. Ecco, bravo. Resta lì."
-            "Mi ha già archiviato. Si sente dal tono."
+            "Si volta prima che io arrivi in fondo."
     return
 
 label att_scudo_2:
@@ -141,7 +141,7 @@ label att_scudo_3:
     "Druso, stranamente serio, controlla le cinghie del mio scudo una a una."
     druso "Cinghia molle, braccio rotto. Te lo dico io che le ho rotte tutte e due, e non per modo di dire."
     menu:
-        "È quasi premuroso. Quasi."
+        "Tira l'ultima cinghia coi denti, poi la prova col pollice. Due volte."
         "«Grazie, Druso.»":
             $ druso_affinity += 1
             show druso ghigno with qdiss
@@ -276,7 +276,7 @@ label att_fumeria_2:
         "Nessuno ha visto niente. Tranne me."
         "Tacere e perdere l'ottavo Scudo con dignità":
             $ icaro_affinity += 1
-            "Pago. Icaro intasca. E per la prima volta i suoi occhi mi restano addosso un secondo di troppo, come su un conto che non torna."
+            "Pago. Icaro intasca. Poi, prima di rimescolare, mi guarda il polso, le mani, di nuovo il polso."
         "Sussurrare «bel taglio» a voce bassissima":
             $ icaro_affinity += 1
             icaro "...non so di cosa parli. Ma per la cronaca: era irreprensibile."
@@ -297,7 +297,7 @@ label att_fumeria_3:
             $ icaro_affinity += 1
             icaro "Mh. Sai stare in silenzio. Raro. Costoso, il silenzio: quasi quanto l'erba buona."
         "Chiedergli quanto ha vinto stasera":
-            icaro "Abbastanza. Che è l'unica cifra che do gratis."
+            icaro "Abbastanza. Le cifre esatte costano tre Scudi l'una."
     if caino_fiducia >= 4:
         icaro "Tu lavori ai registri di mio fratello. Consiglio gratuito, e da me il gratuito è raro: con Caino conta due volte. La prima per lui, la seconda per te."
     return
@@ -391,7 +391,7 @@ label att_fumeria_4:
             $ icaro_affinity += 1
             show icaro furbo with qdiss
             icaro "...l'ho messo io da parte, per vedere chi se ne accorgeva. Tre settimane. Sei [il_t] prim[fin]."
-            "Lo rimette nella pila con un mezzo sorriso. Da Icaro, è un applauso."
+            "Lo rimette nella pila con un mezzo sorriso. La terza pila torna pari alle altre."
         "Guardare e basta, com'è gratis":
             icaro "Bravo. Il pubblico migliore è quello che non fa domande."
     return

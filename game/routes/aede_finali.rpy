@@ -83,7 +83,7 @@ label good_end:
 
     show aede neutra with dissolve
 
-    "Aede guarda la lama nella propria mano come se la vedesse per la prima volta."
+    "Aede abbassa gli occhi sulla lama. La gira una volta, piatto e filo. Le trema il polso."
 
     aede "Vent'anni di ordini eseguiti. Sai quante volte ho sbagliato un bersaglio, [player_name]?"
 
@@ -101,7 +101,7 @@ label good_end:
 
     glauco "Disobbedienza."
 
-    aede "Verità, padre. La tua lama perfetta sceglie il suo bersaglio: è questo che l'hai addestrata a fare. Scegliere meglio di chiunque."
+    aede "No, padre. Mi hai insegnato a scegliere il bersaglio. Ho scelto."
 
     aede "E io scelgo lui. Davanti a te, davanti al Groviglio, davanti a ogni Asi che vorrà guardare. Se il Ceppo deve rifondermi, cominci stanotte."
 
@@ -239,7 +239,7 @@ label bad_end_glauco:
 
     scene bg nero with lampo
 
-    "L'ultima cosa che sento è la voce di lei che urla il mio nome — il mio Primo Nome, quello vero, l'unico che ho."
+    "L'ultima cosa che sento è la voce di lei che urla il mio nome — il mio Primo Nome, quello vero, quello che mi resta."
 
     "Gli Arvali dicono che chi muore nella neve attraversa il Margine senza freddo. Mentono. Ma è un freddo breve."
 
@@ -259,7 +259,7 @@ label aede_passeggero:
 
     show aede neutra with dissolve
 
-    "Aede abbassa la lama. Piano, come si posa una cosa che non serve più."
+    "Aede abbassa la lama. Piano. La punta tocca la neve e ci resta."
 
     aede "Non ti tocco. Non stanotte, non mai. Questo lo decido io."
 
@@ -274,7 +274,7 @@ label aede_passeggero:
 
     aede "È il mio bersaglio, padre. Decido io quando mancarlo."
 
-    "Rinfodera. Il suono è piccolo, pulito. Per un istante mi guarda come si guarda una strada che non si prenderà."
+    "Rinfodera. Il suono è piccolo, pulito. Per un istante mi guarda. Poi guarda oltre, verso le mura."
 
     hide aede with dissolve
 

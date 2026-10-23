@@ -91,7 +91,7 @@ label att_registri_3:
     "La pagina prima porta una firma che conosco: un sigillo col drago, inchiostro verde. Lo stesso drago dell'anello di Caino."
     "La pagina dopo riprende a metà di una frase. «...e pertanto la Proprietà del defunto passa alla Capofamiglia, per intero.»"
     "Del defunto. Dieci anni fa. Non c'è scritto chi."
-    "Rimetto il volume dov'era, con il dorso storto come l'ho trovato. Nell'archivio morto si impara una cosa sola: le tracce si lasciano solo se le vuoi lasciare."
+    "Rimetto il volume dov'era, con il dorso storto come l'ho trovato, e soffio sulla polvere finché non torna uguale."
     return
 
 # Mini-scena di impegno (scelta del cuore, fine Luna IV).
@@ -112,19 +112,19 @@ label impegno_caino:
     caino "Mia madre direbbe che sto per fare un investimento sbagliato. Mia madre non ha mai sbagliato un investimento. Né ne ha mai fatto uno che le piacesse."
     caino "Quindi la domanda è semplice, e la faccio una volta sola: vuoi entrare nel registro che non mostro a nessuno? Rispondi adesso. Dopo, archivio."
     menu:
-        "L'Arconte della Proprietà aspetta. E per la prima volta non sta recitando."
+        "Il corno smette di girare. Caino aspetta, le dita ferme sul bordo."
         "«Scrivimi. Penna buona, inchiostro indelebile.»" (peso=True):
             $ impegno_esito = True
             show caino tenero with dissolve
             caino "Indelebile. Parola grossa, nei registri. ...la parola giusta."
             "Beve. Bevo. E da stanotte il semestre ha un contraente solo."
             caino "Una clausola, però. Una sola. Se mi menti, lo saprò. Se mi dici la verità, lo saprò lo stesso: è peggio, ma mi abituerò."
-            "Spegne l'ultima candela con due dita. Al buio, per la prima volta, non lo sento contare."
+            "Spegne l'ultima candela con due dita. Il registro resta aperto sul tavolo, al buio, e nessuno dei due lo chiude."
         "«Non firmo contratti che non so leggere.»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("caino")
             show caino freddo with qdiss
-            caino "Prudente. Sempre prudente. Archiviato, Figlio di Briseide: la Proprietà ti terrà il posto da scrivano. Solo quello."
+            caino "Prudente. Sempre prudente. Archiviato, [figlio_t] di Briseide: la Proprietà ti terrà il posto da scrivano. Solo quello."
             "Svuota il mio corno nel suo, senza fretta. Poi apre un registro qualsiasi e comincia a scrivere."
             "Esco. La penna non si ferma nemmeno quando chiudo la porta."
     return
@@ -139,7 +139,7 @@ label caino_luna5:
     show caino freddo with dissolve
     "Caino non è alla scrivania. È in piedi accanto al camino, e nel camino non brucia legna: brucia carta."
     caino "Siediti. Non tu, [player_name]. Lui."
-    "Dietro di me, scortato da due guardie del Ramo di Lenora, entra Ottone. Lo scrivano del calamaio. Le mani gli tremano come foglie in un registro aperto."
+    "Dietro di me, scortato da due guardie del Ramo di Lenora, entra Ottone. Lo scrivano del calamaio. Le mani gli tremano; le nasconde nelle maniche, e tremano le maniche."
     caino "Ottone. Trentun anni alla Proprietà. Mio padre ti assunse. Io ti ho confermato. Due firme, due generazioni."
     caino "Stamattina il Primo Arconte aveva sul tavolo le copie dei registri di Aulo. Con le date di consultazione. Scritte con la tua mano."
     ottone "Arconte, io... mi hanno detto che era per l'ordine della Famiglia. Che la Verità voleva solo controllare."
@@ -160,7 +160,7 @@ label caino_luna5:
             caino "Ci serve. Plurale. Lo hai detto senza accorgertene."
             ottone "Un servitore dell'Arconte della Verità. Senza stemma. Ma aveva un anello col leone d'oro, all'indice."
             "Caino e io ci guardiamo. Un leone d'oro all'indice: l'anello di tutti, a Rocca Tempesta. L'anello di chi vuole sembrare chiunque."
-            caino "Un leone qualsiasi. Il che vuol dire qualcuno che sa che io guardo gli anelli. Il cerchio si stringe, e non dalla parte che speravo."
+            caino "Un leone qualsiasi. Quindi qualcuno che sa che io guardo gli anelli. La lista dei sospetti si accorcia, e i nomi rimasti sono tutti di famiglia."
         "«Trentun anni. Concedigli l'esilio, non le Segrete.»":
             pc "Trentun anni di servizio, Caino. Una sola riga sbagliata. Concedigli l'esilio, non le Segrete."
             show caino sarcastico with qdiss

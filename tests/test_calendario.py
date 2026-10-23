@@ -236,18 +236,36 @@ def check_store_picklabile():
     check("loop chiama hook scadenza", "cal_inviti_ignorati_hooks" in cal, True)
 
 
+# Label che si escludono a vicenda in una partita: del gruppo conta solo il
+# massimo. Fiaccolata (V/14): un solo ramo per route (ev_fiaccolata in
+# snodi.rpy). Rivalita' (IV/18): una sola scena per partita (ev_rivalita).
+_GRUPPI_ESCLUSIVI = (
+    ("cap5", "fiaccolata_caino", "druso_fiaccolata", "icaro_fiaccolata",
+     "ofelia_fiaccolata", "ofelia_fiaccolata_caino", "ofelia_fiaccolata_aede",
+     "fiaccolata_neutra"),
+    ("rivalita_sorelle", "rivalita_caino_druso", "rivalita_caino_icaro",
+     "rivalita_druso_icaro", "rivalita_generica"),
+)
+
+
 def _max_punti(var):
-    """Somma dei massimi incrementi per label: tetto teorico dell'affinita'."""
+    """Somma dei massimi incrementi per label: tetto teorico dell'affinita'.
+    Nei gruppi esclusivi conta solo il label piu' generoso."""
     import glob
     import re
-    tot = 0
+    per_label = {}
     for f in glob.glob(os.path.join(HERE, "..", "game", "**", "*.rpy"),
                        recursive=True):
         src = open(f, encoding="utf-8").read()
         for chunk in re.split(r"(?m)^label ", src)[1:]:
             inc = [int(n) for n in re.findall(var + r" \+= (\d+)", chunk)]
             if inc:
-                tot += max(inc)
+                per_label[chunk.split(":")[0].strip()] = max(inc)
+    tot = sum(per_label.values())
+    for gruppo in _GRUPPI_ESCLUSIVI:
+        dentro = [per_label[l] for l in gruppo if l in per_label]
+        if dentro:
+            tot -= sum(dentro) - max(dentro)
     return tot
 
 
@@ -256,8 +274,8 @@ def check_economia_punti():
     druso_max = _max_punti("druso_affinity")
     icaro_max = _max_punti("icaro_affinity")
     check("druso: soglia impegno uomo (11) raggiungibile", druso_max >= 11, True)
-    check("druso: good end (16) raggiungibile", druso_max >= 16, True)
-    check("druso good end soglia 16", rl.GOOD["druso"], 16)
+    check("druso: good end (15) raggiungibile", druso_max >= 15, True)
+    check("druso good end soglia 15", rl.GOOD["druso"], 15)
     check("icaro: good end (13) raggiungibile", icaro_max >= 13, True)
     check("icaro good end soglia 13", rl.GOOD["icaro"], 13)
     check("soglie druso 9F/11M",
@@ -695,10 +713,11 @@ def check_eventi_ofelia():
     check("ofelia_ev4 fisso V/26", '"luna": 5, "giorno": 26' in ev, True)
     for lbl in ("ofelia_climax", "ofelia_routing", "ofelia_poly_aede_routing",
                 "ofelia_good", "ofelia_good_caino", "ofelia_good_aede",
-                "ofelia_bad_tempesta", "ofelia_neutral"):
+                "ofelia_bad_tempesta", "ofelia_neutral", "ofelia_passeggero",
+                "ofelia_bad"):
         check("label " + lbl, "label " + lbl + ":" in fin, True)
     check("good ofelia soglie",
-          (rl.ofelia_good(12, 1), rl.ofelia_good(11, 0), rl.ofelia_good(12, 2)),
+          (rl.ofelia_good(12, 0), rl.ofelia_good(12, 1), rl.ofelia_good(11, 0)),
           (True, False, False))
     check("tempesta prima del good",
           rl.finale_ofelia_poly_aede(2, 20, 0, 20, True, True, True),
@@ -720,7 +739,7 @@ def check_galleria_finali():
     gal = _leggi("finali_galleria.rpy")
     ids = re.findall(r'^\s*\("(\w+)",\s*"[^"]+",\s*"\w+",\s*"[^"]+"\),?$',
                      gal, re.M)
-    check("FINALI ha 26 voci", len(ids), 26)
+    check("FINALI ha 28 voci", len(ids), 28)
     check("id FINALI unici", len(set(ids)), len(ids))
     tutto = ""
     for f in glob.glob(os.path.join(HERE, "..", "game", "**", "*.rpy"),

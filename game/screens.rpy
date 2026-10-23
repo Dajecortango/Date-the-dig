@@ -362,6 +362,12 @@ init python:
         ("costumanze", _("Costumanze")),
         ("borsa", _("Borsa e oggetti")),
     ]
+    # Su telefono sei sigilli, grandi abbastanza per il dito (~9 mm): i
+    # salvataggi rapidi restano nel menu Salva/Carica, la Borsa si apre dalla
+    # pillola degli Scudi in alto a destra.
+    if renpy.variant("small"):
+        QUICK_SIGILLI = [q for q in QUICK_SIGILLI
+                         if q[0] not in ("qsalva", "qcarica", "borsa")]
     # Su touch non c'e' tooltip: sopra ogni sigillo un'etichetta corta (i
     # tooltip interi non ci stanno nei 96 px del sigillo).
     QUICK_ETICHETTE = {
@@ -375,10 +381,11 @@ init python:
         "costumanze": _("Opzioni"),
         "borsa": _("Borsa"),
     }
-    # Su telefono i sigilli (60 px nel png) si ingrandiscono: sotto i 60 px
-    # il dito ne prende due.
-    QUICK_LATO = 84 if renpy.variant("small") else 60
-    QUICK_SPAZIO = 12 if renpy.variant("small") else 10
+    # Su telefono i sigilli (60 px nel png) si ingrandiscono: a 1920x1080
+    # su un 6" servono ~112 px virtuali per un bersaglio da ~9 mm.
+    QUICK_LATO = 112 if renpy.variant("small") else 60
+    QUICK_SPAZIO = 14 if renpy.variant("small") else 10
+    QUICK_ETICHETTA_H = 32 if renpy.variant("small") else 26
 
     def quick_azione(chiave):
         return {
@@ -404,7 +411,8 @@ init python:
         if renpy.get_screen("cartello_data") or renpy.get_screen("input"):
             return None
         if renpy.get_screen("pianificazione"):
-            return (min(1530 - quick_larghezza() // 2, 1890 - quick_larghezza()), 996)
+            return (min(1530 - quick_larghezza() // 2, 1890 - quick_larghezza()),
+                    min(996, 1076 - QUICK_LATO))
         return (min(1130, 1880 - quick_larghezza()),
                 1080 - gui.textbox_height + 14 - QUICK_LATO // 2)
 
@@ -436,11 +444,11 @@ screen quick_menu():
 
         if renpy.variant("touch"):
             hbox:
-                pos (qpos[0], qpos[1] - 26)
+                pos (qpos[0], qpos[1] - QUICK_ETICHETTA_H)
                 spacing QUICK_SPAZIO
                 for chiave, _s in QUICK_SIGILLI:
                     fixed:
-                        xysize (QUICK_LATO, 26)
+                        xysize (QUICK_LATO, QUICK_ETICHETTA_H)
                         text QUICK_ETICHETTE[chiave] style "quick_etichetta_text"
 
         $ qtt = GetTooltip("quick_menu")
@@ -495,6 +503,11 @@ style quick_etichetta_text:
     xalign 0.5
     yalign 1.0
     textalign 0.5
+
+## Su telefono l'etichetta e' l'unica guida (niente tooltip): leggibile.
+style quick_etichetta_text:
+    variant "small"
+    size 20
 
 style quick_button is default
 style quick_button_text is button_text
@@ -1147,6 +1160,13 @@ screen preferences():
                     label _("Avvisi delle conseguenze")
                     textbutton _("Sì") action SetField(persistent, "avvisi_conseguenze", True)
                     textbutton _("No") action SetField(persistent, "avvisi_conseguenze", False)
+
+                vbox:
+                    style_prefix "radio"
+                    xsize 340
+                    label _("Scelte a tempo")
+                    textbutton _("Sì") action SetField(persistent, "scelte_a_tempo", True)
+                    textbutton _("No") action SetField(persistent, "scelte_a_tempo", False)
 
             null height (4 * gui.pref_spacing)
 

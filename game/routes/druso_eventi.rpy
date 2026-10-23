@@ -71,12 +71,12 @@ label impegno_druso:
     druso "Ho scritto una cosa. Non oscena. È... il problema è proprio questo, che non è oscena. Prima di dartela devo sapere se ridi."
     druso "Ci ho messo tre notti. Le altre le scrivo in tre minuti, sul tovagliolo. Questa no. Questa non voleva venire."
     $ muovi("druso", "trema")
-    "Il foglio trema appena. Il poeta del disagio altrui, in imbarazzo per la prima volta da che lo conosco."
+    "Il foglio trema appena. Se ne accorge, lo stringe più forte, e adesso trema la mano intera."
     menu:
         "«Perché il poema più bello non nasce dall'immaginazione.»"
         "Prendere il foglio senza ridere" (peso=True):
             $ impegno_esito = True
-            "Lo leggo. Parla di un percorso che si fa assieme, di un'intesa che non ha bisogno di provocazioni. Rima baciata, naturalmente."
+            "Lo leggo. Non c'è una parolaccia. C'è una strada di neve fatta in due, e nessuno che spinge l'altro nel fosso. Rima baciata, naturalmente."
             "Ci sono la taverna, le mura di Zefiro, il ponte sul canale. E ci sono io, senza nome, in ogni strofa."
             show druso ghigno with qdiss
             druso "Allora? Metrica zoppa? Contenuto peggio? Di' qualcosa o DICHIARO."

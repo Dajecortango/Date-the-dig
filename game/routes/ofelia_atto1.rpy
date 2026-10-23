@@ -6,7 +6,7 @@ label att_corte_1:
     scene bg sala_svelo with fade
     show ofelia neutra with dissolve
     "La serra di Glauco in pieno inverno: fiori che non dovrebbero esistere e una fila di pretendenti che sembra voler somigliare a loro."
-    "Ofelia li passa in rassegna come si passa un mazzo di carte scadenti. Nessuno regge il suo sguardo oltre il secondo."
+    "Ofelia li passa in rassegna uno per uno, e a ciascuno dedica mezzo respiro. Nessuno regge il suo sguardo oltre il secondo."
     if route_seconda == "aede":
         $ aede_sospetto += 1
         "Mi accorgo troppo tardi che una servetta ci osserva dal corridoio. Domani Aede saprà che passo in serra."
@@ -57,8 +57,8 @@ label att_corte_2:
             "Tullio mi abbraccia come un fratello d'arme. Ofelia si allontana prima che possa abbracciare anche lei."
         "«L'orso non c'era. Ma i suoi graffi sul braccio sono veri.»":
             $ ofelia_affinity += 1
-            show ofelia imbarazzata with qdiss
-            ofelia "...hai notato i graffi. Gli altri guardano sempre me."
+            show ofelia compiaciuta with qdiss
+            ofelia "Il braccio, non l'orso. Tieni gli occhi dove servono, tu."
             show ofelia neutra with qdiss
             ofelia "Era un gatto. Non dirglielo."
             "Tullio non ha capito niente. Ofelia gli restituisce il guanto, gentile, e lo congeda con una pacca da padrona di cani."
@@ -80,7 +80,7 @@ label att_corte_3:
         "Mi giunge voce che Aede ha chiesto dove passo i pomeriggi. Qualcuno ha risposto: in serra."
     ofelia "Tutti mi chiedono cosa voglio. Nessuno si domanda perché lo chiedo a voce così alta. Fa parte del gioco, immagino."
     ofelia "Aede risponde con la spada. Ascadeo con una battuta e una porta che sbatte. Io poto le rose. Ognuno ha il suo modo di non parlare con nostro padre."
-    "Lo stelo cade nel cesto. Lei lo segue con gli occhi come si segue un nemico che si arrende troppo presto."
+    "Lo stelo cade nel cesto. Lei lo segue con gli occhi fino in fondo, delusa: si è arreso troppo presto."
     menu:
         "Non mi guarda. Taglia, con calma, uno stelo."
         "«Vuoi che resti, o che me ne vada?»":
@@ -128,7 +128,7 @@ label ofelia_ev1:
         "Restare immobile, senza ridere e senza intervenire":
             $ ofelia_affinity += 2
             show ofelia compiaciuta with qdiss
-            ofelia "Né il coro né [il_t] paladin[fin]. Strano: sei l'unic[fin] che non ha fatto il verso a nessuno dei due."
+            ofelia "Né il coro né [il_t] paladin[fin]. Resta lì. Mi servono testimoni che sappiano stare zitti."
             "Si china a raccogliere una rosa caduta e la annusa, distratta."
             ofelia "Lucio non tornerà. Se ti chiedono com'è andata, di' che il fiore era buono. Questo almeno è vero."
     "Più tardi, uscendo, incrocio i servi che spazzano il vialetto. Raccolgono petali bianchi con la stessa cura con cui si raccolgono i cocci."
@@ -155,8 +155,8 @@ label ofelia_ev2:
         "A metà cena l'uomo aspetta una mia mossa. Ofelia, anche."
         "Stare al gioco, con stile: baciarle la mano come se fosse mia da sempre":
             $ ofelia_affinity += 2
-            show ofelia imbarazzata with qdiss
-            ofelia "...Non era previsto così bene. Ti avevo scelt[fin] per fare numero, e invece reciti meglio di lui."
+            show ofelia compiaciuta with qdiss
+            ofelia "Non era previsto così bene. Ti avevo scelt[fin] per fare numero, e invece reciti meglio di lui."
             show ofelia compiaciuta with qdiss
             "L'uomo posa il bicchiere. Per il resto della sera non guarderà più né lei né me."
         "Dirlo in faccia, piano: «Mi stai usando, Ofelia. Lo faccio volentieri, ma voglio che tu lo sappia.»":
@@ -226,8 +226,8 @@ label interludio_ofelia_2:
     menu:
         "Ofelia mi guarda leggere. Le braccia conserte, il mento alto."
         "Leggere tutto, nota compresa":
-            show ofelia imbarazzata with qdiss
-            ofelia "...«sospetto che le piaccia». Ascadeo sospetta molte cose. Perde la metà delle scommesse."
+            show ofelia neutra with qdiss
+            ofelia "«Sospetto che le piaccia.» Ascadeo sospetta molte cose. Perde la metà delle scommesse."
             show ofelia neutra with qdiss
             ofelia "L'altra metà, però, la vince sempre. È questo il guaio dei fratelli minori."
         "Leggere solo la cifra, e tacere la nota":

@@ -324,17 +324,24 @@ screen menu_cast():
         hover "gui/mm_freccia_dx_hover.png"
         xpos 1872 xanchor 0.5 ypos 560 yanchor 0.5
         action mm_ruota(locals(), mm_centro, mm_centro + 1)
-    key "K_LEFT" action mm_ruota(locals(), mm_centro, mm_centro - 1)
-    key "K_RIGHT" action mm_ruota(locals(), mm_centro, mm_centro + 1)
+    ## Le frecce restano alla navigazione col focus (tastiera/gamepad tra i
+    ## bottoni e il cast): il carosello gira con PagSu/PagGiu e i dorsali.
+    key "K_PAGEUP" action mm_ruota(locals(), mm_centro, mm_centro - 1)
+    key "K_PAGEDOWN" action mm_ruota(locals(), mm_centro, mm_centro + 1)
+    key "pad_leftshoulder_press" action mm_ruota(locals(), mm_centro, mm_centro - 1)
+    key "pad_rightshoulder_press" action mm_ruota(locals(), mm_centro, mm_centro + 1)
 
     frame:
         style "mm_pallini"
         hbox:
-            spacing 10
+            ## Il pallino e' 22 px: il padding allarga la parte toccabile
+            ## senza cambiare il disegno (su touch ~3 mm per lato in piu').
+            spacing 0
             for i, (chiave, fase, prof) in enumerate(MM_CAST):
                 imagebutton:
                     idle ("gui/mm_punto_on.png" if i == mm_centro else "gui/mm_punto.png")
                     hover "gui/mm_punto_on.png"
+                    padding ((14, 14) if renpy.variant("touch") else (5, 4))
                     action mm_ruota(locals(), mm_centro, i)
 
     ## Fumetto sopra la testa del personaggio sotto il mouse.

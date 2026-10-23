@@ -15,13 +15,12 @@ label icaro_ev3:
     "Al dieci l'urlo è passato. Riapre gli occhi come se niente fosse."
     if player_gender == "f":
         show icaro imbarazzato with dissolve
-        icaro "...annotazione d'inventario. La tua presenza non è un passivo. Non capita. Non capita mai."
+        icaro "...annotazione d'inventario. Due ore, zero perdite. La tua presenza non è un passivo. Ricontrollo domani, per sicurezza."
         $ icaro_affinity += 2
-        "Da Icaro, è una dichiarazione d'amore in piena regola contabile."
-        "Poi torna a guardare la città, e per il resto della notte non dice più niente. Il silenzio, stavolta, pesa diverso."
+        "Poi torna a guardare la città. La pipa, sulla stuoia, resta dalla mia parte."
     else:
         show icaro imbarazzato with dissolve
-        icaro "...annotazione d'inventario. Sei l'unico uomo che non mi fa venire voglia di contare l'argenteria. Tienitelo stretto."
+        icaro "...annotazione d'inventario. Due ore accanto a te, e non ho controllato il borsello. Neanche una volta. Tienitelo stretto."
         $ icaro_affinity += 2
         pc "Lo prendo come un complimento."
         icaro "È un'annotazione. I complimenti non li faccio. Costano."
@@ -51,7 +50,7 @@ label icaro_int3:
         "Ripiega la lettera in quattro. Aspetta che io dica qualcosa, o niente."
         "«Ha torto. Tu conti, e le cose migliori le trovi lo stesso.»":
             show icaro sorpreso with qdiss
-            icaro "...è la prima volta che qualcuno dà torto a Lenora davanti a me."
+            icaro "...ventitré lettere. Stessa riga, ogni volta. Questa risposta la segno a margine, con la data."
             icaro "Non ripeterlo davanti a lei. Né davanti a Caino. Ti farebbe pagare anche questo."
         "Non dire niente. Passargli la pipa, già carica":
             "Gliela porgo dal lato del cannello. Lui la prende senza sfiorarmi."
@@ -68,7 +67,7 @@ label icaro_int3:
         "Me ne accorgo perché la pagina è quasi vuota. E perché lui si accorge che me ne accorgo."
     else:
         "Infila la lettera nel registro. Poi si volta verso di me, serio."
-        icaro "Druso direbbe che adesso siamo amici. Druso esagera sempre. Ma stasera, per una volta, non del tutto."
+        icaro "Druso direbbe che adesso siamo amici. Druso esagera del sessanta per cento. Il resto, stasera, è corretto."
     return
 
 
@@ -82,7 +81,7 @@ label icaro_bro_affari:
     icaro "Io tratto. Tu stai accanto a me con la faccia di uno che ha già deciso di andarsene. Niente sorrisi. I sorrisi alzano i prezzi."
     pc "E se il mercante parla con me?"
     icaro "Non parlerà con te. Parlerà della tua faccia. È diverso."
-    "Il mercante apre la cassa. Paglia, porcellana, un odore di cantina. Icaro prende una tazza e la guarda contro la luce come un gioielliere guarda un falso."
+    "Il mercante apre la cassa. Paglia, porcellana, un odore di cantina. Icaro alza una tazza contro la luce. Gira il polso di un quarto, poi di un altro."
     icaro "Crepata. Questa. E questa. Il servizio vale la metà di quello che chiedi."
     "Il mercante giura sugli dei del Nord e su sua madre. Icaro aspetta che finisca, poi offre un terzo."
     menu:
@@ -91,13 +90,13 @@ label icaro_bro_affari:
             "Non dico niente. Guardo la porta del mercato come se avessi già un altro affare lì fuori."
             "Il mercante suda. Scende di prezzo due volte, da solo, senza che nessuno glielo chieda."
             show icaro furbo with qdiss
-            icaro "Visto? La faccia giusta vale più dell'argomento giusto. Tu ce l'hai di natura. Non la sprecare in taverna."
+            icaro "Due ribassi, zero parole. Ottanta Scudi risparmiati con la faccia. Non la sprecare in taverna."
         "Inventare un'offerta migliore, a un altro banco":
             pc "Il banco del vetraio ci ha offerto un servizio intero per meno. Andiamo, Icaro."
             show icaro irritato with qdiss
             "Icaro mi fulmina. Mezzo secondo. Poi annuisce, grave, come se l'avesse deciso lui."
             "Il mercante cede. Fuori dal mercato, Icaro mi ferma con due dita sul petto, e le ritira subito."
-            icaro "Funziona. Ma l'hai improvvisato. Improvvisare è barare senza metodo. La prossima volta, il metodo me lo dici prima."
+            icaro "Funziona. Ma il vetraio chiude il martedì, e oggi è martedì. Se il mercante lo sapeva, eravamo fuori. Il metodo, la prossima volta, me lo dici prima."
         "Indicare il bollo sotto un piattino: è ridipinto":
             "Sotto un piattino il bollo di Glostok ha i bordi troppo freschi. Lo giro verso Icaro, senza una parola."
             show icaro sorpreso with qdiss
@@ -105,12 +104,12 @@ label icaro_bro_affari:
             show icaro furbo with qdiss
             icaro "Allora lo compriamo tutto. Al prezzo del forno qualunque. Poi lo rivendiamo come di Glostok a chi non gira i piattini."
             pc "Non è onesto."
-            icaro "È commercio. L'onestà è un'altra merce: costa di più e rende di meno."
+            icaro "È commercio. Dodici Scudi spesi, quaranta di rientro. Se vuoi l'onestà, è il banco dopo: chiude in perdita da tre anni."
     "Il servizio finisce nel magazzino di Icaro, contato due volte. Lui mi mette in mano una tazza. Una sola, quella senza crepe."
     icaro "La tua parte. Un servizio scompagnato perde valore: così ho un motivo per tenerti d'occhio. Finché ce l'hai tu, il servizio è completo a metà."
     show icaro sereno with qdiss
     icaro "Non è un regalo. Gli uomini non si fanno regali. È una garanzia."
-    "Me la infilo in tasca. Pesa poco. Lui la guarda sparire come si guarda un investimento a lungo termine."
+    "Me la infilo in tasca. Pesa poco. Lui apre il registro e annota: data, oggetto, «in custodia»."
     return
 
 
@@ -147,8 +146,8 @@ label icaro_bro_colpo:
     "Ci allontaniamo per i vicoli. Al secondo angolo si ferma, srotola il sacco e mi mostra l'elsa. Dorata, pacchiana, con una gemma finta."
     show icaro sereno with qdiss
     icaro "Brutta. Vale poco. Ma è mia, e nessuno tocca ciò che è mio."
-    icaro "Stanotte sei rimasto. Non hai chiesto la tua parte. Due cose che non fa nessuno."
-    "Mi passa la pipa, accesa al riparo di un portone. È il suo modo di stringere la mano. Tra noi, vale di più."
+    icaro "Stanotte sei rimasto, e non hai chiesto la tua parte. Avevo messo da parte dieci Scudi per trattare. Restano in tasca mia."
+    "Mi passa la pipa, accesa al riparo di un portone. Il cannello verso di me, le dita lontane."
     return
 
 
@@ -163,7 +162,7 @@ label icaro_fiaccolata:
     if player_gender == "f":
         icaro "La leggenda della mano è un contratto verbale senza testimoni né penali. Ridicolo."
         "A metà discesa si ferma. Guarda la mia mano come guarda le carte prima di scoprirle."
-        "Poi mi prende la mano. Lui, che detesta il contatto. La tiene per trecento gradini, rigida e attenta, come si tiene una cosa di valore."
+        "Poi mi prende la mano. Lui, che detesta il contatto. La tiene per trecento gradini, rigida e attenta. Ogni cinquanta, stringe un poco: conta anche quelli."
         show icaro imbarazzato with dissolve
         icaro "Contratto ridicolo. Ma è mio, adesso. E io non mollo ciò che è mio."
         "In fondo, quando la lanterna tocca l'acqua, non la lascia. Conta i secondi sottovoce. Al sessanta smette di contare."
@@ -189,7 +188,7 @@ label icaro_luna5:
     "Il piatto cresce mano dopo mano. Teucro ci butta la quota di un carico di sale. Icaro, l'atto del suo magazzino."
     "L'atto. La cosa che ama di più, in mezzo al panno, come un pegno qualunque."
     "Teucro gioca piano, sicuro. Vince le mani piccole, lascia le grandi. Gioca come chi sa già come finisce."
-    "Icaro lo osserva tra una boccata e l'altra. Per la prima volta da che lo conosco, conta. E il conto non gli torna."
+    "Icaro lo osserva tra una boccata e l'altra. Muove le labbra senza suono: conta. Al terzo giro ricomincia da capo."
     show icaro furbo with qdiss
     "Ultima mano. Icaro riaccende la pipa, con calma. Nel gesto, una carta scivola dal polsino al palmo."
     "Io l'ho vista. E anche Milone."
@@ -254,7 +253,7 @@ label icaro_luna6:
     elif icaro_partita == "copre":
         icaro "Voce Teucro: aperta. Mi deve una rivincita, io gli devo un panno. Finché nessuno paga, siamo in equilibrio."
     elif icaro_partita == "silenzio":
-        icaro "Voce Milone: chiusa con le scuse. Le scuse non si rivendono. Le ho messe a bilancio lo stesso. Le prime della mia vita."
+        icaro "Voce Milone: chiusa con le scuse. Le scuse non si rivendono. Le ho messe a bilancio lo stesso. Cinque parole, contate."
     "Poi apre il registro di casa. Il cuoio è più vecchio, consumato agli angoli dalle mani di tre fratelli."
     icaro "Druso: quarantaquattro Scudi. Più una porta della mensa, sfondata con la testa. Gli addebito i cardini."
     icaro "Caino: niente. Caino non mi deve mai niente. È la voce che mi preoccupa di più."
@@ -277,12 +276,12 @@ label icaro_luna6:
             $ muovi("icaro", "avanza")
             "Batto l'acciarino. Lui si sporge, la pipa tra i denti, e la fiamma ci illumina tutti e due per un istante."
             show icaro sorpreso with qdiss
-            icaro "...nessuno mi accende la pipa. Lo faccio da solo da quando avevo dodici anni."
+            icaro "...la accendo da solo da quando avevo dodici anni. Acciarino mio, pietra mia, ogni sera."
             icaro "Annotato. Non so ancora in che colonna."
     if player_gender == "f":
         show icaro imbarazzato with dissolve
         icaro "Il ventuno chiudo tutto. Il tavolo grande, quella notte, è riservato. Due posti."
-        "Non lo dice come un invito. Lo dice come una prenotazione già pagata. Da Icaro è peggio: è una promessa."
+        "Non lo dice come un invito. Mentre parla, scrive due iniziali a margine del registro. Una è la mia."
     else:
         show icaro sereno with dissolve
         icaro "Il ventuno chiudo tutto. Vieni. Porta la chiave del magazzino: voglio vedere se ce l'hai ancora."
@@ -320,7 +319,7 @@ label icaro_febbre:
             "A metà pagina si addormenta sulla sedia. Finisco l'inventario. Gli lascio il registro chiuso sotto la mano."
         "Andare a chiamare Corrado: lui sa di erbe":
             $ icaro_febbre_esito = "aiuto"
-            "Torno con Corrado e una borsa di erbe che puzza di stalla. Icaro ci guarda come si guarda un'imposta nuova."
+            "Torno con Corrado e una borsa di erbe che puzza di stalla. Icaro guarda la borsa, poi Corrado, poi me. In quest'ordine."
             show icaro irritato with qdiss
             icaro "Ho detto non bussare. Non ho detto «porta un erborista». Questa è inflazione."
             "Beve l'infuso lo stesso. Fa una smorfia a ogni sorso, e ogni sorso lo segna sul registro come debito verso Corrado."

@@ -69,7 +69,7 @@ label caino_good_end:
 
     show caino tenero with dissolve
 
-    caino "Tu: qui. Il registro chiude in attivo, [player_name]. Per la prima volta in vita mia, il registro chiude in attivo senza che io abbia fregato nessuno."
+    caino "Tu: qui. Il registro chiude in attivo, [player_name]. Controparti raggirate: zero. Ricontrolla pure le somme, io non ci credo ancora."
 
     pc "Tua madre ti perdonerà?"
 
@@ -77,7 +77,7 @@ label caino_good_end:
 
     "Mi prende il viso tra le mani — le mani callose dello spadaccino, attente come su un filo di lama."
 
-    caino "La pergamena di destra. Quella senza niente scritto. La firmo io, se tu la firmi con me. E ti avverto: quello che c'è sotto l'Arconte farebbe di tutto per te. Di tutto. È l'unico contratto che non so limitare."
+    caino "La pergamena di destra. Quella senza niente scritto. La firmo io, se tu la firmi con me. E ti avverto: quello che c'è sotto l'Arconte farebbe di tutto per te. Di tutto. Non sono riuscito a scriverci una clausola di recesso. Ci ho provato per tre notti."
 
     pc "Allora firmiamo senza limiti."
 
@@ -113,7 +113,7 @@ label caino_secret_end:
 
     "Caino mi passa accanto senza fermarsi."
 
-    caino "Grazie per il silenzio, Figlio di Briseide. Il tuo conto è pari."
+    caino "Grazie per il silenzio, [figlio_t] di Briseide. Il tuo conto è pari."
 
     "Pari. Un registro chiuso. Tutto qui."
 
@@ -129,17 +129,17 @@ label caino_secret_end:
 
     pc "Tuo fratello è l'uomo più intelligente di Rocca Tempesta."
 
-    druso "Le due cose convivono benissimo, fidati, li conosco da quando è nato. Ha davanti una cosa vera — la prima della sua vita — e la archivia come un conto pari, perché i conti pari non fanno paura."
+    druso "Le due cose convivono benissimo, fidati, li conosco da quando è nato. Ha davanti una cosa VERA, e che fa? La chiude in un cassetto con l'etichetta «conto pari». Che spreco, che strazio, che fratello."
 
     "Druso beve metà corno in un sorso, poi mi guarda. Senza sorriso, per la terza volta da che lo conosco."
 
-    druso "Io invece le cose vere le riconosco. E non le archivio."
+    druso "Io nei cassetti ci tengo le calze. Le cose vere le tengo in mano, e se puzzano pazienza."
 
     pc "Druso—"
 
     druso "Non dire niente. Di' solo se la regola la conosci."
 
-    "La regola. La regola di questa famiglia piccola e assurda, l'unica legge che Caino ha scritto per amore e non per potere."
+    "La regola del Codice del Teschio. Si dichiara prima di colpire."
 
     menu:
         "Il corno di idromele è caldo tra le mani."
@@ -154,7 +154,7 @@ label caino_secret_end:
             druso "Dichiarazione accettata. Da domani, novellin[fin], ti insegno il Codice intero. Articolo primo: il cuore si difende come i genitali. Sempre in guardia, e mai da solo."
 
         "Bere in silenzio e restare":
-            "Non dico niente. Resto. E il restare, con un uomo come Druso, è già una dichiarazione."
+            "Non dico niente. Resto, e gli tengo il corno mentre si riallaccia uno stivale."
 
             show druso ghigno with qdiss
 
@@ -193,7 +193,7 @@ label caino_bad_end:
 
     show caino sarcastico with dissolve
 
-    caino "Niente rancore, Figlio di Briseide. Eri il pezzo giusto nel turno sbagliato. Capita ai migliori. Soprattutto ai migliori: i pezzi scarsi non li gioca nessuno."
+    caino "Niente rancore, [figlio_t] di Briseide. Eri il pezzo giusto nel turno sbagliato. Capita ai migliori. Soprattutto ai migliori: i pezzi scarsi non li gioca nessuno."
 
     pc "Mi hai usato dal primo giorno."
 
@@ -203,7 +203,7 @@ label caino_bad_end:
 
     caino "...Rurikstad è decente, d'inverno. Evita il vino di Glostok."
 
-    "È l'unica crepa che gli vedrò mai. La porto in esilio con me: non vale niente, e non smette di pesare."
+    "Non si volta più. Lungo la strada per Rurikstad, a ogni locanda, ordino idromele. Non so perché."
 
     scene bg nero with fade
 

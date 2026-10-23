@@ -11,7 +11,7 @@ label ofelia_climax:
     "Lo studio di Glauco Severo. Silenzio, ordine, una candela sola. Il vino è già versato in due calici."
     glauco "Siediti, [figlio_t] di Briseide. Mia figlia dice che sei un capriccio. Io conto i capricci: questo dura da troppe Lune."
     show ofelia neutra at left with dissolve
-    "Ofelia è in piedi accanto alla finestra, in nero. Non mi guarda. Guarda la candela come si guarda un bersaglio."
+    "Ofelia è in piedi accanto alla finestra, in nero. Non mi guarda. Tiene gli occhi sulla candela e non sbatte le palpebre."
     glauco "Ofelia è la mia figlia imprevedibile. Al punto giusto: l'ho cresciuta così. Ogni anno tre pretendenti, ogni anno nessuno."
     show glauco minaccioso with qdiss
     glauco "Stanotte firmi la rinuncia e torni da tua madre con un dono del Ceppo. Oppure non firmi, e il dono te lo porto io."
@@ -19,14 +19,39 @@ label ofelia_climax:
     glauco "Ascadeo ha scommesso su di te, sai? Contro sua sorella. Lo farò frustare per questo, o forse lo farò ricco. Dipende da come esci di qui."
     "Sulla parete alle sue spalle, le lame sono trentadue. Tutte affilate, tutte parallele. Glauco non si chiede mai chi le curi."
     "Ofelia non si muove. Il silenzio è suo: lo lascia crescere finché diventa una stanza dentro la stanza."
-    show ofelia compiaciuta at left with qdiss
-    ofelia "Padre. Hai dimenticato una clausola."
-    "Prende la pergamena e la avvicina alla candela, con la grazia con cui si porge un fazzoletto."
+    "La penna gocciola sul legno. Glauco aspetta me, non lei."
+    # La scelta viene prima del fuoco: il gesto del protagonista decide come
+    # la carta brucia (insieme, accanto, o contro di lei).
+    menu:
+        "La pergamena è a un palmo dalla mia mano. La candela, a un palmo da quella di Ofelia."
+        "Prendere la pergamena e porgerla a Ofelia, dal lato della candela" (peso=True):
+            $ ofelia_affinity += 1
+            $ ofelia_climax_gesto = "insieme"
+            "Prendo la carta. Non la guardo nemmeno: la tendo verso la finestra, con l'angolo già sopra la fiamma."
+            show ofelia compiaciuta at left with qdiss
+            "Ofelia chiude due dita sull'altro angolo. Per un istante la teniamo in due."
+            ofelia "Padre. Hai dimenticato una clausola."
+        "Rispondere a Glauco a testa alta: «Non firmo. Resta lei, e resto io.»" (peso=True):
+            $ ofelia_climax_gesto = "accanto"
+            glauco "Coraggio. Il difetto preferito di chi muore giovane."
+            show ofelia compiaciuta at left with qdiss
+            ofelia "Elegante. Un po' troppo coraggios[fin] per i miei gusti. Ma il tono era giusto."
+            ofelia "Padre. Hai dimenticato una clausola."
+            "Prende la pergamena e la avvicina alla candela, senza fretta, tenendola per un angolo."
+        "Prendere le sue difese: «Non decidete voi per lei.»" (peso=True):
+            $ ofelia_affinity -= 1
+            $ ofelia_climax_gesto = "contro"
+            show ofelia rabbia at left with qdiss
+            ofelia "Non mi serve un avvocato, [player_name]. Le mie carte le brucio da sola."
+            "Mi strappa la pergamena di mano prima che io capisca di averla presa."
     show glauco furioso
     with vpunch
     "La carta prende fuoco. Ofelia la lascia cadere nel calice di suo padre, e il vino sfrigola."
     ofelia "Non scelgo pretendenti da un catalogo, padre. Li scelgo come tu scegli le lame: da come reggono il colpo."
-    ofelia "Questo l'ha retto. I tuoi, no."
+    if ofelia_climax_gesto == "contro":
+        ofelia "Questo deve ancora imparare a non pararmi i colpi. I tuoi non ci hanno nemmeno provato."
+    else:
+        ofelia "Questo l'ha retto. I tuoi, no."
     ofelia "Me ne hai mandati sei, padre, in sei anni. Il sonetto, il cavallo, l'uomo con l'anello. Tutti col tuo sigillo addosso, come le pecore."
     show glauco minaccioso with qdiss
     glauco "Erano alleanze. Tu li hai trattati come pretendenti."
@@ -36,31 +61,21 @@ label ofelia_climax:
     show glauco deluso with qdiss
     glauco "Mi sfidi. In casa mia. Per [lui_t]."
     ofelia "Ti sorprendo, padre. È diverso. L'hai insegnato tu: un colpo che si vede arrivare non è un colpo."
-    "Glauco mi guarda. Per la prima volta non come un conto da saldare, ma come una voce che non torna nel bilancio."
-    glauco "E tu, [figlio_t] di Briseide? Lei ha bruciato la carta. Ora dimmi cosa resta sul tavolo."
-    menu:
-        "Ofelia non si volta. Aspetta, le dita ferme sullo stelo del calice. Sa cosa spera; non lo dirà."
-        "Mettersi al suo fianco, senza dire niente" (peso=True):
-            $ ofelia_affinity += 1
-            show ofelia imbarazzata at left with dissolve
-            "Mi alzo e vado alla finestra. Le sfioro la mano col dorso della mia. Lei non la ritira."
-            ofelia "...di nuovo niente frasi. Cominci a conoscermi. È preoccupante."
-            glauco "Il silenzio. Almeno questo l'hai capito prima di me."
-        "Rispondere a Glauco a testa alta: «Resta lei. E resto io.»" (peso=True):
-            show ofelia neutra at left with qdiss
-            ofelia "Elegante. Un po' troppo coraggios[fin] per i miei gusti. Ma il tono era giusto."
-            glauco "Il coraggio. Il difetto preferito di chi muore giovane. Vedremo."
-        "Prendere le sue difese: «Non decidete voi per lei.»" (peso=True):
-            $ ofelia_affinity -= 1
-            show ofelia rabbia at left with qdiss
-            ofelia "Non mi serve un avvocato, [player_name]. La carta l'ho bruciata da sola."
-            ofelia "Difendimi ancora, e la prossima pergamena la firmo io. Contro di te."
-            glauco "Vedi, figlia? Non ti conosce nemmeno [lui_t]."
+    "Glauco mi guarda. Non più come un conto da saldare: come una voce che non torna nel bilancio."
+    if ofelia_climax_gesto == "insieme":
+        "Ofelia sposta il calice di un dito, verso di me. Nel vino galleggia ancora un angolo di carta, annerito dalla parte che tenevo io."
+        glauco "L'avete bruciata in due. Il notaio dovrà inventarsi una formula."
+    elif ofelia_climax_gesto == "accanto":
+        glauco "Vedremo quanto dura, il tono giusto."
+    else:
+        show ofelia rabbia at left with qdiss
+        ofelia "Difendimi ancora, e la prossima pergamena la firmo io. Contro di te."
+        glauco "Vedi, figlia? Non ti conosce nemmeno [lui_t]."
     jump ofelia_routing
 
 label ofelia_routing:
     # rl.finale_ofelia — ordine vincolante: ofelia_good_caino -> ofelia_good
-    # -> ofelia_neutral.
+    # -> ofelia_passeggero -> ofelia_bad -> ofelia_neutral.
     $ cal_finale = rl.finale_ofelia(ofelia_affinity, ofelia_mancati,
                                     route_seconda_viva(), caino_fiducia)
     jump expression cal_finale
@@ -157,7 +172,7 @@ label ofelia_good_caino:
     show caino neutro at left with qdiss
     caino "E poi?"
     ofelia "E poi niente. Lo dice a me. Il resto si vede."
-    "Firmo. Ofelia firma per ultima, con un ghirigoro che occupa mezza pagina. Caino non protesta: la guarda come si guarda un bilancio in attivo."
+    "Firmo. Ofelia firma per ultima, con un ghirigoro che occupa mezza pagina. Caino non protesta. Annota l'ora della firma, poi la sottolinea due volte."
     "Sotto le firme, in piccolo, Caino aggiunge una data e un'ora. Come se un giorno qualcuno dovesse verificare che è successo davvero."
     scene bg nero with fade
     $ sblocca_finale("ofelia_good_caino")
@@ -250,8 +265,8 @@ label ofelia_neutral:
     glauco "Visto, figlia? Un bel gesto, la carta bruciata. Peccato per il pubblico."
     show ofelia neutra at left with qdiss
     ofelia "Hai ragione, padre. Per una volta."
-    "Mi guarda come si guarda un vestito della stagione scorsa: bello, certo. Ma la stagione è finita."
-    ofelia "Hai esitato, [player_name]. Una volta di troppo. Io non aspetto: non per crudeltà, per abitudine."
+    "Mi guarda dall'alto in basso, con calma, e arriva alle scarpe. Lì si ferma."
+    ofelia "Ti ho dato sei Lune, [player_name]. Ne hai usate metà. Io non aspetto: non per crudeltà, per abitudine."
     "Raccoglie la cenere della pergamena dal fondo del calice e la sparge sul tavolo con un dito. Un gesto da bambina annoiata."
     glauco "Va', [figlio_t] di Briseide. Il dono del Ceppo te lo risparmio. Mia figlia ti ha già fatto il suo."
     scene bg cala_notte with fade
@@ -264,4 +279,55 @@ label ofelia_neutral:
     scene bg nero with fade
     $ sblocca_finale("ofelia_neutral")
     centered "{cps=20}{size=+10}INTERESSE PASSEGGERO{/size}\n\nOfelia scende la Calà ogni anno.\nQuest'anno, con qualcun altro.{/cps}"
+    return
+
+
+################################################################################
+## PASSEGGERO — Il guanto a terra (affinita' da good, un invito mancato)
+################################################################################
+
+label ofelia_passeggero:
+    show glauco neutro with qdiss
+    glauco "La carta è cenere, il vino è da buttare. Il resto è affar tuo, figlia."
+    hide glauco with dissolve
+    "Glauco esce e lascia la porta aperta. Nel Ceppo le porte chiuse le decide lui."
+    show ofelia neutra at left with qdiss
+    "Ofelia resta alla finestra. Conta qualcosa sulle dita, senza fretta. Arriva a uno e si ferma."
+    ofelia "Una sera, [player_name]. Ti avevo lasciato una sedia. È rimasta vuota fino a mezzanotte."
+    pc "Ero..."
+    ofelia "Non mi interessa dov'eri. Mi interessa che io me lo ricordo, e tu no."
+    "Si sfila un guanto. Lo tiene sospeso sopra il tavolo un momento, poi lo lascia cadere tra noi."
+    ofelia "Raccoglilo, se vuoi. Stavolta non è una prova. È un saluto."
+    if route_seconda_viva() == "caino":
+        "Nel corridoio Caino scrive una riga nel registro. Non alza la testa quando passo."
+    scene bg cala_notte with fade
+    "Il guanto resta nella mia tasca per tutto l'inverno. Sulla Calà Ofelia mi saluta con un cenno preciso: né freddo né caldo. Esatto."
+    "A fine Luna Ascadeo mi offre da bere. Ha vinto metà della scommessa, dice. Non mi spiega quale metà."
+    scene bg nero with fade
+    $ sblocca_finale("ofelia_passeggero")
+    centered "{cps=20}{size=+10}IL GUANTO A TERRA{/size}\n\nOfelia non aspetta due volte.\nAspetta una volta sola, e se lo ricorda.{/cps}"
+    return
+
+
+################################################################################
+## BAD END — Il dono del Ceppo (sotto la soglia del cuore a fine route)
+################################################################################
+
+label ofelia_bad:
+    show ofelia neutra at left with qdiss
+    "Ofelia posa il calice. Il vino ha smesso di sfrigolare."
+    ofelia "La carta l'ho bruciata per me, padre. Non per [lui_t]. Non confondere i conti."
+    show glauco minaccioso with qdiss
+    glauco "Allora i conti li chiudo io."
+    "Glauco stacca dalla parete una lama che non avevo contato: la trentatreesima, sotto un panno. La avvolge in un drappo col fiocco del Ceppo."
+    glauco "Il dono che ti avevo promesso, [figlio_t] di Briseide. Portalo a tua madre. Dille che il Ceppo ringrazia per la visita."
+    glauco "E dille che il prossimo lo porto io. Senza drappo."
+    "Cerco gli occhi di Ofelia. Lei guarda la candela, e la spegne con due dita. Un sibilo. Nessuna smorfia."
+    ofelia "Vai, [player_name]. Prima dell'alba. Mio padre è puntuale solo con le minacce."
+    scene bg vicoli_zefiro with fade
+    "Lascio Zefiro col primo carro. Il drappo sul sedile accanto, il fiocco del Ceppo bene in vista: chi ci ferma sa di chi è il debito."
+    "Nessuno ci ferma."
+    scene bg nero with fade
+    $ sblocca_finale("ofelia_bad")
+    centered "{cps=20}{size=+10}IL DONO DEL CEPPO{/size}\n\nGlauco mantiene sempre le promesse.\nSoprattutto quelle che nessuno vuole.{/cps}"
     return

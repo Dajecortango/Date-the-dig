@@ -28,10 +28,10 @@ label ofelia_ev3:
             "Abbassa la lama. Mi tende la mano libera, e noto che trema appena. Per l'attesa, forse. Per qualcos'altro."
         "Arrendermi con eleganza: «Hai vinto. Ma ti è costato fatica, ammettilo.»":
             $ ofelia_affinity += 1
-            show ofelia imbarazzata with qdiss
-            ofelia "...Fatica no. Attenzione, sì. È diverso, ma ti concedo il bluff."
+            show ofelia compiaciuta with qdiss
+            ofelia "Fatica no. Attenzione, sì. È diverso, ma ti concedo il bluff."
             show ofelia neutra with qdiss
-            "Ritira la spada. Un filo di sangue mi scende dal collo, e lei lo guarda come si guarda un conto saldato."
+            "Ritira la spada. Un filo di sangue mi scende dal collo, e lei lo segue con l'indice, a un dito dalla pelle, senza toccarlo."
         "Chiedere pietà, ridendo, con le mani in alto":
             show ofelia rabbia with qdiss
             ofelia "Pietà. Quanto è umana, la parola. Rialzati. Per oggi basta così."
@@ -48,7 +48,7 @@ label ofelia_fiaccolata:
     scene bg cala_notte with fade
     "La Calà, trecento gradini di lanterne. La leggenda dice che chi la scende mano nella mano si amerà per sempre."
     show ofelia neutra with dissolve
-    "Ofelia mi aspetta al primo gradino, in nero. Come se la festa fosse un lutto e lei l'unica ad averlo capito."
+    "Ofelia mi aspetta al primo gradino, in nero. Intorno a lei la festa è tutta ocra e lanterne. Lei ha scelto il lutto."
     ofelia "Ogni anno tre pretendenti mi chiedono la mano su questa scala. Ogni anno scendo da sola. È una tradizione anche questa."
     ofelia "Quest'anno cambio. Non montarti la testa: mi annoio in fretta."
     "Tre gradini più su, un pretendente in mantello verde stringe un mazzo di gigli. Ci guarda, guarda i gigli, e li lascia cadere nel fiume."
@@ -59,7 +59,7 @@ label ofelia_fiaccolata:
             $ ofelia_affinity += 1
             show ofelia imbarazzata with dissolve
             "Le sue dita sono fredde. Al decimo gradino non lo sono più."
-            ofelia "...niente frasi, niente leggende. Sai che a questo punto gli altri recitavano?"
+            ofelia "Niente frasi. Niente leggende. A questo gradino, di solito, cominciano i sonetti."
             show ofelia compiaciuta with qdiss
             ofelia "Continua a tacere. Ti dona."
         "Baciarle la mano, come vuole il gesto":
@@ -70,7 +70,7 @@ label ofelia_fiaccolata:
             show ofelia rabbia with qdiss
             ofelia "Vuoi garanzie? Va' da un notaio. Le leggende non rilasciano ricevute."
             "Scende da sola i primi cento gradini. Al centunesimo mi aspetta, senza voltarsi."
-    "In fondo alla Calà il fiume si porta via i riflessi delle lanterne. Ofelia li guarda andare come si guardano i pretendenti: senza rimpianti."
+    "In fondo alla Calà il fiume si porta via i riflessi delle lanterne. Ofelia li lascia andare uno per uno. Non ne trattiene nessuno con lo sguardo."
     ofelia "Domani mio padre saprà. Aede lo saprà prima di lui, e Ascadeo ci avrà già scommesso sopra."
     ofelia "Lasciali parlare. Chi parla non sta guardando la mano che stringi."
     return
@@ -100,7 +100,7 @@ label ofelia_fiaccolata_caino:
             caino "Annotato: dichiarazione pubblica, testimoni in numero eccessivo. Non revocabile."
             show ofelia imbarazzata with qdiss
             ofelia "...nemmeno io la revocherei. Non dirglielo."
-            "Trecento gradini, tre ombre lunghe sul fiume. Un'Eparca si fa il segno degli dei; Ofelia le sorride come si sorride a un bersaglio."
+            "Trecento gradini, tre ombre lunghe sul fiume. Un'Eparca si fa il segno degli dei; Ofelia le sorride, e la donna accelera il passo."
         "Proporre di scendere a turno, per non dare spettacolo":
             show caino neutro with qdiss
             caino "Ragionevole. Contabile. Deludente, ma ragionevole."
@@ -137,8 +137,8 @@ label ofelia_fiaccolata_aede:
             $ ofelia_affinity += 1
             $ aede_sospetto += 2
             $ ofelia_mano_cala = True
-            show ofelia imbarazzata with dissolve
-            ofelia "...l'hai presa sotto i suoi occhi. O sei coraggios[fin], o non sai contare."
+            show ofelia compiaciuta with qdiss
+            ofelia "L'hai presa sotto i suoi occhi. O sei coraggios[fin], o non sai contare."
             show ofelia compiaciuta with qdiss
             "Scendiamo. Al decimo gradino sento uno sguardo sulla nuca, caldo come una lama lasciata al sole."
             show aede rabbia at left with dissolve
@@ -176,7 +176,7 @@ label ofelia_ev4:
             if route_seconda == "aede":
                 $ aede_sospetto += 1
             show ofelia imbarazzata with dissolve
-            ofelia "...davanti al pescivendolo. Hai un senso dello spettacolo spaventoso."
+            ofelia "Davanti al pescivendolo. Hai un senso dello spettacolo spaventoso."
             show ofelia compiaciuta with qdiss
             "Attraversiamo il mercato a braccetto. Le voci tacciono al nostro passaggio e riprendono più forti alle spalle."
             if route_seconda == "aede":

@@ -11,7 +11,7 @@ init python:
     # epilogo_semestre: qui solo il legame con la rivalita'.
     RIVALI_CODE = {
         ("aede+caino", "aede"):
-            "Caino ha chiuso la pratica di quella mattina in corridoio con una riga sola: «ceduto al Ceppo di Glauco». In Consiglio, quando Aede passa, le cede il passo. È l'unica cosa che le cede.",
+            "Caino ha chiuso la pratica di quella mattina in corridoio con una riga sola: «ceduto al Ceppo di Glauco». In Consiglio, quando Aede passa, si scosta di mezzo passo. Sulle decime del Ceppo, nemmeno di un soldo.",
         ("aede+caino", "caino"):
             "Aede non ha mai chiesto a Caino di quella mattina in corridoio. Ma quando lui attraversa il cortile d'armi, la sua lama va più veloce. Caino finge di non contare i colpi. Li conta.",
         ("aede+druso", "aede"):
@@ -27,17 +27,17 @@ init python:
         ("aede+ofelia", "ofelia"):
             "Aede non ha più detto «le mie cose». A cena da Glauco si siede dal lato opposto a Ofelia, da quella mattina in corridoio. Il tavolo è lungo. Lo usano tutto.",
         ("caino+druso", "caino"):
-            "Al Becco Storto Druso ha una strofa sul fratello che «deposita i sentimenti sotto il calamaio». La attacca ogni volta che Caino entra. Caino paga il giro. È il loro modo di non parlarne.",
+            "Al Becco Storto Druso ha una strofa sul fratello che «deposita i sentimenti sotto il calamaio». La attacca ogni volta che Caino entra. Caino paga il giro, e se ne va prima dell'ultima rima.",
         ("caino+druso", "druso"):
-            "Caino non ha più messo piede al Becco Storto. Il conto di quella mattina l'ha saldato lui, però, con una nota a margine. Druso non l'ha mai letta ad alta voce. È l'unica cosa che non legge ad alta voce.",
+            "Caino non ha più messo piede al Becco Storto. Il conto di quella mattina l'ha saldato lui, però, con una nota a margine. Druso, che in piazza legge ad alta voce perfino le liste della spesa, quella l'ha piegata in quattro e messa nel liuto.",
         ("caino+icaro", "caino"):
             "Al tavolo piccolo della fumeria la sedia costa doppio, per un cliente solo. Caino non ci si è mai seduto. Icaro gliela mette in conto lo stesso, ogni fine Luna, per principio.",
         ("caino+icaro", "icaro"):
             "Caino ha aperto una pratica sulla fumeria dietro la Consorteria. Non la chiude, non la porta in Consiglio. La tiene lì, come una pipa che non si fuma dai sedici anni.",
         ("caino+ofelia", "caino"):
-            "A fine semestre Ofelia ha fatto avere a Caino un fiore della serra. Nero, senza biglietto. Caino l'ha pressato in un registro, tra due decime. Sanno tutti e due cosa voleva dire quella mattina in corridoio.",
+            "A fine semestre Ofelia ha fatto avere a Caino un fiore della serra. Nero, senza biglietto. Caino l'ha pressato in un registro, tra due decime, alla data di quella mattina in corridoio.",
         ("caino+ofelia", "ofelia"):
-            "Quando Ofelia entra in Consiglio, Caino si alza. È l'unico. Lei non lo ringrazia: da quella mattina in corridoio, tra loro due i conti si tengono in silenzio.",
+            "Quando Ofelia entra in Consiglio, Caino si alza e sposta il calamaio di un palmo, per farle posto. Lei non lo ringrazia. Da quella mattina in corridoio, si siede sempre alla sua sinistra.",
         ("druso+icaro", "druso"):
             "Al Becco Storto il tavolo libero è ancora uno. Icaro ci si siede quando Druso non c'è, e lascia pagato il giro dopo. Druso finge di non sapere chi paga. Lo sa al centesimo.",
         ("druso+icaro", "icaro"):
@@ -45,11 +45,11 @@ init python:
         ("druso+ofelia", "druso"):
             "Ofelia ha congedato Druso dalla fila dei pretendenti con una frase sola, il giorno dopo quella mattina in corridoio. Lui l'ha messa in rima. È la strofa più applaudita del Becco Storto. Ofelia dice di non averla mai sentita.",
         ("druso+ofelia", "ofelia"):
-            "Druso non fa più il cascamorto con la figlia di Glauco. Lo fa con tutte le altre, a voce più alta, da quella mattina in corridoio. Ascadeo dice che è il suo modo di stare zitto.",
+            "Druso non fa più il cascamorto con la figlia di Glauco. Lo fa con tutte le altre, a voce più alta, da quella mattina in corridoio. Davanti alla serra, abbassa la voce.",
         ("icaro+ofelia", "icaro"):
             "Per una Luna intera Ofelia ha mandato a Icaro un pretendente al giorno, tutti col vizio delle carte. Icaro li ha spennati uno per uno. Nessuno dei due l'ha mai chiamata vendetta.",
         ("icaro+ofelia", "ofelia"):
-            "Nel libretto di Ascadeo c'è una scommessa di Icaro sulla serra: l'unica che abbia mai perso. Non l'ha cancellata. Dice che le perdite insegnano più dei guadagni. Non dice cosa.",
+            "Nel libretto di Ascadeo c'è una scommessa di Icaro sulla serra, segnata in rosso: «persa, tre Scudi e un fiore». Non l'ha cancellata. Ogni fine Luna ci ripassa sopra l'inchiostro.",
     }
 
     def epilogo_rivali_riga(coppia, scelti):

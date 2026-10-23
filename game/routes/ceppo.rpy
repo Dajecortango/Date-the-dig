@@ -154,7 +154,7 @@ label ceppo_corrado:
         "«Non dirò niente a Vanna. Decidi tu.»":
             $ ceppo_segreto = True
             corrado "Grazie. Prima decido io, poi lo sa lei. L'ordine giusto."
-            "Lo dice come se fosse una regola dell'araldica. Non lo è. Lo sappiamo tutti e due."
+            "Lo dice col tono degli stemmi. Poi si pulisce gli occhiali, che erano già puliti."
         "«Diglielo. Oggi.»":
             corrado "Oggi."
             "Ripiega la lettera in quattro. Poi in otto."
@@ -184,7 +184,7 @@ label ceppo_briseide:
     else:
         briseide "Nessuno mi ha raccontato niente di te. Né Pandora, né i mercanti, né Vanna. Vanna, [player_name]. Lo sai quanto è difficile?"
         briseide "Un Figlio di cui nessuno parla, a metà semestre, sta imparando. O si sta nascondendo. Spero la prima."
-    "Mi prende il polso. Gira il nodo di corda con il pollice, come si saggia una cucitura."
+    "Mi prende il polso. Gira il nodo di corda con il pollice, una volta, due, cercando il punto lento."
     briseide "Il nodo tiene?"
     menu:
         "Le sue dita sono calde di brodo. Il nodo, sotto, è ruvido come il primo giorno."

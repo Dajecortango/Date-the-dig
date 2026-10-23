@@ -18,8 +18,10 @@ define config.has_voice = False
 
 ## Transizioni #################################################################
 
-define config.enter_transition = dissolve
-define config.exit_transition = dissolve
+## Menu di gioco (salva, carica, memorie): l'azione più frequente, va
+## percepita come immediata.
+define config.enter_transition = Dissolve(0.2)
+define config.exit_transition = Dissolve(0.15)
 ## after_load / end_game / intra: in regia.rpy (usano lo stacco a tema).
 
 ## Varie #######################################################################

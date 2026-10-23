@@ -49,7 +49,7 @@ label trio_lenora:
             $ caino_fiducia += 1
             caino "[Il_t] novellin[fin] che ricorda i codici altrui meglio dell'autore. Druso: ha ragione. Hai dichiarato a pugno già partito. Penale: paghi tu il giro."
             druso "QUESTO È UN TRIBUNALE FARSA."
-    "La serata finisce con Druso che declama, Icaro che ricontrolla le pile e Caino che sorride come chi ha già archiviato tutto. Una famiglia, a modo loro."
+    "La serata finisce con Druso che declama, Icaro che ricontrolla le pile e Caino che firma il conto del giro col nome di Druso."
     return
 
 
@@ -80,7 +80,7 @@ label incrocio_palestra:
             druso "«Cadde rimando»! BELLISSIMO! Lo metto nel repertorio e non ti pago i diritti!"
             "Si rialza ridendo. Aede scuote la testa, ma non smentisce il mezzo sorriso."
         "Restare neutrale: qui si rischia la pelle":
-            "Scelta saggia. I duelli dei Dignitas finiscono; le loro faide sugli spalti, mai."
+            "Resto con le mani in tasca. Sugli spalti due ragazzi si stanno già spingendo per chi tifava chi."
     return
 
 
@@ -106,7 +106,7 @@ label incrocio_carte:
             icaro "Estorsione. E [il_t] novellin[fin] fa la spia. Annotato. Con la data, l'ora e il taglio di capelli."
         "Tacere: al tavolo di Icaro, chi guarda non parla":
             $ icaro_affinity += 1
-            "Icaro vince la quinta, la sesta, e restituisce tutto a fine serata: «prestito didattico», lo chiama. Uscendo, mi fa un cenno. Il silenzio paga."
+            "Icaro vince la quinta, la sesta, e restituisce tutto a fine serata: «prestito didattico», lo chiama. Uscendo, mi fa scivolare in tasca uno Scudo. Uno solo."
         "Proporre il doppio o niente, mazzo nuovo e mescolo io":
             "Mescolo io. Vince comunque Icaro, stavolta pulito. Caino paga, Icaro intasca, e nessuno dei due mi perdona la serata più onesta della storia del tavolo."
     return
@@ -134,13 +134,13 @@ label incrocio_debiti:
             show druso imbarazzato at left with qdiss
             druso "Basta, basta! Così mi rovini la reputazione. Quella da insolvente, che mi sono costruito con fatica."
             show icaro furbo with qdiss
-            icaro "Il debito letto in pubblico pesa il doppio. Lezione gratuita. L'unica cosa gratuita, a questo tavolo."
+            icaro "Il debito letto in pubblico pesa il doppio. Lezione gratuita. A registro comunque: zero Scudi, zero centesimi."
         "Proporre a Druso di pagare in versi, a chi glieli compra":
             show druso ghigno at left with qdiss
             druso "Un mercato dei versi! Genio! Chi offre per una strofa sulla locandiera?"
             "Offrono in tre. La locandiera offre di più, per non sentirla. Druso incassa quattro monete e le spinge verso Icaro con aria regale."
             show icaro neutro with qdiss
-            icaro "Quattro. Acconto accettato. È la prima volta che la poesia paga un debito, in questa famiglia."
+            icaro "Quattro. Acconto accettato. A matita: sulla tua pagina, quattro non si vedono nemmeno."
             icaro "Non ci prendete gusto. Nessuno dei due."
         "Chiudere il registro con una mano: «Non stamattina.»":
             icaro "Hai chiuso il mio registro. Con la mano. Nessuno tocca il mio registro."
@@ -163,13 +163,13 @@ label incrocio_sorelle:
     ofelia "Sorella. La tua. Ti avevo chiesto di non usarla sui chiodi."
     aede "Non erano chiodi. Era un elmo."
     ofelia "Peggio. Il filo era una riga, adesso è una sega. Ci ho messo tre sere."
-    "Ofelia svolge il panno. La lama brilla come acqua ferma. Aede la prende senza ringraziare: tra loro, credo, ringraziare è un insulto."
+    "Ofelia svolge il panno. La lama brilla come acqua ferma. Aede la prende senza ringraziare. Ofelia non aspetta il grazie: si sta già sfilando i guanti, un dito alla volta."
     show aede irritata with qdiss
     aede "Pesa diversa."
     ofelia "Pesa giusta. Sei tu che pesi diversa. Stai caricando sul piede sinistro da una Luna: lo vedo dalle tacche."
     "Aede apre la bocca per rispondere. Poi la chiude. Si guarda il piede sinistro."
     menu:
-        "Le due figlie di Glauco si fronteggiano sopra una lama. Io sono l'unic[fin] testimone."
+        "Le due figlie di Glauco si fronteggiano sopra una lama. Il cortile è vuoto, a parte me."
         "Chiedere a Ofelia come si legge un filo":
             show ofelia compiaciuta at left with qdiss
             ofelia "Si passa l'unghia, piano, contro il verso. Se si ferma, il filo è vivo. Se scivola, è morto. Come certi pretendenti."
@@ -184,7 +184,7 @@ label incrocio_sorelle:
             "Guardo il piede. Ofelia ha ragione: il peso cade storto, appena. Da sol[fin] non l'avrei mai visto."
             show aede imbarazzata with qdiss
             aede "...smettetela di guardarmi i piedi. Tutti e due."
-            "Ofelia sorride, la prima volta. Non a me: alla sorella che arrossisce."
+            "Ofelia sorride. Non a me: alla sorella che arrossisce."
     hide ofelia with dissolve
     "Ofelia se ne va com'è venuta, senza rumore. Aede rimette la guardia. Carica sul piede destro, stavolta."
     "Il terzo bersaglio non ha nessuna speranza."

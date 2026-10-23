@@ -13,7 +13,7 @@ CUORE_VAR = {"aede": "aede_affinity", "caino": "caino_fiducia",
              "ofelia": "ofelia_affinity"}
 
 # Good end (alzati di 1 per il dono preferito, game/economia.rpy).
-GOOD = {"aede": 13, "caino": 13, "druso": 16, "icaro": 13, "ofelia": 12}
+GOOD = {"aede": 13, "caino": 13, "druso": 15, "icaro": 13, "ofelia": 12}
 
 # Altre soglie dei finali.
 AEDE_BAD = 3                # sotto: bad end (Glauco se il segreto e' tradito)
@@ -25,8 +25,9 @@ CAINO_TRAPPOLE_BAD = 3      # ... o trappole >= 3
 DRUSO_NEUTRAL = 8
 ICARO_NEUTRAL = 6
 ICARO_BRO = 6               # Bro "listino": affinita' >= 6 e impegnato
-OFELIA_MANCATI_MAX = 1      # good Ofelia: al massimo un invito mancato
+OFELIA_MANCATI_MAX = 0      # good Ofelia: nessun invito mancato
 OFELIA_MANCATI_GELO = 2     # al secondo mancato Ofelia congela
+OFELIA_BAD = 8              # sotto la soglia del cuore a fine route: bad
 AEDE_SOSPETTO_TEMPESTA = 2  # poly segreto scoperto: tempesta
 # Epilogo, personaggi non scelti: riga "alta" a soglia del cuore
 # (cuore_soglie), riga "media" da qui, sotto la riga "bassa".
@@ -186,12 +187,18 @@ def ofelia_good(aff, mancati):
 
 
 def finale_ofelia(aff, mancati, seconda_viva, caino_fiducia):
-    """Ordine vincolante: good poly Caino -> good -> neutral."""
+    """Ordine vincolante: good poly Caino -> good -> passeggero -> bad ->
+    neutral. Passeggero: affinita' da good, ma un invito mancato (al
+    secondo la route e' gia' congelata). Bad: sotto la soglia del cuore."""
     if (ofelia_good(aff, mancati) and seconda_viva == "caino"
             and caino_fiducia >= GOOD["caino"]):
         return "ofelia_good_caino"
     if ofelia_good(aff, mancati):
         return "ofelia_good"
+    if aff >= GOOD["ofelia"]:
+        return "ofelia_passeggero"
+    if aff < OFELIA_BAD:
+        return "ofelia_bad"
     return "ofelia_neutral"
 
 
