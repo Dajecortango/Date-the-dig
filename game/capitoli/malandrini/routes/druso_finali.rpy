@@ -3,6 +3,9 @@
 ## Climax e finali ###########################################################
 
 label druso_climax:
+    # Regia musicale: tema dei finali in sala, silenzio quando parla la
+    # grata, il tema torna sul finale scelto (musica.rpy).
+    $ musica("finale")
     scene bg consiglio with fade
     "Convocazione del Ramo di Lenora. Sala lunga, banchi di quercia, gli Arconti in fila come corvi su un ramo."
     "Il freddo della pietra sale dalle suole. Le torce bruciano basse, come se anche loro avessero paura di disturbare."
@@ -24,6 +27,7 @@ label druso_climax:
     elif druso_difesa == "brucia":
         "La convocazione che ho bruciato gliel'hanno rimandata in copia. Sa ancora di fumo, giura lui."
     "Lenora non si vede. Siede dietro la grata in fondo alla sala, e la sala intera respira al suo ritmo."
+    $ musica_silenzio()
     "Una voce, da dietro la grata. Bassa, senza fretta."
     "«Druso. Ti ascolto.»"
     show druso sorpreso with qdiss
@@ -69,6 +73,7 @@ label druso_climax:
 
 label druso_good:
     $ lento()
+    $ musica("finale")
     show druso ghigno at left with qdiss
     druso "Confermo tutto, madre. Il decoro, la rissa, [il_t] Figli[fin] di Briseide. E aggiungo un componimento in tema, se il Consiglio gradisce. Rima baciata."
     "Un Eparca si alza per protestare. Caino, senza voltarsi, gli posa una mano sul braccio. L'Eparca si risiede."
@@ -111,6 +116,7 @@ label druso_good:
     return
 
 label druso_neutral:
+    $ musica("finale")
     show druso ghigno at left with qdiss
     druso "Frequentazione? Madre, io frequento TUTTI. È il mio pubblico. [Il_t] Figli[fin] di Briseide regge bene le mie rime, tutto qui."
     "Ne esce con una battuta, come sempre. Mentre la dice, non mi guarda nemmeno una volta."
@@ -135,6 +141,7 @@ label druso_neutral:
     return
 
 label druso_bad:
+    $ musica("finale")
     show druso serio at left with qdiss
     druso "Chi? Quell[fin]? Madre, ti prego. Un cane che abbaia, al mio seguito. Il pubblico non si sceglie."
     "Lo dice guardandomi. E il ghigno, stavolta, non arriva agli occhi."
@@ -158,6 +165,7 @@ label druso_bad:
 
 label druso_passeggero:
     $ lento()
+    $ musica("finale")
     show druso serio at left with qdiss
     druso "Madre. [Il_t] Figli[fin] di Briseide mi è car[fin]. Lo dico davanti al Consiglio, e senza rima."
     "Lo dice bene. Pulito, coraggioso. Una frase sola, e la sala la sente tutta."

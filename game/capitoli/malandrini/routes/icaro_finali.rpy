@@ -3,6 +3,9 @@
 ## Climax e finali ###########################################################
 
 label icaro_climax:
+    # Regia musicale: tema dei finali al tavolo, silenzio quando il mazzo
+    # si ferma, il tema torna sul finale scelto (musica.rpy).
+    $ musica("finale")
     scene bg vicoli_zefiro with fade
     show icaro neutro with dissolve
     "Fine semestre. La saletta è vuota: il tavolo grande, stanotte, è solo nostro. Icaro mescola le carte come altri pregano."
@@ -19,6 +22,7 @@ label icaro_climax:
     "Accende la pipa. Il fumo sale dritto, senza fretta."
     icaro "Ho chiuso i conti del semestre. Tutti. Tranne una voce."
     icaro "Tu. Non so in che colonna metterti. E io so sempre in che colonna mettere tutto."
+    $ musica_silenzio()
     "Smette di mescolare. Il mazzo resta fermo tra le sue dita: non gliel'ho mai visto fare."
     show icaro neutro with qdiss
     icaro "Domanda secca. Dimmi una cosa che hai visto di me. Una sola. Che non abbia visto nessun altro."
@@ -57,6 +61,7 @@ label icaro_climax:
 
 label icaro_good:
     $ lento()
+    $ musica("finale")
     show icaro furbo with qdiss
     icaro "Ultima mano del semestre. Posta: tutto il mio inventario contro la tua parola. Carte coperte."
     "Giochiamo. E a fine mano, quando scopro le carte, capisco: ha barato. Al contrario. Per perdere."
@@ -97,6 +102,7 @@ label icaro_good:
     return
 
 label icaro_neutral:
+    $ musica("finale")
     show icaro furbo with qdiss
     icaro "Proposta: socio al dieci per cento. Tu guardi le mani, io taglio il mazzo. Niente sentimenti: rendono poco e costano troppo."
     if icaro_climax_scelta == "accusa":
@@ -119,6 +125,7 @@ label icaro_neutral:
     return
 
 label icaro_bad:
+    $ musica("finale")
     show icaro irritato with qdiss
     icaro "Il posto al tavolo era in prova. La prova è scaduta. Niente di personale: è che il personale, con te, non ha mai aperto."
     if icaro_climax_scelta == "accusa":
@@ -136,6 +143,7 @@ label icaro_bad:
     return
 
 label icaro_bro_end:
+    $ musica("finale")
     if rl.finale_bro(icaro_affinity, icaro_impegnato) == "icaro_bro_listino":
         icaro "Il semestre chiude in attivo: un fratello acquisito, costo zero, rendita perpetua. Il miglior affare che io non abbia mai pianificato."
         if icaro_climax_scelta == "dettaglio":
@@ -179,6 +187,7 @@ label icaro_bro_end:
 
 label icaro_passeggero:
     $ lento()
+    $ musica("finale")
     show icaro neutro with qdiss
     icaro "Ultima mano. Niente posta. Solo per vedere come va a finire."
     "Gioca pulito. Nessuna carta nel polsino, né dentro né fuori. Vince di poco, e lo sa contare."

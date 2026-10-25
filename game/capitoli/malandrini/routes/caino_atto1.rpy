@@ -234,7 +234,7 @@ label caino_cap2:
 
             show caino neutro with qdiss
 
-            caino "Risposta da politico. Forse ti ho sottovalutato."
+            caino "Risposta da politico. Forse ti ho sottovalutat[fin]."
 
             druso "Risposta da vigliacco! Quaranta Scudi, pagherai, legislatore dei miei—"
 

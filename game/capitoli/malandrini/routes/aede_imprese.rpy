@@ -182,7 +182,7 @@ init 6 python:
 label aede_imprese_gelo:
     scene bg palestra with fade
     show aede neutra with dissolve
-    "Aede è al cortile. Mi corregge la guardia con due parole, come a un novellino qualunque."
+    "Aede è al cortile. Mi corregge la guardia con due parole, come a [un_t] novellin[fin] qualunque."
     "Poi se ne va da sola, il mantello sulla spalla. Non mi dice dove. Non me lo dirà più."
     return
 

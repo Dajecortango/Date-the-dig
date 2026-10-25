@@ -66,6 +66,16 @@ init 10 python:
             "arena_athlion": "audio/malandrini/amb_folla.ogg",
             "nero": None,
         },
+        # Musica (musica.rpy): leitmotiv per route + calendario e finali.
+        musiche={
+            "aede": "audio/malandrini/tema_aede.ogg",
+            "caino": "audio/malandrini/tema_caino.ogg",
+            "druso": "audio/malandrini/tema_druso.ogg",
+            "icaro": "audio/malandrini/tema_icaro.ogg",
+            "ofelia": "audio/malandrini/tema_ofelia.ogg",
+            "calendario": "audio/malandrini/tema_calendario.ogg",
+            "finale": "audio/malandrini/tema_finale.ogg",
+        },
         # Vicoli nei giorni di pioggia: la pioggia copre la strada.
         ambiente_pioggia={"vicoli_zefiro": "audio/malandrini/amb_pioggia.ogg"},
         # La Calà: le campane suonano quando ci si arriva.

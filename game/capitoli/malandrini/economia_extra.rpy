@@ -265,7 +265,7 @@ label eco_ottone(att_id):
             $ eco_ottone = True
             "Al secondo sorso Ottone si toglie i guanti. Al terzo, la voce."
             pc "Il Ceppo di Cardia paga sempre il giorno prima. Me ne sono accort[fin] il primo giorno."
-            ottone "Lo so. Ti ho visto fermare la penna su quella riga."
+            ottone "Lo so. Ti ho vist[fin] fermare la penna su quella riga."
             ottone "Chi paga il giorno prima sa quando arriva il controllo. E chi lo sa, ragazz[fin], l'ha sentito dire da qualcuno di dentro."
             "Abbassa la voce sul boccale, come se il boccale avesse orecchie."
             ottone "Le date di consultazione restano scritte. Basta qualcuno che le copi, e qualcuno che le compri. Alla Proprietà c'è sempre un compratore."

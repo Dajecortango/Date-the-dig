@@ -442,6 +442,13 @@ init -10 python:
         for hook in cal_post_evento_hooks:
             hook(ev)
 
+    def musica_evento(eid):
+        """Leitmotiv del personaggio dell'evento (musica.rpy); gli eventi
+        senza char non toccano la musica in onda."""
+        ev = cal_evento_di(eid)
+        if ev and ev.get("char"):
+            musica(ev["char"])
+
 default cal_idx = 0
 # Ultima variante pescata da cal_attivita (None = pool esaurito).
 default cal_label = None
@@ -488,6 +495,8 @@ label cal_loop:
         # Primo giorno di una Luna nuova: una riga su quella passata.
         $ cal_riepilogo = (cal_riepilogo_luna(cal_giorno_prima[1])
                            if cal_giorno_prima[1] not in (None, cal_luna) else None)
+        # Il giorno nuovo riparte dal tema del calendario (dissolvenza).
+        $ musica("calendario")
         call screen cartello_data(cal_luna, cal_giorno, cal_giorno_segnato(cal_luna, cal_giorno), *cal_giorno_prima)
         # Voce di cronologia per il separatore di giorno (come il vecchio centered).
         $ narrator.add_history("adv", None, save_name)
@@ -498,6 +507,7 @@ label cal_loop:
         $ eventi_visti.add(cal_fisso_id)
         # Contesto delle scelte registrate (conseguenze.rpy).
         $ cal_contesto = cal_fisso_id
+        $ musica_evento(cal_fisso_id)
         call expression cal_label_di(cal_fisso_id)
         $ cal_dopo_evento(cal_fisso_id)
         $ cal_contesto = "fuori"
@@ -520,6 +530,9 @@ label cal_loop:
         $ renpy.transition(Dissolve(0.2))
     else:
         play audio "audio/carta.ogg"
+        # Un invito a scadenza sul tavolo: la clessidra si sente.
+        if any(i["scade"] for i in cal_inviti):
+            play audio "audio/clessidra.ogg"
     # Primo pianificatore: la guida sopra (si salta; il "?" la riapre).
     if not persistent.guida_pianificatore:
         $ renpy.show_screen("guida_pianificatore")
@@ -537,6 +550,7 @@ label cal_loop:
             cal_sel_id = _return[1]
             eventi_visti.add(cal_sel_id)
             cal_contesto = cal_sel_id
+        $ musica_evento(cal_sel_id)
         call expression cal_label_di(cal_sel_id)
         $ cal_dopo_evento(cal_sel_id)
         $ cal_contesto = "fuori"
@@ -674,6 +688,12 @@ screen cartello_data(luna, giorno, festa=False, giorno_prec=None, luna_prec=None
         xysize (1920, 1080)
         background None
         action Return()
+        ## Lettura vocale: il cartello e' solo grafica, la data si dice qui.
+        alt (LUNE_NOMI[luna] + ", giorno " + str(giorno)
+             + (_(". Giorno segnato.") if festa else "")
+             + ((" " + cal_riepilogo)
+                if (luna_prec is not None and luna_prec != luna and cal_riepilogo)
+                else ""))
     ## Primo giorno di una Luna nuova: riga sulla Luna passata (M10).
     $ cartello_riep = cal_riepilogo if (luna_prec is not None and luna_prec != luna) else None
     timer (0.05 if config.skipping else 4.0 if cartello_riep else 2.5) action Return()

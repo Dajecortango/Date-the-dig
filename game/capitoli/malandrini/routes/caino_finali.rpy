@@ -6,6 +6,10 @@
 
 label caino_climax:
 
+    # Regia musicale: tema dei finali in Consiglio, silenzio quando la sala
+    # si volta, il tema torna sul finale scelto (musica.rpy).
+    $ musica("finale")
+
     scene bg consiglio with fade
 
     "La Sala del Consiglio di Rocca Tempesta. Non dovrei essere qui: i Figli nuovi non entrano. Ma il mio nome è sulla convocazione, scritto da mano ignota."
@@ -38,6 +42,7 @@ label caino_climax:
     elif caino_colonna == "scrive":
         "Sugli spalti ho scritto il mio nome a cavallo della riga. Né attivo né passivo. Non si cancella senza strappare la pagina."
 
+    $ musica_silenzio()
     "Caino lo sa. Mi guarda. La sala intera segue il suo sguardo fino a me."
 
     menu:
@@ -79,6 +84,7 @@ label caino_climax:
 
 label caino_good_end:
     $ lento()
+    $ musica("finale")
 
     show caino neutro with dissolve
 
@@ -167,6 +173,7 @@ label caino_good_end:
 ################################################################################
 
 label caino_secret_end:
+    $ musica("finale")
 
     show caino neutro with dissolve
 
@@ -240,6 +247,7 @@ label caino_secret_end:
 ################################################################################
 
 label caino_bad_end:
+    $ musica("finale")
 
     show caino freddo with dissolve
 
@@ -291,6 +299,7 @@ label caino_bad_end:
 ################################################################################
 
 label caino_neutral_end:
+    $ musica("finale")
 
     show caino neutro with dissolve
 
@@ -336,6 +345,7 @@ label caino_neutral_end:
 
 label caino_passeggero:
     $ lento()
+    $ musica("finale")
 
     show caino neutro with dissolve
 

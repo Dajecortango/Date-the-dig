@@ -93,7 +93,7 @@ label incrocio_carte:
     "Il tavolo grande, posta alta: Icaro contro Caino. L'Arconte della Proprietà perde da tre mani e non è abituato."
     caino "Quarta mano. Fratello, la tua fortuna stasera è... statisticamente interessante."
     show icaro furbo with qdiss
-    icaro "La fortuna è una tassa sugli sprovveduti. Tu non sei sprovveduto: quindi non è fortuna. Gioca."
+    icaro "La fortuna è una tassa sugli sprovveduti. Tu non sei sprovvedut[fin]: quindi non è fortuna. Gioca."
     "E io, dal mio posto, l'ho visto: il taglio del mazzo. Quello che le dita non dovrebbero saper fare."
     menu:
         "Caino perde la quarta mano. Le sue dita tamburellano: sta per capire."

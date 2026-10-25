@@ -10,9 +10,13 @@ init python:
     def sblocca_finale(fid):
         if persistent.finali_visti is None:
             persistent.finali_visti = set()
+        nuovo = fid not in persistent.finali_visti
         persistent.finali_visti.add(fid)
         persistent.ultimo_finale = fid
         renpy.save_persistent()
+        # Stinger del trofeo: solo la prima volta che il finale si scopre.
+        if nuovo and not renpy.is_skipping():
+            renpy.play("audio/finale_sbloccato.ogg")
 
 screen galleria_finali():
 

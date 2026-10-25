@@ -78,7 +78,7 @@ label icaro_bro_affari:
     "Il mercato coperto, a metà pomeriggio. Banchi di stoffe, spezie, ferraglia. E in fondo un mercante di Glostok che vende tutto in fretta."
     show icaro neutro with dissolve
     icaro "Servizio da tè di Glostok. Trentadue pezzi. Il proprietario ha debiti di gioco, e i debiti di gioco hanno fretta."
-    icaro "Io tratto. Tu stai accanto a me con la faccia di uno che ha già deciso di andarsene. Niente sorrisi. I sorrisi alzano i prezzi."
+    icaro "Io tratto. Tu stai accanto a me con la faccia di un[fin] che ha già deciso di andarsene. Niente sorrisi. I sorrisi alzano i prezzi."
     pc "E se il mercante parla con me?"
     icaro "Non parlerà con te. Parlerà della tua faccia. È diverso."
     "Il mercante apre la cassa. Paglia, porcellana, un odore di cantina. Icaro alza una tazza contro la luce. Gira il polso di un quarto, poi di un altro."

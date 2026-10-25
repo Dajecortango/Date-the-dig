@@ -67,7 +67,7 @@ label ev_adunanza:
 
 label att_registri_1:
     scene bg studio_glauco with fade
-    "Mezza giornata sui registri delle decime. Gli scrivani della Proprietà mi passano le colonne peggiori: sono il nuovo, e il nuovo somma."
+    "Mezza giornata sui registri delle decime. Gli scrivani della Proprietà mi passano le colonne peggiori: sono [il_t] nuov[fin], e [il_t] nuov[fin] somma."
     "Imparo più della Famiglia da tre registri che da dieci lezioni: chi paga tardi, chi paga troppo, chi non paga e non viene mai segnato."
     "Il Ceppo di Cardia, per esempio, paga sempre il giorno prima della scadenza. Sempre. Nessuno è così puntuale, se non ha qualcosa da far dimenticare."
     "A metà pomeriggio uno scrivano anziano, Ottone, mi passa accanto e mi gira il calamaio dall'altra parte. Senza una parola."

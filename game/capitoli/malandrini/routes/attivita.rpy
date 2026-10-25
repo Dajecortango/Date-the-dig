@@ -158,7 +158,7 @@ label att_scudo_3:
         "«Grazie, Druso.»":
             $ druso_affinity += 1
             show druso ghigno with qdiss
-            druso "Non ringraziare, mi rovini la reputazione. Di' in giro che ti ho insultato."
+            druso "Non ringraziare, mi rovini la reputazione. Di' in giro che ti ho insultat[fin]."
         "«Chi sei e cosa hai fatto a Druso?»":
             show druso ghigno with qdiss
             druso "L'ho mangiato, ma era indigesto. Guardia su, linguaccia."
@@ -369,7 +369,7 @@ label att_citta_3:
 label att_taverna_4:
     scene bg vicoli_zefiro with fade
     show druso ghigno at left with easeinleft
-    druso "Sedetevi, gente! Stasera si duella a versi. Chi perde paga il giro. Novellin[fin], tu sei lo sfidante."
+    druso "Sedetevi, gente! Stasera si duella a versi. Chi perde paga il giro. Novellin[fin], tu sei [lo_t] sfidante."
     "La taverna ruggisce. La locandiera mette già i boccali in conto a me."
     druso "Comincio io. «Figli[fin] di Briseide, lana in testa e lana in cuore — ti sposerebbe una pecora, ma hai già un amore.»"
     "Risate. Druso si inchina a metà, sul tavolo, rischiando la vita."
@@ -408,7 +408,7 @@ label att_fumeria_4:
             icaro "...l'ho messo io da parte, per vedere chi se ne accorgeva. Tre settimane. Sei [il_t] prim[fin]."
             "Lo rimette nella pila con un mezzo sorriso. La terza pila torna pari alle altre."
         "Guarda e basta, è gratis":
-            icaro "Bravo. Il pubblico migliore è quello che non fa domande."
+            icaro "Brav[fin]. Il pubblico migliore è quello che non fa domande."
     return
 
 

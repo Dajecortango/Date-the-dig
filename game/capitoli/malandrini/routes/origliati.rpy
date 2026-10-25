@@ -192,7 +192,7 @@ label echi_orig_ottone:
 label echi_orig_caino_via:
     scene bg studio_glauco with dissolve
     show caino neutro with dissolve
-    caino "In serra, l'altro giorno. Te ne sei andat[fin] dal vialetto dei limoni. Ti ho visto dalla vetrata."
+    caino "In serra, l'altro giorno. Te ne sei andat[fin] dal vialetto dei limoni. Ti ho vist[fin] dalla vetrata."
     caino "La maggior parte delle persone si sarebbe avvicinata. Annoto: sa quando non leggere un documento. Rarissimo."
     return
 

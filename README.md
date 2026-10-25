@@ -15,6 +15,16 @@ Route di Ofelia "Tanto bella quanto letale" (difficoltà 4/5): corte e serra nel
 - Un test: `py -3 -I -X utf8 tests/test_X.py`
 - Tutti i test: `for t in tests/test_*.py; do py -3 -I -X utf8 "$t" </dev/null; done 2>&1 | grep -E "^FAIL|Traceback"` (nessuna riga = tutto ok)
 
+## Audio
+
+- Effetti e ambienti: segnaposto sintetici da `make_audio.py` (numpy + ffmpeg).
+- Musica: leitmotiv per route + tema del calendario e dei finali
+  (`game/audio/malandrini/tema_*.ogg`), segnaposto da `make_musica.py`.
+  Il sistema è in `game/musica.rpy` (tabella `musiche` del capitolo).
+- Versioni vere con ElevenLabs: `py -3 make_musica_elevenlabs.py` (serve
+  `ELEVENLABS_API_KEY`: `npx -y @elevenlabs/cli@latest onboard init`).
+  Stessi nomi file: il gioco non cambia.
+
 ## Specifica asset (per sostituire i placeholder)
 
 Le immagini di Malandrini vivono in `game/images/malandrini/` (quelle comuni in `game/images/comune/`). Per sostituire un placeholder basta sovrascrivere il PNG con lo stesso identico nome file.
@@ -83,6 +93,15 @@ Una route futura di Malandrini aggiunge i propri file in `game/capitoli/malandri
   sono stati riscritti: lo storico della Trama li riconosce comunque.
   In un'altra copia del progetto, cancellare i vecchi `game/routes/*_route.rpyc`
   (druso, icaro, ofelia): Ren'Py li caricherebbe ancora e troverebbe label doppie.
+- 2026-10-24 (sera) — Tema del menu principale (`audio/tema_menu.ogg`,
+  comune), stinger alla scoperta di un finale (`audio/finale_sbloccato.ogg`),
+  suono clessidra per gli inviti a scadenza nel pianificatore, `alt` di
+  lettura vocale sul cartello della data.
+- 2026-10-24 — Musica: leitmotiv per route, tema del calendario e dei finali,
+  dissolvenze incrociate e silenzi di regia nei climax (`game/musica.rpy`,
+  segnaposto da `make_musica.py`). Accordo di genere verso il protagonista
+  rivisto in tutte le route (variabile nuova `lo_t`; scanner in
+  `tests/test_genere.py`). Grafie del lore blindate in `tests/test_lore.py`.
 - 2026-10-23 — Capitoli: il gioco e' organizzato in capitoli
   (`game/capitoli/<id>/`); Malandrini e' il capitolo I. In un'altra copia del
   progetto cancellare i `.rpyc` orfani dei vecchi percorsi:

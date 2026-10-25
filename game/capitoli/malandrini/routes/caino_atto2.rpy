@@ -79,7 +79,7 @@ label caino_cap4:
 
             show caino neutro with qdiss
 
-            caino "Il silenzio. Di nuovo. Sai che è la cosa più onesta che ti ho visto fare?"
+            caino "Il silenzio. Di nuovo. Sai che è la cosa più onesta che ti ho vist[fin] fare?"
 
     return
 

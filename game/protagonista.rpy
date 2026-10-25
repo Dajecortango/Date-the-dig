@@ -9,13 +9,13 @@ init python:
             store.fratello_t = "sorellina"; store.il_fratello_t = "la sorellina"
             store.uomo_t = "donna"; store.un_t = "una"; store.Un_t = "Una"
             store.il_t = "la"; store.Il_t = "La"; store.al_t = "alla"
-            store.gli_t = "le"; store.lui_t = "lei"
+            store.gli_t = "le"; store.lui_t = "lei"; store.lo_t = "la"
         else:
             store.fin = "o"; store.figlio_t = "Figlio"
             store.fratello_t = "fratellino"; store.il_fratello_t = "il fratellino"
             store.uomo_t = "uomo"; store.un_t = "un"; store.Un_t = "Un"
             store.il_t = "il"; store.Il_t = "Il"; store.al_t = "al"
-            store.gli_t = "gli"; store.lui_t = "lui"
+            store.gli_t = "gli"; store.lui_t = "lui"; store.lo_t = "lo"
 
     def sanitize_name(raw):
         """Nome giocatore: strip, niente tag/interpolazioni, default Elio."""
@@ -42,3 +42,5 @@ default Il_t = "Il"
 default al_t = "al"
 default gli_t = "gli"
 default lui_t = "lui"
+# Articolo/pronome "lo"/"la" ("sei [lo_t] sfidante", "[lo_t] conosco").
+default lo_t = "lo"

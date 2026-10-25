@@ -6,6 +6,10 @@
 
 label climax:
 
+    # Regia musicale: tema dei finali nello studio, silenzio sulla neve,
+    # il tema torna sul finale scelto (musica.rpy).
+    $ musica("finale")
+
     scene bg studio_glauco with fade
 
     show glauco neutro with dissolve
@@ -33,6 +37,7 @@ label climax:
 
     glauco "Vai pure, [figlio_t] di Briseide. La neve stanotte è ottima per morire. O per vivere. Dipende interamente da ciò che avete costruito, tu e lei."
 
+    $ musica_silenzio()
     scene bg esterno_neve with fade
     $ tempesta()
 
@@ -108,6 +113,7 @@ label climax:
 
 label good_end:
     $ lento()
+    $ musica("finale")
 
     show aede neutra with dissolve
 
@@ -204,6 +210,7 @@ label good_end:
 ################################################################################
 
 label neutral_end:
+    $ musica("finale")
 
     show aede neutra with dissolve
 
@@ -253,6 +260,7 @@ label neutral_end:
 ################################################################################
 
 label bad_end_aede:
+    $ musica("finale")
 
     show aede neutra with dissolve
 
@@ -284,6 +292,7 @@ label bad_end_aede:
 ################################################################################
 
 label bad_end_glauco:
+    $ musica("finale")
 
     show aede neutra with dissolve
 
@@ -320,6 +329,7 @@ label bad_end_glauco:
 
 label aede_passeggero:
     $ lento()
+    $ musica("finale")
 
     show aede neutra with dissolve
 

@@ -9,7 +9,7 @@ _CAMPI = (
     "id", "numero", "titolo", "sottotitolo", "ingresso", "copertina",
     "funzioni", "finali", "gruppi_finali", "cast_menu", "affinita", "regia",
     "ambienti", "ambiente_pioggia", "ambiente_arrivo", "entrate", "ritratto",
-    "dopo_caricamento", "schede",
+    "dopo_caricamento", "schede", "musiche",
 )
 
 
@@ -21,7 +21,7 @@ class Capitolo(object):
                  gruppi_finali=None, cast_menu=None, affinita=None,
                  regia=None, ambienti=None, ambiente_pioggia=None,
                  ambiente_arrivo=None, entrate=None, ritratto=None,
-                 dopo_caricamento=None, schede=None):
+                 dopo_caricamento=None, schede=None, musiche=None):
         self.id = id
         self.numero = numero
         self.titolo = titolo
@@ -41,6 +41,7 @@ class Capitolo(object):
         self.ritratto = ritratto
         self.dopo_caricamento = list(dopo_caricamento or [])
         self.schede = dict(schede or {})
+        self.musiche = dict(musiche or {})
 
 
 _REGISTRO = {}

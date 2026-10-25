@@ -249,6 +249,25 @@ def affetto_giu():
     return normalizza(dissolvenza(nota, rel=0.08), 0.22)
 
 
+def finale_sbloccato():
+    """Stinger del finale scoperto: tre note di campana che salgono (~2.5 s)."""
+    x = np.zeros(secondi(2.8))
+    for f, ritardo, amp in ((392.0, 0.0, 0.7), (523.25, 0.35, 0.8), (659.25, 0.7, 1.0)):
+        aggiungi(x, amp * campana(2.0, f)[:secondi(2.0)], secondi(ritardo))
+    return normalizza(dissolvenza(x, rel=0.4), 0.5)
+
+
+def clessidra():
+    """Sabbia che scorre + un tocco di legno: l'invito non aspettera' (~0.8 s)."""
+    n = secondi(0.8)
+    t = np.arange(n) / SR
+    sabbia = rumore_forma(n, banda(3000, 9000)) * np.exp(-t / 0.35) * 0.6
+    tocco = parziali([820, 1240], 0.3, [0.05, 0.03], [1, 0.4])
+    x = sabbia
+    aggiungi(x, 0.8 * dissolvenza(tocco, rel=0.05), secondi(0.05))
+    return normalizza(dissolvenza(x, rel=0.15), 0.35)
+
+
 def amb_pioggia():
     """Pioggia sui vicoli: fruscio largo + gocce sparse, in loop."""
     n = secondi(LOOP)
@@ -275,6 +294,9 @@ def main():
     salva("amb_strada", amb_strada())
     salva("amb_sala", amb_sala())
     salva("amb_folla", amb_folla())
+    # In coda: aggiunti dopo, cosi' i file precedenti restano identici (rng).
+    salva("finale_sbloccato", finale_sbloccato())
+    salva("clessidra", clessidra())
 
 
 if __name__ == "__main__":

@@ -6,6 +6,9 @@
 ################################################################################
 
 label ofelia_climax:
+    # Regia musicale: tema dei finali nello studio, silenzio quando Ofelia
+    # lo lascia crescere, il tema torna sul finale scelto (musica.rpy).
+    $ musica("finale")
     scene bg studio_glauco with fade
     show glauco neutro with dissolve
     "Lo studio di Glauco Severo. Silenzio, ordine, una candela sola. Il vino è già versato in due calici."
@@ -18,6 +21,7 @@ label ofelia_climax:
     "La pergamena è sul tavolo, la penna accanto, già intinta. Glauco non lascia mai niente a metà."
     glauco "Ascadeo ha scommesso su di te, sai? Contro sua sorella. Lo farò frustare per questo, o forse lo farò ricco. Dipende da come esci di qui."
     "Sulla parete alle sue spalle, le lame sono trentadue. Tutte affilate, tutte parallele. Glauco non si chiede mai chi le curi."
+    $ musica_silenzio()
     "Ofelia non si muove. Il silenzio è suo: lo lascia crescere finché diventa una stanza dentro la stanza."
     "La penna gocciola sul legno. Glauco aspetta me, non lei."
     # La scelta viene prima del fuoco: il gesto del protagonista decide come
@@ -106,6 +110,7 @@ label ofelia_poly_aede_routing:
 
 label ofelia_good:
     $ lento()
+    $ musica("finale")
     # Prologo solo se arriviamo dal climax di Aede (neve); la coda resta su route_seconda.
     if route_seconda_viva() == "aede":
         show aede neutra with dissolve
@@ -160,6 +165,7 @@ label ofelia_good:
 
 label ofelia_good_caino:
     $ lento()
+    $ musica("finale")
     scene bg corridoio_ceppo with fade
     $ lento()
     show caino neutro at left with dissolve
@@ -194,6 +200,7 @@ label ofelia_good_caino:
 
 label ofelia_good_aede:
     $ lento()
+    $ musica("finale")
     show aede neutra with dissolve
     "Aede guarda la lama nella propria mano. Poi la lascia cadere nella neve, dritta, come una piccola lapide."
     aede "Vent'anni di ordini. Il primo che rifiuto, lo rifiuto per te. Mio padre se ne farà una ragione."
@@ -268,6 +275,7 @@ label ofelia_bad_tempesta:
 ################################################################################
 
 label ofelia_neutral:
+    $ musica("finale")
     show glauco neutro with qdiss
     glauco "Visto, figlia? Un bel gesto, la carta bruciata. Peccato per il pubblico."
     show ofelia neutra at left with qdiss
@@ -294,6 +302,7 @@ label ofelia_neutral:
 ################################################################################
 
 label ofelia_passeggero:
+    $ musica("finale")
     show glauco neutro with qdiss
     glauco "La carta è cenere, il vino è da buttare. Il resto è affar tuo, figlia."
     hide glauco with dissolve
@@ -321,6 +330,7 @@ label ofelia_passeggero:
 ################################################################################
 
 label ofelia_bad:
+    $ musica("finale")
     show ofelia neutra at left with qdiss
     "Ofelia posa il calice. Il vino ha smesso di sfrigolare."
     ofelia "La carta l'ho bruciata per me, padre. Non per [lui_t]. Non confondere i conti."

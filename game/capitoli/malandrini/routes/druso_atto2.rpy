@@ -44,7 +44,7 @@ label druso_int3:
     "Palestra della Rocca, prima dell'alba. Le torce sono ancora spente. Qualcuno ha sbarrato la porta dall'interno."
     show druso imbarazzato at left with dissolve
     "Quel qualcuno è Druso, in camicia da notte e stivali, con due spade di legno sotto il braccio."
-    druso "Zitto. Non una parola. Se qualcuno chiede, sono qui per sonnambulismo."
+    druso "Zitt[fin]. Non una parola. Se qualcuno chiede, sono qui per sonnambulismo."
     druso "Quella torsione. Quella del vicolo. Quella che fa Aede. Insegnamela."
     pc "Il codardo dichiarato vuole imparare a combattere?"
     show druso irritato with qdiss
@@ -91,7 +91,7 @@ label druso_ev4:
     show druso neutro at left with dissolve
     "Turno di guardia sulle mura di Zefiro, ultimo scalino prima del Nord vero. Druso si è offerto volontario. Il capoguardia ha chiesto se fosse malato."
     "Il vento arriva dai ghiacciai senza niente in mezzo. Sotto di noi, i tetti di Zefiro fumano come pentole."
-    druso "Zitto, il vento ascolta. Notte lunga, lanterna corta. Si fa un patto: chi si addormenta paga il giro. O recita."
+    druso "Zitt[fin], il vento ascolta. Notte lunga, lanterna corta. Si fa un patto: chi si addormenta paga il giro. O recita."
     druso "Per scaldarci, una cosa leggera. «Sulle mura di Zefiro c'è una guardia sola: ha freddo ai piedi e altro alla...» No. Non stanotte."
     "Per due ore, nemmeno una strofa sconcia. Conta le torce sulla Calà, nomina le stelle sbagliate, e ogni tanto si zittisce a metà frase."
     druso "Quella è la Lepre. No, il Carro. È il Carro che insegue la Lepre. Icaro le sa tutte, io le invento. Vengono meglio."

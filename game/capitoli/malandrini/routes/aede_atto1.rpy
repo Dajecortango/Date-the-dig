@@ -98,7 +98,7 @@ label prologo:
 
             aede "Mio padre sa già tutto quello che deve sapere. Tu invece impara questo: chi minaccia me, parla con lui. E nessuno parla con lui due volte."
 
-    "Sparisce tra le maschere come se il corridoio l'avesse inghiottita."
+    "Sparisce tra le maschere. Non la vedo andarsene: a un certo punto, semplicemente, ho smesso di vederla."
 
     "Dovrei avere paura. Ce l'ho. Ma sotto la paura c'è altro: quella piega all'angolo della bocca non me la tolgo dalla testa."
 
@@ -125,7 +125,7 @@ label cap1:
 
     briseide "Tu guarderai, ascolterai e non ti farai notare. Come allo Svelo."
 
-    "C'è un lampo negli occhi di Briseide che non so leggere. Sa qualcosa? Con lei è impossibile capirlo."
+    "Negli occhi di Briseide passa un lampo che non so leggere. Sa dello Svelo? Briseide sa sempre. È quello che non dice, che pesa."
 
     briseide "La scorta ti aspetta al cancello. Porta rispetto, [player_name]. Quel Ceppo non perdona."
 
@@ -265,7 +265,7 @@ label cap2:
 
             "Mi sente. Rompe il ritmo per un decimo di respiro, mi fulmina con un'occhiata, riparte più forte."
 
-            "Vince. Ma quando viene premiata non guarda nella mia direzione neanche per sbaglio. Credo di averla imbarazzata davanti al suo Ramo."
+            "Vince. Alla premiazione non guarda dalla mia parte neanche per sbaglio. Ma il rosso sul collo le resta fino all'ultimo applauso."
 
         "Aiutala senza farti vedere":
             $ aede_affinity += 2
