@@ -45,5 +45,6 @@ description: Use when adding or changing calendar events, invitations, affinity 
 
 ## Checklist di chiusura (sempre, nello stesso turno)
 1. `py -3 -I tests/test_calendario.py` (aggiorna i check: id evento, economia, label esistenti)
-2. `"./tools/renpy-8.3.7-sdk/renpy.exe" . lint`
-3. Label di scena finisce con `return`
+2. Punti/soglie/cond toccati → `py -3 -I -X utf8 tests/test_raggiungibilita.py` (skill sim-semestre)
+3. Lint e mappa test completa: skill renpy-lint
+4. Label di scena finisce con `return`
