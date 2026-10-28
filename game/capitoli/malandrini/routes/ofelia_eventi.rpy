@@ -82,27 +82,27 @@ label impegno_ofelia:
     scene bg sala_svelo with fade
     $ lento()
     show ofelia neutra with dissolve
-    "La serra di sera, senza pretendenti. Solo lanterne basse, e la rosa nera potata fino all'osso."
-    ofelia "Ho mandato via la fila. Tutta. Il cavallo compreso."
-    "Sui tavoli restano i doni della stagione: sonetti arrotolati, un pugnale col manico d'avorio, un ritratto di lei che non le somiglia. Nessuno è stato aperto."
+    "La serra di sera, senza pretendenti. Solo lanterne basse, e la rosa nera potata fino alla radice."
+    ofelia "Ho mandato via la fila. Tutta, cavallo compreso."
+    "Sui tavoli restano i doni della stagione: sonetti arrotolati, un pugnale col manico d'avorio, un ritratto di lei che non le somiglia. Nessuno è stato toccato."
     ofelia "Mio padre li conta, sai? Ogni dono è un'alleanza mancata. Stanotte gli ho fatto perdere sei alleanze in un colpo."
     ofelia "Non lo faccio per nessuno, quindi ascolta bene: è una domanda sola, e non la ripeto."
     show ofelia compiaciuta with qdiss
     ofelia "Sei un interesse passeggero, [player_name]? Oppure resti anche quando smetto di essere gentile?"
     menu:
         "Mi porge le forbici. Il manico verso di me, la lama verso di lei."
-        "Prendere le forbici: «Resto. Anche senza gentilezza.»" (peso=True):
+        "Prendi le forbici: «Resto. Anche senza gentilezza.»" (peso=True):
             $ impegno_esito = True
             show ofelia imbarazzata with dissolve
             ofelia "Dal manico. Tullio, l'anno scorso, l'ha presa dalla lama. Si è cucito il palmo da solo."
             show ofelia neutra with qdiss
             ofelia "Bene. Da stasera la fila è chiusa. Se qualcuno chiede, sei tu il motivo. Fallo valere."
             "Non mi bacia. Mi aggiusta il colletto, lenta, e controlla il risultato da un passo indietro. E il semestre, da stasera, ha un padrone."
-        "Lasciarle le forbici: «Non ancora, Ofelia.»" (peso=True):
+        "Lasciale le forbici: «Non ancora, Ofelia.»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("ofelia")
             show ofelia rabbia with qdiss
-            ofelia "Non ancora. Lo dicono tutti, prima di sparire. Almeno tu l'hai detto in faccia."
+            ofelia "Non ancora. Lo dicono tutti prima di sparire. Almeno tu me l'hai detto in faccia."
             show ofelia neutra with qdiss
             ofelia "Torna in fila, allora. In fondo. Non ti chiamerò per nome."
             "Riprende a potare. Lo stelo cade, pulito. Non alza più gli occhi."
@@ -135,7 +135,7 @@ label impegno_ofelia_caino:
             show ofelia imbarazzata with dissolve
             ofelia "...non hai nemmeno chiesto chi viene prima. Peccato: avevo una risposta crudele pronta."
             show ofelia neutra with qdiss
-            caino "Annotato. Prima firma: Ofelia Severo. Seconda: in sospeso. Resta la mia, e quella non la mostro davanti a testimoni."
+            caino "Annotato. Prima firma: Ofelia. Seconda: in sospeso. Resta la mia, e quella non la mostro davanti a testimoni."
             ofelia "Allora vi lascio soli. Il tuo ragioniere ha una domanda da farti, e la fa male in pubblico."
             hide ofelia with dissolve
         "«Fuori. Non firmo per metà.»" (peso=True):
@@ -164,12 +164,12 @@ label impegno_ofelia_aede:
     scene bg sala_svelo with fade
     $ lento()
     show ofelia neutra with dissolve
-    "La serra, a notte fatta. Ofelia ha spento tutte le lanterne tranne una, quella che illumina solo le sue mani."
+    "La serra, a notte fonda. Ofelia ha spento tutte le lanterne tranne una, quella che illumina solo le sue mani."
     ofelia "Lo so, di mia sorella. Lo sa mezza Zefiro: Aede non è mai stata brava a nascondere chi le piace."
     ofelia "E so di te. Quello lo sai solo tu, e adesso io."
-    ofelia "Da bambine dividevamo la stanza, le lezioni di spada, i vestiti. Lei prendeva sempre il rosso. Io lasciavo fare, e mi tenevo il nero."
+    ofelia "Appena adottate dividevamo la stanza, le lezioni di spada, i vestiti. Lei prendeva sempre il rosso. La lasciavo fare, e mi tenevo il nero."
     show ofelia compiaciuta with qdiss
-    ofelia "Non ti chiedo di scegliere. La sorella e te: mi va bene. Ho sempre diviso tutto con lei, tranne i segreti."
+    ofelia "Non ti chiedo di scegliere. Mia sorella e te? Mi va bene. Ho sempre diviso tutto con lei, tranne i segreti."
     show ofelia rabbia with qdiss
     ofelia "Aede non divide. Io sì. Non farglielo sapere."
     menu:
@@ -185,7 +185,7 @@ label impegno_ofelia_aede:
             $ congelate.add("ofelia")
             show ofelia rabbia with qdiss
             ofelia "Leale. Che virtù noiosa. Va' da lei, allora, e dille pure tutto: tanto non ti crederà."
-            "Spegne l'ultima lanterna senza aspettare che io sia uscit[fin]. Al buio, la serra profuma di qualcosa che marcisce piano."
+            "Spegne l'ultima lanterna senza aspettare che io sia uscit[fin]. Al buio, la serra profuma di qualcosa che marcisce lentamente."
             "Va' da lei, ha detto. Non le ho dato la soddisfazione di discutere: ci vado davvero."
     # Il partner risponde sempre, qualunque sia stato l'esito con Ofelia.
     call impegno_aede

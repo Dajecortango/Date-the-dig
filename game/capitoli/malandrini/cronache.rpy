@@ -146,15 +146,15 @@ init python:
          "Si cresce a brodo, orfani e voci.",
          []),
         ("ramo_lenora", "Ceppi e Rami", "Il Ramo di Lenora", ("druso_int3", "udienza_lenora"),
-         "Il Ramo della Capofamiglia. Il suo sigillo è un corvo su un ramo "
-         "spoglio, in cera nera. Si riunisce nella sala lunga, tra banchi di "
+         "Il Ramo della Capofamiglia. Il suo sigillo è una corona, "
+         "in cera nera. Si riunisce nella sala lunga, tra banchi di "
          "quercia.",
          []),
         ("ramo_vittoria", "Ceppi e Rami", "Il Ramo di Vittoria", ("athlion", "cap2"),
          "All'Athlion, i Figli di Vittoria sono gli avversari da battere.",
          [(("icaro_luna5",),
-           "Teucro, Arconte del Ramo, porta un anello a ogni dito; il nipote "
-           "Milone ha gli occhi svelti.")]),
+           "Pallante, giocatore brillante, porta un anello a ogni dito; la sorella "
+           "Bia ha gli occhi svelti.")]),
         ("malacorte", "Ceppi e Rami", "La Malacorte", ("aede_cap1", "cap1"),
          "Osservatori ed esattori che battono le vie di Zefiro: spiano, "
          "riscuotono, e non sempre con le buone.",

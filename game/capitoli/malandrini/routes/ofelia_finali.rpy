@@ -15,7 +15,7 @@ label ofelia_climax:
     glauco "Siediti, [figlio_t] di Briseide. Mia figlia dice che sei un capriccio. Io conto i capricci: questo dura da troppe Lune."
     show ofelia neutra at left with dissolve
     "Ofelia è in piedi accanto alla finestra, in nero. Non mi guarda. Tiene gli occhi sulla candela e non sbatte le palpebre."
-    glauco "Ofelia è la mia figlia imprevedibile. Al punto giusto: l'ho cresciuta così. Ogni anno tre pretendenti, ogni anno nessuno."
+    glauco "Ofelia è la mia figlia imprevedibile. Al punto giusto: l'ho cresciuta così. Ogni anno tre pretendenti, ogni anno nessuno resta."
     show glauco minaccioso with qdiss
     glauco "Stanotte firmi la rinuncia e torni da tua madre con un dono del Ceppo. Oppure non firmi, e il dono te lo porto io."
     "La pergamena è sul tavolo, la penna accanto, già intinta. Glauco non lascia mai niente a metà."
@@ -28,21 +28,21 @@ label ofelia_climax:
     # la carta brucia (insieme, accanto, o contro di lei).
     menu:
         "La pergamena è a un palmo dalla mia mano. La candela, a un palmo da quella di Ofelia."
-        "Prendere la pergamena e porgerla a Ofelia, dal lato della candela" (peso=True):
+        "Prendi la pergamena e porgila a Ofelia, dal lato della candela" (peso=True):
             $ ofelia_affinity += 1
             $ ofelia_climax_gesto = "insieme"
             "Prendo la carta. Non la guardo nemmeno: la tendo verso la finestra, con l'angolo già sopra la fiamma."
             show ofelia compiaciuta at left with qdiss
             "Ofelia chiude due dita sull'altro angolo. Per un istante la teniamo in due."
             ofelia "Padre. Hai dimenticato una clausola."
-        "Rispondere a Glauco a testa alta: «Non firmo. Resta lei, e resto io.»" (peso=True):
+        "Rispondi a Glauco a testa alta: «Non firmo. Resta lei, e resto io.»" (peso=True):
             $ ofelia_climax_gesto = "accanto"
             glauco "Coraggio. Il difetto preferito di chi muore giovane."
             show ofelia compiaciuta at left with qdiss
             ofelia "Elegante. Un po' troppo coraggios[fin] per i miei gusti. Ma il tono era giusto."
             ofelia "Padre. Hai dimenticato una clausola."
             "Prende la pergamena e la avvicina alla candela, senza fretta, tenendola per un angolo."
-        "Prendere le sue difese: «Non decidete voi per lei.»" (peso=True):
+        "Prendi le sue difese: «Non decidete voi per lei.»" (peso=True):
             $ ofelia_affinity -= 1
             $ ofelia_climax_gesto = "contro"
             show ofelia rabbia at left with qdiss
@@ -64,13 +64,13 @@ label ofelia_climax:
         ofelia "E sì, c'è un altro contraente. Lo sai già: tieni registri migliori dei suoi. Si firma in tre, o non firma nessuno."
     show glauco deluso with qdiss
     glauco "Mi sfidi. In casa mia. Per [lui_t]."
-    ofelia "Ti sorprendo, padre. È diverso. L'hai insegnato tu: un colpo che si vede arrivare non è un colpo."
+    ofelia "Ti sorprendo, padre, è diverso. Me l'hai insegnato tu: un colpo che si vede arrivare non è un colpo."
     "Glauco mi guarda. Non più come un conto da saldare: come una voce che non torna nel bilancio."
     if ofelia_climax_gesto == "insieme":
         "Ofelia sposta il calice di un dito, verso di me. Nel vino galleggia ancora un angolo di carta, annerito dalla parte che tenevo io."
         glauco "L'avete bruciata in due. Il notaio dovrà inventarsi una formula."
     elif ofelia_climax_gesto == "accanto":
-        glauco "Vedremo quanto dura, il tono giusto."
+        glauco "Vedremo quanto dura."
     else:
         show ofelia rabbia at left with qdiss
         ofelia "Difendimi ancora, e la prossima pergamena la firmo io. Contro di te."
@@ -116,13 +116,13 @@ label ofelia_good:
         show aede neutra with dissolve
         "Aede guarda la lama, poi guarda me. Poi guarda sua sorella, che non si è mossa di un passo."
         aede "Mio padre voleva un saldo. Non l'avrà. Non per te, [player_name]: per lei, che non mi ha mai chiesto niente."
-        "Rinfodera. Si volta e se ne va nella neve, senza fretta. Non si gira."
+        "Rinfodera l'arma. Si volta e se ne va nella neve, senza fretta. Non si gira."
         hide aede with dissolve
     scene bg cala_notte with fade
     $ lento()
     show ofelia neutra with dissolve
     "Più tardi, la Calà è spenta. Trecento gradini al buio: nessuna lanterna, nessuna leggenda a garantire niente."
-    ofelia "Sai cosa dicono di me a Zefiro? Che sono bella. Sbagliano l'ordine: prima sono letale. La bellezza è un dettaglio."
+    ofelia "Sai cosa dicono di me a Zefiro? Che sono bella e letale. Sbagliano l'ordine: prima sono letale. La bellezza è un dettaglio."
     pc "Allora ho corso un rischio."
     show ofelia compiaciuta with qdiss
     ofelia "Il più grosso della tua vita. Te lo ricorderò ogni giorno. È il mio modo di essere affettuosa."
@@ -132,7 +132,7 @@ label ofelia_good:
         ofelia "Niente di sdolcinato, non chiederlo. E niente cene da mio padre, per un po'."
         ofelia "Mia sorella ha rinfoderato, stanotte. Le devo almeno questo: non sedermi accanto a te davanti a lei. Il Ceppo aspetterà."
     else:
-        ofelia "Niente di sdolcinato, non chiederlo. Ma domani a cena da mio padre mi siedo accanto a te."
+        ofelia "Niente di sdolcinato, non parlare. Ma domani a cena da mio padre mi siedo accanto a te."
         ofelia "Davanti a tutto il Ceppo. Per me è come scriverlo sulle mura."
     ofelia "Ascadeo ha vinto la sua scommessa più grossa, comunque. Non dirgli niente: voglio che me lo chieda lui. Voglio vederlo pagare il disturbo."
     "Scendiamo al buio, mano nella mano. Al centesimo gradino lei ride piano, una volta sola. Non lo ammetterà mai."
@@ -143,7 +143,7 @@ label ofelia_good:
     ofelia "Hai aspettato. Non abituarti."
     if route_seconda == "aede":
         scene bg esterno_neve with fade
-        "Qualche notte dopo, sulle mura, vedo una sagoma col fiocco del Ceppo. Ferma nella neve, a guardare la città."
+        "Qualche notte dopo, sulle mura, vedo una sagoma col simbolo del Ceppo. Ferma nella neve, a guardare la città."
         "Aede non ne parlerà mai, né con me né con sua sorella. È l'unico colpo che le ho risparmiato, e pesa più di tutti."
     elif route_seconda == "caino":
         scene bg vicoli_zefiro with fade
@@ -172,7 +172,7 @@ label ofelia_good_caino:
     "Fuori dallo studio, nel corridoio del Ceppo, Caino aspetta con la schiena al muro e il registro sotto il braccio."
     caino "Sei uscit[fin] viv[fin]. Ottimo. Avevo preparato due versioni del necrologio: le archivio entrambe."
     show ofelia compiaciuta with dissolve
-    ofelia "Mio padre ha bruciato la carta? No: l'ho bruciata io. Annotalo, Caino. La storia la scrive chi c'era."
+    ofelia "Ho bruciato il contratto di mio padre. Annotalo, Caino. La storia la scrive chi c'era."
     show caino sarcastico at left with qdiss
     caino "Annotato. Con un asterisco: «a fuoco, nel vino del Capo Famiglia». Il notaio piangerà."
     "Caino estrae una pergamena dal registro. Tre righe, tre spazi per la firma. Uno è già firmato, in una calligrafia minuta e ostinata."
@@ -180,13 +180,13 @@ label ofelia_good_caino:
     show ofelia imbarazzata with qdiss
     ofelia "La terza la violi tu per primo, Caino. Ti ho visto arrossire sulla Calà."
     show caino tenero at left with dissolve
-    caino "...era il riverbero delle lanterne. Firma, [player_name]. Prima che cambi idea. O prima che la cambi lei."
+    caino "...era la luce delle lanterne. Firma, [player_name]. Prima che cambi idea. O prima che la cambi lei."
     ofelia "Aggiungi una clausola, Caino. La quarta. Chi tradisce il contratto, lo dice a me prima che agli altri due."
     show caino neutro at left with qdiss
     caino "E poi?"
     ofelia "E poi niente. Lo dice a me. Il resto si vede."
     "Firmo. Ofelia firma per ultima, con un ghirigoro che occupa mezza pagina. Caino non protesta. Annota l'ora della firma, poi la sottolinea due volte."
-    "Sotto le firme, in piccolo, Caino aggiunge una data e un'ora. Come se un giorno qualcuno dovesse verificare che è successo davvero."
+    "Sotto le firme, in piccolo, Caino aggiunge una data. Come se un giorno qualcuno dovesse verificare che è successo davvero."
     scene bg nero with fade
     $ sblocca_finale("ofelia_good_caino")
     with lampo_oro
@@ -203,7 +203,7 @@ label ofelia_good_aede:
     $ musica("finale")
     show aede neutra with dissolve
     "Aede guarda la lama nella propria mano. Poi la lascia cadere nella neve, dritta, come una piccola lapide."
-    aede "Vent'anni di ordini. Il primo che rifiuto, lo rifiuto per te. Mio padre se ne farà una ragione."
+    aede "Dieci anni di ordini. Il primo che rifiuto, lo rifiuto per te. Mio padre se ne farà una ragione."
     show ofelia neutra at left with qdiss
     ofelia "Se ne farà due, sorella. Ero qui per lo stesso motivo."
     show aede sorpresa with qdiss
@@ -212,7 +212,7 @@ label ofelia_good_aede:
     "Ofelia mente, con eleganza, senza guardarmi. Aede le crede: tra sorelle vince sempre la verità più comoda."
     show glauco neutro at right with dissolve
     "Glauco emerge dal bianco. Guarda le sue due figlie disarmate, ferme tra me e lui."
-    glauco "Due figlie, due lame, un bersaglio solo. E nessuna delle due che colpisce. Ho educato benissimo, o malissimo."
+    glauco "Due figlie, due lame, un bersaglio solo. E nessuna delle due che colpisce. Vi ho educate benissimo, o malissimo."
     glauco "Cena al tramonto, [figlio_t] di Briseide. Siederai tra le mie figlie. Spero tu sappia tenere il coltello dalla parte giusta."
     hide glauco with dissolve
     scene bg cala_notte with fade
@@ -231,7 +231,7 @@ label ofelia_good_aede:
     scene bg nero with fade
     $ sblocca_finale("ofelia_good_aede")
     with lampo_oro
-    centered "{cps=20}{size=+10}LE FIGLIE DI GLAUCO{/size}\n\nDue lame, un solo bersaglio.\nUna sola lo sa.{/cps}"
+    centered "{cps=20}{size=+10}LE FIGLIE DI GLAUCO{/size}\n\nDue lame, un solo bersaglio.{/cps}"
     return
 
 
@@ -247,7 +247,7 @@ label ofelia_bad_tempesta:
     elif ofelia_mano_cala:
         aede "Sulla Calà. Sotto i miei occhi. Mano nella mano, come vuole la leggenda."
     elif ofelia_in_pubblico:
-        aede "Al mercato, a braccetto, come due sposi. Una ragazza del mio Ceppo vi ha visti. E non era la prima volta."
+        aede "Al mercato, a braccetto, come due sposi. Una serva del mio Ceppo vi ha visti. E non era la prima volta."
     else:
         aede "Me l'hanno detto. Le ancelle, le serve, i corridoi. Tutta Rocca Tempesta lo sa, e io per ultima."
     aede "Credevate che la lama migliore del Nord non sapesse contare fino a due?"
@@ -255,16 +255,16 @@ label ofelia_bad_tempesta:
     ofelia "Sorella. Abbassa la lama. Non è [lui_t] che vuoi."
     aede "Hai sempre preso il nero, Ofelia. Lasciavi a me il rosso, e io ti ringraziavo. Che stupida."
     ofelia "Non ti ho mai tolto niente che tu avessi già."
-    aede "Questa la conservo. È la più crudele che tu abbia mai detto."
+    aede "È la cosa più crudele che tu abbia mai detto."
     show aede furia with lampo
-    aede "No. Vi voglio entrambi. E per una volta, l'ordine di mio padre e il mio coincidono."
+    aede "No. Vi detesto entrambi. E per una volta, l'ordine di mio padre e il mio volere coincidono."
     with vpunch
     "Non vedo il colpo. Sento il freddo, e la voce di Ofelia che grida il mio nome. Non l'avevo mai sentita gridare."
     show glauco furioso at right with dissolve
     glauco "Basta. Le mie figlie non si sgozzano tra loro per [un_t] Novellin[fin]. Il conto lo chiudo io."
     scene bg nero with lampo
     "Il Margine, dicono gli Arvali, è un fiume lento. Lo attraverso con due nomi in gola, e non so quale dire per ultimo."
-    "A Zefiro, dicono, le sorelle Severo non si parlano più. Una scende la Calà da sola. L'altra non la scende più."
+    "A Zefiro, dicono, le figlie di Glauco non si parlano più. Una scende la Calà da sola. L'altra non la scende più."
     $ sblocca_finale("ofelia_bad_tempesta")
     centered "{cps=20}{size=+10}LA TEMPESTA{/size}\n\nNon si ama una figlia di Glauco di nascosto.\nNon due volte.{/cps}"
     return
@@ -283,13 +283,13 @@ label ofelia_neutral:
     "Mi guarda dall'alto in basso, con calma, e arriva alle scarpe. Lì si ferma."
     ofelia "Ti ho dato sei Lune, [player_name]. Ne hai usate metà. Io non aspetto: non per crudeltà, per abitudine."
     "Raccoglie la cenere della pergamena dal fondo del calice e la sparge sul tavolo con un dito. Un gesto da bambina annoiata."
-    glauco "Va', [figlio_t] di Briseide. Il dono del Ceppo te lo risparmio. Mia figlia ti ha già fatto il suo."
+    glauco "Va', [figlio_t] di Briseide. Il mio dono te lo risparmio. Mia figlia ti ha già fatto il suo."
     scene bg cala_notte with fade
-    "Una Luna dopo, la vedo sulla Calà con un pretendente nuovo. Un Asi alto, i capelli in ordine, le frasi pronte."
+    "Una Luna dopo, la vedo sulla Calà con un pretendente nuovo. Un uomo alto, i capelli in ordine, le frasi pronte."
     show ofelia compiaciuta with dissolve
     "Mi passa accanto senza fermarsi. Un cenno, il minimo sindacale della cortesia."
     ofelia "Sei stat[fin] un interesse piacevole, [player_name]. Passeggero, ma piacevole. Non tutti arrivano a tanto."
-    "Il pretendente nuovo mi guarda di sbieco, cercando di capire chi sono. Lei non glielo dice. Non vale la spesa."
+    "Il pretendente nuovo mi guarda di sbieco, cercando di capire chi sono. Lei non glielo dice. Non vale la fatica."
     "Ai piedi della scala c'è un ragazzo che prende appunti su un libretto. Ascadeo, credo. Accanto al mio nome tira una riga."
     scene bg nero with fade
     $ sblocca_finale("ofelia_neutral")
@@ -317,7 +317,7 @@ label ofelia_passeggero:
     if route_seconda_viva() == "caino":
         "Nel corridoio Caino scrive una riga nel registro. Non alza la testa quando passo."
     scene bg cala_notte with fade
-    "Il guanto resta nella mia tasca per tutto l'inverno. Sulla Calà Ofelia mi saluta con un cenno preciso: né freddo né caldo. Esatto."
+    "Il guanto resta nella mia tasca per tutto l'inverno. Sulla Calà Ofelia mi saluta con un cenno preciso: né freddo, né caldo. Esatto."
     "A fine Luna Ascadeo mi offre da bere. Ha vinto metà della scommessa, dice. Non mi spiega quale metà."
     scene bg nero with fade
     $ sblocca_finale("ofelia_passeggero")
@@ -336,13 +336,13 @@ label ofelia_bad:
     ofelia "La carta l'ho bruciata per me, padre. Non per [lui_t]. Non confondere i conti."
     show glauco minaccioso with qdiss
     glauco "Allora i conti li chiudo io."
-    "Glauco stacca dalla parete una lama che non avevo contato: la trentatreesima, sotto un panno. La avvolge in un drappo col fiocco del Ceppo."
+    "Glauco stacca dalla parete una lama che non avevo contato: la trentatreesima, sotto un panno. La avvolge in un drappo col simbolo del Ceppo."
     glauco "Il dono che ti avevo promesso, [figlio_t] di Briseide. Portalo a tua madre. Dille che il Ceppo ringrazia per la visita."
     glauco "E dille che il prossimo lo porto io. Senza drappo."
     "Cerco gli occhi di Ofelia. Lei guarda la candela, e la spegne con due dita. Un sibilo. Nessuna smorfia."
     ofelia "Vai, [player_name]. Prima dell'alba. Mio padre è puntuale solo con le minacce."
     scene bg vicoli_zefiro with fade
-    "Lascio Zefiro col primo carro. Il drappo sul sedile accanto, il fiocco del Ceppo bene in vista: chi ci ferma sa di chi è il debito."
+    "Lascio Zefiro col primo carro. Il drappo sul sedile accanto, il simbolo del Ceppo bene in vista: chi ci ferma sa di chi è il debito."
     "Nessuno ci ferma."
     scene bg nero with fade
     $ sblocca_finale("ofelia_bad")

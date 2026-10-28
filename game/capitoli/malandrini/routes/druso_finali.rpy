@@ -9,7 +9,7 @@ label druso_climax:
     scene bg consiglio with fade
     "Convocazione del Ramo di Lenora. Sala lunga, banchi di quercia, gli Arconti in fila come corvi su un ramo."
     "Il freddo della pietra sale dalle suole. Le torce bruciano basse, come se anche loro avessero paura di disturbare."
-    "L'accusa la legge un Eparca, con la voce di chi recita un inventario."
+    "L'accusa la legge un cancelliere del Ramo, con la voce di chi recita un inventario."
     "Il secondogenito della Capofamiglia «frequenta [un_t] Figli[fin] di Briseide oltre il decoro»."
     if flag_druso_coraggio:
         "E ha fatto a botte nei vicoli per un lanternaio."
@@ -35,28 +35,28 @@ label druso_climax:
     "Poi i suoi occhi trovano i miei, in fondo, tra i Figli messi lì dove non fanno danni."
     menu:
         "Il silenzio dura un respiro di troppo. Tutti aspettano."
-        "Alzarmi e parlare per lui" (peso=True):
+        "Alzati e parla per lui" (peso=True):
             $ druso_consiglio = "parla"
             with vpunch
             if flag_druso_coraggio:
-                pc "Il lanternaio l'ho difeso io. Druso è venuto dietro. Se c'è una colpa, è mia."
+                pc "Il lanternaio l'ho difeso io. Druso mi ha assecondat[fin]. Se c'è una colpa, è mia."
             else:
                 pc "Se c'è una colpa, è anche mia."
-            "Un mormorio tra i banchi. L'Eparca segna qualcosa."
+            "Un mormorio tra i banchi. Il cancelliere segna qualcosa."
             show druso irritato with qdiss
             druso "...nessuno ti ha chiesto di fare il cavaliere. Siediti."
             "Lo dice piano, a denti stretti. Ma adesso la sala guarda me, non lui."
-        "Restare sedut[fin], e guardarlo. La voce è sua" (peso=True):
+        "Resta sedut[fin], e guardalo. La voce è sua" (peso=True):
             $ druso_consiglio = "lascia"
             $ druso_affinity += 1
             if druso_sfida == "silenzio":
-                "Non mi muovo. Lo guardo e basta, come al tavolo di Lisandro."
+                "Non mi muovo. Lo guardo e basta, come al tavolo del Becco Storto."
             else:
                 "Non mi muovo. Lo guardo e basta."
             show druso serio with qdiss
-            "Druso capisce. Raddrizza le spalle. Cento chili di poeta, tutti in piedi."
+            "Druso capisce. Raddrizza le spalle. Settanta chili di poeta, tutti in piedi."
             druso "Madre. Ho la gola secca e niente da bere. Parlerò lo stesso."
-        "Smontare la cosa con una battuta" (peso=True):
+        "Smonta la cosa con una battuta" (peso=True):
             $ druso_consiglio = "battuta"
             $ druso_affinity += 1
             pc "Oltre il decoro? Eccellenza, il decoro l'ha superato da anni. Io sono solo l'ultima tappa."
@@ -82,7 +82,7 @@ label druso_good:
     if druso_difesa == "riscrivi":
         "Riconosco i miei versi. Ognuno con una parola cambiata, perché possa dire che è suo."
     elif druso_difesa == "se_stesso":
-        "Niente strofe sul decoro. Cento chili di debiti, versi e paura, tutti in piedi, tutti in rima."
+        "Niente strofe sul decoro. Debiti, versi e paura, tutti in piedi, tutti in rima."
     elif druso_difesa == "brucia":
         "Nemmeno una parola sulla convocazione. Recita come uno che non deve più niente a nessuna lettera."
     "La sala non ride. La sala — che gli Asi la conservino — applaude."
@@ -103,12 +103,12 @@ label druso_good:
         druso "Sei rimast[fin] sedut[fin]. Tutto il tempo. Sai quanto costa, a uno come me, sapere che qualcuno aspetta e basta?"
     "Scendiamo i gradini della Calà a passo lento. Al duecentesimo si ferma."
     show druso imbarazzato with dissolve
-    druso "...e a te. Ma questo è fuori metrica."
+    druso "...e aspettavo te. Sei fuori metrica, ma non importa."
     "Poi mi bacia. Fuori metrica anche quello: troppo lungo, senza ritmo, la barba che punge."
     show druso ghigno with qdiss
     druso "Non abituarti. Il prossimo lo faccio in endecasillabi."
     "Da quella sera Zefiro ha un poeta nuovo. Stesso uomo, stessa barba. Le rime oscene restano."
-    "Ma alla fine di ogni serata, a voce bassa, ce n'è una che non lo è. Ed è per me."
+    "Ma alla fine di ogni serata, a voce bassa, ce n'è una che non lo è. Ed è solo per me."
     scene bg nero with fade
     $ sblocca_finale("druso_good")
     with lampo_oro
@@ -154,7 +154,7 @@ label druso_bad:
     "In taverna il mio posto accanto al suo lo prende qualcun altro. Poi un altro ancora."
     "Da quella sera le sue provocazioni tornano a essere solo crudeli, e io torno a essere solo pubblico."
     if "druso_luna5" in eventi_visti:
-        "Una volta, tardi, lo sento recitare la strofa di Lisandro. Quella sui cento chili. La dice lui, su di sé, e la sala applaude."
+        "Una volta, tardi, lo sento recitare la strofa di Epiro. Quella su Lenora. La dice lui, su di sé, e la sala applaude."
     "Il gioco crudo e duro ha dato il suo verdetto: non l'ho retto."
     scene bg nero with fade
     $ sblocca_finale("druso_bad")
@@ -184,9 +184,9 @@ label druso_passeggero:
     "Ride, per non lasciare la frase nuda. Mi dà una pacca sulla spalla. Pesa come tutte le sue pacche, e non di più."
     scene bg vicoli_zefiro with fade
     $ lento()
-    "Una Luna dopo, in taverna, Druso legge un componimento serio. La sala tace, il che in taverna è un miracolo."
+    "Una Luna dopo, in taverna, Druso legge un componimento serio. La sala tace, il che è un miracolo."
     show druso imbarazzato at left with dissolve
-    "A metà alza gli occhi. Non verso di me: verso il fondo, dove Pandora tiene il registro aperto sul braccio e finge di non ascoltare."
+    "A metà alza gli occhi. Non verso di me: verso il fondo, dove Pandora tiene un libro aperto sul braccio e finge di non ascoltare, infastidita."
     "Finisce. Applausi. Mi cerca, mi fa l'occhiolino da vecchio amico, e torna a guardare lei."
     show icaro furbo with dissolve
     icaro "Scommessa vinta. Avevo dato Pandora a tre contro uno. Non prenderla sul personale: i miei quaderni non hanno una colonna per le persone gentili."

@@ -68,22 +68,22 @@ label impegno_druso:
     show druso imbarazzato at left with dissolve
     "Mi aspetta fuori dalla taverna, per una volta senza pubblico. Ha in mano un foglio piegato in quattro, e l'aria di chi preferirebbe un TESCHIO."
     "Dentro, qualcuno grida il suo nome per il solito giro di versi. Lui non si gira."
-    druso "Ho scritto una cosa. Non oscena. È... il problema è proprio questo, che non è oscena. Prima di dartela devo sapere se ridi."
+    druso "Ho scritto una cosa. Non oscena... il problema è proprio questo, che non è oscena. Prima di dartela devo sapere se ridi."
     druso "Ci ho messo tre notti. Le altre le scrivo in tre minuti, sul tovagliolo. Questa no. Questa non voleva venire."
     $ muovi("druso", "trema")
     "Il foglio trema appena. Se ne accorge, lo stringe più forte, e adesso trema la mano intera."
     menu:
         "«Perché il poema più bello non nasce dall'immaginazione.»"
-        "Prendere il foglio senza ridere" (peso=True):
+        "Prendi il foglio senza ridere" (peso=True):
             $ impegno_esito = True
             "Lo leggo. Non c'è una parolaccia. C'è una strada di neve fatta in due, e nessuno che spinge l'altro nel fosso. Rima baciata, naturalmente."
             "Ci sono la taverna, le mura di Zefiro, il ponte sul canale. E ci sono io, senza nome, in ogni strofa."
             show druso ghigno with qdiss
-            druso "Allora? Metrica zoppa? Contenuto che arranca? Di' qualcosa o DICHIARO."
+            druso "Allora? Metrica zoppa? Contenuto che arranca? Di' qualcosa."
             pc "Bis."
             druso "...bis concesso. A vita, se serve."
             "Dentro, la taverna continua a chiamarlo. Lui le volta le spalle e mi offre il braccio, con un inchino ridicolo."
-        "Restituirgli il foglio senza leggerlo" (peso=True):
+        "Restituiscigli il foglio senza leggerlo" (peso=True):
             $ impegno_esito = False
             $ congelate.add("druso")
             druso "Giusto. Che stupidaggine. Era uno scherzo, ovvio! Il finto sentimento: il mio capolavoro!"

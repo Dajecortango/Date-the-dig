@@ -12,3 +12,6 @@ errors.txt
 android.keystore
 bundle.keystore
 __pycache__/
+
+# Chiavi API locali
+.env

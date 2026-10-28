@@ -9,15 +9,15 @@ label icaro_climax:
     scene bg vicoli_zefiro with fade
     show icaro neutro with dissolve
     "Fine semestre. La saletta è vuota: il tavolo grande, stanotte, è solo nostro. Icaro mescola le carte come altri pregano."
-    "Fuori, Zefiro festeggia la chiusura delle Lune. Dentro, solo il fruscio del mazzo e l'odore di resina fredda."
+    "Fuori, Zefiro festeggia la chiusura delle Lune. Dentro, solo il fruscio del mazzo e l'odore di resina."
     "Accanto al mazzo, il registro del tavolo piccolo. Chiuso, legato con un nastro."
     if icaro_partita == "smaschera":
-        icaro "Teucro ha lasciato Zefiro. Il Ramo di Vittoria l'ha richiamato a casa, «per motivi di salute». La salute di un baro scoperto è fragile."
+        icaro "Pallante ha lasciato Zefiro. Il Ramo di Vittoria l'ha mandato altrove, «per motivi personali». Gli affari di un baro scoperto non sono più privati."
     elif icaro_partita == "copre":
-        icaro "Teucro mi deve ancora una rivincita. E il panno l'ho fatto lavare. Il conto della lavandaia è a tuo nome."
+        icaro "Pallante mi deve ancora una rivincita. E il panno l'ho fatto lavare. Il conto della lavandaia è a tuo nome."
     elif icaro_partita == "silenzio":
-        icaro "Milone mi saluta per strada, adesso. Con rispetto. Effetto collaterale del tuo silenzio: non l'avevo messo a bilancio."
-    icaro "Ho condonato a Druso i cardini della mensa. Non dirglielo: deve credere che io sia ancora furioso. Lo tiene educato."
+        icaro "Bia mi saluta per strada, adesso. Con rispetto. Effetto collaterale del tuo silenzio: non l'avevo messo a bilancio."
+    icaro "Ho condonato a Druso i cardini della mensa. Non dirglielo: deve credere che io sia ancora furioso. Lo tiene a bada."
     show icaro sereno with qdiss
     "Accende la pipa. Il fumo sale dritto, senza fretta."
     icaro "Ho chiuso i conti del semestre. Tutti. Tranne una voce."
@@ -25,10 +25,10 @@ label icaro_climax:
     $ musica_silenzio()
     "Smette di mescolare. Il mazzo resta fermo tra le sue dita: non gliel'ho mai visto fare."
     show icaro neutro with qdiss
-    icaro "Domanda secca. Dimmi una cosa che hai visto di me. Una sola. Che non abbia visto nessun altro."
+    icaro "Domanda secca. Dimmi una cosa che hai visto di me. Una sola. Qualcosa che non abbia visto nessun altro."
     menu:
         "Il mazzo è fermo. Aspetta me, per ripartire."
-        "«Ti fermi mezzo respiro prima di dire la verità. Mai prima di una bugia.»" (peso=True):
+        "«Ti fermi mezzo respiro prima di dire la verità e mai prima di una bugia.»" (peso=True):
             $ icaro_climax_scelta = "dettaglio"
             $ icaro_affinity += 1
             show icaro sorpreso with qdiss
@@ -36,12 +36,12 @@ label icaro_climax:
             "Si guarda le mani, come se fossero di un altro."
             icaro "Mezzo respiro. Lo misuro adesso, mentre parlo. ...Esatto. Fastidioso."
             "Ride, piano. È la seconda volta in un semestre. Stavolta non smette subito."
-        "Prendergli la pipa, tirare una boccata, rendergliela. Senza una parola" (peso=True):
+        "Prendigli la pipa, tira una boccata e rendigliela. Senza una parola" (peso=True):
             $ icaro_climax_scelta = "silenzio"
             "Mi guarda fare. Non protesta, non conta, non si scosta."
             show icaro sereno with qdiss
             icaro "Il silenzio l'ho già comprato, settimane fa. Stanotte volevo il resto."
-            icaro "Ma lo prendo lo stesso. Al prezzo di allora: non lo rivaluto."
+            icaro "Ma lo prendo lo stesso, al prezzo di allora: non lo rivaluto."
             "Si riprende la pipa. Il cannello è ancora caldo. Non lo pulisce."
         "«Che bari anche quando giochi da solo.»" (peso=True):
             $ icaro_climax_scelta = "accusa"
@@ -64,14 +64,14 @@ label icaro_good:
     $ musica("finale")
     show icaro furbo with qdiss
     icaro "Ultima mano del semestre. Posta: tutto il mio inventario contro la tua parola. Carte coperte."
-    "Giochiamo. E a fine mano, quando scopro le carte, capisco: ha barato. Al contrario. Per perdere."
+    "Giochiamo. E a fine mano, quando scopro le carte, capisco: ha barato. Al contrario, per perdere."
     icaro "Hai vinto tutto. Che disastro contabile. Per fortuna il vincitore è... mio. Quindi il patrimonio non si muove."
     pc "Hai perso apposta, Icaro."
     icaro "Dimostralo. Nessuno ha mai dimostrato niente, a questo tavolo."
     pc "Ho visto la carta scivolarti nel polsino. All'incontrario: dentro, non fuori."
     show icaro sorpreso with qdiss
     icaro "...hai visto."
-    "Non nega. Raccoglie il mazzo e lo squadra due volte, anche se è già squadrato."
+    "Non nega. Raccoglie il mazzo e lo squadra due volte, anche se è regolare."
     show icaro imbarazzato with dissolve
     "Poi slega il nastro del registro. Lo apre alla pagina della riga coperta. Stavolta la mano resta ferma."
     "Una riga sola, nella sua grafia stretta da notaio. «Voce unica. Non ammortizzabile. Non cedibile.»"
@@ -87,11 +87,11 @@ label icaro_good:
         icaro "L'ho scritta in silenzio. Mi sembrava la lingua giusta, con te."
     pc "E il prezzo?"
     icaro "Fuori listino. L'ho stimata tre volte. Tre cifre diverse. Ho smesso."
-    "Non mi tocca. Sposta il mazzo di un dito verso di me, sul panno. Poi di un altro."
+    "Non mi tocca. Sposta il mazzo di un dito verso di me, sul tavolo. Poi di un altro."
     scene bg cala_notte with fade
     $ lento()
     show icaro sereno with dissolve
-    "Il tetto sopra la Consorteria. Due stuoie, una pipa sola, e la regola cambiata: si fuma a turno."
+    "Il tetto sopra la Consorteria. Due stuoie, una pipa sola, e una nuova regola: si fuma a turno."
     "Mi passa la pipa. Le nostre dita si toccano, stavolta. Non la ritira."
     icaro "Annotazione d'inventario. Contatto: accettato. Una persona sola. Non allargarti."
     "Non lo dimostrerò mai. Ma la lampada più brutta del magazzino, da quella notte, sta sul mio davanzale. Non è in vendita."
@@ -104,7 +104,7 @@ label icaro_good:
 label icaro_neutral:
     $ musica("finale")
     show icaro furbo with qdiss
-    icaro "Proposta: socio al dieci per cento. Tu guardi le mani, io taglio il mazzo. Niente sentimenti: rendono poco e costano troppo."
+    icaro "Proposta: socio al dieci percento. Tu guardi le mani, io taglio il mazzo. Niente sentimenti: rendono poco e non li capisco."
     if icaro_climax_scelta == "accusa":
         icaro "E prima che tu lo dica: no, il contratto non è truccato. Leggilo due volte, visto che ti piace accusare."
     elif icaro_climax_scelta == "dettaglio":
@@ -113,7 +113,7 @@ label icaro_neutral:
         icaro "Sai tacere. In un socio vale più del capitale."
     icaro "Contratto in triplice copia. Una a te, una a me, una a Caino. Lui le copie non le perde mai."
     "Il registro resta legato. Non lo apre, e non lo sposta dal suo lato del tavolo."
-    "Accetto. È il massimo che il suo bilancio concede, e il dieci per cento di Icaro vale più del cento per cento di molti."
+    "Accetto. È il massimo che il suo bilancio concede, e il dieci percento di Icaro vale più del cento per cento di molti."
     show icaro neutro with qdiss
     "Da allora, ogni fine Luna, una busta sotto la mia porta. Cifra esatta al centesimo, mai un biglietto."
     "Una volta, dentro, c'è una moneta in più. La riporto. La riprende senza commentare."
@@ -131,10 +131,10 @@ label icaro_bad:
     if icaro_climax_scelta == "accusa":
         icaro "E chi mi dà del baro al mio tavolo non ci si siede due volte. È la regola più vecchia della casa."
     "Spinge il registro dal suo lato. Il nastro resta chiuso: la riga che c'era sopra, se c'era, non la leggerò mai."
-    icaro "Domani cambio le serrature della fumeria. Non è contro di te. È contro chiunque."
-    "Mi alzo. Non protesto: coi bari inguaribili non si vince, e con Icaro non si pareggia nemmeno."
+    icaro "Domani cambio le serrature della fumeria. Non è contro di te, è contro chiunque."
+    "Mi alzo. Non protesto: coi bari inguaribili non si vince, e con Icaro men che meno."
     show icaro neutro with qdiss
-    "Sulla soglia mi volto. Lui sta già mescolando per la prossima mano. Contro nessuno."
+    "Sulla soglia mi volto. Lui sta già mescolando per la prossima mano. Da solo."
     "Un'occhiata rapida al posto vuoto. Poi segna qualcosa a margine del registro. Una voce chiusa, credo. In perdita."
     "In strada mi frugo le tasche, per abitudine. Manca una moneta. Una sola. L'ultimo interesse."
     scene bg nero with fade
@@ -163,9 +163,9 @@ label icaro_bro_end:
             "A margine, a matita, una nota piccola: «accende la pipa senza chiedere». Nessun importo."
         "Firmo. Lui soffia sull'inchiostro, chiude il registro e torna a mescolare, come se niente fosse."
         icaro "Druso pretenderà di firmare anche lui. Gli dirò che la pagina è finita."
-        icaro "Caino lo saprà entro l'alba. Lascialo sapere. Per una volta, è un credito che non può riscuotere."
+        icaro "Caino lo saprà entro l'alba. Per una volta, è un credito che non può riscuotere."
         icaro "Domani sera, stesso tavolo. Tu guardi le mani degli altri. Le mie no: sono di famiglia."
-        "La chiave del magazzino resta nella mia tasca. Il gradino accanto al suo resta mio."
+        "La chiave del magazzino resta nella mia tasca. Il gradino resta mio quanto suo."
         scene bg nero with fade
         $ sblocca_finale("icaro_bro_listino")
         centered "{cps=20}{size=+10}LISTINO CHIUSO{/size}\n\n{i}Finale Bro{/i}\n\nNon tutto ciò che è prezioso si tocca.{/cps}"
@@ -190,7 +190,7 @@ label icaro_passeggero:
     $ musica("finale")
     show icaro neutro with qdiss
     icaro "Ultima mano. Niente posta. Solo per vedere come va a finire."
-    "Gioca pulito. Nessuna carta nel polsino, né dentro né fuori. Vince di poco, e lo sa contare."
+    "Gioca pulito. Nessuna carta nel polsino, né dentro né fuori. Vince di poco, e lo sa."
     "Poi slega il nastro del registro. Lo apre alla pagina della riga coperta e me la gira davanti."
     "C'era scritto qualcosa, nella sua grafia stretta. Una riga tirata sopra, dritta, col righello."
     icaro "L'avevo scritta la prima sera al tavolo grande. Il mercante gridava al baro, serviva qualcuno che mi coprisse, e tu hai guardato da un'altra parte. Non ti accuso: hai tenuto i conti separati. Ho fatto lo stesso."
@@ -201,7 +201,7 @@ label icaro_passeggero:
     $ lento()
     "Una Luna dopo, la fumeria ha una lampada nuova sul tavolo grande. Brutta, enorme, d'ottone. Icaro la guarda come un figlio."
     show icaro furbo with dissolve
-    "Al tavolo piccolo siede un ragazzo che non conosco, coi polsini troppo larghi. Icaro gli insegna a contare le torce."
+    "Al tavolo piccolo siede un ragazzo che non conosco, coi polsini troppo larghi. Icaro gli insegna a contare le carte."
     "Mi vede sulla soglia. Alza due dita dal mazzo: un saluto da socio di vecchia data, il massimo che concede a chi non gli deve niente."
     show caino sarcastico at left with dissolve
     caino "Tre copie del registro, come sempre. Nella mia c'è la tua riga, tirata via col righello. Mio fratello non cancella mai a mano libera."

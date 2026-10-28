@@ -8,7 +8,7 @@
     "include_sqlite": false,
     "layout": null,
     "name": "Date the Dignitas",
-    "numeric_version": 2,
+    "numeric_version": 3,
     "orientation": "sensorLandscape",
     "package": "com.dajecortango.datethedignitas",
     "permissions": [
@@ -20,5 +20,5 @@
     "update_always": true,
     "update_icons": true,
     "update_keystores": true,
-    "version": "0.1"
+    "version": "0.2"
 }

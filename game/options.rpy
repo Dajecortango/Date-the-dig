@@ -2,7 +2,7 @@
 
 define config.name = _("Date the Dignitas")
 define gui.show_name = True
-define config.version = "0.1"
+define config.version = "0.2"
 define gui.about = _p("""
 Visual novel ambientata nel mondo di Yr.
 Lore: "Il Nord - La Guida" e "La Famiglia Dignitas - La Guida".

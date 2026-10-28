@@ -26,13 +26,22 @@ Le incoerenze sono marcate con **INCOERENZA** e raccolte nella sezione finale.
     coperto**; Segrete Silenti (prigione, esilio); le mura di Zefiro.
   - Luoghi esterni [scena]: **Glostok** (vino rosso, servizi da tè, cristalli,
     Ciambellano), **Rurikstad** (idromele; luogo d'esilio dolce), villaggi dei
-    Collifreddi (clan in faida).
+    Collifreddi (clan in faida), **Rundeberg** (colline dell'erba da pipa di
+    Icaro), **Altafresia** (servizi da tavola con stemma), **Helograd** (cristallo).
+- **Gunnari**: una popolazione del Nord (non un titolo). [committente] In scena
+  due Gunnari giocano al tavolo grande della fumeria di Icaro.
+- **Lomor**: danno un ricevimento a cui va Ofelia (`ofelia_atto1.rpy`). Chi siano
+  (popolazione, casata, Ceppo) non è fissato. [scena]
+- **Gothi**: "piuttosto mi faccio gothi" (Druso): figura religiosa, al posto di
+  "frate". **Convitto di Proserpina**: istituto con "vergini" citato nella strofa
+  di Druso. [scena]
 - **La Calà**: scalinata di 300 gradini illuminata da lanterne, dalla Contrada
   Eburnea al fiume. **Fiaccolata della Calà**: chi la scende mano nella mano si
   amerà per sempre (leggenda). [canone]
 - **Malacorte**: organizzazione di osservatori/esattori (spionaggio, riscossioni
   violente) attiva in città. [scena]
-- **Moneta**: Scudi; moneta della **Lega** (monete straniere). [scena]
+- **Moneta**: Scudi; moneta della **Lega** (monete straniere); "dieci **Lenora
+  d'oro**" (posta di Ascadeo: moneta d'oro col nome della Capofamiglia). [scena]
 - **Lo Svelo**: festa in maschera a Rocca Tempesta; il ceto non conta per una
   notte. **Athlion**: gara atletica annuale (corsa, salto, lancio, lotta) tra
   Ceppi e Rami. **Adunanza** annuale con il **Dono** (richiesta libera al
@@ -48,6 +57,10 @@ Le incoerenze sono marcate con **INCOERENZA** e raccolte nella sezione finale.
 
 ## 2. La Famiglia Dignitas
 
+- **Nessuno è fratello di sangue**: tutti i Figli sono persone adottate da un
+  Autarca, e l'età dell'adozione varia (bambini, ragazzi, adulti). "Fratelli" e
+  "sorelle" sono sempre fratelli d'adozione; "da bambini" vale solo per chi è
+  stato adottato presto. [committente]
 - Casata **senza legami di sangue**: si entra per **Adozione**, con **giuramento**
   che cancella nome e vita precedenti. Rivelare il "nome di prima" è tabù assoluto
   (proclamarlo è morte, ascoltarlo "forse peggio"). Stemma: **leone dorato**. [canone]
@@ -61,13 +74,14 @@ Le incoerenze sono marcate con **INCOERENZA** e raccolte nella sezione finale.
   (Caino), Arconte della Verità, **Primo Arconte** (presiede le sedute), Sovrintendente
   delle Contrade (carica passata alla Proprietà). [scena, il canone dei manuali cita
   solo gli Arconti]
-- **Eparchi/Eparca**: rango citato in scena all'Adunanza accanto ad Autarchi e
-  Arconti; compare anche come membro/portavoce della Consorteria e dei Rami
-  (legge le accuse). [scena] — vedi INCOERENZA 9.
+- **Eparca** (pl. Eparchi): titolo. L'Eparca di una città del Nord ne è in pratica
+  il sindaco. [committente] Quindi siede all'Adunanza accanto ad Autarchi e
+  Arconti; non è un funzionario generico, un segretario o un cancelliere.
 - **Consiglio**: sala del processo dei Rami. **Codice del Teschio**: "codice"
   informale dei fratelli di Lenora (si dichiara PRIMA di colpire il TESCHIO, il pugno
   ai genitali con grido "TESCHIO!"). [canone + scena]
-- **Rami nominati**: Ramo di Lenora (sigillo: corvo su un ramo spoglio; cortile
+- **Rami nominati**: Ramo di Lenora (sigillo: **una corona**, cera nera [canone,
+  manuale della Famiglia]; cortile
   d'armi), Ramo di Iperione, Ramo di Vittoria; Ceppo di Cardia; Ceppo di Glauco
   (Severo); Ceppo di Briseide (Columna Lactaria). [scena per i Rami; Ceppi di
   Glauco e Briseide: canone]
@@ -93,16 +107,18 @@ Ceppo "nel Ramo fa il lavoro di cui nessuno parla". Studio austero con una cande
 sola. Coltiva una **serra** a Rocca Tempesta. [canone + scena]
 
 ### Aede — "Tempesta d'amore"
-Figlia di Glauco, sorella di Ofelia e Ascadeo. Assassina; "volpe rossa" (maschera
+Figlia adottiva di Glauco, sorella d'adozione di Ofelia e Ascadeo. Assassina; "volpe rossa" (maschera
 di volpe allo Svelo). Capelli rosso fiamma, occhi grigio-verdi. Tsundere, 3/5, niente
 poliamore. Adottata ~20 anni fa da un villaggio dei Collifreddi (era una
 bambina veloce di mano che rubava per mangiare), addestrata con lame vere dai 7
 anni, madre (Filius Maior del Ceppo) morta quando aveva 12. [canone + scena]
 
 ### Ofelia — "Tanto bella quanto letale"
-Figlia di Glauco, sorella di Aede e Ascadeo. Elegante, letale, sarcastica, più
-riservata. Corte nella serra; 4/5; poliamore solo con Aede e Caino. Ha affilato lei
-le lame del padre fin dai 9 anni (il fabbro è morto da sei inverni). Il colore
+Figlia adottiva di Glauco, sorella d'adozione di Aede e Ascadeo. Elegante, letale,
+sarcastica, più riservata. Corte nella serra; 4/5; poliamore solo con Aede e Caino.
+29 anni ("lo specchio mi conosce da ventinove anni"). Adottata dopo Aede; Glauco le
+mise una spada in mano "appena arrivata". Affila "da sempre" le lame del padre (il
+fabbro è morto da sei inverni). Il colore
 che porta: nero (Aede: rosso). [canone + scena]
 
 ### Ascadeo
@@ -118,8 +134,8 @@ odia il vino di Glostok; anello con sigillo del drago al mignolo destro (era di
 suo padre). [canone + scena]
 
 ### Druso — "Il cuore provocatore"
-Figlio di Lenora, secondogenito. Brat, poeta di versi osceni, codardo con slanci di
-coraggio. 26 anni. Fa il cascamorto con Aede, Ofelia e **Pandora**. [canone +
+Figlio adottivo di Lenora, secondogenito. Brat, poeta di versi osceni, codardo con
+slanci di coraggio. 32 anni; settanta chili, barba bruna. Fa il cascamorto con Aede, Ofelia e **Pandora**. [canone +
 scena] Pandora compare in `lenora.rpy:udienza_lenora` (solo voce e narrazione,
 niente sprite): in piedi accanto alla grata di Lenora, tiene il registro
 dell'udienza e chiama i Figli per Ceppo; Druso "la guarda per tutti e due".
@@ -133,7 +149,7 @@ TESCHIO e il contatto fisico. [canone + scena]
 Capofamiglia a vita. Madre di Caino, Druso, Icaro. Regna da prima che Caino nascesse;
 scrive una lettera a Luna a ciascuno dei tre figli; "debiti senza cifra";
 "Lenora non perdona, riclassifica". Ideatrice del Ballo delle Candele Spente.
-Ha il suo Ramo (sigillo corvo). [canone + scena]
+Ha il suo Ramo (sigillo: corona). [canone + scena]
 
 ### Comprimari fissi
 - **Vanna** e **Corrado**: fratelli di Ceppo del protagonista (Corrado: erudito,
@@ -144,9 +160,12 @@ Ha il suo Ramo (sigillo corvo). [canone + scena]
 
 - Aede ~27 anni di Dignitas: adottata ~20 anni fa; i primi addestramenti a 7;
   la madre morta a 12; Ofelia e Ascadeo "arrivati dopo".
-- Lenora → Caino (primogenito), Druso (26), Icaro (<30). Caino a 12 si allenava
-  ogni mattina nella palestra; a 9 sfidò un orso finto; Druso a 11 svenne per
-  un'anatra; Icaro a 8 imparò a barare, a 9 smise di farsi prendere.
+- Lenora → Caino (primogenito), Druso (32), Icaro: tutti adottati, a età non
+  fissate. Caino si allenava ogni mattina in palestra "già dodici anni fa"; nove
+  anni fa sfidò un orso finto; undici anni fa Druso svenne per un'anatra. Icaro ha
+  imparato a borseggiare "appena arrivato", e Caino lo ha preso.
+- Ofelia 29 anni, adottata dopo Aede (il fiore blu è piantato "il giorno che sono
+  stata adottata").
 - Il padre di Caino: defunto (la sua "Proprietà" è passata alla Capofamiglia ~10
   anni fa) — vedi INCOERENZA 5.
 
@@ -173,29 +192,30 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
 7. `aede_interludi.rpy:interludio1` — Ceppo di Briseide = "una cucina troppo grande";
    i riti del Ceppo (brodo, orfani, cucine).
 8. `caino_atto1.rpy:caino_prologo/caino_cap1` — **Ramo di Lenora**: cortile d'armi.
-   `druso_route.rpy:druso_int3` — il Ramo di Lenora ha un sigillo (corvo su un ramo
-   spoglio, cera nera) e una **convocazione** in sala lunga con banchi di quercia;
+   `druso_route.rpy:druso_int3` — il Ramo di Lenora ha un sigillo (una corona, cera
+   nera) e una **convocazione** in sala lunga con banchi di quercia;
    Lenora siede **dietro una grata**.
-9. `caino_atto2.rpy:caino_cap4` — **Ceppo di Cardia**; **Aulo**, Filius Maior, alleato
+9. `caino_atto2.rpy:caino_cap4` — **Ceppo di Cardia**; **Eumene** (prima Aulo), Filius Maior, alleato
    di Caino da sei anni ("mano sinistra nel Consiglio"), perde titolo, seggio e nome
    per tre buchi nei registri della sua Contrada; carica di **Sovrintendente delle
    Contrade** passa alla Proprietà.
 10. `caino_eventi.rpy:att_registri_*` — **Ceppo di Cardia** paga sempre il giorno prima
     (cosa da nascondere). **Arconte della Verità**, **Primo Arconte**, Segrete Silenti.
-11. `icaro_route.rpy:icaro_luna5` — **Ramo di Vittoria** (Teucro, Arconte, un anello a
-    ogni dito con castone a specchio; il nipote **Milone**) gioca d'azzardo con Icaro.
-    Esiti: Teucro richiamato "per motivi di salute" / Milone saluta con rispetto /
-    cassa di vino come "scusa non ufficiale".
-12. `druso_route.rpy:druso_luna5` — duello di versi con **Lisandro, Filius del Ramo di
-    Iperione** ("voce da tempio"); strofa "Cento chili di Lenora..."; vergini del
-    **tempio di Iperione** (Iperione = nome di un Ramo e di un tempio).
+11. `icaro_atto2.rpy:icaro_luna5` — **Ramo di Vittoria**: **Pallante** (giocatore
+    brillante, un anello a ogni dito con castone a specchio) e la sorella **Bia**
+    giocano d'azzardo con Icaro. Esiti: Pallante "mandato altrove per motivi
+    personali" / Bia saluta con rispetto / cassa di vino come "scusa non ufficiale".
+12. `druso_atto2.rpy:druso_luna5` — duello di versi con **Epiro, Filius del Ramo di
+    Iperione** (voce baritonale); strofa "Poca arguzia il figlio di Lenora...";
+    vergini del **Convitto di Proserpina**.
 13. `caino_atto1.rpy:caino_cap3` — **vedova Tersicore** (danza meglio di metà sala).
-14. `druso_route.rpy:druso_int1` — **un Eparca della Consorteria** paga per sapere chi
-    firma le lettere di Briseide. `icaro_route.rpy:icaro_int1` — apprendista della
-    Consorteria che deve 11 Scudi; Eparca con anello del Ramo.
+14. `druso_atto1.rpy:druso_int1` — **un cambiavalute della Consorteria** paga per sapere
+    chi firma le lettere di Briseide. `icaro_atto1.rpy:icaro_int1` — apprendista della
+    Consorteria che deve 11 Scudi; un Eparca (sindaco di una città) con anello del
+    Ramo, incappucciato, in debito con Icaro.
 15. `caino_finali.rpy:caino_climax` — Consiglio presieduto dal **Primo Arconte**;
     Lenora sul seggio più alto.
-16. `ofelia_finali.rpy:ofelia_fiaccolata` — un'Eparca si fa il segno degli dei.
+16. `ofelia_atto2.rpy:ofelia_fiaccolata` — una vecchia si fa il segno degli dei.
 
 ### Oggetti, simboli, usi
 17. `aede_atto1.rpy:prologo` — **nodo di corda** al polso (Figli di Briseide, primo
@@ -218,11 +238,11 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
     della Verità (anello col leone d'oro all'indice). Personaggio `ottone` definito
     in `caino_core.rpy`.
 23. `ofelia_route.rpy:att_corte_1` — **fiore blu di Glauco** nella serra: piantato dal
-    padre il giorno in cui Ofelia è nata, mai fiorito, "per ostinazione". A fine
+    padre il giorno in cui Ofelia è stata adottata, mai fiorito, "per ostinazione". A fine
     route (`interludio_ofelia_luna6`) ha un bocciolo.
 24. `ofelia_route.rpy:interludio_ofelia_2` — **libro di scommesse di Ascadeo**
     (3 anni, sui pretendenti di Ofelia); sigillo di Glauco rovesciato sulla lettera.
-25. `ofelia_route.rpy:impegno_ofelia_aede` — **stanza delle sorelle**: da bambine
+25. `ofelia_eventi.rpy:impegno_ofelia_aede` — **stanza delle sorelle**: appena adottate
     dividevano la stanza, le lezioni di spada, i vestiti (Aede rosso, Ofelia nero).
 26. `ofelia_route.rpy:interludio_ofelia_1` — corridoio di servizio dove Ofelia affila le
     lame del padre (Aede le usa, Ascadeo le perde ai dadi e le ricompra).
@@ -232,25 +252,26 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
     a pagamento"), rosa nera, coltellino non da cucina, biglietto "Vieni. Guarda. Taci.",
     fiori bianchi = fiori dei funerali a Zefiro.
 29. `icaro_route.rpy:icaro_int2` — **magazzino dietro la Consorteria** di Icaro
-    (inventario, lampade di Lumina, servizio di Glostok, la prima vincita barando a 9
-    anni). `icaro_int1` — registro in cuoio nero: 320 Scudi guadagnati, 140 spesi,
-    "prima dei trent'anni lo chiudo"; **Druso gli deve 42 Scudi, una spada da parata,
-    una cena** (44 nel registro di casa in `icaro_luna6`). La spada Druso l'ha
+    (inventario, lampade, servizio da tavola di Altafresia, la prima vincita barando).
+    `icaro_int1` — registro in cuoio nero: 320 Scudi guadagnati, 140 spesi, "prima di
+    cinque anni lo chiudo"; **Druso gli deve 42 Scudi, una spada da parata, una cena
+    in sospeso** (44 nel registro di casa in `icaro_luna6`). La spada Druso l'ha
     impegnata, e dice di averla persa in una rissa: vedi 61.
 30. `icaro_route.rpy:impegno_icaro/impegno_bro` — **chiave di ferro** che Icaro porge;
     `icaro_int3` — **lettera di Lenora** (una per Luna a ciascun figlio), da aprire
     dopo la terza pipa.
-31. `druso_route.rpy:druso_ev2` — **gatto senza orecchio** del Becco Storto, si chiama
-    **Lisandro**, "per offendere qualcuno che conoscerai" (omonimo del Filius di
-    Iperione in `druso_luna5`: scherzo voluto). `druso_ev4`: "l'ombra era un gatto";
+31. `druso_atto1.rpy:druso_ev2` — **gatta** del Becco Storto, si chiama **Lisandra**
+    ("lei sì che sa tenere un segreto"). `druso_ev4`: "l'ombra era un gatto";
     `ofelia_route.rpy:att_corte_2`: "Era un gatto" (i graffi di Tullio).
 32. `druso_route.rpy:druso_int2` — "cena dei figli di Lenora" (tradizione inventata
-    martedì), Lenora chiudeva i figli in cantina da piccoli.
+    martedì). Lenora chiudeva i figli in cantina "appena adottati", per temprarli
+    (`druso_atto2.rpy`); `lenora.rpy`: "Madre ti ha chiuso in cantina tre giorni".
+    Vedi INCOERENZA 16.
 33. `attivita.rpy:att_spada_*` — moneta appesa ai bersagli; sparring con Aede:
     "il figlio di Lenora ti chiama «linguaccia»".
 34. `ofelia_route.rpy:ofelia_ev2` — pretendente anonimo con anello pesante (rivale
     potente), fagiano in salsa di more; `att_corte_1` — sonetto, cavallo (doni dei
-    pretendenti), **Tullio** (damerino, orso/gatto) e **Lucio** (rose bianche,
+    pretendenti), **Tullio** (damerino, orso/gatto) e **Levi** (rose bianche,
     `ofelia_ev1`).
 35. `ofelia_route.rpy:ofelia_ev3` — duello all'alba in arena con spade non spuntate.
 36. `ofelia_finali.rpy:ofelia_good_aede`/`ofelia_climax` — "Me ne hai mandati sei, padre,
@@ -261,11 +282,11 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
 
 ### Personaggi inventati
 38. **Ottone** — vedi 22.
-39. **Lisandro** (Filius del Ramo di Iperione) — vedi 12; **Lisandro** (gatto) — vedi 31.
-40. **Teucro** (Arconte, Ramo di Vittoria) e **Milone** (nipote) — vedi 11.
-41. **Aulo** (Filius Maior, Ceppo di Cardia) — vedi 9.
+39. **Epiro** (Filius del Ramo di Iperione) — vedi 12; **Lisandra** (gatta) — vedi 31.
+40. **Pallante** e la sorella **Bia** (Ramo di Vittoria) — vedi 11.
+41. **Eumene** (Filius Maior, Ceppo di Cardia) — vedi 9.
 42. **Tersicore**, vedova — vedi 13.
-43. **Tullio** e **Lucio** — vedi 34.
+43. **Tullio** e **Levi** — vedi 34.
 44. **Vanna** e **Corrado** — vedi sez. 3.
 45. **Ascadeo** — vedi sez. 3 e punti 24–25.
 
@@ -280,16 +301,16 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
     a 12 anni, addestramento a 7 con lame vere "perché le finte insegnano bugie").
 50. `caino_atto1.rpy:caino_cap2` — Caino a 12 si allenava ogni mattina; Druso "preferito
     di nostra madre".
-51. `caino_atto2.rpy:caino_cap4` — Caino consegna Aulo al Consiglio dopo sei mesi di
+51. `caino_atto2.rpy:caino_cap4` — Caino consegna Eumene al Consiglio dopo sei mesi di
     attesa tattica; `caino_finali.rpy` — l'accusa contro Caino per "abuso della Virtù
     dell'Operosità".
 52. `druso_route.rpy:druso_luna5` — Druso accusato di "condotta" davanti al Ramo di Lenora;
     la Capofamiglia ascolta dietro la grata.
 53. `icaro_route.rpy:icaro_luna5` — Icaro smascherato/coperto sull'anello a specchio di
-    Teucro; esiti per `icaro_partita`.
+    Pallante; esiti per `icaro_partita`.
 54. `snodi.rpy:ev_luna6` — "Il semestre del novellino" (finale neutro): Briseide, due
     tazze di brodo.
-55. `ofelia_finali.rpy:ofelia_bad_tempesta` — "le sorelle Severo non si parlano più";
+55. `ofelia_finali.rpy:ofelia_bad_tempesta` — "le figlie di Glauco non si parlano più";
     Ascadeo prende appunti ai piedi della scala.
 56. `attivita.rpy:att_taverna_*` — locandiera della taverna di Lumina/Becco Storto;
     lezioni "come NON prendere un TESCHIO".
@@ -300,9 +321,9 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
     adottati (sala lunga del Ramo di Lenora, banchi di quercia, grata di ferro
     battuto); Pandora chiama per Ceppo ("Ceppo della Columna Lactaria") e
     scrive "una volta sola". Lenora parla solo da dietro la grata.
-59. `icaro_route.rpy:icaro_int2` / `icaro_bro_affari` — **servizio da tè di Glostok**,
-    trentadue pezzi, nel magazzino di Icaro: viene da un proprietario con debiti di
-    gioco; il vetraio è un banco concorrente.
+59. `icaro_atto2.rpy:icaro_bro_affari` — **servizio da tavola di Altafresia**, trentadue
+    pezzi, nel magazzino di Icaro: viene da un proprietario con debiti di gioco; il
+    rigattiere è un banco concorrente.
 60. `economia.rpy` — **mercato coperto** di Zefiro (spezie, stoffe, ferraglia,
     mercanti di Glostok): quattro banchi per Luna (`MERCATO_LUNE`). **Doni**:
     cote di Hammergrad (3), spillone d'acciaio (4), idromele di Rurikstad (3),
@@ -334,7 +355,9 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
 1. **Soglia del finale "Teschio" (Caino)** — spec Caino: `caino_druso >= 3`; spec
    calendario e codice (`caino_finali.rpy:caino_climax`): `>= 2`. Il codice è
    quello che fa fede in gioco: aggiornare la spec Caino o decidere la soglia.
-2. **Ofelia "nata" in casa vs adozione** — `ofelia_route.rpy:att_corte_1` dice che
+2. **RISOLTA (2026-10-28)**: Ofelia ora dice "il giorno che sono stata adottata",
+   "appena arrivata", "appena adottate". Testo storico: **Ofelia "nata" in casa vs
+   adozione** — `ofelia_route.rpy:att_corte_1` dice che
    Glauco piantò il fiore blu "il giorno che sono nata" e `ofelia_ev3`
    che il padre le mise "una spada prima di una bambola"; la Famiglia è senza
    sangue e Corrado (`aede_interludi.rpy:interludio2`) dice che Ofelia e Ascadeo
@@ -357,11 +380,14 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
    Arconte onorifico"; la spec lo ridefinisce Arconte della Proprietà; in scena
    (`caino_eventi.rpy:impegno_caino`, `caino_finali.rpy`) il "Primo Arconte" è
    un altro personaggio che presiede il Consiglio e non è mai nominato.
-7. **Aulo, Filius Maior con "seggio nel Consiglio"** — il Consiglio è "degli
-   Autarchi" (spec); Aulo è Filius Maior e "mano sinistra nel Consiglio"
+7. **Eumene (prima Aulo), Filius Maior con "seggio nel Consiglio"** — il Consiglio è
+   "degli Autarchi" (spec); Eumene è Filius Maior e "mano sinistra nel Consiglio"
    (`caino_atto2.rpy:caino_cap4`). Chiarire se i Filius Maiores siedono o se è un
    Autarca.
-8. **Eparca/Eparchi non nella gerarchia** — lo Eparca compare come rango
+8. **Eparca: RISOLTA per il titolo (2026-10-28)**: l'Eparca è il sindaco di una città
+   del Nord (committente); le scene che lo usavano come segretario, cancelliere o
+   passante sono corrette. Resta aperta la parte sulla Consorteria. Testo storico:
+   **Eparca/Eparchi non nella gerarchia** — lo Eparca compare come rango
    all'Adunanza (`caino_atto1.rpy:caino_prologo`) e come membro della Consorteria
    (`druso_route.rpy:druso_int1`, `icaro_route.rpy`): un rango familiare o una
    corporazione? Stessa ambiguità per **Consorteria**: Contrada di Zefiro
@@ -389,3 +415,13 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
     "Rami/Ceppi" non ancora mappati ai 9 Primarchi.
 15. **Ascadeo**: "ragazzo" (`ofelia_finali.rpy`) ma tiene un libro di scommesse da tre
     anni e ha un rapporto adulto con il padre: età non fissata.
+16. **Lenora e la cantina** — per il committente "Lenora chiude i figli in cantina da
+    piccoli" non regge. In gioco restano `druso_atto2.rpy` ("Appena adottati mia
+    madre ci chiudeva in cantina, uno alla volta. Per temprarci.", riga del copione
+    del committente del 2026-10-28) e `lenora.rpy:udienza_lenora` ("Madre ti ha
+    chiuso in cantina tre giorni"). Da decidere: togliere la cantina o tenerla senza
+    "da piccoli".
+17. **"Da bambino/a" dopo l'adozione** — `caino_atto2.rpy` ("Da bambino salivo qui a
+    contare le lanterne") e `aede_imprese.rpy` ("L'ho visto fare, da bambina")
+    reggono solo se Caino e Aede sono stati adottati da bambini (Aede sì, ~20 anni
+    fa; Caino non fissato).

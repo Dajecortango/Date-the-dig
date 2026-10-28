@@ -108,7 +108,7 @@ CAINO: Quaranta Scudi che diventeranno venti, perché la metà la persi per colp
 
     > «Non ho sentito niente. Io conto solo registri.»
         TU: Non ho sentito niente, io conto solo registri. E nei registri della Proprietà questo debito non esiste.
-        CAINO: Risposta da politico. Forse ti ho sottovalutato.
+        CAINO: Risposta da politico. Forse ti ho sottovalutato/a.
         DRUSO: Risposta da vigliacco! Quaranta Scudi, pagherai, legislatore dei miei—
         CAINO: TESCHIO.
         DRUSO: NO—
@@ -205,7 +205,7 @@ CAINO: All'Adunanza, la sera che ci siamo conosciuti, portavo un anello. Se mi d
 
 === ATT REGISTRI 1 ===
 
-Mezza giornata sui registri delle decime. Gli scrivani della Proprietà mi passano le colonne peggiori: sono il nuovo, e il nuovo somma.
+Mezza giornata sui registri delle decime. Gli scrivani della Proprietà mi passano le colonne peggiori: sono il/la nuovo/a, e il/la nuovo/a somma.
 Imparo più della Famiglia da tre registri che da dieci lezioni: chi paga tardi, chi paga troppo, chi non paga e non viene mai segnato.
 Il Ceppo di Cardia, per esempio, paga sempre il giorno prima della scadenza. Sempre. Nessuno è così puntuale, se non ha qualcosa da far dimenticare.
 A metà pomeriggio uno scrivano anziano, Ottone, mi passa accanto e mi gira il calamaio dall'altra parte. Senza una parola.
@@ -380,7 +380,7 @@ CAINO: Dillo. Ce l'hai scritto in faccia, e le facce non sanno tenere i registri
 
     > Taci e bevi
         Bevo e non dico niente. Con Caino, ogni parola finisce a verbale.
-        CAINO: Il silenzio. Di nuovo. Sai che è la cosa più onesta che ti ho visto fare?
+        CAINO: Il silenzio. Di nuovo. Sai che è la cosa più onesta che ti ho visto/a fare?
 
 
 === CAINO CAP5 ===

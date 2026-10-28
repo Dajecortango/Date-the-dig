@@ -32,6 +32,16 @@ SBAGLIATE = [
     ("Lenora", re.compile(r"Leonora")),
     ("Draken", re.compile(r"Drakken")),
     ("Malacorte", re.compile(r"Mala [Cc]orte|Malacorta")),
+    ("Gunnari", re.compile(r"\bGunar[io]\b|Gunnarr|Gunnaris\b")),
+    ("Altafresia", re.compile(r"Alta [Ff]resia|Altafrisia")),
+    ("Helograd", re.compile(r"Heliograd|Hellograd")),
+    ("Rundeberg", re.compile(r"Runde[nr]berg|Rundberg")),
+    ("Proserpina", re.compile(r"Proserpine\b|Prosperina")),
+    # Nomi rinominati dal committente (2026-10-28): le grafie vecchie non tornano.
+    ("Epiro / Lisandra (ex Lisandro)", re.compile(r"\bLisandro\b")),
+    ("Pallante (ex Teucro)", re.compile(r"\bTeucro\b")),
+    ("Bia (ex Milone)", re.compile(r"\bMilone\b")),
+    ("sigillo di Lenora: corona", re.compile(r"corvo su un ramo")),
     # Il grido del Codice e' sempre maiuscolo: "TESCHIO!".
     # "del Teschio!" a fine frase e' il Codice, non il grido.
     ("TESCHIO!", re.compile(r"(?<!del )\bTeschio!")),

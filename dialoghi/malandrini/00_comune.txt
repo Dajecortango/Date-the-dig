@@ -613,7 +613,7 @@ AEDE: Il difetto sei tu.
 
 Il tavolo grande, posta alta: Icaro contro Caino. L'Arconte della Proprietà perde da tre mani e non è abituato.
 CAINO: Quarta mano. Fratello, la tua fortuna stasera è... statisticamente interessante.
-ICARO: La fortuna è una tassa sugli sprovveduti. Tu non sei sprovveduto: quindi non è fortuna. Gioca.
+ICARO: La fortuna è una tassa sugli sprovveduti. Tu non sei sprovveduto/a: quindi non è fortuna. Gioca.
 E io, dal mio posto, l'ho visto: il taglio del mazzo. Quello che le dita non dovrebbero saper fare.
 
 [SCELTA]
@@ -840,7 +840,7 @@ DRUSO: Cinghia molle, braccio rotto. Te lo dico io che le ho rotte tutte e due, 
     Tira l'ultima cinghia coi denti, poi la prova col pollice. Due volte.
 
     > «Grazie, Druso.»
-        DRUSO: Non ringraziare, mi rovini la reputazione. Di' in giro che ti ho insultato.
+        DRUSO: Non ringraziare, mi rovini la reputazione. Di' in giro che ti ho insultato/a.
 
     > «Chi sei e cosa hai fatto a Druso?»
         DRUSO: L'ho mangiato, ma era indigesto. Guardia su, linguaccia.
@@ -1029,7 +1029,7 @@ Senza lanterne è solo una scala. Eppure rallento lo stesso, al gradino duecento
 
 === ATT TAVERNA 4 ===
 
-DRUSO: Sedetevi, gente! Stasera si duella a versi. Chi perde paga il giro. Novellino/a, tu sei lo sfidante.
+DRUSO: Sedetevi, gente! Stasera si duella a versi. Chi perde paga il giro. Novellino/a, tu sei [lo_t] sfidante.
 La taverna ruggisce. La locandiera mette già i boccali in conto a me.
 DRUSO: Comincio io. «Figlio/a di Briseide, lana in testa e lana in cuore — ti sposerebbe una pecora, ma hai già un amore.»
 Risate. Druso si inchina a metà, sul tavolo, rischiando la vita.
@@ -1065,7 +1065,7 @@ ICARO: Non toccare. Puoi guardare. Guardare è gratis, stasera: offerta lancio.
         Lo rimette nella pila con un mezzo sorriso. La terza pila torna pari alle altre.
 
     > Guarda e basta, è gratis
-        ICARO: Bravo. Il pubblico migliore è quello che non fa domande.
+        ICARO: Bravo/a. Il pubblico migliore è quello che non fa domande.
 
 
 === ATT CEPPO 1 ===
@@ -1407,7 +1407,7 @@ Torna alle sue colonne. La penna riprende a grattare, più lenta.
 
 === ECHI ORIG CAINO VIA ===
 
-CAINO: In serra, l'altro giorno. Te ne sei andato/a dal vialetto dei limoni. Ti ho visto dalla vetrata.
+CAINO: In serra, l'altro giorno. Te ne sei andato/a dal vialetto dei limoni. Ti ho visto/a dalla vetrata.
 CAINO: La maggior parte delle persone si sarebbe avvicinata. Annoto: sa quando non leggere un documento. Rarissimo.
 
 

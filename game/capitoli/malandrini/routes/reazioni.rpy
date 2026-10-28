@@ -98,11 +98,11 @@ init python:
         {"id": "rea_icaro_riga", "char": "icaro",
          "testo": "Nel registro nero di Icaro hai aggiunto un debito alla pagina di Druso.",
          "avviso": None,
-         "cond": lambda v: _scelto(v, "icaro_int1", "Aggiungere una riga")},
+         "cond": lambda v: _scelto(v, "icaro_int1", "Aggiungi una riga")},
         {"id": "rea_ofelia_rogo", "char": "ofelia",
          "testo": "Hai bruciato la quotazione di Ascadeo senza leggerla. Lui vi ha sentiti.",
          "avviso": None,
-         "cond": lambda v: _scelto(v, "interludio_ofelia_2", "Bruciarla alla torcia")},
+         "cond": lambda v: _scelto(v, "interludio_ofelia_2", "Bruciala con la torcia")},
     ])
 
     ECHI.extend([
@@ -178,7 +178,7 @@ label rea_caino_conto:
 label rea_lenora_segno:
     scene bg corridoio_ceppo with fade
     show briseide neutra with dissolve
-    "Briseide mi aspetta all'alba, in fondo al corridoio del Ceppo. Tra le dita ha una lettera col sigillo del corvo su un ramo spoglio."
+    "Briseide mi aspetta all'alba, in fondo al corridoio del Ceppo. Tra le dita ha una lettera col sigillo della corona."
     briseide "Dal Ramo di Lenora. Non da Lenora: da Pandora, che tiene il suo registro. Lenora non scrive ai Figli degli altri."
     briseide "Due righe. All'Adunanza hai chiamato massacro il Ballo delle Candele Spente, in faccia a suo figlio. Alla grata hai risposto a tono."
     briseide "Pandora ti ha segnat[fin] due volte, con lo stesso inchiostro. Sai cosa vuol dire, [player_name]?"
@@ -196,7 +196,7 @@ label rea_lenora_segno:
         "«E al terzo segno, madre? Cosa succede?»":
             briseide "Nessuno lo sa. Chi l'ha preso non è tornato a raccontarlo."
             briseide "Il Nord è grande, e le Segrete Silenti sono profonde. Guarda, ascolta, e non farti notare. Ancora per un po'."
-    "Briseide getta la lettera nel braciere. Il corvo di cera si piega, annerisce, resta intero fino all'ultimo."
+    "Briseide getta la lettera nel braciere. La corona di cera si piega, annerisce, resta intera fino all'ultimo."
     return
 
 # Aede: la torsione del vicolo (druso_lanternaio + aede_segreto).
