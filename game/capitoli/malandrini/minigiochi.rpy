@@ -200,7 +200,7 @@ define MG_DUELLO_COLPO = {
 label att_spada_duello:
     scene bg palestra with fade
     show aede neutra with dissolve
-    "Aede mi lancia una spada da esercizio. La prendo al volo. Quasi."
+    "Aede mi lancia una spada da esercizio. Per poco non la prendo al volo."
     aede "Basta paglia. Oggi la paglia sono io. Tre riprese."
     aede "Non guardare la lama: guarda me. Il corpo dice sempre cosa farà la mano, un battito prima."
     show aede neutra at mg_lato with sposta
@@ -231,7 +231,7 @@ label att_spada_duello:
         $ mg_duello = "lasciato"
         show aede irritata with qdiss
         aede "Abbassi la spada a metà ripresa? Va bene. Domani si ricomincia da dove sei scappat[fin]."
-        "Lo dice senza cattiveria. Peggio: lo dice come un'annotazione."
+        "Lo dice senza cattiveria, come un'annotazione."
     elif mgl.esito_duello(mg_punti) == "vinto":
         $ mg_duello = "vinto"
         $ aede_affinity += mgl.delta("duello", "vinto")
@@ -274,12 +274,12 @@ label att_fumeria_carte:
         $ mg_carte = "sviato"
         $ mg_giusta_txt = MG_ORDINALI[mg_truccata].lower()
         show icaro furbo with qdiss
-        "Il mercante se ne va. Icaro raccoglie le carte e mi guarda come si guarda un conto sbagliato."
+        "Il mercante se ne va. Icaro raccoglie le carte e mi guarda come un conto sbagliato."
         icaro "Fissavi la mano sbagliata. Peccato: era la sola onesta della serata."
-        "La [mg_giusta_txt] mano, allora. Ripenso alle sue dita, e adesso lo vedo. Troppo tardi."
+        "La [mg_giusta_txt] mano, allora. Ripenso alle sue dita, e adesso lo vedo."
         return
     $ mg_giusta_txt = MG_ORDINALI[mg_truccata].lower()
-    "La [mg_giusta_txt] mano. Rivedo il gesto come se fosse ancora sul panno."
+    "La [mg_giusta_txt] mano. Rivedo il gesto sul panno."
     "Il mercante se ne va contando le monete che gli restano. Icaro accende la pipa."
     menu:
         "Ho visto. Lui non sa ancora che ho visto."
@@ -289,9 +289,9 @@ label att_fumeria_carte:
             show icaro irritato with dissolve
             pc "La [mg_giusta_txt] mano. Le tue dita, sul mazzo."
             icaro "Era regolare."
-            "Un silenzio lungo. Il fumo della pipa gli sale storto."
+            "Il fumo della pipa gli sale storto."
             show icaro imbarazzato with qdiss
-            icaro "...la sistemo. Non perché l'hai vista tu. Perché qualcun altro, prima o poi, ha i tuoi occhi."
+            icaro "...la sistemo. Qualcun altro, prima o poi, avrà i tuoi occhi."
         "Tacere e godersi il fumo":
             $ mg_carte = "taciuto"
             $ icaro_affinity += mgl.delta("carte", "taciuto")
@@ -334,13 +334,13 @@ label att_registri_conti:
             pc "Il Ceppo di Cardia. Quelli che pagano sempre il giorno prima."
             show caino sorpreso with qdiss
             caino "...te lo ricordi."
-            "Non aggiunge altro. Ma prende il foglio e lo mette sotto il suo, non sotto quello di Ottone."
+            "Prende il foglio e lo mette sotto il suo, non sotto quello di Ottone."
     else:
         $ mg_registri = "sbagliato"
         $ caino_fiducia += mgl.delta("registri", "sbagliato")
         show caino freddo with qdiss
         caino "Hai corretto una somma giusta. Adesso nel registro ci sono due errori: quello che c'era, e il tuo."
-        "Ottone mi toglie il foglio dalle mani. Raschia la mia correzione con l'unghia, senza una parola."
+        "Ottone mi toglie il foglio dalle mani. Raschia la mia correzione con l'unghia."
     return
 
 
@@ -386,19 +386,19 @@ label att_taverna_botta:
         $ mg_botta = "lasciato"
         show druso ghigno at left with qdiss
         druso "Se ne va! Signori, la ritirata più elegante della stagione. Applaudite, che non torna."
-        "Esco con le orecchie calde. Ma senza aver chiesto niente a nessuno."
+        "Esco con le orecchie calde, ma senza aver chiesto niente a nessuno."
         return
     $ mg_botta = mgl.esito_botta(mg_punti)
     $ druso_affinity += mgl.delta("botta", mg_botta)
     if mg_botta == "vinta":
         show druso imbarazzato at left with qdiss
         druso "...va bene. Va bene! Stasera pago io. Non abituarti."
-        "Scende dalla panca e mi spinge un boccale davanti. È la cosa più vicina a un inchino che gli abbia mai visto fare."
+        "Scende dalla panca e mi spinge un boccale davanti: da Druso, quasi un inchino."
     elif mg_botta == "persa":
         show druso ghigno at left with qdiss
         druso "Tre colpi, zero ferite. Su di me, almeno. Paga l'oste, novellin[fin], e impara a mordere."
     else:
         show druso neutro at left with qdiss
         druso "Pari. Che noia. Il pareggio è la morte del teatro."
-        "Però mi lascia il posto sulla panca. Per Druso, un pareggio è già un contratto."
+        "Però mi lascia il posto sulla panca."
     return

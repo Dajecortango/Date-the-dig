@@ -103,8 +103,8 @@ label orig_caino_druso(att_id):
         druso "E ha trovato il mio quaderno. Non dirlo a nessuno. Soprattutto a me."
     caino "Stai attento, Druso. Le persone che ti piacciono finiscono sempre nei tuoi versi."
     druso "E quelle che piacciono a te finiscono nei tuoi registri. Dimmi tu cosa è peggio."
-    "Silenzio. Una sedia che gratta. La porta si richiude."
-    "Aspetto contando fino a cento. Quando esco, Ottone è al suo banco. Non alza la testa. Ma la penna, per un istante, si ferma."
+    "Una sedia gratta. La porta si richiude."
+    "Aspetto contando fino a cento. Quando esco, Ottone è al suo banco e non alza la testa, ma la penna si ferma."
     $ conseguenze_aggiorna()
     return
 

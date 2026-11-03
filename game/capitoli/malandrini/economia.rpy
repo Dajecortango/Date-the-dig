@@ -50,11 +50,11 @@ init python:
     # Dopo un dono neutro: (chi, riga) che orienta verso il preferito di
     # DONI_GUSTI senza nominarlo. Solo testo, nessun punto.
     DONI_INDIZI = {
-        "aede": ("narr", "Più tardi la vedo affilare la lama su una pietra spaccata in due. Le cose che taglia le cura meglio di qualsiasi regalo."),
+        "aede": ("narr", "Più tardi la vedo affilare la lama su una pietra spaccata in due."),
         "ofelia": ("char", "La prossima volta portami qualcosa che punga, [player_name]. Fiori e nastri me li portano tutti; un ago, nessuno."),
         "caino": ("narr", "Sul suo tavolo, accanto ai registri, una fiasca vuota col sigillo di Rurikstad. Di vino, nemmeno l'ombra."),
         "druso": ("char", "Sai cosa mi manca davvero? Carta. Scrivo i versi sui tovaglioli, e l'oste me li usa per asciugare i boccali."),
-        "icaro": ("narr", "Icaro batte la pipa sul bordo del tavolo. Il fornello è freddo da giorni: niente da fumare, niente di buono."),
+        "icaro": ("narr", "Icaro batte la pipa sul bordo del tavolo. Il fornello è freddo da giorni: niente di buono da fumare."),
     }
 
     def dono_valuta(char, chiave):
@@ -237,7 +237,7 @@ label dono_aede:
         show aede sorpresa with qdiss
         aede "Una cote di Hammergrad. Grana fine. ...chi ti ha detto che la mia si è crepata?"
         show aede sorriso with dissolve
-        "Nessuno. Ma l'ho vista affilare con una pietra spaccata in due. Lei se ne accorge, e per un istante non sa dove guardare."
+        "Nessuno. Ma l'ho vista affilare con una pietra spaccata in due. Lei se ne accorge, e non sa dove guardare."
     elif dono_esito == "odia":
         $ aede_affinity -= 1
         show aede irritata with qdiss
@@ -254,12 +254,12 @@ label dono_ofelia:
         $ ofelia_affinity += 1
         show ofelia compiaciuta with qdiss
         ofelia "Un fermaglio che uccide. Finalmente un pretendente che ha guardato me, e non il mio vestito."
-        "Se lo infila nei capelli senza specchio. Al primo colpo."
+        "Se lo infila nei capelli al primo colpo, senza specchio."
     elif dono_esito == "odia":
         $ ofelia_affinity -= 1
         show ofelia rabbia with qdiss
         ofelia "Fiori d'inverno. Ne ho una serra piena, [player_name]. Me li portano tutti. Credevo che tu fossi divers[fin] da tutti."
-        "Li posa sul banco dei pretendenti scartati. In cima alla pila."
+        "Li posa in cima alla pila, sul banco dei pretendenti scartati."
     else:
         show ofelia neutra with qdiss
         ofelia "Grazioso. Lo terrò finché non mi annoia."

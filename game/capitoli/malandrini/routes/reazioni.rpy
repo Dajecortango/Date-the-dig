@@ -206,7 +206,7 @@ label rea_aede_lanternaio:
     "Il cortile d'armi all'alba. Aede non mi saluta. Mi lancia una spada di legno, forte, all'altezza dello stomaco."
     aede "Il lanternaio dei vicoli bassi. Ieri mi ha fermata per raccontarmi una storia. Tre volte. Con le mani."
     aede "Un esattore della Malacorte. [Un_t] novellin[fin] che gli prende il braccio e lo gira. Così."
-    "Mi prende il polso e lo torce. Piano. Esattamente come nel vicolo."
+    "Mi prende il polso e lo torce, piano, esattamente come nel vicolo."
     aede "La mia torsione. Quella che insegno ai novellini perché non si facciano ammazzare. Non perché vadano a cercarsela."
     show aede sorpresa with qdiss
     aede "E poi, dice, è arrivato Druso. Druso. Che morde. Me l'ha raccontato tre volte e non ci credo ancora."
@@ -228,7 +228,7 @@ label rea_aede_lanternaio:
             aede "Ecco cosa fa, una torsione qualunque. Ricordatelo."
         "«Il resto l'ha fatto Druso. A morsi.»":
             show aede sorriso with dissolve
-            "Le scappa una risata. Corta, vera. Se la rimangia subito."
+            "Le scappa una risata corta, e se la rimangia subito."
             show aede neutra with qdiss
             aede "La Malacorte non dimentica un orecchio, novellin[fin]. Né il tuo, né il suo. Guardatevi le spalle, tutti e due."
     "Riprendiamo la guardia. Per tutta la ripresa, Aede mi corregge solo i piedi. Il polso, dice, ormai è affar mio."

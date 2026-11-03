@@ -87,7 +87,7 @@ label impegno_druso:
             $ impegno_esito = False
             $ congelate.add("druso")
             druso "Giusto. Che stupidaggine. Era uno scherzo, ovvio! Il finto sentimento: il mio capolavoro!"
-            "Ride forte. Troppo forte. E da quella sera le sue poesie tornano oscene, e mai più su di me."
+            "Ride troppo forte. Da quella sera le sue poesie tornano oscene, e mai più su di me."
     return
 
 

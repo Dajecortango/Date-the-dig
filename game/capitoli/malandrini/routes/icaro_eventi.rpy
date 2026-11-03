@@ -115,15 +115,15 @@ label impegno_icaro:
             $ icaro_impegnato = True
             show icaro sereno with dissolve
             icaro "Irrevocabile. Parola da contratto serio. ...venduto."
-            "Scrive una riga sola sulla pagina bianca, e la copre con la mano prima che io possa leggerla. Sua. Come tutto ciò che conta."
+            "Scrive una riga sola sulla pagina bianca, e la copre con la mano prima che io possa leggerla."
             icaro "Non chiedere cosa c'è scritto. Te lo dirò quando avrà maturato gli interessi."
             "Restiamo al buio, la pipa accesa tra noi. Non mi tocca. La mia spalla sfiora la sua, e aspetto che si scosti. Non si scosta."
         "«Non sono una voce del tuo inventario.»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("icaro")
             icaro "Allora il bilancio torna come prima. Perfetto. Era l'ipotesi più probabile, l'avevo già contabilizzata."
-            "Lo dice piatto, senza una piega. Poi taglia il mazzo, e una carta gli scivola sul pavimento."
-            "Chiude il registro. Prima di alzarsi, però, ci passa sopra il palmo, piano. Come per lisciare una pagina che nessuno scriverà."
+            "Lo dice piatto. Taglia il mazzo, e una carta gli scivola sul pavimento."
+            "Chiude il registro. Prima di alzarsi ci passa sopra il palmo, piano."
     return
 
 label impegno_bro:

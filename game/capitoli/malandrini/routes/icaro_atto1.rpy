@@ -12,10 +12,10 @@ label icaro_ev1:
     pc "Contare cosa, di preciso?"
     icaro "Tutto. Le carte uscite, le monete nel piatto, quante volte il mercante si tocca l'orecchio."
     icaro "Se lo tocca quando bluffa. Sette volte, finora. Ha perso sei mani."
-    "Mescola senza guardare il mazzo. Le carte gli scorrono tra le dita come acqua in un canale."
+    "Mescola senza guardare il mazzo."
     "Un Gunnaro gli chiede se ha mai pensato di fare il prestigiatore. Lui risponde che i prestigiatori si fanno pagare dopo. Lui, prima."
-    "Tre mani dopo, il mercante — in perdita secca — ringhia che «qualcuno bara»."
-    "Due monete d'argento, nel piatto, sono finite dal lato sbagliato. Il lato di Icaro. Non ho visto come."
+    "Tre mani dopo il mercante, in perdita secca, ringhia che «qualcuno bara»."
+    "Due monete d'argento, nel piatto, sono finite dal lato di Icaro. Non ho visto come."
     menu:
         "Gli occhi del tavolo cercano un colpevole. Io so chi è."
         "«Ho contato ogni carta. Tutto regolare.» (menti per lui)":
@@ -37,7 +37,7 @@ label icaro_ev1:
             $ congelate.add("icaro")
             icaro "Contate pure. Tutto regolare, come sempre."
             "Il mercante mi ringrazia con una pacca sulla spalla. È l'unico, stasera, a guardarmi in faccia."
-            "Regolare, adesso. E il posto al tavolo grande, per me, non esiste più. Da nessuna parte, mai più."
+            "Regolare, adesso. E il posto al tavolo grande, per me, non esiste più."
     "Fuori, i vicoli di Zefiro sono ancora umidi di pioggia. L'odore di resina mi resta addosso fino al mattino."
     return
 
@@ -64,7 +64,7 @@ label icaro_int1:
     icaro "La spada l'ha impegnata. Dice che l'ha persa in una rissa. La cena l'ha mangiata davanti a me. Il resto lo nega."
     pc "E Caino?"
     show icaro neutro with qdiss
-    icaro "Caino non ha debiti. Caino ha crediti. Con tutti. Anche con me. Non è una pagina che mostro."
+    icaro "Caino non ha debiti. Ha crediti, con tutti, anche con me. Non è una pagina che mostro."
     menu:
         "Il registro è aperto davanti a me. Icaro aspetta di vedere dove guardo."
         "Aggiungi una riga alla pagina di Druso":
@@ -81,7 +81,7 @@ label icaro_int1:
         "«L'Eparca aveva l'anello del Ramo. Poteva pagarti.»":
             icaro "Lo so. Gli ho dato una settimana apposta."
             icaro "Un debitore ricco che ti deve un favore vale più dei suoi Scudi. Gli Scudi si spendono. I favori fruttano."
-            "Annota qualcosa a margine. Non sul debitore. Su di me, credo."
+            "Annota a margine. Non sul debitore: su di me, credo."
     "Riscossione finita. Icaro riaccende la pipa, e il fumo si posa sul registro come un panno sul tavolo."
     icaro "Domani dimentica tutto quello che hai visto. Tranne le cifre. Quelle restano tra noi."
     return
@@ -95,7 +95,7 @@ label icaro_ev2:
     "Mi aspetta all'angolo del vicolo dei cordai, con una lanterna schermata e un mazzo di chiavi che non tintinna."
     icaro "Niente domande sulla strada. La strada è parte del segreto."
     "Tre svolte a sinistra, due cortili, una scala che sale per poi scendere. Alla fine mi gira la testa, e lui sembra soddisfatto."
-    "Mi porta in un magazzino dietro la Consorteria. Dentro: casse, stoffe, lampade di Lumina, un servizio da tè di Glostok. Tutto suo. Tutto inventariato."
+    "Mi porta in un magazzino dietro la Consorteria. Dentro: casse, stoffe, lampade di Lumina, un servizio da tè di Glostok. Tutto suo, tutto inventariato."
     icaro "La gente colleziona titoli, favori, sentimenti. Aria. Io colleziono cose. Le cose non mentono, non ti tradiscono e non chiedono nulla: esistono, e sono mie."
     "Ogni oggetto ha un cartellino. Data, provenienza, prezzo pagato, prezzo stimato. Il secondo numero è sempre più alto del primo."
     pc "Come hai pagato tutto questo?"
@@ -105,8 +105,8 @@ label icaro_ev2:
         "Me lo dice senza vergogna. È la sua visione del mondo, nuda."
         "«Se ogni cosa qui dentro ha una storia, raccontamene una.»":
             $ icaro_affinity += 2
-            "Esita. Poi prende la lampada più brutta sullo scaffale e racconta: la prima cosa che abbia mai vinto barando."
-            icaro "Non ha valore di mercato e non è in vendita. Capisci il significato che ha per me o devo rallentare?"
+            "Esita, poi prende la lampada più brutta sullo scaffale e racconta: la prima cosa che abbia mai vinto barando."
+            icaro "Non ha valore di mercato e non è in vendita. Capisci o devo rallentare?"
             pc "Capisco. È l'inventario che non mostri."
             show icaro sorpreso with qdiss
             icaro "...mh. Perspicace."
@@ -140,7 +140,7 @@ label icaro_int2:
     with vpunch
     pc "Quando...?"
     icaro "Mentre guardavi la borsa che ti ho indicato. Si indica sempre qualcosa. La gente guarda il dito, mai l'altra mano."
-    "Me lo rende. Non direttamente: lo lascia cadere nella mia tasca mentre mi passa accanto. Non avverto il suo movimento."
+    "Me lo rende lasciandolo cadere nella mia tasca mentre mi passa accanto. Non sento niente."
     icaro "Le dita fanno il dieci percento. Il resto è dove guarda l'altro. Tu hai fissato la borsa quattro secondi. Ne bastavano due."
     "Mi mostra tre cose: il passo di fianco, la spinta che sembra una scusa, la domanda che occupa la testa."
     icaro "L'ho imparato appena arrivato qui. Dopo poco ho smesso di farmi prendere."
@@ -156,14 +156,14 @@ label icaro_int2:
         "Fagli una domanda vera, e prendi la moneta mentre risponde":
             pc "Cosa porteresti via, se il magazzino bruciasse?"
             show icaro sorpreso with qdiss
-            "Ci pensa. Davvero. E per un istante, mentre pensa, la mano si apre."
+            "Ci pensa davvero, e mentre pensa la mano si apre."
             "La moneta è mia. Lui se ne accorge tre respiri dopo."
             icaro "...domanda sleale. Ottima. Tienila. Tre respiri: devo lavorarci."
         "Rifiuta: «Non rubo ai soci.»":
             show icaro irritato with qdiss
             icaro "I soci sono quelli a cui conviene di più rubare, si fidano troppo."
-            "Intasca la moneta con un mezzo sorriso. Dieci passi dopo la tira fuori e la guarda di nuovo."
-    "Le bancarelle sono chiuse. Icaro si incammina in silenzio, senza salutare, mani in tasca."
+            "Intasca la moneta. Dieci passi dopo la tira fuori e la guarda di nuovo."
+    "Le bancarelle sono chiuse. Icaro si incammina senza salutare, mani in tasca."
     "A casa, nel mio borsello, trovo un bottone d'osso che non è mio. E un bigliettino: «Interessi.»"
     return
 

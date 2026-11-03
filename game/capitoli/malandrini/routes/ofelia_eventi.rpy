@@ -71,7 +71,7 @@ label ofelia_scadenza_prima:
     "Stava lì ad aspettarmi, e io non mi sono presentat[fin]."
     "Vanna lo raccoglie con due dita, come si raccoglie qualcosa che potrebbe mordere."
     vanna "L'ha scritto lei, e non lo scriverà due volte. Ofelia non ripete gli inviti, [fratello_t]. Chi manca una volta è una svista. Chi manca due volte esce dalla corte."
-    "Poi sorride, un po' dispiaciuta, e il biglietto sparisce nella sua manica."
+    "Sorride, un po' dispiaciuta, e il biglietto sparisce nella manica."
     return
 
 
@@ -97,7 +97,7 @@ label impegno_ofelia:
             ofelia "Dal manico. Tullio, l'anno scorso, l'ha presa dalla lama. Si è cucito il palmo da solo."
             show ofelia neutra with qdiss
             ofelia "Bene. Da stasera la fila è chiusa. Se qualcuno chiede, sei tu il motivo. Fallo valere."
-            "Non mi bacia. Mi aggiusta il colletto, lenta, e controlla il risultato da un passo indietro. E il semestre, da stasera, ha un padrone."
+            "Non mi bacia. Mi aggiusta il colletto, lenta, e controlla il risultato da un passo indietro."
         "Lasciale le forbici: «Non ancora, Ofelia.»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("ofelia")
@@ -105,7 +105,7 @@ label impegno_ofelia:
             ofelia "Non ancora. Lo dicono tutti prima di sparire. Almeno tu me l'hai detto in faccia."
             show ofelia neutra with qdiss
             ofelia "Torna in fila, allora. In fondo. Non ti chiamerò per nome."
-            "Riprende a potare. Lo stelo cade, pulito. Non alza più gli occhi."
+            "Riprende a potare. Lo stelo cade, pulito, e lei non alza più gli occhi."
     return
 
 
@@ -185,7 +185,7 @@ label impegno_ofelia_aede:
             $ congelate.add("ofelia")
             show ofelia rabbia with qdiss
             ofelia "Leale. Che virtù noiosa. Va' da lei, allora, e dille pure tutto: tanto non ti crederà."
-            "Spegne l'ultima lanterna senza aspettare che io sia uscit[fin]. Al buio, la serra profuma di qualcosa che marcisce lentamente."
+            "Spegne l'ultima lanterna senza aspettare che io sia uscit[fin]. Al buio, la serra sa di marcio."
             "Va' da lei, ha detto. Non le ho dato la soddisfazione di discutere: ci vado davvero."
     # Il partner risponde sempre, qualunque sia stato l'esito con Ofelia.
     call impegno_aede

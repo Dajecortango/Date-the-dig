@@ -39,7 +39,7 @@ label udienza_lenora:
     druso "Pandora. Non guardarla. La guardo io per tutti e due."
     pandora "Ceppo della Columna Lactaria. Avanti."
     pandora "[player_name], [figlio_t] di Briseide Ippodamia. Avanti, ho detto. Qui le cose si scrivono una volta sola."
-    "Tre passi. I figli di Lenora alle spalle, la grata davanti. Dietro il ferro, un'ombra seduta. Immobile."
+    "Tre passi. I figli di Lenora alle spalle, la grata davanti. Dietro il ferro, un'ombra seduta che non si muove."
     lenora "Briseide ti ha scelt[fin]. Briseide sceglie bene, di solito. Poi controllo io."
     lenora "Il tuo primo semestre dura sei Lune. Ne sono passate due e mezza. Dimmi come le hai spese."
     "Apro la bocca. La voce dietro la grata arriva prima della mia."
@@ -81,7 +81,7 @@ label udienza_lenora:
             lenora "Insolenza. Annotata, non punita. Le insolenze punite non insegnano niente a nessuno."
             lenora "Io non perdono, [figlio_t] di Briseide. Riclassifico. Ricordalo, la prossima volta che apri bocca qui dentro."
         "Taci e china la testa":
-            "Chino la testa. Il silenzio della sala si allunga, una torcia sfrigola. Nessuno respira."
+            "Chino la testa. Per un pezzo si sente solo una torcia che sfrigola."
             lenora "Il silenzio. Il più vecchio dei giuramenti."
             lenora "Briseide ti ha insegnato bene. O non ti ha insegnato niente, e sei nat[fin] così. Peggio per chi ti sottovaluta."
     lenora "Vai. La prossima volta che sento il tuo nome, voglio che ci sia una ragione."

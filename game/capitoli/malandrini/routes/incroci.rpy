@@ -44,7 +44,7 @@ label trio_lenora:
         "Aiuta Icaro a recuperare le monete, contandole":
             $ icaro_affinity += 1
             icaro "...quarantadue, quarantatré. Tornano. Tutte. Tu sai contare sotto pressione: è la prima qualità utile che vedo stasera."
-            druso "Traditore! Due contabili a un tavolo solo!"
+            druso "Tradimento! Due contabili a un tavolo solo!"
         "Cita il Codice del Teschio: «si dichiara PRIMA di colpire»":
             $ caino_fiducia += 1
             caino "[Il_t] novellin[fin] che ricorda i codici altrui meglio dell'autore. Druso: ha ragione. Hai dichiarato a pugno già partito. Penale: paghi tu il giro."
@@ -78,7 +78,7 @@ label incrocio_palestra:
             $ druso_affinity += 1
             show druso ghigno with qdiss
             druso "«Cadde rimando»! BELLISSIMO! Lo metto nel repertorio e non ti pago i diritti!"
-            "Si rialza ridendo. Aede scuote la testa, ma non smentisce il mezzo sorriso."
+            "Si rialza ridendo. Aede scuote la testa e si gira per non farsi veder ridere."
         "Resta neutrale: qui si rischia la pelle":
             "Resto con le mani in tasca. Sugli spalti due ragazzi si stanno già spingendo per chi tifava chi."
     return
@@ -93,7 +93,7 @@ label incrocio_carte:
     "Il tavolo grande, posta alta: Icaro contro Caino. L'Arconte della Proprietà perde da tre mani e non è abituato."
     caino "Quarta mano. Fratello, la tua fortuna stasera è... statisticamente interessante."
     show icaro furbo with qdiss
-    icaro "La fortuna è una tassa sugli sprovveduti. Tu non sei sprovvedut[fin]: quindi non è fortuna. Gioca."
+    icaro "La fortuna è una tassa sugli sprovveduti. Sprovveduto tu non lo sei: quindi non è fortuna. Gioca."
     "E io, dal mio posto, l'ho visto: il taglio del mazzo. Quello che le dita non dovrebbero saper fare."
     menu:
         "Caino perde la quarta mano. Le sue dita tamburellano: sta per capire."
@@ -147,7 +147,7 @@ label incrocio_debiti:
             show druso sorpreso at left with qdiss
             druso "Mi ha difeso. Qualcuno mi ha difeso da Icaro. Segnatelo, fratellino: data, ora, e il mio stupore."
             "Icaro lo segna davvero. Poi riapre il registro più in là, dove la mia mano non arriva."
-    "A mezzogiorno Druso è ancora in debito e Icaro è ancora creditore. Tutto come prima."
+    "A mezzogiorno Druso è ancora in debito e Icaro è ancora creditore."
     "Ma bevono allo stesso tavolo, e nessuno dei due se ne va per primo."
     return
 
@@ -163,7 +163,7 @@ label incrocio_sorelle:
     ofelia "Sorella. La tua spada. Ti avevo chiesto di non usarla sui chiodi."
     aede "Non erano chiodi. Era un elmo."
     ofelia "Peggio. Il filo era una riga, adesso è una sega. Ci ho messo tre sere."
-    "Ofelia svolge il panno. La lama brilla come acqua ferma. Aede la prende senza ringraziare. Ofelia non aspetta il grazie: si sta già sfilando i guanti, un dito alla volta."
+    "Ofelia svolge il panno: la lama brilla come acqua ferma. Aede la prende senza ringraziare, e Ofelia non aspetta il grazie: si sta già sfilando i guanti, un dito alla volta."
     show aede irritata with qdiss
     aede "Pesa diversa."
     ofelia "Pesa giusta. Sei tu che pesi diversa. Stai caricando sul piede sinistro da una Luna: lo vedo dalle tacche."
@@ -183,7 +183,7 @@ label incrocio_sorelle:
         "Resta in silenzio e guarda il piede di Aede":
             "Guardo il piede. Ofelia ha ragione: il peso cade storto, appena. Da sol[fin] non l'avrei mai visto."
             show aede imbarazzata with qdiss
-            aede "...smettetela di guardarmi i piedi. Tutti e due."
+            aede "...smettetela di guardarmi i piedi, voi due."
             "Ofelia sorride. Non a me: alla sorella che arrossisce."
     hide ofelia with dissolve
     "Ofelia se ne va com'è venuta, senza rumore. Aede rimette la guardia. Carica sul piede destro, stavolta."

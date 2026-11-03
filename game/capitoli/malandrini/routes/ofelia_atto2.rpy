@@ -14,8 +14,8 @@ label ofelia_ev3:
     ofelia "Fino al primo sangue. Non è un modo di dire."
     ofelia "Mio padre mi ha messo una spada in mano appena arrivata. Aede ha imparato a colpire forte. Io ho imparato a colpire quando nessuno guarda."
     "Si toglie il mantello e lo piega sul gradino più basso, con calma, come se avessimo tutto il giorno. Poi si gira, e il giorno finisce."
-    "Il primo colpo mi sfiora la guancia. Il secondo no. Lei è veloce, e non ha alcuna fretta di finire."
-    "Paro una volta, per fortuna. Lei sorride: non per la parata, per la fortuna. La riconosce, e la disprezza."
+    "Il primo colpo mi sfiora la guancia. Il secondo no. È veloce, e non ha nessuna fretta di finire."
+    "Paro una volta, per fortuna, e dal suo sorriso capisco che lo sa anche lei."
     with hpunch
     "Cado su un ginocchio, la lama alla gola. Sopra di me, il suo respiro regolare."
     menu:
@@ -25,7 +25,7 @@ label ofelia_ev3:
             show ofelia compiaciuta with qdiss
             ofelia "Nessuno regge. Nemmeno Aede, e di coraggio ne ha per tre."
             $ muovi("ofelia", "trema")
-            "Abbassa la lama. Mi tende la mano libera, e noto che trema appena. Per l'attesa forse, o per qualcos'altro."
+            "Abbassa la lama e mi tende la mano libera: trema appena."
         "Arrenditi con eleganza: «Hai vinto. Ma ti è costato fatica, ammettilo.»":
             $ ofelia_affinity += 1
             show ofelia compiaciuta with qdiss
@@ -37,7 +37,7 @@ label ofelia_ev3:
             ofelia "Pietà. Quanto è pesante questa parola. Rialzati. Per oggi basta così."
             "Gira sui tacchi e se ne va, lasciandomi la spada nella sabbia."
     "Il sole sale sopra i gradini. Sulla sabbia restano le nostre impronte, le sue dritte e leggere, le mie sparse come quelle di chi è scappato."
-    "Riporto le lame all'armeria. Il custode le pulisce, guarda la mia guancia e scuote la testa. Non è la prima volta che lo vede."
+    "Riporto le lame all'armeria. Il custode le pulisce, guarda la mia guancia e scuote la testa: non è la prima che vede."
     return
 
 
@@ -48,7 +48,7 @@ label ofelia_fiaccolata:
     scene bg cala_notte with fade
     "La Calà, trecento gradini di lanterne. La leggenda dice che chi la scende mano nella mano si amerà per sempre."
     show ofelia neutra with dissolve
-    "Ofelia mi aspetta al primo gradino, in nero. Intorno a lei la festa è tutta ocra e lanterne. Lei ha scelto il lutto."
+    "Ofelia mi aspetta al primo gradino, in nero da lutto, e intorno a lei la festa è tutta ocra e lanterne."
     ofelia "Ogni anno tre pretendenti mi chiedono la mano su questa scala. Ogni anno scendo da sola. È una tradizione anche questa."
     ofelia "Quest'anno cambio. Non montarti la testa: mi annoio in fretta."
     "Tre gradini più giù, un pretendente in mantello verde stringe un mazzo di gigli. Ci guarda, guarda i gigli, e li lascia cadere nel fiume."
@@ -70,7 +70,7 @@ label ofelia_fiaccolata:
             show ofelia rabbia with qdiss
             ofelia "Vuoi garanzie? Va' da un notaio. Le leggende non rilasciano ricevute."
             "Scende da sola i primi cento gradini. Al centunesimo mi aspetta, senza voltarsi."
-    "In fondo alla Calà il fiume si porta via i riflessi delle lanterne. Ofelia li lascia andare uno per uno. Non ne trattiene nessuno con lo sguardo."
+    "In fondo alla Calà il fiume si porta via i riflessi delle lanterne. Ofelia li lascia andare uno per uno."
     ofelia "Domani mio padre saprà. Aede lo saprà prima di lui, e Ascadeo ci avrà già scommesso sopra."
     ofelia "Lasciali parlare. Chi parla non sta guardando la mano che stringi."
     return
@@ -82,7 +82,7 @@ label ofelia_fiaccolata_caino:
     scene bg cala_notte with fade
     show ofelia neutra with dissolve
     show caino neutro at left with dissolve
-    "La Calà accesa da cima a fondo. Al primo gradino mi aspettano in due: Ofelia in nero, Caino con il suo solito fare sicuro. Anche stanotte."
+    "La Calà accesa da cima a fondo. Al primo gradino mi aspettano in due: Ofelia in nero, Caino con l'aria di chi ha già letto il contratto."
     caino "La leggenda prevede due mani. Noi siamo tre contraenti. Ho controllato: nessuna clausola lo vieta."
     ofelia "Hai controllato una leggenda, Caino. Su cosa, sui registri delle nonne?"
     show caino sarcastico with qdiss
@@ -107,7 +107,7 @@ label ofelia_fiaccolata_caino:
             show ofelia rabbia with qdiss
             ofelia "A turno, come in fila dal barbiere! Il secondo turno l'ho appena regalato al fiume."
             "Scendiamo in tre, separati da un palmo d'aria che tutta Zefiro sa misurare."
-    "In fondo alla scala, Ofelia si ferma e guarda indietro, verso la cima. Le lanterne tremano. Da lassù, qualcuno del Ceppo ha visto tutto."
+    "In fondo alla scala Ofelia si ferma e guarda indietro, verso la cima. Da lassù, qualcuno del Ceppo ha visto tutto."
     return
 
 
@@ -120,7 +120,7 @@ label ofelia_fiaccolata_aede:
     ofelia "Mia sorella è di turno, stanotte. Sorveglia la festa dall'alto della scala. Dice."
     ofelia "Sa che sei qui. Non sa di me. Sarebbe un peccato rovinarle la serata, no?"
     ofelia "Un tempo scendevamo la Calà insieme, io e lei, mano nella mano. Per gioco. Lei la stringeva così forte che mi lasciava i segni."
-    "Lo dice senza nostalgia. Come si cita una vecchia ferita, per far vedere che è chiusa."
+    "Lo dice come si cita una vecchia ferita, per far vedere che è chiusa."
     show ofelia compiaciuta with qdiss
     ofelia "Una scala, due sorelle, una mano sola. Fa' i conti, [player_name]. Io li ho già fatti."
     menu:
@@ -142,7 +142,7 @@ label ofelia_fiaccolata_aede:
             show ofelia compiaciuta with qdiss
             "Scendiamo. Al decimo gradino sento uno sguardo sulla nuca, caldo come una lama lasciata al sole."
             show aede rabbia at left with dissolve
-            "Mi volto. Dall'alto della Calà, Aede ci guarda. Non si muove, non dice niente. Stringe l'elsa finché le nocche diventano bianche."
+            "Mi volto. Dall'alto della Calà Aede ci guarda, ferma, con la mano sull'elsa."
             hide aede with dissolve
             ofelia "Non voltarti più. Domani farà domande, e io avrò le risposte. Tu tieni la bocca chiusa."
     return
@@ -153,8 +153,8 @@ label ofelia_fiaccolata_aede:
 label ofelia_ev4:
     scene bg vicoli_zefiro with fade
     show ofelia neutra with dissolve
-    "Pomeriggio. Ofelia mi aspetta all'imbocco dei vicoli, un velo scuro sul capo e un cesto vuoto al braccio. Travestita da nessuno."
-    ofelia "Dopo la Fiaccolata, Zefiro parla. Di me, di te. Mi annoia: le storie migliori dovrebbero raccontarle chi c'era."
+    "Pomeriggio. Ofelia mi aspetta all'imbocco dei vicoli, un velo scuro sul capo e un cesto vuoto al braccio, travestita da nessuno."
+    ofelia "Dopo la Fiaccolata, Zefiro parla. Di me, di te. Mi annoia: le storie migliori dovrebbe raccontarle chi c'era."
     ofelia "Vado al mercato. Puoi seguirmi a due passi di distanza, come un servo. Oppure rimanere qui."
     show ofelia compiaciuta with qdiss
     ofelia "Senza il velo ci vedranno tutti, mio padre compreso. Ho il vestito giusto per entrambe le versioni."
@@ -201,11 +201,11 @@ label interludio_ofelia_luna6:
         ofelia "Il tuo ragioniere ha mandato i conti. Secondo lui Glauco ci convoca entro sedici giorni. Ha messo anche le probabilità."
         ofelia "Non le ho lette. Detesto quando ha ragione prima del tempo."
     elif route_seconda_viva() == "aede":
-        "Dalla porta socchiusa arriva un rumore di passi sul ghiaino. Ofelia non si volta, ma smette di respirare finché non si allontanano."
+        "Dalla porta socchiusa arriva un rumore di passi sul ghiaino. Ofelia non si volta e non si muove finché non si allontanano."
         ofelia "Aede. Viene a controllare la serra ogni sera, da quando nostro padre è di cattivo umore. Dice che è per i ladri."
         ofelia "Non ha mai preso un ladro. Ma ha sempre preso me."
     else:
-        "Non c'è nessun altro. Nemmeno i servi. Solo lei, il freddo, e io che ho ignorato il cartello alla porta."
+        "Non c'è nessun altro, nemmeno i servi. Solo lei, il freddo, e io che ho ignorato il cartello alla porta."
     show ofelia compiaciuta with qdiss
     ofelia "Ho una domanda per te, e non è quella della serra di sera. Quella l'hai già superata. Questa è più piccola, e più cattiva."
     ofelia "Quando lui ti chiamerà nello studio, cosa farai con le mani?"
@@ -224,10 +224,10 @@ label interludio_ofelia_luna6:
             ofelia "...nello studio di mio padre. Davanti a lui. Sei pazz[fin], o mi conosci troppo poco."
             show ofelia neutra with qdiss
             ofelia "Te la lascerò tenere. Forse. Dipende da quanto mi annoi fino ad allora."
-    "Ofelia raccoglie una rosa morta dal vaso più vicino. È nera, rigida di gelo, perfetta."
+    "Ofelia raccoglie una rosa morta dal vaso più vicino. È nera e rigida di gelo."
     ofelia "Le rose di mio padre muoiono quando lui decide. Questa no. Questa l'ho tagliata io, prima."
     "Me la mette in mano. I petali si spezzano al primo tocco, come vetro sottile."
     ofelia "Sedici giorni. Non venire a cercarmi prima. Voglio che mi manchi qualcosa, quando entro in quello studio."
     hide ofelia with dissolve
-    "Esco nella neve. Il fiore blu vicino alla porta, quello che non fiorisce mai, ha un bocciolo. Piccolo. Chiuso come un pugno."
+    "Esco nella neve. Il fiore blu vicino alla porta, quello che non fiorisce mai, ha un bocciolo piccolo, chiuso come un pugno."
     return

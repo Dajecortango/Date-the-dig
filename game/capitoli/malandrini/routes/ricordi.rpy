@@ -149,7 +149,7 @@ label echi_ricordo_rosa:
             druso "Una rosa nera. Ce n'è una sola, a Rocca Tempesta, che le coltiva fino all'osso."
             show druso ghigno with qdiss
             druso "Componimento immediato: «Spina nel pugno, serra nel letto...» Il resto domani, quando il verso si sarà sporcato abbastanza."
-            "La taverna ride. Domani lo sentirà anche la serra. Ofelia non ama le cose che si sanno. Nemmeno quelle belle."
+            "La taverna ride: domani lo sentirà anche la serra. Ofelia non ama le cose che si sanno, nemmeno quelle belle."
         "«È mia. E resta nel mantello.»":
             $ ricordi_usati["rosa"] = "tenuto"
             show druso irritato with qdiss

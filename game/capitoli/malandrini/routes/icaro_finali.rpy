@@ -19,7 +19,7 @@ label icaro_climax:
         icaro "Bia mi saluta per strada, adesso. Con rispetto. Effetto collaterale del tuo silenzio: non l'avevo messo a bilancio."
     icaro "Ho condonato a Druso i cardini della mensa. Non dirglielo: deve credere che io sia ancora furioso. Lo tiene a bada."
     show icaro sereno with qdiss
-    "Accende la pipa. Il fumo sale dritto, senza fretta."
+    "Accende la pipa. Il fumo sale dritto."
     icaro "Ho chiuso i conti del semestre. Tutti. Tranne una voce."
     icaro "Tu. Non so in che colonna metterti. E io so sempre in che colonna mettere tutto."
     $ musica_silenzio()
@@ -33,7 +33,7 @@ label icaro_climax:
             $ icaro_affinity += 1
             show icaro sorpreso with qdiss
             icaro "..."
-            "Si guarda le mani, come se fossero di un altro."
+            "Si guarda le mani."
             icaro "Mezzo respiro. Lo misuro adesso, mentre parlo. ...Esatto. Fastidioso."
             "Ride, piano. È la seconda volta in un semestre. Stavolta non smette subito."
         "Prendigli la pipa, tira una boccata e rendigliela. Senza una parola" (peso=True):
@@ -134,8 +134,8 @@ label icaro_bad:
     icaro "Domani cambio le serrature della fumeria. Non è contro di te, è contro chiunque."
     "Mi alzo. Non protesto: coi bari inguaribili non si vince, e con Icaro men che meno."
     show icaro neutro with qdiss
-    "Sulla soglia mi volto. Lui sta già mescolando per la prossima mano. Da solo."
-    "Un'occhiata rapida al posto vuoto. Poi segna qualcosa a margine del registro. Una voce chiusa, credo. In perdita."
+    "Sulla soglia mi volto. Lui sta già mescolando per la prossima mano, da solo."
+    "Un'occhiata rapida al posto vuoto, poi segna a margine del registro. Una voce chiusa in perdita, credo."
     "In strada mi frugo le tasche, per abitudine. Manca una moneta. Una sola. L'ultimo interesse."
     scene bg nero with fade
     $ sblocca_finale("icaro_bad")
@@ -161,7 +161,7 @@ label icaro_bro_end:
             "È la voce che avevo «dimenticato» nel totale. Adesso è scritta, e non si dimentica più."
         elif icaro_colonna == "pipa":
             "A margine, a matita, una nota piccola: «accende la pipa senza chiedere». Nessun importo."
-        "Firmo. Lui soffia sull'inchiostro, chiude il registro e torna a mescolare, come se niente fosse."
+        "Firmo. Lui soffia sull'inchiostro, chiude il registro e torna a mescolare."
         icaro "Druso pretenderà di firmare anche lui. Gli dirò che la pagina è finita."
         icaro "Caino lo saprà entro l'alba. Per una volta, è un credito che non può riscuotere."
         icaro "Domani sera, stesso tavolo. Tu guardi le mani degli altri. Le mie no: sono di famiglia."

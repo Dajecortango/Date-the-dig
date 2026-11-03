@@ -13,7 +13,7 @@ init python:
         ("aede+caino", "aede"):
             "Caino ha chiuso la pratica di quella mattina in corridoio con una riga sola: «ceduto al Ceppo di Glauco». In Consiglio, quando Aede passa, si scosta di mezzo passo. Sulle decime del Ceppo, nemmeno di un soldo.",
         ("aede+caino", "caino"):
-            "Aede non ha mai chiesto a Caino di quella mattina in corridoio. Ma quando lui attraversa il cortile d'armi, la sua lama va più veloce. Caino finge di non contare i colpi. Li conta.",
+            "Aede non ha mai chiesto a Caino di quella mattina in corridoio. Ma quando lui attraversa il cortile d'armi, la sua lama va più veloce, e Caino conta i colpi.",
         ("aede+druso", "aede"):
             "Druso ha una strofa su quella mattina in corridoio: lui da una parte, la volpe rossa dall'altra. La recita solo quando Aede non c'è. Cioè con molta prudenza.",
         ("aede+druso", "druso"):
@@ -39,7 +39,7 @@ init python:
         ("caino+ofelia", "ofelia"):
             "Quando Ofelia entra in Consiglio, Caino si alza e sposta il calamaio di un palmo, per farle posto. Lei non lo ringrazia. Da quella mattina in corridoio, si siede sempre alla sua sinistra.",
         ("druso+icaro", "druso"):
-            "Al Becco Storto il tavolo libero è ancora uno. Icaro ci si siede quando Druso non c'è, e lascia pagato il giro dopo. Druso finge di non sapere chi paga. Lo sa al centesimo.",
+            "Al Becco Storto il tavolo libero è ancora uno. Icaro ci si siede quando Druso non c'è, e lascia pagato il giro dopo. Druso sa chi paga, al centesimo, e non ne parla.",
         ("druso+icaro", "icaro"):
             "Druso ha una strofa nuova sul fratellino «sobrio in una taverna». La sala ride. Lui, a fine strofa, guarda verso la fumeria. Non ci entra.",
         ("druso+ofelia", "druso"):

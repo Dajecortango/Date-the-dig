@@ -73,7 +73,7 @@ init python:
         ("lenora_silenzio",
          "Alla grata hai chinato la testa. Bene. Davanti a Lenora non è vergogna, è aritmetica. La vergogna è chinarla davanti a chi non conta."),
         ("caino_massacro",
-         "All'Adunanza hai chiamato il Ballo delle Candele Spente col suo nome. Io in trent'anni di Consiglio non l'ho mai fatto. Coraggio o fretta: nel Nord, spesso, è la stessa cosa."),
+         "All'Adunanza hai chiamato il Ballo delle Candele Spente col suo nome. Io in trent'anni di Consiglio non l'ho mai fatto. Coraggio o fretta: da fuori non si distinguono."),
         ("caino_trappola",
          "All'Adunanza hai lodato il Ballo delle Candele Spente. Caino recita la parte di chi lo ricorda come una festa. Tu gli hai creduto, e lui ti ha archiviat[fin] per questo."),
         ("icaro_coperto",
@@ -81,7 +81,7 @@ init python:
         ("ofelia_gelo",
          "Vanna dice che la figlia di Glauco ha cancellato un nome con l'inchiostro rosso. Non chiedo quale. Chiedo se l'hai lasciato cadere o se ti è caduto."),
         ("ofelia_attesa",
-         "Ho saputo che Ofelia ti ha aspettat[fin], una sera. Una figlia di Glauco che aspetta. Nel Nord non si vede spesso. E non si vede due volte."),
+         "Ho saputo che Ofelia ti ha aspettat[fin], una sera. Una figlia di Glauco che aspetta: non si vede spesso, e non si vede due volte."),
         ("eco_debito_insoluto",
          "Un esattore di Icaro è passato dalla porta del Ceppo, a chiedere di te. Ha avuto quello che cercava, mi dicono. Da me ha avuto solo il brodo: i debiti dei miei Figli li pagano i miei Figli."),
         ("caino_teschio",
@@ -126,7 +126,7 @@ label ceppo_vanna:
         "«Sono lettere sue, Vanna.»":
             $ ceppo_vanna = "lascia"
             vanna "Lo so che sono sue. È per questo che le ha bruciate."
-            "Abbassa la ceralacca. Per un attimo smette di essere la pettegola del Ceppo."
+            "Abbassa la ceralacca."
     vanna "Se se ne va, chi mi corregge le date? Io le sbaglio apposta, sai. Per sentirlo sbuffare."
     "Si mette la ceralacca in tasca. Al brodo, stasera, siede accanto a Corrado e non gli chiede niente. Lo guarda mangiare."
     return
@@ -220,14 +220,14 @@ label ceppo_scelta:
     corrado "Hammergrad. Tre anni. Non è la fine del mondo, Vanna."
     vanna "È la fine del Nord. Dicono che lassù la neve non se ne va mai. E non c'è nessuno che sbagli le date."
     corrado "Appunto."
-    "Si voltano insieme verso di me. Fratelli di Ceppo: anche quando litigano, si girano dalla stessa parte."
+    "Si voltano insieme verso di me."
     corrado "Decidi tu, [fratello_t]. Noi due litighiamo fino a mezzogiorno, e il corriere parte lo stesso."
     menu:
         "La lettera, sul davanzale, aspetta una firma o il fuoco."
         "«Parti, Corrado.»":
             $ ceppo_esito = "parte"
             corrado "...grazie. Credo. Ci voleva qualcuno che lo dicesse ad alta voce. Io lo dico solo per iscritto."
-            vanna "Traditore. Tutti e due."
+            vanna "Traditori. Tutti e due."
             "Ma è lei a dargli la penna. E a tenergli ferma la lettera mentre firma, perché le mani a Corrado tremano."
             vanna "Scrivimi. Con le date giuste. Così le correggo io."
         "«Resta. Il Ceppo ha bisogno di qualcuno che corregga le date.»":
@@ -244,5 +244,5 @@ label ceppo_scelta:
             corrado "Gli Arvali non raccontano."
             vanna "Gli Arvali non mi conoscono ancora."
             "Corrado ride. Non l'ho mai sentito ridere così, a bocca aperta, senza una nota a piè di pagina."
-    "A mezzogiorno il corriere parte. Dalla finestra del corridoio lo guardiamo in tre, finché la strada non lo inghiotte."
+    "A mezzogiorno il corriere parte. Dalla finestra del corridoio lo guardiamo in tre, finché non si vede più."
     return

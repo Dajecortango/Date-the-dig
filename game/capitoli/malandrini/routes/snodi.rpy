@@ -208,9 +208,9 @@ label finale_neutro_semestre:
     scene bg corridoio_ceppo with fade
     show briseide neutra with dissolve
     "Fine della sesta Luna. Briseide mi riceve con due tazze di brodo: il bilancio di fine semestre, nel suo Ceppo, si fa così."
-    briseide "Sei mesi. Hai imparato la spada, i registri, le scorciatoie di Zefiro e — mi dicono — anche a reggere un boccale. Non hai perso il nome, non hai perso il sangue. Nel Nord si chiama buon raccolto."
+    briseide "Sei mesi. Hai imparato la spada, i registri, le scorciatoie di Zefiro e, mi dicono, anche a reggere un boccale. Non hai perso il nome, non hai perso il sangue. Nel Nord si chiama buon raccolto."
     pc "E il resto, madre?"
-    briseide "Il resto ha i suoi tempi. Rocca Tempesta non scappa, e nemmeno i suoi cuori: sono tutti ancora lì, più testardi di prima. Bevi il brodo, [figlio_t] mi[fin]. I semestri finiscono. Le storie no."
+    briseide "Il resto ha i suoi tempi. Rocca Tempesta non scappa, e nemmeno i suoi cuori: sono tutti ancora lì, più testardi di prima. Bevi il brodo, [figlio_t] mi[fin]."
     scene bg nero with fade
     $ sblocca_finale("finale_neutro_semestre")
     centered "{cps=20}{size=+10}IL SEMESTRE DEL NOVELLINO{/size}\n\nGuardare, ascoltare, non farsi notare.\nDue su tre, come sempre.{/cps}"
@@ -257,7 +257,7 @@ label rivalita_sorelle:
     show aede irritata with dissolve
     show ofelia neutra at left with dissolve
     "Dieci giorni alla scelta. Il corridoio è stretto, stamattina. Stretto per tre."
-    "Aede da una parte, Ofelia dall'altra. In mezzo io, e un silenzio che si potrebbe affilare."
+    "Aede da una parte, Ofelia dall'altra, e io in mezzo."
     ofelia "Sorella. Ti ho vista al cortile, all'alba. Guardavi la porta più dei bersagli."
     aede "E io ho visto la tua serra. Una sedia in più, accanto alla tua. Da quando metti le sedie?"
     show ofelia compiaciuta at left with qdiss
@@ -285,7 +285,7 @@ label rivalita_sorelle:
             show aede rabbia with qdiss
             aede "Il rosso non si sceglie. Si porta. Lo vedrai."
             with hpunch
-            "Aede mi passa accanto e mi urta con la spalla. Forte. Apposta. Stasera il livido avrà la forma della sua scapola."
+            "Aede mi passa accanto e mi urta con la spalla, forte, apposta. Stasera il livido avrà la forma della sua scapola."
     "Vanna, più tardi, mi dice che nel Ceppo di Glauco qualcuno ha cominciato a contare i giorni. Ad alta voce."
     return
 
@@ -303,7 +303,7 @@ label rivalita_caino_druso:
     caino "Sei ubriaco, Druso."
     druso "E tu sei geloso. Stasera uno dei due sarà sobrio."
     with vpunch
-    "Caino posa il boccale sul tavolo. Piano. Fa più rumore di un pugno."
+    "Caino posa il boccale sul tavolo, piano, e il gatto se ne va."
     menu:
         "Si voltano tutti e due verso di me. Il Becco Storto trattiene il fiato."
         "«TESCHIO a tutti e due, se non la smettete.»":
@@ -311,7 +311,7 @@ label rivalita_caino_druso:
             druso "...dichiarato PRIMA. Ha dichiarato prima, Caino. Il Codice è dalla sua."
             show caino neutro with qdiss
             caino "Il Codice l'ho scritto io. Per una volta mi pento della clausola."
-            "Ridono. Insieme. Per mezzo secondo sono solo due fratelli. Poi se ne accorgono, e smettono."
+            "Ridono insieme. Per mezzo secondo sono solo due fratelli, poi se ne accorgono e smettono."
         "Resta sedut[fin] accanto a Druso":
             $ druso_affinity += 1
             $ caino_fiducia -= 1
@@ -325,7 +325,7 @@ label rivalita_caino_druso:
             $ druso_affinity -= 1
             hide druso with dissolve
             show caino neutro with qdiss
-            "Fuori, Caino respira il freddo del mattino come se gli servisse. Non mi guarda."
+            "Fuori, Caino si ferma a prendere il freddo del mattino. Non mi guarda."
             caino "Mio fratello ha un talento. Dice ad alta voce le cose vere nel momento sbagliato."
             caino "Non farci l'abitudine. Né a lui, né alle cose vere."
             "Dentro, Druso attacca una strofa sul tradimento. Si sente fino in strada. Ha una rima per ogni mio passo."

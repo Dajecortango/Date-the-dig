@@ -55,7 +55,7 @@ init 1 python:
     # Nuovi ricordi in borsa (borsa_vars legge debito_esito ed eco_orfani_dato).
     RICORDI.extend([
         ("ricevuta", "La ricevuta di Icaro",
-         "«Saldato.» Una parola, la sua firma e un angolo strappato: il suo modo di dire che il conto è chiuso.",
+         "«Saldato.» Una parola, la sua firma e un angolo strappato.",
          lambda v: v.get("debito_esito") == "saldato"),
         ("disegno", "Un disegno a carboncino",
          "Te l'ha dato un orfano del Ceppo, il giorno della cassa: tu, con una spada più grande di te.",
@@ -105,7 +105,7 @@ init 1 python:
             ("char", "Ci segno le stoccate che sbagli. Mi servirà tutto, il quaderno.")]),
         ("aede", "erba"): ("imbarazzata", [
             ("char", "Erba della Lumina. Ti sembro una che fuma la pipa coi figli di Lenora?"),
-            ("narr", "Annusa il sacchetto. Due volte. Poi lo intasca guardando da un'altra parte.")]),
+            ("narr", "Annusa il sacchetto due volte e lo intasca guardando da un'altra parte.")]),
         ("aede", "vino"): ("neutra", [
             ("char", "Vino di Glostok. Mio padre ne tiene una cantina intera e non ne beve un goccio."),
             ("char", "Lo berrò io. Alla sua salute: è la cosa che gli fa più rabbia.")]),
@@ -124,7 +124,7 @@ init 1 python:
             ("narr", "Lo affida a un servitore. «In cantina. Dietro il Glostok, dove nessuno guarda.»")]),
         ("ofelia", "taccuino"): ("compiaciuta", [
             ("char", "Pagine bianche. Ci scriverò i nomi dei pretendenti da congedare."),
-            ("char", "Il tuo lo lascio per ultimo. Non è un complimento. Non ancora.")]),
+            ("char", "Il tuo lo lascio per ultimo. Non è un complimento.")]),
         ("ofelia", "erba"): ("neutra", [
             ("char", "Erba della Lumina. Mescolata alla terra, fa venire più scure le rose nere."),
             ("char", "Non lo sapevi. Bene: adesso lo sappiamo in due.")]),
@@ -152,7 +152,7 @@ init 1 python:
             ("char", "La tengo per lui. Un favore di Icaro vale più di qualunque erba.")]),
         ("caino", "fiori"): ("neutro", [
             ("char", "Fiori d'inverno. Gentile."),
-            ("narr", "Li mette in un vaso sopra i registri delle decime. Chi viene a pagare penserà che l'Arconte ha un cuore. È il loro scopo, adesso.")]),
+            ("narr", "Li mette in un vaso sopra i registri delle decime. Chi viene a pagare penserà che l'Arconte ha un cuore.")]),
         ("caino", "dadi"): ("freddo", [
             ("char", "Dadi truccati. In mano all'Arconte della Proprietà."),
             ("char", "Immagina cosa direbbe Lenora. Poi immagina che li ho già chiusi in un cassetto.")]),
@@ -199,7 +199,7 @@ init 1 python:
             ("char", "Grazie. Me l'hai regalato due volte: una a me, una al mio margine.")]),
         ("icaro", "fiori"): ("imbarazzato", [
             ("char", "Fiori. Non si rivendono, non si fumano, non si giocano."),
-            ("narr", "Li tiene in mano come una carta che non sa dove mettere. Alla fine li posa accanto alla pipa. Non li butta.")]),
+            ("narr", "Li tiene in mano come una carta che non sa dove mettere. Alla fine li posa accanto alla pipa.")]),
         ("icaro", "ballate"): ("irritato", [
             ("char", "Mercuzio. Il libro più inutile del Nord, rilegato nel metallo più utile."),
             ("char", "Stacco l'oro e il resto lo regalo a Druso. Così soffre.")]),
@@ -223,7 +223,7 @@ label eco_soffiata(att_id):
         "Due Scudi per un pettegolezzo. A Zefiro è il prezzo onesto."
         "«Aede. La volpe rossa.»" if "aede" in eco_cand:
             $ eco_soff_chi = "aede"
-            "«Affila la spada ogni sera con una cote spaccata in due. Davanti al banco delle pietre di Hammergrad si ferma un'ora. Poi tira dritto, come se niente.»"
+            "«Affila la spada ogni sera con una cote spaccata in due. Davanti al banco delle pietre di Hammergrad si ferma un'ora, e poi tira dritto.»"
         "«Ofelia, la figlia di Glauco.»" if "ofelia" in eco_cand:
             $ eco_soff_chi = "ofelia"
             "«Ha chiesto al fabbro uno spillone da capelli d'acciaio. Uno che punga davvero. Il fabbro l'ha detto a me, io lo dico a te.»"
@@ -269,7 +269,7 @@ label eco_ottone(att_id):
             ottone "Chi paga il giorno prima sa quando arriva il controllo. E chi lo sa, ragazz[fin], l'ha sentito dire da qualcuno di dentro."
             "Abbassa la voce sul boccale, come se il boccale avesse orecchie."
             ottone "Le date di consultazione restano scritte. Basta qualcuno che le copi, e qualcuno che le compri. Alla Proprietà c'è sempre un compratore."
-            "Lo dice guardando la schiuma, non me. Poi paga il suo boccale da solo, anche se l'avevo già pagato io."
+            "Lo dice guardando la schiuma, non me, e paga il suo boccale da solo anche se l'avevo già pagato io."
             $ conseguenze_aggiorna()
         "Salutarlo e tirare dritto":
             "Gli faccio un cenno. Lui risponde alzando due dita macchiate d'inchiostro, e se ne va da solo."
@@ -283,7 +283,7 @@ label eco_orfani(att_id):
         return
     scene bg corridoio_ceppo with dissolve
     "Accanto alla porta della cucina, la cassa degli orfani di Briseide: legno vecchio, una fessura consumata dai pollici di chi ci ha infilato qualcosa."
-    "Briseide la svuota ogni Luna, in silenzio. Nessuno sa quanto ci trova. Nessuno lo chiede."
+    "Briseide la svuota ogni Luna, e nessuno sa quanto ci trova né glielo chiede."
     menu:
         "Due Scudi sono una settimana di boccali."
         "Infilare due Scudi nella fessura":
@@ -354,7 +354,7 @@ label eco_debito_fumeria(att_id):
         show icaro neutro with dissolve
         "Mentre esco, Icaro mi guarda la borsa. Non me: la borsa."
         icaro "Floscia. Si vede da qui. Chi gioca con una borsa così perde per paura, non per sfortuna."
-        icaro "Cinque Scudi. Me ne rendi sei entro una Luna e mezza. Non è generosità: è un investimento a breve."
+        icaro "Cinque Scudi. Me ne rendi sei entro una Luna e mezza. Un investimento a breve."
         menu:
             "Il sesto Scudo è l'interesse. Il resto, con Icaro, non è mai scritto."
             "Accettare i cinque Scudi":
@@ -365,7 +365,7 @@ label eco_debito_fumeria(att_id):
                     eco_debito_data = eco_data_slot(debito_scadenza)
                 show icaro furbo with qdiss
                 icaro "Scadenza: [eco_debito_data]. Me lo ricordo io, così non devi ricordartelo tu."
-                "Conta le monete due volte, una nella sua mano e una nella mia. Poi se le guarda partire come si guarda un figlio andare in guerra."
+                "Conta le monete due volte, una nella sua mano e una nella mia. Le guarda partire come un figlio che va in guerra."
             "«No, grazie. Preferisco una borsa floscia a una borsa tua.»":
                 show icaro sereno with qdiss
                 icaro "Saggio. Raro. Annotato."
@@ -414,7 +414,7 @@ label eco_debito_riscossione(att_id):
     if eco_riscosso:
         "Mi prende la borsa, la svuota sul palmo, me la rende. [eco_riscosso] Scudi: debito, interessi, e il disturbo di essere venuto."
     else:
-        "Mi prende la borsa, la rovescia: niente. Me la rende con una piega che vale più di uno schiaffo."
+        "Mi prende la borsa, la rovescia: niente. Me la rende piegata in quattro."
     esattore "Il conto è chiuso. La memoria del signor Icaro, invece, resta aperta."
     $ conseguenze_aggiorna()
     return

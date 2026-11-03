@@ -207,7 +207,7 @@ label att_spada_tetti:
             show aede sorpresa with qdiss
             aede "...sette. Ma il pozzo l'hai visto."
             show aede neutra with qdiss
-            "Non lo dice, ma resta stesa accanto a me più del necessario. Spalla contro spalla, come due che aspettano."
+            "Resta stesa accanto a me più del necessario, spalla contro spalla."
         "«Se è un lavoro del tuo Ceppo, non voglio esserci.»":
             show aede irritata with qdiss
             aede "Nessuno ti ha chiesto di lavorare. Ti ho chiesto di guardare. Sono due cose diverse."
@@ -217,10 +217,10 @@ label att_spada_tetti:
             show aede sorpresa with qdiss
             aede "Tu. Vuoi scendere da un tetto. In pieno giorno. Davanti al cappuccio grigio."
             show aede sorriso with dissolve
-            "Per un battito le si accende qualcosa negli occhi. Poi lo spegne a mano, come una lanterna."
+            "Per un battito le si accendono gli occhi. Poi li spegne a mano, come una lanterna."
             show aede irritata with qdiss
             aede "Idea pessima. Mi piace. No. La prossima volta che ti viene un'idea, tienila in tasca e mostramela dopo."
-    "Il cappuccio grigio sparisce in un vicolo. Aede prende nota di qualcosa, a mente."
+    "Il cappuccio grigio sparisce in un vicolo. Aede se lo segna a mente."
     aede "Torniamo. Se chiedono, eravamo al cortile. E tu hai fatto schifo."
     return
 
@@ -279,7 +279,7 @@ label att_spada_cala:
         "Sali camminando. Su una scala di pietra non si corre":
             "Salgo con calma. Arrivo che lei è seduta sull'ultimo gradino da un pezzo, e conta le lanterne."
             show aede irritata with qdiss
-            aede "Lent[fin], ma intero. Che è la scusa di tutti quelli che non vincono mai niente."
+            aede "Lent[fin], ma inter[fin]. Che è la scusa di tutti quelli che non vincono mai niente."
             "Mi passa lo stesso la borraccia. Ce l'aveva pronta."
         "«Rilancio: chi vince fa una domanda, e l'altro risponde il vero.»":
             $ aede_affinity += 1
@@ -287,7 +287,7 @@ label att_spada_cala:
             "Si ferma al decimo gradino. Si gira. Per la prima volta un'impresa ha un prezzo che non ha scelto lei."
             show aede irritata with qdiss
             aede "Va bene. Ma vinco io."
-            "Vince lei, di un gradino. Resta sull'ultimo, il fiato corto, e la domanda le resta in bocca per un tempo lunghissimo."
+            "Vince lei, di un gradino. Si ferma sull'ultimo col fiato corto, e la domanda non le esce."
             show aede imbarazzata with qdiss
             aede "Perché vieni. Quando ti chiamo. Perché vieni sempre."
             pc "Perché chiami."
@@ -308,15 +308,15 @@ label att_spada_fiume:
         "Il buco nel ghiaccio respira vapore."
         "Tuffati, prima di pensarci":
             with vpunch
-            "Il freddo non è freddo: è un pugno in tutto il corpo, nello stesso istante."
+            "Il freddo è un pugno in tutto il corpo, nello stesso istante."
             "Una mano mi prende per il bavero e mi tira fuori. Il mantello rosso di Aede mi cade addosso."
             show aede sorriso with dissolve
             aede "Tre Scudi, Ascadeo. E non piangeva. Segna anche quello."
-            "Mi strofina le spalle con una ferocia che non ha niente di tenero. Quasi niente."
+            "Mi strofina le spalle con una ferocia che di tenero ha poco."
         "«Non mi tuffo per tre Scudi. Neanche per i tuoi.»":
             show aede irritata with qdiss
             aede "Allora me li paghi tu."
-            "Si toglie il mantello e gli stivali, e si butta lei. Esce viola, fiera, gocciolante, e sputa acqua verso il fratello."
+            "Si toglie il mantello e gli stivali, e si butta lei. Esce viola e gocciolante, e sputa acqua verso il fratello."
             aede "Con lui non perdo. Mai. Ricordatelo, la prossima volta che fai il saggio."
         "«Ci tuffiamo tutti e tre. Anche chi scommette.»":
             show aede sorpresa with qdiss
@@ -324,7 +324,7 @@ label att_spada_fiume:
             with hpunch
             "Il tuffo che segue non è elegante. Il fratello urla in tre lingue. Aede ride forte, a bocca aperta, senza pensarci."
             show aede imbarazzata with qdiss
-            "Poi si accorge che la guardo ridere. E smette, come chi viene sorpreso a rubare."
+            "Poi si accorge che la guardo ridere e smette, come chi viene sorpreso a rubare."
     return
 
 
@@ -352,7 +352,7 @@ label aede_cerca_cortile:
             "Paro, cado, mi rialzo. Al decimo assalto i colpi rallentano. Al ventesimo, le tremano le braccia."
             show aede neutra with qdiss
             aede "Sei peggiorat[fin]. Domani di nuovo. Alla stessa ora."
-            "Non è un ordine. È la cosa più vicina a una richiesta che le abbia mai sentito dire."
+            "È la cosa più vicina a una richiesta che le abbia mai sentito dire."
         "Fermale le mani. Le nocche sanguinano":
             show aede sorpresa with qdiss
             "Le prendo il polso. Si irrigidisce come una lama nel fodero sbagliato. Poi, non so perché, lascia fare."
@@ -364,14 +364,14 @@ label aede_cerca_cortile:
             aede "Niente. Era un lavoro. Quante volte devo dirtelo."
             "Torna al manichino. Un colpo, due. Al terzo il legno si spacca, e lei resta ferma con il moncone in mano."
             show aede triste with qdiss
-            "Non risponde. Ma non mi caccia. Restiamo così finché la luce non arriva al pozzo."
+            "Non risponde e non mi caccia. Restiamo così finché la luce non arriva al pozzo."
     $ eventi_visti.add("aede_trovata")
     return
 
 label aede_cerca_marcassa:
     scene bg vicoli_zefiro with fade
     if aede_cerca_giusto() != "marcassa":
-        "La Contrada Marcassa di giorno è un'altra città: casse, facchini, il vicolo pulito come se niente fosse."
+        "La Contrada Marcassa di giorno è un'altra città: casse, facchini, il vicolo già lavato."
         "Nessuna traccia di lei. Un facchino mi squadra, poi sputa per terra."
         if aede_cerca_giusto() == "cortile":
             "«La rossa? Qui non si vede. Ma all'alba, dal muro del cortile d'armi, si sentono i colpi. Sempre gli stessi. Da tre giorni.»"
@@ -394,10 +394,10 @@ label aede_cerca_marcassa:
             "Si gira di scatto. La mano va al fianco, dove la lama non c'è."
             show aede rabbia with qdiss
             aede "Hai visto una che lascia l'elemosina. Il Nord è pieno di vedove. Vai a dirlo in giro, se ti diverte."
-            "Non lo nega. Se ne va senza correre. Ed è peggio che se avesse corso."
+            "Non lo nega. Se ne va senza correre."
         "Vattene prima che ti veda":
             "Indietreggio fino all'angolo. Lei resta inginocchiata sulla soglia un po' troppo a lungo."
-            "Non saprà mai che c'ero. Io invece non lo dimenticherò: la figlia di Glauco che paga, di nascosto, un debito che nessuno le chiede."
+            "Non saprà mai che c'ero, e io mi tengo la figlia di Glauco che paga di nascosto un debito che nessuno le chiede."
     $ eventi_visti.add("aede_trovata")
     return
 
@@ -432,7 +432,7 @@ label aede_cerca_cala:
             aede "Non sei mio padre. Non sei Ofelia. Non sei nessuno, per dirmi dove stare."
             "Le prendo un lembo del mantello. Tiro, piano. Lei si alza come se fosse stata un'idea sua."
             show aede neutra with qdiss
-            "Saliamo. Al trecentesimo gradino si gira a guardare la scala, una volta sola. Poi non più."
+            "Saliamo. Al trecentesimo gradino si gira a guardare la scala, una volta sola."
     $ eventi_visti.add("aede_trovata")
     return
 
@@ -498,17 +498,17 @@ label aede_sfida_3:
         show aede irritata with qdiss
         aede "Al recinto ho saltato da sola. Due volte. La seconda per farti un dispetto che non hai visto."
     aede "Di là ci sono i Collifreddi. Da quassù, col cielo pulito, si vede il fumo dei villaggi."
-    "Lo dice piano. Come chi indica una casa senza dire che ci ha abitato."
+    "Lo dice piano, come chi indica una casa senza dire che ci ha abitato."
     menu:
         "Il vento porta odore di legna bruciata, lontano."
         "«Da quale villaggio vieni?»":
             show aede irritata with qdiss
             aede "Da uno che non c'è più. Fine della storia."
             show aede triste with qdiss
-            "Poi, dopo un po', alza il braccio e indica un punto nel buio. Non dice il nome. Ma lo indica."
+            "Dopo un po' alza il braccio e indica un punto nel buio. Il nome non lo dice."
         "Raccogli la neve dal parapetto e tiragliela":
             with hpunch
-            "La prendo in pieno sulla nuca. Il silenzio dura un battito."
+            "La prendo in pieno sulla nuca. Per un battito non succede niente."
             show aede furia with qdiss
             "Poi la guerra. Due Figli del Nord che si rincorrono sulle mura, e una guardia che continua a dormire."
         "Resta in silenzio e guarda il fumo con lei":

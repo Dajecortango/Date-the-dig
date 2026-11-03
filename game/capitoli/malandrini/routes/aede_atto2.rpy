@@ -10,7 +10,7 @@ label cap4:
 
     "Contrada Marcassa, dopo il tramonto. Briseide mi ha mandato a ritirare un pagamento da un mercante di lane. Strade sbagliate, ora sbagliata."
 
-    "Sento le voci prima di vedere la scena davanti a me: un uomo che supplica a bassa voce, come chi sa che urlare è inutile."
+    "Sento la voce prima di vedere: un uomo che supplica piano, come chi sa che urlare è inutile."
 
     "Mi affaccio al vicolo. E la vedo."
 
@@ -18,7 +18,7 @@ label cap4:
 
     "Aede. Senza maschera, senza fretta. Davanti a lei, in ginocchio tra le casse, un uomo di mezza età con l'anello d'oro dei cambiavalute."
 
-    "Non è una rissa. Non è una trappola. È un lavoro."
+    "Nessuna rissa, nessuna trappola: un lavoro."
 
     aede "Hai venduto i movimenti delle carovane del mio Ceppo alla Lama Nera. Due scorte morte sul Passo. Il Consiglio non lo saprà mai, perché il mio Ceppo non processa: salda."
 
@@ -26,13 +26,13 @@ label cap4:
 
     with lampo
 
-    "La lama è un lampo bianco. Poi il vicolo torna silenzioso."
+    "La lama è un lampo bianco, e le cifre si fermano a metà."
 
     show aede neutra at center
 
-    "Aede pulisce l'acciaio con un gesto che ha fatto mille volte. Poi alza gli occhi. E mi vede."
+    "Aede pulisce l'acciaio con un gesto che ha fatto mille volte. Alza gli occhi e mi vede."
 
-    "Non si scompone. Non si giustifica. Mi guarda e basta, e nel suo sguardo c'è una domanda fredda: e adesso?"
+    "Non si scompone e non si giustifica: mi guarda e basta."
 
     menu:
         aede "Di' qualcosa, novellin[fin]. Qualunque cosa. Ma pensala bene."
@@ -49,11 +49,11 @@ label cap4:
 
             aede "Credevi di passeggiare con cosa, esattamente? Con una ricamatrice?"
 
-            "La voce le si incrina sull'ultima parola. Di rabbia, mi dico. Ma non è solo rabbia."
+            "La voce le si incrina sull'ultima parola. Di rabbia, mi dico."
 
             aede "Torna dal tuo mercante di lane, [figlio_t] di Briseide. E dimentica il vicolo."
 
-            "Mi volta le spalle. E per la prima volta da quando la conosco, sembra avere fretta."
+            "Mi volta le spalle, e per la prima volta da quando la conosco ha fretta."
 
         "«Il tuo Ceppo salda, ho capito. Non ho visto niente.»":
             $ aede_affinity += 1
@@ -75,7 +75,7 @@ label cap4:
 
             show aede sorpresa with qdiss
 
-            "Si blocca. Nessuno, capisco in quell'istante, le ha mai fatto quella domanda. Né il padre, né Ofelia, né Ascadeo, né i morti."
+            "Si blocca. Quella domanda, capisco, non gliel'ha mai fatta nessuno: né il padre, né Ofelia, né Ascadeo, né i morti."
 
             show aede neutra with qdiss
 
@@ -83,7 +83,7 @@ label cap4:
 
             aede "Quanto costa... Il primo costa tutto. Gli altri costano il ricordo del primo."
 
-            "Si siede su una cassa. Io mi siedo su quella accanto, rispettando i suoi spazi. Restiamo così finché le lanterne della Contrada non si spengono."
+            "Si siede su una cassa. Io su quella accanto, e restiamo così finché le lanterne della Contrada non si spengono."
 
             aede "Se lo racconti a qualcuno, ti ammazzo."
 
@@ -105,7 +105,7 @@ label cap5:
 
     "La Calà: la scalinata vecchia che scende dalla Contrada Eburnea al fiume, trecento gradini consumati."
 
-    "Una notte all'anno, arriva l'evento della Fiaccolata. Lanterne in ogni gradino e la leggenda che tutta Zefiro finge di non prendere sul serio, che inaspettatamente invece rispetta davvero:"
+    "Una notte all'anno c'è la Fiaccolata: lanterne su ogni gradino, e una leggenda che tutta Zefiro finge di non prendere sul serio e poi rispetta:"
 
     "chi percorre la Calà mano nella mano, si amerà per sempre."
 
@@ -132,7 +132,7 @@ label cap5:
 
             "Non chiedo il permesso, se lo facessi direbbe no per principio."
 
-            "Le prendo la mano. Le sue dita si irrigidiscono — un istante — poi, piano, si intrecciano alle mie."
+            "Le prendo la mano. Le sue dita si irrigidiscono, poi, piano, si intrecciano alle mie."
 
             show aede imbarazzata with qdiss
 
@@ -142,9 +142,9 @@ label cap5:
 
             aede "Se cadi, ti lascio rotolare fino al fiume."
 
-            "Ma non lascia la presa. Non la lascia per duecentosettanta gradini."
+            "Ma non lascia la presa per duecentosettanta gradini."
 
-            "Al fondo della Calà, col fiume davanti e le lanterne alle spalle, si volta verso di me. E per un momento lei non è né la figlia di Glauco, né l'assassina: solo Aede, con gli occhi pieni di luci."
+            "Al fondo della Calà, col fiume davanti e le lanterne alle spalle, si volta verso di me. Ha gli occhi pieni di lanterne."
 
             aede "[player_name]. Io—"
 
@@ -154,7 +154,7 @@ label cap5:
 
             aede "...devo andare."
 
-            "Sale i gradini a due a due. A metà scala si ferma, un solo istante, e si volta. Poi la notte se la riprende."
+            "Sale i gradini a due a due. A metà scala si ferma e si volta, poi la notte se la riprende."
 
         "Prendile la mano" if aede_affinity < 8:
             $ aede_mano_cala = "rifiutata"
@@ -163,11 +163,11 @@ label cap5:
 
             show aede irritata with qdiss
 
-            "Lei la ritira con naturalezza perfetta, come se dovesse sistemarsi i capelli proprio in quell'istante."
+            "Lei la ritira con naturalezza perfetta, per sistemarsi i capelli proprio adesso."
 
             aede "Attent[fin], novellin[fin]. Su questa scala i gesti hanno un significato. E tu e io non ci conosciamo abbastanza perché ne abbiano."
 
-            "Non è crudele. È esatta. Fa più male così."
+            "È esatta, e fa più male che se fosse crudele."
 
         "Camminale accanto, senza toccarla":
             $ aede_affinity += 1
@@ -209,7 +209,7 @@ label cap6:
 
     scene bg corridoio_ceppo with fade
 
-    "Mi trova lei, stavolta. Alla tenuta del mio Ceppo su un ballatoio che guarda i tetti di Zefiro, un'ora prima dell'alba."
+    "Mi trova lei, stavolta: sul ballatoio della tenuta del mio Ceppo, che guarda i tetti di Zefiro, un'ora prima dell'alba."
 
     show aede neutra with dissolve
 
@@ -223,7 +223,7 @@ label cap6:
 
     aede "Questa notte, vent'anni fa, io avevo un altro nome."
 
-    "Il cuore mi si ferma. Il giuramento. Il tabù dei tabù: nessun Dignitas rivela la vita di prima. Proclamarla è morte; ascoltarla, forse peggio."
+    "Il giuramento. Nessun Dignitas rivela la vita di prima: proclamarla è morte, ascoltarla forse peggio."
 
     aede "Non l'ho mai detto a nessuno. Mio padre lo sa senza che io l'abbia detto, perché mio padre sa tutto. Ma dirlo... dirlo è un'altra cosa. Dirlo è darlo via."
 
@@ -246,7 +246,7 @@ label cap6:
 
             show aede sorpresa with qdiss
 
-            "Mi fissa. Qualcosa le si scioglie nella linea delle spalle, un nodo vecchio di vent'anni."
+            "Mi fissa, e le spalle le scendono di un dito."
 
             show aede sorriso with dissolve
 
@@ -270,15 +270,15 @@ label cap6:
             $ muovi("aede", "trema")
             "Quando finisce, trema. Io le copro le spalle col mio mantello."
 
-            "E dal buio del cortile, sotto di noi, qualcosa si muove. Una sagoma ferma, grigia, paziente."
+            "Nel cortile, sotto di noi, c'è una sagoma grigia. Ferma da chissà quanto."
 
             show glauco minaccioso with dissolve
 
-            "Glauco Severo. Che guarda il ballatoio. Che ha sentito, o sa senza aver bisogno di sentire."
+            "Glauco Severo guarda il ballatoio. Ha sentito, o sa senza bisogno di sentire."
 
             hide glauco with dissolve
 
-            "Quando riguardo il cortile, non c'è più nessuno. Aede non l'ha visto. Io non dormirò mai più."
+            "Quando riguardo il cortile non c'è più nessuno. Aede non l'ha visto."
 
         "Fermala e offrile il tuo passato":
             $ flag_giuramento = False
@@ -339,7 +339,7 @@ label aede_luna6:
 
         "Prendere una spada di legno e allenarmi accanto a lei, in silenzio":
             $ aede_luna6_esito = "resta"
-            "Prendo una spada dalla rastrelliera. Mi metto al fantoccio accanto. Non dico niente."
+            "Prendo una spada dalla rastrelliera e mi metto al fantoccio accanto, senza dire niente."
             show aede irritata with qdiss
             aede "Il gomito. Lo alzi sempre, quando sei stanc[fin]."
             "Lo abbasso. Andiamo avanti così fino a che la lanterna non comincia a fumare. Lei non mi manda via. Non mi guarda nemmeno."
@@ -355,9 +355,9 @@ label aede_luna6:
 
         "Lasciarle la sala, e andarmene":
             $ aede_luna6_esito = "lascia"
-            "Mi volto. Sulla soglia mi fermo un istante, poi tiro dritto."
+            "Mi volto. Sulla soglia mi fermo, poi tiro dritto."
             show aede triste with qdiss
             aede "...grazie."
-            "Lo dice al fantoccio, non a me. Dietro di me ricominciano le stoccate. Più veloci. Più storte."
+            "Lo dice al fantoccio. Dietro di me ricominciano le stoccate, più veloci e più storte."
 
     return

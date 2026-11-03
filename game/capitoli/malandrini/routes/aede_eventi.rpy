@@ -74,11 +74,11 @@ label impegno_aede:
             aede "...risposta accettabile. L'unica, per la cronaca."
             show aede irritata with qdiss
             aede "E sia chiaro: io non divido. Né le lame, né il posto agli allenamenti, né te. Chi ti ronza intorno, da stanotte, parla con me."
-            "Non mi butta dal ballatoio. Resta, invece. E il resto del semestre, da stanotte, ha una direzione sola."
+            "Non mi butta dal ballatoio. Resta, e da stanotte il semestre ha una direzione sola."
         "«Non ancora. Non sono sicur[fin] di essere pront[fin].»" (peso=True):
             $ impegno_esito = False
             $ congelate.add("aede")
             show aede neutra with qdiss
             aede "Capito. Ritiro la domanda. Mai fatta. Guardia alta, novellin[fin]: l'addestramento continua, il resto no."
-            "Se ne va dritta come una lama. E la piega all'angolo della bocca, stavolta, non c'è."
+            "Se ne va a schiena dritta, e la piega all'angolo della bocca, stavolta, non c'è."
     return

@@ -69,16 +69,16 @@ label att_registri_1:
     scene bg studio_glauco with fade
     "Mezza giornata sui registri delle decime. Gli scrivani della Proprietà mi passano le colonne peggiori: sono [il_t] nuov[fin], e [il_t] nuov[fin] somma."
     "Imparo più della Famiglia da tre registri che da dieci lezioni: chi paga tardi, chi paga troppo, chi non paga e non viene mai segnato."
-    "Il Ceppo di Cardia, per esempio, paga sempre il giorno prima della scadenza. Sempre. Nessuno è così puntuale, se non ha qualcosa da far dimenticare."
-    "A metà pomeriggio uno scrivano anziano, Ottone, mi passa accanto e mi gira il calamaio dall'altra parte. Senza una parola."
+    "Il Ceppo di Cardia, per esempio, paga sempre il giorno prima della scadenza, e nessuno è così puntuale se non ha qualcosa da far dimenticare."
+    "A metà pomeriggio uno scrivano anziano, Ottone, mi passa accanto e mi gira il calamaio dall'altra parte."
     ottone "Mancin[fin], vero? Si vede dalle macchie sul polsino. Qui dentro, ragazz[fin], le macchie parlano prima di te."
     "Lo ringrazio. Lui ha già ripreso a scrivere, e la sua penna non si è mai fermata."
-    "Al tramonto chiudo l'ultima colonna. Quadra. Nessuno me lo dice, ma il giorno dopo trovo sul banco un registro più grosso: alla Proprietà, il premio è il lavoro."
+    "Al tramonto chiudo l'ultima colonna, e quadra. Nessuno me lo dice, ma il giorno dopo trovo sul banco un registro più grosso: alla Proprietà, il premio è il lavoro."
     return
 
 label att_registri_2:
     scene bg studio_glauco with fade
-    "Un errore di riporto da tre Scudi mi costa due ore di ricontrollo. Lo trovo: non era mio. Era di uno scrivano anziano, che mi guarda storto da allora."
+    "Un errore di riporto da tre Scudi mi costa due ore di ricontrollo. Lo trovo, e non era mio: era di uno scrivano anziano, che da allora mi guarda storto."
     "Ottone. Lo stesso del calamaio. Correggo la riga a margine, con la mia mano, e non lo segnalo a nessuno."
     ottone "Hai visto, eh. E non hai parlato."
     pc "Tre Scudi non valgono un nemico."
@@ -86,15 +86,15 @@ label att_registri_2:
     "«I dettagli possiedono le persone», dice l'Arconte. I dettagli, oggi, possiedono soprattutto il mio mal di testa."
     if icaro_affinity >= 4:
         show caino sarcastico with dissolve
-        caino "Mi dicono che frequenti la fumeria di mio fratello. Conta le carte, conta gli Scudi, e adesso — vedo — conta pure te."
-        "Non è una domanda. È una voce aperta nel registro, in attesa di saldo."
+        caino "Mi dicono che frequenti la fumeria di mio fratello. Conta le carte, conta gli Scudi, e adesso, vedo, conta pure te."
+        "Una voce aperta nel registro, in attesa di saldo."
         hide caino with dissolve
     return
 
 label att_registri_3:
     scene bg studio_glauco with fade
     "Giornata di archivio morto: registri di dieci anni fa, inchiostro sbiadito, polvere che sa di cantina."
-    "In fondo a un volume trovo una pagina strappata con cura. Qualcuno, dieci anni fa, non voleva che qualcosa tornasse. Lo segno a mente: nella Proprietà anche i buchi sono voci."
+    "In fondo a un volume trovo una pagina strappata con cura. La segno a mente: nella Proprietà anche i buchi sono voci."
     "La pagina prima porta una firma che conosco: un sigillo col drago, inchiostro verde. Lo stesso drago dell'anello di Caino."
     "La pagina dopo riprende a metà di una frase. «...e pertanto la Proprietà del defunto passa alla Capofamiglia, per intero.»"
     "Del defunto. Dieci anni fa. Non c'è scritto chi."
@@ -107,7 +107,7 @@ label impegno_caino:
     scene bg studio_glauco with fade
     $ lento()
     show caino neutro with dissolve
-    "Lo studio, a tarda sera. Sul tavolo, non i registri ma due corni di idromele, entrambi pieni."
+    "Lo studio, a tarda sera. Sul tavolo niente registri, solo due corni di idromele pieni."
     "Le candele sono consumate fino al piattino. Non ha dormito, e non ha nemmeno finto di provarci."
     caino "Siediti. Ho fatto un inventario, stanotte. Cariche: in ordine. Scudi: in ordine."
     caino "Tu: fuori inventario. E le cose fuori inventario, [player_name], mi tolgono il sonno."
@@ -144,7 +144,7 @@ label caino_luna5:
     scene bg studio_glauco with fade
     "Pomeriggio di neve fitta. Mi chiamano nello studio dell'Arconte con un biglietto di tre parole: «Porta il registro»."
     show caino freddo with dissolve
-    "Caino non è alla scrivania. È in piedi accanto al camino, e nel camino non brucia legna: brucia carta."
+    "Caino è in piedi accanto al camino, e nel camino brucia carta."
     caino "Siediti. Non tu, [player_name]. Lui."
     "Dietro di me, scortato da due Fenrirkard del Ramo di Lenora, entra Ottone. Lo scrivano del calamaio. Le mani gli tremano; le nasconde nelle maniche, che tremano anch'esse."
     caino "Ottone. Dieci anni alla Proprietà. Mia madre ti assunse. Io ti ho confermato. Due firme, due generazioni."
@@ -155,7 +155,7 @@ label caino_luna5:
     ottone "Arconte, io... mi hanno detto che era per l'ordine della Famiglia. Che la Verità voleva solo controllare."
     show caino furioso with vpunch
     caino "LA VERITÀ NON PAGA IN SCUDI D'ORO, OTTONE."
-    "Il pugno sul tavolo fa saltare il calamaio. L'inchiostro si allarga sul legno come una macchia di sangue scuro."
+    "Il pugno sul tavolo fa saltare il calamaio, e l'inchiostro si allarga sul legno fino al bordo."
     "Non l'ho mai sentito alzare la voce, nemmeno contro Druso. Le guardie guardano il soffitto."
     show caino freddo with qdiss
     caino "Perdonami. Ho alzato la voce. È un lusso che concedo a chi non deve più niente alla Proprietà."
@@ -183,12 +183,12 @@ label caino_luna5:
             "Ottone esce senza voltarsi. Sulla soglia si ferma un istante, e mi fa un cenno minimo. Un grazie da tre Scudi."
         "Taci e lascia decidere l'Arconte":
             $ caino_ottone = "tace"
-            "Taccio. È la sua Proprietà, il suo traditore, la sua legge."
+            "Taccio. È la sua Proprietà, e il suo traditore."
             show caino freddo with qdiss
             caino "Il silenzio. Saggio, oggi. Le Fenrirkard sanno cosa fare."
             "Portano via Ottone. Lui non protesta: sa leggere un registro chiuso meglio di me."
     hide caino with dissolve
-    "Restiamo soli. Caino prende il mio registro e lo sfoglia fino alle date incriminate. Le mie date. La mia mano."
+    "Restiamo soli. Caino prende il mio registro e lo sfoglia fino alle date incriminate, scritte di mia mano."
     show caino neutro with dissolve
     caino "Lo vedi, adesso, il disegno? Le copie dicono sei mesi. Le date le hai scritte tu. Al Consiglio basterà un nome nuovo da sacrificare."
     pc "E tu lo darai, quel nome?"
@@ -228,7 +228,7 @@ label caino_luna6:
             caino "Allora il registro è sbagliato. Lo dico io, che non sbaglio registri."
         "Prendergli la penna, e scrivere il mio nome da sol[fin]":
             $ caino_colonna = "scrive"
-            "Gli tolgo la penna di mano. Lui me la lascia, e questo da solo vale più di una firma."
+            "Gli tolgo la penna di mano, e me la lascia."
             "Scrivo il mio nome a metà, a cavallo della riga. Né attivo, né passivo."
             show caino tenero with dissolve
             caino "Fuori colonna. Lo sai che l'inchiostro su una riga non si cancella senza strappare la pagina."

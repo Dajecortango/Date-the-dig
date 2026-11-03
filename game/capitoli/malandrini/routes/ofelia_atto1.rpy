@@ -12,28 +12,28 @@ label att_corte_1:
         "Mi accorgo troppo tardi che una servetta ci osserva dal corridoio. Domani Aede saprà che sono passat[fin] alla serra."
     "L'aria sa di terra umida e di brace. Sotto il pavimento corrono i tubi caldi di Glauco: d'inverno, qui dentro, è sempre una primavera a pagamento."
     ofelia "Il quarto da sinistra mi ha dedicato un sonetto. Il terzo, un cavallo. Il cavallo era più eloquente."
-    "Il primo della fila fa un passo avanti e si inchina troppo. Lei aspetta che si rialzi, poi gli porge il dorso della mano. Non per il bacio: per congedarlo."
+    "Il primo della fila fa un passo avanti e si inchina troppo. Lei aspetta che si rialzi, poi gli porge il dorso della mano. Prima che lui ci arrivi, l'ha già ritirata."
     ofelia "Grazie. Il prossimo."
     if "ofelia_ev1" in eventi_visti:
-        "Mi rimetto in fila, per abitudine. Ofelia finge di non avermi visto. I pretendenti dietro di me non capiscono perché le trema un angolo della bocca."
+        "Mi rimetto in fila, per abitudine, e Ofelia finge di non avermi visto. I pretendenti dietro di me non capiscono perché le trema un angolo della bocca."
     else:
-        "Il prossimo sono io. Mi accorgo che i pretendenti dietro di me trattengono il fiato, curiosi di vedermi fallire."
+        "Il prossimo sono io. I pretendenti dietro di me si sporgono per vedermi fallire."
     menu:
         "Tocca a me: mi guarda e aspetta."
         "«Il tuo giardino è splendido, Ofelia. Quasi quanto te.»":
             $ ofelia_affinity -= 1
             show ofelia rabbia with qdiss
             ofelia "Quasi. Che parola generosa. Prendila con te e cedi il posto al prossimo."
-            "Alle mie spalle qualcuno sospira di sollievo. Un concorrente in meno."
+            "Alle mie spalle qualcuno sospira di sollievo."
         "«Non ti dirò niente di bello. Hai già sentito tutto.»":
             $ ofelia_affinity += 1
             show ofelia compiaciuta with qdiss
             ofelia "...e il bello è che è vero. Resta pure in fila. In fondo, ma resta."
-            "Il poeta del sonetto mi fulmina con lo sguardo. Ho appena rubato la sua unica battuta."
+            "Il poeta del sonetto mi guarda storto: gli ho appena rubato l'unica battuta."
         "Resta in silenzio a guardare i fiori":
             show ofelia neutra with qdiss
             ofelia "Almeno non mi hai rubato l'aria. Già qualcosa."
-            "Indico un fiore blu, chiuso come un pugno. Lei segue il mio dito e, per un istante, dimentica la fila."
+            "Indico un fiore blu, chiuso come un pugno. Lei segue il mio dito e dimentica la fila."
             ofelia "Quello l'ha piantato mio padre, il giorno che sono stata adottata. Non è mai fiorito, ma lo teniamo per ostinazione."
     return
 
@@ -46,8 +46,8 @@ label att_corte_2:
     "Oggi è lei a muoversi. Attraversa la serra con un guanto in mano, e un giovane damerino le inciampa dietro, tutto occhi."
     if route_seconda == "aede":
         $ aede_sospetto += 1
-        "In corridoio sento passare il mio nome tra due ancelle. La voce si spanderà rapidamente e Aede ha l'udito fine."
-    ofelia "Uno dei miei corteggiatori sostiene di aver combattuto un orso per me. Chiaramente è una bugia. Il mio compito è capire fino a che punto lui sia disposto a mentire."
+        "In corridoio sento passare il mio nome tra due ancelle. La voce farà in fretta, e Aede ha l'udito fine."
+    ofelia "Uno dei miei corteggiatori sostiene di aver combattuto un orso per me. È una bugia: voglio vedere fin dove arriva."
     "Il damerino si chiama Tullio, a quanto dice lui stesso, tre volte in un minuto. Ha la manica strappata con molta cura."
     "Ofelia lascia cadere il guanto sul vialetto. Lui si precipita a raccoglierlo, e glielo porge in ginocchio come una reliquia."
     ofelia "Vedi? Riporta. Questo almeno lo sa fare."
@@ -64,7 +64,7 @@ label att_corte_2:
             ofelia "Esatto! Tieni gli occhi dove servono, tu."
             show ofelia neutra with qdiss
             ofelia "Era un gatto. Non dirglielo."
-            "Tullio non ha capito niente. Ofelia gli restituisce il guanto, gentile, e lo congeda con una pacca sulla testa, come farebbe con un cane."
+            "Tullio non ha capito niente. Ofelia gli restituisce il guanto, gentile, e lo congeda con una pacca sulla testa."
         "Svignatela prima che ti tiri in mezzo":
             show ofelia neutra with qdiss
             ofelia "Prudente. Non è una virtù che apprezzo, ma almeno è onesta."
@@ -81,7 +81,7 @@ label att_corte_3:
     if route_seconda == "aede":
         $ aede_sospetto += 1
         "Mi giunge voce che Aede ha chiesto dove passo i pomeriggi. Qualcuno ha risposto: in serra."
-    ofelia "Tutti mi chiedono cosa voglio. Nessuno si domanda perché lo chiedo a voce così alta. Fa parte del gioco, immagino."
+    ofelia "Tutti mi chiedono cosa voglio. Nessuno si domanda perché li lascio chiedere a voce così alta."
     ofelia "Aede risponde con la spada. Ascadeo con una battuta e una porta che sbatte. Io poto le rose. Ognuno ha il suo modo di non parlare con nostro padre."
     "Lo stelo cade nel cesto. Lei lo segue con gli occhi fino in fondo, delusa: si è arreso troppo presto."
     menu:
@@ -99,7 +99,7 @@ label att_corte_3:
         "Aiutala a raccogliere gli steli tagliati":
             show ofelia neutra with qdiss
             ofelia "Ti sporchi le mani per una rosa che non è tua. Strano modo di corteggiare."
-            "Una spina mi entra nel pollice. Ofelia la guarda, poi guarda me, e non dice niente. Mi passa un fazzoletto nero."
+            "Una spina mi entra nel pollice. Ofelia la guarda, poi guarda me, e mi passa un fazzoletto nero."
     return
 
 
@@ -109,13 +109,13 @@ label ofelia_ev1:
     scene bg sala_svelo with fade
     show ofelia neutra with dissolve
     "Ofelia mi ha fatto chiamare in serra con un biglietto di tre parole: «Vieni. Guarda. Taci.»"
-    "Al centro del vialetto, un giovane vestito in modo elegante stringe un mazzo di rose bianche. Le mani gli tremano."
+    "Al centro del vialetto un giovane vestito a festa stringe un mazzo di rose bianche, e il mazzo trema."
     ofelia "Dicevi, Levi? Ripeti pure. La parte sul mio sorriso."
     "Lui ripete. Lei lo lascia finire, poi inclina la testa, come davanti a un quadro storto."
     ofelia "Ti sei preparato davanti allo specchio. Si sente dalle pause. Anche lo specchio, poveretto, ti ha detto di no."
-    "Dal fondo della serra qualcuno soffoca una risata. Poi un'altra. Il ragazzo diventa rosso fino alle orecchie."
+    "Dal fondo della serra arrivano due risate soffocate. Il ragazzo diventa rosso fino alle orecchie."
     ofelia "Le rose bianche, poi. Sono i fiori dei funerali, a Zefiro. Forse sapevi qualcosa che io ignoro."
-    "Levi apre la bocca. Non ne esce niente. Le rose, nel suo pugno, cominciano a perdere petali."
+    "Levi apre la bocca e non ne esce niente. Le rose, nel suo pugno, cominciano a perdere petali."
     menu:
         "Ofelia mi lancia un'occhiata di lato. Aspetta di vedere da che parte sto."
         "Ridi con gli altri: in fondo è teatro":
@@ -135,7 +135,7 @@ label ofelia_ev1:
             "Si china a raccogliere una rosa caduta e la annusa, distratta."
             ofelia "Levi non tornerà. Se ti chiedono com'è andata, di' che il fiore era profumato. Questo almeno è vero."
     "Più tardi, uscendo, incrocio i servi che spazzano il vialetto. Raccolgono petali bianchi con la stessa cura con cui si raccolgono i cocci."
-    "Ofelia non si è voltata a guardarmi andare via. Ma il biglietto di tre parole, ripiegato, è ancora nella mia tasca. Non lo butterò mai."
+    "Ofelia non si è voltata a guardarmi andare via. Il biglietto di tre parole, ripiegato, è ancora nella mia tasca."
     return
 
 
@@ -146,13 +146,13 @@ label ofelia_ev2:
     show ofelia neutra with dissolve
     "Ofelia mi aspetta alla porta di una sala illuminata, avvolta in un velo scuro che fa sembrare la cena un funerale elegante."
     ofelia "Ho una cena. Tu mi offri il braccio, sorridi e non fai domande. Fino al dolce."
-    "A capotavola siede un uomo dall'anello pesante e dal sorriso insistente. Lui è il più alto in grado tra i suoi corteggiatori."
+    "A capotavola siede un uomo dall'anello pesante e dal sorriso insistente: il più alto in grado tra i suoi corteggiatori."
     "Non mi saluta, guarda il mio braccio sotto il suo e calcola quanto valgo."
     ofelia "Un amico. Uno che da mesi non sopporta di non avermi."
     show ofelia compiaciuta with qdiss
-    "Lei mi sfiora la manica con la punta delle dita. Troppo lentamente per essere vero. Troppo bene per non essere recitato."
+    "Mi sfiora la manica con la punta delle dita, troppo lentamente per essere vero."
     "Si mangia fagiano in salsa di more. L'uomo con l'anello racconta di un affare con il Ceppo di Glauco, e lo racconta guardando solo lei."
-    "Ofelia ride al momento giusto. Mai un attimo prima, mai uno dopo. Sotto il tavolo, la sua scarpa preme sulla mia: ora tocca a me."
+    "Ofelia ride al momento giusto, mai un attimo prima. Sotto il tavolo la sua scarpa preme sulla mia: ora tocca a me."
     ofelia "Mio padre dice che hai il fiuto per i buoni affari. Peccato che tu non abbia quello per le cause perse."
     menu:
         "A metà cena l'uomo aspetta una mia mossa. Ofelia, anche."
@@ -173,7 +173,7 @@ label ofelia_ev2:
             with hpunch
             ofelia "Siediti. Ora. Mi hai fatta passare per una che deve chiedere scusa a un ospite."
             "L'uomo con l'anello si alza, gentile come un coltello, e le offre il suo braccio. Lei lo accetta e non si volta."
-    "Il dolce arriva lo stesso: una torta di castagne che nessuno tocca. La guardo raffreddarsi, e penso che Ofelia sia fatta di regole che non ha mai scritto."
+    "Il dolce arriva lo stesso: una torta di castagne che nessuno tocca. La guardo raffreddarsi."
     return
 
 
@@ -199,14 +199,14 @@ label interludio_ofelia_1:
         "«Nessuna delle due. Glauco non dorme.»":
             show ofelia compiaciuta with qdiss
             ofelia "...questo è quasi divertente. Hai ragione, in effetti. Non l'ho mai visto dormire."
-            "Per un istante ride, piano, con la cote ferma a mezz'aria. Poi ricomincia ad affilare, più svelta."
+            "Ride, piano, con la cote ferma a mezz'aria, e ricomincia ad affilare più svelta."
         "Prendi la cote e affila la lama in silenzio":
             show ofelia imbarazzata with qdiss
-            "La pietra scivola male, le prime volte. Ofelia mi corregge il polso con due dita, senza una parola."
+            "La pietra scivola male, le prime volte. Ofelia mi corregge il polso con due dita."
             ofelia "Più lento. Il filo non si conquista: si convince."
             show ofelia neutra with qdiss
             "Lavoriamo così per un'ora, spalla contro spalla. Non le ho mai sentito un tono così basso."
-    "Fuori suona mezzogiorno. Ofelia arrotola il telo con le lame dentro, veloce, come chi l'ha fatto mille volte."
+    "Fuori suona mezzogiorno. Ofelia arrotola il telo con le lame dentro, in tre gesti."
     ofelia "Questa cosa non è mai successa. Io ero in serra, tu eri a lezione. Le lame si sono affilate da sole."
     hide ofelia with dissolve
     "Esco dal corridoio di servizio. Ho le dita nere di olio e nessuna voglia di lavarle."
@@ -236,7 +236,7 @@ label interludio_ofelia_2:
         "Leggi solo la cifra, non la nota":
             show ofelia neutra with qdiss
             ofelia "Tutto qui? Una cifra? Ascadeo scrive sempre una nota. Gli piace sentirsi spiritoso."
-            "Mi strappa la lettera di mano e legge da sola. Poi la piega in quattro, lentamente, e non commenta."
+            "Mi strappa la lettera di mano, la legge da sola e la piega in quattro, senza commenti."
         "Bruciala con la torcia senza leggerla":
             show ofelia rabbia with qdiss
             ofelia "Che gesto teatrale. Adesso dovrò chiederglielo a voce, e lui riderà per una settimana."
@@ -258,7 +258,7 @@ label specchio_ofelia:
     "Ofelia è davanti allo specchio con tre vestiti appesi a un gancio. Non si volta quando entro."
     ofelia "Ricevimento dai Lomor, stasera. Allora: il verde, il nero o il rosso? Dimmi la verità."
     ofelia "Prima di rispondere, sappi che la verità non mi interessa. Mi interessa vedere se hai il coraggio di dirla."
-    "Prende il verde, se lo appoggia addosso. Poi il nero. Il rosso non lo tocca: lo guarda soltanto, come una cosa che non si è ancora meritata."
+    "Prende il verde e se lo appoggia addosso, poi il nero. Il rosso non lo tocca: lo guarda, come una cosa che non si è ancora meritata."
     menu:
         "Lo specchio riflette lei, poi me dietro di lei. Aspetta."
         "«Il rosso. Ma solo se smetti di guardarlo come se dovessi chiedergli il permesso.»":
@@ -266,7 +266,7 @@ label specchio_ofelia:
             $ ofelia_affinity += 1
             show ofelia compiaciuta with qdiss
             ofelia "Il permesso. A un vestito."
-            "Si volta. Per un istante sembra davvero offesa. Poi stacca il rosso dal gancio senza guardarlo più."
+            "Si volta, e sembra davvero offesa. Stacca il rosso dal gancio senza guardarlo più."
             ofelia "Se stasera qualcuno mi chiede chi l'ha scelto, dirò che è stato un errore. Il tuo."
         "«Stai bene con tutti e tre.»":
             $ ofelia_specchio_esito = "tutti"
@@ -279,7 +279,7 @@ label specchio_ofelia:
             show ofelia imbarazzata with qdiss
             "Ride. Una risata corta, sorpresa, che le sfugge prima che possa sistemarla."
             ofelia "Lo specchio mi conosce da ventinove anni. E ancora non ha capito che il nero lo metto quando ho paura."
-            "Si accorge con sorpresa di averlo detto. Prende il nero e se lo appoggia addosso, in fretta, come per coprire la frase."
+            "Si ferma. Prende il nero e se lo appoggia addosso, in fretta, come per coprire la frase."
     "Uscendo, passo accanto ai limoni. Uno è caduto e nessuno l'ha raccolto. In casa di Glauco, nemmeno la frutta cade per caso."
     return
 
@@ -290,7 +290,7 @@ label ballo_pretendenti:
     scene bg sala_svelo with fade
     "Ricevimento di fine Luna nella serra di Glauco. Candele tra le foglie, musica d'archi, venti pretendenti che fingono di non contarsi."
     show ofelia compiaciuta with dissolve
-    "Ofelia mi prende sottobraccio a metà sala, come se ci fossimo dati appuntamento. Ma non è così."
+    "Ofelia mi prende sottobraccio a metà sala, come se ci fossimo dati appuntamento."
     ofelia "Gioco nuovo. Stasera ne mando a casa uno, davanti a tutti. Lo scegli tu."
     ofelia "Il biondo che recita versi non suoi. Il nobile con la spilla di sua madre. Quello in fondo, che mi fissa da tre Lune e non ha mai aperto bocca."
     "Ascadeo, dall'altro lato della sala, apre il suo libretto. Ha già una colonna per il mio nome."
@@ -311,7 +311,7 @@ label ballo_pretendenti:
             $ ofelia_ballo_esito = "me"
             $ ofelia_affinity += 1
             show ofelia imbarazzata with qdiss
-            "Per un istante non dice niente. Gli archi continuano a suonare, ignari."
+            "Non dice niente. Gli archi continuano a suonare."
             ofelia "Non ci riesco... Sarebbe la prima volta. Non ti darò questa soddisfazione."
             "Mi lascia il braccio e se ne va verso i pretendenti. Ma per tutta la sera non ne rimanda a casa nessuno."
     "In fondo alla sala Ascadeo chiude il libretto con uno scatto. Accanto al mio nome, credo, ha scritto un punto interrogativo."

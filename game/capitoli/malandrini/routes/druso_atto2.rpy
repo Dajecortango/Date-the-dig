@@ -5,7 +5,7 @@
 label druso_ev3:
     scene bg vicoli_zefiro with fade
     show druso neutro at left with dissolve
-    "Mi trascina «a vedere una cosa» nei vicoli bassi di Zefiro. La cosa è un esattore dei tabarri Verdi che spreme un lanternaio — il mio lanternaio, quello che fa credito a noi figli di Briseide."
+    "Mi trascina «a vedere una cosa» nei vicoli bassi di Zefiro. La cosa è un esattore dei tabarri Verdi che spreme un lanternaio: il mio, quello che fa credito a noi figli di Briseide."
     "Pomeriggio grigio. I balconi gocciolano neve sciolta. Nessuno guarda, perché a Zefiro guardare costa."
     druso "Brutto affare. Andiamocene. Non è il nostro Ceppo, non è il nostro problema, e io ci tengo ai miei denti."
     druso "Te li ho mostrati, i miei denti. Sono tutti lì. È un patrimonio di famiglia."
@@ -16,13 +16,13 @@ label druso_ev3:
             $ druso_affinity += 2
             $ flag_druso_coraggio = True
             with vpunch
-            "Non aspetto. Due passi, il braccio dell'esattore, la torsione che Aede insegna ai novellini. E poi — dal nulla — un ruggito."
+            "Due passi, il braccio dell'esattore, la torsione che Aede insegna ai novellini. E dal nulla un ruggito."
             show druso ghigno with qdiss
             druso "TESCHIO, BRUTTO STRACCIONE!"
-            "Druso. Il codardo dichiarato. Addosso all'esattore con tutti i suoi settanta chili, la barba e nessun piano."
+            "Druso, il codardo dichiarato, addosso all'esattore con tutti i suoi settanta chili, la barba e nessun piano."
             with hpunch
             "Rotolano nel fango. Druso morde. Proprio così: morde un orecchio, e l'esattore scappa urlando verso il canale."
-            "Dopo, mentre il lanternaio ci benedice in tre dialetti, Druso si guarda le mani come se non le riconoscesse."
+            "Dopo, mentre il lanternaio ci benedice in tre dialetti, Druso si annusa le mani."
             show druso imbarazzato with qdiss
             druso "...non dirlo a nessuno. Il coraggio mi rovina la reputazione peggio della gratitudine."
             druso "E se lo dici, di' che l'ho fatto per noia. Che il mio corpo si è mosso da solo."
@@ -31,8 +31,8 @@ label druso_ev3:
         "Dagli retta e andate via":
             $ druso_affinity -= 1
             show druso serio with qdiss
-            "Ce ne andiamo. Druso non fa battute per tutta la strada. È la cosa più vicina al disprezzo che gli abbia mai visto addosso — e non so se è per me o per sé."
-            "Al ponte si ferma, guarda indietro verso il vicolo, e per un attimo sembra sul punto di tornare."
+            "Ce ne andiamo, e per tutta la strada Druso non fa battute. È la cosa più vicina al disprezzo che gli abbia mai visto addosso, e non so se è per me o per sé."
+            "Al ponte si ferma e guarda indietro verso il vicolo, un piede già girato."
             druso "...niente. Mi era sembrato di aver dimenticato qualcosa."
     return
 
@@ -49,7 +49,7 @@ label druso_int3:
     pc "Il codardo dichiarato vuole imparare a combattere?"
     show druso irritato with qdiss
     druso "Il codardo dichiarato vuole smettere di combattere a morsi. È poco elegante. E l'orecchio di quello aveva un sapore che sento ancora."
-    "Gli mostro la presa. Lui sbaglia. Lo faccio di nuovo. Sbaglia peggio, ma ride."
+    "Gli mostro la presa e lui sbaglia. Gliela rimostro: sbaglia peggio, ma ride."
     show icaro furbo at right with dissolve
     "Una voce dal soppalco. Icaro, seduto a gambe incrociate sulle travi, la pipa spenta tra i denti."
     icaro "Interessante. Mio fratello sveglio prima di mezzogiorno, sobrio, e in palestra. Devo avvisare un Arvale?"
@@ -69,7 +69,7 @@ label druso_int3:
             "Osserva. Per mezz'ora corregge Druso dal bordo: il peso, il gomito, il piede. Ha ragione su tutto, ed è insopportabile."
             druso "Ecco perché madre lo adora. Ha sempre ragione e non suda mai."
         "Ignoralo e continua la lezione":
-            "Continuo. Druso esita, poi torna alla presa, davanti al fratello. Senza battute."
+            "Continuo. Druso esita, poi torna alla presa davanti al fratello e senza battute."
             show icaro sereno with qdiss
             icaro "...hm. Non me l'aspettavo."
             "Icaro se ne va senza dire altro. Lascia la porta aperta, apposta."
@@ -105,7 +105,7 @@ label druso_ev4:
             druso "...ho paura del buio, ecco. Dillo e ti butto di sotto."
             druso "Appena adottati mia madre ci chiudeva in cantina, uno alla volta. Per temprarci. Caino ne usciva muto. Icaro ne usciva con qualcosa in tasca."
             druso "Io ne uscivo cantando ad alta voce, per farmi coraggio. È lì che ho imparato a rimare."
-            "Resto con lui fino all'alba, a un passo, senza dire niente. Il sole sorge sul suo ghigno: per una volta stanco, e vero."
+            "Resto con lui fino all'alba, a un passo, senza dire niente. Il sole sorge sul suo ghigno, stanco per una volta."
         "Prendilo in giro: «Il coraggioso Druso e le sue ombre»":
             $ druso_passo_falso()
             show druso irritato with qdiss
@@ -116,7 +116,7 @@ label druso_ev4:
             show druso imbarazzato with qdiss
             druso "...grazie. Non lo dirò mai più. Né a te, né alla taverna."
             "L'ombra era un gatto, lo sappiamo tutti e due. Nessuno dei due lo dice."
-            "Il turno finisce all'alba. Non succede niente, ed è la cosa più importante."
+            "Il turno finisce all'alba e non succede niente."
     return
 
 
@@ -131,7 +131,7 @@ label druso_luna5:
     druso "Tu sta' vicin[fin]. La spalla del poeta deve essere a portata di gomito. E di boccale, se vinco."
     "Lo sfidante è Epiro, Filius del Ramo di Iperione. Mantello pulito, voce baritonale, mani che non hanno mai alzato un boccale."
     "Druso apre la sfida con una strofa sulle vergini del Convitto di Proserpina. La sala ruggisce. Epiro sorride appena."
-    "Poi tocca a lui. Non ride, non urla. Recita piano."
+    "Tocca a lui. Non ride, non urla, recita piano."
     "«Poca arguzia il figlio di Lenora, non è nessuno che la onora. Grida rime nei bordelli: le sa dire solo a quelli.»"
     with hpunch
     "La sala esplode. Epiro continua, sottovoce."
@@ -154,7 +154,7 @@ label druso_luna5:
             show druso ghigno with qdiss
             druso "...e la chiusa la tengo io, grazie. Epiro, caro: la tua musa è tua cugina, per questo nessuno la avvicina."
             with vpunch
-            "Il tavolo trema. Epiro paga il giro senza una parola."
+            "Il tavolo trema. Epiro paga il giro."
             druso "Mi hai rubato l'attacco, linguaccia. Te lo perdono solo perché era sporco come piace a me."
             "Sulla lavagna, qualcuno cancella le quote. Icaro, dal fondo, alza la pipa verso di noi: ha perso, e sembra contento."
         "Prendilo per il braccio: «Andiamo. Non ne vale la pena.»":
@@ -172,7 +172,7 @@ label druso_luna5:
             druso "Una strofa. Una sola. Epiro, il tuo Ramo ha più eunuchi che lance."
             "Fiacca. La sala ride lo stesso, per pietà. Druso paga il giro."
             druso "Comodo, il tuo silenzio. Sedut[fin] in prima fila a guardarmi annegare."
-            "Ma all'uscita mi aspetta. Non dice niente. Mi cammina accanto fino al ponte, come se dovessi ancora rispondere."
+            "All'uscita però mi aspetta, e senza dire niente mi cammina accanto fino al ponte, come se dovessi ancora rispondere."
     return
 
 
@@ -182,7 +182,7 @@ label druso_fiaccolata:
     scene bg cala_notte with fade
     show druso ghigno at left with dissolve
     "La Calà, trecento gradini di lanterne. Druso li guarda come un palco."
-    "Coppie ovunque, mani intrecciate, sussurri. Qualche Figlio di Glauco finge di essere lì per caso."
+    "Coppie ovunque, mani intrecciate. Qualche Figlio di Glauco finge di essere lì per caso."
     druso "Guarda quanta gente innamorata. Mi viene un'ode. Si intitola «Trecento gradini per arrivare a letto stanchi»."
     druso "La leggenda dice mano nella mano. Io dico che la leggenda non ha mai visto le TUE mani: ruvide come la mia poesia."
     "Ma la mano la tende lui. Per trecento gradini non dice una sola porcheria: cammina, stringe le mie dita, e ogni venti gradini si gira a controllare che io voglia scendere ancora."
@@ -260,7 +260,7 @@ label druso_luna6:
 label druso_udienza:
     scene bg esterno_neve with fade
     "Rocca Tempesta, cortile dei carri. La neve è battuta, sporca di fango e di paglia. Druso mi ha chiesto di aspettarlo qui. «Fuori. Lontano dalle finestre.»"
-    "Sua madre l'ha convocato. Non all'udienza dei Figli, quella con la grata e la fila. Da solo. Nella stanza dove Lenora riceve chi deve qualcosa."
+    "Sua madre l'ha convocato, e non all'udienza dei Figli, quella con la grata e la fila: da solo, nella stanza dove Lenora riceve chi le deve qualcosa."
     "Passa una campana intera. Un carro parte, un altro arriva. Conto i corvi sulle merlature: undici, poi nove."
     show druso serio at left with dissolve
     "Esce senza boccale e senza ghigno. Cammina dritto, troppo dritto, come chi ha bevuto e non vuole farlo vedere. Solo che non ha bevuto."
@@ -282,7 +282,7 @@ label druso_udienza:
             $ druso_udienza_esito = "chiesto"
             druso "Che ho una vita di rime e zero di Virtù. Che il Ramo ha bisogno di un figlio, non di un giullare."
             druso "E che Caino, alla mia età, aveva già una carica. Lo dice sempre. Ormai è una rima obbligata."
-            "Ride. Male, ma ride. Poi si alza e si scrolla la neve dai calzoni."
+            "Ride male, ma ride. Si alza e si scrolla la neve dai calzoni."
             druso "Non chiedermelo più, però. Le domande sincere mi fanno venire l'orticaria."
         "Siediti accanto a lui e aspetta":
             $ druso_udienza_esito = "aspettato"
@@ -291,5 +291,5 @@ label druso_udienza:
             druso "Lo sai cosa mi ha chiesto? Se ho qualcuno. Qualcuno di serio."
             druso "Le ho detto di no. Le ho mentito, credo. O forse no. Non lo so ancora."
             "Si alza per primo. Non mi guarda, ma mi porge la mano per tirarmi su."
-    "Torniamo verso Zefiro insieme. A metà strada riprende a cantare, stonato, una canzone oscena sulla moglie di un Eparca. Sta meglio."
+    "Torniamo verso Zefiro insieme. A metà strada riprende a cantare, stonato, una canzone oscena sulla moglie di un Eparca."
     return

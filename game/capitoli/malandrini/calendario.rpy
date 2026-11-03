@@ -65,9 +65,9 @@ init -10 python:
     CAL_FALLBACK = {
         "studio": "Pagine, stemmi, date. La storia della Famiglia non finisce mai; la mia pazienza sì.",
         "studio_p": "Pagine, stemmi, date. La storia della Famiglia non finisce mai; la mia pazienza sì.",
-        "riti": "Brodo, cucine, voci. Il Ceppo gira anche senza di me. Ma gira meglio con me.",
+        "riti": "Brodo, cucine, voci. Il Ceppo gira anche senza di me, ma con me gira meglio.",
         "citta": "Zefiro d'ordinanza: commissioni, saluti, scorciatoie. Nessuna lama nell'ombra, oggi.",
-        "ceppo_sera": "Il focolare, le scodelle, Vanna che parla sopra a tutti. Una sera di casa, niente di più.",
+        "ceppo_sera": "Il focolare, le scodelle, Vanna che parla sopra a tutti: una sera di casa.",
     }
 
     # Pool esaurito nel territorio di un personaggio: la riga cambia con
@@ -81,25 +81,25 @@ init -10 python:
             "Ripresa dopo ripresa. A un certo punto Aede smette di correggermi e comincia a contrattaccare: è una promozione.",
             "Ci alleniamo senza parlare. Lei para, io affondo, e quando sbaglio sorride prima di ricordarsi di non farlo.")),
         "scudo": ("druso", 5, 9, (
-            "Druso mi usa come esempio di cosa non fare. Tre volte. Con commento in rima.",
-            "Druso mi mette a terra e mi tende la mano nello stesso gesto. Poi la ritira, ovviamente. Poi me la ridà.",
-            "«Linguaccia, con me.» Druso mi sceglie come compagno di lotta davanti a tutti. Nessuno osa ridere. Quasi nessuno.")),
+            "Druso mi usa tre volte come esempio di cosa non fare, con commento in rima.",
+            "Druso mi mette a terra e mi tende la mano nello stesso gesto. La ritira, ovviamente, e poi me la ridà.",
+            "«Linguaccia, con me.» Druso mi sceglie come compagno di lotta davanti a tutti, e ridono in pochi.")),
         "taverna": ("druso", 5, 9, (
             "Druso declama al tavolo grande. Io bevo a quello piccolo. Nessuno dei due finge di non saperlo.",
             "A metà serata Druso mi dedica un verso osceno. La taverna applaude. Credo sia un onore.",
-            "Druso mi tiene il posto accanto al suo, col boccale già pieno. «Il mio pubblico migliore», dice. A voce alta.")),
+            "Druso mi tiene il posto accanto al suo, col boccale già pieno. «Il mio pubblico migliore», dice a voce alta.")),
         "fumeria": ("icaro", 4, 7, (
             "Icaro vince. Io guardo. Lui non guarda me: nel guardarmi non ci sono Scudi da guadagnare.",
-            "Icaro sposta il posacenere per farmi spazio. Un gesto minimo. Da lui, un trattato.",
-            "Icaro mi passa la pipa senza dire niente, e senza contare quanto ne prendo. Non l'ho mai visto farlo con nessuno.")),
+            "Icaro sposta il posacenere per farmi spazio. Da lui, un trattato.",
+            "Icaro mi passa la pipa senza dire niente, e non conta quanto ne prendo.")),
         "registri": ("caino", 6, 10, (
             "Colonne, decime, inchiostro. Caino passa dietro di me senza fermarsi. Per ora sono una penna come le altre.",
             "Caino si ferma alle mie spalle, legge tre righe, ne corregge una. Poi ci ripensa e rimette la mia.",
             "Caino mi lascia il suo calamaio e il suo posto al tavolo grande. «I dettagli», dice. Sa che ricordo il resto.")),
         "corte": ("ofelia", 4, 8, (
             "La serra, i pretendenti in fila. Ofelia ne congeda tre con una frase sola. Io sono il quarto, e alla frase non arrivo nemmeno.",
-            "Ofelia mi concede un giro di serra al suo fianco. Non mi parla. Ma non congeda nessuno finché non esco.",
-            "Ofelia manda via tutti gli altri prima del tramonto. Restiamo noi, i fiori d'inverno e un silenzio che sembra scelto.")),
+            "Ofelia mi concede un giro di serra al suo fianco. Non mi parla, ma non congeda nessuno finché non esco.",
+            "Ofelia manda via tutti gli altri prima del tramonto. Restiamo noi e i fiori d'inverno. Non dice niente, e non se ne va.")),
     }
     CAL_FALLBACK_AFF["spada_p"] = CAL_FALLBACK_AFF["spada"]
 
@@ -214,7 +214,7 @@ init -10 python:
             elif aff >= bassa[0]:
                 righe.append((nome, bassa[1]))
             else:
-                righe.append((nome, "Vi conoscete di vista. Forse."))
+                righe.append((nome, "Forse vi conoscete di vista."))
 
         riga("Aede", "aede", store.aede_affinity,
              ((8, "Ti tiene il posto accanto agli allenamenti. Negherebbe."),
@@ -226,7 +226,7 @@ init -10 python:
         if "adunanza" in store.eventi_visti:
             riga("Caino", "caino", getattr(store, "caino_fiducia", 0),
                  ((10, "Ti versa l'idromele senza chiedere."),
-                  (6, "Ricorda il tuo nome. E tu ricordi i suoi dettagli."),
+                  (6, "Ricorda il tuo nome, e tu i suoi dettagli."),
                   (2, "Ti osserva come una moneta trovata per terra.")))
         riga("Druso", "druso", store.druso_affinity,
              ((9, "Ti chiama «linguaccia» davanti a tutti. È affetto."),
@@ -242,7 +242,7 @@ init -10 python:
         riga("Ofelia", "ofelia", store.ofelia_affinity,
              ((8, "Ti concede un ballo che rifiuta a tutti. Non lo dirà mai."),
               (4, "Ricorda il tuo nome. Lo usa come una lama."),
-              (1, "Ti conta tra i pretendenti. In fondo alla fila.")),
+              (1, "Ti conta tra i pretendenti, in fondo alla fila.")),
              "Ha aspettato una volta. Non aspetterà la seconda."
              if store.ofelia_mancati == 1 else None)
         return righe
@@ -250,20 +250,20 @@ init -10 python:
     # Diario a route attiva: lontano / vicino / raggiunto il finale buono.
     DIARIO_PROGRESSO = {
         "aede": ("Ti ha scelto. Non si fida ancora della scelta.",
-                 "Abbassa la guardia con te. Solo con te, e solo un poco.",
+                 "Con te abbassa la guardia, e solo un poco.",
                  "Ti guarda le spalle senza che tu lo chieda. Il Nord lo chiama giuramento."),
         "caino": ("Ti tiene vicino. Vicino non vuol dire dentro.",
                   "Ti lascia leggere i registri che non mostra a nessuno.",
-                  "Ti affiderebbe la Proprietà. E qualcosa di più fragile."),
+                  "Ti affiderebbe la Proprietà, e dormirebbe lo stesso."),
         "druso": ("Ti dedica i versi buoni. Gli altri li tiene per la piazza.",
-                  "Smette di recitare quando arrivi. È la cosa più vera che fa.",
+                  "Quando arrivi smette di recitare. Poi se ne accorge e ricomincia.",
                   "Ha scritto un verso che non legge a nessuno. Parla di te."),
-        "icaro": ("Ti ha fatto posto al tavolo. Non ancora nelle sue carte.",
-                  "Ti mostra una mano prima di giocarla. Non lo fa con nessuno.",
+        "icaro": ("Ti ha fatto posto al tavolo, non ancora nelle sue carte.",
+                  "Ti mostra una mano prima di giocarla.",
                   "Ha smesso di contare quello che gli devi. Conta i giorni senza di te."),
         "ofelia": ("Ti ha scelto davanti alla serra. Aspetta di vedere se reggi.",
                    "Ti chiama per nome quando nessuno ascolta.",
-                   "Ha congedato l'ultimo pretendente. Non ti dice perché. Non serve."),
+                   "Ha congedato l'ultimo pretendente e non ti dice perché."),
     }
 
     def cal_rapporto_di(char):

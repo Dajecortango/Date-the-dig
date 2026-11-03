@@ -76,7 +76,7 @@ init python:
         ("lenora", "Personaggi", "Lenora", ("udienza_lenora", "att_studio_3"),
          "Lenora Dignitas, Capofamiglia a vita, madre di Caino, Druso e Icaro. "
          "Regna da prima che Caino nascesse. Riceve i Figli dell'anno da dietro "
-         "una grata: non li guarda, li ascolta.",
+         "una grata, senza guardarli.",
          [(("att_studio_3",),
            "Il Ballo delle Candele Spente fu un'idea sua: spense le candele, e "
            "con le candele una congiura intera.")]),
@@ -86,8 +86,8 @@ init python:
          "raddrizza come un girasole.",
          []),
         ("ottone", "Personaggi", "Ottone", ("att_registri_1", "att_registri_2"),
-         "Scrivano anziano della Proprietà. Gira il calamaio ai mancini senza una "
-         "parola: lì dentro, dice, le macchie parlano prima di te.",
+         "Scrivano anziano della Proprietà. Gira il calamaio ai mancini: lì "
+         "dentro, dice, le macchie parlano prima di te.",
          []),
 
         # --- Luoghi ----------------------------------------------------------

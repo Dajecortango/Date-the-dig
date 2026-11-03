@@ -10,7 +10,7 @@ label druso_ev1:
     "La taverna è sua, stasera: ha pagato un giro per comprarsi il silenzio e lo spreca subito."
     druso "Silenzio, bestie! Il genio parla e voi masticate. Chi mastica durante un'ode, la paga."
     "Settanta chili di Dignitas in piedi su una panca. Barba bruna, camicia slacciata fino allo sterno, un boccale come scettro."
-    "Druso, figlio di Lenora. Il secondo dei tre. Quello che a Rocca Tempesta nominano alzando gli occhi al cielo."
+    "Druso, figlio di Lenora, il secondo dei tre: quello che a Rocca Tempesta nominano alzando gli occhi al cielo."
     druso "Ah! Ma guarda chi è entrat[fin]. La faccia nuova del Ceppo di Briseide. Proprio ciò che mi serviva: una musa che non ho ancora offeso."
     druso "Componimento nuovo! Titolo: «Ode [al_t] novellin[fin] di Briseide». Protagonista: presente in sala. Contenuto: indecente. Obiezioni?"
     "Trenta teste si girano verso di me. Qualcuno batte il boccale sul tavolo, già pronto a ridere."
@@ -20,7 +20,7 @@ label druso_ev1:
             $ druso_affinity += 1
             druso "Minaccia poetica! La più nobile delle minacce!"
             druso "«Venne dal Sud con le scarpe pulite, ma al Nord le scarpe si fanno smarrite...»"
-            "Recita. È oscena, puntuale, e — maledizione — ben scritta. Rispondo con due versi improvvisati sulla sua barba. La taverna sceglie me."
+            "È oscena, puntuale e, maledizione, ben scritta. Rispondo con due versi improvvisati sulla sua barba e la taverna sceglie me."
             pc "«Barba di Druso, nido di ratti: ci han fatto il letto, ci han fatto i patti.»"
             "Un vecchio al bancone si soffoca con la birra. Il tavolo dei carrettieri chiede il bis."
             show druso ghigno with qdiss
@@ -34,7 +34,7 @@ label druso_ev1:
         "Rovesciagli il boccale addosso":
             $ druso_affinity += 1
             with vpunch
-            "Il boccale vola. La taverna tace. Druso si lecca la birra dal baffo, lentamente, come un gatto soddisfatto."
+            "Il boccale vola e la taverna tace. Druso si lecca la birra dal baffo, lentamente, come un gatto."
             druso "Reazione violenta e maleducata. Da manuale. CONTINUA COSÌ."
             druso "Oste! Un boccale nuovo per [il_t] novellin[fin]. Pieno. Così la prossima volta mi colpisce meglio."
     "Più tardi, mentre la taverna si svuota, lo vedo scrivere su un tovagliolo. Si accorge che guardo e lo appallottola."
@@ -46,7 +46,7 @@ label druso_ev1:
 
 label druso_int1:
     scene bg palestra with fade
-    "Palestra della Rocca, prima campana. Odore di cuoio, di sudore vecchio, di segatura bagnata."
+    "Palestra della Rocca, prima campana. Odore di cuoio e di segatura bagnata."
     show druso ghigno at left with easeinleft
     "Druso è seduto su una panca, accanto a un manichino. Il manichino è più sudato di lui."
     druso "Novellin[fin]! Puntuale come un debito. Ti aspettavo: mi serve un testimone."
@@ -61,21 +61,21 @@ label druso_int1:
         "Mi porge l'altra spada, con l'aria di chi spera che io rifiuti."
         "Prendila e attaccalo senza preavviso":
             with vpunch
-            "Il colpo gli arriva sulla spalla. Druso strilla come una gallina, poi para il secondo — e il terzo, quasi bene."
+            "Il colpo gli arriva sulla spalla. Druso strilla come una gallina, poi para il secondo e il terzo, quasi bene."
             show druso irritato with qdiss
             druso "Ah, così, a tradimento! Senza il saluto! Che razza di Ceppo vi alleva?"
-            "Ma ha gli occhi che brillano. Per cinque scambi buoni dimentica di essere un codardo. Poi se ne ricorda e si siede."
+            "Per cinque scambi buoni dimentica di essere un codardo, poi se ne ricorda e si siede."
             druso "Basta. Ho dimostrato il punto. Quale punto, non chiedere."
         "«Non mi alleno con chi ha paura di sudare.»":
             show druso ghigno with qdiss
             druso "Paura? Io? Io ho un CONTRATTO con la paura. Lei sta lontana da me, io sto lontano dai guai."
             druso "Funziona da trentadue anni. Guarda: tutti i denti. Conta, se vuoi."
-            "Spalanca la bocca. Ha davvero tutti i denti. È una prova inconfutabile. Accidenti."
+            "Spalanca la bocca. Ha davvero tutti i denti: prova inconfutabile, accidenti."
         "Siediti accanto a lui a guardare gli altri":
             show druso neutro with qdiss
             "Restiamo seduti. Lui commenta ogni colpo come un cronista di tornei, in rima, a mezza voce."
             druso "«Quello là col naso storto, entro sera sarà morto.» Non letteralmente. Poeticamente."
-            "Poi, senza cambiare tono:"
+            "Senza cambiare tono:"
             druso "Mio fratello Caino si allenava qui ogni mattina. Ogni. Mattina. Già dodici anni fa. Io leggevo, lui sanguinava."
             druso "Madre ha scelto chi guardare. Non ha scelto me. Ottima scelta: io sono più bello da lontano."
     show druso ghigno with qdiss
@@ -90,9 +90,9 @@ label druso_ev2:
     scene bg vicoli_zefiro with fade
     "Il retro del Becco Storto: botti vuote, un gatto senza un orecchio, una porta che dà sul canale ghiacciato."
     show druso neutro at left with dissolve
-    "Druso, stranamente sobrio, mi aspetta nel retro della taverna con una pergamena piena di scommesse."
+    "Druso, stranamente sobrio, mi aspetta con una pergamena piena di scommesse."
     druso "Chiudi la porta. No, non per quello. Per quello ti avrei portat[fin] in un posto più comodo."
-    "Srotola la pergamena sulla botte. Nomi, cifre, frecce. Una calligrafia minuta, ordinata, sorprendente."
+    "Srotola la pergamena sulla botte. Nomi, cifre, frecce, in calligrafia minuta e ordinata."
     druso "Tu credi che io passi le serate a bere. Io passo le serate ad ascoltare chi beve, è diverso. Costa uguale."
     druso "Senti qua. Un cambiavalute della Consorteria paga bene per sapere chi, nel tuo Ceppo, firma le lettere di Briseide quando lei è fuori città. Io lo so che lo sai. E tu sai che pagherei."
     "Fa girare una moneta sulla botte. Non la guarda: guarda me."
@@ -174,7 +174,7 @@ label druso_quaderno:
     "Sotto la panca di Druso, incastrato tra due assi, c'è un quaderno. Rilegato in pelle, consumato agli angoli, con una macchia di vino a forma di isola."
     "Dentro, i tovaglioli. Tutti quelli che appallottola quando lo guardo, spianati con cura e cuciti uno dopo l'altro."
     "Il primo verso che leggo non ha una sola parolaccia. Parla di una finestra a Rocca Tempesta, e di un bambino che aspetta che la madre si affacci."
-    "Chiudo. Riapro. È scritto bene. È scritto meglio di qualunque cosa abbia mai sentito in questa taverna."
+    "Chiudo, riapro. È scritto meglio di qualunque cosa abbia mai sentito in questa taverna."
     show druso sorpreso at left with easeinleft
     druso "Oste! Hai visto un... ah."
     "Si ferma a metà della sala. Guarda il quaderno, poi me, poi di nuovo il quaderno. Si gratta la barba con due dita."
@@ -188,7 +188,7 @@ label druso_quaderno:
             "Mi strappa di mano il quaderno, lo apre a pagina sette, legge muovendo le labbra."
             show druso ghigno with qdiss
             druso "...zoppica. Maledett[fin]. Hai letto tutto e hai pure ragione."
-            druso "Bene. Adesso sei complice. I complici leggono le bozze. Le bozze fanno schifo. È una condanna, non un onore."
+            druso "Bene, adesso sei complice. I complici leggono le bozze, che fanno schifo. Te la sei cercata."
         "Chiudilo e porgiglielo. Senza una parola":
             $ druso_quaderno_esito = "chiuso"
             "Lo chiudo, ci passo sopra il palmo, glielo tendo. Lui lo prende per un angolo, con due dita, e se lo ficca sotto la camicia."

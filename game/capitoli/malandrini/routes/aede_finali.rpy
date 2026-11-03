@@ -14,7 +14,7 @@ label climax:
 
     show glauco neutro with dissolve
 
-    "Lo studio è come lo ricordavo: silenzioso, ordinato, letale."
+    "Lo studio è come lo ricordavo: ordinato e letale."
 
     glauco "Siediti, [figlio_t] di Briseide. Il vino è buono. Bevilo adesso: dopo, uno di noi due non ne avrà più voglia."
 
@@ -25,7 +25,7 @@ label climax:
     glauco "E tu, in una stagione, hai fatto ciò che vent'anni di disciplina avevano impedito: la lama ha cominciato a chiedersi perché taglia."
 
     if flag_aede_rivelato:
-        glauco "E non solo. Sul ballatoio della tua tenuta, mia figlia ha pronunciato il nome che il giuramento le ha sepolto in gola. L'ho sentito io, [figlio_t] di Briseide. Sai cosa comanda la legge della Famiglia per chi rivela la vita di prima — e per chi ascolta."
+        glauco "E non solo. Sul ballatoio della tua tenuta, mia figlia ha pronunciato il nome che il giuramento le ha sepolto in gola. L'ho sentito io, [figlio_t] di Briseide. Sai cosa comanda la legge della Famiglia per chi rivela la vita di prima, e per chi ascolta."
 
         glauco "Quella parola, stanotte, pesa sulla bilancia insieme a te. Ricordalo, quando vedrai la lama."
 
@@ -33,7 +33,7 @@ label climax:
 
     glauco "Una lama che si fa domande è una lama rotta. E le lame rotte, nel mio Ceppo, si rifondono."
 
-    glauco "Perciò ho dato a mia figlia un ordine semplice. Il bersaglio sei tu. Stanotte, sotto le mura, lei salda il conto. Oppure non lo salda — e allora il conto lo saldo io per entrambi."
+    glauco "Perciò ho dato a mia figlia un ordine semplice. Il bersaglio sei tu. Stanotte, sotto le mura, lei salda il conto. Oppure non lo salda, e allora il conto lo saldo io per entrambi."
 
     glauco "Vai pure, [figlio_t] di Briseide. La neve stanotte è ottima per morire. O per vivere. Dipende interamente da ciò che avete costruito, tu e lei."
 
@@ -85,15 +85,15 @@ label climax:
         "Tendi la mano, aperta" (peso=True):
             $ aede_climax_gesto = "mano"
             if ofelia_mano_cala:
-                "Tendo la mano. Aperta, vuota, ferma nella neve. Sulla Calà l'ha vista stringere quella di sua sorella. Gliela tendo lo stesso."
+                "Tendo la mano aperta e vuota nella neve. Sulla Calà l'ha vista stringere quella di sua sorella. Gliela tendo lo stesso."
             elif aede_mano_cala == "presa":
-                "Tendo la mano. Aperta, vuota, ferma nella neve. La stessa che le ho offerto sulla Calà."
+                "Tendo la mano aperta e vuota nella neve. La stessa che le ho offerto sulla Calà."
             elif aede_mano_cala == "rifiutata":
-                "Tendo la mano. Aperta, vuota, ferma nella neve. Sulla Calà l'ha ritirata con naturalezza perfetta. Gliela offro di nuovo."
+                "Tendo la mano aperta e vuota nella neve. Sulla Calà l'ha ritirata con naturalezza perfetta. Gliela offro di nuovo."
             elif aede_mano_cala == "accanto":
-                "Tendo la mano. Aperta, vuota, ferma nella neve. Sulla Calà è rimasta a un dito dalla sua. Stanotte il dito lo attraverso io."
+                "Tendo la mano aperta e vuota nella neve. Sulla Calà è rimasta a un dito dalla sua. Stanotte il dito lo attraverso io."
             else:
-                "Tendo la mano. Aperta, vuota, ferma nella neve."
+                "Tendo la mano aperta e vuota nella neve."
 
     if route_seconda == "aede":
         show ofelia neutra at left with dissolve
@@ -117,7 +117,7 @@ label good_end:
 
     show aede neutra with dissolve
 
-    "Aede guarda la lama nella propria mano come se la vedesse per la prima volta."
+    "Aede si guarda la lama in mano."
 
     aede "Vent'anni di ordini eseguiti. Sai quante volte ho sbagliato un bersaglio, [player_name]?"
 
@@ -134,7 +134,7 @@ label good_end:
 
         aede "Una. E non era un errore."
 
-    "Apre le dita. La lama cade nella neve, dritta, e vi resta piantata come un piccolo monumento."
+    "Apre le dita. La lama cade dritta e resta piantata nella neve."
 
     if aede_climax_gesto == "mano":
         "Poi prende la mano che le tendo. Dita fredde, presa da spadaccina. Non la lascia nemmeno quando sente i passi alle mie spalle."
@@ -166,7 +166,7 @@ label good_end:
 
     show aede sorriso with dissolve
 
-    "Più tardi — molto più tardi — la Calà è spenta, la festa è lontana, i gradini sono solo gradini."
+    "Molto più tardi la Calà è spenta, e i gradini sono solo gradini."
 
     "Li scendiamo lo stesso. Mano nella mano, dal primo all'ultimo."
 
@@ -187,7 +187,7 @@ label good_end:
     else:
         aede "Stanotte non c'è nessun cambio turno. Nessun fischio dalla cima."
 
-    "Mi bacia. Di colpo, come attacca: senza preavviso, e senza lasciarmi il tempo di parare."
+    "Mi bacia di colpo, come attacca, senza lasciarmi il tempo di parare."
 
     show aede imbarazzata with dissolve
 
@@ -217,7 +217,7 @@ label neutral_end:
     if aede_climax_gesto == "parla":
         aede "Lo so. Ogni gradino. È proprio per questo."
     elif aede_climax_gesto == "mano":
-        "Guarda la mia mano tesa. Non la prende. La guarda come si guarda una porta che non si può aprire."
+        "Guarda la mia mano tesa come si guarda una porta che non si può aprire."
     else:
         aede "Non dire niente. Così è più facile."
 
@@ -225,7 +225,7 @@ label neutral_end:
 
     with vpunch
 
-    "Si muove prima che io possa rispondere. Il pomo della lama — non il filo — mi prende alla tempia. Il mondo diventa neve."
+    "Si muove prima che io possa rispondere. Il pomo della lama, non il filo, mi prende alla tempia. Il mondo diventa neve."
 
     scene bg nero with fade
 
@@ -238,15 +238,15 @@ label neutral_end:
 
     "{i}Non tornare a cercarmi. Ma se un giorno una lama ti salva la vita da un tetto, ovunque tu sia, non chiederti di chi è.{/i}"
 
-    "{i}L'amica che non hai mai avuto. — A.»{/i}"
+    "{i}L'amica che non hai mai avuto. A.»{/i}"
 
     scene bg vicoli_zefiro with fade
 
     "Lascio Zefiro per vie lunghe, senza passare dalla tenuta. Briseide mi scrive una volta a Luna, e non fa domande: sa già, come sempre."
 
-    "E negli anni, ogni tanto, una moneta della Lega con un graffio a forma di volpe compare sul mio davanzale. Nessun biglietto. Nessuna firma."
+    "E negli anni, ogni tanto, una moneta della Lega con un graffio a forma di volpe compare sul mio davanzale, senza biglietto."
 
-    "Non serve. So di chi è la mano. La più veloce del Nord."
+    "So di chi è la mano. La più veloce del Nord."
 
     scene bg nero with fade
 
@@ -270,7 +270,7 @@ label bad_end_aede:
 
     aede "Nessuna. È questo che non hai mai capito."
 
-    "Freddo sotto il mento. Come la prima notte, allo Svelo. Il cerchio si chiude."
+    "Freddo sotto il mento, come la prima notte allo Svelo."
 
     show aede furia
 
@@ -296,7 +296,7 @@ label bad_end_glauco:
 
     show aede neutra with dissolve
 
-    "Aede non si muove. La lama le pende dalla mano come un pensiero incompiuto."
+    "Aede non si muove. La lama le pende dalla mano."
 
     aede "Non ci riesco."
 
@@ -312,7 +312,7 @@ label bad_end_glauco:
 
     scene bg nero with lampo
 
-    "L'ultima cosa che sento è la voce di lei che urla il mio nome — il mio Primo Nome, quello vero, l'unico che ho."
+    "L'ultima cosa che sento è lei che urla il mio nome: il Primo Nome, l'unico che ho."
 
     "Gli Arvali dicono che chi muore nella neve attraversa il Margine senza freddo. Mentono. Ma è un freddo breve."
 
@@ -333,7 +333,7 @@ label aede_passeggero:
 
     show aede neutra with dissolve
 
-    "Aede abbassa la lama. Piano. La punta tocca la neve e ci resta."
+    "Aede abbassa piano la lama. La punta tocca la neve e ci resta."
 
     aede "Non ti tocco. Non stanotte, non mai. Questo lo decido io."
 
@@ -348,7 +348,7 @@ label aede_passeggero:
 
     aede "È il mio bersaglio, padre. Decido io quando mancarlo."
 
-    "Rinfodera. Il suono è piccolo, pulito. Per un istante mi guarda. Poi guarda oltre, verso le mura."
+    "Rinfodera, con un suono piccolo e pulito. Mi guarda, poi guarda oltre, verso le mura."
 
     hide aede with dissolve
 

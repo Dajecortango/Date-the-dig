@@ -10,13 +10,13 @@ label caino_prologo:
 
     "L'Adunanza annuale. Tutta la Famiglia sotto un tetto solo: Autarchi, Arconti, Eparchi, e in fondo alla sala i Figli nuovi come me, messi lì dove non facciamo danni."
 
-    "È lì che lo vedo la prima volta: al centro esatto della sala, dove le correnti del potere si incrociano. Ride con tre Autarchi insieme, e tutti e tre credono di essere il motivo della risata."
+    "È lì che lo vedo la prima volta: al centro esatto della sala. Ride con tre Autarchi insieme, e tutti e tre credono di essere il motivo della risata."
 
     show caino neutro with dissolve
 
     "Caino. Figlio di Lenora, fratello di Druso e di Icaro. Arconte della Proprietà. Dicono che sia la spada migliore di Rocca Tempesta dopo sua madre, e la lingua migliore senza nessun dopo."
 
-    "E a un certo punto — non so come, non so perché — quella lingua punta me."
+    "A un certo punto, non so perché, quella lingua punta me."
 
     caino "Tu. [figlio_t] di Briseide. Sì, tu, quell[fin] che da mezz'ora studia la sala come se dovesse comprarla."
 
@@ -24,13 +24,13 @@ label caino_prologo:
 
     caino "«Osservavo, Arconte». Educato, misurato, inutile. Briseide vi fabbrica tutti così?"
 
-    "Sorride mentre lo dice. Ha un sorriso facile, Caino: il tipo di sorriso che ti fa sentire importante due secondi prima di scoprire cosa ti è costato."
+    "Sorride mentre lo dice. Ha un sorriso facile, Caino: ti fa sentire importante due secondi prima di scoprire cosa ti è costato."
 
-    "Un servo passa col vassoio. Caino scarta il vino con un gesto che è quasi un insulto."
+    "Un servo passa col vassoio. Caino scarta il vino con due dita, senza guardarlo."
 
     caino "Vino di Glostok. Lo bevono i cambiavalute e i pentiti. Io bevo idromele di Rurikstad, e chi mi conosce lo sa. Ricordatelo, [figlio_t] di Briseide: nella Famiglia, chi ricorda i dettagli possiede le persone."
 
-    "Prende invece un corno di idromele. Al mignolo destro gli brilla un anello: un sigillo con un drago, non un leone. Un dettaglio che stona, su un uomo che non lascia nulla al caso."
+    "Prende invece un corno di idromele. Al mignolo destro gli brilla un anello: un sigillo con un drago, non un leone. Stona, su un uomo che non lascia nulla al caso."
 
     caino "Ora dimmi una cosa, così capisco con chi parlo."
 
@@ -51,9 +51,9 @@ label caino_prologo:
 
             caino "Già. Peccato."
 
-            "Il sorriso non cambia di un millimetro. Ma qualcosa dietro gli occhi archivia: {i}questo annuisce senza sapere{/i}. E io capisco di aver perso un punto in una partita che non sapevo di giocare."
+            "Il sorriso non cambia di un millimetro, ma dietro gli occhi archivia: {i}annuisce senza sapere{/i}. Ho perso un punto in una partita che non sapevo di giocare."
 
-            "Solo più tardi, da Vanna, scopro cos'era il Ballo delle Candele Spente: un massacro. Ideato da Lenora. Sua madre."
+            "Solo più tardi, da Vanna, scopro cos'era il Ballo delle Candele Spente: un massacro, ideato da Lenora. Sua madre."
 
         "«Era un massacro, Arconte. Lo sanno anche i nuovi.»":
             $ caino_fiducia += 2
@@ -62,18 +62,18 @@ label caino_prologo:
 
             show caino sorpreso with qdiss
 
-            "Per un istante — mezzo battito — il sorriso si ferma."
+            "Per mezzo battito il sorriso si ferma."
 
             show caino neutro with qdiss
 
             caino "...Briseide vi fabbrica meglio di quanto dicessi."
 
-            caino "Era una prova, [figlio_t] di Briseide. La sala è piena di gente che mi dà ragione per riflesso. Tu no. Interessante."
+            caino "Era una prova, [figlio_t] di Briseide. La sala è piena di gente che mi dà ragione per riflesso. Tu no."
 
         "Resta in silenzio e sorridi":
             $ caino_fiducia -= 1
 
-            "Sorrido e non rispondo. La via sicura."
+            "Sorrido e non rispondo."
 
             show caino neutro with qdiss
 
@@ -83,7 +83,7 @@ label caino_prologo:
 
     hide caino with dissolve
 
-    "Se ne va attraversando la sala come se la sala fosse sua. E il punto, mi dico, è proprio questo: un giorno potrebbe esserlo."
+    "Se ne va attraversando la sala come se fosse sua. Un giorno potrebbe esserlo."
 
     return
 
@@ -107,11 +107,11 @@ label caino_cap1:
 
     show caino neutro with dissolve
 
-    "Lo studio dell'Arconte della Proprietà è l'opposto di quello di Glauco: caldo, pieno, teatrale. Registri ovunque, mappe dei Ceppi, e una spada appesa dove chiunque entri deve vederla."
+    "Lo studio dell'Arconte della Proprietà è l'opposto di quello di Glauco: caldo e teatrale. Registri ovunque, mappe dei Ceppi, e una spada appesa dove chiunque entri deve vederla."
 
     caino "Il Figlio che non annuisce. Entra. Ho un problema di aritmetica e tutti i miei scrivani hanno già sbagliato la risposta."
 
-    "Il problema consiste in un registro delle decime di tre Contrade. Lavoriamo un'ora: lui parla, io conto, lui controlla il mio contare fingendo di non farlo."
+    "Il problema è un registro delle decime di tre Contrade. Lavoriamo un'ora: lui parla, io conto, lui controlla il mio contare fingendo di non farlo."
 
     caino "Passabile. Briseide ti presta a buon mercato o devo firmare qualcosa?"
 
@@ -139,7 +139,7 @@ label caino_cap1:
         "Prendi la coppa e ringrazia":
             $ caino_fiducia -= 1
 
-            "Prendo la coppa. Caino guarda la sua senza toccarla, poi guarda me, e qualcosa negli occhi gli si spegne di un grado."
+            "Prendo la coppa. Caino guarda la sua senza toccarla, poi guarda me, e gli occhi gli si spengono di un grado."
 
             show caino freddo with qdiss
 
@@ -170,7 +170,7 @@ label caino_cap2:
 
     caino "Ventiquattro chili l'uno. Marmo delle Cimebianche, tagliato male apposta: il peso non è mai dove te lo aspetti. Come la Famiglia."
 
-    "Li solleva. E comincia — che gli Asi mi fulminino — a fare alzate laterali. Le braccia dritte, il marmo che sale fino alla linea delle spalle, scende, risale. Il respiro regolare come un conto."
+    "Li solleva e comincia, che gli Asi mi fulminino, a fare alzate laterali. Le braccia dritte, il marmo che sale fino alla linea delle spalle, scende, risale, e il respiro regolare come un conto."
 
     caino "Dodici... tredici... il potere, [figlio_t] di Briseide, è questo... quattordici... peso morto che impari a sollevare... con grazia..."
 
@@ -184,7 +184,7 @@ label caino_cap2:
 
     druso "TESCHIO!"
 
-    "E prima che io capisca cosa significa, Druso scaglia un pugno diretto ai genitali di Caino. Caino — con quarantotto chili di marmo in mano — ruota sul fianco, para col blocco sinistro, e il pugno di Druso incontra la pietra."
+    "E prima che io capisca cosa significa, Druso scaglia un pugno diretto ai genitali di Caino. Caino, con quarantotto chili di marmo in mano, ruota sul fianco, para col blocco sinistro, e il pugno di Druso incontra la pietra."
 
     with hpunch
 
@@ -219,13 +219,13 @@ label caino_cap2:
 
             show druso ghigno with qdiss
 
-            druso "AH! Mi piace! Briseide, benedetta donna, finalmente uno con la spina dorsale!"
+            druso "AH! Mi piace! Briseide, benedetta donna, finalmente qualcuno con la spina dorsale!"
 
             show caino sarcastico with qdiss
 
             caino "Traditore. Sei nel mio studio da un giorno e già testimoni per il nemico."
 
-            "Ma ride. Rido anche io. È impossibile non ridere, in mezzo a questi due."
+            "Ma ride, e rido anche io: in mezzo a questi due è impossibile non farlo."
 
         "«Non ho sentito niente. Io conto solo registri.»":
             $ caino_fiducia += 1
@@ -275,7 +275,7 @@ label caino_cap2:
 
             show caino sorpreso with qdiss
 
-            "Silenzio. Druso, dall'arcata, fischia piano."
+            "Druso, dall'arcata, fischia piano."
 
             show caino neutro with qdiss
 
@@ -305,7 +305,7 @@ label caino_cap3:
 
     caino "Risposta da scrivano con ambizioni. Vediamo la pratica."
 
-    "Mi tende la mano. E la sala intera — lo sento sulla pelle — smette per un istante di respirare: l'Arconte della Proprietà non invita i Figli nuovi."
+    "Mi tende la mano. Le dame più vicine smettono di bisbigliare: l'Arconte della Proprietà non invita i Figli nuovi."
 
     menu:
         "La musica riparte."
@@ -313,7 +313,7 @@ label caino_cap3:
         "Accetta e lascialo condurre":
             $ caino_fiducia += 2
 
-            "Accetto. Conduce lui, ovviamente: ogni passo è un contratto, ogni giro una clausola. Ma a metà danza succede una cosa strana — smette di guardare la sala e guarda me."
+            "Accetto, e conduce lui, ovviamente: ogni passo è un contratto, ogni giro una clausola. A metà danza smette di guardare la sala e guarda me."
 
             show caino neutro with qdiss
 
@@ -321,12 +321,12 @@ label caino_cap3:
 
             pc "Niente. È questo il bello della danza: è l'unica cosa che non serve a niente."
 
-            "Non risponde. Ma per quattro battute intere, l'Arconte della Proprietà balla senza guardare nessun altro nella sala."
+            "Non risponde, ma per quattro battute intere non guarda nessun altro nella sala."
 
         "Accetta, ma punta a condurre tu":
             $ caino_fiducia += 2
 
-            "Accetto — e al terzo passo gli rubo la conduzione. Un furto piccolo, tecnico, visibile solo a noi due."
+            "Accetto, e al terzo passo gli rubo la conduzione: un furto tecnico, visibile solo a noi due."
 
             show caino sorpreso with qdiss
 
@@ -338,12 +338,12 @@ label caino_cap3:
 
             caino "Rubare le mie massime per usarle contro di me. C'è della Proprietà in te, [figlio_t] di Briseide. Forse troppa."
 
-            "Ma non si riprende la conduzione. Per tutta la danza."
+            "La conduzione non se la riprende per tutta la danza."
 
         "Rifiuta con un inchino":
             $ caino_fiducia -= 2
 
-            "Mi inchino e rifiuto. La mano di Caino resta tesa nel vuoto per un secondo — un secondo che la sala intera vede."
+            "Mi inchino e rifiuto. La mano di Caino resta tesa nel vuoto per un secondo, e lo vede tutta la sala."
 
             show caino freddo with qdiss
 
@@ -365,7 +365,7 @@ label caino_cap3:
 
             druso "Hai perso con onore e pagato senza piangere. Nel mio Codice personale, vali già più di mezzo Consiglio."
 
-            "Da quella sera, Druso mi saluta per nome. Tutte le volte. Anche in mezzo alla folla."
+            "Da quella sera Druso mi saluta per nome, tutte le volte, anche in mezzo alla folla."
 
         "Declina con diplomazia":
             pc "La Proprietà mi vuole sobri[fin], temo."
@@ -374,7 +374,7 @@ label caino_cap3:
 
     hide druso with dissolve
 
-    "Più tardi, al tavolo dell'idromele, mi raggiunge con due corni. Me ne porge uno."
+    "Più tardi, al tavolo dell'idromele, Caino mi raggiunge con due corni. Me ne porge uno."
 
     show caino neutro with qdiss
 
@@ -410,7 +410,7 @@ label caino_cap3:
 
             show caino sarcastico with qdiss
 
-            caino "Un leone. Certo. Come tutti, ovvio, prevedibile. Hai guardato senza vedere, [figlio_t] di Briseide."
+            caino "Un leone. Certo. Come tutti. Hai guardato senza vedere, [figlio_t] di Briseide."
 
             "Si riprende il corno e lo beve lui, fino in fondo, guardandomi negli occhi. Archiviato."
 

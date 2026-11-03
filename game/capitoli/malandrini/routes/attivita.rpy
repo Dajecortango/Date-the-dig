@@ -51,7 +51,7 @@ label att_spada_1:
         "Chiedile di mostrarti il colpo, lentamente":
             show aede irritata with qdiss
             aede "Lentamente? Il nemico non rallenta per cortesia."
-            "Ma lo mostra. Due volte. E la seconda, giuro, è più lenta della prima."
+            "Ma lo mostra, due volte, e la seconda, giuro, è più lenta della prima."
         "Lamentati del turno all'alba":
             $ aede_affinity -= 1
             show aede irritata with qdiss
@@ -72,20 +72,20 @@ label att_spada_2:
             aede "...era una prova per la settimana prossima. Sei in anticipo. Non montarti la testa."
         "Colpisci il bersaglio, come da consegna":
             show aede neutra with qdiss
-            aede "Preciso e obbediente. Briseide vi alleva così. Non è un difetto. Non è neanche un pregio."
+            aede "Precis[fin] e obbediente. Briseide vi alleva così. Non è un difetto. Non è neanche un pregio."
     return
 
 label att_spada_3:
     scene bg palestra with fade
     show aede neutra with dissolve
-    "Pioggia sottile. Gli altri novellini disertano; io no. Il cortile è solo nostro, e il silenzio ha un suono diverso."
+    "Pioggia sottile. Gli altri novellini disertano; io no. Il cortile è solo nostro."
     aede "Sai perché mi alleno anche con la pioggia? Perché chi mi vorrà morta non guarderà il cielo prima."
     menu:
         "L'acqua le cola dai capelli rossi come ruggine."
         "«Allora che piova. Facciamo due riprese in più.»":
             $ aede_affinity += 1
             show aede sorriso with dissolve
-            "Due riprese in più. E alla fine, per un istante, quella piega all'angolo della bocca."
+            "Due riprese in più. E alla fine, quella piega all'angolo della bocca."
         "«Nessuno ti vuole morta, Aede.»":
             show aede irritata with qdiss
             aede "Che ne sai tu. Guardia alta."
@@ -100,9 +100,9 @@ label att_spada_3:
                 $ druso_affinity += 1
                 show aede neutra with qdiss
                 aede "Difendi il poeta. Annotato."
-                "Nei cortili della Rocca la pioggia non copre le voci: Druso lo saprà prima di cena. E se ne vanterà."
+                "Nei cortili della Rocca la pioggia non copre le voci: Druso lo saprà prima di cena, e se ne vanterà."
             "«Glielo dirò. Con l'acciaio, come dici tu.»":
-                "Aede annuisce una volta, secca. Non è gelosia. È catalogazione. Credo."
+                "Aede annuisce una volta, secca. Mi ha appena messo in un elenco, credo."
     return
 
 
@@ -112,7 +112,7 @@ label att_scudo_1:
     scene bg palestra with fade
     show druso ghigno at left with easeinleft
     druso "Novellin[fin]! Guarda guarda. Briseide ti manda ancora in palestra o sei venut[fin] a guardare i veri uomini?"
-    "Druso batte l'arma sullo scudo come un tamburo. Metà esibizione, metà sfida."
+    "Druso batte l'arma sullo scudo come un tamburo."
     menu:
         "Il ghigno aspetta una reazione. Qualunque."
         "«Veri uomini? Fammi sapere quando ne arriva uno.»":
@@ -131,14 +131,14 @@ label att_scudo_2:
     scene bg palestra with fade
     show druso ghigno at left with dissolve
     "Lezione di lotta. Druso «insegna» mettendo a terra i novellini uno a uno, con commento poetico annesso."
-    druso "E anche questo giace! Componimento: «Cadde di Briseide il fiore — più lesto a terra che in amore.» Rima baciata, come piace a me."
+    druso "E anche questo giace! Componimento: «Cadde di Briseide il fiore, più lesto a terra che in amore.» Rima baciata, come piace a me."
     menu:
         "Il prossimo sono io."
         "Attacca in anticipo, senza aspettare il segnale":
             $ druso_affinity += 1
             with vpunch
             "Lo prendo a metà strofa. Finisco a terra lo stesso, ma ci finisce anche lui, e la sabbia non guarda in faccia i figli di Lenora."
-            druso "FALLO! Bellissimo! Ecco uno che ha capito la poesia!"
+            druso "FALLO! Bellissimo! Ecco un[fin] che ha capito la poesia!"
         "Aspetta il segnale, da regolamento":
             with vpunch
             "Segnale, presa, volo, sabbia. Tutto secondo regolamento."
@@ -188,7 +188,7 @@ label att_studio_3:
     show corrado neutro with dissolve
     "Il Ballo delle Candele Spente. Il libro ne parla per tre righe asciutte; Corrado, a voce bassa, per un'ora."
     corrado "Lenora spense le candele e assieme a loro una congiura intera. Nessun processo. Nessun nome. Capito perché studiamo, [fratello_t]?"
-    "Capito. Nel Nord la storia non si studia per sapere com'era: si studia per sapere dove non mettere i piedi."
+    "Capito. La storia, qui, serve a sapere dove non mettere i piedi."
     return
 
 
@@ -261,7 +261,7 @@ label att_taverna_2:
 label att_taverna_3:
     scene bg vicoli_zefiro with fade
     show druso serio at left with dissolve
-    "Trovo Druso da solo, per una volta. Fissa il fondo del boccale come se ci avesse perso qualcosa."
+    "Trovo Druso da solo, per una volta, a fissare il fondo del boccale."
     druso "Mio fratello Caino colleziona cariche. Icaro colleziona Scudi. Io colleziono... pubblico. Qualcuno doveva pur farlo."
     menu:
         "Non è una battuta. O non del tutto."
@@ -278,7 +278,7 @@ label att_taverna_3:
 
 label att_fumeria_1:
     scene bg vicoli_zefiro with fade
-    "La saletta dietro la Consorteria: fumo dolce, carte, monete che cambiano padrone in silenzio."
+    "La saletta dietro la Consorteria: fumo dolce, carte, monete che cambiano padrone."
     "In fondo, da solo, un uomo magro con la pipa: Icaro, il terzo figlio di Lenora. Vince tre mani su tre senza alzare la voce."
     "Mi avvicino. Mi guarda. Decide che non esisto, e torna alle carte."
     return
@@ -291,7 +291,7 @@ label att_fumeria_2:
         "Nessuno ha visto niente. Tranne me."
         "Taci e perdi l'ottavo Scudo con dignità":
             $ icaro_affinity += 1
-            "Pago. Icaro intasca. Poi, prima di rimescolare, mi guarda il polso, le mani, di nuovo il polso."
+            "Pago. Icaro intasca e, prima di rimescolare, mi guarda il polso, le mani, di nuovo il polso."
         "Sussurra «bel taglio» a voce bassissima":
             $ icaro_affinity += 1
             icaro "...non so di cosa parli. Ma per la cronaca: era regolare."
@@ -349,7 +349,7 @@ label att_studio_4:
     show corrado neutro with dissolve
     "Oggi Corrado mi insegna il Margine: il fiume lento che gli Arvali dicono separi i vivi dal Drakengrad, la sala dorata del Leone dove ogni storia viene raccontata per sempre."
     corrado "Non è teologia, [fratello_t]: è contabilità. Un Dignitas si comporta bene perché qualcuno, laggiù, prende appunti."
-    "Mi segno anche questa. Nel Nord perfino l'aldilà tiene i registri."
+    "Mi segno anche questa."
     return
 
 label att_riti_4:
@@ -363,7 +363,7 @@ label att_riti_4:
 label att_citta_3:
     scene bg vicoli_zefiro with fade
     "Commissione alla Contrada Eburnea: riportare un libro prestato. La strada passa per la Calà, trecento gradini vuoti in pieno giorno."
-    "Senza lanterne è solo una scala. Eppure rallento lo stesso, al gradino duecento, senza un perché. Le leggende di Zefiro sanno farsi rispettare."
+    "Senza lanterne è solo una scala. Eppure al gradino duecento rallento lo stesso."
     return
 
 label att_taverna_4:
@@ -371,7 +371,7 @@ label att_taverna_4:
     show druso ghigno at left with easeinleft
     druso "Sedetevi, gente! Stasera si duella a versi. Chi perde paga il giro. Novellin[fin], tu sei [lo_t] sfidante."
     "La taverna ruggisce. La locandiera mette già i boccali in conto a me."
-    druso "Comincio io. «Figli[fin] di Briseide, lana in testa e lana in cuore — ti sposerebbe una pecora, ma hai già un amore.»"
+    druso "Comincio io. «Figli[fin] di Briseide, lana in testa e lana in cuore: ti sposerebbe una pecora, ma hai già un amore.»"
     "Risate. Druso si inchina a metà, sul tavolo, rischiando la vita."
     menu:
         "Tocca a me. Tutti gli occhi sono addosso."
@@ -379,7 +379,7 @@ label att_taverna_4:
             $ druso_affinity += 1
             with hpunch
             show druso ghigno with qdiss
-            druso "OH! Mi ha colpito! Dritto nell'orgoglio! Un altro giro per lo sfidante: e lo paga il perdente. Cioè io."
+            druso "OH! Mi ha colpito! Dritto nell'orgoglio! Un altro giro per [lo_t] sfidante: e lo paga il perdente. Cioè io."
             "La taverna sbatte i boccali. Per una sera, sono dei loro."
         "Rispondi con un verso sconcio, il più sporco che ti viene in mente":
             $ druso_affinity += 1
@@ -399,14 +399,14 @@ label att_fumeria_4:
     scene bg vicoli_zefiro with fade
     show icaro neutro with dissolve
     "Serata di inventario: Icaro conta le vincite della settimana sul tavolo piccolo. Monete in pile per taglio, per conio, per Lega."
-    icaro "Non toccare. Puoi guardare. Guardare è gratis, stasera: offerta lancio."
+    icaro "Non toccare. Puoi guardare. Guardare è gratis, stasera: offerta di lancio."
     menu:
         "Una pila è più corta delle altre. Lo noto. Lui nota che lo noto."
         "«Manca uno Scudo nella terza pila.»":
             $ icaro_affinity += 1
             show icaro furbo with qdiss
             icaro "...l'ho messo io da parte, per vedere chi se ne accorgeva. Tre settimane. Sei [il_t] prim[fin]."
-            "Lo rimette nella pila con un mezzo sorriso. La terza pila torna pari alle altre."
+            "Lo rimette nella pila. La terza pila torna pari alle altre."
         "Guarda e basta, è gratis":
             icaro "Brav[fin]. Il pubblico migliore è quello che non fa domande."
     return
@@ -448,7 +448,7 @@ label att_ceppo_2:
             corrado "Bene. Qualcuno studia, in questo Ceppo."
             "Sorride, piccolo e soddisfatto. I bambini contano sulle dita e si perdono a dodici."
         "Lasciar correre":
-            "Lascio correre. Corrado sospira, delude solo un po' se stesso, e va avanti fino alla fine."
+            "Lascio correre. Corrado sospira e va avanti fino alla fine."
         "Aggiungere un drago, per i bambini":
             pc "E c'era un drago. Grande come il Consiglio. Con la barba di Druso."
             "I Figli piccoli urlano di gioia. Corrado chiude gli occhi come chi conta fino a dieci in tre lingue."

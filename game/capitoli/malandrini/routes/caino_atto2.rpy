@@ -23,7 +23,7 @@ label caino_cap4:
 
     caino "Ti credo. Davvero. Ed è per questo che mi fa male quello che devo fare."
 
-    "E lo fa: consegna i registri al Consiglio quella sera stessa. Eumene perde il titolo, lo status e l'incarico. La carica di Sovrintendente delle Contrade — quella che Eumene custodiva — passa alla Proprietà. A Caino."
+    "Lo fa: quella sera stessa consegna i registri al Consiglio, ed Eumene perde il titolo e l'incarico. La carica di Sovrintendente delle Contrade passa alla Proprietà, cioè a Caino."
 
     "Sei anni di alleanza, spesi in una sera, per una carica."
 
@@ -31,7 +31,7 @@ label caino_cap4:
 
     show caino neutro with dissolve
 
-    "Nello studio, dopo, Caino versa due idromele come se niente fosse."
+    "Nello studio, dopo, Caino versa due idromele e controlla che siano pari."
 
     caino "Dillo. Ce l'hai scritto in faccia, e le facce non sanno tenere i registri."
 
@@ -41,7 +41,7 @@ label caino_cap4:
         "«Era tuo alleato. Sei anni. E l'hai bruciato per una carica.»":
             $ caino_fiducia += 2
 
-            pc "Era tuo alleato. Sei anni. E l'hai bruciato per una carica. Non per giustizia: per la carica. Se la giustizia c'entrava, i buchi li avresti portati al Consiglio sei mesi fa, quando li hai trovati davvero."
+            pc "Era tuo alleato. Sei anni. E l'hai bruciato per una carica. Se c'entrava la giustizia, i buchi li avresti portati al Consiglio sei mesi fa, quando li hai trovati davvero."
 
             show caino sorpreso with qdiss
 
@@ -101,7 +101,7 @@ label caino_cap5:
 
     caino "Mi disturba che sia vero."
 
-    "Si appoggia al merlo. Sotto di noi, Zefiro brulica di persone come un registro pieno di voci."
+    "Si appoggia al merlo. Sotto di noi, Zefiro brulica come un registro pieno di voci."
 
     "Ha la neve tra i capelli e non la scuote. Gli si scioglie sul colletto, goccia a goccia."
 
@@ -125,7 +125,7 @@ label caino_cap5:
 
             show caino sorpreso with qdiss
 
-            "Tace. L'uomo che vince ogni scontro verbale di Rocca Tempesta tace, e la neve gli si posa sulle spalle senza che se ne accorga."
+            "L'uomo che vince ogni scontro verbale di Rocca Tempesta tace, e la neve gli si posa sulle spalle."
 
             show caino neutro with qdiss
 
@@ -138,7 +138,7 @@ label caino_cap5:
 
             show caino freddo with qdiss
 
-            caino "Onesto. Sì. E deludente, il che è peggio."
+            caino "Onest[fin]. Sì. E deludente, il che è peggio."
 
             "Annuisce piano. Con un dito traccia una riga sulla neve del merlo, e la cancella col palmo."
 
@@ -153,7 +153,7 @@ label caino_cap5:
 
             pc "I dettagli possiedono le persone. Scegli tu quale dettaglio sono."
 
-    "Il vento gira. Caino guarda Zefiro ancora un poco, poi — con la voce più piatta che ha —"
+    "Il vento gira. Caino guarda Zefiro ancora un poco, poi parla con la voce più piatta che ha."
 
     show caino sarcastico with qdiss
 
@@ -174,7 +174,7 @@ label caino_cap5:
 
             caino "...già. Certo. È tardi, [figlio_t] di Briseide. La Rocca si alza presto."
 
-            "E capisco, troppo tardi, che era l'ultima prova: voleva vedere se abboccavo alla moneta falsa. Ho abboccato."
+            "Era l'ultima prova, la moneta falsa. Ho abboccato."
 
         "«Questa era la peggiore delle tue trappole. Riprova quando fai sul serio.»":
             $ caino_fiducia += 2
@@ -183,7 +183,7 @@ label caino_cap5:
 
             show caino sorpreso with qdiss
 
-            "Lunga pausa. La neve cade. E poi Caino ride — non la risata da sala piena: una corta, vera, quasi sorpresa di esistere."
+            "Lunga pausa. Caino ride, una risata corta che non gli ho mai sentito in nessuna sala piena."
 
             show caino neutro with qdiss
 
@@ -249,13 +249,13 @@ label caino_cap6:
 
     hide druso with dissolve
 
-    "Caino non si muove. Ma io ho tenuto i suoi registri, e so leggere anche lui, ormai: sotto il tavolo, la mano si è chiusa a pugno."
+    "Caino non si muove. Ma ho tenuto i suoi registri e so leggere anche lui, ormai: sotto il tavolo, il pollice gli scorre sulle dita come a contare."
 
-    caino "Le pergamene non scappano. Ma prima — un'ultima domanda. La più importante. Se sbagli questa, tutto il resto non conta."
+    caino "Le pergamene non scappano. Prima, un'ultima domanda: se sbagli questa, tutto il resto non conta."
 
     show caino neutro with qdiss
 
-    caino "In tutti questi mesi, io ho detto di odiare una cosa sola. Una. Qual è?"
+    caino "In tutti questi mesi ho detto di odiare una cosa sola. Una. Qual è?"
 
     menu:
         "Una cosa sola. Ripasso ogni sala, ogni corno, ogni sorriso."
@@ -296,12 +296,12 @@ label caino_cap6:
 
     "Caino si alza. Prende entrambe le pergamene, le piega, le infila nel farsetto."
 
-    caino "Il Consiglio mi aspetta. La tua risposta — quella vera, sinistra o destra — me la darai dopo. Se un dopo ancora esisterà."
+    caino "Il Consiglio mi aspetta. Sinistra o destra, la risposta vera me la darai dopo. Se ci sarà un dopo."
 
     "Sulla soglia si ferma. Non si volta."
 
     caino "Se domani qualcuno ti chiede di me, di' la verità. Tutta, senza omissioni. Ti sciolgo da ogni obbligo di riservatezza nei miei confronti."
 
-    "La porta si chiude. Resto sol[fin] con il calamaio, il fuoco e un ampio spazio sul tavolo, dove prima c'erano le pergamene."
+    "La porta si chiude. Resto sol[fin] con il calamaio, il fuoco e il posto vuoto sul tavolo dove c'erano le pergamene."
 
     return

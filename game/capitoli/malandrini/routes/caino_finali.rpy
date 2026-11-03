@@ -14,19 +14,19 @@ label caino_climax:
 
     "La Sala del Consiglio di Rocca Tempesta. Non dovrei essere qui: i Figli nuovi non entrano. Ma il mio nome è sulla convocazione, scritto da mano ignota."
 
-    "Al centro, Caino. Davanti a lui, il semicerchio degli Arconti. E sul seggio più alto, una donna che non ha bisogno di presentazioni: fredda, dorata, immobile. Lenora."
+    "Al centro, Caino. Davanti a lui il semicerchio degli Arconti e, sul seggio più alto, fredda e dorata, Lenora."
 
     show caino neutro with dissolve
 
     "L'accusa è semplice: l'Arconte della Proprietà ha trattenuto le prove contro Eumene per sei mesi, usandole quando conveniva a lui. Abuso della Virtù dell'Operosità. Qualcuno deve pagare."
 
-    "E io so — perché i registri li tengo io — che esiste una via d'uscita perfetta: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino, e il ritardo diventa colpa mia. L'ultim[fin] arrivat[fin] agli scrittoi, inespert[fin], del Ceppo di Briseide. Il capro espiatorio perfetto."
+    "I registri li tengo io, e so che esiste una via d'uscita: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino e il ritardo diventa colpa dell'ultim[fin] arrivat[fin] agli scrittoi, inespert[fin], del Ceppo di Briseide."
 
     "Il Primo Arconte legge l'accusa con voce piatta, da notaio. Ogni data cade nella sala come una moneta sul tavolo."
 
-    "Lenora non guarda né l'accusatore né l'accusato. Si osserva le mani. Le dita intrecciate, immobili, come chi ha già fatto il conto e aspetta solo il totale."
+    "Lenora non guarda né l'accusatore né l'accusato. Si osserva le mani, le dita intrecciate, come chi ha già fatto il conto e aspetta solo il totale."
 
-    "Al terzo banco a sinistra, Druso. Ha le braccia incrociate e la mascella serrata. Per una volta, niente battutine o punzecchiature."
+    "Al terzo banco a sinistra, Druso si mordicchia la barba a braccia incrociate. Per una volta, niente battutine."
 
     if caino_ottone == "parla":
         "Fra i testimoni, in fondo, c'è Ottone. Ha dato il leone d'oro all'indice, in Luna V. Oggi tiene gli occhi sulle scarpe, e le scarpe sono pulite."
@@ -60,7 +60,7 @@ label caino_climax:
         "Restare sedut[fin], e reggere il suo sguardo" (peso=True):
             $ caino_climax_scelta = "tace"
             "Non mi alzo. Non abbasso gli occhi. Gli lascio la frase intera, qualunque sia."
-            "È una firma in bianco. Lui lo sa leggere meglio di chiunque."
+            "È una firma in bianco, e nessuno la sa leggere meglio di lui."
 
         "Guardare Lenora, invece di lui" (peso=True):
             $ caino_climax_scelta = "lenora"
@@ -90,12 +90,12 @@ label caino_good_end:
 
     caino "Arconti. La tempistica dei registri di Eumene ha un solo responsabile."
 
-    "Il silenzio della sala è un animale affamato. Caino mi guarda un'ultima volta. E sorride — non il sorriso facile. L'altro. Quello che siamo in tre a conoscere."
+    "La sala aspetta. Caino mi guarda un'ultima volta e sorride, non il sorriso facile: l'altro, quello che siamo in tre a conoscere."
 
     caino "Io. Li ho trovati, li ho tenuti, li ho usati. Per ambizione. Come ogni cosa che ho fatto in questa Rocca, tranne una."
 
     if caino_climax_scelta == "colpa":
-        caino "Chi tiene i miei registri si è alzat[fin] per mentire al Consiglio. Mettetelo a verbale: ha copiato quello che gli dettavo. Mente male. È la sua unica qualità discutibile."
+        caino "Chi tiene i miei registri si è alzat[fin] per mentire al Consiglio. Mettetelo a verbale: ha copiato quello che [gli_t] dettavo. Mente male. È la sua unica qualità discutibile."
 
     "La sala esplode. Lenora alza una mano e il rumore muore."
 
@@ -138,9 +138,9 @@ label caino_good_end:
 
     caino "Mia madre non perdona. Riclassifica. Fra un anno sarò una voce in attivo anche per lei, vedrai. Le piacciono i figli che sanno perdere al momento giusto."
 
-    "Mi prende il viso tra le mani — le mani callose dello spadaccino, attente come su un filo di lama."
+    "Mi prende il viso tra le mani callose da spadaccino, attente come su un filo di lama."
 
-    caino "La pergamena di destra. Quella senza niente scritto. La firmo io, se tu la firmi con me. E ti avverto: quello che c'è sotto l'Arconte farebbe di tutto per te. Di tutto. Non sono riuscito a scriverci una clausola di recesso. Ci ho provato per tre notti."
+    caino "La pergamena di destra. Quella senza niente scritto. La firmo io, se tu la firmi con me. E ti avverto: quello che c'è sotto l'Arconte farebbe di tutto per te. Non sono riuscito a scriverci una clausola di recesso. Ci ho provato per tre notti."
 
     pc "Allora firmiamo senza limiti."
 
@@ -190,7 +190,7 @@ label caino_secret_end:
     else:
         caino "Grazie per il silenzio, [figlio_t] di Briseide. Il tuo conto è pari."
 
-    "Pari. Un registro chiuso. Tutto qui."
+    "Pari. Un registro chiuso."
 
     "Nessuno sguardo, nessun drago al mignolo. Le mani nude, come la sera del ballo."
 
@@ -224,7 +224,7 @@ label caino_secret_end:
 
             show druso ghigno with qdiss
 
-            "Druso para ridendo, e l'idromele vola, e da qualche parte sugli spalti giuro che qualcuno — qualcuno con un anello col drago — ci guarda e scuote la testa, sorridendo suo malgrado."
+            "Druso para ridendo, e l'idromele vola, e da qualche parte sugli spalti giuro che qualcuno con un anello col drago ci guarda, scuote la testa e sorride."
 
             druso "Dichiarazione accettata. Da domani, novellin[fin], ti insegno il Codice intero. Articolo primo: il cuore si difende come i genitali. Sempre in guardia, e mai da solo."
 
@@ -253,7 +253,7 @@ label caino_bad_end:
 
     caino "Arconti. Le date di consultazione dei registri parlano chiaro. La mano è quella dello scrivano: [player_name], del Ceppo di Briseide. Nuov[fin], inespert[fin]. Il ritardo nasce lì."
 
-    "Lo dice senza guardarmi. Liscio, misurato, perfetto. La voce del Ballo delle Candele Spente."
+    "Lo dice senza guardarmi, liscio e misurato: la voce del Ballo delle Candele Spente."
 
     if caino_climax_scelta == "colpa":
         caino "Lo scrivano stesso l'ha ammesso, Arconti. In piedi. L'avete sentito tutti."
@@ -261,9 +261,9 @@ label caino_bad_end:
     elif caino_climax_scelta == "lenora":
         "Lenora mi guarda una volta sola, mentre lui parla. Lo stesso sguardo di prima. Adesso so cosa voleva dire: niente di personale."
 
-    "Provo a parlare: il Primo Arconte mi toglie la parola. I Figli nuovi non parlano in Consiglio. Il mio nome entra nei verbali; la Virtù della Verità richiede un'ammenda; Briseide ottiene — a fatica — che sia l'esilio dalla capitale e non le Segrete Silenti."
+    "Provo a parlare, e il Primo Arconte mi toglie la parola. Il mio nome entra nei verbali, la Virtù della Verità richiede un'ammenda e Briseide ottiene, a fatica, che sia l'esilio dalla capitale e non le Segrete Silenti."
 
-    "Caino vota con la maggioranza. Ovviamente. Vince gli scontri, Caino. Tutti. Soprattutto quando è dalla parte del torto."
+    "Caino vota con la maggioranza, ovviamente. Vince gli scontri, Caino, soprattutto quando è dalla parte del torto."
 
     "Dal terzo banco, Druso si alza e se ne va prima del voto. È l'unico rumore della seduta."
 
@@ -277,15 +277,15 @@ label caino_bad_end:
 
     caino "Niente rancore, [figlio_t] di Briseide. Eri il pezzo giusto nel turno sbagliato. Capita ai migliori. Soprattutto ai migliori: i pezzi scarsi non li gioca nessuno."
 
-    pc "Mi hai usato dal primo giorno."
+    pc "Mi hai usat[fin] dal primo giorno."
 
     caino "Ti ho ASSUNTO dal primo giorno. L'uso era nel contratto; dovevi leggere le clausole. I dettagli, ricordi? I dettagli possiedono le persone."
 
-    "Si volta. Poi, un passo dopo, si ferma — un mezzo istante, le spalle rigide — come se il registro, da qualche parte, non chiudesse."
+    "Si volta. Un passo dopo si ferma, come se il registro, da qualche parte, non chiudesse."
 
     caino "...Rurikstad è decente, d'inverno. Evita il vino di Glostok."
 
-    "Non si volta più. Lungo la strada per Rurikstad, a ogni locanda, ordino idromele. Non so perché."
+    "Non si volta più. Lungo la strada per Rurikstad, a ogni locanda, ordino idromele."
 
     scene bg nero with fade
 
@@ -305,7 +305,7 @@ label caino_neutral_end:
 
     caino "Arconti. I registri hanno due mani: la mia e quella del mio scrivano. La tempistica è mia. Gli errori di forma, suoi. Propongo ammenda doppia e chiudiamo: il Consiglio ha guerre più vere di questa."
 
-    "Mezza colpa a testa. Il compromesso perfetto: nessuno cade, nessuno vince. Lenora approva con un cenno annoiato."
+    "Mezza colpa a testa: nessuno cade, nessuno vince. Lenora approva con un cenno annoiato."
 
     if caino_climax_scelta == "colpa":
         "Mi ero alzat[fin] per prenderla tutta. Ne ha presa metà. Da Caino, è quasi un regalo."
@@ -320,7 +320,7 @@ label caino_neutral_end:
 
     pc "E la pergamena di destra?"
 
-    "Caino la prende, la guarda un lungo istante. Poi la tiene — non la straccia. La ripone nel cassetto, sotto chiave."
+    "Caino la prende, la guarda a lungo e la ripone nel cassetto, sotto chiave."
 
     "La chiave non la mette al collo, come le altre. La lascia sul tavolo, tra noi due, dove chiunque potrebbe prenderla."
 
@@ -351,7 +351,7 @@ label caino_passeggero:
 
     caino "Arconti. La tempistica dei registri è mia. Solo mia. Lo scrivano ha copiato quello che gli ho dettato."
 
-    "Si prende tutto. Non mi guarda mentre lo fa. È questo, capisco dopo, il punto."
+    "Si prende tutto, e non mi guarda mentre lo fa."
 
     "Lenora toglie la seduta con un gesto. La Proprietà passa ad altra mano per un anno."
 
@@ -385,9 +385,9 @@ label caino_passeggero:
 
     "Accanto a lui c'è uno scrivano nuovo. Giovane, attento, prende appunti su tutto. Anche sulle battute."
 
-    "Caino gli dice qualcosa e lo scrivano ride. Io quella battuta la conoscevo. Me l'aveva detta per primo."
+    "Caino gli dice qualcosa e lo scrivano ride. Io quella battuta la conoscevo: l'aveva detta prima a me."
 
-    "Al terzo banco Druso mi fa un cenno, la mascella storta. Ha l'aria di chi ha visto chiudersi una porta e non ha avuto il coraggio di dire niente."
+    "Al terzo banco Druso mi fa un cenno e, per una volta, non dice niente."
 
     scene bg nero with fade
 

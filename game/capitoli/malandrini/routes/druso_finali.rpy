@@ -8,7 +8,7 @@ label druso_climax:
     $ musica("finale")
     scene bg consiglio with fade
     "Convocazione del Ramo di Lenora. Sala lunga, banchi di quercia, gli Arconti in fila come corvi su un ramo."
-    "Il freddo della pietra sale dalle suole. Le torce bruciano basse, come se anche loro avessero paura di disturbare."
+    "Il freddo della pietra sale dalle suole e le torce bruciano basse."
     "L'accusa la legge un cancelliere del Ramo, con la voce di chi recita un inventario."
     "Il secondogenito della Capofamiglia «frequenta [un_t] Figli[fin] di Briseide oltre il decoro»."
     if flag_druso_coraggio:
@@ -31,8 +31,8 @@ label druso_climax:
     "Una voce, da dietro la grata. Bassa, senza fretta."
     "«Druso. Ti ascolto.»"
     show druso sorpreso with qdiss
-    "Lui apre la bocca. La richiude. Le mani cercano un boccale che non c'è."
-    "Poi i suoi occhi trovano i miei, in fondo, tra i Figli messi lì dove non fanno danni."
+    "Apre la bocca e la richiude. Le mani cercano un boccale che non c'è."
+    "I suoi occhi trovano i miei, in fondo, tra i Figli messi lì dove non fanno danni."
     menu:
         "Il silenzio dura un respiro di troppo. Tutti aspettano."
         "Alzati e parla per lui" (peso=True):
@@ -45,7 +45,7 @@ label druso_climax:
             "Un mormorio tra i banchi. Il cancelliere segna qualcosa."
             show druso irritato with qdiss
             druso "...nessuno ti ha chiesto di fare il cavaliere. Siediti."
-            "Lo dice piano, a denti stretti. Ma adesso la sala guarda me, non lui."
+            "Lo dice piano. Ma adesso la sala guarda me, non lui."
         "Resta sedut[fin], e guardalo. La voce è sua" (peso=True):
             $ druso_consiglio = "lascia"
             $ druso_affinity += 1
@@ -54,7 +54,7 @@ label druso_climax:
             else:
                 "Non mi muovo. Lo guardo e basta."
             show druso serio with qdiss
-            "Druso capisce. Raddrizza le spalle. Settanta chili di poeta, tutti in piedi."
+            "Druso raddrizza le spalle. Settanta chili di poeta, tutti in piedi."
             druso "Madre. Ho la gola secca e niente da bere. Parlerò lo stesso."
         "Smonta la cosa con una battuta" (peso=True):
             $ druso_consiglio = "battuta"
@@ -77,15 +77,15 @@ label druso_good:
     show druso ghigno at left with qdiss
     druso "Confermo tutto, madre. Il decoro, la rissa, [il_t] Figli[fin] di Briseide. E aggiungo un componimento in tema, se il Consiglio gradisce. Rima baciata."
     "Un Eparca si alza per protestare. Caino, senza voltarsi, gli posa una mano sul braccio. L'Eparca si risiede."
-    "Lo recita. Davanti a Lenora, agli Arconti, al Nord intero. Il poema non osceno. Il mio."
-    "Dentro ci sono cose che sappiamo solo noi due. Nessuno in sala capisce. Io sì."
+    "Lo recita davanti a Lenora, agli Arconti, al Nord intero: il poema non osceno, il mio."
+    "Dentro ci sono cose che sappiamo solo noi due, e in sala nessuno capisce."
     if druso_difesa == "riscrivi":
         "Riconosco i miei versi. Ognuno con una parola cambiata, perché possa dire che è suo."
     elif druso_difesa == "se_stesso":
         "Niente strofe sul decoro. Debiti, versi e paura, tutti in piedi, tutti in rima."
     elif druso_difesa == "brucia":
         "Nemmeno una parola sulla convocazione. Recita come uno che non deve più niente a nessuna lettera."
-    "La sala non ride. La sala — che gli Asi la conservino — applaude."
+    "La sala non ride. La sala, che gli Asi la conservino, applaude."
     "Da dietro la grata, una sola parola: «Bis.»"
     show druso sorpreso with qdiss
     "Druso resta a bocca aperta. Si gira verso di me e muove le labbra, senza voce: «e adesso?»"
@@ -108,7 +108,7 @@ label druso_good:
     show druso ghigno with qdiss
     druso "Non abituarti. Il prossimo lo faccio in endecasillabi."
     "Da quella sera Zefiro ha un poeta nuovo. Stesso uomo, stessa barba. Le rime oscene restano."
-    "Ma alla fine di ogni serata, a voce bassa, ce n'è una che non lo è. Ed è solo per me."
+    "Ma alla fine di ogni serata, a voce bassa, ce n'è una che non lo è, ed è solo per me."
     scene bg nero with fade
     $ sblocca_finale("druso_good")
     with lampo_oro
@@ -144,18 +144,17 @@ label druso_bad:
     $ musica("finale")
     show druso serio at left with qdiss
     druso "Chi? Quell[fin]? Madre, ti prego. Un cane che abbaia, al mio seguito. Il pubblico non si sceglie."
-    "Lo dice guardandomi. E il ghigno, stavolta, non arriva agli occhi."
+    "Lo dice guardandomi, senza ghigno."
     if druso_consiglio == "parla":
         druso "E se parla per me, è perché non ha niente da dire per sé."
     "Gli Arconti ridono. È la risata che lui voleva, e la paga con me."
-    "Da dietro la grata, Lenora non dice niente. Non serve."
+    "Da dietro la grata, Lenora non dice niente."
     "All'uscita Caino mi passa accanto senza fermarsi. Dice solo: «Mio fratello sceglie sempre la risata. Io non mi ci sono mai abituato.»"
     scene bg vicoli_zefiro with fade
     "In taverna il mio posto accanto al suo lo prende qualcun altro. Poi un altro ancora."
     "Da quella sera le sue provocazioni tornano a essere solo crudeli, e io torno a essere solo pubblico."
     if "druso_luna5" in eventi_visti:
         "Una volta, tardi, lo sento recitare la strofa di Epiro. Quella su Lenora. La dice lui, su di sé, e la sala applaude."
-    "Il gioco crudo e duro ha dato il suo verdetto: non l'ho retto."
     scene bg nero with fade
     $ sblocca_finale("druso_bad")
     centered "{cps=20}{size=+10}IL CANE CHE ABBAIA{/size}\n\nDruso testa le acque di tutti.\nNon tutti galleggiano.{/cps}"
@@ -168,7 +167,7 @@ label druso_passeggero:
     $ musica("finale")
     show druso serio at left with qdiss
     druso "Madre. [Il_t] Figli[fin] di Briseide mi è car[fin]. Lo dico davanti al Consiglio, e senza rima."
-    "Lo dice bene. Pulito, coraggioso. Una frase sola, e la sala la sente tutta."
+    "Lo dice bene, pulito. Una frase sola, e la sala la sente tutta."
     "La grata tace, poi archivia. Un figlio che ha detto una cosa vera: per una volta basta."
     scene bg vicoli_zefiro with fade
     $ lento()
@@ -186,7 +185,7 @@ label druso_passeggero:
     $ lento()
     "Una Luna dopo, in taverna, Druso legge un componimento serio. La sala tace, il che è un miracolo."
     show druso imbarazzato at left with dissolve
-    "A metà alza gli occhi. Non verso di me: verso il fondo, dove Pandora tiene un libro aperto sul braccio e finge di non ascoltare, infastidita."
+    "A metà alza gli occhi. Non verso di me: verso il fondo, dove Pandora tiene un libro aperto sul braccio e finge di non ascoltare."
     "Finisce. Applausi. Mi cerca, mi fa l'occhiolino da vecchio amico, e torna a guardare lei."
     show icaro furbo with dissolve
     icaro "Scommessa vinta. Avevo dato Pandora a tre contro uno. Non prenderla sul personale: i miei quaderni non hanno una colonna per le persone gentili."

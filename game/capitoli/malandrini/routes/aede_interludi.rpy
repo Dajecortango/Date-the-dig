@@ -26,7 +26,7 @@ label interludio1:
 
     hide briseide with dissolve
 
-    "Mi parla dei 63 Ceppi e dei 9 Rami, uno per Primarca. Delle correnti del Consiglio, che si muovono come fiumi sotto il ghiaccio: in superficie fermi, ma sotto nascondono una corrente che ti porta via le gambe."
+    "Mi parla dei 63 Ceppi e dei 9 Rami, uno per Primarca. Delle correnti del Consiglio, che sono come i fiumi sotto il ghiaccio: fermi in superficie, e sotto ti portano via le gambe."
 
     "Mi parla del Ceppo di Glauco Severo, che nel Ramo fa il lavoro di cui nessuno parla all'Adunanza."
 
@@ -44,7 +44,7 @@ label interludio1:
 
     corrado "È fare anche di peggio."
 
-    "Litigano su di me per un'ora. Nessuno dei due ha torto. È questo il problema."
+    "Litigano su di me per un'ora, e nessuno dei due ha torto."
 
     return
 
@@ -56,7 +56,7 @@ label interludio2:
 
     scene bg vicoli_zefiro with fade
 
-    "La sera dopo l'Athlion, il Ceppo festeggia — vittorie altrui, birra propria — in una taverna della Contrada Lumina."
+    "La sera dopo l'Athlion, il Ceppo festeggia (vittorie altrui, birra propria) in una taverna della Contrada Lumina."
 
     show vanna neutra at left with dissolve
     show corrado neutro at right with dissolve
@@ -69,7 +69,7 @@ label interludio2:
 
     "Il tavolo si zittisce. Corrado ha il talento di guastare le feste con la verità."
 
-    corrado "Si dice che chi entra in quel Ceppo da bambino, non sceglie mai. Che il vecchio raccoglie orfani come Briseide — ma dove nostra madre cresce Figli, lui forgia attrezzi."
+    corrado "Si dice che chi entra in quel Ceppo da bambino, non sceglie mai. Che il vecchio raccoglie orfani come Briseide, ma dove nostra madre cresce Figli, lui forgia attrezzi."
 
     corrado "E si dice che la figlia prediletta avesse sette anni al primo addestramento. Sette. Con le lame vere, perché «quelle finte insegnano bugie»."
 
@@ -80,8 +80,6 @@ label interludio2:
     corrado "C'era una Filius Maior che faceva da madre a tutti. Morta quando la ragazzina ne aveva dodici. Un lavoro andato male. Da allora, dicono, Glauco raddoppiò gli addestramenti. Non c'è tempo per il lutto nel suo Ceppo, si lavora e si migliora."
 
     "Il boccale mi si ferma a mezz'aria."
-
-    "Sette anni. Lame vere. Una madre persa a dodici, e un padre che risponde al dolore con la disciplina."
 
     if "aede_cap3" in eventi_visti:
         "Ripenso a come ha detto «il gioiello di Glauco Severo». Come se il gioiello fosse un sasso che porta in tasca da troppi anni."

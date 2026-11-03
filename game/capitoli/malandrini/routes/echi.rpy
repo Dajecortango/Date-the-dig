@@ -28,7 +28,7 @@ label echi_lenora_corrado:
     show corrado neutro with dissolve
     corrado "Dicono che davanti alla grata [un_t] [figlio_t] di Briseide abbia risposto a tono. Un[fin] sol[fin], su venti."
     corrado "Lenora non dimentica, [fratello_t]. Riclassifica. E i registri di Pandora non hanno gomma."
-    "Lo dice serio. Poi, voltandosi, gli scappa mezzo sorriso: Corrado non ha mai risposto a tono a nessuno."
+    "Lo dice serio, ma voltandosi gli scappa da ridere: Corrado non ha mai risposto a tono a nessuno."
     return
 
 # Icaro: la bugia al tavolo grande (città).
