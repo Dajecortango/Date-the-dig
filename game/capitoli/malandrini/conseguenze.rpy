@@ -251,8 +251,11 @@ init -5 python:
         "aede_cap6": "Il giuramento",
         "caino_luna5": "La talpa nei registri",
         "druso_luna5": "La sfida di Epiro",
+        "druso_crocetta": "La crocetta",
         "druso_luna6": "Il Consiglio di Lenora",
+        "druso_cantina": "La cantina",
         "icaro_luna5": "La partita",
+        "icaro_riga": "La riga",
         "icaro_luna6": "Il conto di Icaro",
         "ofelia_ev4": "Alla luce del sole",
         "interludio_ofelia_luna6": "Prima della fine",
@@ -261,7 +264,7 @@ init -5 python:
     # Eventi comuni che aprono una route: stanno nella sua scheda.
     TRAMA_ROUTE = {"adunanza": "caino"}
     # Nodi visibili solo per un genere del protagonista.
-    TRAMA_GENERE = {"icaro_bro1": "m", "icaro_bro2": "m"}
+    TRAMA_GENERE = {"icaro_bro1": "m", "icaro_riga": "f"}
 
     def _trama_luna(ev):
         return ev.get("luna", ev.get("luna_min", 1))

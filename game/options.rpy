@@ -37,6 +37,9 @@ default preferences.afm_time = 15
 
 define config.save_directory = "DateTheDig-1760000000"
 
+## Niente sincronizzazione online: toglie "Upload Sync" dai salvataggi.
+define config.has_sync = False
+
 ## Icona #######################################################################
 
 define config.window_icon = "gui/window_icon.png"

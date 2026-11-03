@@ -15,10 +15,10 @@ ICARO: Siediti qui. Non per giocare: per contare. Voglio vedere se conti come gu
 TU: Contare cosa, di preciso?
 ICARO: Tutto. Le carte uscite, le monete nel piatto, quante volte il mercante si tocca l'orecchio.
 ICARO: Se lo tocca quando bluffa. Sette volte, finora. Ha perso sei mani.
-Mescola senza guardare il mazzo. Le carte gli scorrono tra le dita come acqua in un canale.
+Mescola senza guardare il mazzo.
 Un Gunnaro gli chiede se ha mai pensato di fare il prestigiatore. Lui risponde che i prestigiatori si fanno pagare dopo. Lui, prima.
-Tre mani dopo, il mercante — in perdita secca — ringhia che «qualcuno bara».
-Due monete d'argento, nel piatto, sono finite dal lato sbagliato. Il lato di Icaro. Non ho visto come.
+Tre mani dopo il mercante, in perdita secca, ringhia che «qualcuno bara».
+Due monete d'argento, nel piatto, sono finite dal lato di Icaro. Non ho visto come.
 
 [SCELTA]
     Gli occhi del tavolo cercano un colpevole. Io so chi è.
@@ -38,7 +38,7 @@ Due monete d'argento, nel piatto, sono finite dal lato sbagliato. Il lato di Ica
     > Dai ragione al mercante
         ICARO: Contate pure. Tutto regolare, come sempre.
         Il mercante mi ringrazia con una pacca sulla spalla. È l'unico, stasera, a guardarmi in faccia.
-        Regolare, adesso. E il posto al tavolo grande, per me, non esiste più. Da nessuna parte, mai più.
+        Regolare, adesso. E il posto al tavolo grande, per me, non esiste più.
 Fuori, i vicoli di Zefiro sono ancora umidi di pioggia. L'odore di resina mi resta addosso fino al mattino.
 
 
@@ -59,7 +59,7 @@ Gira il registro verso di me. Una colonna intera con lo stesso nome, scritto con
 ICARO: Mio fratello mi deve quarantadue Scudi, una spada da parata e una cena in sospeso.
 ICARO: La spada l'ha impegnata. Dice che l'ha persa in una rissa. La cena l'ha mangiata davanti a me. Il resto lo nega.
 TU: E Caino?
-ICARO: Caino non ha debiti. Caino ha crediti. Con tutti. Anche con me. Non è una pagina che mostro.
+ICARO: Caino non ha debiti. Ha crediti, con tutti, anche con me. Non è una pagina che mostro.
 
 [SCELTA]
     Il registro è aperto davanti a me. Icaro aspetta di vedere dove guardo.
@@ -78,7 +78,7 @@ ICARO: Caino non ha debiti. Caino ha crediti. Con tutti. Anche con me. Non è un
     > «L'Eparca aveva l'anello del Ramo. Poteva pagarti.»
         ICARO: Lo so. Gli ho dato una settimana apposta.
         ICARO: Un debitore ricco che ti deve un favore vale più dei suoi Scudi. Gli Scudi si spendono. I favori fruttano.
-        Annota qualcosa a margine. Non sul debitore. Su di me, credo.
+        Annota a margine. Non sul debitore: su di me, credo.
 Riscossione finita. Icaro riaccende la pipa, e il fumo si posa sul registro come un panno sul tavolo.
 ICARO: Domani dimentica tutto quello che hai visto. Tranne le cifre. Quelle restano tra noi.
 
@@ -88,7 +88,7 @@ ICARO: Domani dimentica tutto quello che hai visto. Tranne le cifre. Quelle rest
 Mi aspetta all'angolo del vicolo dei cordai, con una lanterna schermata e un mazzo di chiavi che non tintinna.
 ICARO: Niente domande sulla strada. La strada è parte del segreto.
 Tre svolte a sinistra, due cortili, una scala che sale per poi scendere. Alla fine mi gira la testa, e lui sembra soddisfatto.
-Mi porta in un magazzino dietro la Consorteria. Dentro: casse, stoffe, lampade di Lumina, un servizio da tè di Glostok. Tutto suo. Tutto inventariato.
+Mi porta in un magazzino dietro la Consorteria. Dentro: casse, stoffe, lampade di Lumina, un servizio da tè di Glostok. Tutto suo, tutto inventariato.
 ICARO: La gente colleziona titoli, favori, sentimenti. Aria. Io colleziono cose. Le cose non mentono, non ti tradiscono e non chiedono nulla: esistono, e sono mie.
 Ogni oggetto ha un cartellino. Data, provenienza, prezzo pagato, prezzo stimato. Il secondo numero è sempre più alto del primo.
 TU: Come hai pagato tutto questo?
@@ -99,8 +99,8 @@ ICARO: Undici minuti. Lui giura nove. Ma la lampada di Lumina sta qui, non da lu
     Me lo dice senza vergogna. È la sua visione del mondo, nuda.
 
     > «Se ogni cosa qui dentro ha una storia, raccontamene una.»
-        Esita. Poi prende la lampada più brutta sullo scaffale e racconta: la prima cosa che abbia mai vinto barando.
-        ICARO: Non ha valore di mercato e non è in vendita. Capisci il significato che ha per me o devo rallentare?
+        Esita, poi prende la lampada più brutta sullo scaffale e racconta: la prima cosa che abbia mai vinto barando.
+        ICARO: Non ha valore di mercato e non è in vendita. Capisci o devo rallentare?
         TU: Capisco. È l'inventario che non mostri.
         ICARO: ...mh. Perspicace.
         Rimette la lampada sullo scaffale. Poi la sposta di un dito, più in vista.
@@ -126,7 +126,7 @@ TU: Lezione di cosa?
 Apre la mano. Dentro c'è il mio fermaglio. Quello che avevo addosso un minuto fa.
 TU: Quando...?
 ICARO: Mentre guardavi la borsa che ti ho indicato. Si indica sempre qualcosa. La gente guarda il dito, mai l'altra mano.
-Me lo rende. Non direttamente: lo lascia cadere nella mia tasca mentre mi passa accanto. Non avverto il suo movimento.
+Me lo rende lasciandolo cadere nella mia tasca mentre mi passa accanto. Non sento niente.
 ICARO: Le dita fanno il dieci percento. Il resto è dove guarda l'altro. Tu hai fissato la borsa quattro secondi. Ne bastavano due.
 Mi mostra tre cose: il passo di fianco, la spinta che sembra una scusa, la domanda che occupa la testa.
 ICARO: L'ho imparato appena arrivato qui. Dopo poco ho smesso di farmi prendere.
@@ -143,14 +143,14 @@ ICARO: È l'unico debito che abbia mai saldato in anticipo.
 
     > Fagli una domanda vera, e prendi la moneta mentre risponde
         TU: Cosa porteresti via, se il magazzino bruciasse?
-        Ci pensa. Davvero. E per un istante, mentre pensa, la mano si apre.
+        Ci pensa davvero, e mentre pensa la mano si apre.
         La moneta è mia. Lui se ne accorge tre respiri dopo.
         ICARO: ...domanda sleale. Ottima. Tienila. Tre respiri: devo lavorarci.
 
     > Rifiuta: «Non rubo ai soci.»
         ICARO: I soci sono quelli a cui conviene di più rubare, si fidano troppo.
-        Intasca la moneta con un mezzo sorriso. Dieci passi dopo la tira fuori e la guarda di nuovo.
-Le bancarelle sono chiuse. Icaro si incammina in silenzio, senza salutare, mani in tasca.
+        Intasca la moneta. Dieci passi dopo la tira fuori e la guarda di nuovo.
+Le bancarelle sono chiuse. Icaro si incammina senza salutare, mani in tasca.
 A casa, nel mio borsello, trovo un bottone d'osso che non è mio. E un bigliettino: «Interessi.»
 
 
@@ -200,14 +200,14 @@ ICARO: Allora l'avrò scelto io. A prezzo pieno, senza trattare.
 
     > «Eccezione. E sono irrevocabile, come le tue regole.»
         ICARO: Irrevocabile. Parola da contratto serio. ...venduto.
-        Scrive una riga sola sulla pagina bianca, e la copre con la mano prima che io possa leggerla. Sua. Come tutto ciò che conta.
+        Scrive una riga sola sulla pagina bianca, e la copre con la mano prima che io possa leggerla.
         ICARO: Non chiedere cosa c'è scritto. Te lo dirò quando avrà maturato gli interessi.
         Restiamo al buio, la pipa accesa tra noi. Non mi tocca. La mia spalla sfiora la sua, e aspetto che si scosti. Non si scosta.
 
     > «Non sono una voce del tuo inventario.»
         ICARO: Allora il bilancio torna come prima. Perfetto. Era l'ipotesi più probabile, l'avevo già contabilizzata.
-        Lo dice piatto, senza una piega. Poi taglia il mazzo, e una carta gli scivola sul pavimento.
-        Chiude il registro. Prima di alzarsi, però, ci passa sopra il palmo, piano. Come per lisciare una pagina che nessuno scriverà.
+        Lo dice piatto. Taglia il mazzo, e una carta gli scivola sul pavimento.
+        Chiude il registro. Prima di alzarsi ci passa sopra il palmo, piano.
 
 
 === IMPEGNO BRO ===
@@ -238,13 +238,13 @@ ICARO: Regola della serata: niente domande, niente debiti, niente contatto. Si f
 Prepara la pipa con cura da orefice: il fornello pulito, l'erba sbriciolata tra pollice e indice, un pizzico alla volta.
 ICARO: Erba delle colline di Rundeberg. Ne compro una libbra a stagione e non ne regalo mai. Questa è un prestito.
 Me la passa senza che le nostre dita si sfiorino. È un gesto che ha studiato.
-Fumiamo. Guardiamo. Taccio. Un'ora, forse due. È la cosa più vicina alla pace che il Nord mi abbia concesso.
+Fumiamo. Guardiamo. Taccio. Un'ora, forse due.
 Giù in strada qualcuno urla il nome di Druso. Icaro chiude gli occhi e conta fino a dieci, a fior di labbra.
-Al dieci l'urlo è passato. Riapre gli occhi come se niente fosse.
+Al dieci l'urlo è passato, e riapre gli occhi.
 
 [VARIANTE]
     ICARO: ...annotazione d'inventario. Due ore, zero perdite. La tua presenza non è un passivo. Ricontrollo domani, per sicurezza.
-    Poi torna a guardare la città. La pipa, sulla stuoia, resta dalla mia parte.
+    Torna a guardare la città. La pipa, sulla stuoia, resta dalla mia parte.
 
 [VARIANTE]
     ICARO: ...annotazione d'inventario. Due ore accanto a te, e non ho controllato il borsello. Neanche una volta. Tienitelo stretto.
@@ -277,7 +277,6 @@ ICARO: Lo scrive ogni volta. Ogni volta ha torto. Ogni volta lo rileggo.
     > Non dire niente. Passargli la pipa, già carica
         Gliela porgo dal lato del cannello. Lui la prende senza sfiorarmi.
         ICARO: Quarta pipa. Non è mai successo. Lenora inorridirebbe.
-        Lo dice come se fosse una buona notizia.
 
     > «Rispondile. Ti tengo io la lanterna.»
         ICARO: Rispondere a Lenora è un contratto a tempo indeterminato. Lei risponde alla risposta.
@@ -289,7 +288,7 @@ ICARO: Lo scrive ogni volta. Ogni volta ha torto. Ogni volta lo rileggo.
     Me ne accorgo perché la pagina è quasi vuota. E perché lui si accorge che me ne accorgo.
 
 [VARIANTE]
-    Infila la lettera nel registro. Poi si volta verso di me, serio.
+    Infila la lettera nel registro e si volta verso di me, serio.
     ICARO: Druso direbbe che adesso siamo amici. Druso esagera del sessanta per cento. Il resto, stasera, è corretto.
 
 
@@ -309,17 +308,17 @@ Il mercante giura sugli Asi e su sua madre che il servizio è intatto. Icaro asp
 
     > Resta zitto, braccia conserte, e guarda altrove
         Non dico niente. Guardo la porta del mercato come se avessi già un altro affare lì fuori.
-        Il mercante suda. Scende di prezzo due volte, da solo, senza che nessuno glielo chieda.
+        Il mercante suda. Scende di prezzo due volte, da solo.
         ICARO: Due ribassi, zero parole. Ottanta Scudi risparmiati con la faccia. Non la sprecare in taverna.
 
     > Inventa un'offerta migliore a un altro banco
         TU: Il banco del rigattiere ci ha offerto un servizio intero per meno. Andiamo, Icaro.
-        Icaro mi fulmina. Mezzo secondo. Poi annuisce, grave, come se l'avesse deciso lui.
+        Icaro mi fulmina per mezzo secondo, poi annuisce, grave, come se l'avesse deciso lui.
         Il mercante cede. Fuori dal mercato, Icaro mi ferma con due dita sul petto, e le ritira subito.
         ICARO: Funziona. Ma il rigattiere chiude il martedì, e oggi è martedì. Se il mercante lo sapeva, eravamo fuori. Il metodo, la prossima volta, me lo dici prima.
 
     > Indica lo stemma sotto un piattino: è ridipinto
-        Sotto un piattino lo stemma di Altafresia ha i bordi troppo freschi. Lo giro verso Icaro, senza una parola.
+        Sotto un piattino lo stemma di Altafresia ha i bordi troppo freschi. Lo giro verso Icaro.
         ICARO: ...ridipinto. Mezzo servizio è di Altafresia, mezzo di un posto qualunque.
         ICARO: Allora lo compriamo tutto. Al prezzo del posto qualunque. Poi lo rivendiamo come di Altafresia a chi non gira i piattini.
         TU: Non è onesto.
@@ -332,34 +331,52 @@ Me la infilo in tasca. Pesa poco. Lui apre il registro e annota: data, oggetto, 
 
 === ICARO BRO COLPO ===
 
-Mezzanotte nella Consorteria. Le lanterne, qui, sono stanche, come chi ha lavorato un giorno intero. Icaro mi aspetta sotto un portico, senza pipa.
+Mezzanotte nella Consorteria. Le lanterne, qui, sono stanche. Icaro mi aspetta sotto un portico, senza pipa.
 ICARO: Druso mi deve un'altra spada. L'ha impegnata al banco dei pegni dietro l'angolo. Il che vuol dire che il banco ha la MIA spada.
 TU: E il banco lo sa?
 ICARO: Il banco sa solo quello che è scritto sulla ricevuta. La ricevuta dice Druso. Io stanotte riscuoto per conto di Druso. Senza dirglielo, e senza pagare.
 ICARO: Non è un furto. È una correzione d'inventario.
 Il banco dei pegni ha una porta col catenaccio, una finestra alta e una guardia che si addormenta in piedi. Icaro li ha contati tutti e tre, da giorni.
 ICARO: Io entro dalla finestra. Tu resti fuori. Ti do una regola sola: se la guardia si sveglia, non scappare. Chi scappa ha qualcosa da nascondere.
-Si arrampica sul muro con l'agilità di un gatto. Sparisce. Io resto nel portico, con la guardia a dieci passi e il cuore in gola.
+Si arrampica sul muro e sparisce. Io resto nel portico, a dieci passi dalla guardia.
 Poi la guardia apre un occhio. Poi l'altro.
 
 [SCELTA]
     La guardia si stira. Guarda il portico. Guarda me.
 
-    > Fingiti ubriaco e chiedi la strada per il Becco Storto
+    > Fingiti ubriaco/a e chiedi la strada per il Becco Storto
         Barcollo verso di lui con un poema di Druso in bocca. Quello sulla locandiera. Lo conosco tutto, purtroppo.
         La guardia ride, mi indica la strada sbagliata, mi spinge via con una pacca. Dietro di lui, la finestra si richiude piano.
 
-    > Resta fermo nell'ombra, senza respirare
+    > Resta fermo/a nell'ombra, senza respirare
         Non mi muovo. Chi scappa ha qualcosa da nascondere. Io sono una colonna del portico.
         La guardia guarda nella mia direzione per un tempo lunghissimo. Poi sbadiglia, e riprende a dormire in piedi.
 
     > Fai un fischio basso, come quello dei lanternai
         Fischio. Due note, il segnale dei lanternai quando passa la ronda. Dalla finestra non viene più nessun rumore.
         La guardia si guarda intorno, non vede nessuno, maledice qualcuno sottovoce. Quando torna a dormire, la finestra si apre di nuovo.
-Icaro scende dal muro con una spada avvolta in un sacco. Non ha fretta. Non ha mai fretta.
+Icaro scende dal muro con una spada avvolta in un sacco, senza fretta.
 ICARO: Riscossa. Sul banco ho lasciato la ricevuta di Druso, firmata da me per quietanza. Domani il banco cercherà lui.
 TU: Hai incastrato tuo fratello.
 ICARO: Ho incastrato il suo debito. Lui c'era già dentro. Io l'ho solo messo in ordine.
+
+[SCELTA]
+    Domani al banco cercheranno Druso, per una spada che ha già in mano lui.
+
+    > «Torna a riprenderti la ricevuta. È tuo fratello.»
+        ICARO: Il banco ha una finestra sola, e l'ho già usata. Due volte è avidità. Tre è una firma.
+        ICARO: Tu questa sera hai guadagnato zero, e mi dai ordini. Interessante posizione contrattuale.
+        Non torna indietro. Però per dieci passi cammina più piano, come chi rifà un conto.
+
+    > «L'hai firmata tu, per quietanza. Se Druso la legge, sa chi è stato.»
+        ICARO: Druso non legge le ricevute. È per questo che è Druso.
+        TU: E Caino?
+        ICARO: Caino le legge tutte. Domattina saprà che ho rubato una spada a me stesso, e passerà una settimana a capire perché.
+        Sembra soddisfatto. Non capisco di chi.
+
+    > Non dire niente. Prendi il sacco e porta la spada
+        Il sacco pesa più di quanto sembri. Icaro lo guarda sulla mia spalla.
+        ICARO: Hai appena visto come tratto un fratello, e porti il sacco. Lo annoto. Non so ancora da che parte.
 Ci allontaniamo per i vicoli. Al secondo angolo si ferma, srotola il sacco e mi mostra l'elsa. Dorata, pacchiana, con una gemma finta.
 ICARO: Brutta. Vale poco. Ma è mia, e nessuno tocca ciò che è mio.
 ICARO: Stanotte sei rimasto/a, e non hai chiesto la tua parte. Avevo messo da parte dieci Scudi per trattare. Restano in tasca mia.
@@ -375,7 +392,7 @@ ICARO: Un soldo a gradino. Entro l'alba potrei comprarmi la Calà, e farla scend
 [VARIANTE]
     ICARO: La leggenda della mano è un contratto verbale senza testimoni né penali. Ridicolo.
     A metà discesa si ferma. Guarda la mia mano come guarda le carte prima di scoprirle.
-    Poi mi prende la mano. Lui, che detesta il contatto. La tiene per i restanti centocinquanta gradini, rigida e attenta. Ogni cinquanta, stringe un poco: conta anche quelli.
+    Poi mi prende la mano. La tiene per i restanti centocinquanta gradini, rigida e attenta, e ogni cinquanta stringe un poco: conta anche quelli.
     ICARO: Contratto ridicolo. Ma è mio, adesso. E io non mollo ciò che è mio.
     Quando arriviamo alla fine, non lascia la presa. Conta i secondi sottovoce. Al sessantesimo, smette di contare.
 
@@ -417,7 +434,7 @@ L'anello col castone piatto, inclinato verso il mazzo. Uno specchio. Da tutta la
         La mattina dopo, sotto la mia porta, trovo un bicchiere nuovo. Cristallo di Helograd. Dal suo magazzino, cartellino ancora attaccato.
 
     > «L'anello, Pallante. Il castone. Fa da specchio dall'inizio della sera.»
-        Silenzio. Pallante copre l'anello con l'altra mano. Troppo tardi: l'hanno visto tutti.
+        Pallante copre l'anello con l'altra mano, ma l'hanno visto tutti.
         Bia non parla più di maniche. A Zefiro non si accusa un baro, quando il tuo è appena stato scoperto.
         Icaro scopre le carte. Vince. Raccoglie il piatto una moneta alla volta.
         ICARO: Un castone piatto. Tre ore, e io l'avevo preso per cattivo gusto.
@@ -425,19 +442,67 @@ L'anello col castone piatto, inclinato verso il mazzo. Uno specchio. Da tutta la
         Fuori, mi infila in tasca una moneta del piatto. Una sola. «Ricordo. Non ricompensa.»
 
     > Resta in silenzio. È la sua partita
-        Non mi muovo. Non respiro.
+        Non mi muovo. Guardo il panno.
         Icaro si sfila la giacca e rovescia le maniche sul panno. Cenere, tabacco. Niente.
         La carta non c'è più. Dove sia finita, non lo saprò mai.
         ICARO: Contate pure. Poi, Bia, mi chiederai scusa davanti a tua madre.
         Bia chiede scusa. Icaro vince. Ma il piatto lo raccoglie con una mano sola: l'altra trema, appena.
         ICARO: Sei rimasto/a immobile. Neanche un'occhiata alla manica. ...Lo metto a registro.
-        Sulla strada del ritorno mi cammina accanto più vicino del solito. Mezzo passo. Non di più.
+        Sulla strada del ritorno mi cammina accanto più vicino del solito, di mezzo passo.
+
+
+=== ICARO RIGA ===
+
+La fumeria, tardi. Un garzone mi ha portato un biglietto nella grafia di Icaro: «Verifica. Porta te stessa.»
+Al tavolo piccolo c'è un registro che non conosco, sottile e nuovo, con sopra un righello d'ottone.
+ICARO: Siediti. Io leggo. Tu correggi le cifre, se ne trovi.
+ICARO: «Corrado. Accompagnata dal Ceppo fino al ponte. Sei passi oltre il necessario.»
+TU: Corrado? Corrado mi spiega l'araldica.
+ICARO: Sei passi di araldica. Annotati.
+Volta pagina. Ci sono le mie uscite, le ore in cui ho lasciato il Ceppo, chi mi ha salutata. Stessa cura dei carichi di sale. Controllo a memoria, e non sbaglia una data.
+ICARO: Non è gelosia. La gelosia è un sentimento, e non rende. Questa è custodia.
+ICARO: Ciò che è mio lo conto. Te l'avevo detto, alla pagina bianca. Hai firmato.
+
+[VARIANTE]
+    Ho visto cosa fa a suo fratello per una spada brutta. «Nessuno tocca ciò che è mio.» Adesso so come continua la frase.
+Prende il righello e lo posa sotto il mio nome, in cima al foglio. La penna è già bagnata.
+ICARO: O sei a registro, e ti conto. O tiro la riga, e domani cambio le serrature. Non è contro di te, è contro chiunque.
+
+[SCELTA]
+    Il righello aspetta. Icaro non guarda me, guarda la linea.
+
+    > Prendi la penna e apri una colonna per lui
+        Gli sfilo la penna da sopra, senza toccargli le dita. Giro il registro e divido il foglio in due.
+        TU: Partita doppia. Io a destra, tu a sinistra. Stanotte: due pipe, nessuna risposta, una bugia sul prezzo del sale. Firma.
+        ICARO: ...
+        Guarda la colonna a lungo. Si riprende la penna e corregge una cifra.
+        ICARO: Il sale era due Scudi. Il resto è esatto.
+        Toglie il righello. Il registro sottile lo spinge dalla mia parte, di un dito.
+
+    > «Tira la riga. Io esco.»
+        Non esita. La riga viene dritta, e la mano non gli trema.
+        ICARO: Voce chiusa. La porta si tira, non si spinge.
+        Due sere dopo la fumeria ha serrature nuove. Sotto la mia porta trovo una chiave con un cartellino: «In prova.» Nessun biglietto.
+
+    > Lascia fare: «Contami, allora.»
+        ICARO: Decisione sensata. Il costo di gestione è mio.
+        Rimette il righello nel cassetto e si accende la pipa, in pace.
+        Da quella sera, tornando al Ceppo, faccio ogni tanto sei passi in più. Per vedere se li scrive.
 
 
 === ICARO LUNA6 ===
 
 Nove giorni alla fine del semestre. La fumeria ha riaperto, e al tavolo grande c'è un posto vuoto che nessuno osa occupare.
+
+[VARIANTE]
+    Sono entrata con la chiave «in prova». Il registro sottile è sul tavolo, con la mia riga ancora sopra. Lui non ne parla, io neanche.
 Icaro non gioca. Siede al tavolo piccolo con tre registri aperti, la pipa spenta, e una pila di carte che non sono da gioco.
+
+[VARIANTE]
+    ICARO: La tua colonna l'ho ricontrollata. Due errori, entrambi a mio favore. Non correggerli.
+
+[VARIANTE]
+    A margine del registro sottile, nella sua grafia stretta: «Sei passi.» Li ha scritti.
 ICARO: Chiusura di semestre. Ogni Luna faccio i conti. Ogni sei, li faccio davvero.
 TU: Posso aiutare?
 ICARO: Leggi i numeri ad alta voce. Li sento meglio di come li vedo. Non chiedermi perché.
@@ -471,7 +536,7 @@ Ride, appena. Un suono breve, quasi una tosse. Se ne accorge anche lui, e smette
         ICARO: Appunto. Non si dimentica per caso. Bene così.
 
     > Accendigli la pipa, senza chiedere
-        Batto l'acciarino. Lui si sporge, la pipa tra i denti, e la fiamma ci illumina tutti e due per un istante.
+        Batto l'acciarino. Lui si sporge, la pipa tra i denti, e la fiamma ci illumina tutti e due.
         ICARO: ...la accendo da solo da... sempre. Acciarino mio, pietra mia, ogni sera.
         ICARO: Annotato. Non so ancora in che colonna.
 
@@ -489,11 +554,11 @@ Ride, appena. Un suono breve, quasi una tosse. Se ne accorge anche lui, e smette
 
 La fumeria è chiusa a metà settimana. Sulla porta, un biglietto nella grafia di Icaro: «Inventario». Sotto, più piccolo: «Non bussare.»
 Busso. Nessuno risponde. La porta però è aperta, e Icaro non lascia mai una porta aperta.
-È al tavolo piccolo, avvolto in due mantelli, col registro aperto e la pipa spenta. Ha la fronte lucida e le guance di uno che ha corso. In realtà, sta male.
+È al tavolo piccolo, avvolto in due mantelli, col registro aperto e la pipa spenta. Ha la fronte lucida e le guance di uno che ha corso.
 ICARO: Ho scritto «non bussare». In quale lingua del Nord quella frase vuol dire «bussa»?
 TU: Hai la febbre.
 ICARO: Ho un inventario. La febbre è un dettaglio inutile.
-Gli trema la penna. Rifà lo stesso numero tre volte. Al terzo lo cancella con rabbia e il foglio si strappa.
+Gli trema la penna. Rifà lo stesso numero tre volte. Al terzo lo cancella e il foglio si strappa.
 
 [VARIANTE]
     ICARO: Socio. Se resti, resti zitto e conti tu. Se te ne vai, chiudi la porta. Le altre opzioni non sono in listino.
@@ -537,7 +602,7 @@ Accanto al mazzo, il registro del tavolo piccolo. Chiuso, legato con un nastro.
 [VARIANTE]
     ICARO: Bia mi saluta per strada, adesso. Con rispetto. Effetto collaterale del tuo silenzio: non l'avevo messo a bilancio.
 ICARO: Ho condonato a Druso i cardini della mensa. Non dirglielo: deve credere che io sia ancora furioso. Lo tiene a bada.
-Accende la pipa. Il fumo sale dritto, senza fretta.
+Accende la pipa. Il fumo sale dritto.
 ICARO: Ho chiuso i conti del semestre. Tutti. Tranne una voce.
 ICARO: Tu. Non so in che colonna metterti. E io so sempre in che colonna mettere tutto.
 Smette di mescolare. Il mazzo resta fermo tra le sue dita: non gliel'ho mai visto fare.
@@ -548,7 +613,7 @@ ICARO: Domanda secca. Dimmi una cosa che hai visto di me. Una sola. Qualcosa che
 
     > «Ti fermi mezzo respiro prima di dire la verità e mai prima di una bugia.»
         ICARO: ...
-        Si guarda le mani, come se fossero di un altro.
+        Si guarda le mani.
         ICARO: Mezzo respiro. Lo misuro adesso, mentre parlo. ...Esatto. Fastidioso.
         Ride, piano. È la seconda volta in un semestre. Stavolta non smette subito.
 
@@ -595,6 +660,11 @@ Una riga sola, nella sua grafia stretta da notaio. «Voce unica. Non ammortizzab
     ICARO: L'ho scritta in silenzio. Mi sembrava la lingua giusta, con te.
 TU: E il prezzo?
 ICARO: Fuori listino. L'ho stimata tre volte. Tre cifre diverse. Ho smesso.
+
+[VARIANTE]
+    Dalla pagina delle cose che non sono in vendita sfila un foglio piegato in quattro, con la ceralacca nera rotta di netto.
+    ICARO: «Le cose migliori non si contano.» Venticinque lettere, ormai. Ogni volta ho segnato a margine che aveva torto.
+    ICARO: Aveva ragione. Una volta su venticinque. Non dirglielo: risponderebbe.
 Non mi tocca. Sposta il mazzo di un dito verso di me, sul tavolo. Poi di un altro.
 Il tetto sopra la Consorteria. Due stuoie, una pipa sola, e una nuova regola: si fuma a turno.
 Mi passa la pipa. Le nostre dita si toccano, stavolta. Non la ritira.
@@ -634,8 +704,8 @@ ICARO: Il posto al tavolo era in prova. La prova è scaduta. Niente di personale
 Spinge il registro dal suo lato. Il nastro resta chiuso: la riga che c'era sopra, se c'era, non la leggerò mai.
 ICARO: Domani cambio le serrature della fumeria. Non è contro di te, è contro chiunque.
 Mi alzo. Non protesto: coi bari inguaribili non si vince, e con Icaro men che meno.
-Sulla soglia mi volto. Lui sta già mescolando per la prossima mano. Da solo.
-Un'occhiata rapida al posto vuoto. Poi segna qualcosa a margine del registro. Una voce chiusa, credo. In perdita.
+Sulla soglia mi volto. Lui sta già mescolando per la prossima mano, da solo.
+Un'occhiata rapida al posto vuoto, poi segna a margine del registro. Una voce chiusa in perdita, credo.
 In strada mi frugo le tasche, per abitudine. Manca una moneta. Una sola. L'ultimo interesse.
 ~ FUORI LISTINO Icaro non perde mai. Nemmeno quando vinci. ~
 
@@ -665,7 +735,7 @@ In strada mi frugo le tasche, per abitudine. Manca una moneta. Una sola. L'ultim
 
     [VARIANTE]
         A margine, a matita, una nota piccola: «accende la pipa senza chiedere». Nessun importo.
-    Firmo. Lui soffia sull'inchiostro, chiude il registro e torna a mescolare, come se niente fosse.
+    Firmo. Lui soffia sull'inchiostro, chiude il registro e torna a mescolare.
     ICARO: Druso pretenderà di firmare anche lui. Gli dirò che la pagina è finita.
     ICARO: Caino lo saprà entro l'alba. Per una volta, è un credito che non può riscuotere.
     ICARO: Domani sera, stesso tavolo. Tu guardi le mani degli altri. Le mie no: sono di famiglia.

@@ -33,6 +33,8 @@ label druso_climax:
     show druso sorpreso with qdiss
     "Apre la bocca e la richiude. Le mani cercano un boccale che non c'è."
     "I suoi occhi trovano i miei, in fondo, tra i Figli messi lì dove non fanno danni."
+    if druso_rottura == "uscita":
+        "L'ultima volta che mi ha cercato così stava su un tavolo, con una pergamena in mano. Sono qui lo stesso."
     menu:
         "Il silenzio dura un respiro di troppo. Tutti aspettano."
         "Alzati e parla per lui" (peso=True):
@@ -78,6 +80,11 @@ label druso_good:
     druso "Confermo tutto, madre. Il decoro, la rissa, [il_t] Figli[fin] di Briseide. E aggiungo un componimento in tema, se il Consiglio gradisce. Rima baciata."
     "Un Eparca si alza per protestare. Caino, senza voltarsi, gli posa una mano sul braccio. L'Eparca si risiede."
     "Lo recita davanti a Lenora, agli Arconti, al Nord intero: il poema non osceno, il mio."
+    "«La neve era alta, e il fosso lì di lato:\nin tutta la strada nessuno mi ci ha buttato.»"
+    "«Sulle mura ho chiamato le stelle con nomi sbagliati.\nChi stava a un passo da me me li ha lasciati.»"
+    "«Sul ponte, col ghiaccio sotto, ho detto una cosa vera.\nL'ho smentita subito. La smentita era leggera.»"
+    "«Ho cantato alle taverne per un boccale e un fischio.\nIl bis l'ho avuto una volta. Da allora corro il rischio.»"
+    "«Il nome non lo dico: il verso zoppica già.\nChi è, lo sa.»"
     "Dentro ci sono cose che sappiamo solo noi due, e in sala nessuno capisce."
     if druso_difesa == "riscrivi":
         "Riconosco i miei versi. Ognuno con una parola cambiata, perché possa dire che è suo."
@@ -148,6 +155,8 @@ label druso_bad:
     if druso_consiglio == "parla":
         druso "E se parla per me, è perché non ha niente da dire per sé."
     "Gli Arconti ridono. È la risata che lui voleva, e la paga con me."
+    if druso_rottura is not None:
+        "L'ha già fatto una volta, in taverna, con la pergamena in mano. Stavolta non controlla nemmeno."
     "Da dietro la grata, Lenora non dice niente."
     "All'uscita Caino mi passa accanto senza fermarsi. Dice solo: «Mio fratello sceglie sempre la risata. Io non mi ci sono mai abituato.»"
     scene bg vicoli_zefiro with fade

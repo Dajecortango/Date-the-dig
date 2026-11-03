@@ -136,8 +136,14 @@ init 1 python:
             return (0, 0, 1.0), False
         return _lu_curva(nome, k), True
 
-    def luce_personaggio(tag):
-        def f(trans, st, at):
+    # Classi e non funzioni locali: le transform finiscono nei salvataggi, e
+    # pickle non sa salvare una funzione locale.
+    class _LuceFn(object):
+        def __init__(self, tag):
+            self.tag = tag
+
+        def __call__(self, trans, st, at):
+            tag = self.tag
             ora = _lu_time.time()
             fermo = mm_movimento_ridotto()
             luce, luce_viva = _lu_luce(tag, ora, fermo)
@@ -164,7 +170,9 @@ init 1 python:
             if respira or fuoco:
                 return SPRITE_PASSO
             return 0.1
-        return Transform(function=f)
+
+    def luce_personaggio(tag):
+        return Transform(function=_LuceFn(tag))
 
     SPRITE_PASSO = 1.0 / 15 if renpy.variant("small") else 1.0 / 30
     # Su telefono niente respiro (0.6% di zoom, invisibile su 6"): la scena
@@ -202,8 +210,8 @@ init 1 python:
 
     config.after_load_callbacks.append(_fo_reset)
 
-    def fondo_fx():
-        def f(trans, st, at):
+    class _FondoFn(object):
+        def __call__(self, trans, st, at):
             ora = _lu_time.time()
             voluto = 1.0 if getattr(store, "regia_intimo", False) else 0.0
             if _fo.k is None or mm_movimento_ridotto():
@@ -235,7 +243,9 @@ init 1 python:
             if _fo.k != voluto:
                 return 0
             return SPRITE_PASSO if fuoco else 0.1
-        return Transform(function=f)
+
+    def fondo_fx():
+        return Transform(function=_FondoFn())
 
     OMBRA_SCOSTAMENTO = (14, 8)   # px verso destra e verso il basso
 

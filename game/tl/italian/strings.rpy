@@ -16,7 +16,7 @@ translate italian strings:
     new "Auto"
 
     old "Save"
-    new "Registro"
+    new "Salva"
 
     old "Q.Save"
     new "Nota rapida"
@@ -25,32 +25,32 @@ translate italian strings:
     new "Riprendi nota"
 
     old "Prefs"
-    new "Costumanze"
+    new "Opzioni"
 
     # Navigazione
     old "Start"
-    new "Inizia la Cronaca"
+    new "Nuova partita"
 
     old "Load"
-    new "Riprendi la Cronaca"
+    new "Carica"
 
     old "Preferences"
-    new "Costumanze"
+    new "Opzioni"
 
     old "End Replay"
     new "Fine della replica"
 
     old "Main Menu"
-    new "Rocca Tempesta"
+    new "Menu principale"
 
     old "About"
-    new "La Compagnia"
+    new "Crediti"
 
     old "Help"
-    new "Soccorso"
+    new "Comandi"
 
     old "Quit"
-    new "Lascia la Rocca"
+    new "Esci"
 
     old "Yes"
     new "Sì"
@@ -59,17 +59,23 @@ translate italian strings:
     new "No"
 
     old "Return"
-    new "Torna sui tuoi passi"
+    new "Indietro"
 
     # Registro (salvataggi)
     old "Page {}"
     new "Pagina {}"
 
+    old "{#auto_page}A"
+    new "Auto"
+
+    old "{#quick_page}Q"
+    new "Rapidi"
+
     old "Automatic saves"
-    new "Note automatiche"
+    new "Salvataggi automatici"
 
     old "Quick saves"
-    new "Note rapide"
+    new "Salvataggi rapidi"
 
     old "empty slot"
     new "pagina bianca"
@@ -97,10 +103,10 @@ translate italian strings:
     new "Transizioni"
 
     old "Text Speed"
-    new "Passo della penna"
+    new "Velocità del testo"
 
     old "Auto-Forward Time"
-    new "Avanzare da sé"
+    new "Avanzamento automatico"
 
     old "Music Volume"
     new "Musiche"
@@ -112,7 +118,7 @@ translate italian strings:
     new "Voci"
 
     old "Mute All"
-    new "Silenzio in sala"
+    new "Silenzia tutto"
 
     old "Test"
     new "Prova"
@@ -141,19 +147,19 @@ translate italian strings:
     new "È questa la tua volontà?"
 
     old "Are you sure you want to delete this save?"
-    new "Vuoi strappare questa pagina dal Registro?"
+    new "Vuoi cancellare questo salvataggio?"
 
     old "Are you sure you want to overwrite your save?"
-    new "Vuoi riscrivere questa pagina del Registro?"
+    new "Vuoi sovrascrivere questo salvataggio?"
 
     old "Loading will lose unsaved progress.\nAre you sure you want to do this?"
-    new "Riprendere la Cronaca da qui perderà i passi non annotati.\nÈ questa la tua volontà?"
+    new "Caricando perderai i progressi non salvati.\nVuoi continuare?"
 
     old "Are you sure you want to quit?"
-    new "Vuoi davvero lasciare la Rocca?"
+    new "Vuoi davvero uscire?"
 
     old "Are you sure you want to return to the main menu?\nThis will lose unsaved progress."
-    new "Vuoi tornare a Rocca Tempesta?\nI passi non annotati andranno perduti."
+    new "Vuoi tornare al menu principale?\nI progressi non salvati andranno persi."
 
     old "Are you sure you want to end the replay?"
     new "Vuoi chiudere la replica?"
@@ -168,13 +174,13 @@ translate italian strings:
     new "Saltare anche le pagine mai lette, fino al prossimo bivio?"
 
     old "Quick save complete."
-    new "Nota rapida vergata."
+    new "Salvataggio rapido fatto."
 
     old "Quick load complete."
-    new "Nota rapida ripresa."
+    new "Salvataggio rapido caricato."
 
     old "Skipping"
-    new "Passo affrettato"
+    new "Salto in corso"
 
     old "Menu"
     new "Menu"

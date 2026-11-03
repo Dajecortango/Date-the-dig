@@ -139,8 +139,7 @@ def check_scelte():
     screens = leggi("screens.rpy")
     check("scelte in cascata", "scelta_entra(" in screens, True)
     check("suono hover scelte", 'hover_sound "audio/scelta.ogg"' in screens, True)
-    check("bagliore scelte", "gui/scelta_bagliore.png" in screens, True)
-    check("hover sposta", bool(re.search(r"on hover:\s*\n\s*ease 0\.12 zoom 1\.04 xoffset 10", screens)), True)
+    check("hover sposta", bool(re.search(r"on hover:\s*\n\s*ease 0\.12 xoffset 6", screens)), True)
 
 
 def check_calendario():
@@ -168,7 +167,8 @@ def check_menu():
     check("centro dal finale", "rgl.fondo_menu(" in mc, True)
     check("fondo del menu", "mm_fondo()" in screens, True)
     check("entrata in sequenza", "mm_entrata(" in mc, True)
-    check("titolo che respira", "mm_titolo_respira" in screens, True)
+    # Stile documenti: il titolo sta sul foglio, niente alone oro.
+    check("titolo senza alone", "mm_titolo_respira" in screens, False)
 
 
 def check_particelle():
@@ -288,6 +288,24 @@ def check_estetica2_particelle():
     for img in ("fx_foglia.png", "fx_scintilla.png", "fx_luccichio.png"):
         check("make_gui genera " + img, img in mg, True)
         check("immagine " + img, os.path.exists(os.path.join(GAME, "gui", img)), True)
+
+
+def check_salvabili_e_reset():
+    regia = leggi("regia.rpy")
+    luce = leggi("luce.rpy")
+    # Le transform finiscono nei salvataggi: una funzione locale li rompe
+    # ("Can't pickle local object").
+    check("niente funzioni locali in luce", "def f(trans" in luce, False)
+    check("niente funzioni locali in regia", "def f(trans" in regia, False)
+    # Lo statement "scene" senza "onlayer" passa layer=None.
+    scena = regia.split("def _regia_scene", 1)[1].split("def ", 1)[0]
+    check("scene accetta layer None", 'layer in (None, "master")' in scena, True)
+    check("scene toglie il tono", "regia_tono = None" in scena, True)
+    check("tono riapplicato dopo il caricamento",
+          "config.after_load_callbacks.append(_tono_dopo_caricamento)" in regia, True)
+    check("tono dopo il reset camera",
+          regia.index("after_load_callbacks.append(camera_riposo_subito)")
+          < regia.index("after_load_callbacks.append(_tono_dopo_caricamento)"), True)
 
 
 def check_estetica2_lento():
@@ -471,6 +489,7 @@ def main():
     check_estetica2_sprite()
     check_estetica2_particelle()
     check_estetica2_lento()
+    check_salvabili_e_reset()
     check_estetica2_cartello()
     check_estetica2_monete()
     check_estetica2_scene()

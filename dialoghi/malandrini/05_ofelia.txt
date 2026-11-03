@@ -15,29 +15,29 @@ Ofelia li passa in rassegna uno per uno, e a ciascuno dedica mezzo respiro. Ness
     Mi accorgo troppo tardi che una servetta ci osserva dal corridoio. Domani Aede saprà che sono passato/a alla serra.
 L'aria sa di terra umida e di brace. Sotto il pavimento corrono i tubi caldi di Glauco: d'inverno, qui dentro, è sempre una primavera a pagamento.
 OFELIA: Il quarto da sinistra mi ha dedicato un sonetto. Il terzo, un cavallo. Il cavallo era più eloquente.
-Il primo della fila fa un passo avanti e si inchina troppo. Lei aspetta che si rialzi, poi gli porge il dorso della mano. Non per il bacio: per congedarlo.
+Il primo della fila fa un passo avanti e si inchina troppo. Lei aspetta che si rialzi, poi gli porge il dorso della mano. Prima che lui ci arrivi, l'ha già ritirata.
 OFELIA: Grazie. Il prossimo.
 
 [VARIANTE]
-    Mi rimetto in fila, per abitudine. Ofelia finge di non avermi visto. I pretendenti dietro di me non capiscono perché le trema un angolo della bocca.
+    Mi rimetto in fila, per abitudine, e Ofelia finge di non avermi visto. I pretendenti dietro di me non capiscono perché le trema un angolo della bocca.
 
 [VARIANTE]
-    Il prossimo sono io. Mi accorgo che i pretendenti dietro di me trattengono il fiato, curiosi di vedermi fallire.
+    Il prossimo sono io. I pretendenti dietro di me si sporgono per vedermi fallire.
 
 [SCELTA]
     Tocca a me: mi guarda e aspetta.
 
     > «Il tuo giardino è splendido, Ofelia. Quasi quanto te.»
         OFELIA: Quasi. Che parola generosa. Prendila con te e cedi il posto al prossimo.
-        Alle mie spalle qualcuno sospira di sollievo. Un concorrente in meno.
+        Alle mie spalle qualcuno sospira di sollievo.
 
     > «Non ti dirò niente di bello. Hai già sentito tutto.»
         OFELIA: ...e il bello è che è vero. Resta pure in fila. In fondo, ma resta.
-        Il poeta del sonetto mi fulmina con lo sguardo. Ho appena rubato la sua unica battuta.
+        Il poeta del sonetto mi guarda storto: gli ho appena rubato l'unica battuta.
 
     > Resta in silenzio a guardare i fiori
         OFELIA: Almeno non mi hai rubato l'aria. Già qualcosa.
-        Indico un fiore blu, chiuso come un pugno. Lei segue il mio dito e, per un istante, dimentica la fila.
+        Indico un fiore blu, chiuso come un pugno. Lei segue il mio dito e dimentica la fila.
         OFELIA: Quello l'ha piantato mio padre, il giorno che sono stata adottata. Non è mai fiorito, ma lo teniamo per ostinazione.
 
 
@@ -46,8 +46,8 @@ OFELIA: Grazie. Il prossimo.
 Oggi è lei a muoversi. Attraversa la serra con un guanto in mano, e un giovane damerino le inciampa dietro, tutto occhi.
 
 [VARIANTE]
-    In corridoio sento passare il mio nome tra due ancelle. La voce si spanderà rapidamente e Aede ha l'udito fine.
-OFELIA: Uno dei miei corteggiatori sostiene di aver combattuto un orso per me. Chiaramente è una bugia. Il mio compito è capire fino a che punto lui sia disposto a mentire.
+    In corridoio sento passare il mio nome tra due ancelle. La voce farà in fretta, e Aede ha l'udito fine.
+OFELIA: Uno dei miei corteggiatori sostiene di aver combattuto un orso per me. È una bugia: voglio vedere fin dove arriva.
 Il damerino si chiama Tullio, a quanto dice lui stesso, tre volte in un minuto. Ha la manica strappata con molta cura.
 Ofelia lascia cadere il guanto sul vialetto. Lui si precipita a raccoglierlo, e glielo porge in ginocchio come una reliquia.
 OFELIA: Vedi? Riporta. Questo almeno lo sa fare.
@@ -62,7 +62,7 @@ OFELIA: Vedi? Riporta. Questo almeno lo sa fare.
     > «L'orso non c'era. Ma i suoi graffi sul braccio sono veri.»
         OFELIA: Esatto! Tieni gli occhi dove servono, tu.
         OFELIA: Era un gatto. Non dirglielo.
-        Tullio non ha capito niente. Ofelia gli restituisce il guanto, gentile, e lo congeda con una pacca sulla testa, come farebbe con un cane.
+        Tullio non ha capito niente. Ofelia gli restituisce il guanto, gentile, e lo congeda con una pacca sulla testa.
 
     > Svignatela prima che ti tiri in mezzo
         OFELIA: Prudente. Non è una virtù che apprezzo, ma almeno è onesta.
@@ -75,7 +75,7 @@ Fine pomeriggio, la serra è vuota. C'è soltanto lei, a potare una rosa nera co
 
 [VARIANTE]
     Mi giunge voce che Aede ha chiesto dove passo i pomeriggi. Qualcuno ha risposto: in serra.
-OFELIA: Tutti mi chiedono cosa voglio. Nessuno si domanda perché lo chiedo a voce così alta. Fa parte del gioco, immagino.
+OFELIA: Tutti mi chiedono cosa voglio. Nessuno si domanda perché li lascio chiedere a voce così alta.
 OFELIA: Aede risponde con la spada. Ascadeo con una battuta e una porta che sbatte. Io poto le rose. Ognuno ha il suo modo di non parlare con nostro padre.
 Lo stelo cade nel cesto. Lei lo segue con gli occhi fino in fondo, delusa: si è arreso troppo presto.
 
@@ -92,19 +92,19 @@ Lo stelo cade nel cesto. Lei lo segue con gli occhi fino in fondo, delusa: si è
 
     > Aiutala a raccogliere gli steli tagliati
         OFELIA: Ti sporchi le mani per una rosa che non è tua. Strano modo di corteggiare.
-        Una spina mi entra nel pollice. Ofelia la guarda, poi guarda me, e non dice niente. Mi passa un fazzoletto nero.
+        Una spina mi entra nel pollice. Ofelia la guarda, poi guarda me, e mi passa un fazzoletto nero.
 
 
 === OFELIA EV1 ===
 
 Ofelia mi ha fatto chiamare in serra con un biglietto di tre parole: «Vieni. Guarda. Taci.»
-Al centro del vialetto, un giovane vestito in modo elegante stringe un mazzo di rose bianche. Le mani gli tremano.
+Al centro del vialetto un giovane vestito a festa stringe un mazzo di rose bianche, e il mazzo trema.
 OFELIA: Dicevi, Levi? Ripeti pure. La parte sul mio sorriso.
 Lui ripete. Lei lo lascia finire, poi inclina la testa, come davanti a un quadro storto.
 OFELIA: Ti sei preparato davanti allo specchio. Si sente dalle pause. Anche lo specchio, poveretto, ti ha detto di no.
-Dal fondo della serra qualcuno soffoca una risata. Poi un'altra. Il ragazzo diventa rosso fino alle orecchie.
+Dal fondo della serra arrivano due risate soffocate. Il ragazzo diventa rosso fino alle orecchie.
 OFELIA: Le rose bianche, poi. Sono i fiori dei funerali, a Zefiro. Forse sapevi qualcosa che io ignoro.
-Levi apre la bocca. Non ne esce niente. Le rose, nel suo pugno, cominciano a perdere petali.
+Levi apre la bocca e non ne esce niente. Le rose, nel suo pugno, cominciano a perdere petali.
 
 [SCELTA]
     Ofelia mi lancia un'occhiata di lato. Aspetta di vedere da che parte sto.
@@ -122,19 +122,19 @@ Levi apre la bocca. Non ne esce niente. Le rose, nel suo pugno, cominciano a per
         Si china a raccogliere una rosa caduta e la annusa, distratta.
         OFELIA: Levi non tornerà. Se ti chiedono com'è andata, di' che il fiore era profumato. Questo almeno è vero.
 Più tardi, uscendo, incrocio i servi che spazzano il vialetto. Raccolgono petali bianchi con la stessa cura con cui si raccolgono i cocci.
-Ofelia non si è voltata a guardarmi andare via. Ma il biglietto di tre parole, ripiegato, è ancora nella mia tasca. Non lo butterò mai.
+Ofelia non si è voltata a guardarmi andare via. Il biglietto di tre parole, ripiegato, è ancora nella mia tasca.
 
 
 === OFELIA EV2 ===
 
 Ofelia mi aspetta alla porta di una sala illuminata, avvolta in un velo scuro che fa sembrare la cena un funerale elegante.
 OFELIA: Ho una cena. Tu mi offri il braccio, sorridi e non fai domande. Fino al dolce.
-A capotavola siede un uomo dall'anello pesante e dal sorriso insistente. Lui è il più alto in grado tra i suoi corteggiatori.
+A capotavola siede un uomo dall'anello pesante e dal sorriso insistente: il più alto in grado tra i suoi corteggiatori.
 Non mi saluta, guarda il mio braccio sotto il suo e calcola quanto valgo.
 OFELIA: Un amico. Uno che da mesi non sopporta di non avermi.
-Lei mi sfiora la manica con la punta delle dita. Troppo lentamente per essere vero. Troppo bene per non essere recitato.
+Mi sfiora la manica con la punta delle dita, troppo lentamente per essere vero.
 Si mangia fagiano in salsa di more. L'uomo con l'anello racconta di un affare con il Ceppo di Glauco, e lo racconta guardando solo lei.
-Ofelia ride al momento giusto. Mai un attimo prima, mai uno dopo. Sotto il tavolo, la sua scarpa preme sulla mia: ora tocca a me.
+Ofelia ride al momento giusto, mai un attimo prima. Sotto il tavolo la sua scarpa preme sulla mia: ora tocca a me.
 OFELIA: Mio padre dice che hai il fiuto per i buoni affari. Peccato che tu non abbia quello per le cause perse.
 
 [SCELTA]
@@ -151,7 +151,7 @@ OFELIA: Mio padre dice che hai il fiuto per i buoni affari. Peccato che tu non a
     > Fai una scenata: «Io che ci faccio qui? Dimmelo davanti a lui!»
         OFELIA: Siediti. Ora. Mi hai fatta passare per una che deve chiedere scusa a un ospite.
         L'uomo con l'anello si alza, gentile come un coltello, e le offre il suo braccio. Lei lo accetta e non si volta.
-Il dolce arriva lo stesso: una torta di castagne che nessuno tocca. La guardo raffreddarsi, e penso che Ofelia sia fatta di regole che non ha mai scritto.
+Il dolce arriva lo stesso: una torta di castagne che nessuno tocca. La guardo raffreddarsi.
 
 
 === INTERLUDIO OFELIA 1 ===
@@ -173,13 +173,13 @@ OFELIA: Trentadue. Una ha ucciso un re, dicono. Un'altra non ha mai visto sangue
 
     > «Nessuna delle due. Glauco non dorme.»
         OFELIA: ...questo è quasi divertente. Hai ragione, in effetti. Non l'ho mai visto dormire.
-        Per un istante ride, piano, con la cote ferma a mezz'aria. Poi ricomincia ad affilare, più svelta.
+        Ride, piano, con la cote ferma a mezz'aria, e ricomincia ad affilare più svelta.
 
     > Prendi la cote e affila la lama in silenzio
-        La pietra scivola male, le prime volte. Ofelia mi corregge il polso con due dita, senza una parola.
+        La pietra scivola male, le prime volte. Ofelia mi corregge il polso con due dita.
         OFELIA: Più lento. Il filo non si conquista: si convince.
         Lavoriamo così per un'ora, spalla contro spalla. Non le ho mai sentito un tono così basso.
-Fuori suona mezzogiorno. Ofelia arrotola il telo con le lame dentro, veloce, come chi l'ha fatto mille volte.
+Fuori suona mezzogiorno. Ofelia arrotola il telo con le lame dentro, in tre gesti.
 OFELIA: Questa cosa non è mai successa. Io ero in serra, tu eri a lezione. Le lame si sono affilate da sole.
 Esco dal corridoio di servizio. Ho le dita nere di olio e nessuna voglia di lavarle.
 
@@ -203,7 +203,7 @@ Il mio è in mezzo. Accanto, una cifra, e una nota: «Resiste più del previsto.
 
     > Leggi solo la cifra, non la nota
         OFELIA: Tutto qui? Una cifra? Ascadeo scrive sempre una nota. Gli piace sentirsi spiritoso.
-        Mi strappa la lettera di mano e legge da sola. Poi la piega in quattro, lentamente, e non commenta.
+        Mi strappa la lettera di mano, la legge da sola e la piega in quattro, senza commenti.
 
     > Bruciala con la torcia senza leggerla
         OFELIA: Che gesto teatrale. Adesso dovrò chiederglielo a voce, e lui riderà per una settimana.
@@ -219,14 +219,14 @@ Il retro della serra, dove Glauco fa crescere le piante che non mostra. Tra due 
 Ofelia è davanti allo specchio con tre vestiti appesi a un gancio. Non si volta quando entro.
 OFELIA: Ricevimento dai Lomor, stasera. Allora: il verde, il nero o il rosso? Dimmi la verità.
 OFELIA: Prima di rispondere, sappi che la verità non mi interessa. Mi interessa vedere se hai il coraggio di dirla.
-Prende il verde, se lo appoggia addosso. Poi il nero. Il rosso non lo tocca: lo guarda soltanto, come una cosa che non si è ancora meritata.
+Prende il verde e se lo appoggia addosso, poi il nero. Il rosso non lo tocca: lo guarda, come una cosa che non si è ancora meritata.
 
 [SCELTA]
     Lo specchio riflette lei, poi me dietro di lei. Aspetta.
 
     > «Il rosso. Ma solo se smetti di guardarlo come se dovessi chiedergli il permesso.»
         OFELIA: Il permesso. A un vestito.
-        Si volta. Per un istante sembra davvero offesa. Poi stacca il rosso dal gancio senza guardarlo più.
+        Si volta, e sembra davvero offesa. Stacca il rosso dal gancio senza guardarlo più.
         OFELIA: Se stasera qualcuno mi chiede chi l'ha scelto, dirò che è stato un errore. Il tuo.
 
     > «Stai bene con tutti e tre.»
@@ -237,14 +237,14 @@ Prende il verde, se lo appoggia addosso. Poi il nero. Il rosso non lo tocca: lo 
     > «Chiedilo allo specchio. È lui che ti conosce da più tempo.»
         Ride. Una risata corta, sorpresa, che le sfugge prima che possa sistemarla.
         OFELIA: Lo specchio mi conosce da ventinove anni. E ancora non ha capito che il nero lo metto quando ho paura.
-        Si accorge con sorpresa di averlo detto. Prende il nero e se lo appoggia addosso, in fretta, come per coprire la frase.
+        Si ferma. Prende il nero e se lo appoggia addosso, in fretta, come per coprire la frase.
 Uscendo, passo accanto ai limoni. Uno è caduto e nessuno l'ha raccolto. In casa di Glauco, nemmeno la frutta cade per caso.
 
 
 === BALLO PRETENDENTI ===
 
 Ricevimento di fine Luna nella serra di Glauco. Candele tra le foglie, musica d'archi, venti pretendenti che fingono di non contarsi.
-Ofelia mi prende sottobraccio a metà sala, come se ci fossimo dati appuntamento. Ma non è così.
+Ofelia mi prende sottobraccio a metà sala, come se ci fossimo dati appuntamento.
 OFELIA: Gioco nuovo. Stasera ne mando a casa uno, davanti a tutti. Lo scegli tu.
 OFELIA: Il biondo che recita versi non suoi. Il nobile con la spilla di sua madre. Quello in fondo, che mi fissa da tre Lune e non ha mai aperto bocca.
 Ascadeo, dall'altro lato della sala, apre il suo libretto. Ha già una colonna per il mio nome.
@@ -262,7 +262,7 @@ Ascadeo, dall'altro lato della sala, apre il suo libretto. Ha già una colonna p
         OFELIA: Visto? Basta poco. Adesso sei complice, e i complici non tornano indietro.
 
     > «Me. Rimandami a casa davanti a tutti, se ci riesci.»
-        Per un istante non dice niente. Gli archi continuano a suonare, ignari.
+        Non dice niente. Gli archi continuano a suonare.
         OFELIA: Non ci riesco... Sarebbe la prima volta. Non ti darò questa soddisfazione.
         Mi lascia il braccio e se ne va verso i pretendenti. Ma per tutta la sera non ne rimanda a casa nessuno.
 In fondo alla sala Ascadeo chiude il libretto con uno scatto. Accanto al mio nome, credo, ha scritto un punto interrogativo.
@@ -274,7 +274,7 @@ Il biglietto di Ofelia è ancora sul davanzale, piegato in quattro. Nessuno l'ha
 Stava lì ad aspettarmi, e io non mi sono presentato/a.
 Vanna lo raccoglie con due dita, come si raccoglie qualcosa che potrebbe mordere.
 VANNA: L'ha scritto lei, e non lo scriverà due volte. Ofelia non ripete gli inviti, fratellino/sorellina. Chi manca una volta è una svista. Chi manca due volte esce dalla corte.
-Poi sorride, un po' dispiaciuta, e il biglietto sparisce nella sua manica.
+Sorride, un po' dispiaciuta, e il biglietto sparisce nella manica.
 
 
 === IMPEGNO OFELIA ===
@@ -292,12 +292,12 @@ OFELIA: Sei un interesse passeggero, <Nome>? Oppure resti anche quando smetto di
     > Prendi le forbici: «Resto. Anche senza gentilezza.»
         OFELIA: Dal manico. Tullio, l'anno scorso, l'ha presa dalla lama. Si è cucito il palmo da solo.
         OFELIA: Bene. Da stasera la fila è chiusa. Se qualcuno chiede, sei tu il motivo. Fallo valere.
-        Non mi bacia. Mi aggiusta il colletto, lenta, e controlla il risultato da un passo indietro. E il semestre, da stasera, ha un padrone.
+        Non mi bacia. Mi aggiusta il colletto, lenta, e controlla il risultato da un passo indietro.
 
     > Lasciale le forbici: «Non ancora, Ofelia.»
         OFELIA: Non ancora. Lo dicono tutti prima di sparire. Almeno tu me l'hai detto in faccia.
         OFELIA: Torna in fila, allora. In fondo. Non ti chiamerò per nome.
-        Riprende a potare. Lo stelo cade, pulito. Non alza più gli occhi.
+        Riprende a potare. Lo stelo cade, pulito, e lei non alza più gli occhi.
 
 
 === IMPEGNO OFELIA CAINO ===
@@ -348,7 +348,7 @@ OFELIA: Aede non divide. Io sì. Non farglielo sapere.
 
     > «Non mentirò ad Aede. Né per te, né per nessuno.»
         OFELIA: Leale. Che virtù noiosa. Va' da lei, allora, e dille pure tutto: tanto non ti crederà.
-        Spegne l'ultima lanterna senza aspettare che io sia uscito/a. Al buio, la serra profuma di qualcosa che marcisce lentamente.
+        Spegne l'ultima lanterna senza aspettare che io sia uscito/a. Al buio, la serra sa di marcio.
         Va' da lei, ha detto. Non le ho dato la soddisfazione di discutere: ci vado davvero.
 
 [VARIANTE]
@@ -364,8 +364,8 @@ Mi lancia l'elsa. La afferro appena in tempo.
 OFELIA: Fino al primo sangue. Non è un modo di dire.
 OFELIA: Mio padre mi ha messo una spada in mano appena arrivata. Aede ha imparato a colpire forte. Io ho imparato a colpire quando nessuno guarda.
 Si toglie il mantello e lo piega sul gradino più basso, con calma, come se avessimo tutto il giorno. Poi si gira, e il giorno finisce.
-Il primo colpo mi sfiora la guancia. Il secondo no. Lei è veloce, e non ha alcuna fretta di finire.
-Paro una volta, per fortuna. Lei sorride: non per la parata, per la fortuna. La riconosce, e la disprezza.
+Il primo colpo mi sfiora la guancia. Il secondo no. È veloce, e non ha nessuna fretta di finire.
+Paro una volta, per fortuna, e dal suo sorriso capisco che lo sa anche lei.
 Cado su un ginocchio, la lama alla gola. Sopra di me, il suo respiro regolare.
 
 [SCELTA]
@@ -373,7 +373,7 @@ Cado su un ginocchio, la lama alla gola. Sopra di me, il suo respiro regolare.
 
     > Reggi il suo sguardo: «Colpisci pure. Non chiederò pietà.»
         OFELIA: Nessuno regge. Nemmeno Aede, e di coraggio ne ha per tre.
-        Abbassa la lama. Mi tende la mano libera, e noto che trema appena. Per l'attesa forse, o per qualcos'altro.
+        Abbassa la lama e mi tende la mano libera: trema appena.
 
     > Arrenditi con eleganza: «Hai vinto. Ma ti è costato fatica, ammettilo.»
         OFELIA: Fatica no. Attenzione, sì. È diverso, ma ti concedo il bluff.
@@ -383,13 +383,13 @@ Cado su un ginocchio, la lama alla gola. Sopra di me, il suo respiro regolare.
         OFELIA: Pietà. Quanto è pesante questa parola. Rialzati. Per oggi basta così.
         Gira sui tacchi e se ne va, lasciandomi la spada nella sabbia.
 Il sole sale sopra i gradini. Sulla sabbia restano le nostre impronte, le sue dritte e leggere, le mie sparse come quelle di chi è scappato.
-Riporto le lame all'armeria. Il custode le pulisce, guarda la mia guancia e scuote la testa. Non è la prima volta che lo vede.
+Riporto le lame all'armeria. Il custode le pulisce, guarda la mia guancia e scuote la testa: non è la prima che vede.
 
 
 === OFELIA FIACCOLATA ===
 
 La Calà, trecento gradini di lanterne. La leggenda dice che chi la scende mano nella mano si amerà per sempre.
-Ofelia mi aspetta al primo gradino, in nero. Intorno a lei la festa è tutta ocra e lanterne. Lei ha scelto il lutto.
+Ofelia mi aspetta al primo gradino, in nero da lutto, e intorno a lei la festa è tutta ocra e lanterne.
 OFELIA: Ogni anno tre pretendenti mi chiedono la mano su questa scala. Ogni anno scendo da sola. È una tradizione anche questa.
 OFELIA: Quest'anno cambio. Non montarti la testa: mi annoio in fretta.
 Tre gradini più giù, un pretendente in mantello verde stringe un mazzo di gigli. Ci guarda, guarda i gigli, e li lascia cadere nel fiume.
@@ -410,14 +410,14 @@ OFELIA: Il terzo dell'anno scorso. Ha aspettato dodici mesi per sentirsi dire di
     > «La leggenda vale anche per chi non ci crede?»
         OFELIA: Vuoi garanzie? Va' da un notaio. Le leggende non rilasciano ricevute.
         Scende da sola i primi cento gradini. Al centunesimo mi aspetta, senza voltarsi.
-In fondo alla Calà il fiume si porta via i riflessi delle lanterne. Ofelia li lascia andare uno per uno. Non ne trattiene nessuno con lo sguardo.
+In fondo alla Calà il fiume si porta via i riflessi delle lanterne. Ofelia li lascia andare uno per uno.
 OFELIA: Domani mio padre saprà. Aede lo saprà prima di lui, e Ascadeo ci avrà già scommesso sopra.
 OFELIA: Lasciali parlare. Chi parla non sta guardando la mano che stringi.
 
 
 === OFELIA FIACCOLATA CAINO ===
 
-La Calà accesa da cima a fondo. Al primo gradino mi aspettano in due: Ofelia in nero, Caino con il suo solito fare sicuro. Anche stanotte.
+La Calà accesa da cima a fondo. Al primo gradino mi aspettano in due: Ofelia in nero, Caino con l'aria di chi ha già letto il contratto.
 CAINO: La leggenda prevede due mani. Noi siamo tre contraenti. Ho controllato: nessuna clausola lo vieta.
 OFELIA: Hai controllato una leggenda, Caino. Su cosa, sui registri delle nonne?
 CAINO: Sui registri dei matrimoni annullati. Sono molto più istruttivi.
@@ -437,7 +437,7 @@ OFELIA: Decidi tu, <Nome>. Una mano a testa e tu nel mezzo. Lo vedranno tutti, s
         CAINO: Ragionevole. Deludente, ma ragionevole.
         OFELIA: A turno, come in fila dal barbiere! Il secondo turno l'ho appena regalato al fiume.
         Scendiamo in tre, separati da un palmo d'aria che tutta Zefiro sa misurare.
-In fondo alla scala, Ofelia si ferma e guarda indietro, verso la cima. Le lanterne tremano. Da lassù, qualcuno del Ceppo ha visto tutto.
+In fondo alla scala Ofelia si ferma e guarda indietro, verso la cima. Da lassù, qualcuno del Ceppo ha visto tutto.
 
 
 === OFELIA FIACCOLATA AEDE ===
@@ -446,7 +446,7 @@ La Calà accesa da cima a fondo. Ofelia mi intercetta al primo gradino, dove le 
 OFELIA: Mia sorella è di turno, stanotte. Sorveglia la festa dall'alto della scala. Dice.
 OFELIA: Sa che sei qui. Non sa di me. Sarebbe un peccato rovinarle la serata, no?
 OFELIA: Un tempo scendevamo la Calà insieme, io e lei, mano nella mano. Per gioco. Lei la stringeva così forte che mi lasciava i segni.
-Lo dice senza nostalgia. Come si cita una vecchia ferita, per far vedere che è chiusa.
+Lo dice come si cita una vecchia ferita, per far vedere che è chiusa.
 OFELIA: Una scala, due sorelle, una mano sola. Fa' i conti, <Nome>. Io li ho già fatti.
 
 [SCELTA]
@@ -459,14 +459,14 @@ OFELIA: Una scala, due sorelle, una mano sola. Fa' i conti, <Nome>. Io li ho gi�
     > Prendi la mano di Ofelia
         OFELIA: L'hai presa sotto i suoi occhi. O sei coraggioso/a, o non sai contare.
         Scendiamo. Al decimo gradino sento uno sguardo sulla nuca, caldo come una lama lasciata al sole.
-        Mi volto. Dall'alto della Calà, Aede ci guarda. Non si muove, non dice niente. Stringe l'elsa finché le nocche diventano bianche.
+        Mi volto. Dall'alto della Calà Aede ci guarda, ferma, con la mano sull'elsa.
         OFELIA: Non voltarti più. Domani farà domande, e io avrò le risposte. Tu tieni la bocca chiusa.
 
 
 === OFELIA EV4 ===
 
-Pomeriggio. Ofelia mi aspetta all'imbocco dei vicoli, un velo scuro sul capo e un cesto vuoto al braccio. Travestita da nessuno.
-OFELIA: Dopo la Fiaccolata, Zefiro parla. Di me, di te. Mi annoia: le storie migliori dovrebbero raccontarle chi c'era.
+Pomeriggio. Ofelia mi aspetta all'imbocco dei vicoli, un velo scuro sul capo e un cesto vuoto al braccio, travestita da nessuno.
+OFELIA: Dopo la Fiaccolata, Zefiro parla. Di me, di te. Mi annoia: le storie migliori dovrebbe raccontarle chi c'era.
 OFELIA: Vado al mercato. Puoi seguirmi a due passi di distanza, come un servo. Oppure rimanere qui.
 OFELIA: Senza il velo ci vedranno tutti, mio padre compreso. Ho il vestito giusto per entrambe le versioni.
 
@@ -510,12 +510,12 @@ OFELIA: Sa di te. Lo sa da Lune e aspettava di vedere se fossi un capriccio. Ade
     OFELIA: Non le ho lette. Detesto quando ha ragione prima del tempo.
 
 [VARIANTE]
-    Dalla porta socchiusa arriva un rumore di passi sul ghiaino. Ofelia non si volta, ma smette di respirare finché non si allontanano.
+    Dalla porta socchiusa arriva un rumore di passi sul ghiaino. Ofelia non si volta e non si muove finché non si allontanano.
     OFELIA: Aede. Viene a controllare la serra ogni sera, da quando nostro padre è di cattivo umore. Dice che è per i ladri.
     OFELIA: Non ha mai preso un ladro. Ma ha sempre preso me.
 
 [VARIANTE]
-    Non c'è nessun altro. Nemmeno i servi. Solo lei, il freddo, e io che ho ignorato il cartello alla porta.
+    Non c'è nessun altro, nemmeno i servi. Solo lei, il freddo, e io che ho ignorato il cartello alla porta.
 OFELIA: Ho una domanda per te, e non è quella della serra di sera. Quella l'hai già superata. Questa è più piccola, e più cattiva.
 OFELIA: Quando lui ti chiamerà nello studio, cosa farai con le mani?
 
@@ -533,11 +533,11 @@ OFELIA: Quando lui ti chiamerà nello studio, cosa farai con le mani?
     > «Prenderò la tua, se me la lasci.»
         OFELIA: ...nello studio di mio padre. Davanti a lui. Sei pazzo/a, o mi conosci troppo poco.
         OFELIA: Te la lascerò tenere. Forse. Dipende da quanto mi annoi fino ad allora.
-Ofelia raccoglie una rosa morta dal vaso più vicino. È nera, rigida di gelo, perfetta.
+Ofelia raccoglie una rosa morta dal vaso più vicino. È nera e rigida di gelo.
 OFELIA: Le rose di mio padre muoiono quando lui decide. Questa no. Questa l'ho tagliata io, prima.
 Me la mette in mano. I petali si spezzano al primo tocco, come vetro sottile.
 OFELIA: Sedici giorni. Non venire a cercarmi prima. Voglio che mi manchi qualcosa, quando entro in quello studio.
-Esco nella neve. Il fiore blu vicino alla porta, quello che non fiorisce mai, ha un bocciolo. Piccolo. Chiuso come un pugno.
+Esco nella neve. Il fiore blu vicino alla porta, quello che non fiorisce mai, ha un bocciolo piccolo, chiuso come un pugno.
 
 
 === OFELIA CLIMAX ===
@@ -547,10 +547,10 @@ GLAUCO SEVERO: Siediti, Figlio/a di Briseide. Mia figlia dice che sei un capricc
 Ofelia è in piedi accanto alla finestra, in nero. Non mi guarda. Tiene gli occhi sulla candela e non sbatte le palpebre.
 GLAUCO SEVERO: Ofelia è la mia figlia imprevedibile. Al punto giusto: l'ho cresciuta così. Ogni anno tre pretendenti, ogni anno nessuno resta.
 GLAUCO SEVERO: Stanotte firmi la rinuncia e torni da tua madre con un dono del Ceppo. Oppure non firmi, e il dono te lo porto io.
-La pergamena è sul tavolo, la penna accanto, già intinta. Glauco non lascia mai niente a metà.
+La pergamena è sul tavolo, la penna accanto, già intinta.
 GLAUCO SEVERO: Ascadeo ha scommesso su di te, sai? Contro sua sorella. Lo farò frustare per questo, o forse lo farò ricco. Dipende da come esci di qui.
 Sulla parete alle sue spalle, le lame sono trentadue. Tutte affilate, tutte parallele. Glauco non si chiede mai chi le curi.
-Ofelia non si muove. Il silenzio è suo: lo lascia crescere finché diventa una stanza dentro la stanza.
+Ofelia non si muove. Il silenzio è suo: lo lascia crescere.
 La penna gocciola sul legno. Glauco aspetta me, non lei.
 
 [SCELTA]
@@ -558,7 +558,7 @@ La penna gocciola sul legno. Glauco aspetta me, non lei.
 
     > Prendi la pergamena e porgila a Ofelia, dal lato della candela
         Prendo la carta. Non la guardo nemmeno: la tendo verso la finestra, con l'angolo già sopra la fiamma.
-        Ofelia chiude due dita sull'altro angolo. Per un istante la teniamo in due.
+        Ofelia chiude due dita sull'altro angolo, e la teniamo in due.
         OFELIA: Padre. Hai dimenticato una clausola.
 
     > Rispondi a Glauco a testa alta: «Non firmo. Resta lei, e resto io.»
@@ -586,7 +586,7 @@ OFELIA: E tu li hai trattati come pegni. Almeno io li guardavo in faccia, quando
     OFELIA: E sì, c'è un altro contraente. Lo sai già: tieni registri migliori dei suoi. Si firma in tre, o non firma nessuno.
 GLAUCO SEVERO: Mi sfidi. In casa mia. Per lui/lei.
 OFELIA: Ti sorprendo, padre, è diverso. Me l'hai insegnato tu: un colpo che si vede arrivare non è un colpo.
-Glauco mi guarda. Non più come un conto da saldare: come una voce che non torna nel bilancio.
+Glauco mi guarda come una voce che non torna nel bilancio.
 
 [VARIANTE]
     Ofelia sposta il calice di un dito, verso di me. Nel vino galleggia ancora un angolo di carta, annerito dalla parte che tenevo io.
@@ -615,14 +615,14 @@ Ofelia mi guarda un'ultima volta, poi arretra nel bianco. La neve si richiude su
 
 
 [VARIANTE]
-    Aede guarda la lama, poi guarda me. Poi guarda sua sorella, che non si è mossa di un passo.
+    Aede guarda la lama, poi me, poi sua sorella, che non si è mossa di un passo.
     AEDE: Mio padre voleva un saldo. Non l'avrà. Non per te, <Nome>: per lei, che non mi ha mai chiesto niente.
-    Rinfodera l'arma. Si volta e se ne va nella neve, senza fretta. Non si gira.
+    Rinfodera l'arma e se ne va nella neve, senza fretta. Non si gira.
 Più tardi, la Calà è spenta. Trecento gradini al buio: nessuna lanterna, nessuna leggenda a garantire niente.
 OFELIA: Sai cosa dicono di me a Zefiro? Che sono bella e letale. Sbagliano l'ordine: prima sono letale. La bellezza è un dettaglio.
 TU: Allora ho corso un rischio.
 OFELIA: Il più grosso della tua vita. Te lo ricorderò ogni giorno. È il mio modo di essere affettuosa.
-Mi tende la mano. Non col palmo in giù, stavolta: aperta, alla pari.
+Mi tende la mano. Stavolta il palmo è rivolto in su.
 
 [VARIANTE]
     OFELIA: Niente di sdolcinato, non chiederlo. E niente cene da mio padre, per un po'.
@@ -633,20 +633,20 @@ Mi tende la mano. Non col palmo in giù, stavolta: aperta, alla pari.
     OFELIA: Davanti a tutto il Ceppo. Per me è come scriverlo sulle mura.
 OFELIA: Ascadeo ha vinto la sua scommessa più grossa, comunque. Non dirgli niente: voglio che me lo chieda lui. Voglio vederlo pagare il disturbo.
 Scendiamo al buio, mano nella mano. Al centesimo gradino lei ride piano, una volta sola. Non lo ammetterà mai.
-A metà della scala si ferma. Si toglie un guanto e me lo mette in tasca, senza spiegare. È lo stesso che faceva raccogliere ai pretendenti.
+A metà della scala si ferma, si toglie un guanto e me lo mette in tasca. È lo stesso che faceva raccogliere ai pretendenti.
 OFELIA: Non lo lascerò cadere più. Non ce n'è bisogno.
-Poi fa la cosa che la sera delle forbici non ha fatto. Mi bacia: breve, a occhi aperti, come chi vuole vedere cosa succede.
+Fa la cosa che la sera delle forbici non ha fatto. Mi bacia: breve, a occhi aperti, come chi vuole vedere cosa succede.
 OFELIA: Quella sera ti ho fatto aspettare. Volevo sapere se aspettavi.
 OFELIA: Hai aspettato. Non abituarti.
 
 [VARIANTE]
     Qualche notte dopo, sulle mura, vedo una sagoma col simbolo del Ceppo. Ferma nella neve, a guardare la città.
-    Aede non ne parlerà mai, né con me né con sua sorella. È l'unico colpo che le ho risparmiato, e pesa più di tutti.
+    Aede non ne parlerà mai, né con me né con sua sorella.
 
 [VARIANTE]
     Caino lo incrocio davanti al Consiglio. Ha il registro aperto e una riga già tirata.
     CAINO: Contratto a tre: risolto per inadempienza. Nessuna penale. Ho controllato.
-    Chiude il registro con un colpo secco. Le dita gli tremano appena: la prima voce del suo bilancio che non torna.
+    Chiude il registro con un colpo secco. Le dita gli tremano appena.
 ~ TANTO BELLA QUANTO LETALE Ofelia ha preso sul serio un pretendente. Uno solo. L'ultimo. ~
 
 
@@ -663,14 +663,14 @@ CAINO: ...era la luce delle lanterne. Firma, <Nome>. Prima che cambi idea. O pri
 OFELIA: Aggiungi una clausola, Caino. La quarta. Chi tradisce il contratto, lo dice a me prima che agli altri due.
 CAINO: E poi?
 OFELIA: E poi niente. Lo dice a me. Il resto si vede.
-Firmo. Ofelia firma per ultima, con un ghirigoro che occupa mezza pagina. Caino non protesta. Annota l'ora della firma, poi la sottolinea due volte.
-Sotto le firme, in piccolo, Caino aggiunge una data. Come se un giorno qualcuno dovesse verificare che è successo davvero.
+Firmo. Ofelia firma per ultima, con un ghirigoro che occupa mezza pagina. Caino non protesta: annota l'ora della firma e la sottolinea due volte.
+Sotto le firme, in piccolo, Caino aggiunge una data, nel caso un giorno qualcuno dovesse verificare che è successo davvero.
 ~ IL CONTRATTO A TRE Tre firme, nessuna esclusiva. E nessuna intenzione di rescindere. ~
 
 
 === OFELIA GOOD AEDE ===
 
-Aede guarda la lama nella propria mano. Poi la lascia cadere nella neve, dritta, come una piccola lapide.
+Aede guarda la lama che ha in mano e la lascia cadere nella neve, dritta, come una piccola lapide.
 AEDE: Dieci anni di ordini. Il primo che rifiuto, lo rifiuto per te. Mio padre se ne farà una ragione.
 OFELIA: Se ne farà due, sorella. Ero qui per lo stesso motivo.
 AEDE: Tu? Per un/una Novellino/a? Tu che scendi la Calà da sola da cinque anni?
@@ -681,17 +681,17 @@ GLAUCO SEVERO: Due figlie, due lame, un bersaglio solo. E nessuna delle due che 
 GLAUCO SEVERO: Cena al tramonto, Figlio/a di Briseide. Siederai tra le mie figlie. Spero tu sappia tenere il coltello dalla parte giusta.
 La cena è lunga. Aede ride, una volta, quando le verso il vino. Ofelia, dall'altro lato del tavolo, non ride mai.
 C'è anche Ascadeo, a capotavola accanto al padre. Mi guarda, guarda le sorelle, e conta qualcosa sulle dita sotto la tovaglia.
-A fine cena mi passa accanto e mi sussurra una cifra. Non capisco se è una vincita o un avvertimento. Forse tutte e due.
+A fine cena mi passa accanto e mi sussurra una cifra. Non capisco se è una vincita o un avvertimento.
 Dopo, sulla Calà spenta, Ofelia mi aspetta al primo gradino. Due minuti, non uno di più.
 OFELIA: Lei ti ha alla luce. Io al buio. Non lamentarti: il buio mi dona.
 OFELIA: Non dirglielo mai. Non per lei: per me. Non sopporterei di essere perdonata.
-Mi bacia una volta, sulla tempia, di fretta. Poi sale i gradini al contrario, verso la luce del Ceppo, senza voltarsi.
+Mi bacia una volta, sulla tempia, di fretta, e sale i gradini al contrario, verso la luce del Ceppo.
 ~ LE FIGLIE DI GLAUCO Due lame, un solo bersaglio. ~
 
 
 === OFELIA BAD TEMPESTA ===
 
-Aede guarda Ofelia. Poi guarda me. Il silenzio della neve si fa pesante come una lastra.
+Aede guarda Ofelia, poi me, e lascia che la neve ci cada addosso.
 
 [VARIANTE]
     AEDE: Sulla Calà. Sotto i miei occhi. E al mercato, a braccetto, come due sposi.
@@ -723,12 +723,12 @@ GLAUCO SEVERO: Visto, figlia? Un bel gesto, la carta bruciata. Peccato per il pu
 OFELIA: Hai ragione, padre. Per una volta.
 Mi guarda dall'alto in basso, con calma, e arriva alle scarpe. Lì si ferma.
 OFELIA: Ti ho dato sei Lune, <Nome>. Ne hai usate metà. Io non aspetto: non per crudeltà, per abitudine.
-Raccoglie la cenere della pergamena dal fondo del calice e la sparge sul tavolo con un dito. Un gesto da bambina annoiata.
+Raccoglie la cenere della pergamena dal fondo del calice e la sparge sul tavolo con un dito, come una bambina annoiata.
 GLAUCO SEVERO: Va', Figlio/a di Briseide. Il mio dono te lo risparmio. Mia figlia ti ha già fatto il suo.
 Una Luna dopo, la vedo sulla Calà con un pretendente nuovo. Un uomo alto, i capelli in ordine, le frasi pronte.
 Mi passa accanto senza fermarsi. Un cenno, il minimo sindacale della cortesia.
 OFELIA: Sei stato/a un interesse piacevole, <Nome>. Passeggero, ma piacevole. Non tutti arrivano a tanto.
-Il pretendente nuovo mi guarda di sbieco, cercando di capire chi sono. Lei non glielo dice. Non vale la fatica.
+Il pretendente nuovo mi guarda di sbieco, cercando di capire chi sono. Lei non glielo dice.
 Ai piedi della scala c'è un ragazzo che prende appunti su un libretto. Ascadeo, credo. Accanto al mio nome tira una riga.
 ~ INTERESSE PASSEGGERO Ofelia scende la Calà ogni anno. Quest'anno, con qualcun altro. ~
 
@@ -746,7 +746,7 @@ OFELIA: Raccoglilo, se vuoi. Stavolta non è una prova. È un saluto.
 
 [VARIANTE]
     Nel corridoio Caino scrive una riga nel registro. Non alza la testa quando passo.
-Il guanto resta nella mia tasca per tutto l'inverno. Sulla Calà Ofelia mi saluta con un cenno preciso: né freddo, né caldo. Esatto.
+Il guanto resta nella mia tasca per tutto l'inverno. Sulla Calà Ofelia mi saluta con un cenno preciso, né freddo né caldo.
 A fine Luna Ascadeo mi offre da bere. Ha vinto metà della scommessa, dice. Non mi spiega quale metà.
 ~ IL GUANTO A TERRA Ofelia non aspetta due volte. Aspetta una volta sola, e se lo ricorda. ~
 
@@ -759,7 +759,7 @@ GLAUCO SEVERO: Allora i conti li chiudo io.
 Glauco stacca dalla parete una lama che non avevo contato: la trentatreesima, sotto un panno. La avvolge in un drappo col simbolo del Ceppo.
 GLAUCO SEVERO: Il dono che ti avevo promesso, Figlio/a di Briseide. Portalo a tua madre. Dille che il Ceppo ringrazia per la visita.
 GLAUCO SEVERO: E dille che il prossimo lo porto io. Senza drappo.
-Cerco gli occhi di Ofelia. Lei guarda la candela, e la spegne con due dita. Un sibilo. Nessuna smorfia.
+Cerco gli occhi di Ofelia. Lei guarda la candela e la spegne con due dita, senza una smorfia.
 OFELIA: Vai, <Nome>. Prima dell'alba. Mio padre è puntuale solo con le minacce.
 Lascio Zefiro col primo carro. Il drappo sul sedile accanto, il simbolo del Ceppo bene in vista: chi ci ferma sa di chi è il debito.
 Nessuno ci ferma.

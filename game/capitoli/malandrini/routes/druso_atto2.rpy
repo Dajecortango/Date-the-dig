@@ -101,6 +101,7 @@ label druso_ev4:
         "Un'ombra sul cammino di ronda. Druso afferra la lanterna e non fa battute."
         "«Dimmi cosa c'è. Senza rima.»":
             $ druso_affinity += 1
+            $ druso_cantina_detta = True
             show druso serio with qdiss
             druso "...ho paura del buio, ecco. Dillo e ti butto di sotto."
             druso "Appena adottati mia madre ci chiudeva in cantina, uno alla volta. Per temprarci. Caino ne usciva muto. Icaro ne usciva con qualcosa in tasca."
@@ -204,10 +205,76 @@ label druso_fiaccolata:
     return
 
 
+## La crocetta (fisso V/20 sera) ##############################################
+
+label druso_crocetta:
+    scene bg vicoli_zefiro with fade
+    "Il Becco Storto, due settimane dopo Epiro. La taverna canta ancora la sua strofa, e quando entra Druso la canta più piano."
+    if druso_sfida == "verso":
+        "Quella sera ha vinto lui, con due versi miei in testa. Zefiro l'ha notato. «Il poeta ha una spalla che rima meglio di lui», dicono, e gli pagano il giro per vederlo bere."
+    elif druso_sfida == "via":
+        "Il poeta raccolto col cucchiaino: l'aveva previsto lui, e gliel'hanno ripetuto in tutti i dialetti del canale."
+    else:
+        "Ha pagato il giro a tutta Zefiro, e a Zefiro il giro è piaciuto. Adesso glielo chiedono ogni sera."
+    show druso ghigno at left with easeinleft
+    "Stasera sale sul tavolo con una pergamena in mano. Calligrafia minuta, nomi, frecce: l'ho vista una volta sola, su una botte, con la porta chiusa."
+    druso "Signori! Basta Epiro. Stasera si legge il libro mastro di Druso, figlio di Lenora. Cose vere, coi nomi!"
+    druso "L'oste: annacqua, ma con vergogna. Il capoguardia: dorme in piedi e sogna la moglie del fornaio. Il fornaio: lo sa."
+    "La sala si raddrizza sulle panche. Sono due settimane che non ride con lui. Scorre il dito fino in fondo, e il dito si ferma."
+    if druso_leva == "morde":
+        druso "[player_name], [figlio_t] di Briseide. Accanto, una crocetta. Sapete cosa vuol dire, la crocetta? Vuol dire: morde."
+        "Me l'aveva mostrata di sfuggita, come si mostra una cosa che non si fa vedere a nessuno. «Non ne ho tante, di crocette.»"
+        druso "«Morde, dice la crocetta, la mia spalla prediletta: morde il cuscino, la notte, perché nessuno l'aspetta.»"
+    else:
+        druso "[player_name], [figlio_t] di Briseide. Accanto non c'è una crocetta. C'è scritto: abbaia."
+        "Non avevo mai saputo cosa ci avesse scritto. Lo so adesso, insieme a sessanta persone."
+        druso "«Abbaia, dice il mio foglio, la mia spalla prediletta: abbaia sotto il cuscino, perché nessuno l'aspetta.»"
+    with hpunch
+    "Il tavolo trema. È la risata che gli mancava, e gli torna il colore in faccia mentre la prende."
+    "Mi cerca tra le panche. Non si scusa con gli occhi: controlla."
+    menu:
+        "Sessanta facce si girano. Qualcuno mi versa da bere, per vedere cosa faccio."
+        "Sali sul tavolo accanto e rispondigli in rima":
+            $ druso_rottura = "risposta"
+            $ druso_affinity += 1
+            "Il tavolo è bagnato e più alto di quanto sembrasse. Gli arrivo alla spalla."
+            pc "«Druso conosce il mio letto come conosce il coraggio: per sentito dire, in rima, e sempre di passaggio.»"
+            with vpunch
+            "Questa volta il tavolo trema per me. Druso apre la bocca. Poi alza il boccale, senza guardarmi, e la sala decide che è finita alla pari."
+        "Posa il bicchiere ed esci senza dire niente":
+            $ druso_rottura = "uscita"
+            $ druso_affinity -= 1
+            "Non sbatto la porta. Dietro di me riprende a leggere, e il capoguardia ride più forte di tutti."
+            "Tre giorni dopo trovo un angolo di pergamena sul banco dove mangio. Il mio nome, il resto strappato. Nessun biglietto."
+            return
+        "Ridi con gli altri e alza il bicchiere":
+            $ druso_rottura = "risata"
+            $ druso_passo_falso()
+            "Rido. Bevo. Qualcuno mi dà una pacca sulla schiena."
+            show druso serio with qdiss
+            "Druso mi guarda ridere un momento di più. Poi passa al nome dopo, e non controlla più."
+            return
+    scene bg vicoli_zefiro with fade
+    "Il retro del Becco Storto. Botti vuote, il canale ghiacciato, Lisandra che mi guarda dall'alto come una creditrice."
+    show druso irritato at left with dissolve
+    druso "«Per sentito dire.» Ti sei preparat[fin] o ti esce così?"
+    if druso_leva == "morde":
+        pc "Era l'unica riga buona che avevi scritto su di me."
+    else:
+        pc "Abbaia. L'hai scritto quella sera, e l'hai tenuto in tasca fino a oggi."
+    "Si gratta la barba. Tira fuori la pergamena e la guarda come se fosse di un altro, poi se la rimette in tasca."
+    show druso serio with qdiss
+    druso "Epiro mi ha preso il nome. Mi serviva qualcosa da vendere stasera, e ho messo la mano in tasca. C'eri tu."
+    druso "Non chiedermi di scusarmi. Non so come si fa, e verrebbe zoppa."
+    return
+
+
 ## Luna VI — La lettera del Ramo (fisso VI/5 sera) ###########################
 
 label druso_luna6:
     scene bg vicoli_zefiro with fade
+    if druso_rottura == "uscita":
+        "Non ci parliamo da due settimane. Stasera il garzone dell'oste mi ha portato una chiave e un biglietto con una parola sola: «Vieni.» Niente rima."
     "Il Becco Storto, a porte chiuse. L'oste è andato a dormire e ha lasciato a Druso le chiavi, una candela e una bottiglia."
     show druso serio at left with dissolve
     "Sul tavolo c'è una lettera. Cera nera, il sigillo del Ramo di Lenora: una corona."
@@ -252,6 +319,45 @@ label druso_luna6:
     druso "...ecco. Sì. Quello."
     "Spegne la candela con le dita, senza fare una smorfia. Nel buio lo sento ridere piano, una volta."
     druso "Al buio non ho più paura, lo sai? Da un po'. Dipende da chi c'è."
+    return
+
+
+## La cantina (fisso VI/12 sera) ##############################################
+
+label druso_cantina:
+    scene bg nero with fade
+    "Una scala sotto la Rocca che non conosco, stretta, con i gradini consumati al centro. Druso va avanti con una lanterna e una chiave che ha vinto a Icaro, o che Icaro gli ha lasciato vincere."
+    if druso_cantina_detta:
+        druso "Te l'ho raccontata sulle mura. Eccola. Volevo vedere se è diventata più piccola."
+    else:
+        druso "Appena adottati, madre ci chiudeva qui. Uno alla volta. Per temprarci. Caino ne usciva muto, Icaro con qualcosa in tasca."
+        druso "Io ne uscivo cantando. Ecco dove ho imparato a rimare, se te lo sei mai chiest[fin]."
+    "La porta è bassa. Dentro ci sono rape, botti, un odore di pietra bagnata, e una stanza grande come un letto."
+    druso "Uguale. Pensavo che almeno questa me la concedesse."
+    druso "Tra nove giorni mi chiama davanti al Ramo. Ti ho detto che al buio non ho più paura. L'ho detto bene, c'era pure la candela. Vediamo se è vero."
+    "Soffia sulla lanterna."
+    "Aspetto la canzone. Sento il grasso del lucignolo che sfrigola, una goccia da qualche parte, e nient'altro."
+    menu:
+        "Druso non canta. Lo sento respirare a un passo da me. Forse due."
+        "Cerca la sua mano":
+            $ druso_cantina_esito = "mano"
+            "La trovo al secondo tentativo, dopo una botte. È fredda e non stringe. Poi stringe, e non la smette più."
+            druso "Questa non si racconta."
+        "Canta tu, la più oscena che conosci":
+            $ druso_cantina_esito = "canta"
+            "Attacco quella sulla locandiera, che ho imparato da lui a forza di sentirla. Stono al secondo verso, e lui mi corregge per principio."
+            druso "Fa schifo. E la metrica è mia, ladr[fin]. Ricomincia, più piano. Qui l'eco è una spia."
+            "La finiamo in due, a voce bassa, tutte le strofe."
+        "Resta ferm[fin] e non dire niente":
+            $ druso_cantina_esito = "fermo"
+            "Conto le gocce. A quaranta perdo il conto, e ricomincio."
+            druso "Sei ancora lì?"
+            pc "Sì."
+            druso "Bene. Non aggiungere altro. Rovini il finale."
+    "Non riaccende. Risaliamo a tentoni, lui davanti, e sulla scala lo sento contare i gradini a mezza voce: gli stessi di allora, immagino."
+    show druso ghigno at left with dissolve
+    "In cima la luce delle torce lo prende in faccia. Si rimette il ghigno come uno si rimette il mantello."
+    druso "Se lo racconti in taverna, nego. Dico che ero ubriaco, e che piangevi tu."
     return
 
 

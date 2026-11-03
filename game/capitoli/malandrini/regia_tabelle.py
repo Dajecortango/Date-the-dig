@@ -64,6 +64,7 @@ EFFETTI_CONTESTO = (
     ("icaro_ev1", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
     ("icaro_int1", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
     ("icaro_luna5", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
+    ("icaro_riga", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
     ("icaro_febbre", "vicoli_zefiro", "fumo_pipa", "sostituisci"),
     ("athlion", "arena_athlion", "scintille", "aggiungi"),
     ("ofelia_ev3", "arena_athlion", "scintille", "aggiungi"),

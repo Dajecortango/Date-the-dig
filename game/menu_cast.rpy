@@ -118,10 +118,8 @@ init python:
         return bool(getattr(_preferences, "reduce_motion", False))
 
     def mm_sfondo_pattern():
-        # Pattern che scorre, o fermo se le animazioni del menu sono spente.
-        if mm_movimento_ridotto():
-            return Tile("gui/mm_pattern.png")
-        return "mm_pattern_anim"
+        # Una carta quieta, ferma: la scena la fanno il cast e la neve.
+        return Tile("gui/mm_pattern.png")
 
     def mm_parallasse(profondita):
         def f(trans, st, at):
@@ -246,10 +244,9 @@ screen menu_cast():
                     at mm_vivo(fase, prof)
 
                 add ("gui/cast_%s_ombra.webp" % chiave)
-                add ("gui/cast_%s_alone.webp" % chiave) at alone
                 imagebutton:
                     idle ("gui/cast_%s.webp" % chiave)
-                    hover ("gui/cast_%s_hover.webp" % chiave)
+                    hover Transform("gui/cast_%s.webp" % chiave, matrixcolor=BrightnessMatrix(0.07))
                     focus_mask True
                     tooltip chiave
                     alt (mm_schede()[chiave]["nome"] + ((", " + mm_schede()[chiave]["route"]) if al_centro else ""))
@@ -286,7 +283,9 @@ screen menu_cast():
     frame:
         style "mm_pallini"
         ## Su touch i pallini sono piu' alti: la fila sale per non uscire.
-        ypos (1020 if mm_touch else 1042)
+        xpos 1780
+        xanchor 0.5
+        ypos (1020 if mm_touch else 1040)
         hbox:
             ## Il pallino e' 22 px: il padding allarga la parte toccabile
             ## senza cambiare il disegno (su touch ~3 mm per lato in piu').
@@ -319,7 +318,6 @@ screen menu_cast():
 
 style mm_pallini is empty
 style mm_pallini:
-    background Frame("gui/frame_piccolo.png", 26, 26)
     padding (24, 12, 24, 12)
     xpos 310 xanchor 0.5
     ypos 1042 yanchor 0.5

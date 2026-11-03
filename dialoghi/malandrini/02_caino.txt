@@ -9,16 +9,16 @@ NOME: battuta · testo semplice = narrazione · ~ testo ~ = cartello a schermo
 === CAINO PROLOGO ===
 
 L'Adunanza annuale. Tutta la Famiglia sotto un tetto solo: Autarchi, Arconti, Eparchi, e in fondo alla sala i Figli nuovi come me, messi lì dove non facciamo danni.
-È lì che lo vedo la prima volta: al centro esatto della sala, dove le correnti del potere si incrociano. Ride con tre Autarchi insieme, e tutti e tre credono di essere il motivo della risata.
+È lì che lo vedo la prima volta: al centro esatto della sala. Ride con tre Autarchi insieme, e tutti e tre credono di essere il motivo della risata.
 Caino. Figlio di Lenora, fratello di Druso e di Icaro. Arconte della Proprietà. Dicono che sia la spada migliore di Rocca Tempesta dopo sua madre, e la lingua migliore senza nessun dopo.
-E a un certo punto — non so come, non so perché — quella lingua punta me.
+A un certo punto, non so perché, quella lingua punta me.
 CAINO: Tu. Figlio/a di Briseide. Sì, tu, quello/a che da mezz'ora studia la sala come se dovesse comprarla.
 TU: Osservavo, Arconte. Niente di più.
 CAINO: «Osservavo, Arconte». Educato, misurato, inutile. Briseide vi fabbrica tutti così?
-Sorride mentre lo dice. Ha un sorriso facile, Caino: il tipo di sorriso che ti fa sentire importante due secondi prima di scoprire cosa ti è costato.
-Un servo passa col vassoio. Caino scarta il vino con un gesto che è quasi un insulto.
+Sorride mentre lo dice. Ha un sorriso facile, Caino: ti fa sentire importante due secondi prima di scoprire cosa ti è costato.
+Un servo passa col vassoio. Caino scarta il vino con due dita, senza guardarlo.
 CAINO: Vino di Glostok. Lo bevono i cambiavalute e i pentiti. Io bevo idromele di Rurikstad, e chi mi conosce lo sa. Ricordatelo, Figlio/a di Briseide: nella Famiglia, chi ricorda i dettagli possiede le persone.
-Prende invece un corno di idromele. Al mignolo destro gli brilla un anello: un sigillo con un drago, non un leone. Un dettaglio che stona, su un uomo che non lascia nulla al caso.
+Prende invece un corno di idromele. Al mignolo destro gli brilla un anello: un sigillo con un drago, non un leone. Stona, su un uomo che non lascia nulla al caso.
 CAINO: Ora dimmi una cosa, così capisco con chi parlo.
 CAINO: Il Ballo delle Candele Spente. Che festa magnifica dev'essere stata, eh? Luci soffuse, musica, mia madre che cura ogni dettaglio. Mi spiace solo non esserci stato. Tu che ne pensi?
 
@@ -28,20 +28,20 @@ CAINO: Il Ballo delle Candele Spente. Che festa magnifica dev'essere stata, eh? 
     > «Magnifica davvero. Peccato essermela persa.»
         TU: Magnifica davvero. Peccato essermela persa.
         CAINO: Già. Peccato.
-        Il sorriso non cambia di un millimetro. Ma qualcosa dietro gli occhi archivia: questo annuisce senza sapere. E io capisco di aver perso un punto in una partita che non sapevo di giocare.
-        Solo più tardi, da Vanna, scopro cos'era il Ballo delle Candele Spente: un massacro. Ideato da Lenora. Sua madre.
+        Il sorriso non cambia di un millimetro, ma dietro gli occhi archivia: annuisce senza sapere. Ho perso un punto in una partita che non sapevo di giocare.
+        Solo più tardi, da Vanna, scopro cos'era il Ballo delle Candele Spente: un massacro, ideato da Lenora. Sua madre.
 
     > «Era un massacro, Arconte. Lo sanno anche i nuovi.»
         TU: Era un massacro, Arconte. Lo sanno anche i nuovi. Strano che il figlio della Capofamiglia se lo ricordi come una festa.
-        Per un istante — mezzo battito — il sorriso si ferma.
+        Per mezzo battito il sorriso si ferma.
         CAINO: ...Briseide vi fabbrica meglio di quanto dicessi.
-        CAINO: Era una prova, Figlio/a di Briseide. La sala è piena di gente che mi dà ragione per riflesso. Tu no. Interessante.
+        CAINO: Era una prova, Figlio/a di Briseide. La sala è piena di gente che mi dà ragione per riflesso. Tu no.
 
     > Resta in silenzio e sorridi
-        Sorrido e non rispondo. La via sicura.
+        Sorrido e non rispondo.
         CAINO: Il silenzio. La risposta di chi non vuole perdere. Prudente. Noioso. Ma prudente.
 CAINO: Ci rivedremo, Figlio/a di Briseide. La Proprietà ha sempre bisogno di mani nuove. E io ho sempre bisogno di sapere cosa valgono.
-Se ne va attraversando la sala come se la sala fosse sua. E il punto, mi dico, è proprio questo: un giorno potrebbe esserlo.
+Se ne va attraversando la sala come se fosse sua. Un giorno potrebbe esserlo.
 
 
 === CAINO CAP1 ===
@@ -49,9 +49,9 @@ Se ne va attraversando la sala come se la sala fosse sua. E il punto, mi dico, �
 BRISEIDE IPPODAMIA: L'Arconte della Proprietà ha chiesto di te. Per nome.
 TU: Per nome?
 BRISEIDE IPPODAMIA: Per nome. <Nome>, del Ceppo di Briseide. Quando Caino chiede per nome, ha già deciso a cosa gli servi. Scoprilo prima che lo decida del tutto: è l'unico vantaggio che avrai.
-Lo studio dell'Arconte della Proprietà è l'opposto di quello di Glauco: caldo, pieno, teatrale. Registri ovunque, mappe dei Ceppi, e una spada appesa dove chiunque entri deve vederla.
+Lo studio dell'Arconte della Proprietà è l'opposto di quello di Glauco: caldo e teatrale. Registri ovunque, mappe dei Ceppi, e una spada appesa dove chiunque entri deve vederla.
 CAINO: Il Figlio che non annuisce. Entra. Ho un problema di aritmetica e tutti i miei scrivani hanno già sbagliato la risposta.
-Il problema consiste in un registro delle decime di tre Contrade. Lavoriamo un'ora: lui parla, io conto, lui controlla il mio contare fingendo di non farlo.
+Il problema è un registro delle decime di tre Contrade. Lavoriamo un'ora: lui parla, io conto, lui controlla il mio contare fingendo di non farlo.
 CAINO: Passabile. Briseide ti presta a buon mercato o devo firmare qualcosa?
 Un servo entra con un vassoio: due coppe già piene.
 
@@ -65,7 +65,7 @@ Un servo entra con un vassoio: due coppe già piene.
         CAINO: Registro aggiornato. Voce: persone che ricordano ciò che dico quando non minaccio nessuno. Fino a ieri, una: mia madre. Da oggi, due.
 
     > Prendi la coppa e ringrazia
-        Prendo la coppa. Caino guarda la sua senza toccarla, poi guarda me, e qualcosa negli occhi gli si spegne di un grado.
+        Prendo la coppa. Caino guarda la sua senza toccarla, poi guarda me, e gli occhi gli si spengono di un grado.
         CAINO: Salute, Figlio/a di Briseide. Al vino di Glostok e a chi non ascolta.
 
     > Aspetta di vedere se beve
@@ -79,13 +79,13 @@ CAINO: Torna domani. La Proprietà ha un lavoro vero per te. Consideralo un acco
 Il cortile d'armi del Ramo di Lenora, l'alba dopo. Mi hanno detto di presentarmi presto. Non mi hanno detto per cosa.
 Caino è a camicia sbottonata al centro del cortile. Ai suoi piedi, due blocchi di marmo bianco con maniglie di ferro incassate.
 CAINO: Ventiquattro chili l'uno. Marmo delle Cimebianche, tagliato male apposta: il peso non è mai dove te lo aspetti. Come la Famiglia.
-Li solleva. E comincia — che gli Asi mi fulminino — a fare alzate laterali. Le braccia dritte, il marmo che sale fino alla linea delle spalle, scende, risale. Il respiro regolare come un conto.
+Li solleva e comincia, che gli Asi mi fulminino, a fare alzate laterali. Le braccia dritte, il marmo che sale fino alla linea delle spalle, scende, risale, e il respiro regolare come un conto.
 CAINO: Dodici... tredici... il potere, Figlio/a di Briseide, è questo... quattordici... peso morto che impari a sollevare... con grazia...
 Una voce tuona dall'arcata.
 DRUSO: FRATELLO!
 Druso. Più largo di Caino di una spanna, la barba più selvaggia, il sorriso ancora più facile del fratello.
 DRUSO: TESCHIO!
-E prima che io capisca cosa significa, Druso scaglia un pugno diretto ai genitali di Caino. Caino — con quarantotto chili di marmo in mano — ruota sul fianco, para col blocco sinistro, e il pugno di Druso incontra la pietra.
+E prima che io capisca cosa significa, Druso scaglia un pugno diretto ai genitali di Caino. Caino, con quarantotto chili di marmo in mano, ruota sul fianco, para col blocco sinistro, e il pugno di Druso incontra la pietra.
 DRUSO: AAAH! Figlio di—
 CAINO: Di Lenora. Come te. Quindici.
 Caino posa i blocchi, e con lo stesso movimento tira un pugno secco all'inguine del fratello. Druso lo blocca con entrambe le mani per un pelo.
@@ -102,9 +102,9 @@ CAINO: Quaranta Scudi che diventeranno venti, perché la metà la persi per colp
 
     > «Quaranta. E il Codice del Teschio non parla di sconti.»
         TU: Quaranta. E se il Codice del Teschio l'ha scritto lui, varrà anche sui debiti: niente sconti non dichiarati.
-        DRUSO: AH! Mi piace! Briseide, benedetta donna, finalmente uno con la spina dorsale!
+        DRUSO: AH! Mi piace! Briseide, benedetta donna, finalmente qualcuno con la spina dorsale!
         CAINO: Traditore. Sei nel mio studio da un giorno e già testimoni per il nemico.
-        Ma ride. Rido anche io. È impossibile non ridere, in mezzo a questi due.
+        Ma ride, e rido anche io: in mezzo a questi due è impossibile non farlo.
 
     > «Non ho sentito niente. Io conto solo registri.»
         TU: Non ho sentito niente, io conto solo registri. E nei registri della Proprietà questo debito non esiste.
@@ -126,7 +126,7 @@ CAINO: Mio fratello. Un idiota magnifico. Il preferito di nostra madre, lo dico 
 
     > «Hai appena detto il contrario di quello che pensi. Di nuovo.»
         TU: Hai appena detto il contrario di quello che pensi. Di nuovo. Il preferito sei tu, e la cosa ti pesa più dei tuoi blocchi di marmo.
-        Silenzio. Druso, dall'arcata, fischia piano.
+        Druso, dall'arcata, fischia piano.
         CAINO: ...Druso. Il/La Figlio/a di Briseide resta a pranzo.
         DRUSO: Lo so, fratello. L'ho capito prima di te.
 
@@ -138,26 +138,26 @@ Caino balla come combatte: in anticipo su tutti. Tre dame di tre Ceppi diversi s
 CAINO: Figlio/a di Briseide. Sai ballare o Briseide vi insegna solo l'aritmetica?
 TU: L'aritmetica è una danza, Arconte. Solo più lenta.
 CAINO: Risposta da scrivano con ambizioni. Vediamo la pratica.
-Mi tende la mano. E la sala intera — lo sento sulla pelle — smette per un istante di respirare: l'Arconte della Proprietà non invita i Figli nuovi.
+Mi tende la mano. Le dame più vicine smettono di bisbigliare: l'Arconte della Proprietà non invita i Figli nuovi.
 
 [SCELTA]
     La musica riparte.
 
     > Accetta e lascialo condurre
-        Accetto. Conduce lui, ovviamente: ogni passo è un contratto, ogni giro una clausola. Ma a metà danza succede una cosa strana — smette di guardare la sala e guarda me.
+        Accetto, e conduce lui, ovviamente: ogni passo è un contratto, ogni giro una clausola. A metà danza smette di guardare la sala e guarda me.
         CAINO: Curioso. Di solito a questo punto i miei partner contano i passi o contano i vantaggi. Tu che conti?
         TU: Niente. È questo il bello della danza: è l'unica cosa che non serve a niente.
-        Non risponde. Ma per quattro battute intere, l'Arconte della Proprietà balla senza guardare nessun altro nella sala.
+        Non risponde, ma per quattro battute intere non guarda nessun altro nella sala.
 
     > Accetta, ma punta a condurre tu
-        Accetto — e al terzo passo gli rubo la conduzione. Un furto piccolo, tecnico, visibile solo a noi due.
+        Accetto, e al terzo passo gli rubo la conduzione: un furto tecnico, visibile solo a noi due.
         CAINO: ...questo era il mio tempo.
         TU: Era. I dettagli possiedono le persone, Arconte.
         CAINO: Rubare le mie massime per usarle contro di me. C'è della Proprietà in te, Figlio/a di Briseide. Forse troppa.
-        Ma non si riprende la conduzione. Per tutta la danza.
+        La conduzione non se la riprende per tutta la danza.
 
     > Rifiuta con un inchino
-        Mi inchino e rifiuto. La mano di Caino resta tesa nel vuoto per un secondo — un secondo che la sala intera vede.
+        Mi inchino e rifiuto. La mano di Caino resta tesa nel vuoto per un secondo, e lo vede tutta la sala.
         CAINO: Prudenza, di nuovo. Te la metto a verbale: nessun rischio, nessuna perdita, nessun utile. Bilancio perfetto, Figlio/a di Briseide. Da conto chiuso.
 Tra una danza e l'altra, Druso mi intercetta al tavolo lungo, due boccali in mano e il fiato di chi ha già vinto tre brindisi.
 DRUSO: Novellino/a! Mio fratello balla, io bevo. Ognuno il suo talento. Gara: chi finisce il boccale per ultimo paga il prossimo giro E balla con la vedova Tersicore.
@@ -168,12 +168,12 @@ DRUSO: Novellino/a! Mio fratello balla, io bevo. Ognuno il suo talento. Gara: ch
     > Accetta la gara
         Accetto. Perdo. Pago. E la vedova Tersicore, giuro, balla meglio di metà sala.
         DRUSO: Hai perso con onore e pagato senza piangere. Nel mio Codice personale, vali già più di mezzo Consiglio.
-        Da quella sera, Druso mi saluta per nome. Tutte le volte. Anche in mezzo alla folla.
+        Da quella sera Druso mi saluta per nome, tutte le volte, anche in mezzo alla folla.
 
     > Declina con diplomazia
         TU: La Proprietà mi vuole sobrio/a, temo.
         DRUSO: «La Proprietà mi vuole sobrio/a». Parli già come lui. Che gli Asi ci salvino, due Caino.
-Più tardi, al tavolo dell'idromele, mi raggiunge con due corni. Me ne porge uno.
+Più tardi, al tavolo dell'idromele, Caino mi raggiunge con due corni. Me ne porge uno.
 CAINO: Una domanda, prima che la serata finisca. Guardami le mani.
 Le guardo. Le dita lunghe, i calli della spada. Nessun anello.
 CAINO: All'Adunanza, la sera che ci siamo conosciuti, portavo un anello. Se mi dici qual era e dov'era, questo idromele lo paghi con la risposta. Se sbagli, resti a bocca asciutta e io archivio.
@@ -189,7 +189,7 @@ CAINO: All'Adunanza, la sera che ci siamo conosciuti, portavo un anello. Se mi d
 
     > «Un leone d'oro, all'indice.»
         TU: Un leone d'oro. All'indice.
-        CAINO: Un leone. Certo. Come tutti, ovvio, prevedibile. Hai guardato senza vedere, Figlio/a di Briseide.
+        CAINO: Un leone. Certo. Come tutti. Hai guardato senza vedere, Figlio/a di Briseide.
         Si riprende il corno e lo beve lui, fino in fondo, guardandomi negli occhi. Archiviato.
 
     > «Non portavi anelli.»
@@ -207,16 +207,16 @@ CAINO: All'Adunanza, la sera che ci siamo conosciuti, portavo un anello. Se mi d
 
 Mezza giornata sui registri delle decime. Gli scrivani della Proprietà mi passano le colonne peggiori: sono il/la nuovo/a, e il/la nuovo/a somma.
 Imparo più della Famiglia da tre registri che da dieci lezioni: chi paga tardi, chi paga troppo, chi non paga e non viene mai segnato.
-Il Ceppo di Cardia, per esempio, paga sempre il giorno prima della scadenza. Sempre. Nessuno è così puntuale, se non ha qualcosa da far dimenticare.
-A metà pomeriggio uno scrivano anziano, Ottone, mi passa accanto e mi gira il calamaio dall'altra parte. Senza una parola.
+Il Ceppo di Cardia, per esempio, paga sempre il giorno prima della scadenza, e nessuno è così puntuale se non ha qualcosa da far dimenticare.
+A metà pomeriggio uno scrivano anziano, Ottone, mi passa accanto e mi gira il calamaio dall'altra parte.
 OTTONE: Mancino/a, vero? Si vede dalle macchie sul polsino. Qui dentro, ragazzo/a, le macchie parlano prima di te.
 Lo ringrazio. Lui ha già ripreso a scrivere, e la sua penna non si è mai fermata.
-Al tramonto chiudo l'ultima colonna. Quadra. Nessuno me lo dice, ma il giorno dopo trovo sul banco un registro più grosso: alla Proprietà, il premio è il lavoro.
+Al tramonto chiudo l'ultima colonna, e quadra. Nessuno me lo dice, ma il giorno dopo trovo sul banco un registro più grosso: alla Proprietà, il premio è il lavoro.
 
 
 === ATT REGISTRI 2 ===
 
-Un errore di riporto da tre Scudi mi costa due ore di ricontrollo. Lo trovo: non era mio. Era di uno scrivano anziano, che mi guarda storto da allora.
+Un errore di riporto da tre Scudi mi costa due ore di ricontrollo. Lo trovo, e non era mio: era di uno scrivano anziano, che da allora mi guarda storto.
 Ottone. Lo stesso del calamaio. Correggo la riga a margine, con la mia mano, e non lo segnalo a nessuno.
 OTTONE: Hai visto, eh. E non hai parlato.
 TU: Tre Scudi non valgono un nemico.
@@ -224,14 +224,14 @@ OTTONE: Sbagliato. Qui dentro tre Scudi valgono esattamente un nemico. Ma grazie
 «I dettagli possiedono le persone», dice l'Arconte. I dettagli, oggi, possiedono soprattutto il mio mal di testa.
 
 [VARIANTE]
-    CAINO: Mi dicono che frequenti la fumeria di mio fratello. Conta le carte, conta gli Scudi, e adesso — vedo — conta pure te.
-    Non è una domanda. È una voce aperta nel registro, in attesa di saldo.
+    CAINO: Mi dicono che frequenti la fumeria di mio fratello. Conta le carte, conta gli Scudi, e adesso, vedo, conta pure te.
+    Una voce aperta nel registro, in attesa di saldo.
 
 
 === ATT REGISTRI 3 ===
 
 Giornata di archivio morto: registri di dieci anni fa, inchiostro sbiadito, polvere che sa di cantina.
-In fondo a un volume trovo una pagina strappata con cura. Qualcuno, dieci anni fa, non voleva che qualcosa tornasse. Lo segno a mente: nella Proprietà anche i buchi sono voci.
+In fondo a un volume trovo una pagina strappata con cura. La segno a mente: nella Proprietà anche i buchi sono voci.
 La pagina prima porta una firma che conosco: un sigillo col drago, inchiostro verde. Lo stesso drago dell'anello di Caino.
 La pagina dopo riprende a metà di una frase. «...e pertanto la Proprietà del defunto passa alla Capofamiglia, per intero.»
 Del defunto. Dieci anni fa. Non c'è scritto chi.
@@ -240,7 +240,7 @@ Rimetto il volume dov'era, con il dorso storto come l'ho trovato, e faccio finta
 
 === IMPEGNO CAINO ===
 
-Lo studio, a tarda sera. Sul tavolo, non i registri ma due corni di idromele, entrambi pieni.
+Lo studio, a tarda sera. Sul tavolo niente registri, solo due corni di idromele pieni.
 Le candele sono consumate fino al piattino. Non ha dormito, e non ha nemmeno finto di provarci.
 CAINO: Siediti. Ho fatto un inventario, stanotte. Cariche: in ordine. Scudi: in ordine.
 CAINO: Tu: fuori inventario. E le cose fuori inventario, <Nome>, mi tolgono il sonno.
@@ -268,7 +268,7 @@ CAINO: Quindi la domanda è semplice, e la faccio una volta sola: vuoi entrare n
 === CAINO LUNA5 ===
 
 Pomeriggio di neve fitta. Mi chiamano nello studio dell'Arconte con un biglietto di tre parole: «Porta il registro».
-Caino non è alla scrivania. È in piedi accanto al camino, e nel camino non brucia legna: brucia carta.
+Caino è in piedi accanto al camino, e nel camino brucia carta.
 CAINO: Siediti. Non tu, <Nome>. Lui.
 Dietro di me, scortato da due Fenrirkard del Ramo di Lenora, entra Ottone. Lo scrivano del calamaio. Le mani gli tremano; le nasconde nelle maniche, che tremano anch'esse.
 CAINO: Ottone. Dieci anni alla Proprietà. Mia madre ti assunse. Io ti ho confermato. Due firme, due generazioni.
@@ -279,7 +279,7 @@ CAINO: Stamattina il Primo Arconte aveva sul tavolo le copie dei nostri registri
     Io ero agli scrittoi delle decime, quella sera. Le date di consultazione, però, le ho ricopiate io: le copie passano tutte dalla mia mano.
 OTTONE: Arconte, io... mi hanno detto che era per l'ordine della Famiglia. Che la Verità voleva solo controllare.
 CAINO: LA VERITÀ NON PAGA IN SCUDI D'ORO, OTTONE.
-Il pugno sul tavolo fa saltare il calamaio. L'inchiostro si allarga sul legno come una macchia di sangue scuro.
+Il pugno sul tavolo fa saltare il calamaio, e l'inchiostro si allarga sul legno fino al bordo.
 Non l'ho mai sentito alzare la voce, nemmeno contro Druso. Le guardie guardano il soffitto.
 CAINO: Perdonami. Ho alzato la voce. È un lusso che concedo a chi non deve più niente alla Proprietà.
 CAINO: Ottone, sai qual è la differenza tra un errore e un tradimento? L'errore si corregge a margine. Il tradimento si cancella dal registro. Con tutto il nome.
@@ -304,10 +304,10 @@ CAINO: Ottone, sai qual è la differenza tra un errore e un tradimento? L'errore
         Ottone esce senza voltarsi. Sulla soglia si ferma un istante, e mi fa un cenno minimo. Un grazie da tre Scudi.
 
     > Taci e lascia decidere l'Arconte
-        Taccio. È la sua Proprietà, il suo traditore, la sua legge.
+        Taccio. È la sua Proprietà, e il suo traditore.
         CAINO: Il silenzio. Saggio, oggi. Le Fenrirkard sanno cosa fare.
         Portano via Ottone. Lui non protesta: sa leggere un registro chiuso meglio di me.
-Restiamo soli. Caino prende il mio registro e lo sfoglia fino alle date incriminate. Le mie date. La mia mano.
+Restiamo soli. Caino prende il mio registro e lo sfoglia fino alle date incriminate, scritte di mia mano.
 CAINO: Lo vedi, adesso, il disegno? Le copie dicono sei mesi. Le date le hai scritte tu. Al Consiglio basterà un nome nuovo da sacrificare.
 TU: E tu lo darai, quel nome?
 Non risponde subito. Getta nel camino l'ultima pagina, la guarda annerirsi dai bordi verso il centro.
@@ -338,7 +338,7 @@ CAINO: Quindi lo chiedo a te, che è contro tutte le mie regole. Di che colonna 
         CAINO: Allora il registro è sbagliato. Lo dico io, che non sbaglio registri.
 
     > Prendergli la penna, e scrivere il mio nome da solo/a
-        Gli tolgo la penna di mano. Lui me la lascia, e questo da solo vale più di una firma.
+        Gli tolgo la penna di mano, e me la lascia.
         Scrivo il mio nome a metà, a cavallo della riga. Né attivo, né passivo.
         CAINO: Fuori colonna. Lo sai che l'inchiostro su una riga non si cancella senza strappare la pagina.
         TU: Lo so. Per questo l'ho fatto.
@@ -354,16 +354,16 @@ Oggi la mano sinistra trema.
 CAINO: Eumene. I registri della tua Contrada hanno tre buchi. Tre. Li ho trovati io, il che è un bene. Se li avesse trovati l'Arconte della Verità, saresti già nelle Segrete Silenti.
 Eumene balbetta. Spiega. Erano prestiti, dice. Li avrebbe ricoperti, dice. Caino ascolta col mento sulla mano, paziente come un gatto sazio.
 CAINO: Ti credo. Davvero. Ed è per questo che mi fa male quello che devo fare.
-E lo fa: consegna i registri al Consiglio quella sera stessa. Eumene perde il titolo, lo status e l'incarico. La carica di Sovrintendente delle Contrade — quella che Eumene custodiva — passa alla Proprietà. A Caino.
+Lo fa: quella sera stessa consegna i registri al Consiglio, ed Eumene perde il titolo e l'incarico. La carica di Sovrintendente delle Contrade passa alla Proprietà, cioè a Caino.
 Sei anni di alleanza, spesi in una sera, per una carica.
-Nello studio, dopo, Caino versa due idromele come se niente fosse.
+Nello studio, dopo, Caino versa due idromele e controlla che siano pari.
 CAINO: Dillo. Ce l'hai scritto in faccia, e le facce non sanno tenere i registri.
 
 [SCELTA]
     Cosa dico all'uomo che ha appena venduto la sua mano sinistra?
 
     > «Era tuo alleato. Sei anni. E l'hai bruciato per una carica.»
-        TU: Era tuo alleato. Sei anni. E l'hai bruciato per una carica. Non per giustizia: per la carica. Se la giustizia c'entrava, i buchi li avresti portati al Consiglio sei mesi fa, quando li hai trovati davvero.
+        TU: Era tuo alleato. Sei anni. E l'hai bruciato per una carica. Se c'entrava la giustizia, i buchi li avresti portati al Consiglio sei mesi fa, quando li hai trovati davvero.
         Il corno di idromele si ferma a mezz'aria.
         CAINO: ...come sai quando li ho trovati?
         TU: Perché i registri li tengo io, adesso. E le date di consultazione restano. I dettagli, Arconte. I dettagli possiedono le persone.
@@ -389,7 +389,7 @@ Mi convoca di notte, sugli spalti della Rocca. Niente registri stavolta: solo la
 CAINO: Lo sai cosa si dice di te, nei corridoi? Che il/la Figlio/a di Briseide ha stregato l'Arconte della Proprietà. Che ceno con te più spesso che con i miei scrivani. Che ti ho fatto ballare.
 TU: E ti disturba?
 CAINO: Mi disturba che sia vero.
-Si appoggia al merlo. Sotto di noi, Zefiro brulica di persone come un registro pieno di voci.
+Si appoggia al merlo. Sotto di noi, Zefiro brulica come un registro pieno di voci.
 Ha la neve tra i capelli e non la scuote. Gli si scioglie sul colletto, goccia a goccia.
 CAINO: Da bambino salivo qui a contare le lanterne. Ogni sera. Se il numero cambiava, volevo sapere perché.
 TU: E lo scoprivi?
@@ -402,20 +402,20 @@ CAINO: Quindi spiegami: cosa vuoi da me? Tutti vogliono qualcosa. La carica, il 
 
     > «Niente che puoi firmare. È questo che ti spaventa.»
         TU: Niente che puoi firmare, Caino. Nessuna carica, nessun favore, nessun seggio. È questo che ti spaventa: non hai un registro dove scrivermi.
-        Tace. L'uomo che vince ogni scontro verbale di Rocca Tempesta tace, e la neve gli si posa sulle spalle senza che se ne accorga.
+        L'uomo che vince ogni scontro verbale di Rocca Tempesta tace, e la neve gli si posa sulle spalle.
         CAINO: ...tutti hanno un prezzo. Tutti. Se tu non ce l'hai, non so in che colonna metterti. E quello che non so mettere in colonna, di solito, lo faccio sparire.
         TU: Oppure apri una colonna nuova.
 
     > «Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto/a.»
         TU: Voglio il tuo appoggio in Consiglio, un giorno. Almeno sono onesto/a.
-        CAINO: Onesto. Sì. E deludente, il che è peggio.
+        CAINO: Onesto/a. Sì. E deludente, il che è peggio.
         Annuisce piano. Con un dito traccia una riga sulla neve del merlo, e la cancella col palmo.
 
     > «Non lo so ancora. E non te lo dirò prima di saperlo.»
         TU: Non lo so ancora. E non te lo dirò prima di saperlo per certo. Ti fidi delle risposte precise, ed è il tuo punto debole: le risposte precise si possono comprare.
         CAINO: Dare del punto debole all'Arconte della Proprietà. Sugli spalti. Di notte. Senza testimoni. O sei coraggioso/a o sei scemo/a.
         TU: I dettagli possiedono le persone. Scegli tu quale dettaglio sono.
-Il vento gira. Caino guarda Zefiro ancora un poco, poi — con la voce più piatta che ha —
+Il vento gira. Caino guarda Zefiro ancora un poco, poi parla con la voce più piatta che ha.
 CAINO: Sai, è buffo. Credo di essermi innamorato di te. Perdutamente. Come mi innamoro delle decime pagate in anticipo e dei registri senza buchi. Un sentimento travolgente, da ballata di Mercuzio. Dovremmo sposarci in Cantalba, che dici?
 
 [SCELTA]
@@ -425,11 +425,11 @@ CAINO: Sai, è buffo. Credo di essermi innamorato di te. Perdutamente. Come mi i
         TU: Anch'io ti amo, Caino.
         Il viso gli si chiude come un registro a fine mese.
         CAINO: ...già. Certo. È tardi, Figlio/a di Briseide. La Rocca si alza presto.
-        E capisco, troppo tardi, che era l'ultima prova: voleva vedere se abboccavo alla moneta falsa. Ho abboccato.
+        Era l'ultima prova, la moneta falsa. Ho abboccato.
 
     > «Questa era la peggiore delle tue trappole. Riprova quando fai sul serio.»
         TU: Questa era la peggiore delle tue trappole, Caino. La voce era quella del Ballo delle Candele Spente: troppo liscia. Riprova quando fai sul serio... Semmai saprai farlo.
-        Lunga pausa. La neve cade. E poi Caino ride — non la risata da sala piena: una corta, vera, quasi sorpresa di esistere.
+        Lunga pausa. Caino ride, una risata corta che non gli ho mai sentito in nessuna sala piena.
         CAINO: «Semmai saprai farlo». Ecco il problema, <Nome>. Comincio a volerlo imparare. E non c'è registro, carica o spada che mi abbia mai spaventato quanto questa frase.
 
 
@@ -463,9 +463,9 @@ Caino non risponde. Druso si volta verso di me, e per una volta il gigante parla
         DRUSO: Furbo/a e vivo/a. È così che mi piacciono gli alleati. Vieni.
         Alla postierla, prima di lasciarmi andare, Druso mi tiene la spalla un istante più del necessario.
         DRUSO: Qualunque cosa succeda domani... tu un alleato ce l'hai già, in questa Rocca. Ricordatelo.
-Caino non si muove. Ma io ho tenuto i suoi registri, e so leggere anche lui, ormai: sotto il tavolo, la mano si è chiusa a pugno.
-CAINO: Le pergamene non scappano. Ma prima — un'ultima domanda. La più importante. Se sbagli questa, tutto il resto non conta.
-CAINO: In tutti questi mesi, io ho detto di odiare una cosa sola. Una. Qual è?
+Caino non si muove. Ma ho tenuto i suoi registri e so leggere anche lui, ormai: sotto il tavolo, il pollice gli scorre sulle dita come a contare.
+CAINO: Le pergamene non scappano. Prima, un'ultima domanda: se sbagli questa, tutto il resto non conta.
+CAINO: In tutti questi mesi ho detto di odiare una cosa sola. Una. Qual è?
 
 [SCELTA]
     Una cosa sola. Ripasso ogni sala, ogni corno, ogni sorriso.
@@ -484,21 +484,21 @@ CAINO: In tutti questi mesi, io ho detto di odiare una cosa sola. Una. Qual è?
         TU: Tua madre.
         CAINO: No. Mia madre la temo, la ammiro e la combatto. L'odio è per le cose piccole. Hai confuso la taglia del sentimento.
 Caino si alza. Prende entrambe le pergamene, le piega, le infila nel farsetto.
-CAINO: Il Consiglio mi aspetta. La tua risposta — quella vera, sinistra o destra — me la darai dopo. Se un dopo ancora esisterà.
+CAINO: Il Consiglio mi aspetta. Sinistra o destra, la risposta vera me la darai dopo. Se ci sarà un dopo.
 Sulla soglia si ferma. Non si volta.
 CAINO: Se domani qualcuno ti chiede di me, di' la verità. Tutta, senza omissioni. Ti sciolgo da ogni obbligo di riservatezza nei miei confronti.
-La porta si chiude. Resto solo/a con il calamaio, il fuoco e un ampio spazio sul tavolo, dove prima c'erano le pergamene.
+La porta si chiude. Resto solo/a con il calamaio, il fuoco e il posto vuoto sul tavolo dove c'erano le pergamene.
 
 
 === CAINO CLIMAX ===
 
 La Sala del Consiglio di Rocca Tempesta. Non dovrei essere qui: i Figli nuovi non entrano. Ma il mio nome è sulla convocazione, scritto da mano ignota.
-Al centro, Caino. Davanti a lui, il semicerchio degli Arconti. E sul seggio più alto, una donna che non ha bisogno di presentazioni: fredda, dorata, immobile. Lenora.
+Al centro, Caino. Davanti a lui il semicerchio degli Arconti e, sul seggio più alto, fredda e dorata, Lenora.
 L'accusa è semplice: l'Arconte della Proprietà ha trattenuto le prove contro Eumene per sei mesi, usandole quando conveniva a lui. Abuso della Virtù dell'Operosità. Qualcuno deve pagare.
-E io so — perché i registri li tengo io — che esiste una via d'uscita perfetta: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino, e il ritardo diventa colpa mia. L'ultimo/a arrivato/a agli scrittoi, inesperto/a, del Ceppo di Briseide. Il capro espiatorio perfetto.
+I registri li tengo io, e so che esiste una via d'uscita: le date di consultazione sono annotate con la MIA mano. Basta una parola di Caino e il ritardo diventa colpa dell'ultimo/a arrivato/a agli scrittoi, inesperto/a, del Ceppo di Briseide.
 Il Primo Arconte legge l'accusa con voce piatta, da notaio. Ogni data cade nella sala come una moneta sul tavolo.
-Lenora non guarda né l'accusatore né l'accusato. Si osserva le mani. Le dita intrecciate, immobili, come chi ha già fatto il conto e aspetta solo il totale.
-Al terzo banco a sinistra, Druso. Ha le braccia incrociate e la mascella serrata. Per una volta, niente battutine o punzecchiature.
+Lenora non guarda né l'accusatore né l'accusato. Si osserva le mani, le dita intrecciate, come chi ha già fatto il conto e aspetta solo il totale.
+Al terzo banco a sinistra, Druso si mordicchia la barba a braccia incrociate. Per una volta, niente battutine.
 
 [VARIANTE]
     Fra i testimoni, in fondo, c'è Ottone. Ha dato il leone d'oro all'indice, in Luna V. Oggi tiene gli occhi sulle scarpe, e le scarpe sono pulite.
@@ -531,7 +531,7 @@ Caino lo sa. Mi guarda. La sala intera segue il suo sguardo fino a me.
 
     > Restare seduto/a, e reggere il suo sguardo
         Non mi alzo. Non abbasso gli occhi. Gli lascio la frase intera, qualunque sia.
-        È una firma in bianco. Lui lo sa leggere meglio di chiunque.
+        È una firma in bianco, e nessuno la sa leggere meglio di lui.
 
     > Guardare Lenora, invece di lui
         Sposto gli occhi sul seggio più alto. Lenora sta già guardando me.
@@ -542,11 +542,11 @@ Caino lo sa. Mi guarda. La sala intera segue il suo sguardo fino a me.
 === CAINO GOOD END ===
 
 CAINO: Arconti. La tempistica dei registri di Eumene ha un solo responsabile.
-Il silenzio della sala è un animale affamato. Caino mi guarda un'ultima volta. E sorride — non il sorriso facile. L'altro. Quello che siamo in tre a conoscere.
+La sala aspetta. Caino mi guarda un'ultima volta e sorride, non il sorriso facile: l'altro, quello che siamo in tre a conoscere.
 CAINO: Io. Li ho trovati, li ho tenuti, li ho usati. Per ambizione. Come ogni cosa che ho fatto in questa Rocca, tranne una.
 
 [VARIANTE]
-    CAINO: Chi tiene i miei registri si è alzato/a per mentire al Consiglio. Mettetelo a verbale: ha copiato quello che gli dettavo. Mente male. È la sua unica qualità discutibile.
+    CAINO: Chi tiene i miei registri si è alzato/a per mentire al Consiglio. Mettetelo a verbale: ha copiato quello che gli/le dettavo. Mente male. È la sua unica qualità discutibile.
 La sala esplode. Lenora alza una mano e il rumore muore.
 La Capofamiglia guarda suo figlio per un tempo lunghissimo. Poi:
 «La Proprietà passa ad altra mano per un anno. L'onestà, per quanto tardiva, resta una Virtù. Seduta tolta.»
@@ -575,8 +575,8 @@ CAINO: Tu: qui. Il registro chiude in attivo, <Nome>. Controparti raggirate: zer
     CAINO: Fuori colonna, l'avevi scritto tu. Stanotte ho provato a cancellarlo. Avrei dovuto strappare la pagina.
 TU: Tua madre ti perdonerà?
 CAINO: Mia madre non perdona. Riclassifica. Fra un anno sarò una voce in attivo anche per lei, vedrai. Le piacciono i figli che sanno perdere al momento giusto.
-Mi prende il viso tra le mani — le mani callose dello spadaccino, attente come su un filo di lama.
-CAINO: La pergamena di destra. Quella senza niente scritto. La firmo io, se tu la firmi con me. E ti avverto: quello che c'è sotto l'Arconte farebbe di tutto per te. Di tutto. Non sono riuscito a scriverci una clausola di recesso. Ci ho provato per tre notti.
+Mi prende il viso tra le mani callose da spadaccino, attente come su un filo di lama.
+CAINO: La pergamena di destra. Quella senza niente scritto. La firmo io, se tu la firmi con me. E ti avverto: quello che c'è sotto l'Arconte farebbe di tutto per te. Non sono riuscito a scriverci una clausola di recesso. Ci ho provato per tre notti.
 TU: Allora firmiamo senza limiti.
 CAINO: Senza limiti. E senza la clausola che scrivo in tutti i contratti: niente sentimentalismi.
 Mi bacia. Piano, preciso, come chi firma in fondo alla pagina e poi ricontrolla la data.
@@ -602,7 +602,7 @@ Caino mi passa accanto senza fermarsi.
 
 [VARIANTE]
     CAINO: Grazie per il silenzio, Figlio/a di Briseide. Il tuo conto è pari.
-Pari. Un registro chiuso. Tutto qui.
+Pari. Un registro chiuso.
 Nessuno sguardo, nessun drago al mignolo. Le mani nude, come la sera del ballo.
 È Druso che mi trova, la sera, nel cortile d'armi. Due corni di idromele, uno me lo pianta in mano senza chiedere.
 DRUSO: Mio fratello è un idiota.
@@ -619,7 +619,7 @@ La regola del Codice del Teschio. Si dichiara prima di colpire.
 
     > «TESCHIO.»
         TU: TESCHIO.
-        Druso para ridendo, e l'idromele vola, e da qualche parte sugli spalti giuro che qualcuno — qualcuno con un anello col drago — ci guarda e scuote la testa, sorridendo suo malgrado.
+        Druso para ridendo, e l'idromele vola, e da qualche parte sugli spalti giuro che qualcuno con un anello col drago ci guarda, scuote la testa e sorride.
         DRUSO: Dichiarazione accettata. Da domani, novellino/a, ti insegno il Codice intero. Articolo primo: il cuore si difende come i genitali. Sempre in guardia, e mai da solo.
 
     > Bevi in silenzio e resta con Druso
@@ -631,7 +631,7 @@ La regola del Codice del Teschio. Si dichiara prima di colpire.
 === CAINO BAD END ===
 
 CAINO: Arconti. Le date di consultazione dei registri parlano chiaro. La mano è quella dello scrivano: <Nome>, del Ceppo di Briseide. Nuovo/a, inesperto/a. Il ritardo nasce lì.
-Lo dice senza guardarmi. Liscio, misurato, perfetto. La voce del Ballo delle Candele Spente.
+Lo dice senza guardarmi, liscio e misurato: la voce del Ballo delle Candele Spente.
 
 [VARIANTE]
     CAINO: Lo scrivano stesso l'ha ammesso, Arconti. In piedi. L'avete sentito tutti.
@@ -639,31 +639,31 @@ Lo dice senza guardarmi. Liscio, misurato, perfetto. La voce del Ballo delle Can
 
 [VARIANTE]
     Lenora mi guarda una volta sola, mentre lui parla. Lo stesso sguardo di prima. Adesso so cosa voleva dire: niente di personale.
-Provo a parlare: il Primo Arconte mi toglie la parola. I Figli nuovi non parlano in Consiglio. Il mio nome entra nei verbali; la Virtù della Verità richiede un'ammenda; Briseide ottiene — a fatica — che sia l'esilio dalla capitale e non le Segrete Silenti.
-Caino vota con la maggioranza. Ovviamente. Vince gli scontri, Caino. Tutti. Soprattutto quando è dalla parte del torto.
+Provo a parlare, e il Primo Arconte mi toglie la parola. Il mio nome entra nei verbali, la Virtù della Verità richiede un'ammenda e Briseide ottiene, a fatica, che sia l'esilio dalla capitale e non le Segrete Silenti.
+Caino vota con la maggioranza, ovviamente. Vince gli scontri, Caino, soprattutto quando è dalla parte del torto.
 Dal terzo banco, Druso si alza e se ne va prima del voto. È l'unico rumore della seduta.
 Lenora firma l'atto senza leggerlo. Le basta il nome in fondo: il mio.
 Al cancello di Zefiro, la mattina dopo, c'è una figura che non mi aspettavo.
 CAINO: Niente rancore, Figlio/a di Briseide. Eri il pezzo giusto nel turno sbagliato. Capita ai migliori. Soprattutto ai migliori: i pezzi scarsi non li gioca nessuno.
-TU: Mi hai usato dal primo giorno.
+TU: Mi hai usato/a dal primo giorno.
 CAINO: Ti ho ASSUNTO dal primo giorno. L'uso era nel contratto; dovevi leggere le clausole. I dettagli, ricordi? I dettagli possiedono le persone.
-Si volta. Poi, un passo dopo, si ferma — un mezzo istante, le spalle rigide — come se il registro, da qualche parte, non chiudesse.
+Si volta. Un passo dopo si ferma, come se il registro, da qualche parte, non chiudesse.
 CAINO: ...Rurikstad è decente, d'inverno. Evita il vino di Glostok.
-Non si volta più. Lungo la strada per Rurikstad, a ogni locanda, ordino idromele. Non so perché.
+Non si volta più. Lungo la strada per Rurikstad, a ogni locanda, ordino idromele.
 ~ LA PEDINA Nel registro di Caino la tua riga è già archiviata. ~
 
 
 === CAINO NEUTRAL END ===
 
 CAINO: Arconti. I registri hanno due mani: la mia e quella del mio scrivano. La tempistica è mia. Gli errori di forma, suoi. Propongo ammenda doppia e chiudiamo: il Consiglio ha guerre più vere di questa.
-Mezza colpa a testa. Il compromesso perfetto: nessuno cade, nessuno vince. Lenora approva con un cenno annoiato.
+Mezza colpa a testa: nessuno cade, nessuno vince. Lenora approva con un cenno annoiato.
 
 [VARIANTE]
     Mi ero alzato/a per prenderla tutta. Ne ha presa metà. Da Caino, è quasi un regalo.
 Nello studio, quella sera, le due pergamene sono ancora sul tavolo. Caino spinge verso di me quella di sinistra: la nomina.
 CAINO: Primo Scrivano della Proprietà. Te la sei guadagnata: metà colpa, metà merito. È così che si costruiscono le carriere vere.
 TU: E la pergamena di destra?
-Caino la prende, la guarda un lungo istante. Poi la tiene — non la straccia. La ripone nel cassetto, sotto chiave.
+Caino la prende, la guarda a lungo e la ripone nel cassetto, sotto chiave.
 La chiave non la mette al collo, come le altre. La lascia sul tavolo, tra noi due, dove chiunque potrebbe prenderla.
 CAINO: Archiviata. Non cancellata. C'è differenza, nei registri: le cose archiviate, un giorno, si possono riaprire.
 TU: E chi decide quando?
@@ -674,7 +674,7 @@ CAINO: Il tempo. O un idromele abbastanza buono. Al lavoro, Primo Scrivano. La P
 === CAINO PASSEGGERO ===
 
 CAINO: Arconti. La tempistica dei registri è mia. Solo mia. Lo scrivano ha copiato quello che gli ho dettato.
-Si prende tutto. Non mi guarda mentre lo fa. È questo, capisco dopo, il punto.
+Si prende tutto, e non mi guarda mentre lo fa.
 Lenora toglie la seduta con un gesto. La Proprietà passa ad altra mano per un anno.
 
 [VARIANTE]
@@ -692,6 +692,6 @@ CAINO: Non è un rimprovero. È un saldo. Sei stato/a lo scrivano migliore che h
 Mi tende la mano. Una stretta da notaio: ferma, breve, registrata.
 Una Luna dopo lo vedo alla Rocca, già in piedi, a un banco più in fondo. Caino non resta a terra a lungo.
 Accanto a lui c'è uno scrivano nuovo. Giovane, attento, prende appunti su tutto. Anche sulle battute.
-Caino gli dice qualcosa e lo scrivano ride. Io quella battuta la conoscevo. Me l'aveva detta per primo.
-Al terzo banco Druso mi fa un cenno, la mascella storta. Ha l'aria di chi ha visto chiudersi una porta e non ha avuto il coraggio di dire niente.
+Caino gli dice qualcosa e lo scrivano ride. Io quella battuta la conoscevo: l'aveva detta prima a me.
+Al terzo banco Druso mi fa un cenno e, per una volta, non dice niente.
 ~ UN'ALTRA MANO Caino ha pagato da solo. Il conto, con te, era già chiuso. ~

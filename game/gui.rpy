@@ -26,17 +26,17 @@ define config.check_conflicting_properties = True
 
 ## An accent color used throughout the interface to label and highlight
 ## text.
-define gui.accent_color = "#d4af37"
+define gui.accent_color = "#cdb387"
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = "#a89468"
+define gui.idle_color = "#d6c8ac"
 
 ## The small color is used for small text, which needs to be
 ## brighter/darker to achieve the same effect.
-define gui.idle_small_color = "#b3a173"
+define gui.idle_small_color = "#c9b995"
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = "#f0c75e"
+define gui.hover_color = "#fff4dd"
 
 ## The color used for a text button when it is selected but not focused.
 ## A button is selected if it is the current screen or preference value.
@@ -64,16 +64,18 @@ define gui.text_font = "fonts/EBGaramond.ttf"
 define gui.name_text_font = "fonts/Cinzel.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "fonts/Cinzel.ttf"
+## Cinzel resta a titoli, etichette e nomi (style label_text): nelle voci
+## di menu e nei testi lunghi stanca.
+define gui.interface_text_font = "fonts/EBGaramond.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = gui.scale(27)
+define gui.text_size = gui.scale(33)
 
 ## The size of character names.
-define gui.name_text_size = gui.scale(32)
+define gui.name_text_size = gui.scale(28)
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = gui.scale(22)
+define gui.interface_text_size = gui.scale(26)
 
 ## The size of labels in the game's user interface.
 define gui.label_text_size = gui.scale(24)
@@ -98,8 +100,8 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## at a time.
 
 ## The height of the textbox containing dialogue.
-## Pari all'altezza di gui/textbox.png (1920x277): la finestra copre tutto il box.
-define gui.textbox_height = gui.scale(277)
+## Pari all'altezza di gui/textbox.png (1920x236): la finestra copre tutto il box.
+define gui.textbox_height = gui.scale(236)
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
 ## center, and 1.0 is the bottom.
@@ -113,8 +115,8 @@ define gui.dialogue_text_line_spacing = 3
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = gui.scale(150)
-define gui.name_ypos = gui.scale(-12)
+define gui.name_xpos = gui.scale(240)
+define gui.name_ypos = gui.scale(16)
 
 ## The horizontal alignment of the character's name. This can be 0.0 for
 ## left-aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -127,7 +129,7 @@ define gui.namebox_height = None
 
 ## The borders of the box containing the character's name, in left, top,
 ## right, bottom order.
-define gui.namebox_borders = Borders(34, 9, 34, 7)
+define gui.namebox_borders = Borders(0, 4, 0, 4)
 
 ## If True, the background of the namebox will be tiled, if False, the background
 ## of the namebox will be scaled.
@@ -137,11 +139,11 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5
 ## to center.
-define gui.dialogue_xpos = gui.scale(150)
+define gui.dialogue_xpos = gui.scale(240)
 define gui.dialogue_ypos = gui.scale(70)
 
 ## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = gui.scale(1620)
+define gui.dialogue_width = gui.scale(1400)
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for
 ## left-aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -218,15 +220,16 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ##
 ## Choice buttons are used in the in-game menus.
 
-define gui.choice_button_width = gui.scale(1185)
+define gui.choice_button_width = gui.scale(1100)
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
-define gui.choice_button_borders = Borders(gui.scale(100), gui.scale(16), gui.scale(100), gui.scale(16))
+define gui.choice_button_borders = Borders(gui.scale(60), gui.scale(13), gui.scale(60), gui.scale(13))
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = "#d9c9a8"
-define gui.choice_button_text_hover_color = "#ffffff"
+define gui.choice_button_text_idle_color = "#ece0c8"
+## All'hover il foglio si fa chiaro: inchiostro.
+define gui.choice_button_text_hover_color = "#2a1c12"
 define gui.choice_button_text_insensitive_color = "#8a8578"
 
 
@@ -237,18 +240,18 @@ define gui.choice_button_text_insensitive_color = "#8a8578"
 ## uses image files in gui/button, like the other kinds of buttons.
 
 ## The save slot button.
-define gui.slot_button_width = gui.scale(276)
-define gui.slot_button_height = gui.scale(234)
+define gui.slot_button_width = gui.scale(360)
+define gui.slot_button_height = gui.scale(270)
 define gui.slot_button_borders = Borders(gui.scale(10), gui.scale(10), gui.scale(10), gui.scale(10))
-define gui.slot_button_text_size = gui.scale(16)
+define gui.slot_button_text_size = gui.scale(21)
 define gui.slot_button_text_xalign = 0.5
 define gui.slot_button_text_idle_color = gui.idle_small_color
 define gui.slot_button_text_selected_idle_color = gui.selected_color
 define gui.slot_button_text_selected_hover_color = gui.hover_color
 
 ## The width and height of thumbnails used by the save slots.
-define config.thumbnail_width = gui.scale(256)
-define config.thumbnail_height = gui.scale(144)
+define config.thumbnail_width = gui.scale(340)
+define config.thumbnail_height = gui.scale(191)
 
 ## The number of columns and rows in the grid of save slots.
 define gui.file_slot_cols = 3
@@ -271,13 +274,13 @@ define gui.skip_ypos = gui.scale(10)
 define gui.notify_ypos = gui.scale(45)
 
 ## The spacing between menu choices.
-define gui.choice_spacing = gui.scale(22)
+define gui.choice_spacing = gui.scale(8)
 
 ## Buttons in the navigation section of the main and game menus.
 define gui.navigation_spacing = gui.scale(8)
 
 ## Voci del menu principale/di gioco più grandi.
-define gui.navigation_button_text_size = gui.scale(30)
+define gui.navigation_button_text_size = gui.scale(32)
 
 ## Controls the amount of spacing between preferences.
 define gui.pref_spacing = gui.scale(10)
@@ -289,7 +292,7 @@ define gui.pref_button_spacing = gui.scale(0)
 define gui.page_spacing = gui.scale(0)
 
 ## The spacing between file slots.
-define gui.slot_spacing = gui.scale(10)
+define gui.slot_spacing = gui.scale(22)
 
 ## The position of the main menu text.
 define gui.main_menu_text_xalign = 1.0
@@ -475,6 +478,18 @@ init python:
         ## Il menu laterale e' largo 360 px: "Riprendi la cronaca" ci sta
         ## solo alla misura PC.
         gui.navigation_button_text_size = gui.scale(27)
+
+        ## Il testo scalato chiede un box piu' alto e righe piu' larghe.
+        gui.textbox_height = gui.scale(290)
+        gui.name_xpos = gui.scale(90)
+        gui.dialogue_xpos = gui.scale(90)
+        gui.dialogue_width = gui.scale(1740)
+
+        ## Il testo scalato chiede un box piu' alto e righe piu' larghe.
+        gui.textbox_height = gui.scale(290)
+        gui.name_xpos = gui.scale(90)
+        gui.dialogue_xpos = gui.scale(90)
+        gui.dialogue_width = gui.scale(1740)
 
         ## Le didascalie degli slot di salvataggio sono minuscole anche
         ## scalate.

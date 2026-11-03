@@ -261,6 +261,7 @@ label neutral_end:
 
 label bad_end_aede:
     $ musica("finale")
+    $ tono_scena("gelo")
 
     show aede neutra with dissolve
 

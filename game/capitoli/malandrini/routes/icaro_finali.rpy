@@ -87,6 +87,10 @@ label icaro_good:
         icaro "L'ho scritta in silenzio. Mi sembrava la lingua giusta, con te."
     pc "E il prezzo?"
     icaro "Fuori listino. L'ho stimata tre volte. Tre cifre diverse. Ho smesso."
+    if "icaro_int3" in eventi_visti:
+        "Dalla pagina delle cose che non sono in vendita sfila un foglio piegato in quattro, con la ceralacca nera rotta di netto."
+        icaro "«Le cose migliori non si contano.» Venticinque lettere, ormai. Ogni volta ho segnato a margine che aveva torto."
+        icaro "Aveva ragione. Una volta su venticinque. Non dirglielo: risponderebbe."
     "Non mi tocca. Sposta il mazzo di un dito verso di me, sul tavolo. Poi di un altro."
     scene bg cala_notte with fade
     $ lento()

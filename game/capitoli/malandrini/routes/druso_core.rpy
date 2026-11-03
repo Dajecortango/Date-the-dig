@@ -10,6 +10,14 @@ default druso_consiglio = None
 # La lettera del Ramo (druso_luna6): "riscrivi" | "se_stesso" | "brucia".
 default druso_difesa = None
 default druso_sfida = None
+# La pergamena di druso_ev2: "morde" | "nome" | "minaccia".
+default druso_leva = None
+# La lettura in taverna (druso_crocetta): "risposta" | "uscita" | "risata".
+default druso_rottura = None
+# Druso ha raccontato la cantina sulle mura (druso_ev4).
+default druso_cantina_detta = False
+# Nel buio (druso_cantina): "mano" | "canta" | "fermo".
+default druso_cantina_esito = None
 # Deviazioni: "detto" | "chiuso" | "nascosto"; "neve" | "chiesto" | "aspettato".
 default druso_quaderno_esito = None
 default druso_udienza_esito = None

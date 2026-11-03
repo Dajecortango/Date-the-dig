@@ -52,8 +52,19 @@ init python:
          "char": "druso", "luna": 5, "giorno": 6, "slot": "sera",
          "cond": lambda v: v["route_attiva"] == "druso"
          and "druso" not in v["congelate"]},
+        # La rottura: legge in taverna la riga su di te. Serve la pergamena.
+        {"id": "druso_crocetta", "label": "druso_crocetta", "tipo": "fisso",
+         "char": "druso", "luna": 5, "giorno": 20, "slot": "sera",
+         "cond": lambda v: v["route_attiva"] == "druso"
+         and "druso" not in v["congelate"]
+         and "druso_ev2" in v["visti"]},
         {"id": "druso_luna6", "label": "druso_luna6", "tipo": "fisso",
          "char": "druso", "luna": 6, "giorno": 5, "slot": "sera",
+         "cond": lambda v: v["route_attiva"] == "druso"
+         and "druso" not in v["congelate"]},
+        # A punti zero: la paura vera, prima del Consiglio.
+        {"id": "druso_cantina", "label": "druso_cantina", "tipo": "fisso",
+         "char": "druso", "luna": 6, "giorno": 12, "slot": "sera",
          "cond": lambda v: v["route_attiva"] == "druso"
          and "druso" not in v["congelate"]},
     ])

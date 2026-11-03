@@ -420,7 +420,8 @@ Formato: **file:label** — dettaglio. Elenco non esaustivo dei nomi/fatti inven
     madre ci chiudeva in cantina, uno alla volta. Per temprarci.", riga del copione
     del committente del 2026-10-28) e `lenora.rpy:udienza_lenora` ("Madre ti ha
     chiuso in cantina tre giorni"). Da decidere: togliere la cantina o tenerla senza
-    "da piccoli".
+    "da piccoli". La scena `druso_atto2.rpy:druso_cantina` ci costruisce sopra: la
+    colloca sotto la Rocca [scena] e usa "appena adottati".
 17. **"Da bambino/a" dopo l'adozione** — `caino_atto2.rpy` ("Da bambino salivo qui a
     contare le lanterne") e `aede_imprese.rpy` ("L'ho visto fare, da bambina")
     reggono solo se Caino e Aede sono stati adottati da bambini (Aede sì, ~20 anni

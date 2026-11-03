@@ -1497,6 +1497,291 @@ def rigenera_estetica2():
     ombre_sprite()
 
 
+# =============================================================================
+# Stile "documenti della Famiglia": carta scura, inchiostro, una sola ceralacca.
+# Tre livelli: ricca (titolo e finali), sobria (pannelli: un filo sottile),
+# nessuna (bottoni, slot, liste). Sovrascrive gli asset dello stile miniato.
+# Uso: stile_documenti().
+# =============================================================================
+CARTA = (31, 24, 20)
+CARTA_MURO = (26, 17, 15)
+FOGLIO = (231, 218, 190)
+SEPPIA = (150, 124, 88)
+SEPPIA_CHIARA = (205, 179, 135)
+
+
+def _grana(w, h, base, ampiezza, sigma=20):
+    """Superficie di carta: tinta base con una grana fine e fibre morbide."""
+    fine = Image.effect_noise((w, h), sigma)
+    larga = Image.effect_noise((max(1, w // 4), max(1, h // 4)), sigma).resize((w, h), Image.BICUBIC)
+    n = Image.blend(fine, larga, 0.6)
+    canali = [n.point(lambda v, c=c: max(0, min(255, int(c + (v - 128) * ampiezza)))) for c in base]
+    return Image.merge("RGB", canali).convert("RGBA")
+
+
+def _vignetta(img, forza=110, raggio=180):
+    w, h = img.size
+    m = Image.new("L", (w, h), forza)
+    ImageDraw.Draw(m).rectangle([raggio, raggio, w - raggio, h - raggio], fill=0)
+    m = m.filter(ImageFilter.GaussianBlur(raggio * 0.8))
+    img.paste(Image.new("RGB", (w, h), (8, 5, 4)), (0, 0), m)
+    return img
+
+
+def _pannello(w, h, a=246, inset=10, filo_a=110):
+    """Livello sobrio: carta scura con un filo seppia interno, senza angoli."""
+    img = _grana(w, h, CARTA, 0.10)
+    img.putalpha(a)
+    d = ImageDraw.Draw(img)
+    d.rectangle([inset, inset, w - inset - 1, h - inset - 1], outline=SEPPIA + (filo_a,), width=1)
+    return img
+
+
+def _riga(w, h, rgb, a):
+    img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(img).rectangle([0, 0, w, h], fill=rgb + (a,))
+    return img
+
+
+def _ceralacca(t, cx, cy, r):
+    """Goccia di ceralacca dal bordo irregolare: l'unico accento dell'interfaccia."""
+    pts = []
+    for i in range(40):
+        a = i * 2 * math.pi / 40
+        k = 1 + 0.07 * math.sin(7 * a) + 0.04 * math.sin(3 * a + 1)
+        pts.append((cx + r * k * math.cos(a), cy + r * k * math.sin(a)))
+    cel(t, m_poly(t, pts), "cera", ombra=r * 0.22, luce=r * 0.12, contorno=max(0.8, r * 0.05))
+    if r > 12:
+        ri = r * 0.62
+        colora(t, m_sub(m_ell(t, cx, cy, ri), m_ell(t, cx, cy, ri - 1.2)), MAT["cera"][0])
+    colora(t, m_ell(t, cx - r * 0.4, cy - r * 0.42, r * 0.16, r * 0.1), MAT["cera"][3], 200)
+
+
+def _doc_bottoni():
+    B = "button"
+    # Navigazione: solo testo; hover un filo, selezione una goccia di cera.
+    NW, NH = 440, 54
+    save(vuota(NW, NH), B, "navigation_idle_background.png")
+    save(vuota(NW, NH), B, "navigation_insensitive_background.png")
+    hov = vuota(NW, NH)
+    ImageDraw.Draw(hov).line([(60, NH - 5), (NW - 60, NH - 5)], fill=SEPPIA + (210,), width=1)
+    save(hov, B, "navigation_hover_background.png")
+    t = Tela(NW, NH)
+    # Dentro il bordo sinistro di 30 px (gui.navigation_button_borders): la
+    # goccia non si deforma quando il bottone si stringe.
+    _ceralacca(t, 15, NH / 2.0, 7)
+    sel = t.fine()
+    save(sel, B, "navigation_selected_idle_background.png")
+    selh = sel.copy()
+    selh.alpha_composite(hov)
+    save(selh, B, "navigation_selected_hover_background.png")
+
+    # Conferma: filo; all'hover la cera riempie il bottone.
+    w, h = 260, 50
+    ci = vuota(w, h)
+    ImageDraw.Draw(ci).rectangle([1, 1, w - 2, h - 2], outline=SEPPIA + (190,), width=1)
+    save(ci, B, "confirm_idle_background.png")
+    save(_riga(w, h, MAT["cera"][0], 245), B, "confirm_hover_background.png")
+
+    # Bottoni generici e pagine.
+    for nome, (w, h) in (("", (120, 48)), ("page_", (48, 44))):
+        fi = vuota(w, h)
+        ImageDraw.Draw(fi).line([(8, h - 5), (w - 8, h - 5)], fill=SEPPIA + (210,), width=1)
+        sel = vuota(w, h)
+        ImageDraw.Draw(sel).rectangle([8, h - 6, w - 8, h - 4], fill=MAT["cera"][1] + (255,))
+        save(vuota(w, h), B, nome + "idle_background.png")
+        if not nome:
+            save(vuota(w, h), B, "insensitive_background.png")
+        save(fi, B, nome + "hover_background.png")
+        save(sel, B, nome + "selected_idle_background.png")
+        save(sel, B, nome + "selected_hover_background.png")
+
+    # Menu rapido (bottoni di testo, oggi non usati: ci sono i sigilli).
+    for s in ("idle", "hover", "selected_idle", "selected_hover"):
+        save(vuota(120, 30), B, "quick_%s_background.png" % s)
+
+    # Scelte: righe su un foglio. All'hover il foglio si fa chiaro.
+    w, h = 1100, 66
+    ci = _grana(w, h, CARTA, 0.08)
+    ci.putalpha(226)
+    save(ci, B, "choice_idle_background.png")
+    ch = _grana(w, h, FOGLIO, 0.12)
+    ch.putalpha(250)
+    save(ch, B, "choice_hover_background.png")
+    cs = ci.copy()
+    cs.putalpha(110)
+    save(cs, B, "choice_insensitive_background.png")
+
+    # Slot: pagina appena piu' chiara del fondo, filo solo all'hover.
+    w, h = 360, 270
+    si = _grana(w, h, (44, 34, 28), 0.08)
+    si.putalpha(150)
+    save(si, B, "slot_idle_background.png")
+    sh = _grana(w, h, (60, 46, 36), 0.08)
+    sh.putalpha(230)
+    ImageDraw.Draw(sh).rectangle([0, 0, w - 1, h - 1], outline=SEPPIA_CHIARA + (220,), width=1)
+    save(sh, B, "slot_hover_background.png")
+
+    # Pianificatore: righe di registro; hover con la costola di cera.
+    w, h = 400, 96
+    pi = vuota(w, h)
+    d = ImageDraw.Draw(pi)
+    d.rectangle([0, 0, w, h], fill=(255, 240, 210, 9))
+    d.line([(0, h - 1), (w, h - 1)], fill=SEPPIA + (90,), width=1)
+    save(pi, B, "piano_idle_background.png")
+    ph = vuota(w, h)
+    d = ImageDraw.Draw(ph)
+    d.rectangle([0, 0, w, h], fill=(255, 240, 210, 30))
+    d.rectangle([0, 0, 5, h], fill=MAT["cera"][1] + (255,))
+    d.line([(0, h - 1), (w, h - 1)], fill=SEPPIA_CHIARA + (170,), width=1)
+    save(ph, B, "piano_hover_background.png")
+
+    # Radio e check: un solo segno. Anello vuoto, oppure sigillo di cera.
+    for k in ("radio", "check"):
+        for s in ("idle", "selected_idle", "insensitive", "hover", "selected_hover"):
+            save(vuota(120, 46), B, "%s_%s_background.png" % (k, s))
+        D = 46
+        for s, pieno, rgb in (("", False, SEPPIA), ("hover_", False, SEPPIA_CHIARA),
+                              ("selected_", True, None), ("selected_hover_", True, None)):
+            t = Tela(D, D)
+            if pieno:
+                _ceralacca(t, D / 2.0, D / 2.0, 12)
+            else:
+                colora(t, m_sub(m_ell(t, D / 2.0, D / 2.0, 10), m_ell(t, D / 2.0, D / 2.0, 8.7)), rgb)
+            save(t.fine(), B, "%s_%sforeground.png" % (k, s))
+
+
+def _doc_barre():
+    for st, luce in (("idle", 0), ("hover", 30)):
+        for nome, rgb, sp in (("pieno", tuple(min(255, c + luce) for c in MAT["cera"][1]), 4),
+                              ("vuoto", SEPPIA, 2)):
+            img = vuota(300, 36)
+            ImageDraw.Draw(img).rectangle([0, 18 - sp // 2, 300, 18 + sp // 2 - 1], fill=rgb + (255,))
+            save(img, "slider", "horizontal_%s_%s.png" % (st, nome))
+            save(ruota(img), "slider", "vertical_%s_%s.png" % (st, nome))
+            if nome == "vuoto":
+                save(img, "slider", "horizontal_%s_bar.png" % st)
+                save(ruota(img), "slider", "vertical_%s_bar.png" % st)
+        t = Tela(36, 36)
+        _ceralacca(t, 18, 18, 10 if st == "idle" else 12)
+        th = t.fine()
+        save(th, "slider", "horizontal_%s_thumb.png" % st)
+        save(th, "slider", "vertical_%s_thumb.png" % st)
+        # Telefono: cursore centrato nella barra alta 60 (gui.slider_size).
+        tel = vuota(36, 60)
+        tel.alpha_composite(th, (0, 12))
+        save(tel, "slider", "horizontal_%s_thumb_tel.png" % st)
+
+        L, W = 240, 18
+        bar = vuota(L, W)
+        ImageDraw.Draw(bar).line([(0, W // 2), (L, W // 2)], fill=SEPPIA + (120,), width=1)
+        thumb = vuota(L, W)
+        ImageDraw.Draw(thumb).rectangle([4, W // 2 - 3, L - 4, W // 2 + 3],
+                                        fill=(SEPPIA_CHIARA if st == "hover" else SEPPIA) + (255,))
+        save(bar, "scrollbar", "horizontal_%s_bar.png" % st)
+        save(thumb, "scrollbar", "horizontal_%s_thumb.png" % st)
+        save(ruota(bar), "scrollbar", "vertical_%s_bar.png" % st)
+        save(ruota(thumb), "scrollbar", "vertical_%s_thumb.png" % st)
+
+    for nome, rgb, sp in (("left.png", MAT["cera"][1], 4), ("right.png", SEPPIA, 2)):
+        img = vuota(300, 25)
+        ImageDraw.Draw(img).rectangle([0, 12 - sp // 2, 300, 12 + sp // 2 - 1], fill=rgb + (255,))
+        save(img, "bar", nome)
+        save(ruota(img), "bar", {"left.png": "bottom.png", "right.png": "top.png"}[nome])
+
+
+def _doc_cornici():
+    save(_pannello(360, 360), "frame.png")
+    save(_pannello(160, 160, inset=5), "frame_piccolo.png")
+    save(_pannello(300, 64, a=240, inset=5), "notify.png")
+    save(_pannello(300, 64, a=240, inset=5), "skip.png")
+
+    # Box del dialogo: carta che sale dal basso e sfuma, niente cornice.
+    w, h = 1920, 236
+    tb = _grana(w, h, CARTA, 0.07)
+    m = Image.new("L", (1, h))
+    for y in range(h):
+        m.putpixel((0, y), int(236 * min(1.0, y / 20.0)))
+    tb.putalpha(m.resize((w, h)))
+    save(tb, "textbox.png")
+
+    # Il nome e' una firma, senza placca (lo stile la disegna nella screen).
+    save(vuota(240, 60), "namebox.png")
+
+    # Divisore: un filo che sfuma ai lati.
+    img = vuota(440, 30)
+    for x in range(440):
+        a = int(150 * min(1.0, min(x, 439 - x) / 80.0))
+        img.putpixel((x, 15), SEPPIA + (a,))
+    save(img, "divisore.png")
+
+    t = Tela(26, 26)
+    _ceralacca(t, 13, 14, 6)
+    save(t.fine(), "ctc.png")
+
+
+def _doc_menu():
+    # Muri dei menu: una carta quieta. Il pattern resta col suo nome.
+    muro = _vignetta(_grana(1920, 1080, CARTA, 0.08))
+    save(muro.convert("RGB"), "game_menu.png")
+    save(_grana(1540, 1540, CARTA_MURO, 0.07).convert("RGB"), "mm_pattern.png")
+
+    # Il frontespizio: l'unico foglio chiaro, con il sigillo della Famiglia.
+    W, H = 1920, 1080
+    x0, y0, fw, fh = 60, 40, 500, 1000
+    foglio = _vignetta(_grana(fw, fh, FOGLIO, 0.16), forza=70, raggio=70).convert("RGBA")
+    mask = Image.new("L", (fw, fh), 0)
+    ImageDraw.Draw(mask).rectangle([3, 3, fw - 4, fh - 4], fill=255)
+    bordo = Image.effect_noise((fw, fh), 90).filter(ImageFilter.GaussianBlur(1.2))
+    mask = Image.composite(mask, Image.new("L", (fw, fh), 0),
+                           bordo.point(lambda v: 255 if v > 58 else 0))
+    mask = mask.filter(ImageFilter.GaussianBlur(0.6))
+    foglio.putalpha(mask)
+    front = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ombra = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(ombra).rectangle([x0 + 6, y0 + 8, x0 + fw + 6, y0 + fh + 8], fill=(0, 0, 0, 150))
+    front.alpha_composite(ombra.filter(ImageFilter.GaussianBlur(14)))
+    front.alpha_composite(foglio, (x0, y0))
+    d = ImageDraw.Draw(front)
+    d.line([(x0 + 70, 296), (x0 + fw - 70, 296)], fill=(96, 70, 44, 200), width=1)
+    t = Tela(W, H)
+    _ceralacca(t, 310, 1004, 22)
+    front.alpha_composite(t.fine())
+    save(front, "mm_front.png")
+    mm = _grana(W, H, CARTA_MURO, 0.07)
+    mm.alpha_composite(front)
+    save(mm.convert("RGB"), "main_menu.png")
+
+    # Cartello di data: lo stesso foglio del frontespizio, senza rotoli.
+    cw, ch = 760, 210
+    cart = _vignetta(_grana(cw, ch, FOGLIO, 0.16), forza=22, raggio=30).convert("RGBA")
+    save(cart, "cartello_data.png")
+
+    # Frecce e pallini del carosello: segni, non medaglioni.
+    D = 76
+    c = D / 2.0
+    for verso, nome in ((-1, "sx"), (1, "dx")):
+        for hov, rgb in ((False, SEPPIA_CHIARA), (True, (255, 244, 221))):
+            t = Tela(D, D)
+            a = 13
+            colora(t, m_linea(t, [(c - verso * a * 0.45, c - a), (c + verso * a * 0.55, c),
+                                  (c - verso * a * 0.45, c + a)], 3), rgb)
+            save(t.fine(), "mm_freccia_%s%s.png" % (nome, "_hover" if hov else ""))
+    t = Tela(22, 22)
+    colora(t, m_sub(m_ell(t, 11, 11, 4.5), m_ell(t, 11, 11, 3.4)), SEPPIA_CHIARA)
+    save(t.fine(), "mm_punto.png")
+    t = Tela(22, 22)
+    _ceralacca(t, 11, 11, 6)
+    save(t.fine(), "mm_punto_on.png")
+
+
+def stile_documenti():
+    _doc_bottoni()
+    _doc_barre()
+    _doc_cornici()
+    _doc_menu()
+
+
 def main():
     # Menu principale: pattern + fronte. main_menu.png resta per compatibilita';
     # la screen anima mm_pattern.png (tile 1540: periodo comune di righe 140
@@ -1525,6 +1810,9 @@ def main():
     # Pacchetto grafico: scelte, cartello, Borsa, particelle.
     rigenera_blocco_g()
     rigenera_estetica2()
+
+    # Ultimo: lo stile dei documenti sostituisce quello miniato dove si sovrappone.
+    stile_documenti()
 
     print("GUI Dignitas generata in", GUI)
 

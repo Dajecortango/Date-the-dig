@@ -13,7 +13,7 @@ Dentro, fumo fino alle travi. E una voce che copre tutto il resto.
 La taverna è sua, stasera: ha pagato un giro per comprarsi il silenzio e lo spreca subito.
 DRUSO: Silenzio, bestie! Il genio parla e voi masticate. Chi mastica durante un'ode, la paga.
 Settanta chili di Dignitas in piedi su una panca. Barba bruna, camicia slacciata fino allo sterno, un boccale come scettro.
-Druso, figlio di Lenora. Il secondo dei tre. Quello che a Rocca Tempesta nominano alzando gli occhi al cielo.
+Druso, figlio di Lenora, il secondo dei tre: quello che a Rocca Tempesta nominano alzando gli occhi al cielo.
 DRUSO: Ah! Ma guarda chi è entrato/a. La faccia nuova del Ceppo di Briseide. Proprio ciò che mi serviva: una musa che non ho ancora offeso.
 DRUSO: Componimento nuovo! Titolo: «Ode al/alla novellino/a di Briseide». Protagonista: presente in sala. Contenuto: indecente. Obiezioni?
 Trenta teste si girano verso di me. Qualcuno batte il boccale sul tavolo, già pronto a ridere.
@@ -24,7 +24,7 @@ Trenta teste si girano verso di me. Qualcuno batte il boccale sul tavolo, già p
     > «Procedi. Ma se la rima è zoppa, il bis lo recito io su di te.»
         DRUSO: Minaccia poetica! La più nobile delle minacce!
         DRUSO: «Venne dal Sud con le scarpe pulite, ma al Nord le scarpe si fanno smarrite...»
-        Recita. È oscena, puntuale, e — maledizione — ben scritta. Rispondo con due versi improvvisati sulla sua barba. La taverna sceglie me.
+        È oscena, puntuale e, maledizione, ben scritta. Rispondo con due versi improvvisati sulla sua barba e la taverna sceglie me.
         TU: «Barba di Druso, nido di ratti: ci han fatto il letto, ci han fatto i patti.»
         Un vecchio al bancone si soffoca con la birra. Il tavolo dei carrettieri chiede il bis.
         DRUSO: Hai vinto il pubblico, linguaccia. Il pubblico è MIO. Ora o ti odio o ti tengo. Non ho ancora deciso.
@@ -36,7 +36,7 @@ Trenta teste si girano verso di me. Qualcuno batte il boccale sul tavolo, già p
         DRUSO: Applausi per la musa! Muta, rossa e inutile. Come una barbabietola.
 
     > Rovesciagli il boccale addosso
-        Il boccale vola. La taverna tace. Druso si lecca la birra dal baffo, lentamente, come un gatto soddisfatto.
+        Il boccale vola e la taverna tace. Druso si lecca la birra dal baffo, lentamente, come un gatto.
         DRUSO: Reazione violenta e maleducata. Da manuale. CONTINUA COSÌ.
         DRUSO: Oste! Un boccale nuovo per il/la novellino/a. Pieno. Così la prossima volta mi colpisce meglio.
 Più tardi, mentre la taverna si svuota, lo vedo scrivere su un tovagliolo. Si accorge che guardo e lo appallottola.
@@ -45,7 +45,7 @@ DRUSO: Appunti. Per la seconda strofa. Sei stato/a fonte d'ispirazione, non mont
 
 === DRUSO INT1 ===
 
-Palestra della Rocca, prima campana. Odore di cuoio, di sudore vecchio, di segatura bagnata.
+Palestra della Rocca, prima campana. Odore di cuoio e di segatura bagnata.
 Druso è seduto su una panca, accanto a un manichino. Il manichino è più sudato di lui.
 DRUSO: Novellino/a! Puntuale come un debito. Ti aspettavo: mi serve un testimone.
 TU: Testimone di cosa?
@@ -59,20 +59,20 @@ DRUSO: Visto? Barbari. Io difendo il corpo, che è un'opera d'arte. Ci si mette 
     Mi porge l'altra spada, con l'aria di chi spera che io rifiuti.
 
     > Prendila e attaccalo senza preavviso
-        Il colpo gli arriva sulla spalla. Druso strilla come una gallina, poi para il secondo — e il terzo, quasi bene.
+        Il colpo gli arriva sulla spalla. Druso strilla come una gallina, poi para il secondo e il terzo, quasi bene.
         DRUSO: Ah, così, a tradimento! Senza il saluto! Che razza di Ceppo vi alleva?
-        Ma ha gli occhi che brillano. Per cinque scambi buoni dimentica di essere un codardo. Poi se ne ricorda e si siede.
+        Per cinque scambi buoni dimentica di essere un codardo, poi se ne ricorda e si siede.
         DRUSO: Basta. Ho dimostrato il punto. Quale punto, non chiedere.
 
     > «Non mi alleno con chi ha paura di sudare.»
         DRUSO: Paura? Io? Io ho un CONTRATTO con la paura. Lei sta lontana da me, io sto lontano dai guai.
         DRUSO: Funziona da trentadue anni. Guarda: tutti i denti. Conta, se vuoi.
-        Spalanca la bocca. Ha davvero tutti i denti. È una prova inconfutabile. Accidenti.
+        Spalanca la bocca. Ha davvero tutti i denti: prova inconfutabile, accidenti.
 
     > Siediti accanto a lui a guardare gli altri
         Restiamo seduti. Lui commenta ogni colpo come un cronista di tornei, in rima, a mezza voce.
         DRUSO: «Quello là col naso storto, entro sera sarà morto.» Non letteralmente. Poeticamente.
-        Poi, senza cambiare tono:
+        Senza cambiare tono:
         DRUSO: Mio fratello Caino si allenava qui ogni mattina. Ogni. Mattina. Già dodici anni fa. Io leggevo, lui sanguinava.
         DRUSO: Madre ha scelto chi guardare. Non ha scelto me. Ottima scelta: io sono più bello da lontano.
 DRUSO: Ora scusami. Devo andare a raccontare in taverna di quanto mi sono allenato duro.
@@ -82,9 +82,9 @@ Esce col petto in fuori. La spada resta sulla panca, ancora asciutta.
 === DRUSO EV2 ===
 
 Il retro del Becco Storto: botti vuote, un gatto senza un orecchio, una porta che dà sul canale ghiacciato.
-Druso, stranamente sobrio, mi aspetta nel retro della taverna con una pergamena piena di scommesse.
+Druso, stranamente sobrio, mi aspetta con una pergamena piena di scommesse.
 DRUSO: Chiudi la porta. No, non per quello. Per quello ti avrei portato/a in un posto più comodo.
-Srotola la pergamena sulla botte. Nomi, cifre, frecce. Una calligrafia minuta, ordinata, sorprendente.
+Srotola la pergamena sulla botte. Nomi, cifre, frecce, in calligrafia minuta e ordinata.
 DRUSO: Tu credi che io passi le serate a bere. Io passo le serate ad ascoltare chi beve, è diverso. Costa uguale.
 DRUSO: Senti qua. Un cambiavalute della Consorteria paga bene per sapere chi, nel tuo Ceppo, firma le lettere di Briseide quando lei è fuori città. Io lo so che lo sai. E tu sai che pagherei.
 Fa girare una moneta sulla botte. Non la guarda: guarda me.
@@ -153,7 +153,7 @@ Il Becco Storto a metà pomeriggio è un'altra taverna: panche rovesciate, l'ost
 Sotto la panca di Druso, incastrato tra due assi, c'è un quaderno. Rilegato in pelle, consumato agli angoli, con una macchia di vino a forma di isola.
 Dentro, i tovaglioli. Tutti quelli che appallottola quando lo guardo, spianati con cura e cuciti uno dopo l'altro.
 Il primo verso che leggo non ha una sola parolaccia. Parla di una finestra a Rocca Tempesta, e di un bambino che aspetta che la madre si affacci.
-Chiudo. Riapro. È scritto bene. È scritto meglio di qualunque cosa abbia mai sentito in questa taverna.
+Chiudo, riapro. È scritto meglio di qualunque cosa abbia mai sentito in questa taverna.
 DRUSO: Oste! Hai visto un... ah.
 Si ferma a metà della sala. Guarda il quaderno, poi me, poi di nuovo il quaderno. Si gratta la barba con due dita.
 
@@ -164,7 +164,7 @@ Si ferma a metà della sala. Guarda il quaderno, poi me, poi di nuovo il quadern
         DRUSO: Zoppica? ZOPPICA? Quella rima mi è costata tre notti e un litigio con l'oste!
         Mi strappa di mano il quaderno, lo apre a pagina sette, legge muovendo le labbra.
         DRUSO: ...zoppica. Maledetto/a. Hai letto tutto e hai pure ragione.
-        DRUSO: Bene. Adesso sei complice. I complici leggono le bozze. Le bozze fanno schifo. È una condanna, non un onore.
+        DRUSO: Bene, adesso sei complice. I complici leggono le bozze, che fanno schifo. Te la sei cercata.
 
     > Chiudilo e porgiglielo. Senza una parola
         Lo chiudo, ci passo sopra il palmo, glielo tendo. Lui lo prende per un angolo, con due dita, e se lo ficca sotto la camicia.
@@ -199,12 +199,12 @@ Il foglio trema appena. Se ne accorge, lo stringe più forte, e adesso trema la 
 
     > Restituiscigli il foglio senza leggerlo
         DRUSO: Giusto. Che stupidaggine. Era uno scherzo, ovvio! Il finto sentimento: il mio capolavoro!
-        Ride forte. Troppo forte. E da quella sera le sue poesie tornano oscene, e mai più su di me.
+        Ride troppo forte. Da quella sera le sue poesie tornano oscene, e mai più su di me.
 
 
 === DRUSO EV3 ===
 
-Mi trascina «a vedere una cosa» nei vicoli bassi di Zefiro. La cosa è un esattore dei tabarri Verdi che spreme un lanternaio — il mio lanternaio, quello che fa credito a noi figli di Briseide.
+Mi trascina «a vedere una cosa» nei vicoli bassi di Zefiro. La cosa è un esattore dei tabarri Verdi che spreme un lanternaio: il mio, quello che fa credito a noi figli di Briseide.
 Pomeriggio grigio. I balconi gocciolano neve sciolta. Nessuno guarda, perché a Zefiro guardare costa.
 DRUSO: Brutto affare. Andiamocene. Non è il nostro Ceppo, non è il nostro problema, e io ci tengo ai miei denti.
 DRUSO: Te li ho mostrati, i miei denti. Sono tutti lì. È un patrimonio di famiglia.
@@ -214,19 +214,19 @@ L'esattore ha un bastone ferrato. Il lanternaio ha le mani sopra la testa e un o
     Il lanternaio è a terra. L'esattore conta.
 
     > Intervieni subito
-        Non aspetto. Due passi, il braccio dell'esattore, la torsione che Aede insegna ai novellini. E poi — dal nulla — un ruggito.
+        Due passi, il braccio dell'esattore, la torsione che Aede insegna ai novellini. E dal nulla un ruggito.
         DRUSO: TESCHIO, BRUTTO STRACCIONE!
-        Druso. Il codardo dichiarato. Addosso all'esattore con tutti i suoi settanta chili, la barba e nessun piano.
+        Druso, il codardo dichiarato, addosso all'esattore con tutti i suoi settanta chili, la barba e nessun piano.
         Rotolano nel fango. Druso morde. Proprio così: morde un orecchio, e l'esattore scappa urlando verso il canale.
-        Dopo, mentre il lanternaio ci benedice in tre dialetti, Druso si guarda le mani come se non le riconoscesse.
+        Dopo, mentre il lanternaio ci benedice in tre dialetti, Druso si annusa le mani.
         DRUSO: ...non dirlo a nessuno. Il coraggio mi rovina la reputazione peggio della gratitudine.
         DRUSO: E se lo dici, di' che l'ho fatto per noia. Che il mio corpo si è mosso da solo.
         TU: Hai morso un uomo, Druso.
         DRUSO: Sapeva di cipolla. Sarà nel poema. Il morso, non la cipolla.
 
     > Dagli retta e andate via
-        Ce ne andiamo. Druso non fa battute per tutta la strada. È la cosa più vicina al disprezzo che gli abbia mai visto addosso — e non so se è per me o per sé.
-        Al ponte si ferma, guarda indietro verso il vicolo, e per un attimo sembra sul punto di tornare.
+        Ce ne andiamo, e per tutta la strada Druso non fa battute. È la cosa più vicina al disprezzo che gli abbia mai visto addosso, e non so se è per me o per sé.
+        Al ponte si ferma e guarda indietro verso il vicolo, un piede già girato.
         DRUSO: ...niente. Mi era sembrato di aver dimenticato qualcosa.
 
 
@@ -238,7 +238,7 @@ DRUSO: Zitto/a. Non una parola. Se qualcuno chiede, sono qui per sonnambulismo.
 DRUSO: Quella torsione. Quella del vicolo. Quella che fa Aede. Insegnamela.
 TU: Il codardo dichiarato vuole imparare a combattere?
 DRUSO: Il codardo dichiarato vuole smettere di combattere a morsi. È poco elegante. E l'orecchio di quello aveva un sapore che sento ancora.
-Gli mostro la presa. Lui sbaglia. Lo faccio di nuovo. Sbaglia peggio, ma ride.
+Gli mostro la presa e lui sbaglia. Gliela rimostro: sbaglia peggio, ma ride.
 Una voce dal soppalco. Icaro, seduto a gambe incrociate sulle travi, la pipa spenta tra i denti.
 ICARO: Interessante. Mio fratello sveglio prima di mezzogiorno, sobrio, e in palestra. Devo avvisare un Arvale?
 DRUSO: Da quanto sei lì sopra, ladro di galline?
@@ -257,7 +257,7 @@ ICARO: Da prima di voi. La porta l'avete sbarrata con me dentro. Errore di distr
         DRUSO: Ecco perché madre lo adora. Ha sempre ragione e non suda mai.
 
     > Ignoralo e continua la lezione
-        Continuo. Druso esita, poi torna alla presa, davanti al fratello. Senza battute.
+        Continuo. Druso esita, poi torna alla presa davanti al fratello e senza battute.
         ICARO: ...hm. Non me l'aspettavo.
         Icaro se ne va senza dire altro. Lascia la porta aperta, apposta.
 Quando la luce arriva alle finestre, Druso fa la torsione giusta. Una volta sola. Su di me.
@@ -283,7 +283,7 @@ Una civetta si alza dal cornicione. Druso trasale così forte che la lanterna os
         DRUSO: ...ho paura del buio, ecco. Dillo e ti butto di sotto.
         DRUSO: Appena adottati mia madre ci chiudeva in cantina, uno alla volta. Per temprarci. Caino ne usciva muto. Icaro ne usciva con qualcosa in tasca.
         DRUSO: Io ne uscivo cantando ad alta voce, per farmi coraggio. È lì che ho imparato a rimare.
-        Resto con lui fino all'alba, a un passo, senza dire niente. Il sole sorge sul suo ghigno: per una volta stanco, e vero.
+        Resto con lui fino all'alba, a un passo, senza dire niente. Il sole sorge sul suo ghigno, stanco per una volta.
 
     > Prendilo in giro: «Il coraggioso Druso e le sue ombre»
         DRUSO: Ah. Bene. Questa me la segno nel registro delle cose che non perdono.
@@ -293,7 +293,7 @@ Una civetta si alza dal cornicione. Druso trasale così forte che la lanterna os
     > Mettiti in silenzio al suo fianco
         DRUSO: ...grazie. Non lo dirò mai più. Né a te, né alla taverna.
         L'ombra era un gatto, lo sappiamo tutti e due. Nessuno dei due lo dice.
-        Il turno finisce all'alba. Non succede niente, ed è la cosa più importante.
+        Il turno finisce all'alba e non succede niente.
 
 
 === DRUSO LUNA5 ===
@@ -304,7 +304,7 @@ DRUSO: Stasera mi batto. Non per la gloria, per il conto. Chi perde paga il giro
 DRUSO: Tu sta' vicino/a. La spalla del poeta deve essere a portata di gomito. E di boccale, se vinco.
 Lo sfidante è Epiro, Filius del Ramo di Iperione. Mantello pulito, voce baritonale, mani che non hanno mai alzato un boccale.
 Druso apre la sfida con una strofa sulle vergini del Convitto di Proserpina. La sala ruggisce. Epiro sorride appena.
-Poi tocca a lui. Non ride, non urla. Recita piano.
+Tocca a lui. Non ride, non urla, recita piano.
 «Poca arguzia il figlio di Lenora, non è nessuno che la onora. Grida rime nei bordelli: le sa dire solo a quelli.»
 La sala esplode. Epiro continua, sottovoce.
 
@@ -324,7 +324,7 @@ Nessuno lo sente. Al tavolo accanto, due carrettieri ripetono già la strofa di 
         TU: Epiro d'Iperione, voce bella e mano vuota. Ha studiato tanto il verso: mai provato quello che conta.
         Mezza sala ride. L'altra mezza si gira verso Druso, che ha già il boccale in mano.
         DRUSO: ...e la chiusa la tengo io, grazie. Epiro, caro: la tua musa è tua cugina, per questo nessuno la avvicina.
-        Il tavolo trema. Epiro paga il giro senza una parola.
+        Il tavolo trema. Epiro paga il giro.
         DRUSO: Mi hai rubato l'attacco, linguaccia. Te lo perdono solo perché era sporco come piace a me.
         Sulla lavagna, qualcuno cancella le quote. Icaro, dal fondo, alza la pipa verso di noi: ha perso, e sembra contento.
 
@@ -339,13 +339,13 @@ Nessuno lo sente. Al tavolo accanto, due carrettieri ripetono già la strofa di 
         DRUSO: Una strofa. Una sola. Epiro, il tuo Ramo ha più eunuchi che lance.
         Fiacca. La sala ride lo stesso, per pietà. Druso paga il giro.
         DRUSO: Comodo, il tuo silenzio. Seduto/a in prima fila a guardarmi annegare.
-        Ma all'uscita mi aspetta. Non dice niente. Mi cammina accanto fino al ponte, come se dovessi ancora rispondere.
+        All'uscita però mi aspetta, e senza dire niente mi cammina accanto fino al ponte, come se dovessi ancora rispondere.
 
 
 === DRUSO FIACCOLATA ===
 
 La Calà, trecento gradini di lanterne. Druso li guarda come un palco.
-Coppie ovunque, mani intrecciate, sussurri. Qualche Figlio di Glauco finge di essere lì per caso.
+Coppie ovunque, mani intrecciate. Qualche Figlio di Glauco finge di essere lì per caso.
 DRUSO: Guarda quanta gente innamorata. Mi viene un'ode. Si intitola «Trecento gradini per arrivare a letto stanchi».
 DRUSO: La leggenda dice mano nella mano. Io dico che la leggenda non ha mai visto le TUE mani: ruvide come la mia poesia.
 Ma la mano la tende lui. Per trecento gradini non dice una sola porcheria: cammina, stringe le mie dita, e ogni venti gradini si gira a controllare che io voglia scendere ancora.
@@ -365,8 +365,68 @@ DRUSO: Se lo racconti in taverna, nego. Ho una reputazione. ...al gradino duecen
 In cima, la nostra lanterna è l'unica storta. Druso dice che è voluto. Che è arte.
 
 
+=== DRUSO CROCETTA ===
+
+Il Becco Storto, due settimane dopo Epiro. La taverna canta ancora la sua strofa, e quando entra Druso la canta più piano.
+
+[VARIANTE]
+    Quella sera ha vinto lui, con due versi miei in testa. Zefiro l'ha notato. «Il poeta ha una spalla che rima meglio di lui», dicono, e gli pagano il giro per vederlo bere.
+
+[VARIANTE]
+    Il poeta raccolto col cucchiaino: l'aveva previsto lui, e gliel'hanno ripetuto in tutti i dialetti del canale.
+
+[VARIANTE]
+    Ha pagato il giro a tutta Zefiro, e a Zefiro il giro è piaciuto. Adesso glielo chiedono ogni sera.
+Stasera sale sul tavolo con una pergamena in mano. Calligrafia minuta, nomi, frecce: l'ho vista una volta sola, su una botte, con la porta chiusa.
+DRUSO: Signori! Basta Epiro. Stasera si legge il libro mastro di Druso, figlio di Lenora. Cose vere, coi nomi!
+DRUSO: L'oste: annacqua, ma con vergogna. Il capoguardia: dorme in piedi e sogna la moglie del fornaio. Il fornaio: lo sa.
+La sala si raddrizza sulle panche. Sono due settimane che non ride con lui. Scorre il dito fino in fondo, e il dito si ferma.
+
+[VARIANTE]
+    DRUSO: <Nome>, Figlio/a di Briseide. Accanto, una crocetta. Sapete cosa vuol dire, la crocetta? Vuol dire: morde.
+    Me l'aveva mostrata di sfuggita, come si mostra una cosa che non si fa vedere a nessuno. «Non ne ho tante, di crocette.»
+    DRUSO: «Morde, dice la crocetta, la mia spalla prediletta: morde il cuscino, la notte, perché nessuno l'aspetta.»
+
+[VARIANTE]
+    DRUSO: <Nome>, Figlio/a di Briseide. Accanto non c'è una crocetta. C'è scritto: abbaia.
+    Non avevo mai saputo cosa ci avesse scritto. Lo so adesso, insieme a sessanta persone.
+    DRUSO: «Abbaia, dice il mio foglio, la mia spalla prediletta: abbaia sotto il cuscino, perché nessuno l'aspetta.»
+Il tavolo trema. È la risata che gli mancava, e gli torna il colore in faccia mentre la prende.
+Mi cerca tra le panche. Non si scusa con gli occhi: controlla.
+
+[SCELTA]
+    Sessanta facce si girano. Qualcuno mi versa da bere, per vedere cosa faccio.
+
+    > Sali sul tavolo accanto e rispondigli in rima
+        Il tavolo è bagnato e più alto di quanto sembrasse. Gli arrivo alla spalla.
+        TU: «Druso conosce il mio letto come conosce il coraggio: per sentito dire, in rima, e sempre di passaggio.»
+        Questa volta il tavolo trema per me. Druso apre la bocca. Poi alza il boccale, senza guardarmi, e la sala decide che è finita alla pari.
+
+    > Posa il bicchiere ed esci senza dire niente
+        Non sbatto la porta. Dietro di me riprende a leggere, e il capoguardia ride più forte di tutti.
+        Tre giorni dopo trovo un angolo di pergamena sul banco dove mangio. Il mio nome, il resto strappato. Nessun biglietto.
+
+    > Ridi con gli altri e alza il bicchiere
+        Rido. Bevo. Qualcuno mi dà una pacca sulla schiena.
+        Druso mi guarda ridere un momento di più. Poi passa al nome dopo, e non controlla più.
+Il retro del Becco Storto. Botti vuote, il canale ghiacciato, Lisandra che mi guarda dall'alto come una creditrice.
+DRUSO: «Per sentito dire.» Ti sei preparato/a o ti esce così?
+
+[VARIANTE]
+    TU: Era l'unica riga buona che avevi scritto su di me.
+
+[VARIANTE]
+    TU: Abbaia. L'hai scritto quella sera, e l'hai tenuto in tasca fino a oggi.
+Si gratta la barba. Tira fuori la pergamena e la guarda come se fosse di un altro, poi se la rimette in tasca.
+DRUSO: Epiro mi ha preso il nome. Mi serviva qualcosa da vendere stasera, e ho messo la mano in tasca. C'eri tu.
+DRUSO: Non chiedermi di scusarmi. Non so come si fa, e verrebbe zoppa.
+
+
 === DRUSO LUNA6 ===
 
+
+[VARIANTE]
+    Non ci parliamo da due settimane. Stasera il garzone dell'oste mi ha portato una chiave e un biglietto con una parola sola: «Vieni.» Niente rima.
 Il Becco Storto, a porte chiuse. L'oste è andato a dormire e ha lasciato a Druso le chiavi, una candela e una bottiglia.
 Sul tavolo c'è una lettera. Cera nera, il sigillo del Ramo di Lenora: una corona.
 DRUSO: È arrivata stamattina. L'ho aperta stasera. Il coraggio, sai, ha i suoi orari.
@@ -403,10 +463,48 @@ Spegne la candela con le dita, senza fare una smorfia. Nel buio lo sento ridere 
 DRUSO: Al buio non ho più paura, lo sai? Da un po'. Dipende da chi c'è.
 
 
+=== DRUSO CANTINA ===
+
+Una scala sotto la Rocca che non conosco, stretta, con i gradini consumati al centro. Druso va avanti con una lanterna e una chiave che ha vinto a Icaro, o che Icaro gli ha lasciato vincere.
+
+[VARIANTE]
+    DRUSO: Te l'ho raccontata sulle mura. Eccola. Volevo vedere se è diventata più piccola.
+
+[VARIANTE]
+    DRUSO: Appena adottati, madre ci chiudeva qui. Uno alla volta. Per temprarci. Caino ne usciva muto, Icaro con qualcosa in tasca.
+    DRUSO: Io ne uscivo cantando. Ecco dove ho imparato a rimare, se te lo sei mai chiesto/a.
+La porta è bassa. Dentro ci sono rape, botti, un odore di pietra bagnata, e una stanza grande come un letto.
+DRUSO: Uguale. Pensavo che almeno questa me la concedesse.
+DRUSO: Tra nove giorni mi chiama davanti al Ramo. Ti ho detto che al buio non ho più paura. L'ho detto bene, c'era pure la candela. Vediamo se è vero.
+Soffia sulla lanterna.
+Aspetto la canzone. Sento il grasso del lucignolo che sfrigola, una goccia da qualche parte, e nient'altro.
+
+[SCELTA]
+    Druso non canta. Lo sento respirare a un passo da me. Forse due.
+
+    > Cerca la sua mano
+        La trovo al secondo tentativo, dopo una botte. È fredda e non stringe. Poi stringe, e non la smette più.
+        DRUSO: Questa non si racconta.
+
+    > Canta tu, la più oscena che conosci
+        Attacco quella sulla locandiera, che ho imparato da lui a forza di sentirla. Stono al secondo verso, e lui mi corregge per principio.
+        DRUSO: Fa schifo. E la metrica è mia, ladro/a. Ricomincia, più piano. Qui l'eco è una spia.
+        La finiamo in due, a voce bassa, tutte le strofe.
+
+    > Resta fermo/a e non dire niente
+        Conto le gocce. A quaranta perdo il conto, e ricomincio.
+        DRUSO: Sei ancora lì?
+        TU: Sì.
+        DRUSO: Bene. Non aggiungere altro. Rovini il finale.
+Non riaccende. Risaliamo a tentoni, lui davanti, e sulla scala lo sento contare i gradini a mezza voce: gli stessi di allora, immagino.
+In cima la luce delle torce lo prende in faccia. Si rimette il ghigno come uno si rimette il mantello.
+DRUSO: Se lo racconti in taverna, nego. Dico che ero ubriaco, e che piangevi tu.
+
+
 === DRUSO UDIENZA ===
 
 Rocca Tempesta, cortile dei carri. La neve è battuta, sporca di fango e di paglia. Druso mi ha chiesto di aspettarlo qui. «Fuori. Lontano dalle finestre.»
-Sua madre l'ha convocato. Non all'udienza dei Figli, quella con la grata e la fila. Da solo. Nella stanza dove Lenora riceve chi deve qualcosa.
+Sua madre l'ha convocato, e non all'udienza dei Figli, quella con la grata e la fila: da solo, nella stanza dove Lenora riceve chi le deve qualcosa.
 Passa una campana intera. Un carro parte, un altro arriva. Conto i corvi sulle merlature: undici, poi nove.
 Esce senza boccale e senza ghigno. Cammina dritto, troppo dritto, come chi ha bevuto e non vuole farlo vedere. Solo che non ha bevuto.
 DRUSO: Eccoti. Bene. Hai le mani fredde? Le mie sono di qualcun altro, al momento.
@@ -424,7 +522,7 @@ Si siede su uno scranno accanto a un carro, di spalle alla Rocca. Ogni tanto si 
     > «Cosa ti ha detto?»
         DRUSO: Che ho una vita di rime e zero di Virtù. Che il Ramo ha bisogno di un figlio, non di un giullare.
         DRUSO: E che Caino, alla mia età, aveva già una carica. Lo dice sempre. Ormai è una rima obbligata.
-        Ride. Male, ma ride. Poi si alza e si scrolla la neve dai calzoni.
+        Ride male, ma ride. Si alza e si scrolla la neve dai calzoni.
         DRUSO: Non chiedermelo più, però. Le domande sincere mi fanno venire l'orticaria.
 
     > Siediti accanto a lui e aspetta
@@ -432,13 +530,13 @@ Si siede su uno scranno accanto a un carro, di spalle alla Rocca. Ogni tanto si 
         DRUSO: Lo sai cosa mi ha chiesto? Se ho qualcuno. Qualcuno di serio.
         DRUSO: Le ho detto di no. Le ho mentito, credo. O forse no. Non lo so ancora.
         Si alza per primo. Non mi guarda, ma mi porge la mano per tirarmi su.
-Torniamo verso Zefiro insieme. A metà strada riprende a cantare, stonato, una canzone oscena sulla moglie di un Eparca. Sta meglio.
+Torniamo verso Zefiro insieme. A metà strada riprende a cantare, stonato, una canzone oscena sulla moglie di un Eparca.
 
 
 === DRUSO CLIMAX ===
 
 Convocazione del Ramo di Lenora. Sala lunga, banchi di quercia, gli Arconti in fila come corvi su un ramo.
-Il freddo della pietra sale dalle suole. Le torce bruciano basse, come se anche loro avessero paura di disturbare.
+Il freddo della pietra sale dalle suole e le torce bruciano basse.
 L'accusa la legge un cancelliere del Ramo, con la voce di chi recita un inventario.
 Il secondogenito della Capofamiglia «frequenta un/una Figlio/a di Briseide oltre il decoro».
 
@@ -464,8 +562,11 @@ Druso è in piedi al centro. Niente boccale, niente pubblico amico.
 Lenora non si vede. Siede dietro la grata in fondo alla sala, e la sala intera respira al suo ritmo.
 Una voce, da dietro la grata. Bassa, senza fretta.
 «Druso. Ti ascolto.»
-Lui apre la bocca. La richiude. Le mani cercano un boccale che non c'è.
-Poi i suoi occhi trovano i miei, in fondo, tra i Figli messi lì dove non fanno danni.
+Apre la bocca e la richiude. Le mani cercano un boccale che non c'è.
+I suoi occhi trovano i miei, in fondo, tra i Figli messi lì dove non fanno danni.
+
+[VARIANTE]
+    L'ultima volta che mi ha cercato così stava su un tavolo, con una pergamena in mano. Sono qui lo stesso.
 
 [SCELTA]
     Il silenzio dura un respiro di troppo. Tutti aspettano.
@@ -479,7 +580,7 @@ Poi i suoi occhi trovano i miei, in fondo, tra i Figli messi lì dove non fanno 
             TU: Se c'è una colpa, è anche mia.
         Un mormorio tra i banchi. Il cancelliere segna qualcosa.
         DRUSO: ...nessuno ti ha chiesto di fare il cavaliere. Siediti.
-        Lo dice piano, a denti stretti. Ma adesso la sala guarda me, non lui.
+        Lo dice piano. Ma adesso la sala guarda me, non lui.
 
     > Resta seduto/a, e guardalo. La voce è sua
 
@@ -488,7 +589,7 @@ Poi i suoi occhi trovano i miei, in fondo, tra i Figli messi lì dove non fanno 
 
         [VARIANTE]
             Non mi muovo. Lo guardo e basta.
-        Druso capisce. Raddrizza le spalle. Settanta chili di poeta, tutti in piedi.
+        Druso raddrizza le spalle. Settanta chili di poeta, tutti in piedi.
         DRUSO: Madre. Ho la gola secca e niente da bere. Parlerò lo stesso.
 
     > Smonta la cosa con una battuta
@@ -503,8 +604,13 @@ La grata tace. Aspetta il verdetto, e il verdetto adesso tocca a lui.
 
 DRUSO: Confermo tutto, madre. Il decoro, la rissa, il/la Figlio/a di Briseide. E aggiungo un componimento in tema, se il Consiglio gradisce. Rima baciata.
 Un Eparca si alza per protestare. Caino, senza voltarsi, gli posa una mano sul braccio. L'Eparca si risiede.
-Lo recita. Davanti a Lenora, agli Arconti, al Nord intero. Il poema non osceno. Il mio.
-Dentro ci sono cose che sappiamo solo noi due. Nessuno in sala capisce. Io sì.
+Lo recita davanti a Lenora, agli Arconti, al Nord intero: il poema non osceno, il mio.
+«La neve era alta, e il fosso lì di lato: in tutta la strada nessuno mi ci ha buttato.»
+«Sulle mura ho chiamato le stelle con nomi sbagliati. Chi stava a un passo da me me li ha lasciati.»
+«Sul ponte, col ghiaccio sotto, ho detto una cosa vera. L'ho smentita subito. La smentita era leggera.»
+«Ho cantato alle taverne per un boccale e un fischio. Il bis l'ho avuto una volta. Da allora corro il rischio.»
+«Il nome non lo dico: il verso zoppica già. Chi è, lo sa.»
+Dentro ci sono cose che sappiamo solo noi due, e in sala nessuno capisce.
 
 [VARIANTE]
     Riconosco i miei versi. Ognuno con una parola cambiata, perché possa dire che è suo.
@@ -514,7 +620,7 @@ Dentro ci sono cose che sappiamo solo noi due. Nessuno in sala capisce. Io sì.
 
 [VARIANTE]
     Nemmeno una parola sulla convocazione. Recita come uno che non deve più niente a nessuna lettera.
-La sala non ride. La sala — che gli Asi la conservino — applaude.
+La sala non ride. La sala, che gli Asi la conservino, applaude.
 Da dietro la grata, una sola parola: «Bis.»
 Druso resta a bocca aperta. Si gira verso di me e muove le labbra, senza voce: «e adesso?»
 Icaro, accanto a Caino, mormora qualcosa. Dal labiale sembra «ho perso un'altra scommessa». Sembra felice.
@@ -534,7 +640,7 @@ DRUSO: ...e aspettavo te. Sei fuori metrica, ma non importa.
 Poi mi bacia. Fuori metrica anche quello: troppo lungo, senza ritmo, la barba che punge.
 DRUSO: Non abituarti. Il prossimo lo faccio in endecasillabi.
 Da quella sera Zefiro ha un poeta nuovo. Stesso uomo, stessa barba. Le rime oscene restano.
-Ma alla fine di ogni serata, a voce bassa, ce n'è una che non lo è. Ed è solo per me.
+Ma alla fine di ogni serata, a voce bassa, ce n'è una che non lo è, ed è solo per me.
 ~ IL CUORE PROVOCATORE Il poema più bello non nasce dall'immaginazione. Si ispira alla realtà. ~
 
 
@@ -564,26 +670,28 @@ A volte, a fine serata, mi guarda come se avesse una strofa in gola. Poi ordina 
 === DRUSO BAD ===
 
 DRUSO: Chi? Quello/a? Madre, ti prego. Un cane che abbaia, al mio seguito. Il pubblico non si sceglie.
-Lo dice guardandomi. E il ghigno, stavolta, non arriva agli occhi.
+Lo dice guardandomi, senza ghigno.
 
 [VARIANTE]
     DRUSO: E se parla per me, è perché non ha niente da dire per sé.
 Gli Arconti ridono. È la risata che lui voleva, e la paga con me.
-Da dietro la grata, Lenora non dice niente. Non serve.
+
+[VARIANTE]
+    L'ha già fatto una volta, in taverna, con la pergamena in mano. Stavolta non controlla nemmeno.
+Da dietro la grata, Lenora non dice niente.
 All'uscita Caino mi passa accanto senza fermarsi. Dice solo: «Mio fratello sceglie sempre la risata. Io non mi ci sono mai abituato.»
 In taverna il mio posto accanto al suo lo prende qualcun altro. Poi un altro ancora.
 Da quella sera le sue provocazioni tornano a essere solo crudeli, e io torno a essere solo pubblico.
 
 [VARIANTE]
     Una volta, tardi, lo sento recitare la strofa di Epiro. Quella su Lenora. La dice lui, su di sé, e la sala applaude.
-Il gioco crudo e duro ha dato il suo verdetto: non l'ho retto.
 ~ IL CANE CHE ABBAIA Druso testa le acque di tutti. Non tutti galleggiano. ~
 
 
 === DRUSO PASSEGGERO ===
 
 DRUSO: Madre. Il/La Figlio/a di Briseide mi è caro/a. Lo dico davanti al Consiglio, e senza rima.
-Lo dice bene. Pulito, coraggioso. Una frase sola, e la sala la sente tutta.
+Lo dice bene, pulito. Una frase sola, e la sala la sente tutta.
 La grata tace, poi archivia. Un figlio che ha detto una cosa vera: per una volta basta.
 DRUSO: Ti voglio bene, lo sai. Te l'ho appena detto a mezzo Nord.
 
@@ -598,7 +706,7 @@ DRUSO: Ti voglio bene, lo sai. Te l'ho appena detto a mezzo Nord.
 DRUSO: A me serve uno che si butta nel FOSSO prima che io arrivi alla rima. Tu aspetti la chiusa, col fazzoletto in mano. Bravo/a. Noioso/a. Caro/a.
 Ride, per non lasciare la frase nuda. Mi dà una pacca sulla spalla. Pesa come tutte le sue pacche, e non di più.
 Una Luna dopo, in taverna, Druso legge un componimento serio. La sala tace, il che è un miracolo.
-A metà alza gli occhi. Non verso di me: verso il fondo, dove Pandora tiene un libro aperto sul braccio e finge di non ascoltare, infastidita.
+A metà alza gli occhi. Non verso di me: verso il fondo, dove Pandora tiene un libro aperto sul braccio e finge di non ascoltare.
 Finisce. Applausi. Mi cerca, mi fa l'occhiolino da vecchio amico, e torna a guardare lei.
 ICARO: Scommessa vinta. Avevo dato Pandora a tre contro uno. Non prenderla sul personale: i miei quaderni non hanno una colonna per le persone gentili.
 ~ LA RIMA CHE MANCA Druso ti ha voluto bene ad alta voce. Il poema, l'ha scritto per un'altra. ~

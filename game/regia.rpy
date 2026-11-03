@@ -41,8 +41,12 @@ define config.intra_transition = Dissolve(0.2)
 # sprite perde il posto:  show aede neutra at right, trema
 # Con "Animazioni: No" restano fermi.
 init python:
-    def _mov_manuale(nome):
-        def f(trans, st, at):
+    # Classe e non funzione locale: finisce nei salvataggi (vedi luce.rpy).
+    class _mov_manuale(object):
+        def __init__(self, nome):
+            self.nome = nome
+
+        def __call__(self, trans, st, at):
             if mm_movimento_ridotto() or renpy.is_skipping():
                 k = 1.0
             else:
@@ -50,9 +54,8 @@ init python:
             if k >= 1.0:
                 trans.xoffset, trans.yoffset, trans.zoom = 0, 0, 1.0
                 return None
-            trans.xoffset, trans.yoffset, trans.zoom = _lu_curva(nome, k)
+            trans.xoffset, trans.yoffset, trans.zoom = _lu_curva(self.nome, k)
             return 0
-        return f
 
 transform sobbalzo:
     function _mov_manuale("sobbalzo")
@@ -140,7 +143,23 @@ transform cam_riposo:
     subpixel True
     ease 0.5 xalign 0.5 yalign 0.5 zoom 1.0
 
+# Tono della scena sulla camera (fondo e sprite insieme, senza nuovi asset):
+# $ tono_scena("gelo"). Il prossimo "scene" lo toglie. Occupa lo stesso posto
+# dei movimenti camera: un camera_dentro() lo sostituirebbe.
+transform tono_gelo:
+    matrixcolor TintMatrix("#c4d2e6") * SaturationMatrix(0.7)
+
+default regia_tono = None
+
 init python:
+    def tono_scena(nome):
+        store.regia_tono = nome
+        renpy.show_layer_at([getattr(store, "tono_" + nome)], layer="master", camera=True)
+
+    def _tono_dopo_caricamento():
+        if store.regia_tono:
+            tono_scena(store.regia_tono)
+
     def intimo():
         store.regia_intimo = True
 
@@ -190,15 +209,18 @@ init python:
         renpy.show_layer_at([], layer="master", camera=True)
 
     config.after_load_callbacks.append(camera_riposo_subito)
+    config.after_load_callbacks.append(_tono_dopo_caricamento)
 
     # Ogni "scene" sul master: camera a riposo, sfocatura tolta.
     _regia_scene_prec = config.scene
 
     def _regia_scene(layer="master"):
-        if layer == "master":
+        # Lo statement "scene" senza "onlayer" passa layer=None.
+        if layer in (None, "master"):
             store.regia_intimo = False
             store.regia_tempesta = False
             store.regia_lento = False
+            store.regia_tono = None
             camera_riposo_subito()
             renpy.show_layer_at([], layer="master")
         _regia_scene_prec(layer)
@@ -213,16 +235,21 @@ init python:
     # il box del testo) una scossa che decade (trauma^2), solo sul master.
     import math as _sc_m
 
-    def _scossa(forza, durata, ax, ay):
-        def f(trans, st, at):
-            if st >= durata:
+    class _ScossaFn(object):
+        def __init__(self, forza, durata, ax, ay):
+            self.forza, self.durata, self.ax, self.ay = forza, durata, ax, ay
+
+        def __call__(self, trans, st, at):
+            if st >= self.durata:
                 trans.xoffset = trans.yoffset = 0
                 return None
-            t = (1.0 - st / durata) ** 2
-            trans.xoffset = ax * forza * t * _sc_m.sin(st * 53)
-            trans.yoffset = ay * forza * t * _sc_m.sin(st * 71 + 1.3)
+            t = (1.0 - st / self.durata) ** 2
+            trans.xoffset = self.ax * self.forza * t * _sc_m.sin(st * 53)
+            trans.yoffset = self.ay * self.forza * t * _sc_m.sin(st * 71 + 1.3)
             return 0
-        return Transform(function=f)
+
+    def _scossa(forza, durata, ax, ay):
+        return Transform(function=_ScossaFn(forza, durata, ax, ay))
 
     def _regia_con_transizione(trans, paired):
         orig = trans

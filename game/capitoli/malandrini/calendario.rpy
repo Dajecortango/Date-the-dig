@@ -778,16 +778,16 @@ screen pianificazione(momento, inviti, attivita, esauriti=()):
         spacing 12
         xsize 1060
 
-        add "gui/divisore.png" xalign 0.5
-        ## Testata: la Luna al centro, Diario e guida ("?") a destra.
+        ## Testata: Luna e giorno a sinistra, Diario e guida ("?") a destra.
         fixed:
             xsize 1060
             ysize (112 if cal_small else 72)
             hbox:
-                align (0.5, 0.5)
+                align (0.0, 0.5)
                 spacing 18
                 add ("gui/malandrini/luna_%d.png" % momento[0]) yalign 0.5 zoom 0.7
                 label LUNE_NOMI[momento[0]] text_size 42 text_color gui.accent_color yalign 0.5
+                text ("giorno %d" % momento[1]) size 30 italic True color "#ece0c8" yalign 0.6
             hbox:
                 align (1.0, 0.5)
                 spacing 10
@@ -802,35 +802,38 @@ screen pianificazione(momento, inviti, attivita, esauriti=()):
                     alt _("Guida al pianificatore")
                     action Show("guida_pianificatore")
 
-        # Striscia dei giorni salienti della Luna: il sigillo rosso segna un
-        # giorno con un evento fisso (lo stesso del cartello di data).
-        hbox:
-            xalign 0.5
-            spacing 30
-            for num, stato, fisso in cal_strip(momento[0], momento[1]):
-                vbox:
-                    spacing 0
-                    xminimum 46
-                    if fisso:
-                        add "gui/malandrini/ceralacca_festa.png" zoom 0.12 xalign 0.5
-                    else:
-                        null height 22
-                    text str(num) size 26 xalign 0.5 bold (stato == "oggi") color ("#f0c75e" if stato == "oggi" else "#9a8b6c" if stato == "passato" else "#c9b78a")
+        # Due gruppi distinti sulla stessa riga: i giorni salienti della Luna
+        # (il sigillo rosso segna un evento fisso) e i momenti di oggi. Uno
+        # sotto l'altro sembravano colonne della stessa tabella.
+        fixed:
+            xsize 1060
+            ysize 54
+            hbox:
+                align (0.0, 1.0)
+                spacing 26
+                text "Giorni" size 22 italic True color "#a8987a" yalign 1.0
+                for num, stato, fisso in cal_strip(momento[0], momento[1]):
+                    vbox:
+                        spacing 0
+                        xminimum 40
+                        yalign 1.0
+                        if fisso:
+                            add "gui/malandrini/ceralacca_festa.png" zoom 0.12 xalign 0.5
+                        text str(num) size 26 xalign 0.5 bold (stato == "oggi") color ("#fff4dd" if stato == "oggi" else "#8a7b60" if stato == "passato" else "#c9b995")
+            # Momento del giorno (dove siamo arrivati). Gli Scudi stanno nella
+            # borsa a schermo (borsa.rpy).
+            hbox:
+                align (1.0, 1.0)
+                spacing 24
+                for nome_s, stato_s in cal_slot_stati(momento):
+                    text nome_s.capitalize() size 24 bold (stato_s == "corrente") color ("#fff4dd" if stato_s == "corrente" else "#8a7b60" if stato_s == "passato" else "#c9b995") yalign 1.0
 
         # Da Luna III: quanti giorni salienti mancano alla scelta del cuore.
         $ cal_cuore = cal_cuore_mancano()
         if cal_cuore:
-            text cal_cuore size TESTO_NOTA italic True color "#e0b75a" xalign 0.5
+            text cal_cuore size TESTO_NOTA italic True color "#cdb387"
 
-        # Slot del giorno (dove siamo arrivati). Gli Scudi stanno nella borsa
-        # a schermo (borsa.rpy).
-        hbox:
-            xalign 0.5
-            spacing 24
-            for nome_s, stato_s in cal_slot_stati(momento):
-                text nome_s.capitalize() size 22 italic (stato_s == "corrente") color ("#f0e6d2" if stato_s == "corrente" else "#9a8b6c" if stato_s == "passato" else "#a89468") yalign 0.5
-
-        add "gui/divisore.png" xalign 0.5
+        add "gui/divisore.png" xsize 1060
 
         ## Inviti e attivita': fino a 7 attivita' piu' gli inviti nel
         ## pomeriggio. Il viewport si stringe sul contenuto e scorre (barra
@@ -957,9 +960,11 @@ screen pianificazione(momento, inviti, attivita, esauriti=()):
     ## Su touch il ritratto cede spazio al bottone "Scegli".
     ## Su telefono, testo piu' grande: il ritratto cede ancora un po'.
     $ cal_ritratto_h = 300 if cal_small else 380 if cal_touch else 470
+    ## Il pannello si vede solo quando ha qualcosa da mostrare.
     frame:
         style "cal_pannello"
         at (pian_fisso if pian_fermo else pian_contenuto)
+        background (Frame("gui/frame.png", 60, 60) if cal_tt else None)
         if cal_tt:
             $ cal_tipo, cal_chr, cal_titolo, cal_extra = cal_tt
             vbox:
@@ -1012,7 +1017,6 @@ screen pianificazione(momento, inviti, attivita, esauriti=()):
             vbox:
                 align (0.5, 0.5)
                 spacing 16
-                add ("gui/malandrini/luna_%d.png" % momento[0]) xalign 0.5
                 text "Come spendi questo tempo?" style "cal_pannello_titolo" xalign 0.5 textalign 0.5
                 if cal_touch:
                     text "Tocca una voce per leggerla, toccala di nuovo per sceglierla." style "cal_pannello_testo" xalign 0.5 textalign 0.5

@@ -53,17 +53,27 @@ init python:
          and "icaro_ev2" in v["visti"]
          and ("scelta_cuore" not in v["visti"]
               or v["route_attiva"] == "icaro")},
+        # Il colpo. Uomo: segue il primo affare. Donna: solo a route attiva,
+        # perche' veda cosa fa a un fratello chi la tiene a registro.
         {"id": "icaro_bro2", "label": "icaro_bro_colpo", "tipo": "invito",
          "char": "icaro", "titolo": "Stanotte Icaro riscuote. Senza bussare",
          "luna_min": 4, "slot": "sera",
-         "cond": lambda v: v["player_gender"] == "m"
-         and "icaro_bro1" in v["visti"]
-         and ("scelta_cuore" not in v["visti"]
-              or v["route_attiva"] == "icaro")},
+         "cond": lambda v: (v["player_gender"] == "m"
+                            and "icaro_bro1" in v["visti"]
+                            and ("scelta_cuore" not in v["visti"]
+                                 or v["route_attiva"] == "icaro"))
+         or (v["player_gender"] == "f"
+             and v["route_attiva"] == "icaro")},
         # Luna V, route attiva (romance e Bro): la partita grossa.
         {"id": "icaro_luna5", "label": "icaro_luna5", "tipo": "fisso",
          "char": "icaro", "luna": 5, "giorno": 26, "slot": "sera",
          "cond": lambda v: v["route_attiva"] == "icaro"
+         and "icaro" not in v["congelate"]},
+        # Solo romance: il registro dei passi, tra la partita e i conti.
+        {"id": "icaro_riga", "label": "icaro_riga", "tipo": "fisso",
+         "char": "icaro", "luna": 6, "giorno": 5, "slot": "sera",
+         "cond": lambda v: v["route_attiva"] == "icaro"
+         and v["player_gender"] == "f"
          and "icaro" not in v["congelate"]},
         # Luna VI, route attiva (romance e Bro): i conti di fine semestre.
         {"id": "icaro_luna6", "label": "icaro_luna6", "tipo": "fisso",

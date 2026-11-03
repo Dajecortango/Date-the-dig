@@ -35,6 +35,7 @@ style button_text is gui_text:
 
 style label_text is gui_text:
     properties gui.text_properties("label", accent=True)
+    font gui.name_text_font
 
 style prompt_text is gui_text:
     properties gui.text_properties("prompt")
@@ -68,6 +69,11 @@ style slider:
     right_bar Frame("gui/slider/horizontal_[prefix_]vuoto.png", gui.slider_borders, tile=gui.slider_tile)
     thumb "gui/slider/horizontal_[prefix_]thumb.png"
     thumb_offset 18
+
+## Telefono: la barra e' alta 60, il cursore 36. Si centra sulla linea.
+style slider:
+    variant "small"
+    thumb "gui/slider/horizontal_[prefix_]thumb_tel.png"
 
 style vslider:
     xsize gui.slider_size
@@ -148,10 +154,13 @@ screen say(who, what):
             window:
                 id "namebox"
                 style "namebox"
-                hbox:
-                    spacing 10
-                    text "◆" size 20 yalign 0.5 color char_color(who)
-                    text who id "who"
+                ## Il nome e' una firma: sotto, un tratto del colore del personaggio.
+                vbox:
+                    spacing 3
+                    ## Senza id "who": il colore del Character qui resterebbe
+                    ## illeggibile (Glauco e' grigio). Lo porta il tratto.
+                    text who style "say_label" color "#ece0c8"
+                    add Solid(char_color(who)) xysize (44, 3)
 
         text what id "what"
 
@@ -161,7 +170,7 @@ screen say(who, what):
     if not renpy.variant("small"):
         # Ritratto di chi parla (image side <char>, feedback.rpy): sul bordo
         # destro del box, a cavallo della cornice; la namebox resta libera.
-        add SideImage() xpos 1880 xanchor 1.0 ypos (1080 - gui.textbox_height + 52) yanchor 1.0
+        add SideImage() xpos 1880 xanchor 1.0 ypos 1066 yanchor 1.0
 
 
 ## Make the namebox available for styling through the Character object.
@@ -296,7 +305,7 @@ screen choice(items):
                     else ((scelta_hover_fermo if scelte_ferme else scelta_hover), (scelta_ferma if scelte_ferme else scelta_entra(n * 0.05))))
                 hbox:
                     xalign 0.5
-                    spacing 16
+                    spacing 14
                     if peso:
                         text "◆" style "choice_peso" yalign 0.5
                     # Scelta gia' presa (in questa o in una partita
@@ -304,19 +313,17 @@ screen choice(items):
                     # Dice solo "gia' percorsa", mai dove porta.
                     if getattr(i, "chosen", False) and not spenta:
                         add "gui/scelta_vista.png" yalign 0.5 alpha 0.7
-                        text i.caption style "choice_button_text" idle_color "#b3a173" hover_color "#f5e3b8" yalign 0.5
+                        text i.caption style "choice_button_text" idle_color "#b3a173" hover_color "#4a3524" yalign 0.5
                         null width 24
                     else:
                         text i.caption style "choice_button_text" yalign 0.5
-                    if peso:
-                        text "◆" style "choice_peso" yalign 0.5
 
     if presa is not None:
         timer 0.14 action [Function(scelta_in_memorie, items[presa].caption), items[presa].action]
 
 
-# Hover delle scelte: allargamento lieve e passo a destra (lo sfondo hover ha
-# il bordo oro e l'alone, style choice_button).
+# Hover delle scelte: un passo a destra (lo sfondo hover e' il foglio chiaro,
+# style choice_button).
 transform scelta_hover_fermo:
     xalign 0.5
 
@@ -324,9 +331,9 @@ transform scelta_hover:
     xalign 0.5
     transform_anchor True
     on idle:
-        ease 0.12 zoom 1.0 xoffset 0
+        ease 0.12 xoffset 0
     on hover:
-        ease 0.12 zoom 1.04 xoffset 10
+        ease 0.12 xoffset 6
 
 transform scelta_ferma:
     alpha 1.0
@@ -351,27 +358,22 @@ style choice_peso is default:
     font gui.text_font
     size 20
     color "#c0392b"
-    outlines [(1, "#d4af37", 0, 0)]
 
 
 style choice_vbox is vbox
 style choice_button is button
 style choice_button_text is button_text
 
-## Centrate nell'area libera sopra il box (che parte da y 803): anche
-## 5-6 voci col testo scalato del telefono non escono dal bordo alto.
+## Appoggiate sul box, non sulla faccia di chi parla: crescono verso l'alto.
 style choice_vbox:
     xalign 0.5
-    ypos gui.scale(400)
-    yanchor 0.5
+    ypos (1080 - gui.textbox_height - 12)
+    yanchor 1.0
 
     spacing gui.choice_spacing
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
-    hover_background Fixed(
-        Transform("gui/scelta_bagliore.png", align=(0.5, 0.5)),
-        Frame("gui/button/choice_hover_background.png", gui.choice_button_borders, tile=gui.choice_button_tile))
     hover_sound "audio/scelta.ogg"
     # Sul touch non c.e. hover: la pressione deve farsi sentire.
     activate_sound "audio/carta.ogg"
@@ -400,7 +402,7 @@ init python:
         ("salva", _("Salva")),
         ("qsalva", _("Salvataggio rapido")),
         ("qcarica", _("Caricamento rapido")),
-        ("costumanze", _("Costumanze")),
+        ("costumanze", _("Opzioni")),
         ("borsa", _("Borsa e oggetti")),
     ]
     # Su telefono sei sigilli, grandi abbastanza per il dito (~9 mm): i
@@ -668,6 +670,14 @@ style navigation_mm_vbox is navigation_vbox
 style navigation_mm_button is navigation_button
 style navigation_mm_button_text is navigation_button_text
 
+## Sul frontespizio chiaro le voci sono inchiostro.
+style navigation_mm_button_text:
+    idle_color "#3a2818"
+    hover_color "#8f1f1c"
+    selected_color "#2a1c12"
+    insensitive_color "#8a7558"
+    outlines []
+
 ## Telefono: ~42 px di nastro sono 2,6 mm. Nel menu di gioco le voci sono
 ## fino a 10 e devono stare tra il titolo e "Indietro": 80 px (~5 mm); nel
 ## menu principale (5-6 voci) 96 px, un po' piu' in basso della pergamena.
@@ -715,7 +725,6 @@ screen main_menu():
         add mm_sfondo_finale
     if not mm_movimento_ridotto():
         add "mm_neve"
-        add mm_polvere()
     add "gui/mm_front.png"
 
     ## This empty frame darkens the main menu.
@@ -736,14 +745,9 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            ## Titolo con un alone oro che respira dietro.
             fixed:
                 fit_first True
                 xalign 0.5
-                text "[config.name!t]":
-                    style "main_menu_title"
-                    color gui.accent_color
-                    at (mm_titolo_spento if mm_movimento_ridotto() else mm_titolo_respira)
                 text "[config.name!t]":
                     style "main_menu_title"
 
@@ -752,17 +756,6 @@ screen main_menu():
             style "main_menu_version"
             xpos 310 xanchor 0.5 ypos 968 yanchor 1.0
 
-
-transform mm_titolo_spento:
-    alpha 0.0
-
-transform mm_titolo_respira:
-    blur 8
-    alpha 0.35
-    block:
-        ease 1.6 alpha 0.9
-        ease 1.6 alpha 0.35
-        repeat
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -797,6 +790,7 @@ style main_menu_text:
 
 style main_menu_title:
     properties gui.text_properties("title")
+    font gui.name_text_font
 
 style main_menu_version:
     properties gui.text_properties("version")
@@ -933,8 +927,9 @@ style game_menu_content_frame_mm:
     background None
     padding (0, 0, 0, 0)
 
+## Il riquadro dei menu di gioco e' largo ~1400.
 style game_menu_viewport:
-    xsize gui.scale(920)
+    xsize gui.scale(1380)
 
 style game_menu_vscrollbar:
     unscrollable gui.unscrollable
@@ -993,6 +988,10 @@ style return_button:
 
 style return_button_mm is return_button
 style return_button_mm_text is return_button_text
+style return_button_mm_text:
+    idle_color "#3a2818"
+    hover_color "#8f1f1c"
+    outlines []
 style return_button_mm:
     xpos 310
     xanchor 0.5
@@ -1092,7 +1091,7 @@ screen file_slots(title):
 
                 xalign 0.5
                 ## Su telefono le pagine sono alte un dito: la griglia sale.
-                yalign (0.3 if renpy.variant("small") else 0.5)
+                yalign (0.3 if renpy.variant("small") else 0.45)
 
                 spacing gui.slot_spacing
 
@@ -1201,14 +1200,14 @@ style slot_button:
 style slot_button_text:
     properties gui.text_properties("slot_button")
 
-## Cornice dello slot: placca dorata, gemme negli angoli (bordi 28 px).
+## Lo slot e' una pagina del registro (bordi 28 px).
 style slot_button:
     background Frame("gui/button/slot_[prefix_]background.png", 28, 28)
 
 ## Il nome del salvataggio (Luna e giorno, da cal_loop) in oro.
 style slot_name_text:
-    color "#e0b75a"
-    size 17
+    color "#ece0c8"
+    size 23
 
 
 ## Preferences screen ##########################################################
@@ -1228,6 +1227,7 @@ screen preferences():
 
             hbox:
                 box_wrap True
+                box_wrap_spacing 26
 
                 if renpy.variant("pc") or renpy.variant("web"):
 
@@ -1238,7 +1238,7 @@ screen preferences():
                         textbutton _("Fullscreen") action Preference("display", "fullscreen")
 
                 vbox:
-                    style_prefix "check"
+                    style_prefix "radio"
                     label _("Skip")
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
@@ -1246,7 +1246,6 @@ screen preferences():
 
                 vbox:
                     style_prefix "radio"
-                    xsize 340
                     label _("Animazioni")
                     textbutton _("Sì") action SetField(persistent, "menu_animato", True)
                     textbutton _("No") action SetField(persistent, "menu_animato", False)
@@ -1254,7 +1253,6 @@ screen preferences():
 
                 vbox:
                     style_prefix "radio"
-                    xsize 340
                     label _("Avvisi delle conseguenze")
                     textbutton _("Sì") action SetField(persistent, "avvisi_conseguenze", True)
                     textbutton _("No") action SetField(persistent, "avvisi_conseguenze", False)
@@ -1262,17 +1260,17 @@ screen preferences():
 
                 vbox:
                     style_prefix "radio"
-                    xsize 340
                     label _("Scelte a tempo")
                     textbutton _("Sì") action SetField(persistent, "scelte_a_tempo", True)
                     textbutton _("No") action SetField(persistent, "scelte_a_tempo", False)
                     text _("La clessidra nelle sfide. Con la lettura vocale è sempre tolta.") style "pref_nota"
 
-            null height (4 * gui.pref_spacing)
+            null height (3 * gui.pref_spacing)
 
             hbox:
                 style_prefix "slider"
                 box_wrap True
+                spacing 60
 
                 vbox:
 
@@ -1295,6 +1293,7 @@ screen preferences():
 
                     ## Menu di accessibilita' di Ren'Py (voce, contrasto,
                     ## font): su PC e' Shift+A, su telefono non ha un tasto.
+                    null height gui.pref_spacing
                     textbutton _("Accessibilità") action ToggleScreen("_accessibility")
 
                 vbox:
@@ -1342,8 +1341,8 @@ style pref_nota is gui_text:
     font gui.text_font
     size TESTO_NOTA
     italic True
-    color "#b3a173"
-    xmaximum 330
+    color "#c9b995"
+    xmaximum 400
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
@@ -1378,8 +1377,13 @@ style pref_label:
 style pref_label_text:
     yalign 1.0
 
+## Colonne larghe a sufficienza per le etichette lunghe: tre per riga.
 style pref_vbox:
-    xsize gui.scale(290)
+    xsize gui.scale(450)
+
+style pref_vbox:
+    variant "small"
+    xsize gui.scale(430)
 
 style radio_vbox:
     spacing gui.pref_button_spacing
@@ -1391,6 +1395,11 @@ style radio_button:
 style radio_button_text:
     properties gui.text_properties("radio_button")
 
+## Telefono: bottone alto 72, segno 46. Si centra sul testo.
+style radio_button:
+    variant "small"
+    foreground Transform("gui/button/radio_[prefix_]foreground.png", yoffset=13)
+
 style check_vbox:
     spacing gui.pref_button_spacing
 
@@ -1401,8 +1410,12 @@ style check_button:
 style check_button_text:
     properties gui.text_properties("check_button")
 
+style check_button:
+    variant "small"
+    foreground Transform("gui/button/check_[prefix_]foreground.png", yoffset=13)
+
 style slider_slider:
-    xsize gui.scale(350)
+    xsize gui.scale(560)
 
 style slider_button:
     properties gui.button_properties("slider_button")
@@ -1413,7 +1426,7 @@ style slider_button_text:
     properties gui.text_properties("slider_button")
 
 style slider_vbox:
-    xsize gui.scale(450)
+    xsize gui.scale(620)
 
 
 ## History screen ##############################################################

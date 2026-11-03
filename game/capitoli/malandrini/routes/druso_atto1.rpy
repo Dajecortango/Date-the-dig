@@ -100,6 +100,7 @@ label druso_ev2:
     menu:
         "Il ghigno è a mezza via tra scherzo e agguato."
         "«Vendimi pure. Ma ricorda che poi la ruota gira.»":
+            $ druso_leva = "morde"
             $ druso_affinity += 2
             show druso ghigno with qdiss
             druso "...risposta da figlio di Briseide, o da nemico serio. In entrambi i casi: rispetto."
@@ -107,11 +108,13 @@ label druso_ev2:
             "Arrotola la pergamena e me la mostra di sfuggita. In fondo c'è il mio nome, con una crocetta accanto."
             druso "Crocetta vuol dire: morde. Non ne ho tante, di crocette. Mio fratello Icaro ne ha una. Caino due."
         "Digli il nome: in fondo siamo amici":
+            $ druso_leva = "nome"
             $ druso_passo_falso()
             $ druso_affinity -= 1
             druso "...l'hai detto davvero. Oh, poverett[fin]. No, il nome non lo userò. Ma adesso so che sei un cane che non abbaia neanche."
             "Scrive qualcosa sulla pergamena. Non vedo cosa. Vedo solo che non è una crocetta."
         "Minaccialo: se parla, lo denunci al Consiglio":
+            $ druso_leva = "minaccia"
             $ druso_passo_falso()
             druso "DENUNCIA! AL CONSIGLIO! Dove siede mia madre! Ti prego, fallo, voglio il posto in prima fila!"
             druso "Le minacce mi fanno l'effetto del vino caldo. Vieni qui, minacciami ancora, che ho freddo."

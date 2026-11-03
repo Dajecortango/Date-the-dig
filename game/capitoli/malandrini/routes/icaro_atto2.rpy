@@ -114,7 +114,7 @@ label icaro_bro_affari:
     return
 
 
-## Bro 2 — Il colpo (solo protagonista uomo) #################################
+## Il colpo (uomo: linea Bro; donna: route attiva) ###########################
 
 label icaro_bro_colpo:
     scene bg vicoli_zefiro with fade
@@ -130,10 +130,10 @@ label icaro_bro_colpo:
     "Poi la guardia apre un occhio. Poi l'altro."
     menu:
         "La guardia si stira. Guarda il portico. Guarda me."
-        "Fingiti ubriaco e chiedi la strada per il Becco Storto":
+        "Fingiti ubriac[fin] e chiedi la strada per il Becco Storto":
             "Barcollo verso di lui con un poema di Druso in bocca. Quello sulla locandiera. Lo conosco tutto, purtroppo."
             "La guardia ride, mi indica la strada sbagliata, mi spinge via con una pacca. Dietro di lui, la finestra si richiude piano."
-        "Resta fermo nell'ombra, senza respirare":
+        "Resta ferm[fin] nell'ombra, senza respirare":
             $ icaro_affinity += 1
             "Non mi muovo. Chi scappa ha qualcosa da nascondere. Io sono una colonna del portico."
             "La guardia guarda nella mia direzione per un tempo lunghissimo. Poi sbadiglia, e riprende a dormire in piedi."
@@ -146,6 +146,25 @@ label icaro_bro_colpo:
     icaro "Riscossa. Sul banco ho lasciato la ricevuta di Druso, firmata da me per quietanza. Domani il banco cercherà lui."
     pc "Hai incastrato tuo fratello."
     icaro "Ho incastrato il suo debito. Lui c'era già dentro. Io l'ho solo messo in ordine."
+    menu:
+        "Domani al banco cercheranno Druso, per una spada che ha già in mano lui."
+        "«Torna a riprenderti la ricevuta. È tuo fratello.»":
+            $ icaro_ricevuta = "riprendi"
+            show icaro irritato with qdiss
+            icaro "Il banco ha una finestra sola, e l'ho già usata. Due volte è avidità. Tre è una firma."
+            icaro "Tu questa sera hai guadagnato zero, e mi dai ordini. Interessante posizione contrattuale."
+            "Non torna indietro. Però per dieci passi cammina più piano, come chi rifà un conto."
+        "«L'hai firmata tu, per quietanza. Se Druso la legge, sa chi è stato.»":
+            $ icaro_ricevuta = "firma"
+            show icaro neutro with qdiss
+            icaro "Druso non legge le ricevute. È per questo che è Druso."
+            pc "E Caino?"
+            icaro "Caino le legge tutte. Domattina saprà che ho rubato una spada a me stesso, e passerà una settimana a capire perché."
+            "Sembra soddisfatto. Non capisco di chi."
+        "Non dire niente. Prendi il sacco e porta la spada":
+            $ icaro_ricevuta = "taci"
+            "Il sacco pesa più di quanto sembri. Icaro lo guarda sulla mia spalla."
+            icaro "Hai appena visto come tratto un fratello, e porti il sacco. Lo annoto. Non so ancora da che parte."
     "Ci allontaniamo per i vicoli. Al secondo angolo si ferma, srotola il sacco e mi mostra l'elsa. Dorata, pacchiana, con una gemma finta."
     show icaro sereno with qdiss
     icaro "Brutta. Vale poco. Ma è mia, e nessuno tocca ciò che è mio."
@@ -240,13 +259,65 @@ label icaro_luna5:
     return
 
 
+## La riga (fisso VI/5 sera, solo romance) ####################################
+
+label icaro_riga:
+    scene bg vicoli_zefiro with fade
+    "La fumeria, tardi. Un garzone mi ha portato un biglietto nella grafia di Icaro: «Verifica. Porta te stessa.»"
+    show icaro neutro with dissolve
+    "Al tavolo piccolo c'è un registro che non conosco, sottile e nuovo, con sopra un righello d'ottone."
+    icaro "Siediti. Io leggo. Tu correggi le cifre, se ne trovi."
+    icaro "«Corrado. Accompagnata dal Ceppo fino al ponte. Sei passi oltre il necessario.»"
+    pc "Corrado? Corrado mi spiega l'araldica."
+    icaro "Sei passi di araldica. Annotati."
+    "Volta pagina. Ci sono le mie uscite, le ore in cui ho lasciato il Ceppo, chi mi ha salutata. Stessa cura dei carichi di sale. Controllo a memoria, e non sbaglia una data."
+    icaro "Non è gelosia. La gelosia è un sentimento, e non rende. Questa è custodia."
+    icaro "Ciò che è mio lo conto. Te l'avevo detto, alla pagina bianca. Hai firmato."
+    if icaro_ricevuta is not None:
+        "Ho visto cosa fa a suo fratello per una spada brutta. «Nessuno tocca ciò che è mio.» Adesso so come continua la frase."
+    "Prende il righello e lo posa sotto il mio nome, in cima al foglio. La penna è già bagnata."
+    icaro "O sei a registro, e ti conto. O tiro la riga, e domani cambio le serrature. Non è contro di te, è contro chiunque."
+    menu:
+        "Il righello aspetta. Icaro non guarda me, guarda la linea."
+        "Prendi la penna e apri una colonna per lui":
+            $ icaro_riga = "doppia"
+            $ icaro_affinity += 1
+            "Gli sfilo la penna da sopra, senza toccargli le dita. Giro il registro e divido il foglio in due."
+            pc "Partita doppia. Io a destra, tu a sinistra. Stanotte: due pipe, nessuna risposta, una bugia sul prezzo del sale. Firma."
+            show icaro sorpreso with qdiss
+            icaro "..."
+            "Guarda la colonna a lungo. Si riprende la penna e corregge una cifra."
+            icaro "Il sale era due Scudi. Il resto è esatto."
+            "Toglie il righello. Il registro sottile lo spinge dalla mia parte, di un dito."
+        "«Tira la riga. Io esco.»":
+            $ icaro_riga = "riga"
+            $ icaro_affinity -= 1
+            show icaro irritato with qdiss
+            "Non esita. La riga viene dritta, e la mano non gli trema."
+            icaro "Voce chiusa. La porta si tira, non si spinge."
+            "Due sere dopo la fumeria ha serrature nuove. Sotto la mia porta trovo una chiave con un cartellino: «In prova.» Nessun biglietto."
+        "Lascia fare: «Contami, allora.»":
+            $ icaro_riga = "conta"
+            show icaro sereno with qdiss
+            icaro "Decisione sensata. Il costo di gestione è mio."
+            "Rimette il righello nel cassetto e si accende la pipa, in pace."
+            "Da quella sera, tornando al Ceppo, faccio ogni tanto sei passi in più. Per vedere se li scrive."
+    return
+
+
 ## Luna VI — I conti di fine semestre ########################################
 
 label icaro_luna6:
     scene bg vicoli_zefiro with fade
     "Nove giorni alla fine del semestre. La fumeria ha riaperto, e al tavolo grande c'è un posto vuoto che nessuno osa occupare."
+    if icaro_riga == "riga":
+        "Sono entrata con la chiave «in prova». Il registro sottile è sul tavolo, con la mia riga ancora sopra. Lui non ne parla, io neanche."
     show icaro neutro with dissolve
     "Icaro non gioca. Siede al tavolo piccolo con tre registri aperti, la pipa spenta, e una pila di carte che non sono da gioco."
+    if icaro_riga == "doppia":
+        icaro "La tua colonna l'ho ricontrollata. Due errori, entrambi a mio favore. Non correggerli."
+    elif icaro_riga == "conta":
+        "A margine del registro sottile, nella sua grafia stretta: «Sei passi.» Li ha scritti."
     icaro "Chiusura di semestre. Ogni Luna faccio i conti. Ogni sei, li faccio davvero."
     pc "Posso aiutare?"
     icaro "Leggi i numeri ad alta voce. Li sento meglio di come li vedo. Non chiedermi perché."
